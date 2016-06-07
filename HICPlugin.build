@@ -18,7 +18,7 @@
   </Target>
   
   <Target Name="DebugBuild">
-    <MSBuild Projects="SMIPlugin.sln" Properties="Configuration=Debug" />
+    <MSBuild Projects="HICPlugin.sln" Properties="Configuration=Debug" />
   </Target>
   
   <Target Name="GetAssemblyVersion">
