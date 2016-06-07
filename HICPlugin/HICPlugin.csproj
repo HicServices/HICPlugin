@@ -205,12 +205,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RDMPObjectVisualisation\RDMPObjectVisualisation.csproj">
-      <Project>{b541f57b-631a-4639-8589-8cda0021ae2d}</Project>
-      <Name>RDMPObjectVisualisation</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="DataFlowComponents\ColumnSwapping\ColumnSwapConfigurationUI.resx">
       <DependentUpon>ColumnSwapConfigurationUI.cs</DependentUpon>
     </EmbeddedResource>
