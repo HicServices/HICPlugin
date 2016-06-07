@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6D8C7DED-B01F-451D-9259-B0BB82EDE451}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HICPluginTests</RootNamespace>
+    <AssemblyName>HICPluginTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CatalogueLibrary">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\CatalogueLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="CatalogueLibrary.Database">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\CatalogueLibrary.Database.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="DataExportManager2.Interfaces">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\DataExportManager2.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="DataLoadEngine">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\DataLoadEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.Controls">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\GraphX.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.PCL.Common">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\GraphX.PCL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.PCL.Logic">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\GraphX.PCL.Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="HIC.Demography">
+      <HintPath>..\packages\HIC.Demography.1.0.0.0\lib\net45\HIC.Demography.dll</HintPath>
+    </Reference>
+    <Reference Include="HIC.Logging">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\HIC.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="HIC.RDMP.Plugin">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\HIC.RDMP.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="LoadModules.Generic">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\LoadModules.Generic.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MapsDirectlyToDatabaseTable">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\MapsDirectlyToDatabaseTable.dll</HintPath>
+    </Reference>
+    <Reference Include="MapsDirectlyToDatabaseTableUI">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\MapsDirectlyToDatabaseTableUI.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableLibraryCode">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\ReusableLibraryCode.dll</HintPath>
+    </Reference>
+    <Reference Include="ReusableUIComponents">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\ReusableUIComponents.dll</HintPath>
+    </Reference>
+    <Reference Include="roundhouse">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\roundhouse.dll</HintPath>
+    </Reference>
+    <Reference Include="roundhouse.databases.sqlserver">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\roundhouse.databases.sqlserver.dll</HintPath>
+    </Reference>
+    <Reference Include="ScintillaNET">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\ScintillaNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HICPlugin\libs\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tests.Common">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\Tests.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ticketing">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\Ticketing.dll</HintPath>
+    </Reference>
+    <Reference Include="ValidationUtilities">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.2.2\lib\net45\ValidationUtilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CHIPopulatorTests.cs" />
+    <Compile Include="ColumnSwapTests.cs" />
+    <Compile Include="MicrobiologyLoaderTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Tests.Common.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HICPlugin\HICPlugin.csproj">
+      <Project>{88E94F55-32BD-4F08-9B00-FBB9C7A5C9CC}</Project>
+      <Name>HICPlugin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

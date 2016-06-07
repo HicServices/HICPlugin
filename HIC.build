@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="DebugBuild"  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--<UsingTask AssemblyFile="$(MSBuildStartupDirectory)\.build\MSBuild.Community.Tasks.dll" TaskName="NUnit"/>-->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  
+<!--  <PropertyGroup>
+    <MSBuildCommunityTasksPath>$(MSBuildThisFileDirectory).build</MSBuildCommunityTasksPath>
+  </PropertyGroup>  
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets" />
+-->
+  <PropertyGroup>
+    <NUnitResultsPath>$(MSBuildThisFileDirectory)</NUnitResultsPath>
+    <NUnitResultsFile>$(NUnitResultsPath)nunit-result.xml</NUnitResultsFile>
+  </PropertyGroup>
+
+  <Target Name="Run">
+    <CallTarget Targets="DebugBuild;RunTests;PackagePlugin" />
+  </Target>
+  
+  <Target Name="DebugBuild">
+    <MSBuild Projects="SMIPlugin.sln" Properties="Configuration=Debug" />
+  </Target>
+  
+  <Target Name="GetAssemblyVersion">
+	<GetAssemblyIdentity AssemblyFiles="$(MSBuildThisFileDirectory)\HICPlugin\bin\$(Configuration)\HIC.RDMP.Plugin.dll">
+		<Output TaskParameter="Assemblies" ItemName="PluginAssembly" />
+	</GetAssemblyIdentity>
+	
+	<Message Text="Version: %(PluginAssembly.Version)" />
+
+	<PropertyGroup>
+	  <PluginPackager>$(MSBuildThisFileDirectory)packages\HIC.RDMP.Plugin.%(PluginAssembly.Version)\tools\PluginPackager\PluginPackager.exe</PluginPackager>
+	</PropertyGroup>
+  </Target>
+  
+  <Target Name="RunTests" DependsOnTargets="DebugBuild">
+    <ItemGroup>
+      <TestAssembly Include="$(MSBuildThisFileDirectory)HICPluginTests\bin\$(Configuration)\HICPluginTests.dll" />
+      <NUnitToolPath Include="$(MSBuildThisFileDirectory)packages\NUnit.Runners.*\tools\nunit-console.exe" />
+    </ItemGroup>
+    <Message Text="Test Assemblies: @(TestAssembly)" />
+    <Exec Command="@(NUnitToolPath->'%(fullpath)') @(TestAssembly) /result=$(NUnitResultsFile) /exclude=&quot;NHSNetworkOnly,Mongo,Database&quot;" />
+  </Target>
+
+	<Target Name="PackagePlugin" DependsOnTargets="GetAssemblyVersion">
+		<!-- Get the version of the CatalogueLibrary assembly so we can correctly locate the HIC.RDMP.Plugin package directory. This is necessary because nuget (possibly a bug) does not remove an old package directory after installing an updated version. -->
+		<Exec Command="$(PluginPackager) $(MSBuildThisFileDirectory)\HICPlugin.sln $(MSBuildThisFileDirectory)\HICPlugin.zip" WorkingDirectory="$(MSBuildThisFileDirectory)" />
+		<RemoveDir Directories="$(MSBuildThisFileDirectory)\Package" />
+	</Target>
+ 
+</Project>
