@@ -90,10 +90,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HIC.RDMP.Plugin.1.35.3.0\lib\net45\LoadModules.Generic.dll</HintPath>
     </Reference>
-    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.35.3.0\lib\net45\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="MapsDirectlyToDatabaseTable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\HIC.RDMP.Plugin.1.35.3.0\lib\net45\MapsDirectlyToDatabaseTable.dll</HintPath>
