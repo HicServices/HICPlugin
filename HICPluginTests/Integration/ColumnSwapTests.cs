@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using CatalogueLibrary.DataFlowPipeline;
 using DataLoadEngine.DatabaseManagement.Operations;
@@ -15,11 +16,15 @@ namespace HICPluginTests.Integration
     {
         const string MappingDb = "TestColumnSwapping";
 
+        protected Exception SetupException;
+
         #region Tests Which Throw
         [Test]
         [ExpectedException(ExpectedMessage = "There are 0 rules configured")]
         public void NoRulesConfigured_Throws()
         {
+            if (SetupException != null)
+                throw SetupException;
 
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
@@ -263,37 +268,46 @@ namespace HICPluginTests.Integration
         [TestFixtureSetUp]
         public void Setup()
         {
-            var server = new DiscoveredServer(ServerICanCreateRandomDatabasesAndTablesOn);
+            SetupException = null;
 
-            //if it wasn't cleaned up properly last time
-            if (server.ExpectDatabase(MappingDb).Exists())
-                TearDown();
-            
-            DatabaseOperation create = new CreateDatabaseOperation(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString,MappingDb);
-            create.Execute();
-            
-            using (var  con = new SqlConnection(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString))
+            try
             {
-                con.Open();
-                con.ChangeDatabase(MappingDb);
+                var server = new DiscoveredServer(ServerICanCreateRandomDatabasesAndTablesOn);
 
-                SqlCommand cmdCreateTestMap = new SqlCommand("CREATE TABLE MyMap(MapInput varchar(10),Caller varchar(10), MapOutput int)",con);
-                cmdCreateTestMap.ExecuteNonQuery();
+                //if it wasn't cleaned up properly last time
+                if (server.ExpectDatabase(MappingDb).Exists())
+                    TearDown();
+            
+                DatabaseOperation create = new CreateDatabaseOperation(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString,MappingDb);
+                create.Execute();
+            
+                using (var  con = new SqlConnection(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString))
+                {
+                    con.Open();
+                    con.ChangeDatabase(MappingDb);
 
-                SqlCommand cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Fish','Thomas',1)",con);
-                cmdInsert.ExecuteNonQuery();
+                    SqlCommand cmdCreateTestMap = new SqlCommand("CREATE TABLE MyMap(MapInput varchar(10),Caller varchar(10), MapOutput int)",con);
+                    cmdCreateTestMap.ExecuteNonQuery();
 
-                cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Ball','Thomas',2)",con);
-                cmdInsert.ExecuteNonQuery();
+                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Fish','Thomas',1)",con);
+                    cmdInsert.ExecuteNonQuery();
 
-                cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Spade','Thomas',3)",con);
-                cmdInsert.ExecuteNonQuery();
+                    cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Ball','Thomas',2)",con);
+                    cmdInsert.ExecuteNonQuery();
 
-                cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Fish','Frank',4)",con);
-                cmdInsert.ExecuteNonQuery();
+                    cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Spade','Thomas',3)",con);
+                    cmdInsert.ExecuteNonQuery();
+
+                    cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Fish','Frank',4)",con);
+                    cmdInsert.ExecuteNonQuery();
                 
-                cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Soap','Frank',4)", con);
-                cmdInsert.ExecuteNonQuery();
+                    cmdInsert = new SqlCommand("INSERT INTO MyMap VALUES ('Soap','Frank',4)", con);
+                    cmdInsert.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                SetupException = e;
             }
             
         }
