@@ -10,11 +10,13 @@ namespace HICPluginTests.Integration
 {
     public class CHIPopulatorTests : PluginDatabaseTests
     {
-
         [Test]
         public void FindExportedClassFromCatalogue()
         {
-            string dllFile = Directory.EnumerateFiles(".", "HICPlugin.dll").Single();
+            string dllFile = Directory.EnumerateFiles(".", "HICPlugin.dll").SingleOrDefault();
+            if (dllFile == null)
+                Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
+
             LoadModuleAssembly.CreateNewLoadModuleAssembly(new FileInfo(dllFile),true );
             
             Dictionary<string, Exception> badAssemblies = LoadModuleAssembly.ListBadAssemblies();
