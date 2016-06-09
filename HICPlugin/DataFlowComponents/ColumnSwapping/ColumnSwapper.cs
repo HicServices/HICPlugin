@@ -11,7 +11,7 @@ using ReusableLibraryCode.DataTableExtension;
 using ReusableLibraryCode.Progress;
 using QuerySyntaxHelper = CatalogueLibrary.DataHelper.QuerySyntaxHelper;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     [Description("Performs 1 to 1 value substitutions based on a set of rules.")]
     public class ColumnSwapper:IPluginDataFlowComponent<DataTable>

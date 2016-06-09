@@ -11,7 +11,7 @@ using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     [Export(typeof(ICustomUIDrivenClass))]
     [Export(typeof(ICheckable))]

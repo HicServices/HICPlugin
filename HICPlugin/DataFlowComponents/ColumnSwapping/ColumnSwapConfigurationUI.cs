@@ -12,7 +12,7 @@ using ReusableLibraryCode.DataTableExtension;
 using ReusableUIComponents;
 using ReusableUIComponents.SqlDialogs;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     [Export(typeof(ICustomUI<>))]
     public partial class ColumnSwapConfigurationUI : Form, ICustomUI<ColumnSwapConfiguration>

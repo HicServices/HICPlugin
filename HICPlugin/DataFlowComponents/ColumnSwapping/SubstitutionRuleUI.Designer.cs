@@ -1,4 +1,4 @@
-﻿namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+﻿namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     partial class SubstitutionRuleUI
     {

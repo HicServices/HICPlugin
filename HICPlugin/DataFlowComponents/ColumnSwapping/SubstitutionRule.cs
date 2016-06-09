@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     public class SubstitutionRule
     {

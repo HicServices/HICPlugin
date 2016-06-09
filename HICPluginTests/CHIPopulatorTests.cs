@@ -16,7 +16,7 @@ namespace HICPluginTests
         [Test]
         public void FindExportedClassFromCatalogue()
         {
-            string dllFile = Directory.EnumerateFiles(".", "LoadModules.Specific.HIC.dll").Single();
+            string dllFile = Directory.EnumerateFiles(".", "HICPlugin.dll").Single();
             LoadModuleAssembly.CreateNewLoadModuleAssembly(new FileInfo(dllFile),true );
             
             Dictionary<string, Exception> badAssemblies = LoadModuleAssembly.ListBadAssemblies();

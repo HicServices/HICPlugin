@@ -8,7 +8,7 @@ using CatalogueLibrary.DataFlowPipeline.Requirements;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents
+namespace HICPlugin.DataFlowComponents
 {
     [Description("Forces tables being loaded to match the hic regex ")]
     public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>

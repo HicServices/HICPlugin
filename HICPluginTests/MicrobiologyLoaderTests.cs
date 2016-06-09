@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using LoadModules.Specific.HIC.Microbiology;
+using HICPlugin.Microbiology;
 using NUnit.Framework;
 
 namespace HICPluginTests

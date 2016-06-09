@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 using CatalogueLibrary.DataHelper;
 using ReusableUIComponents;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     public partial class SubstitutionRuleUI : UserControl
     {

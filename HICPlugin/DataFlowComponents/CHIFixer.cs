@@ -8,7 +8,7 @@ using HIC.Common.Validation.Constraints.Primary;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents
+namespace HICPlugin.DataFlowComponents
 {
     [Description("Attempts to fix the specified CHIColumnName by adding 0 to the front of 9 digit CHIs")]
     public class CHIFixer : IPluginDataFlowComponent<DataTable>

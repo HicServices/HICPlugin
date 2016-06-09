@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -15,7 +14,7 @@ using DataLoadEngine.Job;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 
-namespace LoadModules.Specific.HIC.Microbiology
+namespace HICPlugin.Microbiology
 {
     public class MicrobiologyAttacher : Attacher, IPluginAttacher
     {

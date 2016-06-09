@@ -1,7 +1,6 @@
-﻿using CatalogueLibrary.Data.DataLoad;
-using ReusableUIComponents;
+﻿using ReusableUIComponents;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping
+namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
     partial class ColumnSwapConfigurationUI
     {

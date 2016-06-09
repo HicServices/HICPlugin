@@ -17,7 +17,7 @@ using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
 
-namespace LoadModules.Specific.HIC
+namespace HICPlugin
 {
     
     public abstract class CHIPopulator : IPluginMutilateDataTables

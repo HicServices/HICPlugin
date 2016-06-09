@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace LoadModules.Specific.HIC.Microbiology
+namespace HICPlugin.Microbiology
 {
 
     public interface IMicrobiologyResultRecord

@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using CatalogueLibrary.DataFlowPipeline;
 using DataLoadEngine.DatabaseManagement.Operations;
-using LoadModules.Specific.HIC.DataFlowComponents.ColumnSwapping;
+using HICPlugin.DataFlowComponents.ColumnSwapping;
 using NUnit.Framework;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
@@ -12,7 +12,7 @@ using Tests.Common;
 namespace HICPluginTests
 {
     [TestFixture]
-    public class ColumnSwapTests:DatabaseTests
+    public class ColumnSwapTests : DatabaseTests
     {
         const string MappingDb = "TestColumnSwapping";
 

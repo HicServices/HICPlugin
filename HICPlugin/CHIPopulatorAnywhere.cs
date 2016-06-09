@@ -1,9 +1,7 @@
-using System.ComponentModel.Composition;
 using CatalogueLibrary.Data;
-using DataLoadEngine.Mutilators;
 using ReusableLibraryCode;
 
-namespace LoadModules.Specific.HIC
+namespace HICPlugin
 {
     public class CHIPopulatorAnywhere : CHIPopulator
     {

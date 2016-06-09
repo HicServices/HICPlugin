@@ -1,10 +1,8 @@
-using System.ComponentModel.Composition;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
-using DataLoadEngine.Mutilators;
 using ReusableLibraryCode;
 
-namespace LoadModules.Specific.HIC
+namespace HICPlugin
 {
     public class CHIPopulatorRAW : CHIPopulator
     {

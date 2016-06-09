@@ -11,7 +11,7 @@ using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DataTableExtension;
 using ReusableLibraryCode.Progress;
 
-namespace LoadModules.Specific.HIC.DataFlowComponents
+namespace HICPlugin.DataFlowComponents
 {
     public class HICCohortManagerDestination : IPluginCohortDestination
     {
