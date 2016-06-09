@@ -7,7 +7,7 @@ using System.Text;
 using HICPlugin.Microbiology;
 using NUnit.Framework;
 
-namespace HICPluginTests
+namespace HICPluginTests.Unit
 {
     public class MicrobiologyLoaderTests
     {

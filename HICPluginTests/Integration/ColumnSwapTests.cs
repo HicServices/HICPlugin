@@ -7,12 +7,11 @@ using NUnit.Framework;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
-using Tests.Common;
 
-namespace HICPluginTests
+namespace HICPluginTests.Integration
 {
     [TestFixture]
-    public class ColumnSwapTests : DatabaseTests
+    public class ColumnSwapTests : PluginDatabaseTests
     {
         const string MappingDb = "TestColumnSwapping";
 

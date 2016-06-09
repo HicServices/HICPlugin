@@ -5,12 +5,10 @@ using System.Linq;
 using CatalogueLibrary.Data;
 using DataLoadEngine.Mutilators;
 using NUnit.Framework;
-using Tests.Common;
 
-namespace HICPluginTests
+namespace HICPluginTests.Integration
 {
-    
-    public class CHIPopulatorTests : DatabaseTests
+    public class CHIPopulatorTests : PluginDatabaseTests
     {
 
         [Test]

@@ -5,17 +5,17 @@ task :create_test_connection_config, :server, :namespace, :plugin_name do |t, ar
 	test_dir = args.plugin_name + "Tests"
 	settings = REXML::Document.new File.new(test_dir + "/Tests.Common.dll.config.template")
 	
-	connection = settings.root.elements["DataExportManagerConnectionString"]
-	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "DataExportManager");
+	elements = {
+		"DataExportManagerConnectionString" => "DataExportManager",
+		"DataQualityEngineConnectionString" => "DataQualityEngine",
+		"TestCatalogueConnectionString" => "Catalogue",
+		"UnitTestLoggingConnectionString" => "Logging"
+	}
 
-	connection = settings.root.elements["DataQualityEngineConnectionString"]
-	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "DataQualityEngine");
-
-	connection = settings.root.elements["TestCatalogueConnectionString"]
-	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "Catalogue");
-
-	connection = settings.root.elements["UnitTestLoggingConnectionString"]
-	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "Logging");
+	elements.each do |element_name, database_name|
+		connection = settings.root.elements[element_name]
+		connection.text = HelperFunctions.substitute(template, args.server, args.namespace, database_name);
+	end
 
 	File.write(test_dir + "/Tests.Common.dll.config", settings.to_s)
 end
