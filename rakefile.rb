@@ -17,6 +17,10 @@ task :create_test_connection_config, :server, :namespace, :plugin_name do |t, ar
 		connection.text = HelperFunctions.substitute(template, args.server, args.namespace, database_name);
 	end
 
+	# patch out the 'localhost' in the ServerICanCreate... tag
+	connection = settings.root.elements["ServerICanCreateRandomDatabasesAndTablesOnConnectionString"]
+	connection.text = connection.text.gsub("localhost", args.server)
+
 	File.write(test_dir + "/Tests.Common.dll.config", settings.to_s)
 end
 
