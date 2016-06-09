@@ -24,7 +24,7 @@ namespace HICPluginTests.Integration
             if (badAssemblies.ContainsKey(dllFile))
                 throw badAssemblies[dllFile];
 
-            Assert.NotNull(LoadModuleAssembly.FactoryCreateA<IMutilateDataTables>("LoadModules.Specific.HIC.CHIPopulatorAnywhere")); 
+            Assert.NotNull(LoadModuleAssembly.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere")); 
         }
     }
 }
