@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Reflection;
 using CatalogueLibrary.Data;
 using HIC.Logging;
@@ -41,6 +42,8 @@ namespace HICPluginTests.Integration
             base.SetUp();
 
             var catalogueConnectionString = GetValueFromAppConfigSuperAwesome("TestCatalogueConnectionString");
+            Console.WriteLine("Catalogue connection string is " + catalogueConnectionString);
+
             var catalogueExists = CheckDatabaseExists(catalogueConnectionString);
             CreateOrPatchIfRequired(catalogueConnectionString, typeof(CatalogueLibraryDatabase.Class1).Assembly);
             DatabaseSettings.SetCatalogueConnectionString(catalogueConnectionString);
