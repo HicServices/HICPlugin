@@ -51,7 +51,8 @@ goto build
 :: First restore nuget packages
 nuget restore
 
-:: Explicitly update only the HIC.RDMP.Plugin package from the production NuGet server, so we're always building against the production version
+:: Explicitly update only the HIC.RDMP.Plugin packages from the production NuGet server, so we're always building against the production version
 nuget update -Id HIC.RDMP.Plugin HICPlugin.sln -NonInteractive -FileConflictAction Overwrite
+nuget update -Id HIC.RDMP.Plugin.Test HICPlugin.sln -NonInteractive -FileConflictAction Overwrite
 
 msbuild HICPlugin.build %*
