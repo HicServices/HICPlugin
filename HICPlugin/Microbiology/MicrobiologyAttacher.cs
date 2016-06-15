@@ -259,7 +259,7 @@ namespace HICPlugin.Microbiology
             PropertyInfo[] properties = type.GetProperties();
             _propertyCache.Add(type, properties);//cache it so we can use it later on on a per row basis without tanking performance
 
-            ColumnInfo[] columnInfos = ColumnInfo.GetAllColumnInfosForParent(tableInfo).ToArray();
+            var columnInfos = tableInfo.ColumnInfos.ToArray();
 
             bool errors = false;
             foreach (var prop in properties)

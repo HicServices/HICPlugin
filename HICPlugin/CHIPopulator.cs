@@ -342,7 +342,7 @@ namespace HICPlugin
             _finalTableName = TargetTable.Name;
             _runtimeTableName = TargetTable.GetRuntimeName(_loadStage);
 
-            _pks = ColumnInfo.GetAllColumnInfosForParent(TargetTable).Where(c => c.IsPrimaryKey).Select(p => p.GetRuntimeName(loadStage)).ToArray();
+            _pks = TargetTable.ColumnInfos.Where(c => c.IsPrimaryKey).Select(p => p.GetRuntimeName(loadStage)).ToArray();
         }
 
         private void CheckColumnIsInCollection(string toFind, string[] availableColumns)
@@ -413,7 +413,7 @@ namespace HICPlugin
                 AppDomain.CurrentDomain.AssemblyResolve -= CurrentDomain_AssemblyResolve;
             }
 
-            var allColumnInfos = ColumnInfo.GetAllColumnInfosForParent(TargetTable).ToArray();
+            var allColumnInfos = TargetTable.ColumnInfos.ToArray();
 
             ColumnInfo personID = allColumnInfos.SingleOrDefault(c => c.GetRuntimeName().Equals("hic_" + CHIJob.PersonIDColumnName));
             ColumnInfo chiColumn = allColumnInfos.SingleOrDefault(c => c.GetRuntimeName().Equals("CHI"));
@@ -429,7 +429,7 @@ namespace HICPlugin
                 return;
             }
 
-            var primaryKeyColumns = ColumnInfo.GetAllColumnInfosForParent(TargetTable).Where(c => c.IsPrimaryKey).ToArray();
+            var primaryKeyColumns = TargetTable.ColumnInfos.Where(c => c.IsPrimaryKey).ToArray();
 
             if (primaryKeyColumns.Any(p => p.ID == chiColumn.ID))
                 throw new Exception("CHI cannot be part of the primary key when demography based linkage is being employed by CHIPopulator - since CHI could be null quite often");

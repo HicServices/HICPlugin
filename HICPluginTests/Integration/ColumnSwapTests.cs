@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.SqlClient;
 using CatalogueLibrary.DataFlowPipeline;
-using DataLoadEngine.DatabaseManagement.Operations;
 using HICPlugin.DataFlowComponents.ColumnSwapping;
 using NUnit.Framework;
+using Plugin.Test;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
@@ -277,11 +277,10 @@ namespace HICPluginTests.Integration
                 //if it wasn't cleaned up properly last time
                 if (server.ExpectDatabase(MappingDb).Exists())
                     TearDown();
+                    
+                server.CreateDatabase(MappingDb);
             
-                DatabaseOperation create = new CreateDatabaseOperation(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString,MappingDb);
-                create.Execute();
-            
-                using (var  con = new SqlConnection(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString))
+                using (var con = new SqlConnection(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString))
                 {
                     con.Open();
                     con.ChangeDatabase(MappingDb);
@@ -315,11 +314,7 @@ namespace HICPluginTests.Integration
         [TestFixtureTearDown]
         public void TearDown()
         {
-            DatabaseOperation delete = new DropDatabaseOperation(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString, MappingDb);
-            delete.Execute();
+            DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(MappingDb).ForceDrop();
         }
-
-
-
     }
 }

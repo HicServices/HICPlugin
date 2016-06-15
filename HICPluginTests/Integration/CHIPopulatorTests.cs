@@ -5,6 +5,7 @@ using System.Linq;
 using CatalogueLibrary.Data;
 using DataLoadEngine.Mutilators;
 using NUnit.Framework;
+using Plugin.Test;
 
 namespace HICPluginTests.Integration
 {
@@ -17,14 +18,14 @@ namespace HICPluginTests.Integration
             if (dllFile == null)
                 Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
 
-            LoadModuleAssembly.CreateNewLoadModuleAssembly(new FileInfo(dllFile),true );
+            new LoadModuleAssembly(CatalogueRepository, new FileInfo(dllFile), true);
             
-            Dictionary<string, Exception> badAssemblies = LoadModuleAssembly.ListBadAssemblies();
+            Dictionary<string, Exception> badAssemblies = CatalogueRepository.MEF.ListBadAssemblies();
 
             if (badAssemblies.ContainsKey(dllFile))
                 throw badAssemblies[dllFile];
 
-            Assert.NotNull(LoadModuleAssembly.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere")); 
+            Assert.NotNull(CatalogueRepository.MEF.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere")); 
         }
     }
 }
