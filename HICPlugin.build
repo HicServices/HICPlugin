@@ -48,7 +48,7 @@
   
   <Target Name="PackagePlugin" DependsOnTargets="GetAssemblyVersion">
 	<!-- Get the version of the CatalogueLibrary assembly so we can correctly locate the HIC.RDMP.Plugin package directory. This is necessary because nuget (possibly a bug) does not remove an old package directory after installing an updated version. -->
-	<Exec Command="$(PluginPackager) $(MSBuildThisFileDirectory)\HICPlugin.sln $(MSBuildThisFileDirectory)\HICPlugin.zip" WorkingDirectory="$(MSBuildThisFileDirectory)" />
+	<Exec Command="$(PluginPackager) $(MSBuildThisFileDirectory)HICPlugin.sln $(MSBuildThisFileDirectory)HICPlugin.zip" WorkingDirectory="$(MSBuildThisFileDirectory)" />
 	<RemoveDir Directories="$(MSBuildThisFileDirectory)\Package" />
   </Target>
  
