@@ -68,7 +68,7 @@ namespace HICPlugin
             if(!runtimeTable.Exists())
                 throw new Exception("Could not find table " + _runtimeTableName);
 
-            bool mustCreatePersonIDColumn = runtimeTable.DiscoverColumns().Any(c=>c.GetRuntimeName().Equals("hic_" + CHIJob.PersonIDColumnName));
+            bool mustCreatePersonIDColumn = !runtimeTable.DiscoverColumns().Any(c=>c.GetRuntimeName().Equals("hic_" + CHIJob.PersonIDColumnName));
 
             SqlConnection con = (SqlConnection) _dbInfo.Server.GetConnection();
             con.Open();
