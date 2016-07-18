@@ -246,6 +246,7 @@
     </Compile>
     <Compile Include="DataFlowComponents\ForceHICTableNamingConventionForProjects.cs" />
     <Compile Include="DataFlowComponents\HICCohortManagerDestination.cs" />
+    <Compile Include="DataFlowComponents\ReadCodeAttacher.cs" />
     <Compile Include="Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
