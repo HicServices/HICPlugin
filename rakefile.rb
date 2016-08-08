@@ -19,7 +19,7 @@ task :create_test_connection_config, :server, :namespace, :plugin_name do |t, ar
 
 	# patch out the 'localhost' in the ServerICanCreate... tag
 	connection = settings.root.elements["ServerICanCreateRandomDatabasesAndTablesOnConnectionString"]
-	connection.text = connection.text.gsub("localhost", args.server)
+	connection.text = "Server=" + args.server + ";Integrated security=true"
 
 	File.write(test_dir + "/Tests.Common.dll.config", settings.to_s)
 end
