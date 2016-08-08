@@ -253,6 +253,7 @@
     <None Include="packages.config" />
     <None Include="Tests.Common.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Tests.Common.dll.config.template" />
   </ItemGroup>
