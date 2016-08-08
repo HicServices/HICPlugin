@@ -15,5 +15,5 @@
 
   <!--Things that you should create references to inside of the DataCatalogue database-->
   <UnitTestLoggingConnectionString>${logging.connection.string}</UnitTestLoggingConnectionString>
-  <ServerICanCreateRandomDatabasesAndTablesOnConnectionString>Data Source=localhost;Integrated Security=true</ServerICanCreateRandomDatabasesAndTablesOnConnectionString>
+  <ServerICanCreateRandomDatabasesAndTablesOnConnectionString>${scratchServer.connection.string}</ServerICanCreateRandomDatabasesAndTablesOnConnectionString>
 </configuration>

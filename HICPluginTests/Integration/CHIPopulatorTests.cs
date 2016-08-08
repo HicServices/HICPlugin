@@ -6,6 +6,7 @@ using CatalogueLibrary.Data;
 using DataLoadEngine.Mutilators;
 using NUnit.Framework;
 using Plugin.Test;
+using Plugin = CatalogueLibrary.Data.Plugin;
 
 namespace HICPluginTests.Integration
 {
@@ -18,7 +19,7 @@ namespace HICPluginTests.Integration
             if (dllFile == null)
                 Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
 
-            new LoadModuleAssembly(CatalogueRepository, new FileInfo(dllFile), true);
+            new LoadModuleAssembly(CatalogueRepository, new FileInfo(dllFile), new CatalogueLibrary.Data.Plugin(CatalogueRepository,new FileInfo("Fish.zip")));
             
             Dictionary<string, Exception> badAssemblies = CatalogueRepository.MEF.ListBadAssemblies();
 

@@ -31,106 +31,107 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ANOStore.Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\ANOStore.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\ANOStore.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="CatalogueLibrary, Version=1.36.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\CatalogueLibrary.dll</HintPath>
+    <Reference Include="CatalogueLibrary, Version=1.37.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\CatalogueLibrary.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="CatalogueLibrary.Database, Version=1.36.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\CatalogueLibrary.Database.dll</HintPath>
+    <Reference Include="CatalogueLibrary.Database, Version=1.37.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\CatalogueLibrary.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\CsvHelper.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\CsvHelper.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataExportManager2.Database, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataExportManager2.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataExportManager2.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataExportManager2.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataExportManager2.Interfaces.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataExportManager2.Interfaces.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataExportManager2Library, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataExportManager2Library.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataExportManager2Library.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataLoadEngine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataLoadEngine.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataLoadEngine.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataQualityEngine, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataQualityEngine.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataQualityEngine.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DataQualityEngine.Database, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\DataQualityEngine.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\DataQualityEngine.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.3.0.733, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\FluentNHibernate.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="GraphX.Controls, Version=2.2.0.0, Culture=neutral, PublicKeyToken=bab23663f80c9e76, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\GraphX.Controls.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\GraphX.Controls.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="GraphX.PCL.Common, Version=2.2.0.0, Culture=neutral, PublicKeyToken=a6cdb671d651b60a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\GraphX.PCL.Common.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\GraphX.PCL.Common.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="GraphX.PCL.Logic, Version=2.2.0.0, Culture=neutral, PublicKeyToken=3b65ef85075e278f, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\GraphX.PCL.Logic.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\GraphX.PCL.Logic.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.Common.Validation">
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\HIC.Common.Validation.dll</HintPath>
+    <Reference Include="HIC.Common.Validation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\HIC.Common.Validation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="HIC.Demography">
       <HintPath>..\packages\HIC.Demography.1.0.0.0\lib\net45\HIC.Demography.dll</HintPath>
     </Reference>
     <Reference Include="HIC.Logging, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\HIC.Logging.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\HIC.Logging.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="HIC.Logging.Database, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\HIC.Logging.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\HIC.Logging.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.RDMP.Plugin, Version=1.36.0.9, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\HIC.RDMP.Plugin.dll</HintPath>
+    <Reference Include="HIC.RDMP.Plugin, Version=1.37.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\HIC.RDMP.Plugin.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="IdentifierDump.Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\IdentifierDump.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\IdentifierDump.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\Iesi.Collections.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="LoadModules.Generic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\LoadModules.Generic.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\LoadModules.Generic.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\log4net.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MapsDirectlyToDatabaseTable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\MapsDirectlyToDatabaseTable.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\MapsDirectlyToDatabaseTable.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MapsDirectlyToDatabaseTableUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\MapsDirectlyToDatabaseTableUI.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\MapsDirectlyToDatabaseTableUI.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -164,57 +165,61 @@
       <Private>True</Private>
       <HintPath>..\packages\HIC.RDMP.Plugin.1.35.4.9\lib\net45\Microsoft.SqlServer.SqlEnum.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Reflection, Version=1.1.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Mono.Reflection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\MySql.Data.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\NHibernate.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\NHibernate.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\Oracle.ManagedDataAccess.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="QueryCaching.Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\QueryCaching.Database.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\QueryCaching.Database.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\QuickGraph.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\QuickGraph.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="RDMPStartup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\RDMPStartup.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\RDMPStartup.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Renci.SshNet, Version=2013.4.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\Renci.SshNet.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ReusableLibraryCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=005dc12f52624582, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\ReusableLibraryCode.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\ReusableLibraryCode.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ReusableUIComponents, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8267a37f38f0a0a0, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\ReusableUIComponents.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\ReusableUIComponents.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="roundhouse, Version=0.8.6.0, Culture=neutral, PublicKeyToken=91b86fd44f1f23bc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\roundhouse.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\roundhouse.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="roundhouse.databases.sqlserver, Version=0.8.6.0, Culture=neutral, PublicKeyToken=91b86fd44f1f23bc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\roundhouse.databases.sqlserver.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\roundhouse.databases.sqlserver.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ScintillaNET, Version=2.6.0.0, Culture=neutral, PublicKeyToken=948d6c9751444115, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\ScintillaNET.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\ScintillaNET.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -239,12 +244,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Tests.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\Tests.Common.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Tests.Common.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Ticketing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\HIC.RDMP.Plugin.1.36.0.9\lib\net45\Ticketing.dll</HintPath>
+      <HintPath>..\packages\HIC.RDMP.Plugin.1.37.0\lib\net45\Ticketing.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
