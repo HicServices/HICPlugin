@@ -5,11 +5,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
+using CatalogueLibrary.DataHelper;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.DataTableExtension;
 using ReusableLibraryCode.Progress;
-using QuerySyntaxHelper = CatalogueLibrary.DataHelper.QuerySyntaxHelper;
+
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
@@ -103,7 +104,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             //add the new column
             string sql = "";
 
-            sql = "ALTER TABLE " + sqlOriginTable + " ADD " + QuerySyntaxHelper.EnsureValueIsWrapped(substituteForInMappingTable) + " " + substituteForInMappingTableDataType;
+            sql = "ALTER TABLE " + sqlOriginTable + " ADD " + RDMPQuerySyntaxHelper.EnsureValueIsWrapped(substituteForInMappingTable) + " " + substituteForInMappingTableDataType;
 
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Adding new column to DataTable in tempdb:" + sql));
             

@@ -28,8 +28,8 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             bLoading = true;
             InitializeComponent();
 
-            cbxSourceColumns.Items.AddRange(sourceTableColumns.Select(s => QuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
-            cbxDestinationColumns.Items.AddRange(mappingTableColumns.Select(s=> QuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
+            cbxSourceColumns.Items.AddRange(sourceTableColumns.Select(s => RDMPQuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
+            cbxDestinationColumns.Items.AddRange(mappingTableColumns.Select(s => RDMPQuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
 
             BetterToolTip toolTip = new BetterToolTip(this);
 
