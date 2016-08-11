@@ -257,7 +257,7 @@
     <Compile Include="CHIPopulator.cs" />
     <Compile Include="CHIPopulatorAnywhere.cs" />
     <Compile Include="CHIPopulatorRAW.cs" />
-    <Compile Include="DataFlowComponents\ChrisHallSpecialSource.cs" />
+    <Compile Include="DataFlowComponents\ChrisHallSpecialExplicitSource.cs" />
     <Compile Include="DataFlowComponents\ColumnSwapping\ColumnSwapConfiguration.cs" />
     <Compile Include="DataFlowComponents\ColumnSwapping\ColumnSwapper.cs" />
     <Compile Include="DataFlowComponents\ColumnSwapping\ColumnSwapConfigurationUI.cs">
