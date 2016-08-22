@@ -52,6 +52,10 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         #region Serialization
         public void RestoreStateFrom(string value)
         {
+            //if the string value is empty then we don't have to do anything, we are already setup as blank
+            if(string.IsNullOrWhiteSpace(value))
+                return;
+
             XmlSerializer deserializer = new XmlSerializer(typeof(ColumnSwapConfiguration));
             var deserialized = (ColumnSwapConfiguration)deserializer.Deserialize(new StringReader(value));
 

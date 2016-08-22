@@ -37,6 +37,9 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
         public void SetUnderlyingObjectTo(ColumnSwapConfiguration value, DataTable previewIfAvailable)
         {
+            if (value == null)
+                value = new ColumnSwapConfiguration();
+
             if (previewIfAvailable == null)
                 throw new Exception("This interface only works when there is a preview available, at the very least can you create an empty DataTable from the TableInfos at your disposal?");
             try
