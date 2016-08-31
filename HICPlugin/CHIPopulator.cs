@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
+using System.Text;
+using System.Web.Script.Serialization;
 using CatalogueLibrary;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
@@ -199,8 +201,9 @@ namespace HICPlugin
                             if (validationResult.Result == ValidationCategory.InsufficientData)
                                 continue;
 
-                            var response = client.PostAsJsonAsync(ChiServiceUrl, chijob).Result.Content;
-                            DemographyLookupResponse result = response.ReadAsAsync<DemographyLookupResponse>().Result;
+                            var response = client.PostAsync(ChiServiceUrl, new StringContent(new JavaScriptSerializer().Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
+                            
+                            DemographyLookupResponse result = new JavaScriptSerializer().Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
 
 
                             if (numberOfComplaints ==10)
@@ -372,9 +375,14 @@ namespace HICPlugin
                 AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
                 using (var client = new HttpClient())
                 {
-                    response = client.PostAsJsonAsync(ChiServiceUrl, chijob).Result.Content;
 
-                    var returnedValue = response.ReadAsAsync<DemographyLookupResponse>().Result;
+                    
+
+
+
+                    response = client.PostAsync(ChiServiceUrl, new StringContent(new JavaScriptSerializer().Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
+
+                    var returnedValue = new JavaScriptSerializer().Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
 
                     if (returnedValue.Exception != null)
                         notifier.OnCheckPerformed(new CheckEventArgs("CHI web service returned an Exception instead of a PersonID/CHI", CheckResult.Fail,
