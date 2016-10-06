@@ -104,7 +104,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Fish", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Imaginariam", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
         }
 
         [Test]
@@ -162,7 +162,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Fish", "Frank"); //"Fish" alone maps to both 1 and 4
             dt.Rows.Add("Soap", "Frank"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
         }
 
         #endregion
@@ -193,7 +193,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Fish", "Thomas"); //"Fish" alone maps to both 1 and 4 but Thomas included resolves this by mapping to 1
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
 
             Assert.AreEqual(typeof(int), result.Columns["MapOutput"].DataType);
             Assert.AreEqual(1, result.Rows[0]["MapOutput"]);
@@ -224,7 +224,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Ball", "Thomas"); //ball has 1 to 1 mappign with int value 2
             dt.Rows.Add("Spade", "Thomas"); //spade has 1 to 1 mapping with int value 3
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
          
    
             Assert.AreEqual(typeof(int),result.Columns["MapOutput"].DataType);
@@ -259,7 +259,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Spade", "Thomas"); //spade has 1 to 1 mapping with int value 3
             dt.TableName = "Fish";
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReciever(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
          
             Assert.AreEqual("Fish",result.TableName);
         }

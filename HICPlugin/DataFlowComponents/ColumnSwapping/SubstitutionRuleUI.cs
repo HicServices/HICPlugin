@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CatalogueLibrary.DataHelper;
 using ReusableUIComponents;
+using ReusableUIComponents.BetterToolTips;
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
