@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CatalogueLibrary.Data.DataLoad;
+using CatalogueLibrary.Repositories;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.DataTableExtension;
 using ReusableUIComponents;
@@ -19,7 +20,9 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
     {
         private DataTable _preview;
         private ColumnSwapConfiguration configuration;
-        
+
+        public ICatalogueRepository CatalogueRepository { get; set; }
+
         private string[] _mappingTableColumns;
         private string[] _columnsInSource;
         
@@ -315,6 +318,8 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         {
             return GetFinalStateOfUnderlyingObject();
         }
+
+        
 
         private void ddColumnToSubstitute_SelectedIndexChanged(object sender, EventArgs e)
         {
