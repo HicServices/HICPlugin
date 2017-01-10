@@ -266,6 +266,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrashOverride.cs" />
     <Compile Include="DataFlowComponents\CHIFixer.cs" />
     <Compile Include="CHIPopulator.cs" />
     <Compile Include="CHIPopulatorAnywhere.cs" />
