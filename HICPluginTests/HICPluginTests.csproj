@@ -263,7 +263,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Integration\CHIMutilationTest.cs" />
     <Compile Include="Integration\ColumnSwapTests.cs" />
     <Compile Include="Integration\CHIPopulatorTests.cs" />
     <Compile Include="Unit\MicrobiologyLoaderTests.cs" />
