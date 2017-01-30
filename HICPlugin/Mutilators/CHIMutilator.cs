@@ -8,6 +8,7 @@ using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
 using DataLoadEngine.Mutilators;
 using Microsoft.SqlServer.Management.Smo;
+using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
@@ -48,13 +49,16 @@ namespace HICPlugin.Mutilators
             _loadStage = loadStage;
         }
 
+        private string DropCHIFunctionIfExists()
+        {
+            return @"IF OBJECT_ID('dbo.checkCHI') IS NOT NULL
+  DROP FUNCTION checkCHI";
+        }
+
+
         private string CreateCHIFunction()
         {
             return @"
-IF OBJECT_ID('dbo.checkCHI') IS NOT NULL
-  DROP FUNCTION checkCHI
-GO
-
 CREATE FUNCTION [dbo].[checkCHI](@CHI as varchar(255))
 RETURNS bit AS
 BEGIN
@@ -132,6 +136,8 @@ END
                 using (var con = _dbInfo.Server.GetConnection())
                 {
                     con.Open();
+
+                    _dbInfo.Server.GetCommand(DropCHIFunctionIfExists(), con).ExecuteNonQuery();
                     _dbInfo.Server.GetCommand(CreateCHIFunction(), con).ExecuteNonQuery();
 
                     if(TryAddingZeroToFront)
@@ -148,6 +154,7 @@ END
             return ProcessExitCode.Success;
         }
 
+        
         private string PrePendNineDigitCHIs(LoadStage loadStage)
         {
             var tableName = ChiColumn.TableInfo.GetRuntimeName(loadStage);
