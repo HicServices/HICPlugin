@@ -31,7 +31,7 @@ namespace HICPlugin.DataFlowComponents
         private int MaxAdditionalCrudColumns = 10;
 
 
-        public ProcessExitCode Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job)
         {
 
             DiscoveredTable[] listTables = _dbInfo.DiscoverTables(false);
@@ -100,7 +100,7 @@ namespace HICPlugin.DataFlowComponents
 
             con.Close();
 
-            return ProcessExitCode.Success;
+            return ExitCodeType.Success;
         }
 
         

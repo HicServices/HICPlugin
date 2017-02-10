@@ -59,7 +59,7 @@ namespace HICPlugin.Microbiology
         private IDataLoadJob _currentJob;
 
 
-        public override ProcessExitCode Attach(IDataLoadJob job)
+        public override ExitCodeType Attach(IDataLoadJob job)
         {
             _currentJob = job;
 
@@ -117,7 +117,7 @@ namespace HICPlugin.Microbiology
             }
 
 
-            return ProcessExitCode.Success;
+            return ExitCodeType.Success;
         }
 
 

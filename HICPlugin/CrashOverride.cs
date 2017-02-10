@@ -38,7 +38,7 @@ namespace HICPlugin
 
         public void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener postLoadEventsListener)
         {
-            if (exitCode == ExitCodeType.Abort || exitCode == ExitCodeType.Error || exitCode == ExitCodeType.None)
+            if (exitCode == ExitCodeType.Abort || exitCode == ExitCodeType.Error)
             {
                 if(BurnSTAGING)
                     DropTables(stagingDatabase, stagingTableNamesToNuke, postLoadEventsListener);
@@ -76,7 +76,7 @@ namespace HICPlugin
         {
         }
 
-        public ProcessExitCode Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job)
         {
             foreach (var t in job.LookupTablesToLoad)
                 stagingTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustStaging));
@@ -87,7 +87,7 @@ namespace HICPlugin
             stagingDatabase = job.LoadMetadata.GetDistinctLiveDatabaseServer().ExpectDatabase("DLE_STAGING");
 
 
-            return ProcessExitCode.Success;
+            return ExitCodeType.Success;
         }
 
         public void Initialize(IHICProjectDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)

@@ -38,7 +38,7 @@ namespace HICPlugin.BespokeAttachers
             
         }
 
-        public ProcessExitCode Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job)
         {
             foreach (var file in job.HICProjectDirectory.ForLoading.GetFiles(FilePattern))
             {
@@ -58,7 +58,7 @@ namespace HICPlugin.BespokeAttachers
                 job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Found the following headers:" + string.Join(",",dt.Columns.Cast<DataColumn>().Select(c=>c.ColumnName))));
             }
 
-            return ProcessExitCode.Failure;
+            return ExitCodeType.Error;
         }
 
         public void Initialize(IHICProjectDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)

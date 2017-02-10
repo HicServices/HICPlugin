@@ -61,7 +61,7 @@ namespace HICPlugin
 
 
 
-        public ProcessExitCode Mutilate(IDataLoadEventListener job)
+        public ExitCodeType Mutilate(IDataLoadEventListener job)
         {
 
             _dbInfo.Server.EnableAsync();
@@ -234,7 +234,7 @@ namespace HICPlugin
                 updaterConnection.Close();
                      
             }
-            return ProcessExitCode.Success;
+            return ExitCodeType.Success;
         }
 
         private void ProcessResult(SqlDataReader r, DemographyLookupResponse result,SqlConnection updaterConnection)

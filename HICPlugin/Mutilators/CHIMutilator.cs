@@ -128,7 +128,7 @@ END
                 }
         }
 
-        public ProcessExitCode Mutilate(IDataLoadEventListener job)
+        public ExitCodeType Mutilate(IDataLoadEventListener job)
         { 
             
             if (_loadStage == LoadStage.AdjustRaw || _loadStage == LoadStage.AdjustStaging)
@@ -151,7 +151,7 @@ END
             else
                 throw new NotSupportedException("This mutilator can only run in AdjustRaw or AdjustStaging");
 
-            return ProcessExitCode.Success;
+            return ExitCodeType.Success;
         }
 
         
