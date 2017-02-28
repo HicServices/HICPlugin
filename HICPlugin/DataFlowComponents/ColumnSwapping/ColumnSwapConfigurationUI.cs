@@ -282,6 +282,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
         private void btnSaveAndClose_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             var rules = tableLayoutPanel1.Controls.Cast<SubstitutionRuleUI>().ToList();
             
             configuration.Rules = new SubstitutionRule[rules.Count];
