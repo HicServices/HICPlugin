@@ -63,6 +63,7 @@ namespace HICPlugin
 
         public ExitCodeType Mutilate(IDataLoadEventListener job)
         {
+            EnsureAllPresentAndCorrect();
 
             _dbInfo.Server.EnableAsync();
             DiscoveredTable runtimeTable = _dbInfo.ExpectTable(_runtimeTableName);
@@ -237,6 +238,60 @@ namespace HICPlugin
             return ExitCodeType.Success;
         }
 
+        private void EnsureAllPresentAndCorrect()
+        {
+            var table = _dbInfo.ExpectTable(TargetTable.GetRuntimeName(_loadStage));
+
+            if (!table.Exists())
+                throw new Exception("Table " + table.GetFullyQualifiedName() + " does not exist");
+
+            string[] availableColumns = table.DiscoverColumns().Select(c => c.GetRuntimeName()).ToArray();
+
+            _forename = GetForename == null ? null : GetForename.GetRuntimeName();
+            _surname = GetSurname == null ? null : GetSurname.GetRuntimeName();
+            _dateOfBirth = GetDateOfBirth == null ? null : GetDateOfBirth.GetRuntimeName();
+            _sex = GetSex == null ? null : GetSex.GetRuntimeName();
+
+            _postcode = GetPostcode == null ? null : GetPostcode.GetRuntimeName();
+            _addressLine1 = GetAddressLine1 == null ? null : GetAddressLine1.GetRuntimeName();
+            _addressLine2 = GetAddressLine2 == null ? null : GetAddressLine2.GetRuntimeName();
+            _addressLine3 = GetAddressLine3 == null ? null : GetAddressLine3.GetRuntimeName();
+            _addressLine4 = GetAddressLine4 == null ? null : GetAddressLine4.GetRuntimeName();
+
+
+            _otherPostcode = GetOtherPostcode == null ? null : GetOtherPostcode.GetRuntimeName();
+            _otherAddressLine1 = GetOtherAddressLine1 == null ? null : GetOtherAddressLine1.GetRuntimeName();
+            _otherAddressLine2 = GetOtherAddressLine2 == null ? null : GetOtherAddressLine2.GetRuntimeName();
+            _otherAddressLine3 = GetOtherAddressLine3 == null ? null : GetOtherAddressLine3.GetRuntimeName();
+            _otherAddressLine4 = GetOtherAddressLine4 == null ? null : GetOtherAddressLine4.GetRuntimeName();
+
+
+            CheckColumnIsInCollection(_forename, availableColumns);
+            CheckColumnIsInCollection(_surname, availableColumns);
+            CheckColumnIsInCollection(_dateOfBirth, availableColumns);
+            CheckColumnIsInCollection(_sex, availableColumns);
+
+            CheckColumnIsInCollection(_postcode, availableColumns);
+            CheckColumnIsInCollection(_addressLine1, availableColumns);
+            CheckColumnIsInCollection(_addressLine2, availableColumns);
+            CheckColumnIsInCollection(_addressLine3, availableColumns);
+            CheckColumnIsInCollection(_addressLine4, availableColumns);
+
+            CheckColumnIsInCollection(_otherPostcode, availableColumns);
+            CheckColumnIsInCollection(_otherAddressLine1, availableColumns);
+            CheckColumnIsInCollection(_otherAddressLine2, availableColumns);
+            CheckColumnIsInCollection(_otherAddressLine3, availableColumns);
+            CheckColumnIsInCollection(_otherAddressLine4, availableColumns);
+
+            _targetServerName = TargetTable.Server;
+
+
+            _finalTableName = TargetTable.Name;
+            _runtimeTableName = TargetTable.GetRuntimeName(_loadStage);
+
+            _pks = TargetTable.ColumnInfos.Where(c => c.IsPrimaryKey).Select(p => p.GetRuntimeName(_loadStage)).ToArray();
+        }
+
         private void ProcessResult(SqlDataReader r, DemographyLookupResponse result,SqlConnection updaterConnection)
         {
             SqlCommand updateCommand = new SqlCommand("", updaterConnection);
@@ -294,58 +349,6 @@ namespace HICPlugin
         {
             _dbInfo = dbInfo;
             _loadStage = loadStage;
-
-
-            var table = dbInfo.ExpectTable(TargetTable.GetRuntimeName(_loadStage));
-
-            if(!table.Exists())
-                throw new Exception("Table " + table.GetFullyQualifiedName() + " does not exist");
-
-            string[] availableColumns = table.DiscoverColumns().Select(c => c.GetRuntimeName()).ToArray(); 
-
-            _forename = GetForename == null?null: GetForename.GetRuntimeName();
-            _surname = GetSurname == null ? null : GetSurname.GetRuntimeName();
-            _dateOfBirth = GetDateOfBirth == null ? null : GetDateOfBirth.GetRuntimeName();
-            _sex = GetSex == null ? null : GetSex.GetRuntimeName();
-
-            _postcode = GetPostcode == null ? null : GetPostcode.GetRuntimeName();
-            _addressLine1 = GetAddressLine1 == null ? null : GetAddressLine1.GetRuntimeName();
-            _addressLine2 = GetAddressLine2 == null ? null : GetAddressLine2.GetRuntimeName();
-            _addressLine3 = GetAddressLine3 == null ? null : GetAddressLine3.GetRuntimeName();
-            _addressLine4 = GetAddressLine4 == null ? null : GetAddressLine4.GetRuntimeName();
-
-
-            _otherPostcode = GetOtherPostcode == null ? null : GetOtherPostcode.GetRuntimeName();
-            _otherAddressLine1 = GetOtherAddressLine1 == null ? null : GetOtherAddressLine1.GetRuntimeName();
-            _otherAddressLine2 = GetOtherAddressLine2 == null ? null : GetOtherAddressLine2.GetRuntimeName();
-            _otherAddressLine3 = GetOtherAddressLine3 == null ? null : GetOtherAddressLine3.GetRuntimeName();
-            _otherAddressLine4 = GetOtherAddressLine4 == null ? null : GetOtherAddressLine4.GetRuntimeName();
-
-
-            CheckColumnIsInCollection(_forename, availableColumns);
-            CheckColumnIsInCollection(_surname, availableColumns);
-            CheckColumnIsInCollection(_dateOfBirth, availableColumns);
-            CheckColumnIsInCollection(_sex, availableColumns);
-
-            CheckColumnIsInCollection(_postcode, availableColumns);
-            CheckColumnIsInCollection(_addressLine1, availableColumns);
-            CheckColumnIsInCollection(_addressLine2, availableColumns);
-            CheckColumnIsInCollection(_addressLine3, availableColumns);
-            CheckColumnIsInCollection(_addressLine4, availableColumns);
-
-            CheckColumnIsInCollection(_otherPostcode, availableColumns);
-            CheckColumnIsInCollection(_otherAddressLine1, availableColumns);
-            CheckColumnIsInCollection(_otherAddressLine2, availableColumns);
-            CheckColumnIsInCollection(_otherAddressLine3, availableColumns);
-            CheckColumnIsInCollection(_otherAddressLine4, availableColumns);
-            
-            _targetServerName = TargetTable.Server;
-            
-            
-            _finalTableName = TargetTable.Name;
-            _runtimeTableName = TargetTable.GetRuntimeName(_loadStage);
-
-            _pks = TargetTable.ColumnInfos.Where(c => c.IsPrimaryKey).Select(p => p.GetRuntimeName(loadStage)).ToArray();
         }
 
         private void CheckColumnIsInCollection(string toFind, string[] availableColumns)
