@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CatalogueLibrary.Data;
-using DataExportManager2Library.ExtractionTime.ExtractionPipeline.Sources;
+using DataExportLibrary.ExtractionTime.ExtractionPipeline.Sources;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents

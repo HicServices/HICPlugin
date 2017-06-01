@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
-using DataExportManager2.Interfaces.Pipeline;
+using DataExportLibrary.Interfaces.Pipeline;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DataTableExtension;
