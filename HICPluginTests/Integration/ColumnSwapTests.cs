@@ -8,11 +8,12 @@ using Plugin.Test;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
+using Tests.Common;
 
 namespace HICPluginTests.Integration
 {
     [TestFixture]
-    public class ColumnSwapTests : PluginDatabaseTests
+    public class ColumnSwapTests : DatabaseTests
     {
         const string MappingDb = "TestColumnSwapping";
 

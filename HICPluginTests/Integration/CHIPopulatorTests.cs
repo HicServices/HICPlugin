@@ -12,11 +12,12 @@ using NUnit.Framework;
 using Plugin.Test;
 using ReusableLibraryCode.Progress;
 using Rhino.Mocks;
+using Tests.Common;
 using Plugin = CatalogueLibrary.Data.Plugin;
 
 namespace HICPluginTests.Integration
 {
-    public class CHIPopulatorTests : PluginDatabaseTests
+    public class CHIPopulatorTests : DatabaseTests
     {
         [Test]
         public void FindExportedClassFromCatalogue()
