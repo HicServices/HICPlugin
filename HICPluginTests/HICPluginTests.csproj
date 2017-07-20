@@ -329,6 +329,7 @@
   <ItemGroup>
     <Compile Include="Integration\ColumnSwapTests.cs" />
     <Compile Include="Integration\CHIPopulatorTests.cs" />
+    <Compile Include="Integration\HICCohortDestinationTest.cs" />
     <Compile Include="Unit\MicrobiologyLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -6,6 +6,10 @@ using System.Linq;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
 using DataExportLibrary.Interfaces.Pipeline;
+using DataLoadEngine.DataFlowPipeline.Destinations;
+using LoadModules.Generic.Attachers;
+using LoadModules.Generic.DataFlowSources;
+using NHibernate.Mapping;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DataTableExtension;
@@ -20,7 +24,7 @@ namespace HICPlugin.DataFlowComponents
 
         [DemandsInitialization("The name of the stored proceedure which will augment existing cohorts with new versions")]
         public string ExistingCohortsStoredProceedure { get; set; }
-
+        
         public ICohortCreationRequest Request { get; set; }
 
         public DataTable AllAtOnceDataTable;
@@ -58,19 +62,27 @@ namespace HICPlugin.DataFlowComponents
             sw.Start();
 
             var target = Request.NewCohortDefinition.LocationOfCohort;
-            var discoveredDatabase = target.GetExpectDatabase();
+            var cohortDatabase = target.GetExpectDatabase();
 
-            DataTableHelper helper = new DataTableHelper(AllAtOnceDataTable);
+            string tempTableName = DelimitedFlatFileDataFlowSource.MakeHeaderNameSane(Guid.NewGuid().ToString());
+            AllAtOnceDataTable.TableName = tempTableName;
 
-            string tempTable = helper.CommitDataTableToTempDB(discoveredDatabase.Server, false);
-            tempTable = "tempdb.." + tempTable;
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Uploading to " + tempTableName));
+
+            var dest = new DataTableUploadDestination();
+            dest.AllowResizingColumnsAtUploadTime = true;
+            dest.PreInitialize(cohortDatabase,listener);
+            dest.ProcessPipelineData(AllAtOnceDataTable, listener, new GracefulCancellationToken());
+            dest.Dispose(listener,null);
+
+            var tbl = cohortDatabase.ExpectTable(tempTableName);
+            if(!tbl.Exists())
+                throw new Exception("Temp table '" + tempTableName + "' did not exist in cohort database '" + cohortDatabase +"'");
             try
             {
-                sw.Stop();
-                listener.OnProgress(this, new ProgressEventArgs("Uploading to "+tempTable,new ProgressMeasurement(AllAtOnceDataTable.Rows.Count,ProgressType.Records), sw.Elapsed));
 
                 //commit from temp table (most likely place to crash)
-                using (SqlConnection con = (SqlConnection) discoveredDatabase.Server.GetConnection())
+                using (SqlConnection con = (SqlConnection) cohortDatabase.Server.GetConnection())
                 {
                     con.Open();
                     SqlCommand cmd;
@@ -78,24 +90,21 @@ namespace HICPlugin.DataFlowComponents
 
                     if (Request.NewCohortDefinition.Version == 1)
                     {
-
                         cmd = new SqlCommand(NewCohortsStoredProceedure, con, transaction);
-                        cmd.Parameters.AddWithValue("sourceTableName", tempTable);
+                        cmd.Parameters.AddWithValue("sourceTableName", tbl.GetFullyQualifiedName());
                         cmd.Parameters.AddWithValue("projectNumber", Request.Project.ProjectNumber);
                         cmd.Parameters.AddWithValue("description", Request.NewCohortDefinition.Description);
                     }
-
-                    
                     else
                     {
                         //get the existing cohort number 
                         var cmdGetCohortNumber = new SqlCommand("(SELECT MAX(cohortNumber) FROM " + target.DefinitionTableName +
-                                              " where description = '" + Request.NewCohortDefinition.Description + "')" , con,transaction);
+                                                                " where description = '" + Request.NewCohortDefinition.Description + "')" , con,transaction);
                         var cohortNumber = Convert.ToInt32(cmdGetCohortNumber.ExecuteScalar());
 
                         //call the commit
                         cmd = new SqlCommand(ExistingCohortsStoredProceedure,con,transaction);
-                        cmd.Parameters.AddWithValue("sourceTableName", tempTable);
+                        cmd.Parameters.AddWithValue("sourceTableName", tbl.GetFullyQualifiedName());
                         cmd.Parameters.AddWithValue("projectNumber", Request.Project.ProjectNumber);
                         cmd.Parameters.AddWithValue("cohortNumber", cohortNumber);
                         cmd.Parameters.AddWithValue("description", Request.NewCohortDefinition.Description);
@@ -107,8 +116,7 @@ namespace HICPlugin.DataFlowComponents
                     var ds = new DataSet();
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
-
-
+                    
                     foreach (DataTable dt in ds.Tables)
                     {
                         var str = string.Join(",", dt.Columns.Cast<DataColumn>().Select(c=>c.ColumnName).ToArray());
@@ -129,18 +137,10 @@ namespace HICPlugin.DataFlowComponents
             }
             finally
             {
-                //clean up the temp table
-                using (SqlConnection con = (SqlConnection) discoveredDatabase.Server.GetConnection())
-                {
-                    con.Open();
-                    SqlCommand cmdDropTempTable = new SqlCommand("DROP TABLE " + tempTable, con);
-                    cmdDropTempTable.ExecuteNonQuery();
-                    con.Close();
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropped temp table " + tempTable));
-                }
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping " + tbl.GetFullyQualifiedName()));
+                tbl.Drop();
                 
             }
-
         }
 
         public void Abort(IDataLoadEventListener listener)
