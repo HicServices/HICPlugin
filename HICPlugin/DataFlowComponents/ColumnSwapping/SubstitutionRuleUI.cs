@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows.Forms;
 using CatalogueLibrary.DataHelper;
 using ReusableUIComponents;
-using ReusableUIComponents.BetterToolTips;
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
@@ -31,13 +30,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
             cbxSourceColumns.Items.AddRange(sourceTableColumns.Select(s => RDMPQuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
             cbxDestinationColumns.Items.AddRange(mappingTableColumns.Select(s => RDMPQuerySyntaxHelper.EnsureValueIsWrapped(s)).ToArray());
-
-            BetterToolTip toolTip = new BetterToolTip(this);
-
-            toolTip.SetToolTip(lblManyToOneErrors, ToolTips.MTo1, Images.MTo1);
-            toolTip.SetToolTip(lblOneToZeroErrors, ToolTips._1To0, Images._1To0);
-            toolTip.SetToolTip(lblOneToManyErrors, ToolTips._1ToM, Images._1ToM);
-
+            
             SubstitutionRule = rule ?? new SubstitutionRule();
             
             cbxSourceColumns.Text = SubstitutionRule.LeftOperand;
