@@ -36,42 +36,51 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
             var tempTable = server.GetCurrentDatabase().CreateTable(toProcess.TableName, toProcess);
 
-            string uploadedName = tempTable.GetRuntimeName();
-            job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " +uploadedName + " on server " + Configuration.Server ));
-
-            SubstitutionRule.SubstitutionResult result =  SubstitutionRule.CheckRules(tempTable,Configuration.Rules,uploadedName,Configuration.MappingTableName,Configuration.ColumnToPerformSubstitutionOn,Configuration.SubstituteColumn,Configuration.Timeout);
-            job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " +uploadedName + " on server " + Configuration.Server ));
-
-            if(result == null)
-                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error, "SubstitutionRule.CheckRules returned null, most likely there are no rules configured"));
-
-            if(result.IsExactlyOneToOne(Configuration.AllowMto1Errors,Configuration.Allow1ToZeroErrors))
+            try
             {
-                if(result.ManyToOneErrors > 0)
-                    job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning, "There were " + result.OneToManyErrors + " 1 to Many errors (mapping of 2 different input identifiers to the same output identifier, Your current configuration allows this which may be desired e.g. if you were trying to substitute forename into first initial)"));
+                string uploadedName = tempTable.GetRuntimeName();
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " + uploadedName + " on server " + Configuration.Server));
 
-                if (result.OneToZeroErrors > 0)
-                    job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "There were " + result.OneToZeroErrors + " 1 to 0 errors (identifiers that do not map to anything and have thus been discarded - will appear as NULL.  Your current configuration allows this which is NOT RECOMMENDED.  At the very least you should contact the file supplier and notify them of the unknown identifiers)"));
+                SubstitutionRule.SubstitutionResult result = SubstitutionRule.CheckRules(tempTable, Configuration.Rules, uploadedName, Configuration.MappingTableName, Configuration.ColumnToPerformSubstitutionOn, Configuration.SubstituteColumn, Configuration.Timeout);
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " + uploadedName + " on server " + Configuration.Server));
 
-                var dtToReturn = ApplyUPDATE(
-                    tempTable,
-                    Configuration.MappingTableName,
-                    Configuration.ColumnToPerformSubstitutionOn,
-                    Configuration.SubstituteColumn,
-                    GetSubstituteForInMappingTableDataType(builder),
-                    Configuration.Timeout,
-                    job);
+                if (result == null)
+                    job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error, "SubstitutionRule.CheckRules returned null, most likely there are no rules configured"));
+
+                if (result.IsExactlyOneToOne(Configuration.AllowMto1Errors, Configuration.Allow1ToZeroErrors))
+                {
+                    if (result.ManyToOneErrors > 0)
+                        job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "There were " + result.OneToManyErrors + " 1 to Many errors (mapping of 2 different input identifiers to the same output identifier, Your current configuration allows this which may be desired e.g. if you were trying to substitute forename into first initial)"));
+
+                    if (result.OneToZeroErrors > 0)
+                        job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "There were " + result.OneToZeroErrors + " 1 to 0 errors (identifiers that do not map to anything and have thus been discarded - will appear as NULL.  Your current configuration allows this which is NOT RECOMMENDED.  At the very least you should contact the file supplier and notify them of the unknown identifiers)"));
+
+                    var dtToReturn = ApplyUPDATE(
+                        tempTable,
+                        Configuration.MappingTableName,
+                        Configuration.ColumnToPerformSubstitutionOn,
+                        Configuration.SubstituteColumn,
+                        GetSubstituteForInMappingTableDataType(builder),
+                        Configuration.Timeout,
+                        job);
 
 
-                //return it with the same name as it came in with
-                dtToReturn.TableName = toProcess.TableName;
+                    //return it with the same name as it came in with
+                    dtToReturn.TableName = toProcess.TableName;
 
-                return dtToReturn;
+                    return dtToReturn;
+                }
+
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error, "Failed to get 1 to 1 mapping, mapping results were " + result));
+
+                throw new Exception("Abandonning pipeline because OneToOne identifier mapping was not obtained");
             }
-
-            job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Error,"Failed to get 1 to 1 mapping, mapping results were " + result));
+            finally 
+            {
+                if(tempTable.Exists())
+                    tempTable.Drop();
+            }
             
-            throw new Exception("Abandonning pipeline because OneToOne identifier mapping was not obtained");
         }
 
         private string GetSubstituteForInMappingTableDataType(SqlConnectionStringBuilder builder)
