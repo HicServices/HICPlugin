@@ -12,7 +12,7 @@ using LoadModules.Generic.DataFlowSources;
 using NHibernate.Mapping;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DataTableExtension;
+using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents
@@ -64,7 +64,7 @@ namespace HICPlugin.DataFlowComponents
             var target = Request.NewCohortDefinition.LocationOfCohort;
             var cohortDatabase = target.GetExpectDatabase();
 
-            string tempTableName = DelimitedFlatFileDataFlowSource.MakeHeaderNameSane(Guid.NewGuid().ToString());
+            string tempTableName = QuerySyntaxHelper.MakeHeaderNameSane(Guid.NewGuid().ToString());
             AllAtOnceDataTable.TableName = tempTableName;
 
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Uploading to " + tempTableName));

@@ -8,7 +8,6 @@ using CatalogueLibrary.DataFlowPipeline;
 using CatalogueLibrary.DataHelper;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
-using ReusableLibraryCode.DataTableExtension;
 using ReusableLibraryCode.Progress;
 
 
@@ -29,17 +28,18 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "Preparing to bulk insert into tempdb on server " + Configuration.Server));
            
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(){DataSource = Configuration.Server,InitialCatalog = "tempdb",IntegratedSecurity = true};
-            SqlConnection conToTempDb = new SqlConnection(builder.ConnectionString);
-            conToTempDb.Open();
             
-            DataTableHelper upload = new DataTableHelper(toProcess);
-
             DiscoveredServer server = new DiscoveredServer(builder);
 
-            string uploadedName = upload.CommitDataTableToTempDB(server,conToTempDb,Configuration.UseOldDateTimes);
+            if (string.IsNullOrWhiteSpace(toProcess.TableName))
+                toProcess.TableName = QuerySyntaxHelper.MakeHeaderNameSane(Guid.NewGuid().ToString());
+
+            var tempTable = server.GetCurrentDatabase().CreateTable(toProcess.TableName, toProcess);
+
+            string uploadedName = tempTable.GetRuntimeName();
             job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " +uploadedName + " on server " + Configuration.Server ));
 
-            SubstitutionRule.SubstitutionResult result =  SubstitutionRule.CheckRules(Configuration.Rules,uploadedName,Configuration.MappingTableName,Configuration.ColumnToPerformSubstitutionOn,Configuration.SubstituteColumn,conToTempDb,Configuration.Timeout);
+            SubstitutionRule.SubstitutionResult result =  SubstitutionRule.CheckRules(tempTable,Configuration.Rules,uploadedName,Configuration.MappingTableName,Configuration.ColumnToPerformSubstitutionOn,Configuration.SubstituteColumn,Configuration.Timeout);
             job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "DataTable to bulk insert into tempdb with table name " +uploadedName + " on server " + Configuration.Server ));
 
             if(result == null)
@@ -54,12 +54,11 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
                     job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "There were " + result.OneToZeroErrors + " 1 to 0 errors (identifiers that do not map to anything and have thus been discarded - will appear as NULL.  Your current configuration allows this which is NOT RECOMMENDED.  At the very least you should contact the file supplier and notify them of the unknown identifiers)"));
 
                 var dtToReturn = ApplyUPDATE(
-                    uploadedName,
+                    tempTable,
                     Configuration.MappingTableName,
                     Configuration.ColumnToPerformSubstitutionOn,
                     Configuration.SubstituteColumn,
                     GetSubstituteForInMappingTableDataType(builder),
-                    conToTempDb,
                     Configuration.Timeout,
                     job);
 
@@ -96,27 +95,26 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             
         }
 
-        public DataTable ApplyUPDATE(string sqlOriginTable, string sqlMappingTable, string substituteInSourceColumn, string substituteForInMappingTable, string substituteForInMappingTableDataType, SqlConnection conToSourceTable, int timeout, IDataLoadEventListener job)
+        public DataTable ApplyUPDATE(DiscoveredTable tempTable, string sqlMappingTable, string substituteInSourceColumn, string substituteForInMappingTable, string substituteForInMappingTableDataType, int timeout, IDataLoadEventListener job)
         {
-            SqlTransaction transaction = conToSourceTable.BeginTransaction();
+            var server = tempTable.Database.Server;
+            using (var transactConnection = server.BeginNewTransactedConnection())
+            {
+                
+                //add the new column
+                string sql = "";
+
+                sql = "ALTER TABLE " + tempTable.GetRuntimeName() + " ADD " + RDMPQuerySyntaxHelper.EnsureValueIsWrapped(substituteForInMappingTable) + " " + substituteForInMappingTableDataType;
+
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Adding new column to DataTable in tempdb:" + sql));
+
+                server.GetCommand(sql, transactConnection).ExecuteNonQuery();
+
+                //do the update
+                string andStatement = string.Join(Environment.NewLine + " AND ", Configuration.Rules.Select(r => r.GetWhereSql()));
 
 
-            //add the new column
-            string sql = "";
-
-            sql = "ALTER TABLE " + sqlOriginTable + " ADD " + RDMPQuerySyntaxHelper.EnsureValueIsWrapped(substituteForInMappingTable) + " " + substituteForInMappingTableDataType;
-
-            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Adding new column to DataTable in tempdb:" + sql));
-            
-            SqlCommand cmd = new SqlCommand(sql, conToSourceTable);
-            cmd.Transaction = transaction;
-            cmd.ExecuteNonQuery();
-
-            //do the update
-            string andStatement = string.Join(Environment.NewLine + " AND ", Configuration.Rules.Select(r => r.GetWhereSql()));
-            
-
-            sql = string.Format(@"update source 
+                sql = string.Format(@"update source 
   set source.{0}  = map.{0}
   from
   (
@@ -124,52 +122,49 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
   on
   {3}
   )"
-                , substituteForInMappingTable
-                , sqlOriginTable
-                , sqlMappingTable
-                , andStatement);
+                    , substituteForInMappingTable
+                    , tempTable
+                    , sqlMappingTable
+                    , andStatement);
 
-            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,  "About to update the newly created column in tempdb to have the established 1-1 substitution identifiers using the following SQL:" + sql));
-            
-            cmd = new SqlCommand(sql, conToSourceTable);
-            cmd.Transaction = transaction;
-            cmd.CommandTimeout = timeout;
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "About to update the newly created column in tempdb to have the established 1-1 substitution identifiers using the following SQL:" + sql));
 
-            cmd.ExecuteNonQuery();
+                var cmd = server.GetCommand(sql, transactConnection);
+                cmd.CommandTimeout = timeout;
+
+                cmd.ExecuteNonQuery();
+
+                if (!DoNotDropOriginalColumn)
+                {
+                    job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping old column " + substituteInSourceColumn + " because substitution has been succesful"));
+                    cmd = server.GetCommand(
+                        string.Format("alter table {0} drop column {1}"
+                            , tempTable.GetRuntimeName()
+                            , substituteInSourceColumn), transactConnection);
+
+                    cmd.ExecuteNonQuery();
+                }
 
 
-            if(!DoNotDropOriginalColumn)
-            {
-                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping old column " + substituteInSourceColumn + " because substitution has been succesful"));
-                cmd = new SqlCommand(
-                    string.Format("alter table {0} drop column {1}"
-                        , sqlOriginTable
-                        , substituteInSourceColumn), conToSourceTable);
+
+                transactConnection.ManagedTransaction.CommitAndCloseConnection();
             }
-
-            cmd.Transaction = transaction;
-
-            cmd.ExecuteNonQuery();
-            
-
-            transaction.Commit();
 
             var result = new DataTable();
 
-            SqlCommand cmdDownload = new SqlCommand("SELECT * FROM " + sqlOriginTable, conToSourceTable);
-            
-            SqlDataAdapter da = new SqlDataAdapter(cmdDownload);
-            da.Fill(result);
-            
-            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping temp table " + sqlOriginTable + " because substitution has been succesful"));
+            using (var con = server.GetConnection())
+            {
+                con.Open();
 
-            if (!conToSourceTable.Database.Equals("tempdb"))
-                throw new Exception("When did we stop being pointed at tempdb, this is bad times!(we were about to drop " + sqlOriginTable + " in database "+conToSourceTable.Database+")?");
+                var da = server.GetDataAdapter("SELECT * FROM " + tempTable.GetRuntimeName(), con);
+                da.Fill(result);
 
-            SqlCommand cmdDropTempTable = new SqlCommand("DROP TABLE " + sqlOriginTable, conToSourceTable);
-            cmdDropTempTable.ExecuteNonQuery();
-            
-            return result;
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping temp table " + tempTable.GetRuntimeName() + " because substitution has been succesful"));
+                
+                tempTable.Drop();
+
+                return result;
+            }
         }
         
 

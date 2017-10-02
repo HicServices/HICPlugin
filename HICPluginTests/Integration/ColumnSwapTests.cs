@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using CatalogueLibrary.DataFlowPipeline;
 using HICPlugin.DataFlowComponents.ColumnSwapping;
 using NUnit.Framework;
@@ -30,7 +31,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -48,7 +49,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -69,7 +70,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -87,7 +88,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -105,7 +106,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Fish", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
         }
 
         [Test]
@@ -115,7 +116,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -133,7 +134,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Imaginariam", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
         }
 
         [Test]
@@ -143,7 +144,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -163,7 +164,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Fish", "Frank"); //"Fish" alone maps to both 1 and 4
             dt.Rows.Add("Soap", "Frank"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
         }
 
         #endregion
@@ -175,7 +176,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -194,7 +195,7 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Fish", "Thomas"); //"Fish" alone maps to both 1 and 4 but Thomas included resolves this by mapping to 1
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
 
             Assert.AreEqual(typeof(int), result.Columns["MapOutput"].DataType);
             Assert.AreEqual(1, result.Rows[0]["MapOutput"]);
@@ -206,7 +207,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -225,7 +226,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Ball", "Thomas"); //ball has 1 to 1 mappign with int value 2
             dt.Rows.Add("Spade", "Thomas"); //spade has 1 to 1 mapping with int value 3
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
          
    
             Assert.AreEqual(typeof(int),result.Columns["MapOutput"].DataType);
@@ -240,7 +241,7 @@ namespace HICPluginTests.Integration
             ColumnSwapper swapper = new ColumnSwapper();
             swapper.Configuration = new ColumnSwapConfiguration();
 
-            swapper.Configuration.Server = ServerICanCreateRandomDatabasesAndTablesOn.DataSource;
+            swapper.Configuration.Server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.Name;
             swapper.Configuration.Database = MappingDb;
             swapper.Configuration.MappingTableName = "MyMap";
 
@@ -260,7 +261,7 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Spade", "Thomas"); //spade has 1 to 1 mapping with int value 3
             dt.TableName = "Fish";
 
-            var result = swapper.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
+            var result = swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
          
             Assert.AreEqual("Fish",result.TableName);
         }
@@ -273,15 +274,15 @@ namespace HICPluginTests.Integration
 
             try
             {
-                var server = new DiscoveredServer(ServerICanCreateRandomDatabasesAndTablesOn);
+                var server = DiscoveredServerICanCreateRandomDatabasesAndTablesOn;
 
                 //if it wasn't cleaned up properly last time
                 if (server.ExpectDatabase(MappingDb).Exists())
                     TearDown();
                     
                 server.CreateDatabase(MappingDb);
-            
-                using (var con = new SqlConnection(ServerICanCreateRandomDatabasesAndTablesOn.ConnectionString))
+
+                using (var con = new SqlConnection(server.Builder.ConnectionString))
                 {
                     con.Open();
                     con.ChangeDatabase(MappingDb);

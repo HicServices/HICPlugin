@@ -57,15 +57,15 @@ end
             var d = new HICCohortManagerDestination();
             d.NewCohortsStoredProceedure = "fishfishfishproc1";
             d.ExistingCohortsStoredProceedure = "fishfishfishproc2";
-            d.PreInitialize(request,new ToConsoleDataLoadEventReceiver());
+            d.PreInitialize(request,new ThrowImmediatelyDataLoadEventListener());
 
             var dt = new DataTable("mytbl");
             dt.Columns.Add("myidents");
             dt.Rows.Add("101");
             dt.Rows.Add("102");
 
-            d.ProcessPipelineData(dt, new ToConsoleDataLoadEventReceiver(), new GracefulCancellationToken());
-            var tomem = new ToMemoryDataLoadEventReceiver(true);
+            d.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+            var tomem = new ToMemoryDataLoadEventListener(true);
             //actually does the send
             d.Dispose(tomem,null);
             

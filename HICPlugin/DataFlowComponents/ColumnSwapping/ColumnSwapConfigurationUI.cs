@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using CatalogueLibrary.Data.DataLoad;
 using CatalogueLibrary.Repositories;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
-using ReusableLibraryCode.DataTableExtension;
 using ReusableUIComponents;
 using ReusableUIComponents.SqlDialogs;
 
@@ -231,8 +230,18 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         {
             try
             {
-                DataTableHelper upload = new DataTableHelper(_preview); 
-                string uploadedName = upload.CommitDataTableToTempDB(serverDatabaseTableSelector1.Result,cbUSeOldDateTime.Checked);
+                var servername = serverDatabaseTableSelector1.Server;
+
+                var server = new DiscoveredServer(new SqlConnectionStringBuilder()
+                {
+                    DataSource = servername,
+                    IntegratedSecurity = true,
+                    InitialCatalog = "tempdb"
+                });
+                
+                var tbl = server.GetCurrentDatabase().CreateTable(_preview.TableName,_preview);
+
+                string uploadedName = tbl.GetFullyQualifiedName();
 
                 MessageBox.Show("Table Uploaded into tempdb with the table name " + uploadedName);
                 groupBox2.Enabled = false;

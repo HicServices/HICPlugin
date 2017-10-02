@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using ReusableLibraryCode.DatabaseHelpers.Discovery;
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
@@ -247,28 +248,35 @@ ManyToOneErrors:{3}
         }
         #endregion
 
-        public static SubstitutionResult CheckRules(SubstitutionRule[] rules, string sqlOriginTable, string sqlMappingTable, string substituteInSourceColumn, string substituteForInMappingTable, SqlConnection conToSourceTable, int timeout)
+        public static SubstitutionResult CheckRules(DiscoveredTable tempTable, SubstitutionRule[] rules, string sqlOriginTable, string sqlMappingTable, string substituteInSourceColumn, string substituteForInMappingTable , int timeout)
         {
             if (rules == null || rules.Length == 0)
                 return null;
             
             string whoCares;
 
-            //there is only one rule return that one
-            if (rules.Length == 1)
-                return rules[0].CheckRule(Enumerable.Empty<SubstitutionRule>().ToList(), sqlOriginTable,
-                    sqlMappingTable, substituteInSourceColumn, substituteForInMappingTable, conToSourceTable, timeout,out whoCares);
+            var server = tempTable.Database.Server;
+            using (var con = (SqlConnection)server.GetConnection())
+            {
+                con.Open();
 
 
-            //there are more than 1 rules, get all but last:
-            List<SubstitutionRule> priorRules = new List<SubstitutionRule>();
-            for (int i = 0; i < rules.Length - 1; i++)
-                priorRules.Add(rules[i]);
-            
-            //call Check on last element but listing the others as priors (currently order is actually irrelevant so we could use rules[0] and rules.Skip(1) but in future order might matter
-            return rules.Last().CheckRule(priorRules, sqlOriginTable,
-                    sqlMappingTable, substituteInSourceColumn, substituteForInMappingTable, conToSourceTable, timeout, out whoCares);
+                //there is only one rule return that one
+                if (rules.Length == 1)
+                    return rules[0].CheckRule(Enumerable.Empty<SubstitutionRule>().ToList(), sqlOriginTable,
+                        sqlMappingTable, substituteInSourceColumn, substituteForInMappingTable, con, timeout, out whoCares);
 
+
+                //there are more than 1 rules, get all but last:
+                List<SubstitutionRule> priorRules = new List<SubstitutionRule>();
+                for (int i = 0; i < rules.Length - 1; i++)
+                    priorRules.Add(rules[i]);
+
+                //call Check on last element but listing the others as priors (currently order is actually irrelevant so we could use rules[0] and rules.Skip(1) but in future order might matter
+                return rules.Last().CheckRule(priorRules, sqlOriginTable,
+                        sqlMappingTable, substituteInSourceColumn, substituteForInMappingTable, con, timeout, out whoCares);
+
+            }
         }
     }
 }
