@@ -6,21 +6,22 @@
     <NUnitResultsPath>$(MSBuildThisFileDirectory)</NUnitResultsPath>
     <NUnitResultsFile>$(NUnitResultsPath)nunit-result.xml</NUnitResultsFile>
   </PropertyGroup>
-
+  <ItemGroup>
+    <AllFiles Include="packages\HIC.RDMP.Plugin*\**"/>
+    <PluginPackager Include="packages\HIC.RDMP.Plugin*\**\PluginPackager.exe" />
+  </ItemGroup>
   <Target Name="Build">
     <MSBuild Projects="HICPlugin.sln" />
   </Target>
   
   <Target Name="GetAssemblyVersion">
-	<GetAssemblyIdentity AssemblyFiles="$(MSBuildThisFileDirectory)\HICPlugin\bin\$(Configuration)\HIC.RDMP.Plugin.dll">
-		<Output TaskParameter="Assemblies" ItemName="PluginAssembly" />
-	</GetAssemblyIdentity>
-	
-	<Message Text="Version: %(PluginAssembly.Version)" />
+	<Message Text="Packager found: @(PluginPackager)" />
 
 	<PropertyGroup>
-	  <PluginPackager>$(MSBuildThisFileDirectory)packages\HIC.RDMP.Plugin.%(PluginAssembly.Version)\tools\PluginPackager\PluginPackager.exe</PluginPackager>
-	</PropertyGroup>
+	  <PluginPackager>$(MSBuildThisFileDirectory)@(PluginPackager)</PluginPackager>
+	</PropertyGroup>  
+    
+	<Message Text="Executable: $(PluginPackager)" />
   </Target>
 
   <Target Name="ConfigureTests" DependsOnTargets="Build">
