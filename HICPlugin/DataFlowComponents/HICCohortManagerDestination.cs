@@ -133,13 +133,40 @@ namespace HICPlugin.DataFlowComponents
                     
                     transaction.Commit();
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Finished data load and comitted transaction" + cmd.CommandText));
+
+                    string sql = string.Format("select id from {0} where description = @description and projectNumber = {1} ORDER BY id desc", target.DefinitionTableName,Request.Project.ProjectNumber);
+
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "About to try and find the cohort magically created by the stored proceedure using SQL: '" + sql +"'"));
+
+                    var cmdFetchNewCohortDefinitionId = new SqlCommand(
+                         sql
+                        ,con);
+
+                    cmdFetchNewCohortDefinitionId.Parameters.AddWithValue("@description",Request.NewCohortDefinition.Description);
+                    
+                    var r = cmdFetchNewCohortDefinitionId.ExecuteReader();
+
+                    if(!r.Read())
+                        throw new Exception("Despite running the stored proceedure no cohort appeared in which the description was '" + Request.NewCohortDefinition.Description + "' and the projectNumber was '" + Request.Project.ProjectNumber + "' either the stored proceedure silently failed or it disrespected our instructions about what the project number/description should be");
+
+                    if(r.Read())
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Description '" + Request.NewCohortDefinition.Description +"' is not unique at the destination"));
+
+                    int originIdIsProbably = Convert.ToInt32(r["id"]);
+                    
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Decided that the stored proceedure probably created the Cohort in which the id in '" + target.DefinitionTableName +"' is " + originIdIsProbably));
+
+                    Request.NewCohortDefinition.ID = originIdIsProbably;
+
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "About to attempt to create a pointer to this cohort that has been created"));
+                    Request.ImportAsExtractableCohort();
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Succesfully created pointer, you should now have access to your cohort in RDMP"));
                 }
             }
             finally
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Dropping " + tbl.GetFullyQualifiedName()));
                 tbl.Drop();
-                
             }
         }
 
