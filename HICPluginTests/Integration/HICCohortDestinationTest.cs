@@ -65,7 +65,7 @@ end
             dt.Rows.Add("102");
 
             d.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
-            var tomem = new ToMemoryDataLoadEventListener(true);
+            var tomem = new ToMemoryDataLoadEventListener(false);
             //actually does the send
             d.Dispose(tomem,null);
             
