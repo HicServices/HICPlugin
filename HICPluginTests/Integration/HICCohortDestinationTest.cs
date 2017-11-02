@@ -58,6 +58,7 @@ end
             d.NewCohortsStoredProceedure = "fishfishfishproc1";
             d.ExistingCohortsStoredProceedure = "fishfishfishproc2";
             d.PreInitialize(request,new ThrowImmediatelyDataLoadEventListener());
+            d.CreateExternalCohort = false;
 
             var dt = new DataTable("mytbl");
             dt.Columns.Add("myidents");
