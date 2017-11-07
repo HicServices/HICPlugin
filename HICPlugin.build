@@ -8,7 +8,8 @@
   </PropertyGroup>
   <ItemGroup>
     <AllFiles Include="packages\HIC.RDMP.Plugin*\**"/>
-    <PluginPackager Include="packages\HIC.RDMP.Plugin*\**\PluginPackager.exe" />
+    <PluginPackager Include="packages\HIC.RDMP.Plugin*\**\PluginPackager.exe" 
+                    Exclude="packages\HIC.RDMP.Plugin*-pre\**\PluginPackager.exe;packages\HIC.RDMP.Plugin*-rc\**\PluginPackager.exe" />
   </ItemGroup>
   <Target Name="Build">
     <MSBuild Projects="HICPlugin.sln" />
