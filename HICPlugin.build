@@ -7,24 +7,12 @@
     <NUnitResultsFile>$(NUnitResultsPath)nunit-result.xml</NUnitResultsFile>
   </PropertyGroup>
   <ItemGroup>
-    <AllFiles Include="packages\HIC.RDMP.Plugin*\**"/>
-    <PluginPackager Include="packages\HIC.RDMP.Plugin*\**\PluginPackager.exe" 
-                    Exclude="packages\HIC.RDMP.Plugin*-pre\**\PluginPackager.exe;packages\HIC.RDMP.Plugin*-rc\**\PluginPackager.exe" />
+    <PluginPackager Include="$(MSBuildThisFileDirectory)HICPluginTests\bin\$(Configuration)\PluginPackager.exe" />
   </ItemGroup>
   <Target Name="Build">
     <MSBuild Projects="HICPlugin.sln" />
   </Target>
   
-  <Target Name="GetAssemblyVersion">
-	<Message Text="Packager found: @(PluginPackager)" />
-
-	<PropertyGroup>
-	  <PluginPackager>$(MSBuildThisFileDirectory)@(PluginPackager)</PluginPackager>
-	</PropertyGroup>  
-    
-	<Message Text="Executable: $(PluginPackager)" />
-  </Target>
-
   <Target Name="ConfigureTests" DependsOnTargets="Build">
     <ItemGroup>
       <TestAssembly Include="$(MSBuildThisFileDirectory)HICPluginTests\bin\$(Configuration)\HICPluginTests.dll" />
@@ -48,10 +36,11 @@
     <Exec Command="@(NUnitToolPath->'%(fullpath)') @(TestAssembly) /result=$(NUnitResultsFile)" />
   </Target>
   
-  <Target Name="PackagePlugin" DependsOnTargets="GetAssemblyVersion">
+  <Target Name="PackagePlugin">
 	<!-- Get the version of the CatalogueLibrary assembly so we can correctly locate the HIC.RDMP.Plugin package directory. This is necessary because nuget (possibly a bug) does not remove an old package directory after installing an updated version. -->
-	<Exec Command="$(PluginPackager) $(MSBuildThisFileDirectory)HICPlugin.sln $(MSBuildThisFileDirectory)HICPlugin.zip" WorkingDirectory="$(MSBuildThisFileDirectory)" />
-	<RemoveDir Directories="$(MSBuildThisFileDirectory)\Package" />
+   	<Message Text="Using Packager: @(PluginPackager)" />
+	<Exec Command="@(PluginPackager) $(MSBuildThisFileDirectory)HICPlugin.sln $(MSBuildThisFileDirectory)HICPlugin.zip" WorkingDirectory="$(MSBuildThisFileDirectory)" />
+	<RemoveDir Directories="@(MSBuildThisFileDirectory)\Package" />
   </Target>
  
 </Project>
