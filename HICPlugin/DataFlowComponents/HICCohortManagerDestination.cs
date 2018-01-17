@@ -7,9 +7,6 @@ using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
 using DataExportLibrary.Interfaces.Pipeline;
 using DataLoadEngine.DataFlowPipeline.Destinations;
-using LoadModules.Generic.Attachers;
-using LoadModules.Generic.DataFlowSources;
-using NHibernate.Mapping;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
@@ -187,7 +184,8 @@ namespace HICPlugin.DataFlowComponents
         public void PreInitialize(ICohortCreationRequest value, IDataLoadEventListener listener)
         {
             Request = value;
-            _privateIdentifier = SqlSyntaxHelper.GetRuntimeName(Request.NewCohortDefinition.LocationOfCohort.PrivateIdentifierField);
+            var syntaxHelper = value.NewCohortDefinition.LocationOfCohort.GetQuerySyntaxHelper();
+            _privateIdentifier = syntaxHelper.GetRuntimeName(Request.NewCohortDefinition.LocationOfCohort.PrivateIdentifierField);
         }
 
         public void Check(ICheckNotifier notifier)

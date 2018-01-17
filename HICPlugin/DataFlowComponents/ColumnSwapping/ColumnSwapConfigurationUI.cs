@@ -176,10 +176,13 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
                 //call ApplyRule on each rule with all the details needed (mapping table, columns being substituted etc) so it can tell user about errors
                 foreach (SubstitutionRuleUI rule in tableLayoutPanel1.Controls)
                 {
+                    var tbl = serverDatabaseTableSelector1.Table;
+                    var fullyQualifiedTableName = serverDatabaseTableSelector1.GetDiscoveredDatabase().ExpectTable(tbl).GetFullyQualifiedName();
+
                     lastRuleValidity = rule.ApplyRule(
                         priorRules.Select(ui => ui.SubstitutionRule).ToList(),
                         _preview.TableName,
-                        serverDatabaseTableSelector1.GetTableNameFullyQualified(),
+                        fullyQualifiedTableName,
                         configuration.ColumnToPerformSubstitutionOn,
                         ddSubstituteFor.Text,
                         con,

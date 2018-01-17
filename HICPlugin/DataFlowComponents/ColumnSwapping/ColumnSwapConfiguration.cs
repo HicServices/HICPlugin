@@ -10,6 +10,7 @@ using CatalogueLibrary.Data.DataLoad;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DatabaseHelpers.Discovery;
+using ReusableLibraryCode.DatabaseHelpers.Discovery.Microsoft;
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {
@@ -27,7 +28,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             get { return _mappingTableName; }
             set
             {
-                _mappingTableName = SqlSyntaxHelper.EnsureFullyQualifiedMicrosoftSQL(Database, value); 
+                _mappingTableName = new MicrosoftQuerySyntaxHelper().EnsureFullyQualified(Database,null, value); 
             }
         }
 

@@ -6,7 +6,6 @@ using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
 using CatalogueLibrary.Repositories;
 using DataLoadEngine.Mutilators;
-using FluentNHibernate.Utils;
 using HICPlugin;
 using NUnit.Framework;
 using Plugin.Test;
