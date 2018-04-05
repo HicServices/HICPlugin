@@ -400,6 +400,7 @@
   <ItemGroup>
     <Compile Include="BespokeAttachers\MetIDQAttacher.cs" />
     <Compile Include="CrashOverride.cs" />
+    <Compile Include="DataFlowComponents\CHIColumnFinder.cs" />
     <Compile Include="DataFlowComponents\CHIFixer.cs" />
     <Compile Include="CHIPopulator.cs" />
     <Compile Include="CHIPopulatorAnywhere.cs" />
