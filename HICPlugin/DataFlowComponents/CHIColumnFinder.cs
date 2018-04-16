@@ -42,7 +42,7 @@ namespace HICPlugin.DataFlowComponents
                 foreach (var col in toProcess.Columns.Cast<DataColumn>())
                 {
                     if (ContainsValidChi(row[col]))
-                        throw new Exception("Found CHI  in column " + col.ColumnName + " on row " + _rowCount + "(" + row[col] + ")");
+                        throw new Exception("Found CHI in column " + col.ColumnName + " on row " + _rowCount + "(" + row[col] + ")");
                 }
             }
             
