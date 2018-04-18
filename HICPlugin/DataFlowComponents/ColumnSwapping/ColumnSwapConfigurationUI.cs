@@ -33,8 +33,8 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         public ColumnSwapConfigurationUI()
         {
             InitializeComponent();
-            RecentHistoryOfControls.GetInstance().HostControl(serverDatabaseTableSelector1.cbxServer);
-            RecentHistoryOfControls.GetInstance().AddHistoryAsItemsToComboBox(serverDatabaseTableSelector1.cbxServer);
+            var r = new RecentHistoryOfControls(serverDatabaseTableSelector1.cbxServer, new Guid("222a3a4c-9f42-48b5-8763-9307e9dd4d36"));
+            r.AddHistoryAsItemsToComboBox(serverDatabaseTableSelector1.cbxServer);
         }
 
         public void SetUnderlyingObjectTo(ColumnSwapConfiguration value, DataTable previewIfAvailable)
