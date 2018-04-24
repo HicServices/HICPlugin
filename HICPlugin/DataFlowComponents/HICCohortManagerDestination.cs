@@ -72,7 +72,10 @@ namespace HICPlugin.DataFlowComponents
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Uploading to " + tempTableName));
 
             var dest = new DataTableUploadDestination();
-            dest.AddExplicitWriteType("chi","varchar(10)");
+
+            if(_privateIdentifier.Equals("chi",StringComparison.CurrentCultureIgnoreCase))
+                dest.AddExplicitWriteType(_privateIdentifier, "varchar(10)");
+
             dest.AllowResizingColumnsAtUploadTime = true;
             dest.PreInitialize(cohortDatabase,listener);
             dest.ProcessPipelineData(AllAtOnceDataTable, listener, new GracefulCancellationToken());
