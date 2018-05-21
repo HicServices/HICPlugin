@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HICPlugin.DataFlowComponents;
+using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;
 
@@ -41,9 +42,9 @@ namespace HICPluginTests.Unit
 
         [TestCase("1111111111 101010109", true)] //valid 10 digit and valid 9 digit with whitespace between
         [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
-        public void TestDataWithCHIs(string chi, bool expectedToBeChi)
+        public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
         {
-            var chiFinder = new CHIColumnFinder();
+            var chiFinder = new CHIColumnFinder { IsPartOfAutomationPipeline = true };
 
             var toProcess = new DataTable();
             toProcess.Columns.Add("Height");
@@ -52,7 +53,7 @@ namespace HICPluginTests.Unit
             Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, new ThrowImmediatelyDataLoadEventListener(), null));
 
             toProcess.Columns.Add("NothingToSeeHere");
-            toProcess.Rows.Add(new object[] { 145, chi });
+            toProcess.Rows.Add(new object[] { 145, toCheck });
 
             if (expectedToBeChi)
                 Assert.Throws<Exception>(() => chiFinder.ProcessPipelineData(toProcess, new ThrowImmediatelyDataLoadEventListener(), null));

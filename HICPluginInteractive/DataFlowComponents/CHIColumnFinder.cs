@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
 using HIC.Common.Validation.Constraints.Primary;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
+using ReusableUIComponents;
+using ReusableUIComponents.SingleControlForms;
 
-namespace HICPlugin.DataFlowComponents
+namespace HICPluginInteractive.DataFlowComponents
 {
     /// <summary>
     /// Pipeline component designed to prevent DataTable columns containing CHIs passing through the pipeline. The component will crash the entire pipeline 
@@ -25,10 +25,12 @@ namespace HICPlugin.DataFlowComponents
         [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
         public DateTime? OverrideUntil { get; set; }
 
-        private int _rowCount = 1; //start at 1 as the first row contains the headers
+        [DemandsInitialization("Is part of Automation Pipeline", DemandType = DemandType.Unspecified)]
+        public bool IsPartOfAutomationPipeline { get; set; }
 
-        public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener,
-            GracefulCancellationToken cancellationToken)
+        private List<string> _columnWhitelist = new List<string>();
+
+        public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
         {
             if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
             {
@@ -36,32 +38,63 @@ namespace HICPlugin.DataFlowComponents
                 return toProcess;
             }
 
-            foreach (var row in toProcess.Rows.Cast<DataRow>())
+            var batchRowCount = 0;
+            var dtRows = toProcess.Rows.Cast<DataRow>().ToArray();
+            foreach (var row in dtRows)
             {
-                _rowCount++;
                 foreach (var col in toProcess.Columns.Cast<DataColumn>())
                 {
-                    if (ContainsValidChi(row[col]))
-                        throw new Exception("Found CHI in column " + col.ColumnName + " on row " + _rowCount + "(" + row[col] + ")");
+                    if (!_columnWhitelist.Contains(col.ColumnName) && ContainsValidChi(row[col]))
+                    {
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")"));
+
+                        if (!IsPartOfAutomationPipeline)
+                        {
+                            if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                var tmpDatatable = new DataRow[toProcess.Rows.Count - batchRowCount];
+                                Array.Copy(dtRows, batchRowCount, tmpDatatable, 0, tmpDatatable.Length);
+
+                                var dtv = new DataTableViewer(tmpDatatable.CopyToDataTable(), "View data");
+                                SingleControlForm.ShowDialog(dtv);
+                            }
+
+                            if (MessageBox.Show("Would you like to suppress CHI checking on this column and continue extracting?", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                _columnWhitelist.Add(col.ColumnName);
+                                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
+                            }
+                            else
+                            {
+                                throw new Exception("Extract abandoned by user");
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("Extract stopped due to possible CHI");
+                        }
+                    }
                 }
+
+                batchRowCount++;
             }
-            
+
             return toProcess;
         }
 
         public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
         {
-            
+
         }
 
         public void Abort(IDataLoadEventListener listener)
         {
-            
+
         }
 
         public void Check(ICheckNotifier notifier)
         {
-            
+
         }
 
         private bool ContainsValidChi(object toCheck)

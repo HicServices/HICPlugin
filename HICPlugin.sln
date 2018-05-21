@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HICPlugin", "HICPlugin\HICPlugin.csproj", "{88E94F55-32BD-4F08-9B00-FBB9C7A5C9CC}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5424B7
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HICPluginInteractive", "HICPluginInteractive\HICPluginInteractive.csproj", "{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{6D8C7DED-B01F-451D-9259-B0BB82EDE451}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D8C7DED-B01F-451D-9259-B0BB82EDE451}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D8C7DED-B01F-451D-9259-B0BB82EDE451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
