@@ -44,7 +44,7 @@ namespace HICPluginTests.Unit
         [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
         public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
         {
-            var chiFinder = new CHIColumnFinder { IsPartOfAutomationPipeline = true };
+            var chiFinder = new CHIColumnFinder();
 
             var toProcess = new DataTable();
             toProcess.Columns.Add("Height");
