@@ -8,9 +8,9 @@ using System.Windows.Forms;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
 using HIC.Common.Validation.Constraints.Primary;
+using HICPluginInteractive.UIComponents;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
-using ReusableUIComponents;
 using ReusableUIComponents.SingleControlForms;
 
 namespace HICPluginInteractive.DataFlowComponents
@@ -44,17 +44,14 @@ namespace HICPluginInteractive.DataFlowComponents
                     if (!_columnWhitelist.Contains(col.ColumnName) && ContainsValidChi(row[col]))
                     {
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")"));
-                        
+
                         if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes) 
                         {
-                            var tmpDatatable = new DataRow[toProcess.Rows.Count - batchRowCount];
-                            Array.Copy(dtRows, batchRowCount, tmpDatatable, 0, tmpDatatable.Length);
-
-                            var dtv = new DataTableViewer(tmpDatatable.CopyToDataTable(), "View data");
+                            var dtv = new ExtractDataTableViewer(toProcess, "View data", col.ColumnName, batchRowCount);
                             SingleControlForm.ShowDialog(dtv);
                         }
 
-                        if (MessageBox.Show("Would you like to suppress CHI checking on this column and continue extracting?", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Would you like to suppress CHI checking on column " + col.ColumnName + " and continue extract?", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             _columnWhitelist.Add(col.ColumnName);
                             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
