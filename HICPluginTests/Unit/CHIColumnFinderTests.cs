@@ -40,6 +40,7 @@ namespace HICPluginTests.Unit
         public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
         {
             var chiFinder = new CHIColumnFinder();
+            chiFinder.SkipUIComponents = true;
 
             var toProcess = new DataTable();
             toProcess.Columns.Add("Height");

@@ -24,7 +24,9 @@ namespace HICPluginInteractive.DataFlowComponents
     {
         [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
         public DateTime? OverrideUntil { get; set; }
-        
+
+        public bool SkipUIComponents;
+
         private List<string> _columnWhitelist = new List<string>();
 
         public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
@@ -43,6 +45,9 @@ namespace HICPluginInteractive.DataFlowComponents
                 {
                     if (!_columnWhitelist.Contains(col.ColumnName) && ContainsValidChi(row[col]))
                     {
+                        if (SkipUIComponents)
+                            throw new Exception("CHI Found: " + row[col]);
+
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")"));
 
                         if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes) 
