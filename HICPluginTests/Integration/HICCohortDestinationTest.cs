@@ -40,7 +40,8 @@ namespace HICPluginTests.Integration
             //delete RDMP knowledge of the cohort
             ((IDeleteable)_extractableCohort).DeleteInDatabase();
 
-            using (var con = _externalCohortDetails.Server.GetConnection())
+            var discoveredServer = _externalCohortTable.GetExpectDatabase().Server;
+            using (var con = discoveredServer.GetConnection())
             {
                 con.Open();
 
@@ -68,7 +69,7 @@ namespace HICPluginTests.Integration
                     end");
                 }
                 
-                _externalCohortDetails.Server.GetCommand(sql, con).ExecuteNonQuery();
+                discoveredServer.GetCommand(sql, con).ExecuteNonQuery();
             }
             
             var def = new CohortDefinition(null, "ignoremecohort", 1, 12,_externalCohortTable);
