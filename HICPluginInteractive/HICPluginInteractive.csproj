@@ -11,7 +11,7 @@
     <AssemblyName>HICPluginInteractive</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>f86ca06d</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>de946ee7</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,39 +31,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ANOStore">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\ANOStore.dll</HintPath>
+    <Reference Include="ANOStore, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\ANOStore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ANOStore.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\ANOStore.Database.dll</HintPath>
+    <Reference Include="ANOStore.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\ANOStore.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="AutocompleteMenu-ScintillaNET">
       <HintPath>..\packages\AutoCompleteMenu-ScintillaNET.1.5.0\lib\net40\AutocompleteMenu-ScintillaNET.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CachingEngine">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CachingEngine.dll</HintPath>
+    <Reference Include="CachingEngine, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CachingEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CatalogueLibrary">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CatalogueLibrary.dll</HintPath>
+    <Reference Include="CatalogueLibrary, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CatalogueLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CatalogueLibrary.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CatalogueLibrary.Database.dll</HintPath>
+    <Reference Include="CatalogueLibrary.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CatalogueLibrary.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CatalogueManager">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CatalogueManager.dll</HintPath>
-    </Reference>
-    <Reference Include="CohortManager">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CohortManager.dll</HintPath>
+    <Reference Include="CatalogueManager, Version=2.8.1.5, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CatalogueManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CohortManagerLibrary">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\CohortManagerLibrary.dll</HintPath>
+    <Reference Include="CohortManager, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CohortManager.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CohortManagerLibrary, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\CohortManagerLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CommandLine">
@@ -82,44 +83,48 @@
       <HintPath>..\packages\CsvHelper.2.11.0\lib\net40-client\CsvHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dashboard">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\Dashboard.dll</HintPath>
+    <Reference Include="Dashboard, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\Dashboard.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DatabaseCreation">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DatabaseCreation.exe</HintPath>
+    <Reference Include="DatabaseCreation, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DatabaseCreation.exe</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataExportLibrary">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataExportLibrary.dll</HintPath>
+    <Reference Include="DataExportLibrary, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataExportLibrary.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataExportLibrary.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataExportLibrary.Database.dll</HintPath>
+    <Reference Include="DataExportLibrary.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataExportLibrary.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataExportLibrary.Interfaces">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataExportLibrary.Interfaces.dll</HintPath>
+    <Reference Include="DataExportLibrary.Interfaces, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataExportLibrary.Interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataExportManager">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataExportManager.dll</HintPath>
+    <Reference Include="DataExportManager, Version=2.8.1.5, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataExportManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataLoadEngine">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataLoadEngine.dll</HintPath>
+    <Reference Include="DataLoadEngine, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataLoadEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataQualityEngine">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataQualityEngine.dll</HintPath>
+    <Reference Include="DataQualityEngine, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataQualityEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DataQualityEngine.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\DataQualityEngine.Database.dll</HintPath>
+    <Reference Include="DataQualityEngine.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\DataQualityEngine.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Diagnostics">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\Diagnostics.dll</HintPath>
+    <Reference Include="Diagnostics, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="GraphX.Controls">
@@ -134,191 +139,68 @@
       <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.PCL.Logic.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.Common.Validation">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\HIC.Common.Validation.dll</HintPath>
+    <Reference Include="HIC.Common.Validation, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\HIC.Common.Validation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.Logging">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\HIC.Logging.dll</HintPath>
+    <Reference Include="HIC.Logging, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\HIC.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.Logging.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\HIC.Logging.Database.dll</HintPath>
+    <Reference Include="HIC.Logging.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\HIC.Logging.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HIC.RDMP.Plugin.UI">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\HIC.RDMP.Plugin.UI.dll</HintPath>
+    <Reference Include="HIC.RDMP.Plugin.UI, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\HIC.RDMP.Plugin.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="IdentifierDump">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\IdentifierDump.dll</HintPath>
+    <Reference Include="IdentifierDump, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\IdentifierDump.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="IdentifierDump.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\IdentifierDump.Database.dll</HintPath>
+    <Reference Include="IdentifierDump.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\IdentifierDump.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LoadModules.Generic">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\LoadModules.Generic.dll</HintPath>
+    <Reference Include="LoadModules.Generic, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\LoadModules.Generic.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="LoadModules.GenericUIs">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\LoadModules.GenericUIs.dll</HintPath>
+    <Reference Include="LoadModules.GenericUIs, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\LoadModules.GenericUIs.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MapsDirectlyToDatabaseTable">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\MapsDirectlyToDatabaseTable.dll</HintPath>
+    <Reference Include="MapsDirectlyToDatabaseTable, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\MapsDirectlyToDatabaseTable.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MapsDirectlyToDatabaseTableUI">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\MapsDirectlyToDatabaseTableUI.dll</HintPath>
+    <Reference Include="MapsDirectlyToDatabaseTableUI, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\MapsDirectlyToDatabaseTableUI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.AzureStorageEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.AzureStorageEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.BatchParserClient, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.BatchParserClient.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.ConnectionInfoExtended, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.ConnectionInfoExtended.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Diagnostics.Strace, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Diagnostics.Strace.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Dmf, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Dmf.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Dmf.Common, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Dmf.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.Collector, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.Collector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.CollectorEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.CollectorEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.RegisteredServers, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.RegisteredServers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.SmoMetadataProvider, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.SmoMetadataProvider.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.Utility, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.Utility.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.UtilityEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.UtilityEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.XEvent, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.XEvent.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.XEventDbScoped, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.XEventDbScoped.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.XEventDbScopedEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Management.XEventEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Management.XEventEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.PolicyEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.PolicyEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.RegSvrEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.RegSvrEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.ServiceBrokerEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Smo.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SmoExtended, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SmoExtended.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SqlClrProvider, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SqlClrProvider.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SqlEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SqlTDiagm, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SqlTDiagm.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SqlWmiManagement, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SqlWmiManagement.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.SString, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.SString.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\lib\net40\Microsoft.SqlServer.WmiEnum.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Mono.Reflection">
       <HintPath>..\packages\Mono.Reflection.1.1.0.0\lib\Mono.Reflection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\packages\MySql.Data.6.9.3\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.11\lib\net452\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json">
@@ -333,8 +215,8 @@
       <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Plugin.Settings">
@@ -345,18 +227,18 @@
       <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PluginPackager">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\PluginPackager.exe</HintPath>
+    <Reference Include="PluginPackager, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\PluginPackager.exe</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="QueryCaching">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\QueryCaching.dll</HintPath>
+    <Reference Include="QueryCaching, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\QueryCaching.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="QueryCaching.Database">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\QueryCaching.Database.dll</HintPath>
+    <Reference Include="QueryCaching.Database, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\QueryCaching.Database.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="QuickGraph">
@@ -375,32 +257,32 @@
       <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Serialization.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RDMPAutomationService">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\RDMPAutomationService.exe</HintPath>
+    <Reference Include="RDMPAutomationService, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\RDMPAutomationService.exe</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RDMPObjectVisualisation">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\RDMPObjectVisualisation.dll</HintPath>
+    <Reference Include="RDMPObjectVisualisation, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\RDMPObjectVisualisation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RDMPStartup">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\RDMPStartup.dll</HintPath>
+    <Reference Include="RDMPStartup, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\RDMPStartup.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Renci.SshNet">
       <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ResearchDataManagementPlatform">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\ResearchDataManagementPlatform.exe</HintPath>
+    <Reference Include="ResearchDataManagementPlatform, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\ResearchDataManagementPlatform.exe</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableLibraryCode">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\ReusableLibraryCode.dll</HintPath>
+    <Reference Include="ReusableLibraryCode, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\ReusableLibraryCode.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ReusableUIComponents">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\ReusableUIComponents.dll</HintPath>
+    <Reference Include="ReusableUIComponents, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\ReusableUIComponents.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Rhino.Mocks">
@@ -411,13 +293,20 @@
       <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sharing">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.7.3.4\lib\net452\Sharing.dll</HintPath>
+    <Reference Include="Sharing, Version=2.8.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.8.1.5\lib\net452\Sharing.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -460,13 +349,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17199.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
