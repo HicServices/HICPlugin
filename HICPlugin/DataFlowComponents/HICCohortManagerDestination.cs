@@ -175,8 +175,7 @@ namespace HICPlugin.DataFlowComponents
             location.Check(notifier);
 
             //now check the stored procs it has in it
-            var builder = (SqlConnectionStringBuilder) location.GetExpectDatabase().Server.Builder;
-            var spsFound = UsefulStuff.GetInstance().ListStoredProcedures(builder.ConnectionString, builder.InitialCatalog);
+            var spsFound = location.Discover().DiscoverStoredprocedures().Select(sp => sp.Name).ToArray();
 
             //have they forgotten to tell us what the proc is?
             if (string.IsNullOrEmpty(NewCohortsStoredProceedure))

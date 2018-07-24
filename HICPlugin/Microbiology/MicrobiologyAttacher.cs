@@ -12,6 +12,7 @@ using DataLoadEngine;
 using DataLoadEngine.Attachers;
 using DataLoadEngine.Job;
 using ReusableLibraryCode.Checks;
+using ReusableLibraryCode.DataAccess;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.Microbiology
@@ -272,8 +273,8 @@ namespace HICPlugin.Microbiology
                 }
                 else
                 {
-                    int? maxLength = correspondingColumn.GetColumnLengthIfAny();
-                    if(maxLength != null)
+                    int maxLength = correspondingColumn.Discover(DataAccessContext.Any).DataType.GetLengthIfString();
+                    if(maxLength > -1)
                         _lengthsDictionary.Add(prop,(int)maxLength);
                 }
             }
