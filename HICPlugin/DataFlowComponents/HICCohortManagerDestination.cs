@@ -64,7 +64,7 @@ namespace HICPlugin.DataFlowComponents
             sw.Start();
 
             var target = Request.NewCohortDefinition.LocationOfCohort;
-            var cohortDatabase = target.GetExpectDatabase();
+            var cohortDatabase = target.Discover();
 
             string tempTableName = QuerySyntaxHelper.MakeHeaderNameSane(Guid.NewGuid().ToString());
             AllAtOnceDataTable.TableName = tempTableName;

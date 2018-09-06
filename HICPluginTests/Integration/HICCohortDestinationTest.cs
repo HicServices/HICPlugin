@@ -40,7 +40,7 @@ namespace HICPluginTests.Integration
             //delete RDMP knowledge of the cohort
             ((IDeleteable)_extractableCohort).DeleteInDatabase();
 
-            var discoveredServer = _externalCohortTable.GetExpectDatabase().Server;
+            var discoveredServer = _externalCohortTable.Discover().Server;
             using (var con = discoveredServer.GetConnection())
             {
                 con.Open();

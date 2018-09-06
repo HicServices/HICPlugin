@@ -84,7 +84,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
             }
         }
 
-        public ColumnSwapConfiguration GetFinalStateOfUnderlyingObject()
+        public ICustomUIDrivenClass GetFinalStateOfUnderlyingObject()
         {
             return configuration;
         }
@@ -326,13 +326,6 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         {
             SetUnderlyingObjectTo((ColumnSwapConfiguration)value, previewIfAvailable);
         }
-
-        public ICustomUIDrivenClass GetGenericFinalStateOfUnderlyingObject()
-        {
-            return GetFinalStateOfUnderlyingObject();
-        }
-
-        
 
         private void ddColumnToSubstitute_SelectedIndexChanged(object sender, EventArgs e)
         {
