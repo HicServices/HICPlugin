@@ -37,7 +37,7 @@ namespace HICPlugin.DataFlowComponents
 
         [DemandsInitialization(@"If you have an ANOWrapFunction function then columns matching this regex will also get wrapped")]
         public StandardRegex AlsoANORegex { get; set; }
-
+        
         public override string HackExtractionSQL(string sql, IDataLoadEventListener listener)
         { 
             StringBuilder sb = new StringBuilder();
