@@ -25,15 +25,23 @@ namespace HICPluginInteractive.DataFlowComponents
         [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
         public DateTime? OverrideUntil { get; set; }
 
-        public bool SkipUIComponents;
+        [DemandsInitialization("Will show errors in messageboxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
+        public bool ShowUIComponents { get; set; }
+
+        private bool _firstTime = true;
 
         private List<string> _columnWhitelist = new List<string>();
+        private List<string> _foundChiList = new List<string>();
 
         public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
         {
             if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
             {
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "This component is still currently being overridden until the specified date: " + OverrideUntil.Value.ToString("g")));
+                if (_firstTime)
+                {
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "This component is still currently being overridden until the specified date: " + OverrideUntil.Value.ToString("g")));
+                    _firstTime = false;
+                }
                 return toProcess;
             }
 
@@ -45,25 +53,13 @@ namespace HICPluginInteractive.DataFlowComponents
                 {
                     if (!_columnWhitelist.Contains(col.ColumnName) && ContainsValidChi(row[col]))
                     {
-                        if (SkipUIComponents)
-                            throw new Exception("CHI Found: " + row[col]);
-
-                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")"));
-
-                        if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes) 
-                        {
-                            var dtv = new ExtractDataTableViewer(toProcess, "View data", col.ColumnName, batchRowCount);
-                            SingleControlForm.ShowDialog(dtv);
-                        }
-
-                        if (MessageBox.Show("Would you like to suppress CHI checking on column " + col.ColumnName + " and continue extract?", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                        {
-                            _columnWhitelist.Add(col.ColumnName);
-                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
-                        }
+                        if (ShowUIComponents)
+                            DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);
                         else
                         {
-                            throw new Exception("Extract abandoned by user");
+                            var message = "Column " + col.ColumnName + " in DB " + col.Table + " appears to contain a CHI (" + row[col] + ")";
+                            _foundChiList.Add(message);
+                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error, message));
                         }
                     }
                 }
@@ -72,6 +68,25 @@ namespace HICPluginInteractive.DataFlowComponents
             }
 
             return toProcess;
+        }
+
+        private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row, int batchRowCount) 
+        {
+            if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                var dtv = new ExtractDataTableViewer(toProcess, "View data", col.ColumnName, batchRowCount);
+                SingleControlForm.ShowDialog(dtv);
+            }
+
+            if (MessageBox.Show("Would you like to continue the extraction? (This will suppress CHI checking on column " + col.ColumnName + ")", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                _columnWhitelist.Add(col.ColumnName);
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
+            }
+            else
+            {
+                throw new Exception("Extract abandoned by user");
+            }
         }
 
         public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
