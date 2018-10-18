@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CatalogueLibrary;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
+using DataLoadEngine.Job;
 using DataLoadEngine.Mutilators;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
@@ -47,7 +48,7 @@ namespace HICPlugin.Mutilators
             _dbInfo = dbInfo;
             _loadStage = loadStage;
         }
-
+        
         private string DropCHIFunctionIfExists()
         {
             return @"IF OBJECT_ID('dbo.checkCHI') IS NOT NULL
@@ -127,9 +128,8 @@ END
                 }
         }
 
-        public ExitCodeType Mutilate(IDataLoadEventListener job)
+        public ExitCodeType Mutilate(IDataLoadJob job)
         { 
-            
             if (_loadStage == LoadStage.AdjustRaw || _loadStage == LoadStage.AdjustStaging)
             {
                 using (var con = _dbInfo.Server.GetConnection())

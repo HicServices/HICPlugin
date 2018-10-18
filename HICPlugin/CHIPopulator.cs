@@ -12,6 +12,7 @@ using CatalogueLibrary;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
 using DataLoadEngine;
+using DataLoadEngine.Job;
 using DataLoadEngine.Mutilators;
 using HIC.Demography;
 using ReusableLibraryCode;
@@ -61,7 +62,7 @@ namespace HICPlugin
 
 
 
-        public ExitCodeType Mutilate(IDataLoadEventListener job)
+        public ExitCodeType Mutilate(IDataLoadJob job)
         {
             EnsureAllPresentAndCorrect();
 
