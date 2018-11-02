@@ -8,6 +8,7 @@ using System.Reflection;
 using CatalogueLibrary;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
+using CatalogueLibrary.DataFlowPipeline;
 using DataLoadEngine;
 using DataLoadEngine.Attachers;
 using DataLoadEngine.Job;
@@ -60,7 +61,7 @@ namespace HICPlugin.Microbiology
         private IDataLoadJob _currentJob;
 
 
-        public override ExitCodeType Attach(IDataLoadJob job)
+        public override ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
         {
             _currentJob = job;
 

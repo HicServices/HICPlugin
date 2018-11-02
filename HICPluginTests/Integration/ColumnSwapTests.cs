@@ -22,7 +22,6 @@ namespace HICPluginTests.Integration
 
         #region Tests Which Throw
         [Test]
-        [ExpectedException(ExpectedMessage = "There are 0 rules configured")]
         public void NoRulesConfigured_Throws()
         {
             if (SetupException != null)
@@ -38,11 +37,11 @@ namespace HICPluginTests.Integration
             swapper.Configuration.ColumnToPerformSubstitutionOn = "LocalInput";
             swapper.Configuration.SubstituteColumn = "MapOutput";
 
-            swapper.Check(new ThrowImmediatelyCheckNotifier());
+            var ex = Assert.Throws<Exception>(() => swapper.Check(new ThrowImmediatelyCheckNotifier()));
+            Assert.AreEqual("There are 0 rules configured", ex.Message);
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "Found rule with missing(blank) Left or Right Operand : ([LocalInput]|)")]
         public void RuleMissingOperand_Throws()
         {
 
@@ -59,11 +58,11 @@ namespace HICPluginTests.Integration
             swapper.Configuration.Rules = new SubstitutionRule[1];
             swapper.Configuration.Rules[0] = new SubstitutionRule("[LocalInput]","");
 
-            swapper.Check(new ThrowImmediatelyCheckNotifier());
+            var ex = Assert.Throws<Exception>(() => swapper.Check(new ThrowImmediatelyCheckNotifier()));
+            Assert.AreEqual("Found rule with missing(blank) Left or Right Operand : ([LocalInput]|)", ex.Message);
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "Rules array contains null elements!")]
         public void RulesArrayInitializedButButWithNullsOnly_Throws()
         {
 
@@ -79,10 +78,10 @@ namespace HICPluginTests.Integration
 
             swapper.Configuration.Rules = new SubstitutionRule[100];
 
-            swapper.Check(new ThrowImmediatelyCheckNotifier());
+            var ex = Assert.Throws<Exception>(()=>swapper.Check(new ThrowImmediatelyCheckNotifier()));
+            Assert.AreEqual("Rules array contains null elements!",ex.Message);
         }
         [Test]
-        [ExpectedException(MatchType = MessageMatch.Contains, ExpectedMessage = "OneToManyErrors:1")]
         public void OneToManyError_Throws()
         {
             ColumnSwapper swapper = new ColumnSwapper();
@@ -106,11 +105,11 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Fish", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+            var ex = Assert.Throws<Exception>(() => swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken()));
+            StringAssert.Contains("OneToManyErrors:1", ex.Message);
         }
 
         [Test]
-        [ExpectedException(MatchType = MessageMatch.Contains, ExpectedMessage = "OneToZeroErrors:1")]
         public void OneToZeroError_Throws()
         {
             ColumnSwapper swapper = new ColumnSwapper();
@@ -134,11 +133,11 @@ namespace HICPluginTests.Integration
 
             dt.Rows.Add("Imaginariam", "Thomas"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+            var ex = Assert.Throws<Exception>(() => swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken()));
+            StringAssert.Contains("OneToZeroErrors:1", ex.Message);
         }
 
         [Test]
-        [ExpectedException(MatchType = MessageMatch.Contains, ExpectedMessage = "ManyToOneErrors:2")]
         public void ManyToOneError_Throws()
         {
             ColumnSwapper swapper = new ColumnSwapper();
@@ -164,7 +163,8 @@ namespace HICPluginTests.Integration
             dt.Rows.Add("Fish", "Frank"); //"Fish" alone maps to both 1 and 4
             dt.Rows.Add("Soap", "Frank"); //"Fish" alone maps to both 1 and 4
 
-            swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+            var ex = Assert.Throws<Exception>(() => swapper.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken()));
+            StringAssert.Contains("ManyToOneErrors:2", ex.Message);
         }
 
         #endregion
@@ -267,7 +267,7 @@ namespace HICPluginTests.Integration
         }
         #endregion
 
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             SetupException = null;
@@ -313,7 +313,7 @@ namespace HICPluginTests.Integration
             
         }
 
-        [TestFixtureTearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(MappingDb).ForceDrop();

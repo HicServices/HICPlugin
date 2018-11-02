@@ -629,7 +629,6 @@ JOSJ1H
         }
 
         [Test]
-        [ExpectedException(ExpectedMessage = "Warning was End of file reached halfway through an MB_Lab record population",MatchType = MessageMatch.Contains)]
         public void FreakyShortRecordAtEndOfFile()
         {
             var testString = @"
@@ -640,7 +639,8 @@ ANDERSON
 11 Apr 
 ";
 
-            var results = CreateReaderFromString(testString, true);
+            var ex = Assert.Throws<Exception>(()=>CreateReaderFromString(testString, true));
+            StringAssert.Contains("Warning was End of file reached halfway through an MB_Lab record population",ex.Message);
 
 
         }

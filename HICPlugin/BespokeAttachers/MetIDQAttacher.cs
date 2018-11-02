@@ -38,7 +38,7 @@ namespace HICPlugin.BespokeAttachers
             
         }
 
-        public ExitCodeType Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
         {
             foreach (var file in job.HICProjectDirectory.ForLoading.GetFiles(FilePattern))
             {

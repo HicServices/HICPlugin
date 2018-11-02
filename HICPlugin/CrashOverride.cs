@@ -76,7 +76,7 @@ namespace HICPlugin
         {
         }
 
-        public ExitCodeType Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job,GracefulCancellationToken token)
         {
             foreach (var t in job.LookupTablesToLoad)
                 stagingTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustStaging));

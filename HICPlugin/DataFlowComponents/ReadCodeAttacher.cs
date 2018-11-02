@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using CatalogueLibrary;
 using CatalogueLibrary.Data.DataLoad;
+using CatalogueLibrary.DataFlowPipeline;
 using DataLoadEngine;
 using DataLoadEngine.Attachers;
 using DataLoadEngine.Job;
@@ -31,7 +32,7 @@ namespace HICPlugin.DataFlowComponents
         private int MaxAdditionalCrudColumns = 10;
 
 
-        public ExitCodeType Attach(IDataLoadJob job)
+        public ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
         {
 
             DiscoveredTable[] listTables = _dbInfo.DiscoverTables(false);

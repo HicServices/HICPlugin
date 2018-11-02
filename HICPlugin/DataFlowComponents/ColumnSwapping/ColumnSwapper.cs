@@ -122,7 +122,6 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
                 //do the update
                 string andStatement = string.Join(Environment.NewLine + " AND ", Configuration.Rules.Select(r => r.GetWhereSql()));
 
-
                 sql = string.Format(@"update source 
   set source.{0}  = map.{0}
   from
