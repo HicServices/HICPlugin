@@ -16,10 +16,10 @@
   <Target Name="ConfigureTests" DependsOnTargets="Build">
     <ItemGroup>
       <TestAssembly Include="$(MSBuildThisFileDirectory)HICPluginTests\bin\$(Configuration)\HICPluginTests.dll" />
-      <NUnitToolPath Include="$(MSBuildThisFileDirectory)packages\NUnit.Runners.*\tools\nunit-console.exe" />
+      <NUnitToolPath Include="$(MSBuildThisFileDirectory)packages\NUnit.ConsoleRunner.*\tools\nunit3-console.exe" />
     </ItemGroup>
 	
-	<Error Condition="'@(NUnitToolPath)'==''" Text="Could not find NUnit executable. Looked in $(MSBuildThisFileDirectory)packages\NUnit.Runners.*\tools\nunit-console.exe. If not installed, execute 'Install-Package NUnit.Runners -Version 2.6.4' into Package Manager Console" />
+	<Error Condition="'@(NUnitToolPath)'==''" Text="Could not find NUnit executable. Looked in $(MSBuildThisFileDirectory)packages\NUnit.ConsoleRunner.*\tools\nunit3-console.exe. If not installed, execute 'Install-Package NUnit.Console -Version 3.9.0' into Package Manager Console" />
 	
     <Message Text="Test Assemblies: @(TestAssembly)" />
   </Target>
@@ -33,7 +33,7 @@
   </Target>
   
   <Target Name="RunAllTests" DependsOnTargets="ConfigureTests">
-    <Exec Command="@(NUnitToolPath->'%(fullpath)') @(TestAssembly) /result=$(NUnitResultsFile)" />
+    <Exec Command="@(NUnitToolPath->'%(fullpath)') @(TestAssembly -> '%(Identity)', ' ') --result=$(NUnitResultsFile);format=nunit2 --workers=1 --inprocess" />
   </Target>
   
   <Target Name="PackagePlugin">
