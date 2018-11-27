@@ -108,6 +108,10 @@ namespace HICPlugin.DataFlowComponents
 
         public void Check(ICheckNotifier notifier)
         {
+
+            //https://isd.digital.nhs.uk/trud3/user/authenticated/group/0/pack/9/subpack/19/releases
+
+            //Find any .v3 files?
         }
 
         private void DeleteCrudFile(string fileName)

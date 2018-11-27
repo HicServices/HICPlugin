@@ -117,13 +117,13 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
         private void btnImportMappingTable_Click(object sender, System.EventArgs e)
         {
-            
-            if (string.IsNullOrWhiteSpace(serverDatabaseTableSelector1.Table))
+            var tbl = serverDatabaseTableSelector1.GetDiscoveredTable();
+            if (tbl == null)
                 return;
 
             configuration.Server = serverDatabaseTableSelector1.Server;
             configuration.Database = serverDatabaseTableSelector1.Database;
-            configuration.MappingTableName = serverDatabaseTableSelector1.Table;
+            configuration.MappingTableName = tbl.GetRuntimeName();
 
             try
             {
@@ -140,7 +140,7 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
 
                 configuration.Server = serverDatabaseTableSelector1.Server;
                 configuration.Database = serverDatabaseTableSelector1.Database;
-                configuration.MappingTableName = serverDatabaseTableSelector1.Table;
+                configuration.MappingTableName = tbl.GetRuntimeName();
 
                 //reselect it if it had a value previously
                 if (ddSubstituteFor.Items.Contains(previousValue))
@@ -176,8 +176,9 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
                 //call ApplyRule on each rule with all the details needed (mapping table, columns being substituted etc) so it can tell user about errors
                 foreach (SubstitutionRuleUI rule in tableLayoutPanel1.Controls)
                 {
-                    var tbl = serverDatabaseTableSelector1.Table;
-                    var fullyQualifiedTableName = serverDatabaseTableSelector1.GetDiscoveredDatabase().ExpectTable(tbl).GetFullyQualifiedName();
+                    var tbl = serverDatabaseTableSelector1.GetDiscoveredTable();
+
+                    var fullyQualifiedTableName = tbl.GetFullyQualifiedName();
 
                     lastRuleValidity = rule.ApplyRule(
                         priorRules.Select(ui => ui.SubstitutionRule).ToList(),
@@ -270,12 +271,9 @@ namespace HICPlugin.DataFlowComponents.ColumnSwapping
         {
             try
             {
-                var builder = serverDatabaseTableSelector1.GetBuilder();
-                
-                var server = new DiscoveredServer(builder);
-                var table = server.GetCurrentDatabase().ExpectTable(serverDatabaseTableSelector1.Table);
+                var tbl = serverDatabaseTableSelector1.GetDiscoveredTable();
 
-                _datatypeOfSubstitutionColumn = table.DiscoverColumn(ddSubstituteFor.Text).DataType.SQLType;
+                _datatypeOfSubstitutionColumn = tbl.DiscoverColumn(ddSubstituteFor.Text).DataType.SQLType;
 
                 MessageBox.Show("Column " + ddSubstituteFor.Text + " will be used as a replacement for " +
                                 configuration.ColumnToPerformSubstitutionOn +
