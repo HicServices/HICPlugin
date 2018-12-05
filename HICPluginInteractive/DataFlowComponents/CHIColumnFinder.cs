@@ -59,7 +59,7 @@ namespace HICPluginInteractive.DataFlowComponents
                         {
                             var message = "Column " + col.ColumnName + " in DB " + col.Table + " appears to contain a CHI (" + row[col] + ")";
                             _foundChiList.Add(message);
-                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error, message));
+                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
                         }
                     }
                 }
