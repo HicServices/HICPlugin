@@ -32,6 +32,7 @@ namespace HICPluginInteractive.DataFlowComponents
 
         private List<string> _columnWhitelist = new List<string>();
         private List<string> _foundChiList = new List<string>();
+        private bool _isTableAlreadyNamed;
 
         public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
         {
@@ -45,6 +46,10 @@ namespace HICPluginInteractive.DataFlowComponents
                 return toProcess;
             }
 
+            //give the data table the correct name
+            if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"].Equals(true))
+                _isTableAlreadyNamed = true;
+
             var batchRowCount = 0;
             var dtRows = toProcess.Rows.Cast<DataRow>().ToArray();
             foreach (var row in dtRows)
@@ -57,9 +62,13 @@ namespace HICPluginInteractive.DataFlowComponents
                             DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);
                         else
                         {
-                            var message = "Column " + col.ColumnName + " in DB " + col.Table + " appears to contain a CHI (" + row[col] + ")";
+                            var message = "Column " + col.ColumnName + " in Dataset " + toProcess.TableName + " appears to contain a CHI (" + row[col] + ")";
                             _foundChiList.Add(message);
                             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                            if (!_isTableAlreadyNamed)
+                                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                                                                    "DataTable has not been named. If you want to know the dataset that the error refers to " +
+                                                                    "please add an ExtractCatalogueMetadata to the extraction pipeline."));
                         }
                     }
                 }
@@ -69,19 +78,30 @@ namespace HICPluginInteractive.DataFlowComponents
 
             return toProcess;
         }
+        
 
         private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row, int batchRowCount) 
         {
-            if (MessageBox.Show("Column " + col.ColumnName + " appears to contain a CHI (" + row[col] + ")\n\nWould you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Column " + col.ColumnName + " in Dataset " + 
+                                (_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)") +
+                                " appears to contain a CHI (" + row[col] + ")\n\n" +
+                                "Would you like to view the current batch of data?", "Suspected CHI Column", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 var dtv = new ExtractDataTableViewer(toProcess, "View data", col.ColumnName, batchRowCount);
                 SingleControlForm.ShowDialog(dtv);
             }
 
-            if (MessageBox.Show("Would you like to continue the extraction? (This will suppress CHI checking on column " + col.ColumnName + ")", "Continue extract?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var decision = MessageBox.Show("Would you like to suppress CHI checking on column " + col.ColumnName + "?\r\n\r\n" +
+                                           "Clicking \"Cancel\" will abort the extraction.", "Continue extract?", MessageBoxButtons.YesNoCancel);
+
+            if (decision == DialogResult.Yes)
             {
                 _columnWhitelist.Add(col.ColumnName);
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Column " + col.ColumnName + " will no longer be checked for CHI during the rest of the extract"));
+            }
+            else if (decision == DialogResult.No)
+            {
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Column " + col.ColumnName + " will continue to be CHI-checked"));
             }
             else
             {
