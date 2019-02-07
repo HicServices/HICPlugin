@@ -3,10 +3,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using CatalogueLibrary.Data;
 using CatalogueLibrary.QueryBuilding;
-using CatalogueLibrary.Spontaneous;
 using DataExportLibrary.Data.DataTables;
 using DataExportLibrary.ExtractionTime.ExtractionPipeline.Sources;
-using ReusableLibraryCode.DatabaseHelpers.Discovery.QuerySyntax;
+using FAnsi.Discovery.QuerySyntax;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents

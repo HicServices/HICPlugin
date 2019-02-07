@@ -12,7 +12,7 @@ using DataLoadEngine;
 using DataLoadEngine.Attachers;
 using DataLoadEngine.Job;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DatabaseHelpers.Discovery;
+using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents

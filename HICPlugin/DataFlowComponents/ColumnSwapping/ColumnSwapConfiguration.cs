@@ -7,10 +7,9 @@ using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
 using CatalogueLibrary.Data.DataLoad;
-using ReusableLibraryCode;
+using Fansi.Implementations.MicrosoftSQL;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DatabaseHelpers.Discovery;
-using ReusableLibraryCode.DatabaseHelpers.Discovery.Microsoft;
+using FAnsi.Discovery;
 
 namespace HICPlugin.DataFlowComponents.ColumnSwapping
 {

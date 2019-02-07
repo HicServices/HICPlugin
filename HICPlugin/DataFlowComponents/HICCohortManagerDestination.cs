@@ -7,9 +7,9 @@ using CatalogueLibrary.Data;
 using CatalogueLibrary.DataFlowPipeline;
 using DataExportLibrary.Interfaces.Pipeline;
 using DataLoadEngine.DataFlowPipeline.Destinations;
+using FAnsi.Discovery;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents

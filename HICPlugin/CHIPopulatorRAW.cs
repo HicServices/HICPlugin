@@ -1,6 +1,6 @@
 using CatalogueLibrary.Data;
 using CatalogueLibrary.Data.DataLoad;
-using ReusableLibraryCode;
+using FAnsi.Naming;
 
 namespace HICPlugin
 {

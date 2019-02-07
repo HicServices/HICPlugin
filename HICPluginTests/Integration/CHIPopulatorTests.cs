@@ -3,16 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CatalogueLibrary.Data;
-using CatalogueLibrary.Data.DataLoad;
-using CatalogueLibrary.Repositories;
 using DataLoadEngine.Mutilators;
-using HICPlugin;
 using NUnit.Framework;
-using Plugin.Test;
-using ReusableLibraryCode.Progress;
-using Rhino.Mocks;
 using Tests.Common;
-using Plugin = CatalogueLibrary.Data.Plugin;
 
 namespace HICPluginTests.Integration
 {

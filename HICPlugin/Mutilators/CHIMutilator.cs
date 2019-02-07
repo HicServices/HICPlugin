@@ -10,7 +10,7 @@ using DataLoadEngine.Job;
 using DataLoadEngine.Mutilators;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DatabaseHelpers.Discovery;
+using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.Mutilators

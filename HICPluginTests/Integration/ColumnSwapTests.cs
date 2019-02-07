@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using CatalogueLibrary.DataFlowPipeline;
 using HICPlugin.DataFlowComponents.ColumnSwapping;
 using NUnit.Framework;
-using Plugin.Test;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DatabaseHelpers.Discovery;
 using ReusableLibraryCode.Progress;
 using Tests.Common;
 
@@ -316,7 +313,7 @@ namespace HICPluginTests.Integration
         [OneTimeTearDown]
         public void TearDown()
         {
-            DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(MappingDb).ForceDrop();
+            DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(MappingDb).Drop();
         }
     }
 }
