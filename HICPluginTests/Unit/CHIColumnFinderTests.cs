@@ -45,15 +45,18 @@ namespace HICPluginTests.Unit
             toProcess.Columns.Add("Height");
             toProcess.Rows.Add(new object[] {195});
 
-            Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, new ThrowImmediatelyDataLoadEventListener(), null));
+            var listener = new ThrowImmediatelyDataLoadEventListener();
+            listener.ThrowOnWarning = true;
 
+            Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
+            
             toProcess.Columns.Add("NothingToSeeHere");
             toProcess.Rows.Add(new object[] { 145, toCheck });
 
             if (expectedToBeChi)
-                Assert.Throws<Exception>(() => chiFinder.ProcessPipelineData(toProcess, new ThrowImmediatelyDataLoadEventListener(), null));
+                Assert.Throws<Exception>(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
             else
-                Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, new ThrowImmediatelyDataLoadEventListener(), null));
+                Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
         }
     }
 }
