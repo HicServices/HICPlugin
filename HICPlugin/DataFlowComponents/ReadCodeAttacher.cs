@@ -48,7 +48,7 @@ namespace HICPlugin.DataFlowComponents
             SqlConnection con = (SqlConnection) _dbInfo.Server.GetConnection();
             con.Open();
 
-            foreach (FileInfo file in HICProjectDirectory.ForLoading.EnumerateFiles("*key*").ToArray())
+            foreach (FileInfo file in LoadDirectory.ForLoading.EnumerateFiles("*key*").ToArray())
             {
                 job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning, "Found file that probably doesnt containing anything useful so deleting it, file is called " +
                         file.FullName));
@@ -116,7 +116,7 @@ namespace HICPlugin.DataFlowComponents
 
         private void DeleteCrudFile(string fileName)
         {
-            string todelete = Path.Combine(HICProjectDirectory.ForLoading.FullName, fileName);
+            string todelete = Path.Combine(LoadDirectory.ForLoading.FullName, fileName);
             
             if(File.Exists(todelete))
                 File.Delete(todelete);
@@ -126,7 +126,7 @@ namespace HICPlugin.DataFlowComponents
         {
          
             //read the input file and prepare records for bulk insert
-            foreach (FileInfo file in HICProjectDirectory.ForLoading.EnumerateFiles(filePattern))
+            foreach (FileInfo file in LoadDirectory.ForLoading.EnumerateFiles(filePattern))
             {
                 job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "Preparing to read data from file:"+file.FullName));
 
@@ -205,14 +205,14 @@ namespace HICPlugin.DataFlowComponents
 
         }
         
-        public IHICProjectDirectory HICProjectDirectory { get; set; }
+        public ILoadDirectory LoadDirectory { get; set; }
         
         public bool RequestsExternalDatabaseCreation { get { return true; } } 
 
-        public void Initialize(IHICProjectDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
+        public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
         {
             _dbInfo = dbInfo;
-            HICProjectDirectory = hicProjectDirectory;
+            LoadDirectory = hicProjectDirectory;
         }
     }
 }

@@ -90,12 +90,12 @@ namespace HICPlugin
             return ExitCodeType.Success;
         }
 
-        public void Initialize(IHICProjectDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
+        public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
         {
             rawDatabase = dbInfo;
         }
 
-        public IHICProjectDirectory HICProjectDirectory { get; set; }
+        public ILoadDirectory LoadDirectory { get; set; }
         public bool RequestsExternalDatabaseCreation { get; private set; }
     }
 }

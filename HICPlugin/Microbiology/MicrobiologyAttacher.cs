@@ -72,7 +72,7 @@ namespace HICPlugin.Microbiology
             sw.Start();
             int recordCount = 0;
 
-            foreach (var fileToLoad in HICProjectDirectory.ForLoading.EnumerateFiles(FilePattern))
+            foreach (var fileToLoad in LoadDirectory.ForLoading.EnumerateFiles(FilePattern))
             {
                 MicroBiologyFileReader r = new MicroBiologyFileReader(fileToLoad.FullName);
                 r.Warning += r_Warning;

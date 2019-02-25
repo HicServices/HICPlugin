@@ -40,7 +40,7 @@ namespace HICPlugin.BespokeAttachers
 
         public ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
         {
-            foreach (var file in job.HICProjectDirectory.ForLoading.GetFiles(FilePattern))
+            foreach (var file in job.LoadDirectory.ForLoading.GetFiles(FilePattern))
             {
                 job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Started processing file " + file.FullName));
 
@@ -61,12 +61,12 @@ namespace HICPlugin.BespokeAttachers
             return ExitCodeType.Error;
         }
 
-        public void Initialize(IHICProjectDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
+        public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
         {
             
         }
 
-        public IHICProjectDirectory HICProjectDirectory { get; set; }
+        public ILoadDirectory LoadDirectory { get; set; }
         public bool RequestsExternalDatabaseCreation { get; private set; }
     }
 }
