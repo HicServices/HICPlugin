@@ -424,12 +424,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Hunspellx64.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Hunspellx86.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="Mono.Cecil.dll" />
     <Content Include="nunit.engine.api.dll" />
     <Content Include="nunit.engine.dll" />
