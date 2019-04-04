@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CatalogueLibrary.DataFlowPipeline;
 using DataExportLibrary.CohortCreationPipeline;
 using DataExportLibrary.Data.DataTables;
-using DataExportLibrary.Interfaces.Data.DataTables;
 using DataExportLibrary.Repositories;
 using DataExportLibrary.Tests;
 using HICPlugin.DataFlowComponents;
 using MapsDirectlyToDatabaseTable;
 using NUnit.Framework;
-using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
-using Tests.Common;
 
 namespace HICPluginTests.Integration
 {
