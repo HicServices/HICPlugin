@@ -22,12 +22,11 @@ namespace HICPlugin.Mutilators
 
         [DemandsInitialization("The CHI column you want to mutilate based on")]
         public ColumnInfo ChiColumn { get; set; }
-
-
-        [DemandsInitialization("If true, program will attempt to add zero to the front of 9 digit CHIs prior to running the CHI validity check",DemandType.Unspecified,true)]
+        
+        [DemandsInitialization("If true, program will attempt to add zero to the front of 9 digit CHIs prior to running the CHI validity check", Mandatory = true, DefaultValue = true)]
         public bool TryAddingZeroToFront { get; set; }
 
-        [DemandsInitialization("Columns failing validation will have this consequence applied to them", DemandType.Unspecified, true)]
+        [DemandsInitialization("Columns failing validation will have this consequence applied to them", Mandatory=true, DefaultValue = MutilationAction.CrashDataLoad)]
         public MutilationAction FailedRows { get; set; }
         
 

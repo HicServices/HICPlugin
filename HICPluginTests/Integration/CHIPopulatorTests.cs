@@ -3,37 +3,44 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using CatalogueLibrary.Data;
+using CatalogueLibrary.Repositories;
 using DataLoadEngine.Mutilators;
 using NUnit.Framework;
-using Tests.Common;
 
 namespace HICPluginTests.Integration
 {
-    public class CHIPopulatorTests : DatabaseTests
+    public class CHIPopulatorTests
     {
         [Test]
         public void FindExportedClassFromCatalogue()
         {
-            string dllFile = Directory.EnumerateFiles(".", "HICPlugin.dll").SingleOrDefault();
+            var repo = new MemoryCatalogueRepository();
+
+            //find the current plugin dll (ourselves)
+            string dllFile = Directory.EnumerateFiles(TestContext.CurrentContext.TestDirectory, "HICPlugin.dll").SingleOrDefault();
             if (dllFile == null)
                 Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
 
-            var remnant = CatalogueRepository.GetAllObjects<CatalogueLibrary.Data.Plugin>().SingleOrDefault(p => p.Name.Equals("Fish.zip"));
-            if (remnant != null)
-                remnant.DeleteInDatabase();
+            //upload it to the repo
+            var plugin = new CatalogueLibrary.Data.Plugin(repo, new FileInfo("Fish.zip"));
 
-
-            var plugin = new CatalogueLibrary.Data.Plugin(CatalogueRepository, new FileInfo("Fish.zip"));
             try
             {
-                var lma = new LoadModuleAssembly(CatalogueRepository, new FileInfo(dllFile), plugin);
-            
-                Dictionary<string, Exception> badAssemblies = CatalogueRepository.MEF.ListBadAssemblies();
+                //declare a lma
+                var lma = new LoadModuleAssembly(repo, new FileInfo(dllFile), plugin);
+
+                //setup MEF to load the current directory
+                var mef = new MEF();
+                mef.Setup(new SafeDirectoryCatalog(TestContext.CurrentContext.TestDirectory));
+
+                //ensure HICPlugin is not deemed to be a bad plugin
+                Dictionary<string, Exception> badAssemblies = mef.ListBadAssemblies();
 
                 if (badAssemblies.ContainsKey(dllFile))
                     throw badAssemblies[dllFile];
 
-                Assert.NotNull(CatalogueRepository.MEF.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere"));
+                //create our instance using MEF.
+                Assert.NotNull(mef.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere"));
             }
             finally
             {

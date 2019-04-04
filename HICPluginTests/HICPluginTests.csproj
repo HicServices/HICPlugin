@@ -355,6 +355,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -400,6 +401,7 @@
     <Compile Include="Integration\CHIPopulatorTests.cs" />
     <Compile Include="Integration\HICCohortDestinationTest.cs" />
     <Compile Include="Unit\CHIColumnFinderTests.cs" />
+    <Compile Include="Unit\CHIMutilatorTests.cs" />
     <Compile Include="Unit\MicrobiologyLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
