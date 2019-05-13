@@ -274,7 +274,7 @@ namespace HICPlugin.Microbiology
                 }
                 else
                 {
-                    int maxLength = correspondingColumn.Discover(DataAccessContext.Any).DataType.GetLengthIfString();
+                    int maxLength = correspondingColumn.Discover(DataAccessContext.DataLoad).DataType.GetLengthIfString();
                     if(maxLength > -1)
                         _lengthsDictionary.Add(prop,(int)maxLength);
                 }
