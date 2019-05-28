@@ -1,5 +1,6 @@
 using System.IO;
 using System.Linq;
+using DrsPlugin.Attachers;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;
 

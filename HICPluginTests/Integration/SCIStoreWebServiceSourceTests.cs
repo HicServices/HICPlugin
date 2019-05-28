@@ -1,11 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Threading;
 using NUnit.Framework;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Caching.Requests.FetchRequestProvider;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Spontaneous;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Cache.Pipeline;
+using SCIStorePlugin.Data;
+using SCIStorePlugin.DataProvider.RetryStrategies;
+using SCIStorePlugin.Repositories;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration

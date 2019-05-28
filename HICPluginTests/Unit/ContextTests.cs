@@ -1,4 +1,15 @@
 using NUnit.Framework;
+using Rdmp.Core.Caching.Pipeline;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Caching.Requests.FetchRequestProvider;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Pipelines;
+using Rdmp.Core.DataFlowPipeline.Requirements;
+using Rhino.Mocks;
+using SCIStorePlugin.Cache.Pipeline;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Unit

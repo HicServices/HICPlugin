@@ -1,10 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
   </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="TestReports.resx" />
+  </ItemGroup>
   <ItemGroup>
     <None Remove="TestData\report-with-float-values.xml" />
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
@@ -16,16 +19,19 @@
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.36" />
+    <PackageReference Include="RhinoMocks" Version="3.6.1" />
+    <PackageReference Include="SharpZipLib" Version="1.1.0" />
+    <PackageReference Include="YamlDotNet" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DrsPlugin\DrsPlugin.csproj" />
+    <ProjectReference Include="..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\HICPluginInteractive\HICPluginInteractive.csproj" />
     <ProjectReference Include="..\HICPlugin\HICPlugin.csproj" />
+    <ProjectReference Include="..\JiraPlugin\JiraPlugin.csproj" />
+    <ProjectReference Include="..\SCIStorePlugin\SCIStorePlugin.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Mono.Cecil.dll" />
-    <Content Include="nunit.engine.api.dll" />
-    <Content Include="nunit.engine.dll" />
-    <Content Include="NUnit3.TestAdapter.dll" />
     <Content Include="NUnit3.TestAdapter.pdb" />
     <Content Include="TestDatabases.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -34,6 +40,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="TestData\report-with-multiple-descriptions.xml" />
+    <Content Include="TestReports.resx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

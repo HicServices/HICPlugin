@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Data;
+using SCIStorePlugin.DataProvider.RetryStrategies;
+using SCIStorePlugin.Repositories;
 
 namespace SCIStorePluginTests.Unit
 {

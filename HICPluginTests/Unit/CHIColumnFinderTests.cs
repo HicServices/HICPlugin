@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;
 

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using NUnit.Framework;
+using SCIStorePlugin.Repositories;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration

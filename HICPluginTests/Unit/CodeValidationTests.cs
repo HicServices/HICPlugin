@@ -1,5 +1,11 @@
 using NUnit.Framework;
+using Rdmp.Core.Repositories;
+using Rdmp.Core.Validation;
+using Rdmp.Core.Validation.Constraints.Secondary;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStore.SciStoreServices81;
+using SCIStorePlugin.Data;
 
 namespace SCIStorePluginTests.Unit
 {

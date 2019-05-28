@@ -5,7 +5,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using Rdmp.Core.Repositories;
+using Rdmp.Core.Validation;
+using Rdmp.Core.Validation.Constraints.Secondary;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Data;
+using SCIStorePlugin.Repositories;
 
 namespace SCIStorePluginTests.Unit
 {

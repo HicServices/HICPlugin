@@ -1,6 +1,16 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
+using Rdmp.Core.Caching.Pipeline;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Pipelines;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
+using Rdmp.Core.Repositories;
+using SCIStorePlugin.Cache.Pipeline;
+using SCIStorePlugin.Data;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration

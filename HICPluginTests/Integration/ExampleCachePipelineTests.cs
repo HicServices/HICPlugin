@@ -5,8 +5,24 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
+using Rdmp.Core.Caching.Pipeline;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Caching.Requests.FetchRequestProvider;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Pipelines;
+using Rdmp.Core.Curation.Data.Spontaneous;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataFlowPipeline.Requirements;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Cache.Pipeline;
+using SCIStorePlugin.Data;
+using SCIStorePlugin.DataProvider.RetryStrategies;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration
@@ -152,22 +168,22 @@ namespace SCIStorePluginTests.Integration
                 SilentRunning = true
             };
 
+            var cp = MockRepository.GenerateStub<ICacheProgress>();
+
             var request = MockRepository.GenerateStub<ICacheFetchRequest>();
             request.Start = startDate;
             request.ChunkPeriod = new TimeSpan(1, 0, 0);
-            request.CacheProgress = MockRepository.GenerateStub<ICacheProgress>();
+            request.CacheProgress = cp;
             request.CacheProgress.CacheLagPeriod = "14d";
-            var requestProvider = new CacheFetchRequestProvider(request);
+
+            var requestProvider = new CacheFetchRequestProvider(cp);
 
             var permissionWindow = MockRepository.GenerateStub<IPermissionWindow>();
             permissionWindow.Stub(window => window.WithinPermissionWindow()).Return(true);
             permissionWindow.RequiresSynchronousAccess = true;
 
             var hicProjectDirectory = LoadDirectory.CreateDirectoryStructure(rootDirectory, "SCIStore");
-
-            var cp = MockRepository.GenerateMock<CacheProgress>();
-
-
+            
             var engine = new DataFlowPipelineEngine<ICacheChunk>((DataFlowPipelineContext<ICacheChunk>) new CachingPipelineUseCase(cp).GetContext(), 
                 source, destination, new ThrowImmediatelyDataLoadEventListener());
             engine.Initialize(requestProvider, permissionWindow, hicProjectDirectory);
@@ -217,21 +233,20 @@ namespace SCIStorePluginTests.Integration
                 Discipline =  Discipline.Biochemistry,
                 SilentRunning = true
             };
+            
+            var cp = MockRepository.GenerateStub<ICacheProgress>();
 
             var request = MockRepository.GenerateStub<ICacheFetchRequest>();
             request.Start = startDate;
             request.ChunkPeriod = new TimeSpan(1, 0, 0);
-            request.CacheProgress = MockRepository.GenerateStub<ICacheProgress>();
+            request.CacheProgress = cp;
             request.CacheProgress.CacheLagPeriod = "14d";
-            var requestProvider = new CacheFetchRequestProvider(request);
+            var requestProvider = new CacheFetchRequestProvider(cp);
 
             var permissionWindow = MockRepository.GenerateStub<IPermissionWindow>();
             permissionWindow.Stub(window => window.WithinPermissionWindow()).Return(true);
             permissionWindow.RequiresSynchronousAccess = false;
 
-
-
-            var cp = MockRepository.GenerateMock<CacheProgress>();
 
             var useCase = new CachingPipelineUseCase(cp);
             
@@ -392,7 +407,7 @@ namespace SCIStorePluginTests.Integration
             var fetchRequest = CreateCacheFetchRequest(cacheProgress);
             fetchRequest.ChunkPeriod = new TimeSpan(0, 30, 0);
 
-            var fetchRequestProvider = new CacheFetchRequestProvider(fetchRequest);
+            var fetchRequestProvider = new CacheFetchRequestProvider(cacheProgress);
             engine.Initialize(fetchRequestProvider, new SpontaneouslyInventedPermissionWindow(cacheProgress), hicProjectDirectory);
             
             return engine;

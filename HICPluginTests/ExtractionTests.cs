@@ -5,8 +5,20 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
+using DrsPlugin.Extraction;
+using ICSharpCode.SharpZipLib.Tar;
 using NUnit.Framework;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.DataExport.Data;
+using Rdmp.Core.DataExport.DataExtraction;
+using Rdmp.Core.DataExport.DataExtraction.Commands;
+using Rdmp.Core.DataExport.DataExtraction.UserPicks;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.QueryBuilding;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
 using Tests.Common;
 
 namespace DrsPluginTests

@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using JiraPlugin;
+using NUnit.Framework;
+using Rdmp.Core.Ticketing;
 using ReusableLibraryCode.DataAccess;
+using Rhino.Mocks;
 using Tests.Common;
 
 namespace JiraPluginTests

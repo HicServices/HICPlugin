@@ -1,7 +1,17 @@
 ﻿using System;
 using System.IO;
 using NUnit.Framework;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Caching.Requests.FetchRequestProvider;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.DataFlowPipeline;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStore.SciStoreServices81;
+using SCIStorePlugin;
+using SCIStorePlugin.Cache.Pipeline;
+using SCIStorePlugin.Data;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration
@@ -64,7 +74,9 @@ namespace SCIStorePluginTests.Integration
             try
             {
                 var fetchRequest = MockRepository.GenerateStub<ICacheFetchRequest>();
-                var fetchRequestProvider = new CacheFetchRequestProvider(fetchRequest);
+                var cp = MockRepository.GenerateMock<ICacheProgress>();
+
+                var fetchRequestProvider = new CacheFetchRequestProvider(cp);
                 fetchRequestProvider.GetNext(new ThrowImmediatelyDataLoadEventListener());
 
                 var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)

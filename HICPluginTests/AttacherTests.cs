@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using DrsPlugin.Attachers;
 using FAnsi.Discovery;
+using ICSharpCode.SharpZipLib.Tar;
 using NUnit.Framework;
+using Rdmp.Core.Curation;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.Job;
+using Rdmp.Core.DataLoad.Modules.Attachers;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
 using Tests.Common;
 
 namespace DrsPluginTests

@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using HICPlugin.DataFlowComponents;
+using NUnit.Framework;
+using Rdmp.Core.DataFlowPipeline;
 using ReusableLibraryCode.Progress;
+using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Integration
 {

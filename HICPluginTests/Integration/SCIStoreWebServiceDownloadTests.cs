@@ -1,8 +1,18 @@
 using System;
 using NUnit.Framework;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Caching.Requests.FetchRequestProvider;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.Cache;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Cache.Pipeline;
+using SCIStorePlugin.Data;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration
@@ -100,16 +110,18 @@ namespace SCIStorePluginTests.Integration
                 var permissionWindow = MockRepository.GenerateStub<IPermissionWindow>();
                 permissionWindow.Stub(window => window.WithinPermissionWindow()).Return(true);
 
+                /*new CacheFetchRequest(CatalogueRepository, startDate)
+                    {
+                        ChunkPeriod = new TimeSpan(1, 0, 0),
+                        CacheProgress = cacheProgress
+                    }*/
+
                 var component = new SCIStoreWebServiceSource
                 {
                     Configuration = _validTaysideConfiguration,
                     HealthBoard = HealthBoard.T,
                     Discipline = Discipline.Biochemistry,
-                    RequestProvider = new CacheFetchRequestProvider(new CacheFetchRequest(CatalogueRepository, startDate)
-                    {
-                        ChunkPeriod = new TimeSpan(1, 0, 0),
-                        CacheProgress = cacheProgress
-                    }),
+                    RequestProvider = new CacheFetchRequestProvider(cacheProgress),
                     PermissionWindow = permissionWindow
                 };
 
@@ -144,16 +156,18 @@ namespace SCIStorePluginTests.Integration
             var permissionWindow = MockRepository.GenerateStub<IPermissionWindow>();
             permissionWindow.Stub(window => window.WithinPermissionWindow()).Return(true);
 
+            /*new CacheFetchRequest(CatalogueRepository, startDate)
+                {
+                    ChunkPeriod = new TimeSpan(8, 0, 0),
+                    CacheProgress = cacheProgress
+                }*/
+
             var component = new SCIStoreWebServiceSource
             {
                 Configuration = _validFifeConfiguration,
                 HealthBoard = HealthBoard.F,
                 Discipline = Discipline.Pathology,
-                RequestProvider = new CacheFetchRequestProvider(new CacheFetchRequest(CatalogueRepository, startDate)
-                {
-                    ChunkPeriod = new TimeSpan(8, 0, 0),
-                    CacheProgress = cacheProgress
-                }),
+                RequestProvider = new CacheFetchRequestProvider(cacheProgress),
                 PermissionWindow = permissionWindow
             };
 

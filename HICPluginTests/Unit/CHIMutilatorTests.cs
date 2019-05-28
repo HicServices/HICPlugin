@@ -1,5 +1,8 @@
 ﻿using System.Linq;
+using HICPlugin.Mutilators;
 using NUnit.Framework;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Repositories;
 
 namespace HICPluginTests.Unit
 {

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataLoad.Engine.Mutilators;
+using Rdmp.Core.Repositories;
 
 namespace HICPluginTests.Integration
 {
@@ -19,12 +22,12 @@ namespace HICPluginTests.Integration
                 Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
 
             //upload it to the repo
-            var plugin = new CatalogueLibrary.Data.Plugin(repo, new FileInfo("Fish.zip"));
+            var plugin = new Plugin(repo, new FileInfo("Fish.zip"));
 
             try
             {
                 //declare a lma
-                var lma = new LoadModuleAssembly(repo, new FileInfo(dllFile), plugin);
+                var lma = new LoadModuleAssembly(repo, new FileInfo(dllFile), plugin,null);
 
                 //setup MEF to load the current directory
                 var mef = new MEF();
@@ -37,7 +40,7 @@ namespace HICPluginTests.Integration
                     throw badAssemblies[dllFile];
 
                 //create our instance using MEF.
-                Assert.NotNull(mef.FactoryCreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere"));
+                Assert.NotNull(mef.CreateA<IMutilateDataTables>("HICPlugin.CHIPopulatorAnywhere"));
             }
             finally
             {

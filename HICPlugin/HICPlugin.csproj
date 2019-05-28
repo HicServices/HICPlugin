@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyTitle>HICPlugin</AssemblyTitle>
     <Product>HICPlugin</Product>
     <Copyright>Copyright ©  2016</Copyright>
@@ -37,5 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MTo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
 </Project>

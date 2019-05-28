@@ -1,5 +1,7 @@
 ﻿using System;
+using JiraPlugin;
 using NUnit.Framework;
+using Rdmp.Core.Ticketing;
 using ReusableLibraryCode.DataAccess;
 
 namespace JiraPluginTests

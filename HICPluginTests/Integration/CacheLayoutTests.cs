@@ -2,6 +2,8 @@
 using System.IO;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;
+using SCIStorePlugin.Cache;
+using SCIStorePlugin.Data;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration

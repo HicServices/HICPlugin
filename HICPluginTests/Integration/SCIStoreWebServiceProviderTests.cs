@@ -1,7 +1,11 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
 using NUnit.Framework;
+using Rdmp.Core.Validation;
+using Rdmp.Core.Validation.Constraints.Secondary;
 using ReusableLibraryCode.Progress;
+using Rhino.Mocks;
+using SCIStorePlugin.Data;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Integration
