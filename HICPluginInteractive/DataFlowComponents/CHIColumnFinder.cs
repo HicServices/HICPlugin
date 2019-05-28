@@ -4,14 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.DataFlowPipeline;
-using HIC.Common.Validation.Constraints.Primary;
 using HICPluginInteractive.UIComponents;
-using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.Progress;
-using ReusableUIComponents.SingleControlForms;
 
 namespace HICPluginInteractive.DataFlowComponents
 {

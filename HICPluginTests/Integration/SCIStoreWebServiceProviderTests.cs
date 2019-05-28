@@ -1,0 +1,29 @@
+﻿using System.IO;
+using System.Xml.Serialization;
+using NUnit.Framework;
+using ReusableLibraryCode.Progress;
+using Tests.Common;
+
+namespace SCIStorePluginTests.Integration
+{
+    [Category("Database")]
+    public class SCIStoreWebServiceProviderTests : DatabaseTests
+    {
+        [Test]
+        public void LabWithDifferentClinicalCodeDescriptionsForSameTestCode()
+        {
+            Validator.LocatorForXMLDeserialization = RepositoryLocator;
+
+            var serializer = new XmlSerializer(typeof(CombinedReportData));
+            var lab = serializer.Deserialize(new StringReader(TestReports.REPORT_WITH_MULTIPLE_DESCRIPTIONS)) as CombinedReportData;
+
+            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            readCodeConstraint.Stub(
+                c => c.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
+                .Return(null);
+
+            var reportFactory = new SciStoreReportFactory(readCodeConstraint);
+            var report = reportFactory.Create(lab, new ThrowImmediatelyDataLoadEventListener());
+        }
+    }
+}

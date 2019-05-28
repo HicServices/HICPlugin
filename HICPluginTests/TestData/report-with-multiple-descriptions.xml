@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<CombinedReportData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <HbExtract>T</HbExtract>
+  <SciStoreRecord>
+    <CHI>0</CHI>
+    <LabNumber>ANO</LabNumber>
+    <TestReportID>0</TestReportID>
+    <ReportType></ReportType>
+    <patientid>0</patientid>
+    <name></name>
+  </SciStoreRecord>
+  <InvestigationReport>
+	<ReportData xmlns="http://www.show.scot.nhs.uk/isd/SCIStore">
+      <ReportIdentifier>0</ReportIdentifier>
+      <ReportDate>1900-01-01</ReportDate>
+      <Discipline>ANO</Discipline>
+	  <ServiceRequest>
+        <ClinicalDataRequired>ANO</ClinicalDataRequired>
+      </ServiceRequest>
+      <ServiceResult>
+        <SampleDetails>
+          <SampleName xmlns="http://www.show.scot.nhs.uk/isd/General">
+            <ClinicalCircumstanceDescription>ANO</ClinicalCircumstanceDescription>
+          </SampleName>
+        </SampleDetails>
+        <TestResultSets>
+          <TestResultSet>
+            <TestSetDetails xmlns="http://www.show.scot.nhs.uk/isd/General">
+              <TestName>
+                <ClinicalInformation>
+                  <ClinicalCode>
+                    <ClinicalCodeValue>TTTT.</ClinicalCodeValue>
+                    <ClinicalCodeScheme>
+                      <ClinicalCodeSchemeVersion>Undefined</ClinicalCodeSchemeVersion>
+                      <ClinicalCodeSchemeId>Undefined</ClinicalCodeSchemeId>
+                    </ClinicalCodeScheme>
+                  </ClinicalCode>
+                  <ClinicalCodeDescription>TEST</ClinicalCodeDescription>
+                </ClinicalInformation>
+              </TestName>
+              <TestName>
+                <ClinicalInformation>
+                  <ClinicalCode>
+                    <ClinicalCodeValue>TEST</ClinicalCodeValue>
+                    <ClinicalCodeScheme>
+                      <ClinicalCodeSchemeVersion>Undefined</ClinicalCodeSchemeVersion>
+                      <ClinicalCodeSchemeId>Undefined</ClinicalCodeSchemeId>
+                    </ClinicalCodeScheme>
+                  </ClinicalCode>
+                  <ClinicalCodeDescription>LOCAL TEST CODE</ClinicalCodeDescription>
+                </ClinicalInformation>
+              </TestName>
+              <OrderNumber>0</OrderNumber>
+              <TestIdentifier>
+                <IdValue>0</IdValue>
+                <IdScheme>TEST</IdScheme>
+              </TestIdentifier>
+            </TestSetDetails>
+            <TestResults xmlns="http://www.show.scot.nhs.uk/isd/General">
+              <TestResult>
+                <TestPerformed>
+                  <TestName>
+                    <ClinicalInformation>
+                      <ClinicalCode>
+                        <ClinicalCodeValue>TTTT.</ClinicalCodeValue>
+                        <ClinicalCodeScheme>
+                          <ClinicalCodeSchemeVersion>Undefined</ClinicalCodeSchemeVersion>
+                          <ClinicalCodeSchemeId>Undefined</ClinicalCodeSchemeId>
+                        </ClinicalCodeScheme>
+                      </ClinicalCode>
+                      <ClinicalCodeDescription>TEST</ClinicalCodeDescription>
+                    </ClinicalInformation>
+                  </TestName>
+                  <TestName>
+                    <ClinicalInformation>
+                      <ClinicalCode>
+                        <ClinicalCodeValue>TEST</ClinicalCodeValue>
+                        <ClinicalCodeScheme>
+                          <ClinicalCodeSchemeVersion>Undefined</ClinicalCodeSchemeVersion>
+                          <ClinicalCodeSchemeId>Undefined</ClinicalCodeSchemeId>
+                        </ClinicalCodeScheme>
+                      </ClinicalCode>
+                      <ClinicalCodeDescription>LOCAL TEST CODE</ClinicalCodeDescription>
+                    </ClinicalInformation>
+                  </TestName>
+                </TestPerformed>
+                <TestMeasurement>
+                  <MeasurementNumeric>
+                    <Result>
+                      <QuantityValue>0</QuantityValue>
+                      <QuantityUnit>%</QuantityUnit>
+                    </Result>
+                  </MeasurementNumeric>
+                </TestMeasurement>
+                <DisciplineSpecificValues>TestResultOrder:0</DisciplineSpecificValues>
+              </TestResult>
+            </TestResults>
+            <ResultStatus xmlns="http://www.show.scot.nhs.uk/isd/General">
+              <StatusType>Final</StatusType>
+            </ResultStatus>
+          </TestResultSet>
+        </TestResultSets>
+      </ServiceResult>
+    </ReportData>
+    <DocumentData xmlns="http://www.show.scot.nhs.uk/isd/SCIStore">
+    </DocumentData>
+  </InvestigationReport>
+</CombinedReportData>

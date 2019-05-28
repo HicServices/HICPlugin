@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.Repositories;
-using DataLoadEngine.Mutilators;
 using NUnit.Framework;
 
 namespace HICPluginTests.Integration

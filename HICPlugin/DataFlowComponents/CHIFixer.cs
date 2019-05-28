@@ -2,9 +2,6 @@
 using System.ComponentModel;
 using System.Data;
 using System.Text.RegularExpressions;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.DataFlowPipeline;
-using HIC.Common.Validation.Constraints.Primary;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 

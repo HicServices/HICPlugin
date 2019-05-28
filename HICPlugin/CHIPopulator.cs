@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
-using System.Web.Script.Serialization;
-using CatalogueLibrary;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.Data.DataLoad;
-using DataLoadEngine.Job;
-using DataLoadEngine.Mutilators;
 using FAnsi.Naming;
-using HIC.Demography;
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin
 {
-    
+
     public abstract class CHIPopulator : IPluginMutilateDataTables
     {
         private const string ChiServiceUrl = "https://hic.tayside.scot.nhs.uk/hicdemographylookupservice/api/CHILookup";

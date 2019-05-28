@@ -5,23 +5,26 @@ task :create_test_connection_config, :server, :namespace, :plugin_name do |t, ar
 	test_dir = args.plugin_name + "Tests"
 	settings = REXML::Document.new File.new(test_dir + "/Tests.Common.dll.config.template")
 	
-	elements = {
-		"DataExportManagerConnectionString" => "DataExportManager",
-		"DataQualityEngineConnectionString" => "DataQualityEngine",
-		"TestCatalogueConnectionString" => "Catalogue",
-		"UnitTestLoggingConnectionString" => "Logging"
-	}
+	connection = settings.root.elements["DataExportManagerConnectionString"]
+	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "DataExportManager");
 
-	elements.each do |element_name, database_name|
-		connection = settings.root.elements[element_name]
-		connection.text = HelperFunctions.substitute(template, args.server, args.namespace, database_name);
-	end
+	connection = settings.root.elements["DataQualityEngineConnectionString"]
+	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "DataQualityEngine");
 
-	# patch out the 'localhost' in the ServerICanCreate... tag
+	connection = settings.root.elements["TestCatalogueConnectionString"]
+	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "Catalogue");
+
+	connection = settings.root.elements["UnitTestLoggingConnectionString"]
+	connection.text = HelperFunctions.substitute(template, args.server, args.namespace, "Logging");
+
 	connection = settings.root.elements["ServerICanCreateRandomDatabasesAndTablesOnConnectionString"]
 	connection.text = "Server=" + args.server + ";Integrated security=true"
-
+	
 	File.write(test_dir + "/Tests.Common.dll.config", settings.to_s)
+
+	# Copy connections.config.template to connections.config
+	settings = REXML::Document.new File.new(test_dir + "/connections.config.template")
+	File.write(test_dir + "/connections.config", settings.to_s)
 end
 
 class HelperFunctions

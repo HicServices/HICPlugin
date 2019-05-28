@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using HICPlugin.Microbiology;
 using NUnit.Framework;
 
 namespace HICPluginTests.Unit

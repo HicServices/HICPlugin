@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Data;
-using CatalogueLibrary.DataFlowPipeline;
-using DataExportLibrary.CohortCreationPipeline;
-using DataExportLibrary.Data.DataTables;
-using DataExportLibrary.Repositories;
-using DataExportLibrary.Tests;
-using HICPlugin.DataFlowComponents;
 using MapsDirectlyToDatabaseTable;
 using NUnit.Framework;
 using ReusableLibraryCode.Progress;

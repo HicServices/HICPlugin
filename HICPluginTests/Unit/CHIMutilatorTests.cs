@@ -1,7 +1,4 @@
 ﻿using System.Linq;
-using CatalogueLibrary.Data.DataLoad;
-using CatalogueLibrary.Repositories;
-using HICPlugin.Mutilators;
 using NUnit.Framework;
 
 namespace HICPluginTests.Unit

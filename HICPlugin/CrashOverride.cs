@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CatalogueLibrary;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.Data.DataLoad;
-using CatalogueLibrary.DataFlowPipeline;
-using DataLoadEngine.Attachers;
-using DataLoadEngine.DataProvider;
-using DataLoadEngine.Job;
+﻿using System.Collections.Generic;
 using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.DataAccess;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
 

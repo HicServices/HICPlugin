@@ -1,0 +1,6 @@
+﻿PX_Count,CHI,Examination_Date,Visual_Acuity,Eye,Retinopathy,Maculopathy,Image_Num,Image_Filename,Pixel_Width,Pixel_Height,blotHaem,CWS,flameHaem,imageQuality,IRMA,laserScarsType,MA,MacBlotHaem,MaxExudates,NVD,NVE,OODARMD,OODAstHyal,OODCuppedDisc,OODDrusen,OODEpiretMemb,OODMRNF,OODPigmLesion,OODRetVeinThromb,RetDet,VB,VH
+2,1234567890,17/05/2016,0.2 (6/9.5),R,R0,M1,1,2_1234567890_2016-05-17_RM_1_PW1024_PH768.jpeg,1024,768,None,No,No,Nerve fibre layer not visible,No,No,No,No,No,None,None,No,No,Yes,No,No,No,No,No,No,No,No
+2,1234567890,17/05/2016,0.2 (4/8.5),L,R0,M0,2,2_1234567890_2016-05-17_LM_2_PW1024_PH768.jpeg,1024,768,None,No,No,Nerve fibre layer not visible,No,No,No,No,No,None,None,No,No,Yes,No,No,No,No,No,No,No,No
+2,2345678901,18/05/2016,0.3 (2/8.5),R,R1,M0,1,2_2345678901_2016-05-18_RM_1_PW1024_PH768.png,1024,768,None,No,No,Nerve fibre layer not visible,No,No,No,No,No,None,None,No,No,Yes,No,No,No,No,No,No,No,No
+2,2345678901,18/05/2016,0.4 (6/7.5),L,R1,M0,2,2_2345678901_2016-05-18_LM_2_PW1024_PH768.png,1024,768,None,No,No,Nerve fibre layer not visible,No,No,No,No,No,None,None,No,No,Yes,No,No,No,No,No,No,No,No
+2,2345678901,19/05/2016,0.4 (2/8.5),R,R1,M0,1,2_2345678901_2016-05-19_RM_1_PW1024_PH768.png,1024,768,None,No,No,Nerve fibre layer not visible,No,No,No,No,No,None,None,No,No,Yes,No,No,No,No,No,No,No,No

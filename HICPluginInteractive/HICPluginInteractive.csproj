@@ -1,392 +1,75 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{35B7AC3F-67D1-4069-B5DE-D58C9A9577B3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HICPluginInteractive</RootNamespace>
-    <AssemblyName>HICPluginInteractive</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>de946ee7</NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyTitle>HICPluginInteractive</AssemblyTitle>
+    <Product>HICPluginInteractive</Product>
+    <Copyright>Copyright ©  2018</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ANOStore, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\ANOStore.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ANOStore.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\ANOStore.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AutocompleteMenu-ScintillaNET">
-      <HintPath>..\packages\AutoCompleteMenu-ScintillaNET.1.5.0\lib\net40\AutocompleteMenu-ScintillaNET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CachingEngine, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CachingEngine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CatalogueLibrary, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CatalogueLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CatalogueLibrary.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CatalogueLibrary.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CatalogueManager, Version=2.13.0.2, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CatalogueManager.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CohortManager, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CohortManager.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CohortManagerLibrary, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\CohortManagerLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CommandLine, Version=2.3.0.0, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommandLineParser.2.3.0\lib\net45\CommandLine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Dashboard, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\Dashboard.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DatabaseCreation, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DatabaseCreation.exe</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataExportLibrary, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataExportLibrary.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataExportLibrary.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataExportLibrary.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataExportManager, Version=2.13.0.2, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataExportManager.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataLoadEngine, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataLoadEngine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataQualityEngine, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataQualityEngine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DataQualityEngine.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\DataQualityEngine.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Diagnostics, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\Diagnostics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ExcelNumberFormat, Version=1.0.3.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelNumberFormat.1.0.3\lib\net20\ExcelNumberFormat.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FAnsi, Version=0.9.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.FansiSql.0.9.0.5\lib\net452\FAnsi.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FAnsi.Implementations.MicrosoftSQL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.FansiSql.0.9.0.5\lib\net452\FAnsi.Implementations.MicrosoftSQL.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FAnsi.Implementations.MySql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.FansiSql.0.9.0.5\lib\net452\FAnsi.Implementations.MySql.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FAnsi.Implementations.Oracle, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.FansiSql.0.9.0.5\lib\net452\FAnsi.Implementations.Oracle.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="GraphX.Controls">
-      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.Controls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="GraphX.PCL.Common">
-      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.PCL.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="GraphX.PCL.Logic">
-      <HintPath>..\packages\GraphX.2.2.0.2\lib\net40-client\GraphX.PCL.Logic.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HIC.Common.Validation, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\HIC.Common.Validation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HIC.Logging, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\HIC.Logging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HIC.Logging.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\HIC.Logging.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HIC.RDMP.Plugin.UI, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\HIC.RDMP.Plugin.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=1.0.0.999, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpZipLib.1.0.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="IdentifierDump, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\IdentifierDump.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="IdentifierDump.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\IdentifierDump.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
-      <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LoadModules.Generic, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\LoadModules.Generic.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LoadModules.GenericUIs, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\LoadModules.GenericUIs.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MapsDirectlyToDatabaseTable, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\MapsDirectlyToDatabaseTable.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MapsDirectlyToDatabaseTableUI, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\MapsDirectlyToDatabaseTableUI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MathNet.Numerics, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MathNet.Numerics.4.7.0\lib\net40\MathNet.Numerics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel">
-      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Reflection">
-      <HintPath>..\packages\Mono.Reflection.1.1.0.0\lib\Mono.Reflection.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NHunspell, Version=1.2.5554.16953, Culture=neutral, PublicKeyToken=1ac793ea843b4366, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHunspell.1.2.5554.16953\lib\net\NHunspell.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="NuDoq, Version=1.2.0.0, Culture=neutral, PublicKeyToken=197ef17e56afcdb9, processorArchitecture=MSIL">
-      <HintPath>..\packages\NuDoq.1.2.5\lib\net35\NuDoq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ObjectListView">
-      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
-      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Plugin.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Plugin.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\net45\Plugin.Settings.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PluginPackager, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\PluginPackager.exe</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="QueryCaching, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\QueryCaching.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QueryCaching.Database, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\QueryCaching.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QuickGraph">
-      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QuickGraph.Data">
-      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QuickGraph.Graphviz">
-      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Graphviz.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="QuickGraph.Serialization">
-      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Serialization.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="RDMPAutomationService, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\RDMPAutomationService.exe</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="RDMPStartup, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\RDMPStartup.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Renci.SshNet">
-      <HintPath>..\packages\SSH.NET.2013.4.7\lib\net40\Renci.SshNet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ResearchDataManagementPlatform, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\ResearchDataManagementPlatform.exe</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ReusableLibraryCode, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\ReusableLibraryCode.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ReusableUIComponents, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\ReusableUIComponents.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ScintillaNET">
-      <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Sharing, Version=2.13.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HIC.RDMP.Plugin.UI.2.13.0.2-rc\lib\net452\Sharing.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Configuration.Install" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Drawing.Design" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.13.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <HintPath>..\packages\DockPanelSuite.2.13.0\lib\net40\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2015, Version=2.13.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
-      <HintPath>..\packages\DockPanelSuite.ThemeVS2015.2.13.0\lib\net40\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="Xceed.Words.NET, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
-      <HintPath>..\packages\DocX.1.1.0\lib\Xceed.Words.NET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    
+    
+    
+    
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataFlowComponents\CHIColumnFinder.cs" />
-    <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UIComponents\ExtractDataTableViewer.cs">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UIComponents\ExtractDataTableViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UIComponents\ExtractDataTableViewer.designer.cs">
+    <Compile Update="UIComponents\ExtractDataTableViewer.designer.cs">
       <DependentUpon>ExtractDataTableViewer.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="UIComponents\ExtractDataTableViewer.resx">
+    <EmbeddedResource Update="UIComponents\ExtractDataTableViewer.resx">
       <DependentUpon>ExtractDataTableViewer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pencil.cur" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

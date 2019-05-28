@@ -1,5 +1,3 @@
-using CatalogueLibrary.Data;
-using CatalogueLibrary.Data.DataLoad;
 using FAnsi.Naming;
 
 namespace HICPlugin

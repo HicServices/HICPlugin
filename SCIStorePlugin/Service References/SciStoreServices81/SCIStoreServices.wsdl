@@ -1,0 +1,3457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s0="http://www.show.scot.nhs.uk/isd/SCIStore/Messages" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://www.show.scot.nhs.uk/isd/SCIStore" xmlns:s2="http://www.show.scot.nhs.uk/isd/SCIStore/Headers" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="http://www.show.scot.nhs.uk/isd/General" targetNamespace="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.show.scot.nhs.uk/isd/SCIStore/Messages">
+      <s:import namespace="http://www.show.scot.nhs.uk/isd/SCIStore" />
+      <s:element name="Login" type="s1:Login" />
+      <s:element name="LoginResponse" type="s1:LoginTokenResponse" />
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotificationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalNotificationsToReturn" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NotificationAction" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNotificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NotificationList" type="s1:ArrayOfNotificationInfo" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubscription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscriptionID" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSubscriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnSubscribeToStore">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnSubscribeToStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BreakGlass" type="s1:BreakGlassInfo" />
+      <s:element name="BreakGlassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItem" type="s1:BreakGlassItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBreakGlassTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBreakGlassTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassTypes" type="s1:ArrayOfBreakGlassTypeItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindADT" type="s1:FindADTcriteria" />
+      <s:element name="FindADTresponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ADTMessages" type="s1:ArrayOfFindADTItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetADT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ADTId" type="s:positiveInteger" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetADTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:ADTsystemInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="ADTinformation" type="s1:ADTmessageType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindPatient" type="s1:FindPatientCriteria" />
+      <s:element name="FindPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Patients" type="s1:ArrayOfFindPatientItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeExtendedDemographics" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="IncludeInactiveDemographics" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="IDformat" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaveInStore" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:PatientSystemInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="PatientInformation" type="s1:PatientInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:SearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindResult" type="s1:FindResultCriteria" />
+      <s:element name="FindResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Results" type="s1:ArrayOfFindResultItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultID" type="s:nonNegativeInteger" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeSampleHtml" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeSetHtml" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:ReportSystemInformation" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvestigationReport" type="s1:InvestigationReport" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindDocument" type="s1:FindDocumentCriteria" />
+      <s:element name="FindDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Documents" type="s1:ArrayOfFindDocumentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:nonNegativeInteger" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Document" type="s1:DocumentInfo" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentStylesheet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:nonNegativeInteger" />
+            <s:element minOccurs="0" maxOccurs="1" name="Stylesheet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentStylesheetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StyleSheetDetails" type="s1:DocumentStylesheetType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindTreatmentLog" type="s1:FindTreatmentLogCriteria" />
+      <s:element name="FindTreatmentLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogList" type="s1:ArrayOfFindTreatmentLogItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTreatmentLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogID" type="s:nonNegativeInteger" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTreatmentLogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TreatmentLog" type="s1:TreatmentLogInfo" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindMerge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryPatientId" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindMergeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Patients" type="s1:ArrayOfFindMergeItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergePatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryPatientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecondaryPatientID" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergePatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnMergePatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryPatientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SecondaryPatientID" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnMergePatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueueCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueueCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Count" type="s:nonNegativeInteger" />
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueueDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageIdentifier" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueueDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageIdentifier" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueuePeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessageQueuePeekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Queue" type="s1:MessageQueue" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageIdentifier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MessageBody" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindHCP" type="s1:FindHCPcriteria" />
+      <s:element name="FindHCPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HCPs" type="s1:ArrayOfHCPitem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindOrganisation" type="s1:FindOrganisationCriteria" />
+      <s:element name="FindOrganisationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Organisations" type="s1:ArrayOfOrganisationItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebTimeout">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWebTimeoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Minutes" type="s:positiveInteger" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterfaceStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Limits" type="s1:InterfaceStatusLimits" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInterfaceStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Services" type="s1:ArrayOfServiceItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindBreakGlassAudit" type="s1:FindBreakGlassAuditCriteria" />
+      <s:element name="FindBreakGlassAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BreakGlassAuditInstances" type="s1:ArrayOfBreakGlassAuditItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindPatientConsentAudit" type="s1:PatientConsentAuditCriteria" />
+      <s:element name="FindPatientConsentAuditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PatientConsentAuditInstances" type="s1:ArrayOfPatientConsentAuditItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCumulativeReport" type="s1:CumulativeReportCriteria" />
+      <s:element name="GetCumulativeReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CumulativeReport" type="s1:CumulativeReport" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubscriptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscriptionType" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindSubscriptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Subscriptions" type="s1:ArrayOfSubscriptionInfo" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubscription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscriptionInfo" type="s1:SubscriptionInfo" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSubscriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscriptionID" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AmendSubscription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubscriptionInfo" type="s1:SubscriptionInfo" />
+            <s:any minOccurs="0" maxOccurs="1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AmendSubscriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviderLocations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IncludeFixedInterfaces" type="s:boolean" />
+            <s:any minOccurs="0" maxOccurs="1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProviderLocationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProviderLocations" type="s1:ArrayOfProviderLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LocatePatients" type="s1:LocatePatientCriteria" />
+      <s:element name="LocatePatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="PatientMatches" type="s1:PatientMatch" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientsResultList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Patients" type="s1:PatientIdentifierList" />
+            <s:element minOccurs="0" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientsResultListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Results" type="s1:ArrayOfFindResultItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfPatientSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientsDocumentList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Patients" type="s1:PatientIdentifierList" />
+            <s:element minOccurs="0" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientsDocumentListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Documents" type="s1:ArrayOfFindDocumentItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="SearchSummary" type="s1:ArrayOfPatientSearchSummaryItem" />
+            <s:any minOccurs="0" maxOccurs="unbounded" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.show.scot.nhs.uk/isd/SCIStore">
+      <s:import namespace="http://www.show.scot.nhs.uk/isd/General" />
+      <s:complexType name="Login">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginTokenResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Application">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="BuiltDateTime" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNotificationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Notification" type="s1:NotificationInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NotificationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationDetail">
+            <s:complexType>
+              <s:sequence>
+                <s:choice minOccurs="1" maxOccurs="1">
+                  <s:element minOccurs="0" maxOccurs="1" name="StoreIdentifier" type="s:nonNegativeInteger" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PatientNotificationInfo" type="s1:PatientNotification" />
+                </s:choice>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientNotification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MergeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessEvents" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BreakGlassInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BreakGlassItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassExpires" type="s:dateTime" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBreakGlassTypeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BreakGlassType" type="s1:BreakGlassTypeItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BreakGlassTypeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassTypeID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassTypeDescription" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindADTcriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActionDateRange" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientBasicCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderSearch" type="s1:ProviderSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindDateRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateFrom" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTo" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindPatientBasicCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s1:FindPatientNameCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ids" type="s1:FindPatientIDCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeAnonymous" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindPatientNameCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Forename" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForenameComparator" type="s1:SearchComparator" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SurnameComparator" type="s1:SearchComparator" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SearchComparator">
+        <s:restriction base="s:string">
+          <s:enumeration value="equals" />
+          <s:enumeration value="begins" />
+          <s:enumeration value="contains" />
+          <s:enumeration value="soundex" />
+          <s:enumeration value="index equals" />
+          <s:enumeration value="index begins" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="FindPatientIDCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDcomparator" type="s1:SearchComparator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProviderSearchCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SearchType" type="s1:ProviderSearchType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Providers" type="s1:ArrayOfProviderItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeAll" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ProviderSearchType">
+        <s:restriction base="s:string">
+          <s:enumeration value="MergedResults" />
+          <s:enumeration value="FirstHit" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfProviderItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Provider" type="s1:ProviderItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProviderItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderIdentifier" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBreakGlassItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BreakGlassItem" type="s1:BreakGlassItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFindADTItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ADTmessage" type="s1:FindADTItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindADTItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ADTDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ADTid" type="s:integer" />
+                <s:element minOccurs="0" maxOccurs="1" name="ActionType" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="ActionDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="TransactionDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="AdmissionDateTime" nillable="true" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="DischargeDateTime" nillable="true" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="TransferDateTime" nillable="true" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="HospitalCode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DateTimeReadyForDischarge" nillable="true" type="s:dateTime" />
+                <s:element minOccurs="1" maxOccurs="1" name="AdmittedCode" nillable="true" type="s:integer" />
+                <s:element minOccurs="0" maxOccurs="1" name="AdmittedFromCode" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="DischargeCode" nillable="true" type="s:integer" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCategory" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindPatientItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderCol" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GP" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="GPPractice" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consultant" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hospital" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Soundex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exception">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="N" />
+                <s:enumeration value="Y" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SeededRecord">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="N" />
+                <s:enumeration value="Y" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Merged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Anonymous" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSearchSummaryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchSummaryItem" type="s1:SearchSummaryItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchSummaryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCount" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchTime" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTsystemInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ADTid" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:nonNegativeInteger" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTmessageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageData" type="s1:ADTinterface" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageHeaderPrf" type="s1:MESSAGE_HEADER_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTinterface">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ADTInformation" type="s1:ADTinfoDetailed" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientInformation" type="s1:PatientInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingSystem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionType" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTinfoDetailed">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ADTid" type="s1:ADTtransactionID" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADTmessageContent">
+            <s:complexType>
+              <s:sequence>
+                <s:choice minOccurs="1" maxOccurs="1">
+                  <s:element minOccurs="0" maxOccurs="1" name="AdmissionContent" type="s1:ADTadmissionType" />
+                  <s:element minOccurs="0" maxOccurs="1" name="TransferContent" type="s1:ADTtransferType" />
+                  <s:element minOccurs="0" maxOccurs="1" name="DischargeContent" type="s1:ADTdischargeType" />
+                </s:choice>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDateTime" nillable="true" type="s:dateTime" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTtransactionID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RecordIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADTComponentID" type="s1:ComponentID" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncidenceID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ComponentID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpellOfCareID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EpisodeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventID" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTadmissionType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AdmissionDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmissionFromCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmittedCode" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmissionReason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCategory" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdmissionCarePoint" type="s1:ADTpatientCarePoint" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTpatientCarePoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s1:MedicalFacility" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consultant" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Specialty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facility" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedicalFacility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTtransferType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCategory" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreCarePoint" type="s1:ADTpatientCarePoint" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCarePoint" type="s1:ADTpatientCarePoint" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADTdischargeType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DischargeDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargeCode" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateReadyForDischarge" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargeDestination" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCategory" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DischargeCarePoint" type="s1:ADTpatientCarePoint" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BasicDemographics" type="s3:PATIENT_DEMOGRAPHICS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="SocialCircumstances" type="s3:SOCIAL_CIRCUMSTANCES_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtendedDemographics" type="s1:PatientExtendedInformation" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientExtendedInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentUID" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientUCPN" type="s1:UniqueCarePathwayNumberDataType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consent" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Consultant" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hospital" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ward" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="GPpractice" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsDead" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfDeath" nillable="true" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeofDeath" nillable="true" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationOfDeath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousNames" nillable="true" type="s1:ArrayOfPERSONAL_NAME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PreviousAddresses" type="s3:ADDRESS_TYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentPatientStatus" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PatientNationality" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OverseasStatus" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsAnomymous" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NextOfKin" type="s1:NextOfKinInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UniqueCarePathwayNumberDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstEncounteredTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UCPNusage" type="s1:UniqueCarePathwayNumberUsageType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UniqueCarePathwayNumberUsageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstEncounteredTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPERSONAL_NAME_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PreviousName" type="s3:PERSONAL_NAME_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NextOfKinInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="KinName" type="s3:PERSONAL_NAME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="KinAddress" type="s3:ADDRESS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KinTelecom" type="s3:TELECOM_TYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="KinRelationship" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MESSAGE_HEADER_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageIdentifier" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingSystem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageCreationDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageCreationTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindPatientCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s1:FindPatientNameCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s1:FindPatientAddressCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ids" type="s1:FindPatientIDCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GPid" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="PracticeID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsultantID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="HospitalID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="WardID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeAnonymous" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeInactiveDemographics" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderSearch" type="s1:ProviderSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindPatientAddressCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCodeComparator" type="s1:SearchComparator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFindPatientItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Patient" type="s1:FindPatientItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientSystemInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Consent" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentUID" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingSystem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginatingUser" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindResultCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeInactiveResults" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupResponseBy" type="s1:FindResultGroupByType" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDate" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventDateTime" type="s1:FindDateTimeRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateSampled" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDateReceived" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDateTested" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResultSet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestingPartyHealthcareProfessionalID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestingOrganisationID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestPerformed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Discipline" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GPid" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="PracticeID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsultantID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatusType" type="s3:RESULT_STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientBasicCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderSearch" type="s1:ProviderSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FindResultGroupByType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ResultSet" />
+          <s:enumeration value="Sample" />
+          <s:enumeration value="Report" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="FindDateTimeRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateFrom" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTo" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFindResultItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Result" type="s1:FindResultItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindResultItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="TestReportID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="RequestingPartyHealthcareProfessionalID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="RequestingOrganisationID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="ConfidentialityStatus" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientDemographicsID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="Discipline" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="SectionName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReportIdentifier" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReportDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="EventDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="EventUser" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="RecipientOrganisationID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="DocumentType" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DocumentSubType" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="ReportAbnormal" type="s:boolean" />
+                <s:element minOccurs="0" maxOccurs="1" name="NumComments" type="s:integer" />
+                <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="SampleID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="SampleCode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="SampleDescription" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DateTimeSampled" type="s:dateTime" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="SetDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="TestID" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="SetDescription" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="ResultSetStatus" type="s3:TEST_STATUS_TYPE" />
+                <s:element minOccurs="1" maxOccurs="1" name="SetAbnormal" type="s:boolean" />
+                <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReportSystemInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestReportID" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportHasHistory" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemReportStatus" type="s3:STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDisplayTemplate" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvestigationReport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReportData" type="s1:InvestigationReportMessageType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentData" type="s3:DOCUMENT_DATA_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvestigationReportMessageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReportIdentifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="Discipline" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceProvider">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ProvidingSite" type="s3:ORGANISATION_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="ProvidingLocation" type="s3:ORGANISATION_TYPE" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestingParty" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfidentialityStatus" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceRequest" type="s3:SERVICE_REQUEST_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceResult" type="s1:ResultSuite" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientInformation" type="s1:PatientInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientClass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportAbnormal" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultSuite">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDetails" type="s3:SAMPLE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResultSets" type="s1:ArrayOfTEST_SET_RESULT_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTEST_SET_RESULT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestResultSet" type="s3:TEST_SET_RESULT_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindDocumentCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentToDatabaseID" type="s:positiveInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentAttestationDate" type="s1:DateRangeSelection" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentIdentifier" type="s1:FindDocumentIdentifierCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSubType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSpecialty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentOrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentOrganisationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsentToShare" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sensitivity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingHCP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttestingHCP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivingHCP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiedHCP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientBasicCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderSearch" type="s1:ProviderSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DateRangeSelection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DateFrom" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTo" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindDocumentIdentifierCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comparator" type="s1:SearchComparator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFindDocumentItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Document" type="s1:FindDocumentItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindDocumentItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:DocumentSystemInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentDetails" type="s1:DocumentMetadata" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentSystemInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDocumentSearchID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentSourceID" nillable="true" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDocumentID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentToDatabaseID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentStatusID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentIsLinked" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentHasHistory" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentMetadata">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentCategory" type="s1:CLINICAL_INDEX_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentRevision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSpecialty" type="s3:SPECIALTY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentOrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentOrganisationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stylesheet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentAttestationDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingHcp_HealthcareProfessionalID" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttestingHcp_HealthcareProfessionalID" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivingHcp_HealthcareProfessionalID" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="CopiedHcp_HealthcareProfessionalIDs" type="s1:ArrayOfInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsentToShare" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sensitivity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserNotes" type="s1:ArrayOfDocumentNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stylesheets" type="s1:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keywords" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserNotesAvailable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalStylesheetsAvailable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRetired" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CLINICAL_INDEX_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Separator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSubType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInteger">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CopiedHcp_HealthcareProfessionalID" type="s:integer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" type="s1:DocumentNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NoteText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoteDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteUser" type="s1:UserInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FriendlyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemLocation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Stylesheet" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:DocumentSystemInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentDetails" type="s1:DocumentMetadata" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentStylesheet" type="s1:DocumentStylesheetType" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientInformation" type="s1:PatientInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentData" type="s:base64Binary" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentStylesheetType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StylesheetID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StylesheetData" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindTreatmentLogCriteria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IncludePatientInformation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogID" type="s:positiveInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestState" type="s1:OpenClosedStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestStatus" type="s1:RequestStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedUrgencyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCareType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestDate" type="s1:DateRangeSelection" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentToComeInDate" type="s1:DateRangeSelection" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentRequestProcedureCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCarepointSiteID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCarepointLocationID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facility" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientBasicCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderSearch" type="s1:ProviderSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OpenClosedStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Open" />
+          <s:enumeration value="Closed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="RequestStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Outstanding" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Cancelled" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfFindTreatmentLogItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TreatmentLog" type="s1:FindTreatmentLogItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindTreatmentLogItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentLog">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogID" type="s:positiveInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCareType" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="RequestState" type="s1:OpenClosedStatus" />
+                <s:element minOccurs="0" maxOccurs="1" name="RequestStatus" type="s1:RequestStatus" />
+                <s:element minOccurs="0" maxOccurs="1" name="RecordIdentifier" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="AssessedUrgencyValue" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="RequestDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="ToComeInTargetDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointSiteId" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointLocationId" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointResponsibleHcpId" type="s:nonNegativeInteger" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointClinic" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointSpecialtyName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="PatientCarePointFacilityName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DateClosed" type="s:date" />
+                <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails" type="s1:FindPatientItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentLogInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SystemInformation" type="s1:TreatmentLogSystemInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogDetails" type="s1:TreatmentLog" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentLogSystemInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentLogID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s1:ProviderItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentLog">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RecordIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientInformation" type="s1:PatientInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentRequestPrf" type="s1:TreatmentRequestInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestStatusPrf" type="s1:TreatmentRequestStatusType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttendanceRequestedPrf" type="s1:AttendanceRequestedType" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestOutcomePrf" type="s1:TreatmentRequestOutcomeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryStatusPrf" type="s1:TreatmentRequestDeliveryScheduleType" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentRequestInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCareType" type="s1:PATIENT_CARE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientCategory" type="s1:GENERAL_CODE_TYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentIdentifiers" type="s1:TreatmentRequestIdentifiers" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentRequested" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedUrgencyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssessedUrgencyReason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferralDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ReferralIdentifier" type="s3:ID_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReferralReason" type="s1:REFERRAL_REASON_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReferralUrgencyValue" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReferralUrgencyReason" type="s:string" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="WaitingTimesData" type="s1:WAITING_TIMES_DATA_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PATIENT_CARE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GENERAL_CODE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodeDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodeValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentRequestIdentifiers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentID" type="s1:ComponentID" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="REFERRAL_REASON_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="UnstructuredReferralReason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StructuredReferralReason" type="s1:STRUCTURED_REFERRAL_REASON_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:normalizedString" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRUCTURED_REFERRAL_REASON_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CareTypeRequested" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedOutcome" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WAITING_TIMES_DATA_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientAvailableAtShortNotice" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientSuitableForPooledList" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientWillingToChangeClinician" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientWillingToChangeHealthBoard" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentRequestStatusType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestState" type="s1:OpenClosedStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestStatus" type="s1:RequestStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestStatusComment" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AttendanceRequestedType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentCarePoint" type="s1:PatientCarePoint" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToComeInTargetDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToComeInTargetTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="TreatmentBreachDate" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientCarePoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponsibleHCP" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clinic" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Specialty" type="s3:SPECIALTY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Facility" type="s1:GENERAL_CODE_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentRequestOutcomeType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DateClosed" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttendanceStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualAttendanceDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ArrivalDate" type="s:date" />
+                <s:element minOccurs="0" maxOccurs="1" name="ArrivalTime" type="s:time" />
+                <s:element minOccurs="0" maxOccurs="1" name="DepartureDate" type="s:date" />
+                <s:element minOccurs="0" maxOccurs="1" name="DepartureTime" type="s:time" />
+                <s:element minOccurs="0" maxOccurs="1" name="TreatmentDate" type="s:date" />
+                <s:element minOccurs="0" maxOccurs="1" name="TreatmentTime" type="s:time" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TreatmentReceived" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TreatmentRequestDeliveryScheduleType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferralToTreatClock">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:date" />
+                <s:element minOccurs="1" maxOccurs="1" name="TargetDate" type="s:date" />
+                <s:element minOccurs="0" maxOccurs="1" name="Status" type="s1:GENERAL_CODE_TYPE" />
+                <s:any minOccurs="0" maxOccurs="unbounded" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFindMergeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Patient" type="s1:FindMergeItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindMergeItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryPatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecondaryPatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Unmerge">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="N" />
+                <s:enumeration value="Y" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageQueue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindHCPcriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HCPcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCPid" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHCPitem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HCP" type="s1:HCPitem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HCPitem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HCPid" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="HCPdetails" type="s3:HCP_DETAIL_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindOrganisationCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationType" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrganisationItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Organisation" type="s1:OrganisationItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrganisationItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationDetails" type="s3:ORGANISATION_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InterfaceStatusLimits">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RedLimit" type="s:positiveInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmberLimit" type="s:positiveInteger" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfServiceItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Service" type="s1:ServiceItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ServiceItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessagesReceived" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Minutes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindBreakGlassAuditCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateRange" type="s1:DateRangeSelection" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s1:FindUserCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCode" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FindUserCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemLocation" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBreakGlassAuditItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BreakGlassAuditInstance" type="s1:BreakGlassAuditItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BreakGlassAuditItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="BreakGlassDateTime" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassType" type="s1:BreakGlassTypeItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="s1:UserInfo" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientConsentAuditCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateRange" type="s1:DateRangeSelection" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s1:FindUserCriteria" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPatientConsentAuditItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientConsentAuditInstance" type="s1:PatientConsentAuditItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientConsentAuditItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ConsentDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+                <s:element minOccurs="1" maxOccurs="1" name="UpdatedDateTime" type="s:dateTime" />
+                <s:element minOccurs="0" maxOccurs="1" name="NewValue" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="UserDetails" type="s1:UserInfo" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CumulativeReportCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectedSetCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDate" type="s1:FindDateRange" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataPoints" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="BreakGlassItems" type="s1:ArrayOfBreakGlassItem" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CumulativeReport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SelectedSetCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultSets" type="s1:ArrayOfCumulativeResultSet" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResults" type="s1:ArrayOfCumulativeTestResult" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCumulativeResultSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultSet" type="s1:CumulativeResultSet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CumulativeResultSet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultSetID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestReportID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportIdentifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetName" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasComments" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s3:TEST_STATUS_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCumulativeTestResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestResult" type="s1:CumulativeTestResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CumulativeTestResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestName" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestOrder" type="s:integer" />
+          <s:element minOccurs="0" maxOccurs="1" name="Range" type="s3:RANGE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangeText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArithmeticComparator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResultValues" type="s1:ArrayOfCumulativeTestResultValue" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCumulativeTestResultValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestResultValue" type="s1:CumulativeTestResultValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CumulativeTestResultValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultSetID" type="s:nonNegativeInteger" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResult" type="s3:QUANTIFIABLE_RESULT_TYPE" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasComments" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultAbnormal" type="s:boolean" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSubscriptionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Subscription" type="s1:SubscriptionInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubscriptionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionFieldList" type="s1:ArrayOfSubscriptionFieldInfo" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSubscriptionFieldInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubscriptionFieldInfo" type="s1:SubscriptionFieldInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubscriptionFieldInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubscriptionValue" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProviderLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProviderLocation" type="s1:ProviderLocation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProviderLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderName" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocatePatientCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientDemographics" type="s1:LocatePatientDemographics" />
+          <s:element minOccurs="0" maxOccurs="1" name="Providers" type="s1:ArrayOfString1" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LocatePatientDemographics">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CHI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Forname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProviderIdentifier" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderLocation" type="s1:ProviderLocation" />
+          <s:element minOccurs="1" maxOccurs="1" name="MatchType" type="s1:PatientMatchType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MatchedPatients" type="s1:PatientMatchDetails" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PatientMatchType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ZERO" />
+          <s:enumeration value="ONE" />
+          <s:enumeration value="MANY" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="PatientMatchDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Patient" type="s1:FindPatientItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Information" type="s1:ArrayOfString2" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InformationType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientIdentifierList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientIdentifer" type="s1:ProviderPatientIdentifier" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProviderPatientIdentifier">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PatientID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderIdentifier" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPatientSearchSummaryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientSearchSummaryItem" type="s1:PatientSearchSummaryItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientSearchSummaryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s1:ProviderPatientIdentifier" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultCount" type="s:nonNegativeInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchTime" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.show.scot.nhs.uk/isd/SCIStore/Headers">
+      <s:element name="UserCredentials" type="s2:Credentials" />
+      <s:complexType name="Credentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserInfo">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="FriendlyName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="SystemCode" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="SystemLocation" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.show.scot.nhs.uk/isd/General">
+      <s:complexType name="ID_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdScheme" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s3:STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STATUS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusTime" type="s:time" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PATIENT_DEMOGRAPHICS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientId" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientName" type="s3:PERSONAL_NAME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientAddress" type="s3:ADDRESS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientTelecom" type="s3:TELECOM_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SexAtBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegisteredGp" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="HealthBoardOfResidence" type="s3:HEALTH_BOARD_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PERSONAL_NAME_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="UnstructuredName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StructuredName" type="s3:STRUCTURED_NAME_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="NameType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameValidPeriod" type="s:duration" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s3:STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRUCTURED_NAME_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FamilyName" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ADDRESS_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="StructuredAddress" type="s3:STRUCTURED_ADDRESS_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="UnstructuredAddress" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NonValidatedPostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressValidPeriod" type="s:duration" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s3:STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRUCTURED_ADDRESS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AddressLine" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TELECOM_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="UnstructuredTelecom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StructuredTelecom" type="s3:STRUCTURED_TELECOM_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s3:STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastEncounteredTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRUCTURED_TELECOM_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelecomExt" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HCP_DETAIL_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HcpId" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="HcpName" type="s3:PERSONAL_NAME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmployingOrganisation" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HcpTelecom" type="s3:TELECOM_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="HcpSpecialty" type="s3:SPECIALTY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Position" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ORGANISATION_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationId" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganisationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganisationAddress" type="s3:ADDRESS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganisationTelecom" type="s3:TELECOM_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SPECIALTY_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialtyCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HEALTH_BOARD_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="HealthBoardCipher" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HealthBoardDetails" type="s3:ORGANISATION_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SOCIAL_CIRCUMSTANCES_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="HousingDetail" type="s3:HOUSING_DETAIL_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="Housing" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="Employment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReligionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Religion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EthnicOriginCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EthnicOrigin" type="s:string" />
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageDetail" type="s3:LANGUAGE_DETAIL_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="Pets" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonalFinances" type="s3:PERSONAL_FINANCES_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HOUSING_DETAIL_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Accomodation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommunalControlledDoor" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualControlledDoor" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyPadNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="CommunityAlarm" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SmokeAlarm" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tenure" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouseholdComposition" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LANGUAGE_DETAIL_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PreferredLanguage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterpreterRequired" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsualInterpreter" type="s3:CARER_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CARER_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ContactDetails" type="s3:PERSON_DEMOGRAPHICS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" default="false" name="KeyHolder" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Relationship" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PERSON_DEMOGRAPHICS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Name" type="s3:PERSONAL_NAME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" type="s3:ADDRESS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Telecom" type="s3:TELECOM_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PERSONAL_FINANCES_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BenefitsCheckRequired">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="requested" />
+                <s:enumeration value="performed" />
+                <s:enumeration value="refused" />
+                <s:enumeration value="required" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BenefitsReceived">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="BenefitName" type="s:string" />
+                <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:decimal" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="PensionDay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NINumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SelfManaged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinancialManager" type="s3:CARER_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="RESULT_STATUS_TYPE">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unreported" />
+          <s:enumeration value="Interim" />
+          <s:enumeration value="Final" />
+          <s:enumeration value="Supplementary" />
+          <s:enumeration value="Amended" />
+          <s:enumeration value="Other" />
+          <s:enumeration value="Not known" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TEST_STATUS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StatusType" type="s3:RESULT_STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SERVICE_REQUEST_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestRequested" type="s3:TEST_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestSampleDetails" type="s3:SAMPLE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="PatientTestAdministration" type="s3:PATIENT_TEST_ADMINISTRATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestUrgencyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClinicalDataRequired" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CurrentMedication" type="s3:MEDICATION_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TEST_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestName" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestSpecification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubOrderNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestIdentifier" type="s3:ID_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CLINICAL_CIRCUMSTANCE_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="ClinicalCircumstanceDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClinicalInformation" type="s3:CLINICAL_INFORMATION_TYPE" />
+          </s:choice>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CLINICAL_INFORMATION_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCode" type="s3:CLINICAL_CODE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCodeDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CLINICAL_CODE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClinicalCodeValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCodeScheme" type="s3:CLINICAL_CODE_SCHEME_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCodeSelectedTerm" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CLINICAL_CODE_SCHEME_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCodeSchemeVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicalCodeSchemeId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAMPLE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SampleName" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TissueType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleRequesterId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleLaboratoryId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeSampled" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SampleAmount" type="s3:QUANTITY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeReceived" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeTested" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnatomicalSite" type="s3:ANATOMICAL_SITE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="BiohazardAlert" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SampleRequesterComment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ServiceProviderComment" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QUANTITY_TYPE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityValue" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuantityUnit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ANATOMICAL_SITE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BodyPart" type="s3:CLINICAL_CIRCUMSTANCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Laterality" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PATIENT_TEST_ADMINISTRATION_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Slot" type="s3:SLOT_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportDetails" type="s3:TRANSPORT_DETAILS_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SLOT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClinicHealthcareOrganisation" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clinic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppointmentDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="AppointmentTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="SlotLength" type="s3:INTERVAL_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="INTERVAL_TYPE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TimeValue" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeUnit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TRANSPORT_DETAILS_TYPE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransportRequired" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportType" type="s:string" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="1" maxOccurs="1" name="TransportDate" type="s:date" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransportDateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransportTimeDescription" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="TransportPickup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportDestination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportInstructions" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MEDICATION_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugName" type="s3:DRUG_IDENTIFICATION_TYPE" />
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="UnstructuredDosage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StructuredDosage" type="s3:STRUCTURED_DOSAGE_TYPE" />
+          </s:choice>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DRUG_IDENTIFICATION_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" name="DrugCode" type="s3:DRUG_CODE_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="DrugDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DrugCodeDescription" type="s:string" />
+            <s:any minOccurs="0" maxOccurs="1" />
+          </s:choice>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DRUG_CODE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugCodeValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrugIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Formulation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrugStrength" type="s3:QUANTITY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrugType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrugDictionary" type="s3:CLINICAL_CODE_SCHEME_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRUCTURED_DOSAGE_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="DoseDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Dose" type="s3:QUANTITY_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="Frequency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeOfAdministration" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Route" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaximumDailyDose" type="s3:QUANTITY_TYPE" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="1" maxOccurs="1" name="MedicationStartDate" type="s:date" />
+            <s:element minOccurs="0" maxOccurs="1" name="TriggerForAdministration" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugDuration" type="s3:DRUG_DURATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastPrescribedDate" type="s:date" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DRUG_DURATION_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="DrugDoses" type="s3:QUANTITY_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="TriggerForCessation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DrugDays" type="s3:INTERVAL_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="DrugPeriodDescription" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="DrugReviewRequired" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedicationStopDate" type="s:date" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TEST_SET_RESULT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TestSetDetails" type="s3:TEST_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestResults" type="s3:ArrayOfTEST_RESULT_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="s3:TEST_STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDetails" type="s3:TEST_REPORTING_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetAbnormal" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTEST_RESULT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestResult" type="s3:TEST_RESULT_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TEST_RESULT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s3:ORGANISATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestPerformed" type="s3:TEST_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestSampleDetails" type="s3:SAMPLE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TestMeasurement" type="s3:QUANTIFIABLE_RESULT_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="TestInterpretation" type="s3:INTERPRETATION_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeReported" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Evidence" type="s3:EVIDENCE_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisciplineSpecificValues" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultStatus" type="s3:TEST_STATUS_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultDataType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReportDetails" type="s3:TEST_REPORTING_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultAttachments" type="s3:ArrayOfATTACHMENT_TYPE" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QUANTIFIABLE_RESULT_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="MeasurementDescription" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MeasurementCode" type="s3:CLINICAL_CODE_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="MeasurementNumeric" type="s3:VALUE_COMPARATOR_TYPE" />
+            <s:element minOccurs="0" maxOccurs="1" name="MeasurementRange" type="s3:RANGE_TYPE" />
+            <s:element minOccurs="1" maxOccurs="1" name="MeasurementDate" type="s:date" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="MeasurementInterval" type="s3:INTERVAL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceLimit" type="s3:REFERENCE_LIMIT_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviatingResultQuantitativeFlag" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VALUE_COMPARATOR_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="s3:QUANTITY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArithmeticComparator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RANGE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RangeHighValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangeLowValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RangeUnit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="REFERENCE_LIMIT_TYPE">
+        <s:sequence>
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="ReferenceLimitText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReferenceLimitNumeric" type="s3:RANGE_TYPE" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" name="AbnormalReferenceLimit">
+            <s:complexType>
+              <s:sequence>
+                <s:choice minOccurs="1" maxOccurs="1">
+                  <s:element minOccurs="0" maxOccurs="1" name="AbnormalReferenceLimitNumeric" type="s3:RANGE_TYPE" />
+                  <s:element minOccurs="0" maxOccurs="1" name="AbnormalReferenceLimitText" type="s:string" />
+                </s:choice>
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceLimitPopulation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="INTERPRETATION_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Interpretation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviatingResultQualitativeFlag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EVIDENCE_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EvidenceLocator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EvidenceItem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EvidenceFormat" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TEST_REPORTING_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExaminationDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ExaminationParty" type="s3:HCP_DETAIL_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="ExaminationDate" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorisingDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="AuthorisingParty" type="s3:HCP_DETAIL_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="AuthorisingDate" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="ReportingDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ReportingParty" type="s3:HCP_DETAIL_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="ReportingDate" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="VerifyingDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="VerifyingParty" type="s3:HCP_DETAIL_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="VerifyingDate" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="DataEntryDetails">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="Typist" type="s3:HCP_DETAIL_TYPE" />
+                <s:element minOccurs="0" maxOccurs="1" name="DateTyped" type="s:dateTime" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfATTACHMENT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultAttachment" type="s3:ATTACHMENT_TYPE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ATTACHMENT_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileSizeInBytes" type="s:positiveInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompressionMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompressedSizeInBytes" type="s:positiveInteger" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachmentData" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DOCUMENT_DATA_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentCategory" type="s3:DOCUMENT_CATEGORY_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentIdentifier" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentRevision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UniqueCarePathwayNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginatingHcp" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attesting_Hcp" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentAttestationDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentAttestationTime" type="s:time" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivingHcp" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CopiedHcp" type="s3:HCP_DETAIL_TYPE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientId" type="s3:ID_TYPE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConsentToShare" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sensitivity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentCreationDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentCreationTime" type="s:time" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DOCUMENT_CATEGORY_TYPE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Separator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentSubType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="login1" element="s0:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="LoginResult" element="s0:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="logout1" element="s0:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="LogoutResult" element="s0:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsSoapIn">
+    <wsdl:part name="getNotifications1" element="s0:GetNotifications" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsSoapOut">
+    <wsdl:part name="GetNotificationsResult" element="s0:GetNotificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubscriptionSoapIn">
+    <wsdl:part name="deleteSubscription1" element="s0:DeleteSubscription" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubscriptionSoapOut">
+    <wsdl:part name="DeleteSubscriptionResult" element="s0:DeleteSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSubscriptionUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="UnSubscribeToStoreSoapIn">
+    <wsdl:part name="unSubscribeToStore1" element="s0:UnSubscribeToStore" />
+  </wsdl:message>
+  <wsdl:message name="UnSubscribeToStoreSoapOut">
+    <wsdl:part name="UnSubscribeToStoreResult" element="s0:UnSubscribeToStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnSubscribeToStoreUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="BreakGlassSoapIn">
+    <wsdl:part name="breakGlass1" element="s0:BreakGlass" />
+  </wsdl:message>
+  <wsdl:message name="BreakGlassSoapOut">
+    <wsdl:part name="BreakGlassResult" element="s0:BreakGlassResponse" />
+  </wsdl:message>
+  <wsdl:message name="BreakGlassUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetBreakGlassTypesSoapIn">
+    <wsdl:part name="getBreakGlassTypes1" element="s0:GetBreakGlassTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetBreakGlassTypesSoapOut">
+    <wsdl:part name="GetBreakGlassTypesResult" element="s0:GetBreakGlassTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBreakGlassTypesUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindADTSoapIn">
+    <wsdl:part name="findADT1" element="s0:FindADT" />
+  </wsdl:message>
+  <wsdl:message name="FindADTSoapOut">
+    <wsdl:part name="FindADTResult" element="s0:FindADTresponse" />
+  </wsdl:message>
+  <wsdl:message name="FindADTUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetADTSoapIn">
+    <wsdl:part name="getADT1" element="s0:GetADT" />
+  </wsdl:message>
+  <wsdl:message name="GetADTSoapOut">
+    <wsdl:part name="GetADTResult" element="s0:GetADTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetADTUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientSoapIn">
+    <wsdl:part name="findPatient1" element="s0:FindPatient" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientSoapOut">
+    <wsdl:part name="FindPatientResult" element="s0:FindPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientSoapIn">
+    <wsdl:part name="getPatient1" element="s0:GetPatient" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientSoapOut">
+    <wsdl:part name="GetPatientResult" element="s0:GetPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindResultSoapIn">
+    <wsdl:part name="findResult1" element="s0:FindResult" />
+  </wsdl:message>
+  <wsdl:message name="FindResultSoapOut">
+    <wsdl:part name="FindResultResult" element="s0:FindResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindResultUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetResultSoapIn">
+    <wsdl:part name="getResult1" element="s0:GetResult" />
+  </wsdl:message>
+  <wsdl:message name="GetResultSoapOut">
+    <wsdl:part name="GetResultResult" element="s0:GetResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResultUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentSoapIn">
+    <wsdl:part name="findDocument1" element="s0:FindDocument" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentSoapOut">
+    <wsdl:part name="FindDocumentResult" element="s0:FindDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindDocumentUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapIn">
+    <wsdl:part name="getDocument1" element="s0:GetDocument" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapOut">
+    <wsdl:part name="GetDocumentResult" element="s0:GetDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentStylesheetSoapIn">
+    <wsdl:part name="getDocumentStylesheet1" element="s0:GetDocumentStylesheet" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentStylesheetSoapOut">
+    <wsdl:part name="GetDocumentStylesheetResult" element="s0:GetDocumentStylesheetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentStylesheetUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindTreatmentLogSoapIn">
+    <wsdl:part name="findTreatmentLog1" element="s0:FindTreatmentLog" />
+  </wsdl:message>
+  <wsdl:message name="FindTreatmentLogSoapOut">
+    <wsdl:part name="FindTreatmentLogResult" element="s0:FindTreatmentLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindTreatmentLogUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetTreatmentLogSoapIn">
+    <wsdl:part name="getTreatmentLog1" element="s0:GetTreatmentLog" />
+  </wsdl:message>
+  <wsdl:message name="GetTreatmentLogSoapOut">
+    <wsdl:part name="GetTreatmentLogResult" element="s0:GetTreatmentLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTreatmentLogUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindMergeSoapIn">
+    <wsdl:part name="findMerge1" element="s0:FindMerge" />
+  </wsdl:message>
+  <wsdl:message name="FindMergeSoapOut">
+    <wsdl:part name="FindMergeResult" element="s0:FindMergeResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindMergeUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MergePatientSoapIn">
+    <wsdl:part name="mergePatient1" element="s0:MergePatient" />
+  </wsdl:message>
+  <wsdl:message name="MergePatientSoapOut">
+    <wsdl:part name="MergePatientResult" element="s0:MergePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="MergePatientUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="UnMergePatientSoapIn">
+    <wsdl:part name="unMergePatient1" element="s0:UnMergePatient" />
+  </wsdl:message>
+  <wsdl:message name="UnMergePatientSoapOut">
+    <wsdl:part name="UnMergePatientResult" element="s0:UnMergePatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnMergePatientUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueCountSoapIn">
+    <wsdl:part name="messageQueueCount1" element="s0:MessageQueueCount" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueCountSoapOut">
+    <wsdl:part name="MessageQueueCountResult" element="s0:MessageQueueCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueCountUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueDeleteSoapIn">
+    <wsdl:part name="messageQueueDelete1" element="s0:MessageQueueDelete" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueDeleteSoapOut">
+    <wsdl:part name="MessageQueueDeleteResult" element="s0:MessageQueueDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueueDeleteUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueuePeekSoapIn">
+    <wsdl:part name="messageQueuePeek1" element="s0:MessageQueuePeek" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueuePeekSoapOut">
+    <wsdl:part name="MessageQueuePeekResult" element="s0:MessageQueuePeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="MessageQueuePeekUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindHCPSoapIn">
+    <wsdl:part name="findHCP1" element="s0:FindHCP" />
+  </wsdl:message>
+  <wsdl:message name="FindHCPSoapOut">
+    <wsdl:part name="FindHCPResult" element="s0:FindHCPResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindHCPUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindOrganisationSoapIn">
+    <wsdl:part name="findOrganisation1" element="s0:FindOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="FindOrganisationSoapOut">
+    <wsdl:part name="FindOrganisationResult" element="s0:FindOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindOrganisationUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetWebTimeoutSoapIn">
+    <wsdl:part name="getWebTimeout1" element="s0:GetWebTimeout" />
+  </wsdl:message>
+  <wsdl:message name="GetWebTimeoutSoapOut">
+    <wsdl:part name="GetWebTimeoutResult" element="s0:GetWebTimeoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWebTimeoutUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetInterfaceStatusSoapIn">
+    <wsdl:part name="getInterfaceStatus1" element="s0:GetInterfaceStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetInterfaceStatusSoapOut">
+    <wsdl:part name="GetInterfaceStatusResult" element="s0:GetInterfaceStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInterfaceStatusUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindBreakGlassAuditSoapIn">
+    <wsdl:part name="findBreakGlassAudit1" element="s0:FindBreakGlassAudit" />
+  </wsdl:message>
+  <wsdl:message name="FindBreakGlassAuditSoapOut">
+    <wsdl:part name="FindBreakGlassAuditResult" element="s0:FindBreakGlassAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindBreakGlassAuditUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientConsentAuditSoapIn">
+    <wsdl:part name="findPatientConsentAudit1" element="s0:FindPatientConsentAudit" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientConsentAuditSoapOut">
+    <wsdl:part name="FindPatientConsentAuditResult" element="s0:FindPatientConsentAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindPatientConsentAuditUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetCumulativeReportSoapIn">
+    <wsdl:part name="getCumulativeReport1" element="s0:GetCumulativeReport" />
+  </wsdl:message>
+  <wsdl:message name="GetCumulativeReportSoapOut">
+    <wsdl:part name="GetCumulativeReportResult" element="s0:GetCumulativeReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCumulativeReportUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="FindSubscriptionsSoapIn">
+    <wsdl:part name="findSubscriptions1" element="s0:FindSubscriptions" />
+  </wsdl:message>
+  <wsdl:message name="FindSubscriptionsSoapOut">
+    <wsdl:part name="FindSubscriptionsResult" element="s0:FindSubscriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindSubscriptionsUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="AddSubscriptionSoapIn">
+    <wsdl:part name="addSubscription1" element="s0:AddSubscription" />
+  </wsdl:message>
+  <wsdl:message name="AddSubscriptionSoapOut">
+    <wsdl:part name="AddSubscriptionResult" element="s0:AddSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSubscriptionUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="AmendSubscriptionSoapIn">
+    <wsdl:part name="amendSubscription1" element="s0:AmendSubscription" />
+  </wsdl:message>
+  <wsdl:message name="AmendSubscriptionSoapOut">
+    <wsdl:part name="AmendSubscriptionResult" element="s0:AmendSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AmendSubscriptionUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderLocationsSoapIn">
+    <wsdl:part name="getProviderLocations1" element="s0:GetProviderLocations" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderLocationsSoapOut">
+    <wsdl:part name="GetProviderLocationsResult" element="s0:GetProviderLocationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProviderLocationsUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="LocatePatientsSoapIn">
+    <wsdl:part name="locatePatients1" element="s0:LocatePatients" />
+  </wsdl:message>
+  <wsdl:message name="LocatePatientsSoapOut">
+    <wsdl:part name="LocatePatientsResult" element="s0:LocatePatientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LocatePatientsUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsResultListSoapIn">
+    <wsdl:part name="getPatientsResultList1" element="s0:GetPatientsResultList" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsResultListSoapOut">
+    <wsdl:part name="GetPatientsResultListResult" element="s0:GetPatientsResultListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsResultListUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsDocumentListSoapIn">
+    <wsdl:part name="getPatientsDocumentList1" element="s0:GetPatientsDocumentList" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsDocumentListSoapOut">
+    <wsdl:part name="GetPatientsDocumentListResult" element="s0:GetPatientsDocumentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsDocumentListUserCredentials">
+    <wsdl:part name="UserCredentials" element="s2:UserCredentials" />
+  </wsdl:message>
+  <wsdl:portType name="SCIStoreServices">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <wsdl:input message="tns:GetNotificationsSoapIn" />
+      <wsdl:output message="tns:GetNotificationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubscription">
+      <wsdl:input message="tns:DeleteSubscriptionSoapIn" />
+      <wsdl:output message="tns:DeleteSubscriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnSubscribeToStore">
+      <wsdl:input message="tns:UnSubscribeToStoreSoapIn" />
+      <wsdl:output message="tns:UnSubscribeToStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BreakGlass">
+      <wsdl:input message="tns:BreakGlassSoapIn" />
+      <wsdl:output message="tns:BreakGlassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBreakGlassTypes">
+      <wsdl:input message="tns:GetBreakGlassTypesSoapIn" />
+      <wsdl:output message="tns:GetBreakGlassTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindADT">
+      <wsdl:input message="tns:FindADTSoapIn" />
+      <wsdl:output message="tns:FindADTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetADT">
+      <wsdl:input message="tns:GetADTSoapIn" />
+      <wsdl:output message="tns:GetADTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPatient">
+      <wsdl:input message="tns:FindPatientSoapIn" />
+      <wsdl:output message="tns:FindPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatient">
+      <wsdl:input message="tns:GetPatientSoapIn" />
+      <wsdl:output message="tns:GetPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindResult">
+      <wsdl:input message="tns:FindResultSoapIn" />
+      <wsdl:output message="tns:FindResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <wsdl:input message="tns:GetResultSoapIn" />
+      <wsdl:output message="tns:GetResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <wsdl:input message="tns:FindDocumentSoapIn" />
+      <wsdl:output message="tns:FindDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:input message="tns:GetDocumentSoapIn" />
+      <wsdl:output message="tns:GetDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStylesheet">
+      <wsdl:input message="tns:GetDocumentStylesheetSoapIn" />
+      <wsdl:output message="tns:GetDocumentStylesheetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindTreatmentLog">
+      <wsdl:input message="tns:FindTreatmentLogSoapIn" />
+      <wsdl:output message="tns:FindTreatmentLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentLog">
+      <wsdl:input message="tns:GetTreatmentLogSoapIn" />
+      <wsdl:output message="tns:GetTreatmentLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindMerge">
+      <wsdl:input message="tns:FindMergeSoapIn" />
+      <wsdl:output message="tns:FindMergeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MergePatient">
+      <wsdl:input message="tns:MergePatientSoapIn" />
+      <wsdl:output message="tns:MergePatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UnMergePatient">
+      <wsdl:input message="tns:UnMergePatientSoapIn" />
+      <wsdl:output message="tns:UnMergePatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueueCount">
+      <wsdl:input message="tns:MessageQueueCountSoapIn" />
+      <wsdl:output message="tns:MessageQueueCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueueDelete">
+      <wsdl:input message="tns:MessageQueueDeleteSoapIn" />
+      <wsdl:output message="tns:MessageQueueDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueuePeek">
+      <wsdl:input message="tns:MessageQueuePeekSoapIn" />
+      <wsdl:output message="tns:MessageQueuePeekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindHCP">
+      <wsdl:input message="tns:FindHCPSoapIn" />
+      <wsdl:output message="tns:FindHCPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrganisation">
+      <wsdl:input message="tns:FindOrganisationSoapIn" />
+      <wsdl:output message="tns:FindOrganisationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebTimeout">
+      <wsdl:input message="tns:GetWebTimeoutSoapIn" />
+      <wsdl:output message="tns:GetWebTimeoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceStatus">
+      <wsdl:input message="tns:GetInterfaceStatusSoapIn" />
+      <wsdl:output message="tns:GetInterfaceStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindBreakGlassAudit">
+      <wsdl:input message="tns:FindBreakGlassAuditSoapIn" />
+      <wsdl:output message="tns:FindBreakGlassAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindPatientConsentAudit">
+      <wsdl:input message="tns:FindPatientConsentAuditSoapIn" />
+      <wsdl:output message="tns:FindPatientConsentAuditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCumulativeReport">
+      <wsdl:input message="tns:GetCumulativeReportSoapIn" />
+      <wsdl:output message="tns:GetCumulativeReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSubscriptions">
+      <wsdl:input message="tns:FindSubscriptionsSoapIn" />
+      <wsdl:output message="tns:FindSubscriptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSubscription">
+      <wsdl:input message="tns:AddSubscriptionSoapIn" />
+      <wsdl:output message="tns:AddSubscriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AmendSubscription">
+      <wsdl:input message="tns:AmendSubscriptionSoapIn" />
+      <wsdl:output message="tns:AmendSubscriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderLocations">
+      <wsdl:input message="tns:GetProviderLocationsSoapIn" />
+      <wsdl:output message="tns:GetProviderLocationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LocatePatients">
+      <wsdl:input message="tns:LocatePatientsSoapIn" />
+      <wsdl:output message="tns:LocatePatientsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsResultList">
+      <wsdl:input message="tns:GetPatientsResultListSoapIn" />
+      <wsdl:output message="tns:GetPatientsResultListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsDocumentList">
+      <wsdl:input message="tns:GetPatientsDocumentListSoapIn" />
+      <wsdl:output message="tns:GetPatientsDocumentListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SCIStoreServices" type="tns:SCIStoreServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:loginIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:logoutIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogoutUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotifications">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getNotificationsIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNotificationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubscription">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:deleteSubscriptionIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DeleteSubscriptionUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnSubscribeToStore">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unSubscribeToStoreIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnSubscribeToStoreUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BreakGlass">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:breakGlassIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BreakGlassUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBreakGlassTypes">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getBreakGlassTypesIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBreakGlassTypesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindADT">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findADTIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindADTUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetADT">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getADTIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetADTUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPatient">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindPatientUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatient">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getPatientIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPatientUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindResult">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findResultIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getResultIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetResultUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindDocument">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findDocumentIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindDocumentUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentStylesheet">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentStylesheetIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDocumentStylesheetUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindTreatmentLog">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findTreatmentLogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindTreatmentLogUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTreatmentLog">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getTreatmentLogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTreatmentLogUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindMerge">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findMergeIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindMergeUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergePatient">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:mergePatientIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MergePatientUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnMergePatient">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unMergePatientIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UnMergePatientUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueueCount">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueCountIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MessageQueueCountUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueueDelete">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueDeleteIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MessageQueueDeleteUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MessageQueuePeek">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueuePeekIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MessageQueuePeekUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindHCP">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findHCPIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindHCPUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrganisation">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findOrganisationIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindOrganisationUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebTimeout">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getWebTimeoutIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWebTimeoutUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInterfaceStatus">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getInterfaceStatusIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInterfaceStatusUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindBreakGlassAudit">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findBreakGlassAuditIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindBreakGlassAuditUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindPatientConsentAudit">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientConsentAuditIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindPatientConsentAuditUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCumulativeReport">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getCumulativeReportIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCumulativeReportUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSubscriptions">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findSubscriptionsIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:FindSubscriptionsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSubscription">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:addSubscriptionIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddSubscriptionUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendSubscription">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:amendSubscriptionIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AmendSubscriptionUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProviderLocations">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getProviderLocationsIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProviderLocationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LocatePatients">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:locatePatientsIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LocatePatientsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsResultList">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getPatientsResultListIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPatientsResultListUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatientsDocumentList">
+      <soap:operation soapAction="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getPatientsDocumentListIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPatientsDocumentListUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SCIStoreServicesPort">
+    <wsdl:port name="SCIStoreServices" binding="tns:SCIStoreServices">
+      <soap:address location="https://scistore.tayside.scot.nhs.uk/StoreWS/Store81/SCIStoreServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,7 +1,4 @@
-﻿using CatalogueLibrary.DataFlowPipeline;
-using DataExportLibrary.Tests.DataExtraction;
-using HICPlugin.DataFlowComponents;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ReusableLibraryCode.Progress;
 
 namespace HICPluginTests.Integration

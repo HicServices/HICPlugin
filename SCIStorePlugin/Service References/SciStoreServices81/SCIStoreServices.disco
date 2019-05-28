@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://scistore.tayside.scot.nhs.uk/StoreWS/Store81/SCIStoreServices.asmx?wsdl" docRef="https://scistore.tayside.scot.nhs.uk/StoreWS/Store81/SCIStoreServices.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://scistore.tayside.scot.nhs.uk/StoreWS/Store81/SCIStoreServices.asmx" xmlns:q1="http://www.show.scot.nhs.uk/isd/SCIStore/Webservices" binding="q1:SCIStoreServices" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

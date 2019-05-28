@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using CatalogueLibrary.Data;
-using CatalogueLibrary.QueryBuilding;
-using DataExportLibrary.Data.DataTables;
-using DataExportLibrary.ExtractionTime.ExtractionPipeline.Sources;
 using FAnsi.Discovery.QuerySyntax;
 using ReusableLibraryCode.Progress;
 
