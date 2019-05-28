@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Xml;
 using ReusableLibraryCode;
@@ -131,19 +133,10 @@ namespace SCIStorePlugin
         {
             if (messageFault.HasDetail)
             {
-                MemoryStream memoryStream = new MemoryStream();
-
-                var textWriter = new XmlTextWriter(memoryStream, Encoding.ASCII);
-
                 foreach (EnvelopeVersion e in new[] { EnvelopeVersion.None, EnvelopeVersion.Soap11, EnvelopeVersion.Soap12})
                 {
-                    messageFault.WriteTo(textWriter, EnvelopeVersion.Soap12);
+                    return messageFault.GetDetail<string>();
                 }
-
-                memoryStream.Position = 0;
-                TextReader textReader = new StreamReader(memoryStream,Encoding.ASCII);
-                
-                return textReader.ReadToEnd();
             }
             return "NULL";
         }

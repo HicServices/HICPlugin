@@ -2,6 +2,11 @@
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataLoad.Engine.Mutilators;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.Job;
 
 namespace HICPlugin.Mutilators
 {

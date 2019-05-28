@@ -1,4 +1,10 @@
 ﻿using FAnsi.Discovery;
+using Rdmp.Core.Curation;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.DataProvider.FromCache;
+using Rdmp.Core.DataLoad.Engine.Job;
+using Rdmp.Core.DataLoad.Engine.Job.Scheduling;
 
 namespace SCIStorePlugin.DataProvider
 {

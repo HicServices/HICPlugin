@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using FAnsi.Discovery;
+using NLog;
 using ReusableLibraryCode.Progress;
 using SCIStore.Properties;
 using SCIStorePlugin.Data;

@@ -1,20 +1,24 @@
-﻿using System;
+﻿using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.Attachers;
+using Rdmp.Core.DataLoad.Engine.Job;
+using ReusableLibraryCode.Checks;
+using ReusableLibraryCode.Progress;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using ReusableLibraryCode;
-using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
+using Rdmp.Core.Validation.Constraints.Secondary;
 
 namespace SCIStorePlugin.Attachers
 {
     [Description(@"Populates the RAW database from XML files retrieved from the SCI Store web service in the ForLoading directory")]
-    [Export(typeof(IAttacher))]
-    [Export(typeof(ICheckable))]
     public class SciStoreAttacher : Attacher
     {
         public string HeaderTable ="Header";
@@ -121,17 +125,10 @@ False - Stop the data load with an error",DefaultValue = true)]
         {
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Bulk inserting data in DataTable (" + dataTable.TableName + ") to " + _dbInfo.Server.Name + ", " + _dbInfo.GetRuntimeName() + ".." + dataTable.TableName));
 
-            using (var conn = (SqlConnection)_dbInfo.Server.GetConnection())
+            var tbl = _dbInfo.ExpectTable(dataTable.TableName);
+            using (var blk = tbl.BeginBulkInsert())
             {
-                using (var sqlBulkCopy = new SqlBulkCopy(conn) { BulkCopyTimeout = 500000, DestinationTableName = dataTable.TableName })
-                {
-                    // work out mappings
-                    foreach (DataColumn column in dataTable.Columns)
-                        sqlBulkCopy.ColumnMappings.Add(column.ColumnName, column.ColumnName);
-
-                    conn.Open();
-                    UsefulStuff.BulkInsertWithBetterErrorMessages(sqlBulkCopy, dataTable, _dbInfo.Server);
-                }
+                blk.Upload(dataTable);
             }
         }
 

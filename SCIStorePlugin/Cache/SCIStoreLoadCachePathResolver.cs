@@ -1,18 +1,17 @@
 using System;
 using System.IO;
+using Rdmp.Core.Caching.Layouts;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePlugin.Cache
 {
     // Implements specific logic for creating paths/archives
     // Dependent on the specific type of chunk that is being saved. (I think this makes sense as the cache chunk should contain all the information required to determine the correct filepaths in the archive)
-    [Export(typeof(ILoadCachePathResolver))]
     public class SCIStoreLoadCachePathResolver : ILoadCachePathResolver
     {
         private readonly HealthBoard _healthBoard;
         private readonly Discipline _discipline;
-
-        [ImportingConstructor]
+        
         public SCIStoreLoadCachePathResolver(HealthBoard healthboard, Discipline discipline)
         {
             _healthBoard = healthboard;

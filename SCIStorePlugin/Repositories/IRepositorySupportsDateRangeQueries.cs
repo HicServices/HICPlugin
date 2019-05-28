@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Rdmp.Core.DataFlowPipeline;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 

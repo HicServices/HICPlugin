@@ -10,6 +10,13 @@ using FAnsi.Naming;
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
+using Rdmp.Core.DataLoad.Engine.Mutilators;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.Job;
+using Rdmp.Core.Curation.Data.DataLoad;
+using System.Data.SqlClient;
+using HIC.Demography;
 
 namespace HICPlugin
 {
@@ -193,7 +200,7 @@ namespace HICPlugin
 
                             if (validationResult.Result == ValidationCategory.InsufficientData)
                                 continue;
-
+                            
                             var response = client.PostAsync(ChiServiceUrl, new StringContent(new JavaScriptSerializer().Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
                             
                             DemographyLookupResponse result = new JavaScriptSerializer().Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);

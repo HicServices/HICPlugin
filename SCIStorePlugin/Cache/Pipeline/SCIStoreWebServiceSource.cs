@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.ServiceModel;
+using Rdmp.Core.Caching.Pipeline.Sources;
+using Rdmp.Core.Caching.Requests;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
@@ -218,13 +224,13 @@ namespace SCIStorePlugin.Cache.Pipeline
             b.SendTimeout = new TimeSpan(0, 10, 0);
             b.AllowCookies = false;
             b.BypassProxyOnLocal = false;
-            b.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
+            //b.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
             b.MaxBufferPoolSize = 524288;
             b.MaxBufferSize = 20000000;
             b.MaxReceivedMessageSize = 20000000;
             b.TransferMode = TransferMode.Buffered;
             b.UseDefaultWebProxy = true;
-            b.MessageEncoding = WSMessageEncoding.Text;
+            //b.MessageEncoding = WSMessageEncoding.Text;
 
             b.ReaderQuotas.MaxDepth = 32;
             b.ReaderQuotas.MaxStringContentLength = 8192;
@@ -235,7 +241,7 @@ namespace SCIStorePlugin.Cache.Pipeline
             b.Security.Mode = BasicHttpsSecurityMode.Transport;
             b.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
             b.Security.Transport.ProxyCredentialType = HttpProxyCredentialType.None;
-            b.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
+            //b.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
 
             return b;
         }

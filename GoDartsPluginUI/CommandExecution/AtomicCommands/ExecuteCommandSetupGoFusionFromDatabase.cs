@@ -1,8 +1,25 @@
-﻿using System;
+﻿using FAnsi.Discovery;
+using MapsDirectlyToDatabaseTable.Attributes;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Defaults;
+using Rdmp.Core.Curation.Data.ImportExport;
+using Rdmp.Core.Curation.Data.Serialization;
+using Rdmp.Core.DataLoad.Modules.Attachers;
+using Rdmp.UI.CommandExecution.AtomicCommands;
+using Rdmp.UI.Icons.IconProvision;
+using Rdmp.UI.ItemActivation;
+using ReusableLibraryCode.CommandExecution.AtomicCommands;
+using ReusableLibraryCode.Icons.IconProvision;
+using ReusableUIComponents.Dialogs;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace GoDartsPluginUI.CommandExecution.AtomicCommands
 {
@@ -12,7 +29,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
 
         public ExecuteCommandSetupGoFusionFromDatabase(IActivateItems activator) : base(activator)
         {
-            _loggingServer = Activator.ServerDefaults.GetDefaultFor(ServerDefaults.PermissableDefaults.LiveLoggingServer_ID);
+            _loggingServer = Activator.ServerDefaults.GetDefaultFor(PermissableDefaults.LiveLoggingServer_ID);
 
             if (_loggingServer == null)
                 SetImpossible("There is no default logging server configured");
@@ -53,7 +70,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
             bool generateCatalogues = false;
 
             if (MessageBox.Show("Would you like to try to guess non-matching Catalogues by Name?", "Guess by name", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                cataloguesToMatch.AddRange(Activator.RepositoryLocator.CatalogueRepository.GetAllCatalogues());
+                cataloguesToMatch.AddRange(Activator.RepositoryLocator.CatalogueRepository.GetAllObjects<Catalogue>());
             else if (MessageBox.Show("Would you like to generate empty Catalogues for non-matching tables instead?", "Generate New Catalogues", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 generateCatalogues = true;
 
@@ -131,7 +148,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
                 }
 
             if (ignoredTables.Any())
-                WideMessageBox.Show("Ignored " + ignoredTables.Count + " tables because they already existed as TableInfos:" + string.Join(Environment.NewLine, ignoredTables.Select(ti => ti.GetRuntimeName())));
+                WideMessageBox.Show("Ignored " + ignoredTables.Count + " tables", "Because they already existed as TableInfos:" + string.Join(Environment.NewLine, ignoredTables.Select(ti => ti.GetRuntimeName())));
 
             var lmd = CreateLoadMetadata(importedCatalogues);
 

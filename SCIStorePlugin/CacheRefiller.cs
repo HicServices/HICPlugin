@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Xml.Serialization;
+using Rdmp.Core.Curation;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
 using SCIStorePlugin.Data;

@@ -1,4 +1,5 @@
 ﻿using System;
+using Rdmp.Core.Caching.Requests;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.DataProvider.RetryStrategies;
 

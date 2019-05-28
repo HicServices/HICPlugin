@@ -5,6 +5,8 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using NLog;
+using Rdmp.Core.Caching.Layouts;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
@@ -165,7 +167,7 @@ namespace SCIStorePlugin.Repositories
 
                         if(fileInfo.Exists)
                         {
-                            string Md5OfFile = UsefulStuff.MD5File(fileInfo.FullName);
+                            string Md5OfFile = MD5File(fileInfo.FullName);
                             string Md5OfStream = MD5Stream(stream);
                                 
                             if (Md5OfFile.Equals(Md5OfStream))
@@ -211,12 +213,18 @@ namespace SCIStorePlugin.Repositories
             }
         }
 
-        private string MD5Stream(MemoryStream stream)
+        public string MD5Stream(Stream stream)
         {
             using (var md5 = MD5.Create())
             {
                 return BitConverter.ToString(md5.ComputeHash(stream));
             }
+        }
+
+        public string MD5File(string file)
+        {
+            using(Stream s = File.Open(file,FileMode.Open))
+                return MD5Stream(s);
         }
 
         private void DeserializeHacky(Stream outputStream, CombinedReportData report, XmlSerializer serialiser)

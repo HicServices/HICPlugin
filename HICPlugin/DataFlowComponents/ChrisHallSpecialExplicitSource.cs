@@ -2,6 +2,10 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using FAnsi.Discovery.QuerySyntax;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataExport.Data;
+using Rdmp.Core.DataExport.DataExtraction.Pipeline.Sources;
+using Rdmp.Core.QueryBuilding;
 using ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents

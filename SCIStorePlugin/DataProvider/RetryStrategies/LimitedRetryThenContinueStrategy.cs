@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.ServiceModel;
 using System.Threading;
+using Rdmp.Core.DataFlowPipeline;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
 
 namespace SCIStorePlugin.DataProvider.RetryStrategies
 {
-    [Export(typeof(IRetryStrategy))]
     public class LimitedRetryThenContinueStrategy : IRetryStrategy
     {
         public int NumberOfTimesToRetry { get; set; }

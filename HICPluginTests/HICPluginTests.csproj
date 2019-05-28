@@ -27,7 +27,6 @@
     <Content Include="nunit.engine.dll" />
     <Content Include="NUnit3.TestAdapter.dll" />
     <Content Include="NUnit3.TestAdapter.pdb" />
-    <Content Include="Pencil.cur" />
     <Content Include="TestDatabases.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

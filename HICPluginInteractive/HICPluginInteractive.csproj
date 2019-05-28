@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyTitle>HICPluginInteractive</AssemblyTitle>
     <Product>HICPluginInteractive</Product>
     <Copyright>Copyright ©  2018</Copyright>
@@ -10,12 +10,6 @@
     
     
     
-  </ItemGroup>
-  <ItemGroup>
-    
-    
-    
-    
     
     
     
@@ -45,16 +39,7 @@
     
   </ItemGroup>
   <ItemGroup>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.9-rc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs">
@@ -68,8 +53,5 @@
     <EmbeddedResource Update="UIComponents\ExtractDataTableViewer.resx">
       <DependentUpon>ExtractDataTableViewer.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Pencil.cur" />
   </ItemGroup>
 </Project>

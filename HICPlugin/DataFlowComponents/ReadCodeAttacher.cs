@@ -7,6 +7,12 @@ using System.Text.RegularExpressions;
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.Curation;
+using Rdmp.Core.DataLoad.Engine.Attachers;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Engine.Job;
+using System.Data.SqlClient;
 
 namespace HICPlugin.DataFlowComponents
 {

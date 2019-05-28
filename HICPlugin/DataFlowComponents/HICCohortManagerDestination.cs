@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using FAnsi.Discovery;
+using Rdmp.Core.CohortCommitting.Pipeline;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Engine.Pipeline.Destinations;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 

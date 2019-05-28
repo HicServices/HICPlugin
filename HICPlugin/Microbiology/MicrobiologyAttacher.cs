@@ -4,6 +4,13 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using Rdmp.Core.Curation;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.DataLoad.Engine.Attachers;
+using Rdmp.Core.DataLoad.Engine.Job;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.DataAccess;
 using ReusableLibraryCode.Progress;
@@ -133,22 +140,21 @@ namespace HICPlugin.Microbiology
             {
                 string targetTableName = keyValuePair.Key.GetRuntimeName(LoadStage.Mounting);
 
+                var tbl = _dbInfo.ExpectTable(targetTableName);
+                
                 try
                 {
-                    SqlConnection con = (SqlConnection) _dbInfo.Server.GetConnection();
-                    con.Open();
-
-                    SqlBulkCopy copy = new SqlBulkCopy(con);
-                    copy.DestinationTableName = targetTableName;
-                    copy.WriteToServer(keyValuePair.Value);
-                
-                    con.Close();
-                    keyValuePair.Value.Clear();
+                    using(var blk = tbl.BeginBulkInsert())
+                    {
+                        blk.Upload(keyValuePair.Value);
+                    }                
                 }
-                catch (SqlException e)
+                catch (Exception e)
                 {
                     throw new Exception("Failed to bulk insert into table " + targetTableName,e);
                 }
+                
+                keyValuePair.Value.Clear();
             }
         }
 
@@ -180,8 +186,6 @@ namespace HICPlugin.Microbiology
             _dataTables.Add(IsolationResultsTable, CreateDataTableFromType(typeof(MB_IsolationResult)));
 
             _dataTables.Add(NoIsolationsTable, CreateDataTableFromType(typeof(MB_NoIsolations)));
-
-            
         }
 
         private DataTable CreateDataTableFromType(Type t)

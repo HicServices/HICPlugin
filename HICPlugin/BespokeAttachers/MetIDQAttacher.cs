@@ -3,6 +3,14 @@ using System.Linq;
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
 using ReusableLibraryCode.Progress;
+using Rdmp.Core.DataLoad;
+using Rdmp.Core.Curation;
+using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataLoad.Engine.Attachers;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataLoad.Modules.DataFlowSources;
+using Rdmp.Core.DataLoad.Engine.Job;
+using Rdmp.Core.DataFlowPipeline.Requirements;
 
 namespace HICPlugin.BespokeAttachers
 {

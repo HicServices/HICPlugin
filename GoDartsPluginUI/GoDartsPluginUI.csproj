@@ -1,58 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <AssemblyTitle>GoDartsPluginUI</AssemblyTitle>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    
-    
-    
-  </ItemGroup>
-  <ItemGroup>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  </ItemGroup>
-  <ItemGroup>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Pencil.cur" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.9-rc" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
 </Project>

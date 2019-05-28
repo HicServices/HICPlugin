@@ -1,4 +1,5 @@
 using FAnsi.Naming;
+using Rdmp.Core.Curation.Data;
 
 namespace HICPlugin
 {
