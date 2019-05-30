@@ -1,6 +1,7 @@
 require "net/http"
 require 'uri'
 require 'json'
+require 'rexml/document'
 
 load 'rakeconfig.rb'
 $MSBUILD15CMD = MSBUILD15CMD.gsub(/\\/,"/")
@@ -45,6 +46,10 @@ task :build_low_warning, [:config,:level] => :restorepackages do |msb, args|
 end
 
 task :createtestdb, [:config] do |t, args|
+	userProf = ENV['USERPROFILE'].gsub(/\\/,"/")	
+	rdmpversion = getrdmpversion()
+		
+	RDMP_TOOLS = "#{userProf}/.nuget/packages/hic.rdmp.plugin/#{rdmpversion}/tools/netcoreapp2.2/publish/"
 	Dir.chdir("#{RDMP_TOOLS}") do
         sh "dotnet ./rdmp.dll install #{DBSERVER} #{DBPREFIX} -D"
     end
@@ -91,4 +96,13 @@ task :deployplugins, [:config] do |t, args|
 	sh "nuget pack HIC.Plugin.nuspec -Properties Configuration=#{args.config} -IncludeReferencedProjects -Symbols -Version #{version}"
 	
     end
+end
+
+def getrdmpversion()
+	document = REXML::Document.new File.new("HICPlugin/HICPlugin.csproj")
+	document.elements.each("*/ItemGroup/PackageReference") do |element|
+		if element.attributes.get_attribute("Include").value == "HIC.RDMP.Plugin"
+			return element.attributes.get_attribute("Version").value
+		end
+	end
 end
