@@ -21,7 +21,7 @@
     <PostBuildEvent />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.10-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.12-rc" />
     <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
   </ItemGroup>
   <ItemGroup>

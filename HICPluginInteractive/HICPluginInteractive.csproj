@@ -39,7 +39,7 @@
     
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.9-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.12-rc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs">
