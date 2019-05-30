@@ -4,6 +4,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using HICPluginTests;
 using NUnit.Framework;
 using Rdmp.Core.Repositories;
 using Rdmp.Core.Validation;
@@ -25,7 +26,7 @@ namespace SCIStorePluginTests.Unit
 
             var deserializer = new CombinedReportXmlDeserializer();
 
-            var data = deserializer.DeserializeFromXmlString(TestReports.REPORT_WITH_FLOAT_VALUES);
+            var data = deserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
             var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
             var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>

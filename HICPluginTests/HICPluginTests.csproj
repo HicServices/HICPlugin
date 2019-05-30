@@ -4,23 +4,22 @@
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="TestReports.resx" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="TestData\report-with-float-values.xml" />
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.12-rc" />
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="3.0.12-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.13-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="3.0.13-rc" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.36" />
     <PackageReference Include="RhinoMocks" Version="3.6.1" />
     <PackageReference Include="SharpZipLib" Version="1.1.0" />
+    <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
     <PackageReference Include="YamlDotNet" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
@@ -40,23 +39,26 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="TestData\report-with-multiple-descriptions.xml" />
-    <Content Include="TestReports.resx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="TestReports.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TestReports.resx</DependentUpon>
+    </Compile>
     <Compile Update="TestData\TestData.Designer.cs">
       <DependentUpon>TestData.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Update="TestReports.Designer.cs">
-      <DependentUpon>TestReports.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="TestReports.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestReports.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

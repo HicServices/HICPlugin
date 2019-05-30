@@ -69,16 +69,12 @@ namespace SCIStorePluginTests.Integration
             };
             var fetchDate = new DateTime(2015, 1, 1);
      
-
-            var deleteMe = LoadDirectory.CreateDirectoryStructure(new DirectoryInfo("."),"DeleteMe", true);
+            
+            var deleteMe = LoadDirectory.CreateDirectoryStructure(new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"DeleteMe", true);
             try
             {
                 var fetchRequest = MockRepository.GenerateStub<ICacheFetchRequest>();
-                var cp = MockRepository.GenerateMock<ICacheProgress>();
-
-                var fetchRequestProvider = new CacheFetchRequestProvider(cp);
-                fetchRequestProvider.GetNext(new ThrowImmediatelyDataLoadEventListener());
-
+                
                 var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)
                 {
                     HealthBoard = HealthBoard.T,

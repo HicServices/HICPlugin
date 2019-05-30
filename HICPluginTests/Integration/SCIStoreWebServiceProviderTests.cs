@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using HICPluginTests;
 using NUnit.Framework;
 using Rdmp.Core.Validation;
 using Rdmp.Core.Validation.Constraints.Secondary;
@@ -19,7 +20,7 @@ namespace SCIStorePluginTests.Integration
             Validator.LocatorForXMLDeserialization = RepositoryLocator;
 
             var serializer = new XmlSerializer(typeof(CombinedReportData));
-            var lab = serializer.Deserialize(new StringReader(TestReports.REPORT_WITH_MULTIPLE_DESCRIPTIONS)) as CombinedReportData;
+            var lab = serializer.Deserialize(new StringReader(TestReports.report_with_multiple_descriptions)) as CombinedReportData;
 
             var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(

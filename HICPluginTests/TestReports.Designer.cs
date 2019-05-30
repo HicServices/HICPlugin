@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SCIStorePluginTests {
+namespace HICPluginTests {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace SCIStorePluginTests {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class TestReports {
@@ -39,7 +39,7 @@ namespace SCIStorePluginTests {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SCIStorePluginTests.TestReports", typeof(TestReports).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HICPluginTests.TestReports", typeof(TestReports).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -76,9 +76,9 @@ namespace SCIStorePluginTests {
         ///    &lt;ReportData xmlns=&quot;http://www.show.scot.nhs.uk/isd/SCIStore&quot;&gt;
         ///      &lt;ReportIdentifier&gt;0&lt;/ReportIdentifi [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string REPORT_WITH_FLOAT_VALUES {
+        internal static string report_with_float_values {
             get {
-                return ResourceManager.GetString("REPORT_WITH_FLOAT_VALUES", resourceCulture);
+                return ResourceManager.GetString("report_with_float_values", resourceCulture);
             }
         }
         
@@ -98,9 +98,9 @@ namespace SCIStorePluginTests {
         ///	&lt;ReportData xmlns=&quot;http://www.show.scot.nhs.uk/isd/SCIStore&quot;&gt;
         ///      &lt;ReportIdentifier&gt;0&lt;/ReportIdentifier&gt; [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string REPORT_WITH_MULTIPLE_DESCRIPTIONS {
+        internal static string report_with_multiple_descriptions {
             get {
-                return ResourceManager.GetString("REPORT_WITH_MULTIPLE_DESCRIPTIONS", resourceCulture);
+                return ResourceManager.GetString("report_with_multiple_descriptions", resourceCulture);
             }
         }
     }

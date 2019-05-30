@@ -6,6 +6,7 @@
     <AssemblyTitle>SCIStore</AssemblyTitle>
     <Product>SCIStore</Product>
     <Copyright>Copyright ©  2016</Copyright>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     
@@ -200,7 +201,10 @@
     <Compile Remove="Service References\SciStoreServices81\Reference1.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.12-rc" />
+    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.13-rc" />
     <PackageReference Include="NLog" Version="4.6.3" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" />

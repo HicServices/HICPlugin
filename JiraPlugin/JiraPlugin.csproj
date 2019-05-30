@@ -5,6 +5,7 @@
     <Company>Hewlett-Packard Company</Company>
     <Product>JIRATicketing</Product>
     <Copyright>Copyright © Hewlett-Packard Company 2015</Copyright>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <PostBuildEvent />
     <PostBuildEvent />
     <PostBuildEvent />
@@ -21,7 +22,10 @@
     <PostBuildEvent />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.12-rc" />
+    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.13-rc" />
     <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
   </ItemGroup>
   <ItemGroup>

@@ -20,14 +20,15 @@ namespace JiraPluginTests
             var j = new JIRATicketingSystem(new TicketingSystemConstructorParameters("",null));
             Assert.IsTrue(j.IsValidTicketName(pattern));
         }
-
+        /*Test seems to involve going to our live Jira server!
+         
         [Test]
         [TestCase("LINK-2377")]
         public void JIRA_GetSafeHavenFolder_OK(string masterTicket)
         {
             var j = new JIRATicketingSystem(new TicketingSystemConstructorParameters("https://jira-hic-test.cmdn.dundee.ac.uk/", new TestJiraCredentials()));
             Assert.That(j.GetProjectFolderName(masterTicket), Is.EqualTo("/LovelyCoconuts project")); //
-        }
+        }*/
 
         [Test]
         [TestCase("LIN123")]
@@ -39,6 +40,7 @@ namespace JiraPluginTests
             Assert.IsFalse(j.IsValidTicketName(pattern));
         }
 
+        /*Test seems to involve going to our live Jira server!
         [Test]
         [TestCase("LINK-2377", "LINK-2378", "LINK-2403")]
         public void JIRA_Ticket_Releasable(string masterTicket, string request, string release)
@@ -51,6 +53,7 @@ namespace JiraPluginTests
             Assert.That(releasability, Is.EqualTo(TicketingReleaseabilityEvaluation.Releaseable));
         }
 
+        
         [Test]
         [TestCase("LINK-2377", "LINK-2378", "LINK-2402")]
         public void JIRA_Ticket_NonReleasable(string masterTicket, string request, string release)
@@ -75,7 +78,7 @@ namespace JiraPluginTests
             Assert.That(ex, Is.Null);
             Assert.That(releasability, Is.EqualTo(TicketingReleaseabilityEvaluation.NotReleaseable));
             Assert.That(reason, Does.StartWith("Request ticket " + request + " must have at least one Attachment"));
-        }
+        }*/
     }
 
     public class TestJiraCredentials : IDataAccessCredentials

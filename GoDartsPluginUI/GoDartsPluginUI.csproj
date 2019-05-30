@@ -2,12 +2,16 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <AssemblyTitle>GoDartsPluginUI</AssemblyTitle>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.12-rc" />
+    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.13-rc" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
 </Project>

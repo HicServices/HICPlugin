@@ -4,6 +4,7 @@
     <AssemblyTitle>HICPlugin</AssemblyTitle>
     <Product>HICPlugin</Product>
     <Copyright>Copyright ©  2016</Copyright>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <PostBuildEvent />
     <PostBuildEvent />
     <PostBuildEvent />
@@ -12,8 +13,11 @@
     <PostBuildEvent />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="HIC.Demography" Version="1.0.0" />
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.12-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.13-rc" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
     <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>

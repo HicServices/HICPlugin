@@ -4,42 +4,13 @@
     <AssemblyTitle>HICPluginInteractive</AssemblyTitle>
     <Product>HICPluginInteractive</Product>
     <Copyright>Copyright ©  2018</Copyright>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.12-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.13-rc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs">
