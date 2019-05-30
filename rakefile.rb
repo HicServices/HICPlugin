@@ -90,7 +90,7 @@ task :deployplugins, [:config] do |t, args|
     puts "version: #{version}"
 	
 	Dir.chdir('Plugin/netcoreapp2.2/') do
-		sh "dotnet publish --runtime win-x64"
+		sh "dotnet publish --runtime win-x64 -c #{args.config}"
 	end
 	#Packages the plugin which will be loaded into RDMP
 	sh "nuget pack HIC.Plugin.nuspec -Properties Configuration=#{args.config} -IncludeReferencedProjects -Symbols -Version #{version}"	
