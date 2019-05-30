@@ -12,7 +12,7 @@ task :ci_continuous, [:config] => [:setup_connection, :assemblyinfo, :build, :te
 
 task :ci_integration, [:config] => [:setup_connection, :assemblyinfo, :build, :all_tests]
 
-task :plugins, [:config] => [:assemblyinfo, :build, :deployplugins]
+task :plugins, [:config] => [:assemblyinfo, :build_relesae, :deployplugins]
 
 task :release => [:assemblyinfo, :build_release]
 
@@ -89,13 +89,11 @@ task :deployplugins, [:config] do |t, args|
 	version = File.open('version') {|f| f.readline}
     puts "version: #{version}"
 	
-	Dir.chdir('Plugins/netcoreapp2.2/') do
+	Dir.chdir('Plugin/netcoreapp2.2/') do
 		sh "dotnet publish --runtime win-x64"
-	
+	end
 	#Packages the plugin which will be loaded into RDMP
-	sh "nuget pack HIC.Plugin.nuspec -Properties Configuration=#{args.config} -IncludeReferencedProjects -Symbols -Version #{version}"
-	
-    end
+	sh "nuget pack HIC.Plugin.nuspec -Properties Configuration=#{args.config} -IncludeReferencedProjects -Symbols -Version #{version}"	
 end
 
 def getrdmpversion()
