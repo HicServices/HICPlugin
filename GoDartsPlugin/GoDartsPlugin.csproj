@@ -52,7 +52,7 @@
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.9-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.10-rc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />

@@ -22,12 +22,12 @@ namespace HICPluginTests.Integration
                 Assert.Inconclusive("Could not find the file HICPlugin.dll in " + new DirectoryInfo(".").FullName);
 
             //upload it to the repo
-            var plugin = new Plugin(repo, new FileInfo("Fish.zip"));
+            var plugin = new Plugin(repo, new FileInfo("Fish.zip"),new Version(1,1),new Version(1,1));
 
             try
             {
                 //declare a lma
-                var lma = new LoadModuleAssembly(repo, new FileInfo(dllFile), plugin,null);
+                var lma = new LoadModuleAssembly(repo, new FileInfo(dllFile), plugin);
 
                 //setup MEF to load the current directory
                 var mef = new MEF();
