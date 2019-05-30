@@ -12,7 +12,7 @@ task :ci_continuous, [:config] => [:setup_connection, :assemblyinfo, :build, :te
 
 task :ci_integration, [:config] => [:setup_connection, :assemblyinfo, :build, :all_tests]
 
-task :plugins, [:config] => [:assemblyinfo, :build_relesae, :deployplugins]
+task :plugins, [:config] => [:assemblyinfo, :build_release, :deployplugins]
 
 task :release => [:assemblyinfo, :build_release]
 
