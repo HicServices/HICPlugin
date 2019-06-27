@@ -7,9 +7,6 @@
     <Copyright>Copyright ©  2019</Copyright>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.DicomTypeTranslation" Version="1.0.0.3" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\..\GoDartsPlugin\GoDartsPlugin.csproj" />

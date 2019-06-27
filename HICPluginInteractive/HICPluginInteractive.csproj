@@ -10,7 +10,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.13-rc" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="3.0.15" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs">
