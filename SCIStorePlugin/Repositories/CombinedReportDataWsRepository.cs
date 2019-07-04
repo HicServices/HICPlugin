@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.ServiceModel;
 using Rdmp.Core.Curation.Data;
@@ -54,8 +53,10 @@ namespace SCIStorePlugin.Repositories
 
         public CombinedReportDataWsRepository(WebServiceConfiguration wsConfig, SCIStoreServicesClient client, Discipline discipline, HealthBoard healthBoard) : base(wsConfig)
         {
-            Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(wsConfig.Endpoint), "The web service Endpoint is missing from the Configuration and must be specified");
-            Contract.Requires<ArgumentNullException>(client != null);
+            if(string.IsNullOrWhiteSpace(wsConfig.Endpoint))
+				throw new ArgumentException("The web service Endpoint is missing from the Configuration and must be specified");
+			if(client == null)
+				throw new ArgumentNullException("Client was null");
 
             _client = client;
             _discipline = discipline;

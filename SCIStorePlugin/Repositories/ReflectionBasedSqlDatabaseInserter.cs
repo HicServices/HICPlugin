@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 using MapsDirectlyToDatabaseTable;
@@ -49,7 +48,6 @@ namespace SCIStorePlugin.Repositories
             return notSafe.Replace("'", " ");
         }
 
-        [Pure]
         public static string Quote(string str, string surround = "'")
         {
             return surround + str + surround;
@@ -75,8 +73,6 @@ namespace SCIStorePlugin.Repositories
                             )
                 );
         }
-
-        [Pure]
         public static string MakeInsertCollectionSql<T>(IEnumerable<T> results, string databaseName, string tableName, string idColumnName = null)
         {
             var properties = GetMappableProperties<T>(idColumnName).ToList();
@@ -92,7 +88,7 @@ namespace SCIStorePlugin.Repositories
                 databaseName, tableName, String.Join(",", resultColumnNames), String.Join(",", valueStrings));
         }
 
-        [Pure]
+        
         public static string MakeInsertSql<T>(T header, string databaseName, string tableName,
             string idColumnName = null)
         {

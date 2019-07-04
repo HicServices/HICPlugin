@@ -6,7 +6,6 @@ using System.Linq;
 using FAnsi.Discovery;
 using NLog;
 using ReusableLibraryCode.Progress;
-using SCIStore.Properties;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePlugin.Repositories
@@ -53,7 +52,6 @@ namespace SCIStorePlugin.Repositories
         }
 
    
-        [Pure]
         private SciStoreReport DoTransform(SciStoreReport report)
         {
             var transformed = new SciStoreReport(report); // don't want to modify the original
@@ -74,7 +72,6 @@ namespace SCIStorePlugin.Repositories
             return transformed;
         }
 
-        [Pure]
         private string Truncate(string src, int maxLength)
         {
             var dest = String.Copy(src); // don't want to overwrite src
