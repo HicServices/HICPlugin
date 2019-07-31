@@ -11,16 +11,13 @@
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="3.0.15" />
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="3.0.15" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
-    <PackageReference Include="NUnit" Version="3.11.0" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="3.1.0" />
+    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="3.1.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.36" />
     <PackageReference Include="RhinoMocks" Version="3.6.1" />
     <PackageReference Include="SharpZipLib" Version="1.1.0" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
-    <PackageReference Include="YamlDotNet" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DrsPlugin\DrsPlugin.csproj" />
