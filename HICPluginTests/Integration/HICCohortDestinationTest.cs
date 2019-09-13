@@ -7,6 +7,7 @@ using Rdmp.Core.CohortCommitting.Pipeline;
 using Rdmp.Core.DataExport.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.Repositories;
+using ReusableLibraryCode;
 using ReusableLibraryCode.Progress;
 using Tests.Common.Scenarios;
 
@@ -41,7 +42,14 @@ namespace HICPluginTests.Integration
                 string sql;
                 if (_expectToSucceed)
                 {
-                    sql = string.Format(@"create procedure fishfishfishproc1
+                    sql = string.Format(@"
+if exists(select * from sys.procedures where name = 'fishfishfishproc1')
+	begin
+		drop procedure fishfishfishproc1
+	end
+GO
+
+create procedure fishfishfishproc1
                     @sourceTableName varchar(10),
                     @projectNumber int,
                     @description varchar(10)
@@ -52,7 +60,14 @@ namespace HICPluginTests.Integration
                 }
                 else
                 {
-                    sql = string.Format(@"create procedure fishfishfishproc1
+                    sql = string.Format(@"
+if exists(select * from sys.procedures where name = 'fishfishfishproc1')
+	begin
+		drop procedure fishfishfishproc1
+	end
+GO
+
+                    create procedure fishfishfishproc1
                     @sourceTableName varchar(10),
                     @projectNumber int,
                     @description varchar(10)
@@ -61,8 +76,7 @@ namespace HICPluginTests.Integration
                         select 0
                     end");
                 }
-                
-                discoveredServer.GetCommand(sql, con).ExecuteNonQuery();
+                UsefulStuff.ExecuteBatchNonQuery(sql,con);
             }
             
             var def = new CohortDefinition(null, "ignoremecohort", 1, 12,_externalCohortTable);

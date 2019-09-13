@@ -1,10 +1,10 @@
-using FAnsi.Discovery.TypeTranslation.TypeDeciders;
 using Rdmp.Core.QueryBuilding;
 using ReusableLibraryCode.Progress;
 using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using TypeGuesser.Deciders;
 
 namespace DrsPlugin.Extraction
 {
@@ -22,7 +22,7 @@ namespace DrsPlugin.Extraction
         public string GetCorrectFilename(DataRow originalRow, IDataLoadEventListener listener)
         {
             //DRS files are always in uk format?
-            var dt = new DateTimeTypeDecider(){Culture = new CultureInfo("en-GB")};
+            var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
             return string.Format("{0}_{1}_{2}M_{3}_PW{4}_PH{5}{6}",
                 originalRow[_extractionIdentifier.GetRuntimeName()],

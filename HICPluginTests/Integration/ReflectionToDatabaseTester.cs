@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using FAnsi;
 using NUnit.Framework;
 using SCIStorePlugin.Repositories;
 using Tests.Common;
@@ -19,7 +20,7 @@ namespace SCIStorePluginTests.Integration
             TestObject t = new TestObject();
             t.Field1 = "1q234fj";
 
-            var dbInfo = DiscoveredDatabaseICanCreateRandomTablesIn;
+            var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
 
             using (var con = (SqlConnection)dbInfo.Server.GetConnection())
             {
@@ -42,7 +43,7 @@ namespace SCIStorePluginTests.Integration
             TestObject t = new TestObject();
             t.Field1 = "asdljkmalsdjflaksdjflkajsd;lfkjasdl;kfj";
 
-            var dbInfo = DiscoveredDatabaseICanCreateRandomTablesIn;
+            var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             using (var con = (SqlConnection)dbInfo.Server.GetConnection())
             {
                 con.Open();
@@ -78,7 +79,7 @@ namespace SCIStorePluginTests.Integration
             t.Field1 = "asdljfj";
             t.Field2 = null;
 
-            var dbInfo = DiscoveredDatabaseICanCreateRandomTablesIn;
+            var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             using (var con = (SqlConnection)dbInfo.Server.GetConnection())
             {
                 con.Open();

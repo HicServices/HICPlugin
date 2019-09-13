@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using DrsPlugin.Attachers;
+using FAnsi;
 using FAnsi.Discovery;
 using ICSharpCode.SharpZipLib.Tar;
 using NUnit.Framework;
@@ -103,14 +105,14 @@ namespace DrsPluginTests
         public void Checking_NoFilesInForLoading()
         {
             var testDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
-
+            var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             try
             {
 
                 var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
                 var attacher = new DrsMultiVolumeRarAttacher();
-                attacher.Initialize(LoadDirectory, DiscoveredDatabaseICanCreateRandomTablesIn);
+                attacher.Initialize(LoadDirectory, db);
 
                 var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
 
@@ -126,7 +128,7 @@ namespace DrsPluginTests
         public void Checking_CorrectlyFormedArchive()
         {
             var testDir = Directory.CreateDirectory(Path.Combine(TestContext.CurrentContext.WorkDirectory, Path.GetRandomFileName()));
-
+            var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             try
             {
                 ProvisionTestData(testDir);
@@ -139,7 +141,7 @@ namespace DrsPluginTests
                     ManifestFileName = "GoDARTSv2.csv",
                     FilenameColumnName = "Image_Filename"
                 };
-                attacher.Initialize(LoadDirectory, DiscoveredDatabaseICanCreateRandomTablesIn);
+                attacher.Initialize(LoadDirectory, db);
 
                 Assert.DoesNotThrow(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
             }
@@ -155,7 +157,7 @@ namespace DrsPluginTests
             var testDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
             var scratchDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
             File.WriteAllText(Path.Combine(scratchDir.FullName, "rogue_file.txt"), "foo");
-
+            var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             try
             {
                 ProvisionTestData(testDir);
@@ -169,7 +171,7 @@ namespace DrsPluginTests
                     FilenameColumnName = "Image_Filename",
                     SecureLocalScratchArea = scratchDir
                 };
-                attacher.Initialize(LoadDirectory, DiscoveredDatabaseICanCreateRandomTablesIn);
+                attacher.Initialize(LoadDirectory, db);
 
                 var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
                 Assert.AreEqual(ex.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
@@ -185,7 +187,7 @@ namespace DrsPluginTests
         public void Checking_ManifestMismatch_MissingImages()
         {
             var testDir = Directory.CreateDirectory(Path.Combine(TestContext.CurrentContext.WorkDirectory, Path.GetRandomFileName()));
-
+            var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             try
             {
                 ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
@@ -198,7 +200,7 @@ namespace DrsPluginTests
                     ManifestFileName = "GoDARTSv2.csv",
                     FilenameColumnName = "Image_Filename"
                 };
-                attacher.Initialize(LoadDirectory, DiscoveredDatabaseICanCreateRandomTablesIn);
+                attacher.Initialize(LoadDirectory, db);
 
                 var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
                 Assert.AreEqual("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex.Message);
@@ -213,7 +215,7 @@ namespace DrsPluginTests
         public void Checking_ManifestMismatch_MissingManifestEntries()
         {
             var testDir = Directory.CreateDirectory(Path.Combine(TestContext.CurrentContext.WorkDirectory, Path.GetRandomFileName()));
-
+            var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
             try
             {
                 ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
@@ -226,7 +228,7 @@ namespace DrsPluginTests
                     ManifestFileName = "GoDARTSv2.csv",
                     FilenameColumnName = "Image_Filename"
                 };
-                attacher.Initialize(LoadDirectory, DiscoveredDatabaseICanCreateRandomTablesIn);
+                attacher.Initialize(LoadDirectory, db);
 
                 var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
                 Assert.AreEqual("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex.Message);
@@ -573,7 +575,8 @@ namespace DrsPluginTests
                 {
                     Separator = ",",
                     FilePattern = "GoDARTSv2.csv",
-                    TableName = "GoDARTSv2_TEST"
+                    TableName = "GoDARTSv2_TEST",
+                    Culture = new CultureInfo("en-GB")
                 };
                 csvAttacher.Initialize(loadDirectory, database);
 

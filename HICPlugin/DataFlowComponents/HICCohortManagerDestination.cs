@@ -65,7 +65,7 @@ namespace HICPlugin.DataFlowComponents
             var target = Request.NewCohortDefinition.LocationOfCohort;
             var cohortDatabase = target.Discover();
 
-            string tempTableName = QuerySyntaxHelper.MakeHeaderNameSane(Guid.NewGuid().ToString());
+            string tempTableName = QuerySyntaxHelper.MakeHeaderNameSensible(Guid.NewGuid().ToString());
             AllAtOnceDataTable.TableName = tempTableName;
 
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Uploading to " + tempTableName));
