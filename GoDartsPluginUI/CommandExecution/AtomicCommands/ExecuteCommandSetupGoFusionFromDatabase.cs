@@ -10,9 +10,7 @@ using Rdmp.Core.DataLoad.Modules.Attachers;
 using Rdmp.UI.CommandExecution.AtomicCommands;
 using Rdmp.UI.Icons.IconProvision;
 using Rdmp.UI.ItemActivation;
-using ReusableLibraryCode.CommandExecution.AtomicCommands;
 using ReusableLibraryCode.Icons.IconProvision;
-using ReusableUIComponents.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,10 +18,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using Rdmp.Core.Icons.IconProvision;
 
 namespace GoDartsPluginUI.CommandExecution.AtomicCommands
 {
-    public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution, IAtomicCommand
+    public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
     {
         private IExternalDatabaseServer _loggingServer;
 
@@ -39,7 +38,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
         {
             base.Execute();
 
-            var db = SelectDatabase("Import all Tables form Database...");
+            var db = SelectDatabase(true,"Import all Tables form Database...");
 
             ShareManager shareManager = new ShareManager(Activator.RepositoryLocator, LocalReferenceGetter);
 
@@ -148,7 +147,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
                 }
 
             if (ignoredTables.Any())
-                WideMessageBox.Show("Ignored " + ignoredTables.Count + " tables", "Because they already existed as TableInfos:" + string.Join(Environment.NewLine, ignoredTables.Select(ti => ti.GetRuntimeName())));
+                Show("Ignored " + ignoredTables.Count + " tables", "Because they already existed as TableInfos:" + string.Join(Environment.NewLine, ignoredTables.Select(ti => ti.GetRuntimeName())));
 
             var lmd = CreateLoadMetadata(importedCatalogues);
 
@@ -199,7 +198,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
         }
 
 
-        public Image GetImage(IIconProvider iconProvider)
+        public override Image GetImage(IIconProvider iconProvider)
         {
             return iconProvider.GetImage(RDMPConcept.Database, OverlayKind.Execute);
         }
