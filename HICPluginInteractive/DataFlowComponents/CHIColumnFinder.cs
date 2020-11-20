@@ -28,6 +28,9 @@ namespace HICPluginInteractive.DataFlowComponents
         [DemandsInitialization("Will show errors in messageboxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
         public bool ShowUIComponents { get; set; }
 
+        [DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
+        public string IgnoreColumns { get; set; }
+
         private bool _firstTime = true;
 
         private List<string> _columnWhitelist = new List<string>();
@@ -50,13 +53,24 @@ namespace HICPluginInteractive.DataFlowComponents
             if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"].Equals(true))
                 _isTableAlreadyNamed = true;
 
+            if (!string.IsNullOrEmpty(IgnoreColumns))
+            {
+                foreach(var column in IgnoreColumns.Split(new[] { ',' }))
+                {
+                    var trimmedColumn = column.Trim();
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, string.Format("The following column will be ignored: {0}", trimmedColumn)));
+
+                    _columnWhitelist.Add(trimmedColumn);
+                }
+            }
+
             var batchRowCount = 0;
             var dtRows = toProcess.Rows.Cast<DataRow>().ToArray();
             foreach (var row in dtRows)
             {
                 foreach (var col in toProcess.Columns.Cast<DataColumn>())
                 {
-                    if (!_columnWhitelist.Contains(col.ColumnName) && ContainsValidChi(row[col]))
+                    if (!_columnWhitelist.Contains(col.ColumnName.Trim()) && ContainsValidChi(row[col]))
                     {
                         if (ShowUIComponents)
                             DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);

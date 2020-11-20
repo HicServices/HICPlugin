@@ -10,12 +10,11 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="4.1.0" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="4.1.9" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="4.1.9" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="UIComponents\ExtractDataTableViewer.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="UIComponents\ExtractDataTableViewer.cs" />
     <Compile Update="UIComponents\ExtractDataTableViewer.designer.cs">
       <DependentUpon>ExtractDataTableViewer.cs</DependentUpon>
     </Compile>
