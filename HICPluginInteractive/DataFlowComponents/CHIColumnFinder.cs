@@ -7,7 +7,9 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using HICPluginInteractive.UIComponents;
 using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
+using Rdmp.Core.DataFlowPipeline.Requirements;
 using Rdmp.Core.Validation.Constraints.Primary;
 using Rdmp.UI.SingleControlForms;
 using ReusableLibraryCode.Checks;
@@ -20,7 +22,7 @@ namespace HICPluginInteractive.DataFlowComponents
     /// if it finds columns which contain valid CHIs.
     /// </summary>
     [Description("Crashes the pipeline if any columns are suspected of containing CHIs")]
-    public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>
+    public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>
     {
         [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
         public DateTime? OverrideUntil { get; set; }
@@ -55,13 +57,10 @@ namespace HICPluginInteractive.DataFlowComponents
 
             if (!string.IsNullOrEmpty(IgnoreColumns))
             {
-                foreach(var column in IgnoreColumns.Split(new[] { ',' }))
-                {
-                    var trimmedColumn = column.Trim();
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, string.Format("The following column will be ignored: {0}", trimmedColumn)));
+                var ignoreColumnsArray = IgnoreColumns.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
 
-                    _columnWhitelist.Add(trimmedColumn);
-                }
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, string.Format("You have chosen the following columns to be ignored: {0}", string.Join(", ", ignoreColumnsArray))));
+                _columnWhitelist.AddRange(ignoreColumnsArray);
             }
 
             var batchRowCount = 0;
@@ -167,6 +166,27 @@ namespace HICPluginInteractive.DataFlowComponents
             }
 
             return false;
+        }
+
+        public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)
+        {
+            if (value is ExtractDatasetCommand edcs)
+            {
+                try
+                {
+                    var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(ci => ci.ExtractionInformation).Where(ei => ei.HashOnDataRelease).Select(ei => ei.GetRuntimeName()).ToArray();
+
+                    if (hashOnReleaseColumns.Any())
+                    {
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, string.Format("Ignoring the following columns as they have been hashed on release: {0}", string.Join(", ", hashOnReleaseColumns))));
+                        _columnWhitelist.AddRange(hashOnReleaseColumns);
+                    }
+                }
+                catch (NullReferenceException e)
+                {
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, string.Format("Failed to get HashOnDataRelease columns for catalogue {0} with the exception: {1} Columns can be ignored manually using the Ignore Columns option", edcs.Catalogue.Name, e.Message)));
+                }
+            }            
         }
     }
 }
