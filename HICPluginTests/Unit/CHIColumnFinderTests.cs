@@ -2,6 +2,8 @@
 using System.Data;
 using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
+using Rdmp.Core.DataExport.Data;
+using Rdmp.Core.DataExport.DataExtraction.Commands;
 using ReusableLibraryCode.Progress;
 
 namespace HICPluginTests.Unit
@@ -57,6 +59,29 @@ namespace HICPluginTests.Unit
                 Assert.Throws<Exception>(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
             else
                 Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
+        }
+
+        [Test]
+        public void IgnoreColumnsAvoidsCHIChecking()
+        {
+            var chiFinder = new CHIColumnFinder();
+
+            var toProcess = new DataTable();
+            toProcess.Columns.Add("Height");
+            toProcess.Rows.Add(new object[] { 195 });
+
+            var listener = new ThrowImmediatelyDataLoadEventListener();
+            listener.ThrowOnWarning = true;
+
+            Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
+
+            toProcess.Columns.Add("NothingToSeeHere");
+            toProcess.Rows.Add(new object[] { 145, "1111111111" });
+
+            Assert.Throws<Exception>(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
+
+            chiFinder.IgnoreColumns = "NothingToSeeHere";
+            Assert.DoesNotThrow(() => chiFinder.ProcessPipelineData(toProcess, listener, null));
         }
     }
 }
