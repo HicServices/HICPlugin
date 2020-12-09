@@ -55,9 +55,9 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="4.1.0" />
+    <Folder Include="Commands\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="4.2.0" />
   </ItemGroup>
 </Project>
