@@ -287,7 +287,7 @@ namespace DrsPlugin.Attachers
             {
                 using (var sr = new StreamReader(stream))
                 {
-                    using (var csvReader = new CsvReader(sr))
+                    using (var csvReader = new CsvReader(sr, Culture))
                     {
                         while (csvReader.Read())
                             imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
