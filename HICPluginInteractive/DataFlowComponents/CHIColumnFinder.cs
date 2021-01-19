@@ -174,7 +174,7 @@ namespace HICPluginInteractive.DataFlowComponents
             {
                 try
                 {
-                    var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(ci => ci.ExtractionInformation).Where(ei => ei.HashOnDataRelease).Select(ei => ei.GetRuntimeName()).ToArray();
+                    var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(ci => ci.ExtractionInformation).Where(ei => ei != null && ei.HashOnDataRelease).Select(ei => ei.GetRuntimeName()).ToArray();
 
                     if (hashOnReleaseColumns.Any())
                     {
@@ -182,9 +182,9 @@ namespace HICPluginInteractive.DataFlowComponents
                         _columnWhitelist.AddRange(hashOnReleaseColumns);
                     }
                 }
-                catch (NullReferenceException e)
+                catch (Exception e)
                 {
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, string.Format("Failed to get HashOnDataRelease columns for catalogue {0} with the exception: {1} Columns can be ignored manually using the Ignore Columns option", edcs.Catalogue.Name, e.Message)));
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, string.Format("Failed to get HashOnDataRelease columns for catalogue {0} with the exception: {1} Columns can be ignored manually using the Ignore Columns option", edcs.Catalogue.Name, e.Message), e));
                 }
             }            
         }
