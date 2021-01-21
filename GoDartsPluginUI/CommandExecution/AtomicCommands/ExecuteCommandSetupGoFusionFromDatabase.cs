@@ -8,7 +8,6 @@ using Rdmp.Core.Curation.Data.ImportExport;
 using Rdmp.Core.Curation.Data.Serialization;
 using Rdmp.Core.DataLoad.Modules.Attachers;
 using Rdmp.UI.CommandExecution.AtomicCommands;
-using Rdmp.UI.Icons.IconProvision;
 using Rdmp.UI.ItemActivation;
 using ReusableLibraryCode.Icons.IconProvision;
 using System;
@@ -75,7 +74,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
 
             var married = new Dictionary<CatalogueItem, ColumnInfo>();
 
-            TableInfo anyNewTable = null;
+            ITableInfo anyNewTable = null;
 
             foreach (DiscoveredTable discoveredTable in db.DiscoverTables(includeViews: false))
             {
@@ -87,7 +86,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
                 }
 
                 var importer = new TableInfoImporter(Activator.RepositoryLocator.CatalogueRepository, discoveredTable);
-                TableInfo ti;
+                ITableInfo ti;
                 ColumnInfo[] cis;
 
                 //import the table
@@ -131,7 +130,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
                 }
                 else if (generateCatalogues)
                 {
-                    Catalogue newCatalogue;
+                    ICatalogue newCatalogue;
                     CatalogueItem[] discardCi;
                     ExtractionInformation[] discardEi;
                     new ForwardEngineerCatalogue(ti, cis).ExecuteForwardEngineering(out newCatalogue, out discardCi, out discardEi);
