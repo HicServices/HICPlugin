@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <AssemblyTitle>JIRATicketing</AssemblyTitle>
     <Company>Hewlett-Packard Company</Company>
     <Product>JIRATicketing</Product>
     <Copyright>Copyright © Hewlett-Packard Company 2015</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PostBuildEvent />
-    <PostBuildEvent />
-    <PostBuildEvent />
+    <RestoreAdditionalProjectSources>
+      https://hic.dundee.ac.uk/nuget/nuget;
+    </RestoreAdditionalProjectSources>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
@@ -25,7 +25,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="4.2.1" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="5.0.0" />
     <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
   </ItemGroup>
   <ItemGroup>

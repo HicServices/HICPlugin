@@ -1,0 +1,55 @@
+name: Build, test and package
+
+on: push
+
+env:
+  MSSQL_SA_PASSWORD: "YourStrong!Passw0rd"
+  ACCEPT_EULA: "Y"
+  MSSQL_PID: "developer"
+  
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.200
+      - name: Get version
+        id: version
+        shell: cmd
+        run: |
+          for /f tokens^=1^,2^ delims^=^" %%i in (SharedAssemblyInfo.cs) do @if "%%i"=="[assembly: AssemblyVersion(" echo ::set-output name=version::%%j
+          for /f tokens^=2^,4^ delims^=^" %%i in (AutomationPlugins/LoadModules.Extensions.AutomationPlugins/LoadModules.Extensions.AutomationPlugins.csproj) do @if "%%i"=="HIC.RDMP.Plugin" echo ::set-output name=rdmpversion::%%j
+      - name: Set up database
+        run: |
+          Invoke-WebRequest -Uri https://github.com/HicServices/RDMP/releases/download/v${{ steps.version.outputs.rdmpversion }}/rdmp-cli-win-x64.zip -OutFile rdmp.zip
+          Expand-Archive -Path rdmp.zip -DestinationPath .\rdmpcli
+          cmd.exe /c rdmpcli\rdmp.exe install localhost TEST_
+      - name: Test
+        run: |
+          nuget restore
+          dotnet test
+      - name: Build
+        run: |
+          cd Plugin/windows
+          dotnet publish --runtime win-x64 -c Release --self-contained false
+          cd ../main
+          dotnet publish -c Release --self-contained false
+          cd ../..
+          nuget pack ./HIC.Plugin.nuspec -Properties Configuration=Release -IncludeReferencedProjects -Symbols -Version ${{ steps.version.outputs.version }}
+          cmd /c rdmpcli\rdmp.exe pack --file HIC.Plugin.${{ steps.version.outputs.version }}.nupkg --servername localhost --cataloguedatabasename TEST_Catalogue --dataexportdatabasename TEST_DataExport
+          cmd /c rdmpcli\rdmp.exe cmd listsupportedcommands --servername localhost --cataloguedatabasename TEST_Catalogue --dataexportdatabasename TEST_DataExport
+          cmd /c rdmpcli\rdmp.exe cmd describecommand CreateNewImagingDatasetSuite --servername localhost --cataloguedatabasename TEST_Catalogue --dataexportdatabasename TEST_DataExport
+      - name: Store created nupkg files
+        uses: actions/upload-artifact@v2
+        with:
+          path: ./*.nupkg
+          retention-days: 1
+      - name: Upload release binaries
+        if: contains(github.ref,'refs/tags/')
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref }}
+          file: '["HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg"]'

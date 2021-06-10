@@ -1,17 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RestoreAdditionalProjectSources>
+      https://hic.dundee.ac.uk/nuget/nuget;
+    </RestoreAdditionalProjectSources>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="TestData\report-with-float-values.xml" />
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="4.2.1" />
+    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="5.0.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="2.1.36" />
     <PackageReference Include="RhinoMocks" Version="3.6.1" />

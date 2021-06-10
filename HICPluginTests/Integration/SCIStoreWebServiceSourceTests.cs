@@ -91,7 +91,7 @@ namespace SCIStorePluginTests.Integration
 
                 // Create a stubbed retry strategy which will fail and throw the 'DownloadRequestFailedException'
                 var failStrategy = MockRepository.GenerateStub<IRetryStrategy>();
-                var faultException = new FaultException("Error on the server", new FaultCode("Fault Code"), "Action");
+                var faultException = new FaultException(new FaultReason("Error on the server"), new FaultCode("Fault Code"), "Action");
                 var downloadException = new DownloadRequestFailedException(cacheFetchRequest.Start, cacheFetchRequest.ChunkPeriod, faultException);
                 failStrategy.Stub(
                     strategy =>
