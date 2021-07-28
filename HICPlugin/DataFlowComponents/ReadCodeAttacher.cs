@@ -12,7 +12,7 @@ using Rdmp.Core.Curation;
 using Rdmp.Core.DataLoad.Engine.Attachers;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataLoad.Engine.Job;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace HICPlugin.DataFlowComponents
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using MapsDirectlyToDatabaseTable;
 using FAnsi.Discovery;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace SCIStorePlugin.Repositories
 {

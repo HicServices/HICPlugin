@@ -15,7 +15,7 @@ using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataLoad;
 using Rdmp.Core.DataLoad.Engine.Job;
 using Rdmp.Core.Curation.Data.DataLoad;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using HIC.Demography;
 using Nancy.Json;
 
