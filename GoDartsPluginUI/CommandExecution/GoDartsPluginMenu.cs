@@ -1,8 +1,9 @@
 ﻿using GoDartsPluginUI.CommandExecution.AtomicCommands;
+using Rdmp.Core;
+using Rdmp.Core.CommandExecution.AtomicCommands;
 using Rdmp.Core.Providers.Nodes;
 using Rdmp.UI.ItemActivation;
-using Rdmp.UI.PluginChildProvision;
-using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace GoDartsPluginUI.CommandExecution
 {
@@ -12,13 +13,17 @@ namespace GoDartsPluginUI.CommandExecution
         {
         }
 
-        public override ToolStripMenuItem[] GetAdditionalRightClickMenuItems(object o)
+        public override IEnumerable<IAtomicCommand> GetAdditionalRightClickMenuItems(object o)
         {
             var serverNode = o as AllServersNode;
             if (serverNode == null)
                 return null;
 
-            return GetMenuArray(new ExecuteCommandSetupGoFusionFromDatabase(ItemActivator));
+            if(BasicActivator is IActivateItems a)
+            {
+                return new[] { new ExecuteCommandSetupGoFusionFromDatabase(a) };
+            }
+            return base.GetAdditionalRightClickMenuItems(o);
         }
     }
 }
