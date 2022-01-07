@@ -25,7 +25,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="7.0.0" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="7.0.4" />
     <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
   </ItemGroup>
   <ItemGroup>

@@ -139,7 +139,7 @@ namespace HICPlugin.DataFlowComponents
                         listener.OnNotify(this,
                             new NotifyEventArgs(ProgressEventType.Information,
                                 "About to attempt to create a pointer to this cohort that has been created"));
-                        Request.ImportAsExtractableCohort(true);
+                        Request.ImportAsExtractableCohort(true,true);
                         listener.OnNotify(this,
                             new NotifyEventArgs(ProgressEventType.Information,
                                 "Succesfully created pointer, you should now have access to your cohort in RDMP"));
