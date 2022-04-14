@@ -7,6 +7,7 @@ using Rdmp.Core.DataLoad.Engine.Mutilators;
 using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.DataLoad;
 using Rdmp.Core.DataLoad.Engine.Job;
+using System.Data.Common;
 
 namespace HICPlugin.Mutilators
 {
@@ -20,6 +21,9 @@ namespace HICPlugin.Mutilators
         
         [DemandsInitialization("If true, program will attempt to add zero to the front of 9 digit CHIs prior to running the CHI validity check", Mandatory = true, DefaultValue = true)]
         public bool TryAddingZeroToFront { get; set; }
+
+        [DemandsInitialization("Timeout in seconds", DefaultValue = 30)]
+        public int Timeout { get; set; } = 30;
 
         [DemandsInitialization("Columns failing validation will have this consequence applied to them", Mandatory=true, DefaultValue = MutilationAction.CrashDataLoad)]
         public MutilationAction FailedRows { get; set; }
@@ -130,13 +134,13 @@ END
                 {
                     con.Open();
 
-                    _dbInfo.Server.GetCommand(DropCHIFunctionIfExists(), con).ExecuteNonQuery();
-                    _dbInfo.Server.GetCommand(CreateCHIFunction(), con).ExecuteNonQuery();
+                    AddTimeout(_dbInfo.Server.GetCommand(DropCHIFunctionIfExists(), con)).ExecuteNonQuery();
+                    AddTimeout(_dbInfo.Server.GetCommand(CreateCHIFunction(), con)).ExecuteNonQuery();
 
                     if(TryAddingZeroToFront)
-                        _dbInfo.Server.GetCommand(PrePendNineDigitCHIs(_loadStage), con).ExecuteNonQuery();
+                        AddTimeout(_dbInfo.Server.GetCommand(PrePendNineDigitCHIs(_loadStage), con)).ExecuteNonQuery();
 
-                    int affectedRows = _dbInfo.Server.GetCommand(GetUpdateSQL(_loadStage), con).ExecuteNonQuery();
+                    int affectedRows = AddTimeout(_dbInfo.Server.GetCommand(GetUpdateSQL(_loadStage), con)).ExecuteNonQuery();
 
                     job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information, "CHIMutilator affected " + affectedRows + " rows"));
                 }
@@ -147,7 +151,12 @@ END
             return ExitCodeType.Success;
         }
 
-        
+        private DbCommand AddTimeout(DbCommand dbCommand)
+        {
+            dbCommand.CommandTimeout = Timeout;
+            return dbCommand;
+        }
+
         private string PrePendNineDigitCHIs(LoadStage loadStage)
         {
             var tableName = ChiColumn.TableInfo.GetRuntimeName(loadStage);
