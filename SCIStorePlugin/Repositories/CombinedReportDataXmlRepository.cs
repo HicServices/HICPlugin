@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Xml;
 using System.Xml.Serialization;
 using NLog;
 using ReusableLibraryCode;
@@ -162,18 +163,30 @@ namespace SCIStorePlugin.Repositories
                     string path = Path.Combine(reportDir, CreateFilename(report));
 
                     //write results to file
-                    using StringWriter sw = new StringWriter();
+                    StringWriter sw = new StringWriter();
                     serialiser.Serialize(sw,report);
 
                     sw.Flush();
                     var text = sw.ToString();
-
-                    text = Regex.Replace(text, "<LastEncounteredDate>.*</LastEncounteredDate>", "<LastEncounteredDate>0001-01-01</LastEncounteredDate>");
-                    text = Regex.Replace(text, "<LastEncounteredTime>.*</LastEncounteredTime>", "<LastEncounteredTime>00:00:00.0000000+00:00</LastEncounteredTime>");
-
-                    File.WriteAllText(path, text);
-
                     sw.Close();
+                    sw.Dispose();
+
+                    // ensure that the text is valid xml
+                    var doc = new XmlDocument();
+                    doc.Load(text);
+
+                    foreach(XmlNode t in doc.GetElementsByTagName("LastEncounteredDate"))
+                    {
+                        t.InnerText = "0001-01-01";
+                    }
+
+                    foreach (XmlNode t in doc.GetElementsByTagName("LastEncounteredTime"))
+                    {
+                        t.InnerText = "00:00:00.0000000+00:00";
+                    }
+
+                    doc.Save(path);
+                    
                 }
                 catch (Exception e)
                 {
