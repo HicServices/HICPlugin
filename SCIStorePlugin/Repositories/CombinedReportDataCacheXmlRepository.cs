@@ -4,12 +4,15 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Xml;
 using System.Xml.Serialization;
-using NLog;
 using Rdmp.Core.Caching.Layouts;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
+using NLog;
+using ReusableLibraryCode;
+using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePlugin.Repositories
@@ -54,7 +57,7 @@ namespace SCIStorePlugin.Repositories
             if (!subDirs.Any())
             {
                 // the report files have not been unzipped in T/F directories
-                // however the XML should contain an HbExtract tag so we are safe to read them
+                // however the XML should contain an HbExtract tag
                 ReadDir(reports, rootDir);
             }
             else
@@ -145,6 +148,9 @@ namespace SCIStorePlugin.Repositories
                 if (report == null)
                     throw new Exception("Could not cast CombinedReportData object");
 
+                if (report.HbExtract != "T" && report.HbExtract != "F")
+                    throw new Exception("Unknown Health Board parameter (HbExtract): " + report.HbExtract);
+
                 try
                 {
                     var reportDir = _cacheLayout.GetLoadCacheDirectory(listener);
@@ -157,54 +163,35 @@ namespace SCIStorePlugin.Repositories
 
                     var path = Path.Combine(reportDir.FullName, SCIStoreLoadCachePathResolver.GetFilename(report));
 
-                    // write results to memory
-                    using (var stream = new MemoryStream())
+                    
+
+                    //write results to file
+                    StringWriter sw = new StringWriter();
+                    serialiser.Serialize(sw,report);
+
+                    sw.Flush();
+                    var text = sw.ToString();
+                    sw.Close();
+                    sw.Dispose();
+
+                    // ensure that the text is valid xml
+                    var doc = new XmlDocument();
+                    doc.Load(text);
+
+                    foreach(XmlNode t in doc.GetElementsByTagName("LastEncounteredDate"))
                     {
-                        DeserializeHacky(stream, report, serialiser);
-
-                        //if file already exists
-                        FileInfo fileInfo = new FileInfo(path);
-
-                        if(fileInfo.Exists)
-                        {
-                            string Md5OfFile = MD5File(fileInfo.FullName);
-                            string Md5OfStream = MD5Stream(stream);
-                                
-                            if (Md5OfFile.Equals(Md5OfStream))
-                                continue;
-                            else
-                            {
-                                stream.Position = 0;
-                                var sr = new StreamReader(stream);
-                                string contentsOfMemoryStream = sr.ReadToEnd();
-                                    
-                                Diff diff = new Diff();
-                                foreach (Diff.Item item in diff.DiffText(File.ReadAllText(fileInfo.FullName), contentsOfMemoryStream))
-                                {
-                                    if (_onDuplicationInsteadCreateNewFile)
-                                    {
-                                        //write results to a duplicate file (but with a GUID on it)
-                                        string insteadWriteToThisFileSinceItsDuplicate = path.Substring(0, path.Length - ".xml".Length) + Guid.NewGuid() + ".xml";
-                                        File.WriteAllText(insteadWriteToThisFileSinceItsDuplicate, contentsOfMemoryStream);
-                                        continue;
-                                    }
-
-                                    throw new FileLoadException("File already exists but is different.  Difference near line number :" + item.StartA + " of file " + fileInfo.FullName);
-                                }
-
-                                continue;//MD5 is different but no Diff difference...
-                            }
-                        }
-                     
-
-                        //write results to file
-                        var sw = new StreamWriter(path, false);
-                        stream.WriteTo(sw.BaseStream);
-                        sw.Close();
+                        t.InnerText = "0001-01-01";
                     }
 
+                    foreach (XmlNode t in doc.GetElementsByTagName("LastEncounteredTime"))
+                    {
+                        t.InnerText = "00:00:00.0000000+00:00";
+                    }
+
+                    doc.Save(path);
+
                     if (listener != null)
-                        listener.OnProgress(this,new ProgressEventArgs(path, new ProgressMeasurement((int)(new FileInfo(path).Length * 0.001),ProgressType.Kilobytes), TimeSpan.Zero));
+                        listener.OnProgress(this, new ProgressEventArgs(path, new ProgressMeasurement((int)(new FileInfo(path).Length * 0.001), ProgressType.Kilobytes), TimeSpan.Zero));
                 }
                 catch (Exception e)
                 {
@@ -221,38 +208,12 @@ namespace SCIStorePlugin.Repositories
             }
         }
 
-        public string MD5File(string file)
-        {
-            using(Stream s = File.Open(file,FileMode.Open))
-                return MD5Stream(s);
-        }
-
-        private void DeserializeHacky(Stream outputStream, CombinedReportData report, XmlSerializer serialiser)
-        {
-            using(var cleaningStream = new MemoryStream())
-            {
-                serialiser.Serialize(cleaningStream, report);
-                var sr = new StreamReader(cleaningStream);
-                cleaningStream.Position = 0;
-                string contentsOfCleaning = sr.ReadToEnd();
-
-                contentsOfCleaning = Regex.Replace(contentsOfCleaning, "<LastEncounteredDate>.*</LastEncounteredDate>", "<LastEncounteredDate>0001-01-01</LastEncounteredDate>");
-                contentsOfCleaning = Regex.Replace(contentsOfCleaning, "<LastEncounteredTime>.*</LastEncounteredTime>", "<LastEncounteredTime>00:00:00.0000000+00:00</LastEncounteredTime>");
-
-                var sw = new StreamWriter(outputStream);
-                sw.Write(contentsOfCleaning);
-                sw.Flush();
-
-                outputStream.Position = 0;
-            }
-        }
-
         public void DeleteAll()
         {
             throw new NotImplementedException();
             // todo: rethink this
 /*
-            
+
             foreach (var dir in Directory.EnumerateDirectories(_rootPath))
             {
                 var info = new DirectoryInfo(dir);
@@ -268,8 +229,7 @@ namespace SCIStorePlugin.Repositories
                 }
                 else
                     throw new Exception("Unknown Health Board directory: " + dir);
-            }
-*/
+            }*/
         }
     }
 }
