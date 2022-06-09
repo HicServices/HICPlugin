@@ -22,7 +22,7 @@ namespace SCIStorePluginTests.Integration
             var serializer = new XmlSerializer(typeof(CombinedReportData));
             var lab = serializer.Deserialize(new StringReader(TestReports.report_with_multiple_descriptions)) as CombinedReportData;
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
                 .Return(null);

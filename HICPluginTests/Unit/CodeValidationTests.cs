@@ -14,7 +14,7 @@ namespace SCIStorePluginTests.Unit
         [OneTimeSetUp]
         public void BeforeAnyTests()
         {
-            Validator.LocatorForXMLDeserialization = MockRepository.GenerateStub<IRDMPPlatformRepositoryServiceLocator>();
+            Validator.LocatorForXMLDeserialization = MockRepository.Mock<IRDMPPlatformRepositoryServiceLocator>();
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace SCIStorePluginTests.Unit
             };
 
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Equal("NOT_A_READ_CODE"), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
                 .Return(new ValidationFailure("This is not a read code", readCodeConstraint));
@@ -79,7 +79,7 @@ namespace SCIStorePluginTests.Unit
             };
 
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Equal(".0766"), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
                 .Return(null);
@@ -132,7 +132,7 @@ namespace SCIStorePluginTests.Unit
                 }
             };
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
 
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Equal("4Q24."), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))

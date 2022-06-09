@@ -22,7 +22,7 @@ namespace JiraPluginTests
         public void FactoryCreateAJIRA()
         {
             var factory = new TicketingSystemFactory(CatalogueRepository);
-            var credentials = MockRepository.GenerateStub<IDataAccessCredentials>();
+            var credentials = MockRepository.Mock<IDataAccessCredentials>();
             Assert.DoesNotThrow(() => factory.Create(typeof(JIRATicketingSystem).FullName, "Bob", credentials));
         }
 

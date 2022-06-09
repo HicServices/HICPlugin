@@ -25,7 +25,7 @@ namespace SCIStorePluginTests.Integration
                 data = (CombinedReportData) xmlSerialiser.Deserialize(fs);
             }
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
                 .Return(null);
@@ -55,7 +55,7 @@ namespace SCIStorePluginTests.Integration
                 data = (CombinedReportData)xmlSerialiser.Deserialize(fs);
             }
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
                 .Return(null);

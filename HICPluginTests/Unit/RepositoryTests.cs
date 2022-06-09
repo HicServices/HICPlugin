@@ -21,14 +21,14 @@ namespace SCIStorePluginTests.Unit
         [Test]
         public void DeserialisationOfXMLInterferingWithFloats()
         {
-            var memoryRepository = MockRepository.GenerateStub<IRDMPPlatformRepositoryServiceLocator>();
+            var memoryRepository = MockRepository.Mock<IRDMPPlatformRepositoryServiceLocator>();
             Validator.LocatorForXMLDeserialization = memoryRepository;
 
             var deserializer = new CombinedReportXmlDeserializer();
 
             var data = deserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
-            var readCodeConstraint = MockRepository.GenerateStub<ReferentialIntegrityConstraint>();
+            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
             var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>
             {
                 var codeString = (string) code;
@@ -41,7 +41,7 @@ namespace SCIStorePluginTests.Unit
             readCodeConstraint.Stub(
                 constraint =>
                     constraint.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Do(codeValidator);
+                .DoInstead(codeValidator);
 
             var reportFactory = new SciStoreReportFactory(readCodeConstraint);
             var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());

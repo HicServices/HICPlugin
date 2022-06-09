@@ -73,7 +73,7 @@ namespace SCIStorePluginTests.Integration
             var deleteMe = LoadDirectory.CreateDirectoryStructure(new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"DeleteMe", true);
             try
             {
-                var fetchRequest = MockRepository.GenerateStub<ICacheFetchRequest>();
+                var fetchRequest = MockRepository.Mock<ICacheFetchRequest>();
                 
                 var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)
                 {

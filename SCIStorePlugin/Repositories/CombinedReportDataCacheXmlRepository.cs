@@ -176,7 +176,7 @@ namespace SCIStorePlugin.Repositories
 
                     // ensure that the text is valid xml
                     var doc = new XmlDocument();
-                    doc.Load(text);
+                    doc.LoadXml(text);
 
                     foreach(XmlNode t in doc.GetElementsByTagName("LastEncounteredDate"))
                     {

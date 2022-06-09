@@ -38,7 +38,7 @@ namespace DrsPluginTests
             dataset.Columns.Add("Image_Filename");
             dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_RM_1_PW1024_PH768.png");
 
-            var extractionIdentifierColumn = MockRepository.GenerateStub<IColumn>();
+            var extractionIdentifierColumn = MockRepository.Mock<IColumn>();
             extractionIdentifierColumn.Stub(c => c.GetRuntimeName()).Return("ReleaseID");
 
             var replacer = new DRSFilenameReplacer(extractionIdentifierColumn, "Image_Filename");
@@ -239,34 +239,34 @@ namespace DrsPluginTests
 
         private IExtractDatasetCommand SetupRequestObject(string projDir, DirectoryInfo rootDir, DataTable identifierMap, IDataLoadEventListener listener)
         {
-            var catalogue = MockRepository.GenerateStub<ICatalogue>();
+            var catalogue = MockRepository.Mock<ICatalogue>();
             var loadMetadata = new LoadMetadata(CatalogueRepository);
             loadMetadata.LocationOfFlatFiles = projDir;
             loadMetadata.SaveToDatabase();
             catalogue.Stub(c => c.LoadMetadata).Return(loadMetadata);
 
-            var datasetBundle = MockRepository.GenerateStub<IExtractableDatasetBundle>();
-            var extractableDataset = MockRepository.GenerateStub<IExtractableDataSet>();
+            var datasetBundle = MockRepository.Mock<IExtractableDatasetBundle>();
+            var extractableDataset = MockRepository.Mock<IExtractableDataSet>();
             datasetBundle.Stub(b => b.DataSet).Return(extractableDataset);
 
-            var extractionDirectory = MockRepository.GenerateStub<IExtractionDirectory>();
+            var extractionDirectory = MockRepository.Mock<IExtractionDirectory>();
             extractionDirectory.Stub(d => d.GetDirectoryForDataset(Arg<IExtractableDataSet>.Is.Anything)).Return(rootDir);
 
-            var cohort = MockRepository.GenerateStub<IExtractableCohort>();
+            var cohort = MockRepository.Mock<IExtractableCohort>();
             cohort.Stub(c => c.GetPrivateIdentifier()).Return("PrivateID");
             cohort.Stub(c => c.GetReleaseIdentifier()).Return("ReleaseID");
 
-            var request = MockRepository.GenerateStub<IExtractDatasetCommand>();
+            var request = MockRepository.Mock<IExtractDatasetCommand>();
             request.Stub(r => r.Catalogue).Return(catalogue);
             request.Stub(r => r.DatasetBundle).Return(datasetBundle);
 
-            var extractableColumn = MockRepository.GenerateStub<IColumn>();
+            var extractableColumn = MockRepository.Mock<IColumn>();
             extractableColumn.Stub(c => c.GetRuntimeName()).Return("CHI");
             extractableColumn.Stub(c => c.IsExtractionIdentifier).Return(true);
 
             var queryTimeColumn = new QueryTimeColumn(extractableColumn);
 
-            var queryBuilder = MockRepository.GenerateStub<ISqlQueryBuilder>();
+            var queryBuilder = MockRepository.Mock<ISqlQueryBuilder>();
             queryBuilder.Stub(qb => qb.SelectColumns).Return(new[] {queryTimeColumn}.ToList());
 
             request.ColumnsToExtract = new List<IColumn> {extractableColumn};

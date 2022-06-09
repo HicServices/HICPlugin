@@ -14,7 +14,7 @@ namespace SCIStorePluginTests.Unit
         [Test]
         public void Test()
         {
-            var mockServer = MockRepository.GenerateMock<IRepositorySupportsDateRangeQueries<CombinedReportData>>();
+            var mockServer = MockRepository.Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>();
 
             var strat = new LimitedRetryThenContinueStrategy(5,new List<int>(new int[]{3,1}), mockServer);
 

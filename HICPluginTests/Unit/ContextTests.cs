@@ -19,8 +19,8 @@ namespace SCIStorePluginTests.Unit
         [Test]
         public void Context_LegalSource()
         {
-            var cp = MockRepository.GenerateMock<ICacheProgress>();
-            cp.Expect(p => p.Pipeline).Return(MockRepository.GenerateMock<IPipeline>());
+            var cp = MockRepository.Mock<ICacheProgress>();
+            cp.Expect(p => p.Pipeline).Return(MockRepository.Mock<IPipeline>());
 
             var lmd = new LoadMetadata(CatalogueRepository);
 
@@ -31,12 +31,12 @@ namespace SCIStorePluginTests.Unit
             lmd.LocationOfFlatFiles = projDir.RootPath.FullName;
             lmd.SaveToDatabase();
             
-            var lp = MockRepository.GenerateMock<ILoadProgress>();
+            var lp = MockRepository.Mock<ILoadProgress>();
             lp.Expect(m => m.LoadMetadata).Return(lmd);
 
             cp.Expect(m => m.LoadProgress).Return(lp);
             
-            var provider = MockRepository.GenerateMock<ICacheFetchRequestProvider>();
+            var provider = MockRepository.Mock<ICacheFetchRequestProvider>();
 
             var useCase = new CachingPipelineUseCase(cp, true, provider);
             var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();

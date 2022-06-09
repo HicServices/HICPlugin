@@ -109,7 +109,7 @@ namespace DrsPluginTests
             try
             {
 
-                var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
+                var LoadDirectory = MockRepository.Mock<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
                 var attacher = new DrsMultiVolumeRarAttacher();
                 attacher.Initialize(LoadDirectory, db);
@@ -133,7 +133,7 @@ namespace DrsPluginTests
             {
                 ProvisionTestData(testDir);
 
-                var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
+                var LoadDirectory = MockRepository.Mock<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
 
                 var attacher = new DrsMultiVolumeRarAttacher()
@@ -162,7 +162,7 @@ namespace DrsPluginTests
             {
                 ProvisionTestData(testDir);
 
-                var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
+                var LoadDirectory = MockRepository.Mock<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
 
                 var attacher = new DrsFileAttacher()
@@ -192,7 +192,7 @@ namespace DrsPluginTests
             {
                 ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
 
-                var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
+                var LoadDirectory = MockRepository.Mock<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
 
                 var attacher = new DrsMultiVolumeRarAttacher()
@@ -220,7 +220,7 @@ namespace DrsPluginTests
             {
                 ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
 
-                var LoadDirectory = MockRepository.GenerateStub<ILoadDirectory>();
+                var LoadDirectory = MockRepository.Mock<ILoadDirectory>();
                 LoadDirectory.Stub(d => d.ForLoading).Return(testDir);
 
                 var attacher = new DrsMultiVolumeRarAttacher()
@@ -251,7 +251,7 @@ namespace DrsPluginTests
                 // put the test data in ForLoading
                 ProvisionTestData(loadDirectory.ForLoading);
 
-                var job = MockRepository.GenerateStub<IDataLoadJob>();
+                var job = MockRepository.Mock<IDataLoadJob>();
                 job.JobID = 1;
 
                 var attacher = new DrsMultiVolumeRarAttacher()
@@ -327,7 +327,7 @@ namespace DrsPluginTests
                 var extractionDir = loadDirectory.ForLoading.CreateSubdirectory("Images");
                 rarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading.FullName, extractionDir.FullName);
 
-                var job = MockRepository.GenerateStub<IDataLoadJob>();
+                var job = MockRepository.Mock<IDataLoadJob>();
                 job.JobID = 1;
 
                 var attacher = new DrsMultiVolumeRarAttacher()
@@ -390,7 +390,7 @@ namespace DrsPluginTests
 
                 attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
 
-                var job = MockRepository.GenerateStub<IDataLoadJob>();
+                var job = MockRepository.Mock<IDataLoadJob>();
                 job.JobID = 1;
                 attacher.Attach(job, new GracefulCancellationToken());
                 attacher.LoadCompletedSoDispose(ExitCodeType.Success, new ThrowImmediatelyDataLoadEventListener());
@@ -567,7 +567,7 @@ namespace DrsPluginTests
                     File.Move(png.FullName, Path.Combine(dir2.FullName, png.Name));
                 }
 
-                var job = MockRepository.GenerateStub<IDataLoadJob>();
+                var job = MockRepository.Mock<IDataLoadJob>();
                 job.JobID = 1;
 
                 var database = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName);
