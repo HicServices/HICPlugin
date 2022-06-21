@@ -175,6 +175,7 @@ namespace SCIStorePlugin.Repositories
                     catch(Exception ex)
                     {
                         listener.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning,"Failed to serialize report: serialiser.Serialize failed",ex));
+                        continue;
                     }
 
                     sw.Flush();
