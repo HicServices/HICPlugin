@@ -167,7 +167,16 @@ namespace SCIStorePlugin.Repositories
 
                     //write results to file
                     StringWriter sw = new StringWriter();
-                    serialiser.Serialize(sw,report);
+
+                    try
+                    {
+                        serialiser.Serialize(sw,report);
+                    }
+                    catch(Exception ex)
+                    {
+                        listener.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning,"Failed to serialize report: serialiser.Serialize failed",ex));
+                        continue;
+                    }
 
                     sw.Flush();
                     var text = sw.ToString();

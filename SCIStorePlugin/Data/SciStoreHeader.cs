@@ -119,7 +119,9 @@ namespace SCIStorePlugin.Data
             var report = combinedReport.InvestigationReport;
             var reportData = report.ReportData;
 
-            if (reportData.Discipline.Equals("Biochemistry") && !combinedReportHeader.LabNumber.StartsWith("C"))
+            if (reportData.Discipline.Equals("Biochemistry") 
+                && !combinedReportHeader.LabNumber.StartsWith("C")
+                && !combinedReportHeader.LabNumber.StartsWith("POC"))
                 throw new Exception("Malformed (or otherwise unexpected) LabNumber: " + combinedReportHeader.LabNumber);
 
             var labNumber = combinedReportHeader.LabNumber;
@@ -133,10 +135,6 @@ namespace SCIStorePlugin.Data
                     throw new Exception(
                         "LabNumber contains Merge and is longer than 10 characters even after removal of 'Merge': " +
                         combinedReportHeader.LabNumber);
-            }
-            else
-            {
-                throw new Exception("LabNumber should be 10 characters or less, was: " + combinedReportHeader.LabNumber);
             }
 
             return labNumber;
