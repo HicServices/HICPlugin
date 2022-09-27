@@ -12,8 +12,8 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="7.0.4" />
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="7.0.4" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="8.0.0" />
+    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="8.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 </Project>

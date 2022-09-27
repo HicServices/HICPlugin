@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
+using MapsDirectlyToDatabaseTable;
+using NPOI.HSSF.Record;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Requests;
 using Rdmp.Core.Caching.Requests.FetchRequestProvider;
@@ -57,7 +59,7 @@ namespace SCIStorePluginTests.Integration
 
             try
             {
-                using (var con = CatalogueRepository.GetConnection())
+                using (var con = ((ITableRepository)CatalogueRepository).GetConnection())
                 {
                     var cmd = DatabaseCommandHelper.GetCommand("DELETE FROM CacheFetchFailure", con.Connection, con.Transaction);
                     cmd.ExecuteNonQuery();

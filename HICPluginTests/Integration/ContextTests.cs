@@ -93,7 +93,7 @@ namespace SCIStorePluginTests.Integration
             try
             {
                 _pipelineDatabaseHelper = new PipelineDatabaseTestHelper();
-                _pipelineDatabaseHelper.Setup(CatalogueRepository);
+                _pipelineDatabaseHelper.Setup((CatalogueRepository)CatalogueRepository);
             }
             catch (Exception e)
             {

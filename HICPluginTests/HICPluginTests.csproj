@@ -14,7 +14,7 @@
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="7.0.4" />
+    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="8.0.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.117" />
     <PackageReference Include="RhinoMocks" Version="4.0.0-alpha3" />

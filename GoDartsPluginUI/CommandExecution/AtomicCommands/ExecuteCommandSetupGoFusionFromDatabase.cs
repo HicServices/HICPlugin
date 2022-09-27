@@ -12,12 +12,13 @@ using Rdmp.UI.ItemActivation;
 using ReusableLibraryCode.Icons.IconProvision;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using Rdmp.Core.Icons.IconProvision;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace GoDartsPluginUI.CommandExecution.AtomicCommands
 {
@@ -197,7 +198,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands
         }
 
 
-        public override Image GetImage(IIconProvider iconProvider)
+        public override Image<Rgba32> GetImage(IIconProvider iconProvider)
         {
             return iconProvider.GetImage(RDMPConcept.Database, OverlayKind.Execute);
         }

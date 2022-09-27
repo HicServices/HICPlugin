@@ -258,7 +258,7 @@ namespace DrsPlugin.Attachers
                     {
                         while (csvReader.Read())
                         {
-                            if(csvReader.Context.HeaderRecord == null)
+                            if(csvReader.Context.Reader.HeaderRecord == null)
                             {
                                 csvReader.ReadHeader();
                                 continue;
