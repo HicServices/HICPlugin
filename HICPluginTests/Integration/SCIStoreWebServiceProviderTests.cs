@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
-using HICPluginTests;
 using NUnit.Framework;
 using Rdmp.Core.Validation;
 using Rdmp.Core.Validation.Constraints.Secondary;
@@ -11,24 +10,23 @@ using Tests.Common;
 
 namespace SCIStorePluginTests.Integration
 {
-    [Category("Database")]
-    public class SCIStoreWebServiceProviderTests : DatabaseTests
+[Category("Database")]
+public class SCIStoreWebServiceProviderTests : DatabaseTests
+{
+    [Test]
+    public void LabWithDifferentClinicalCodeDescriptionsForSameTestCode()
     {
-        [Test]
-        public void LabWithDifferentClinicalCodeDescriptionsForSameTestCode()
-        {
-            Validator.LocatorForXMLDeserialization = RepositoryLocator;
+        Validator.LocatorForXMLDeserialization = RepositoryLocator;
 
-            var serializer = new XmlSerializer(typeof(CombinedReportData));
-            var lab = serializer.Deserialize(new StringReader(TestReports.report_with_multiple_descriptions)) as CombinedReportData;
+        var serializer = new XmlSerializer(typeof(CombinedReportData));
+        var lab = serializer.Deserialize(new StringReader(TestReports.report_with_multiple_descriptions)) as CombinedReportData;
 
-            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
-            readCodeConstraint.Stub(
+        var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
+        readCodeConstraint.Stub(
                 c => c.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Return(null);
+            .Return(null);
 
-            var reportFactory = new SciStoreReportFactory(readCodeConstraint);
-            var report = reportFactory.Create(lab, new ThrowImmediatelyDataLoadEventListener());
-        }
+        var reportFactory = new SciStoreReportFactory(readCodeConstraint);
+        var report = reportFactory.Create(lab, new ThrowImmediatelyDataLoadEventListener());
     }
 }

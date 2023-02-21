@@ -14,35 +14,34 @@ using Tests.Common;
 
 namespace SCIStorePluginTests.Unit
 {
-    public class ContextTests : DatabaseTests
+public class ContextTests : DatabaseTests
+{
+    [Test]
+    public void Context_LegalSource()
     {
-        [Test]
-        public void Context_LegalSource()
-        {
-            var cp = MockRepository.Mock<ICacheProgress>();
-            cp.Expect(p => p.Pipeline).Return(MockRepository.Mock<IPipeline>());
+        var cp = MockRepository.Mock<ICacheProgress>();
+        cp.Expect(p => p.Pipeline).Return(MockRepository.Mock<IPipeline>());
 
-            var lmd = new LoadMetadata(CatalogueRepository);
+        var lmd = new LoadMetadata(CatalogueRepository);
 
-            var testDirHelper = new TestDirectoryHelper(GetType());
-            testDirHelper.SetUp();
+        var testDirHelper = new TestDirectoryHelper(GetType());
+        testDirHelper.SetUp();
 
-            var projDir = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true);
-            lmd.LocationOfFlatFiles = projDir.RootPath.FullName;
-            lmd.SaveToDatabase();
+        var projDir = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true);
+        lmd.LocationOfFlatFiles = projDir.RootPath.FullName;
+        lmd.SaveToDatabase();
             
-            var lp = MockRepository.Mock<ILoadProgress>();
-            lp.Expect(m => m.LoadMetadata).Return(lmd);
+        var lp = MockRepository.Mock<ILoadProgress>();
+        lp.Expect(m => m.LoadMetadata).Return(lmd);
 
-            cp.Expect(m => m.LoadProgress).Return(lp);
+        cp.Expect(m => m.LoadProgress).Return(lp);
             
-            var provider = MockRepository.Mock<ICacheFetchRequestProvider>();
+        var provider = MockRepository.Mock<ICacheFetchRequestProvider>();
 
-            var useCase = new CachingPipelineUseCase(cp, true, provider);
-            var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();
+        var useCase = new CachingPipelineUseCase(cp, true, provider);
+        var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();
 
-            //we shouldn't be able to have data export sources in this context
-            Assert.IsTrue(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)));
-        }
+        //we shouldn't be able to have data export sources in this context
+        Assert.IsTrue(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)));
     }
 }

@@ -5,23 +5,22 @@ using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.Repositories;
 using Tests.Common;
 
-namespace HICPluginTests.Unit
+namespace HICPluginTests.Unit;
+
+class CHIMutilatorTests:UnitTests
 {
-    class CHIMutilatorTests:UnitTests
+    [Test]
+    public void Test_CHIMutilator_Construction()
     {
-        [Test]
-        public void Test_CHIMutilator_Construction()
-        {
-            SetupMEF();
+        SetupMEF();
 
-            var lmd = new LoadMetadata(Repository,"My lmd");
-            var pt = new ProcessTask(Repository, lmd, LoadStage.AdjustRaw);
+        var lmd = new LoadMetadata(Repository,"My lmd");
+        var pt = new ProcessTask(Repository, lmd, LoadStage.AdjustRaw);
             
-            pt.CreateArgumentsForClassIfNotExists(typeof (CHIMutilator));
+        pt.CreateArgumentsForClassIfNotExists(typeof (CHIMutilator));
 
-            //property defaults to true
-            var addZero = pt.ProcessTaskArguments.Single(a => a.Name.Equals("TryAddingZeroToFront"));
-            Assert.AreEqual(true,addZero.GetValueAsSystemType());
-        }
+        //property defaults to true
+        var addZero = pt.ProcessTaskArguments.Single(a => a.Name.Equals("TryAddingZeroToFront"));
+        Assert.AreEqual(true,addZero.GetValueAsSystemType());
     }
 }
