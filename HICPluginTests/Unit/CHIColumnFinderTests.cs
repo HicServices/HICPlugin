@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Data;
-using HICPlugin.DataFlowComponents;
+using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
-using NUnit.Framework.Internal;
-using Rdmp.Core.DataExport.Data;
-using Rdmp.Core.DataExport.DataExtraction.Commands;
 using ReusableLibraryCode.Progress;
 
 namespace HICPluginTests.Unit;
 
 public class CHIColumnFinderTests
 {
-    private static CHIColumnFinder _chiFinder = new();
-    private static ThrowImmediatelyDataLoadEventListener _listener = new(){ThrowOnWarning = true,WriteToConsole = false};
+    private readonly CHIColumnFinder _chiFinder;
+    private readonly ThrowImmediatelyDataLoadEventListener _listener;
+
+    public CHIColumnFinderTests()
+    {
+        _chiFinder = new();
+        _listener = new() { ThrowOnWarning = true, WriteToConsole = false };
+    }
 
     [Test]
     [TestCase("1111111111", true)] //valid CHI
@@ -45,6 +48,7 @@ public class CHIColumnFinderTests
     [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
     public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
     {
+        _chiFinder.IgnoreColumns = null;
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
         toProcess.Rows.Add(new object[] {195});

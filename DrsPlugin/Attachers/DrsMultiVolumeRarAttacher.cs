@@ -124,11 +124,8 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         var entryNum = 0;
         var sw = new Stopwatch();
         sw.Start();
-        foreach (var entry in archiveProvider.EntryStreams)
+        foreach (var (name, stream) in archiveProvider.EntryStreams)
         {
-            var name = entry.Key;
-            var stream = entry.Value;
-
             var extension = Path.GetExtension(name);
             if (extension == null)
                 throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");

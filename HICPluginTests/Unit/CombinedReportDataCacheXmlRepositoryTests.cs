@@ -1,16 +1,10 @@
 ﻿using NUnit.Framework;
-using Rdmp.Core.Caching.Layouts;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin;
 using SCIStorePlugin.Cache;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HICPluginTests.Unit;
 

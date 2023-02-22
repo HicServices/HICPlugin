@@ -5,45 +5,43 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using HICPluginTests;
+using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Repositories;
 using Rdmp.Core.Validation;
 using Rdmp.Core.Validation.Constraints.Secondary;
 using ReusableLibraryCode.Progress;
-using Rhino.Mocks;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
 
-namespace SCIStorePluginTests.Unit
-{
+namespace SCIStorePluginTests.Unit;
+
 class RepositoryTests
 {
     [Test]
     public void DeserialisationOfXMLInterferingWithFloats()
     {
-        var memoryRepository = MockRepository.Mock<IRDMPPlatformRepositoryServiceLocator>();
+        var memoryRepository = new Moq.Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
         Validator.LocatorForXMLDeserialization = memoryRepository;
 
         var deserializer = new CombinedReportXmlDeserializer();
 
         var data = deserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
-        var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
+        var readCodeConstraint = new Moq.Mock<ReferentialIntegrityConstraint>();
         var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>
         {
             var codeString = (string) code;
             if (codeString == "TTTT.")
                 return null;
 
-            return new ValidationFailure("Not a read code", readCodeConstraint);
+            return new ValidationFailure("Not a read code", readCodeConstraint.Object);
         });
 
-        readCodeConstraint.Stub(
-                constraint =>
-                    constraint.Validate(Arg<object>.Is.Anything, Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-            .DoInstead(codeValidator);
+        readCodeConstraint.Setup(c => c.Validate(It.IsAny<object>(), It.IsAny<object[]>(), It.IsAny<string[]>()))
+            .Returns(codeValidator);
 
-        var reportFactory = new SciStoreReportFactory(readCodeConstraint);
+        var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
         var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
 
         var bloodSample = report.Samples.First();

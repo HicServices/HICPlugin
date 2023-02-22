@@ -3,9 +3,6 @@ using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
-using Rdmp.Core.DataLoad;
-using Rdmp.Core.DataLoad.Engine.Attachers;
-using Rdmp.Core.DataLoad.Engine.Job;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
 using System;
@@ -56,7 +53,7 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
     {
         Request = request as IExtractDatasetCommand;
 
-        // dataset extraction requests only care we
+        // We only care about dataset extraction requests
         if (Request == null)
             return;
             

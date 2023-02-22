@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading;
 using MapsDirectlyToDatabaseTable;
+using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Requests;
 using Rdmp.Core.Caching.Requests.FetchRequestProvider;
@@ -16,15 +17,14 @@ using Rdmp.Core.DataLoad.Modules.DataProvider;
 using ReusableLibraryCode;
 using ReusableLibraryCode.Checks;
 using ReusableLibraryCode.Progress;
-using Rhino.Mocks;
 using SCIStorePlugin.Cache.Pipeline;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.DataProvider.RetryStrategies;
 using SCIStorePlugin.Repositories;
 using Tests.Common;
 
-namespace SCIStorePluginTests.Integration
-{
+namespace SCIStorePluginTests.Integration;
+
 public class SCIStoreWebServiceSourceTests : DatabaseTests
 {
     [Test]
@@ -41,9 +41,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             Discipline = Discipline.Immunology,
         };
 
-        var checkNotifier = MockRepository.Mock<ICheckNotifier>();
-
-        component.Check(checkNotifier);
+        component.Check(new IgnoreAllErrorsCheckNotifier());
 
     }
 
@@ -77,34 +75,34 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
                 PermissionWindow = new SpontaneouslyInventedPermissionWindow(cacheProgress)
             };
 
-            var requestProvider = MockRepository.Mock<ICacheFetchRequestProvider>();
-            requestProvider.Stub(provider => provider.GetNext(Arg<IDataLoadEventListener>.Is.Anything)).Return(cacheFetchRequest);
+            var requestProvider = new Mock<ICacheFetchRequestProvider>();
+            requestProvider.Setup(provider => provider.GetNext(It.IsAny<IDataLoadEventListener>())).Returns(cacheFetchRequest);
 
             // Create a stubbed retry strategy which will fail and throw the 'DownloadRequestFailedException'
-            var failStrategy = MockRepository.Mock<IRetryStrategy>();
+            var failStrategy = new Mock<IRetryStrategy>();
             var faultException = new FaultException(new FaultReason("Error on the server"), new FaultCode("Fault Code"), "Action");
             var downloadException = new DownloadRequestFailedException(cacheFetchRequest.Start, cacheFetchRequest.ChunkPeriod, faultException);
-            failStrategy.Stub(
+            failStrategy.Setup(
                     strategy =>
-                        strategy.Fetch(Arg<DateTime>.Is.Anything, Arg<TimeSpan>.Is.Anything,
-                            Arg<IDataLoadEventListener>.Is.Anything, Arg<GracefulCancellationToken>.Is.Anything))
+                        strategy.Fetch(It.IsAny<DateTime>(), It.IsAny<TimeSpan>(),
+                            It.IsAny<IDataLoadEventListener>(), It.IsAny<GracefulCancellationToken>()))
                 .Throws(downloadException);
-            failStrategy.WebService =
-                MockRepository.Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>();
+            failStrategy.Object.WebService =
+                new Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>().Object;
 
             // Create the source
-            var source = new SCIStoreWebServiceSource() { PermissionWindow = new SpontaneouslyInventedPermissionWindow(cacheProgress) };
-            source.RequestProvider = requestProvider;
+            var source = new SCIStoreWebServiceSource
+            {
+                PermissionWindow = new SpontaneouslyInventedPermissionWindow(cacheProgress),
+                RequestProvider = requestProvider.Object,
+                NumberOfTimesToRetry = 1,
+                NumberOfSecondsToWaitBetweenRetries = "1",
+                AuditFailureAndMoveOn = auditAsFailure,
+                // todo: why does the source need this if it is in the CacheFetchRequest object?
+                Downloader = new Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>().Object
+            };
 
-            source.NumberOfTimesToRetry = 1;
-            source.NumberOfSecondsToWaitBetweenRetries = "1";
-            source.AuditFailureAndMoveOn = auditAsFailure;
-
-            // todo: why does the source need this if it is in the CacheFetchRequest object?
-            source.Downloader =
-                MockRepository.Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>();
-                
-            source.SetPrivateVariableRetryStrategy_NunitOnly(failStrategy);
+            source.SetPrivateVariableRetryStrategy_NunitOnly(failStrategy.Object);
                
 
             // Create the cancellation token and ask the source for a chunk
@@ -140,9 +138,9 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
         }
         finally
         {
-            if (cacheProgress != null) cacheProgress.DeleteInDatabase();
-            if (loadSchedule != null) loadSchedule.DeleteInDatabase();
-            if (loadMetadata != null) loadMetadata.DeleteInDatabase();
+            cacheProgress?.DeleteInDatabase();
+            loadSchedule?.DeleteInDatabase();
+            loadMetadata?.DeleteInDatabase();
         }
     }
 }

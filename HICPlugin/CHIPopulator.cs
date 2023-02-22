@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using FAnsi.Naming;
 using ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
@@ -18,7 +19,6 @@ using Rdmp.Core.DataLoad.Engine.Job;
 using Rdmp.Core.Curation.Data.DataLoad;
 using Microsoft.Data.SqlClient;
 using HIC.Demography;
-using Nancy.Json;
 
 namespace HICPlugin;
 
@@ -80,7 +80,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
         if (mustCreatePersonIDColumn)
         {
             var alter = new SqlCommand(
-                $"ALTER TABLE {_runtimeTableName} ADD hic_{CHIJob.PersonIDColumnName} int null",con);
+                $"ALTER TABLE {_runtimeTableName} ADD hic_{CHIJob.PersonIDColumnName} int null",con as SqlConnection);
             alter.ExecuteNonQuery();
         }
 
@@ -98,7 +98,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
             var clock = Stopwatch.StartNew();
 
-            String sql = "";
+            var sql = "";
 
 
 
@@ -142,7 +142,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
             sql += $" FROM {TargetTable.GetRuntimeName(_loadStage)}";
 
             //list of things to send to service
-            var cmd = new SqlCommand(sql,con);
+            var cmd = new SqlCommand(sql,con as SqlConnection);
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Query to fetch demographics data for CHI service is:{cmd.CommandText}"));
 
@@ -204,9 +204,9 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
                     if (validationResult.Result == ValidationCategory.InsufficientData)
                         continue;
                             
-                    var response = client.PostAsync(ChiServiceUrl, new StringContent(new JavaScriptSerializer().Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
+                    var response = client.PostAsync(ChiServiceUrl, new StringContent(JsonSerializer.Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
                             
-                    var result = new JavaScriptSerializer().Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
+                    var result = JsonSerializer.Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
 
 
                     if (numberOfComplaints ==10)
@@ -376,9 +376,9 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
             //see if we can reach the destination server
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             using var client = new HttpClient();
-            response = client.PostAsync(ChiServiceUrl, new StringContent(new JavaScriptSerializer().Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
+            response = client.PostAsync(ChiServiceUrl, new StringContent(JsonSerializer.Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
 
-            var returnedValue = new JavaScriptSerializer().Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
+            var returnedValue = JsonSerializer.Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
 
             if (returnedValue.Exception != null)
                 notifier.OnCheckPerformed(new CheckEventArgs("CHI web service returned an Exception instead of a PersonID/CHI", CheckResult.Fail,

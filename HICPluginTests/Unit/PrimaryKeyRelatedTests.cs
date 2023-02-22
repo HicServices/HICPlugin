@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using SCIStorePlugin.Data;
 
-namespace SCIStorePluginTests.Unit
-{
+namespace SCIStorePluginTests.Unit;
+
 public class PrimaryKeyRelatedTests
 {
     [Test]

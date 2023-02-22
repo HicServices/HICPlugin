@@ -1,10 +1,8 @@
 using System;
-using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
-using System.Xml;
 using ReusableLibraryCode;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin.Data;

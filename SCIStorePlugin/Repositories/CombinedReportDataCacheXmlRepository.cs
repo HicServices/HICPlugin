@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 using Rdmp.Core.Caching.Layouts;
-using ReusableLibraryCode;
 using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
 using NLog;
-using ReusableLibraryCode;
-using ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePlugin.Repositories;
