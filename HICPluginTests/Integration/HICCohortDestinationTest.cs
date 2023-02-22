@@ -83,8 +83,8 @@ GO
         var request = new CohortCreationRequest(p, def, (DataExportRepository)RepositoryLocator.DataExportRepository, "ignoremeauditlog");
 
         var d = new HICCohortManagerDestination();
-        d.NewCohortsStoredProceedure = "fishfishfishproc1";
-        d.ExistingCohortsStoredProceedure = "fishfishfishproc2";
+        d.NewCohortsStoredProcedure = "fishfishfishproc1";
+        d.ExistingCohortsStoredProcedure = "fishfishfishproc2";
         d.PreInitialize(request,new ThrowImmediatelyDataLoadEventListener());
         d.CreateExternalCohort = true;
 
