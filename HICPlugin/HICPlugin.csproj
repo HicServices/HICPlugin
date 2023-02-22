@@ -16,7 +16,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.Demography" Version="1.0.0" />
     <PackageReference Include="HIC.RDMP.Plugin" Version="8.0.7" />
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\MTo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Extensions" />
