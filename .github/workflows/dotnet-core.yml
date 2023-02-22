@@ -25,7 +25,7 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://github.com/HicServices/RDMP/releases/download/v${{ steps.version.outputs.rdmpversion }}/rdmp-${{ steps.version.outputs.rdmpversion }}-cli-win-x64.zip -OutFile rdmp.zip
           Expand-Archive -Path rdmp.zip -DestinationPath .\rdmpcli
-          cmd.exe /c rdmpcli\rdmp.exe install localhost TEST_
+          cmd.exe /c rdmpcli\rdmp.exe install localhost TEST_ -d
       - name: Test
         run: |
           dotnet test
