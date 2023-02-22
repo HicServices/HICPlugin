@@ -36,7 +36,7 @@ jobs:
           cd ../main
           dotnet publish -c Release --self-contained false
           cd ../..
-          nuget pack ./HIC.Plugin.nuspec -Properties Configuration=Release -IncludeReferencedProjects -Symbols -Version ${{ steps.version.outputs.version }}
+          cmd /c nuget pack ./HIC.Plugin.nuspec -Properties Configuration=Release -IncludeReferencedProjects -Symbols -Version ${{ steps.version.outputs.version }}
           cmd /c rdmpcli\rdmp.exe pack -p --file Rdmp.HIC.Plugin.${{ steps.version.outputs.version }}.nupkg --servername localhost --cataloguedatabasename TEST_Catalogue --dataexportdatabasename TEST_DataExport
           cmd /c rdmpcli\rdmp.exe cmd listsupportedcommands --servername localhost --cataloguedatabasename TEST_Catalogue --dataexportdatabasename TEST_DataExport
       - name: Store created nupkg files
