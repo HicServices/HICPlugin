@@ -40,7 +40,7 @@ jobs:
           cmd /c rdmpcli\rdmp.exe pack -p --file Rdmp.HIC.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
           cmd /c rdmpcli\rdmp.exe cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           path: ./*.nupkg
           retention-days: 1
