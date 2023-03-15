@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Rdmp.Core.Ticketing;
 using ReusableLibraryCode.DataAccess;
-using Rhino.Mocks;
 using Tests.Common;
 
 namespace JiraPluginTests
@@ -22,7 +21,7 @@ namespace JiraPluginTests
         public void FactoryCreateAJIRA()
         {
             var factory = new TicketingSystemFactory(CatalogueRepository);
-            var credentials = MockRepository.Mock<IDataAccessCredentials>();
+            var credentials = new Moq.Mock<IDataAccessCredentials>().Object;
             Assert.DoesNotThrow(() => factory.Create(typeof(JIRATicketingSystem).FullName, "Bob", credentials));
         }
 

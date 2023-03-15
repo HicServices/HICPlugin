@@ -3,33 +3,32 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using FAnsi.Discovery;
 
-namespace SCIStorePlugin.Repositories
+namespace SCIStorePlugin.Repositories;
+
+public class DataTableSchemaFromDatabase : IDataTableSchemaSource
 {
-    public class DataTableSchemaFromDatabase : IDataTableSchemaSource
+    private readonly DiscoveredDatabase _destinationDatabase;
+
+    public DataTableSchemaFromDatabase(DiscoveredDatabase destinationDatabase)
     {
-        private readonly DiscoveredDatabase _destinationDatabase;
+        _destinationDatabase = destinationDatabase;
+    }
 
-        public DataTableSchemaFromDatabase(DiscoveredDatabase destinationDatabase)
-        {
-            _destinationDatabase = destinationDatabase;
-        }
+    public void SetSchema(DataTable dataTable)
+    {
+        if (string.IsNullOrWhiteSpace(dataTable.TableName))
+            throw new Exception("The DataTable must have a TableName in order for its schema to be set this way");
 
-        public void SetSchema(DataTable dataTable)
-        {
-            if (string.IsNullOrWhiteSpace(dataTable.TableName))
-                throw new Exception("The DataTable must have a TableName in order for its schema to be set this way");
-
-            var cmdText = "SELECT TOP 0 * FROM [" + dataTable.TableName + "]";
+        var cmdText = $"SELECT TOP 0 * FROM [{dataTable.TableName}]";
             
-            var server = _destinationDatabase.Server;
-            server.ChangeDatabase(_destinationDatabase.GetRuntimeName());
+        var server = _destinationDatabase.Server;
+        server.ChangeDatabase(_destinationDatabase.GetRuntimeName());
 
-            using (var con = server.GetConnection())
+        using (var con = server.GetConnection())
+        {
+            using (var sqlAdapter = new SqlDataAdapter(cmdText, (SqlConnection)con))
             {
-                using (var sqlAdapter = new SqlDataAdapter(cmdText, (SqlConnection)con))
-                {
-                    sqlAdapter.Fill(dataTable);
-                }
+                sqlAdapter.Fill(dataTable);
             }
         }
     }

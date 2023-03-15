@@ -1,9 +1,8 @@
 using System.Data;
 
-namespace SCIStorePlugin.Repositories
+namespace SCIStorePlugin.Repositories;
+
+public interface IDataTableSchemaSource
 {
-    public interface IDataTableSchemaSource
-    {
-        void SetSchema(DataTable dataTable);
-    }
+    void SetSchema(DataTable dataTable);
 }

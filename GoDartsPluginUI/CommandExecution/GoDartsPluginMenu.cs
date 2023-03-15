@@ -6,25 +6,24 @@ using Rdmp.Core.Providers.Nodes;
 using Rdmp.UI.ItemActivation;
 using System.Collections.Generic;
 
-namespace GoDartsPluginUI.CommandExecution
+namespace GoDartsPluginUI.CommandExecution;
+
+public class GoDartsPluginMenu : PluginUserInterface
 {
-    public class GoDartsPluginMenu : PluginUserInterface
+    IActivateItems activator;
+
+    public GoDartsPluginMenu(IBasicActivateItems itemActivator) : base(itemActivator)
     {
-        IActivateItems activator;
+        activator = itemActivator as IActivateItems;
+    }
 
-        public GoDartsPluginMenu(IBasicActivateItems itemActivator) : base(itemActivator)
+    public override IEnumerable<IAtomicCommand> GetAdditionalRightClickMenuItems(object o)
+    {
+        if(activator != null && o is AllServersNode)
         {
-            activator = itemActivator as IActivateItems;
+            return new[] { new ExecuteCommandSetupGoFusionFromDatabase(activator) };
         }
 
-        public override IEnumerable<IAtomicCommand> GetAdditionalRightClickMenuItems(object o)
-        {
-            if(activator != null && o is AllServersNode)
-            {
-                return new[] { new ExecuteCommandSetupGoFusionFromDatabase(activator) };
-            }
-
-            return base.GetAdditionalRightClickMenuItems(o);
-        }
+        return base.GetAdditionalRightClickMenuItems(o);
     }
 }
