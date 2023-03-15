@@ -1,3 +1,4 @@
+using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Pipeline;
 using Rdmp.Core.Caching.Requests;
@@ -8,41 +9,39 @@ using Rdmp.Core.Curation.Data.Cache;
 using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.Curation.Data.Pipelines;
 using Rdmp.Core.DataFlowPipeline.Requirements;
-using Rhino.Mocks;
 using SCIStorePlugin.Cache.Pipeline;
 using Tests.Common;
 
-namespace SCIStorePluginTests.Unit
+namespace SCIStorePluginTests.Unit;
+
+public class ContextTests : DatabaseTests
 {
-    public class ContextTests : DatabaseTests
+    [Test]
+    public void Context_LegalSource()
     {
-        [Test]
-        public void Context_LegalSource()
-        {
-            var cp = MockRepository.Mock<ICacheProgress>();
-            cp.Expect(p => p.Pipeline).Return(MockRepository.Mock<IPipeline>());
+        var cp = new Mock<ICacheProgress>();
+        cp.Setup(p => p.Pipeline).Returns(new Mock<IPipeline>().Object);
 
-            var lmd = new LoadMetadata(CatalogueRepository);
+        var lmd = new LoadMetadata(CatalogueRepository);
 
-            var testDirHelper = new TestDirectoryHelper(GetType());
-            testDirHelper.SetUp();
+        var testDirHelper = new TestDirectoryHelper(GetType());
+        testDirHelper.SetUp();
 
-            var projDir = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true);
-            lmd.LocationOfFlatFiles = projDir.RootPath.FullName;
-            lmd.SaveToDatabase();
+        var projDir = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true);
+        lmd.LocationOfFlatFiles = projDir.RootPath.FullName;
+        lmd.SaveToDatabase();
             
-            var lp = MockRepository.Mock<ILoadProgress>();
-            lp.Expect(m => m.LoadMetadata).Return(lmd);
+        var lp = new Mock<ILoadProgress>();
+        lp.Setup(m => m.LoadMetadata).Returns(lmd);
 
-            cp.Expect(m => m.LoadProgress).Return(lp);
+        cp.Setup(m => m.LoadProgress).Returns(lp.Object);
             
-            var provider = MockRepository.Mock<ICacheFetchRequestProvider>();
+        var provider = new Mock<ICacheFetchRequestProvider>().Object;
 
-            var useCase = new CachingPipelineUseCase(cp, true, provider);
-            var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();
+        var useCase = new CachingPipelineUseCase(cp.Object, true, provider);
+        var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();
 
-            //we shouldn't be able to have data export sources in this context
-            Assert.IsTrue(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)));
-        }
+        //we shouldn't be able to have data export sources in this context
+        Assert.IsTrue(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)));
     }
 }
