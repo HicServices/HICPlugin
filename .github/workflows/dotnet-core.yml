@@ -19,7 +19,7 @@ jobs:
         id: version
         shell: cmd
         run: |
-          perl getversions.pl >> %GITHUB_OUTPUT%
+          getversions >> %GITHUB_OUTPUT%
       - name: Set up database
         run: |
           Invoke-WebRequest -Uri https://github.com/HicServices/RDMP/releases/download/v${{ steps.version.outputs.rdmpversion }}/rdmp-${{ steps.version.outputs.rdmpversion }}-cli-win-x64.zip -OutFile rdmp.zip
