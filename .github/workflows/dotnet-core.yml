@@ -19,8 +19,8 @@ jobs:
         id: version
         shell: cmd
         run: |
-          for /f tokens^=1^,2^ delims^=^" %%i in (SharedAssemblyInfo.cs) do @if "%%i"=="[assembly: AssemblyVersion(" echo ::set-output name=version::%%j
-          for /f tokens^=2^,4^ delims^=^" %%i in (DrsPlugin/DrsPlugin.csproj) do @if "%%i"=="HIC.RDMP.Plugin" echo ::set-output name=rdmpversion::%%j
+          for /f tokens^=1^,2^ delims^=^" %%i in (SharedAssemblyInfo.cs) do @if "%%i"=="[assembly: AssemblyInformationalVersion("6.1.0")](" echo version=%%j >> %GITHUB_OUTPUT%
+          for /f tokens^=2^,4^ delims^=^" %%i in (DrsPlugin/DrsPlugin.csproj) do @if "%%i"=="HIC.RDMP.Plugin" echo rdmpversion=%%j >> %GITHUB_OUTPUT%
       - name: Set up database
         run: |
           Invoke-WebRequest -Uri https://github.com/HicServices/RDMP/releases/download/v${{ steps.version.outputs.rdmpversion }}/rdmp-${{ steps.version.outputs.rdmpversion }}-cli-win-x64.zip -OutFile rdmp.zip
