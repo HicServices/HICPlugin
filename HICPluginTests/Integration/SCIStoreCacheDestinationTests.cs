@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Rdmp.Core.Caching.Requests;
 using Rdmp.Core.Curation;
 using Rdmp.Core.DataFlowPipeline;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin;
 using SCIStorePlugin.Cache.Pipeline;

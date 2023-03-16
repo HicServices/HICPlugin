@@ -1,4 +1,4 @@
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SharpCompress.Common;
 using SharpCompress.Readers.Rar;
 using System;

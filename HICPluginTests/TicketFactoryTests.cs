@@ -1,7 +1,7 @@
 ﻿using JiraPlugin;
 using NUnit.Framework;
 using Rdmp.Core.Ticketing;
-using ReusableLibraryCode.DataAccess;
+using Rdmp.Core.ReusableLibraryCode.DataAccess;
 using Tests.Common;
 
 namespace JiraPluginTests

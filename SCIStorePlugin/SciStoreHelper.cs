@@ -3,7 +3,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
-using ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin.Data;
 

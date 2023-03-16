@@ -4,7 +4,7 @@ using System.Linq;
 using Rdmp.Core.Caching.Layouts;
 using Rdmp.Core.Caching.Pipeline.Destinations;
 using Rdmp.Core.Curation.Data.DataLoad;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace SCIStorePlugin.Cache;
 

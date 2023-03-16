@@ -1,5 +1,5 @@
 ﻿using FAnsi.Discovery;
-using MapsDirectlyToDatabaseTable.Attributes;
+using Rdmp.Core.MapsDirectlyToDatabaseTable.Attributes;
 using Rdmp.Core.Curation;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.Curation.Data.DataLoad;
@@ -9,7 +9,7 @@ using Rdmp.Core.Curation.Data.Serialization;
 using Rdmp.Core.DataLoad.Modules.Attachers;
 using Rdmp.UI.CommandExecution.AtomicCommands;
 using Rdmp.UI.ItemActivation;
-using ReusableLibraryCode.Icons.IconProvision;
+using Rdmp.Core.ReusableLibraryCode.Icons.IconProvision;
 using System;
 using System.Collections.Generic;
 using System.IO;

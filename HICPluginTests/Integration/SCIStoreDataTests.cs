@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Validation.Constraints.Secondary;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePluginTests.Integration;

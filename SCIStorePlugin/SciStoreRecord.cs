@@ -1,5 +1,5 @@
 using System;
-using ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode;
 
 namespace SCIStorePlugin;
 

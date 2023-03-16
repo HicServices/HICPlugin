@@ -13,7 +13,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.0.7" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
     <PackageReference Include="SharpCompress" Version="0.32.2" />
     <PackageReference Include="SharpZipLib" Version="1.4.2" />
   </ItemGroup>

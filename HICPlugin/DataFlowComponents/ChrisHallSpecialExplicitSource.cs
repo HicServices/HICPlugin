@@ -6,7 +6,7 @@ using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.Data;
 using Rdmp.Core.DataExport.DataExtraction.Pipeline.Sources;
 using Rdmp.Core.QueryBuilding;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace HICPlugin.DataFlowComponents;
 

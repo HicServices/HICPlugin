@@ -2,7 +2,7 @@ using System.IO;
 using System.Linq;
 using DrsPlugin.Attachers;
 using NUnit.Framework;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace DrsPluginTests
 {

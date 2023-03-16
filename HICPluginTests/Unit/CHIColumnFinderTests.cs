@@ -2,7 +2,7 @@
 using System.Data;
 using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace HICPluginTests.Unit;
 

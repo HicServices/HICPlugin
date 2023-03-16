@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using FAnsi.Discovery;
 using NLog;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
 namespace SCIStorePlugin.Repositories;

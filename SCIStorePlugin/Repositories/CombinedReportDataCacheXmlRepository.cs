@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Xml;
 using System.Xml.Serialization;
 using Rdmp.Core.Caching.Layouts;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
 using NLog;
 using SCIStorePlugin.Data;

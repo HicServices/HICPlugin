@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Rdmp.Core.DataLoad.Modules.DataProvider;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace SCIStorePlugin.Repositories;
 

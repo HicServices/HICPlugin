@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode;
 using SCIStore.SciStoreServices81;
 
 namespace SCIStorePlugin.Data;

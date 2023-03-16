@@ -7,7 +7,7 @@ using HIC.Common.InterfaceToJira;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
 using Rdmp.Core.Ticketing;
-using ReusableLibraryCode.Checks;
+using Rdmp.Core.ReusableLibraryCode.Checks;
 
 namespace JiraPlugin;
 

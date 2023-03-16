@@ -6,7 +6,7 @@ using System.ServiceModel;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataLoad.Modules.DataProvider;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin.Data;
 

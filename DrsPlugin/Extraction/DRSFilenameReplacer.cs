@@ -1,5 +1,5 @@
 using Rdmp.Core.QueryBuilding;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using System;
 using System.Data;
 using System.Globalization;

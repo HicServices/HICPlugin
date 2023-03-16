@@ -18,7 +18,7 @@ using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataExport.DataExtraction.UserPicks;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.QueryBuilding;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using Tests.Common;
 
 namespace DrsPluginTests

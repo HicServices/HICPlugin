@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MapsDirectlyToDatabaseTable;
+using Rdmp.Core.MapsDirectlyToDatabaseTable;
 using Rdmp.Core.Validation.Constraints.Secondary;
-using ReusableLibraryCode;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 
 namespace SCIStorePlugin.Data;

@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Data;
 using HICPlugin.DataFlowComponents;
-using MapsDirectlyToDatabaseTable;
+using Rdmp.Core.MapsDirectlyToDatabaseTable;
 using NUnit.Framework;
 using Rdmp.Core.CohortCommitting.Pipeline;
 using Rdmp.Core.DataExport.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.Repositories;
-using ReusableLibraryCode;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Integration;

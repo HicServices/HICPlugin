@@ -1,8 +1,8 @@
 ﻿using System.Data;
 using System.Linq;
-using ReusableLibraryCode.Checks;
+using Rdmp.Core.ReusableLibraryCode.Checks;
 using FAnsi.Discovery;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using Rdmp.Core.DataLoad;
 using Rdmp.Core.Curation;
 using Rdmp.Core.DataFlowPipeline;
