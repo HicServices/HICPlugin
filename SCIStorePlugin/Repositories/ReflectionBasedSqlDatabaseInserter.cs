@@ -79,8 +79,8 @@ public static class ReflectionBasedSqlDatabaseInserter
         var columnNames = properties.Select(info => info.Name);
         var values = properties.Select(info => MakeValue(info.GetValue(header, null)));
 
-        return string.Format("INSERT INTO {0}..{1} ({2}) VALUES ({3}) SELECT SCOPE_IDENTITY()",
-            databaseName, tableName, string.Join(",", columnNames), string.Join(",", values));
+        return
+            $"INSERT INTO {databaseName}..{tableName} ({string.Join(",", columnNames)}) VALUES ({string.Join(",", values)}) SELECT SCOPE_IDENTITY()";
     }
 
     public static int MakeInsertSqlAndExecute<T>(T reflectObject, SqlConnection con, DiscoveredDatabase dbInfo, string tableName, string idColumnName = null)
@@ -89,14 +89,14 @@ public static class ReflectionBasedSqlDatabaseInserter
         var columnNames = properties.Select(info => info.Name);
         var values = properties.Select(info => MakeValue(info.GetValue(reflectObject, null))).ToArray();
 
-        string sql = string.Format("INSERT INTO [{0}]..{1} ({2}) VALUES ({3}) SELECT SCOPE_IDENTITY()",
-            dbInfo.GetRuntimeName(), tableName, string.Join(",", columnNames), string.Join(",", values));
+        var sql =
+            $"INSERT INTO [{dbInfo.GetRuntimeName()}]..{tableName} ({string.Join(",", columnNames)}) VALUES ({string.Join(",", values)}) SELECT SCOPE_IDENTITY()";
 
 
 
         try
         {
-            SqlCommand cmdInsert = new SqlCommand(sql, con);
+            var cmdInsert = new SqlCommand(sql, con);
             return cmdInsert.ExecuteNonQuery();
 
         }
@@ -107,13 +107,13 @@ public static class ReflectionBasedSqlDatabaseInserter
         }
     }
 
-    private static void ThrowBetterException<T>(T reflectObject, string tableName, List<PropertyInfo> properties, object[] values, DiscoveredDatabase dbInfo, SqlException originalExcetion)
+    private static void ThrowBetterException<T>(T reflectObject, string tableName, List<PropertyInfo> properties, object[] values, DiscoveredDatabase dbInfo, SqlException originalException)
     {
-        string problemsDetected = "";
+        var problemsDetected = "";
 
-        Dictionary<string, object> reflectedObjectDictionary = new Dictionary<string, object>();
+        var reflectedObjectDictionary = new Dictionary<string, object>();
 
-        for (int i = 0; i < properties.Count; i++)
+        for (var i = 0; i < properties.Count; i++)
             reflectedObjectDictionary.Add(properties[i].Name, values[i]);
 
 
@@ -121,51 +121,43 @@ public static class ReflectionBasedSqlDatabaseInserter
 
         try
         {
-            foreach (DiscoveredColumn column in listColumns)
+            foreach (var column in listColumns)
             {
                 if (!reflectedObjectDictionary.ContainsKey(column.GetRuntimeName()))
                     problemsDetected +=
                         $"Column {column} exists in database table {tableName} but does not exist on domain object {typeof(T).FullName}{Environment.NewLine}";
                 else
                 {
-                    object valueInDomainObject = reflectedObjectDictionary[column.GetRuntimeName()];
+                    var valueInDomainObject = reflectedObjectDictionary[column.GetRuntimeName()];
 
-                    if (valueInDomainObject == null)
-                        continue;
-                    else
+                    if (valueInDomainObject is string s)
                     {
-                        string s = valueInDomainObject as string;
-                        if (s != null)
-                        {
-                            int lengthInDatabase = column.DataType.GetLengthIfString();
+                        var lengthInDatabase = column.DataType.GetLengthIfString();
 
-                            if (lengthInDatabase < s.Length)
-                                problemsDetected +=
-                                    $"Column {column} in table {tableName} is defined as length  {lengthInDatabase} in the database but you tried to insert a string value of length {s.Length}{Environment.NewLine}";
-                        }
+                        if (lengthInDatabase < s.Length)
+                            problemsDetected +=
+                                $"Column {column} in table {tableName} is defined as length  {lengthInDatabase} in the database but you tried to insert a string value of length {s.Length}{Environment.NewLine}";
                     }
                 }
 
-                foreach (PropertyInfo property in properties)
-                    if (!listColumns.Any(c => c.GetRuntimeName().Equals(property.Name)))
-                        problemsDetected +=
-                            $"Domain object has a property called {property.Name} which does not exist in table {tableName}{Environment.NewLine}";
+                problemsDetected = properties
+                    .Where(property => !listColumns.Any(c => c.GetRuntimeName().Equals(property.Name))).Aggregate(
+                        problemsDetected,
+                        (current, property) =>
+                            current +
+                            $"Domain object has a property called {property.Name} which does not exist in table {tableName}{Environment.NewLine}");
             }
         }
         catch (Exception)
         {
             //something went wrong building a better exception so just throw original one
-            throw originalExcetion;
+            throw originalException;
         }
 
-        if (!string.IsNullOrWhiteSpace(problemsDetected))
-        {
-            string toThrow = $"Original Message:{originalExcetion.Message}{Environment.NewLine}";
-            toThrow += $"We Detected Problems:{Environment.NewLine}";
-            toThrow += problemsDetected;
-            throw new Exception(toThrow, originalExcetion);
-        }
+        if (string.IsNullOrWhiteSpace(problemsDetected)) throw originalException;
 
-        throw originalExcetion;
+        var toThrow =
+            $"Original Message:{originalException.Message}{Environment.NewLine}We Detected Problems:{Environment.NewLine}{problemsDetected}";
+        throw new Exception(toThrow, originalException);
     }
 }

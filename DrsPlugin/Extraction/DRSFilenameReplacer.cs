@@ -24,11 +24,7 @@ public class DRSFilenameReplacer
         //DRS files are always in uk format?
         var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
-        return string.Format("{0}_{1}_{2}M_{3}_PW{4}_PH{5}{6}",
-            originalRow[_extractionIdentifier.GetRuntimeName()],
-            ((DateTime)dt.Parse(originalRow["Examination_Date"].ToString())).ToString("yyyy-MM-dd"), 
-            originalRow["Eye"], originalRow["Image_Num"],
-            originalRow["Pixel_Width"], originalRow["Pixel_Height"],
-            Path.GetExtension(originalRow[_filenameColumnName].ToString()));
+        return
+            $"{originalRow[_extractionIdentifier.GetRuntimeName()]}_{((DateTime)dt.Parse(originalRow["Examination_Date"].ToString())).ToString("yyyy-MM-dd")}_{originalRow["Eye"]}M_{originalRow["Image_Num"]}_PW{originalRow["Pixel_Width"]}_PH{originalRow["Pixel_Height"]}{Path.GetExtension(originalRow[_filenameColumnName].ToString())}";
     }
 }

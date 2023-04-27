@@ -85,8 +85,8 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
     // 21/12/12 JRG Comment... I note that this should also delete the previous results already stored in the database, if any.
     void UpdateHeaderRecord(SciStoreTableRecord TableRec, string LabNumber)
     {
-        string sql = string.Format("UPDATE {0}..{1} SET dtUpdated = GETDATE() WHERE LabNumber = '{2}'",
-            TableRec.DatabaseName, TableRec.HeaderTable, LabNumber);
+        string sql =
+            $"UPDATE {TableRec.DatabaseName}..{TableRec.HeaderTable} SET dtUpdated = GETDATE() WHERE LabNumber = '{LabNumber}'";
         // da.ExecuteCommand(sql);
         reTryExecuteCommand(sql);
     }

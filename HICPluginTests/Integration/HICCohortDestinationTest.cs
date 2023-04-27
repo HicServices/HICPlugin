@@ -39,10 +39,7 @@ public class HICCohortDestinationTest : TestsRequiringACohort
         {
             con.Open();
 
-            string sql;
-            if (_expectToSucceed)
-            {
-                sql = $@"
+            var sql = _expectToSucceed ? $@"
 if exists(select * from sys.procedures where name = 'fishfishfishproc1')
 	begin
 		drop procedure fishfishfishproc1
@@ -56,11 +53,7 @@ create procedure fishfishfishproc1
                     as
                     begin
                         select distinct id from {definitionTableName} 
-                    end";
-            }
-            else
-            {
-                sql = string.Format(@"
+                    end" : @"
 if exists(select * from sys.procedures where name = 'fishfishfishproc1')
 	begin
 		drop procedure fishfishfishproc1
@@ -74,17 +67,18 @@ GO
                     as
                     begin
                         select 0
-                    end");
-            }
+                    end";
             UsefulStuff.ExecuteBatchNonQuery(sql,con);
         }
             
         var def = new CohortDefinition(null, "ignoremecohort", 1, 12,_externalCohortTable);
         var request = new CohortCreationRequest(p, def, (DataExportRepository)RepositoryLocator.DataExportRepository, "ignoremeauditlog");
 
-        var d = new HICCohortManagerDestination();
-        d.NewCohortsStoredProcedure = "fishfishfishproc1";
-        d.ExistingCohortsStoredProcedure = "fishfishfishproc2";
+        var d = new HICCohortManagerDestination
+        {
+            NewCohortsStoredProcedure = "fishfishfishproc1",
+            ExistingCohortsStoredProcedure = "fishfishfishproc2"
+        };
         d.PreInitialize(request,new ThrowImmediatelyDataLoadEventListener());
         d.CreateExternalCohort = true;
 
