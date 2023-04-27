@@ -49,6 +49,27 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
         
     public bool DisposeImmediately { get; set; }
+
+    private string _forename;
+    private string _surname;
+    private string _dateOfBirth;
+    private string _postcode;
+    private string _sex;
+    private string _addressLine1;
+    private string _addressLine2;
+    private string _addressLine3;
+    private string _addressLine4;
+
+    private string _targetServerName;
+    private string _finalTableName;
+    private string _runtimeTableName;
+
+    private string _otherPostcode;
+    private string _otherAddressLine1;
+    private string _otherAddressLine2;
+    private string _otherAddressLine3;
+    private string _otherAddressLine4;
+
     public void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener postLoadEventsListener)
     {
     }
@@ -248,23 +269,23 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
         var availableColumns = table.DiscoverColumns().Select(c => c.GetRuntimeName()).ToArray();
 
-        _forename = GetForename == null ? null : GetForename.GetRuntimeName();
-        _surname = GetSurname == null ? null : GetSurname.GetRuntimeName();
-        _dateOfBirth = GetDateOfBirth == null ? null : GetDateOfBirth.GetRuntimeName();
-        _sex = GetSex == null ? null : GetSex.GetRuntimeName();
+        _forename = GetForename?.GetRuntimeName();
+        _surname = GetSurname?.GetRuntimeName();
+        _dateOfBirth = GetDateOfBirth?.GetRuntimeName();
+        _sex = GetSex?.GetRuntimeName();
 
-        _postcode = GetPostcode == null ? null : GetPostcode.GetRuntimeName();
-        _addressLine1 = GetAddressLine1 == null ? null : GetAddressLine1.GetRuntimeName();
-        _addressLine2 = GetAddressLine2 == null ? null : GetAddressLine2.GetRuntimeName();
-        _addressLine3 = GetAddressLine3 == null ? null : GetAddressLine3.GetRuntimeName();
-        _addressLine4 = GetAddressLine4 == null ? null : GetAddressLine4.GetRuntimeName();
+        _postcode = GetPostcode?.GetRuntimeName();
+        _addressLine1 = GetAddressLine1?.GetRuntimeName();
+        _addressLine2 = GetAddressLine2?.GetRuntimeName();
+        _addressLine3 = GetAddressLine3?.GetRuntimeName();
+        _addressLine4 = GetAddressLine4?.GetRuntimeName();
 
 
-        _otherPostcode = GetOtherPostcode == null ? null : GetOtherPostcode.GetRuntimeName();
-        _otherAddressLine1 = GetOtherAddressLine1 == null ? null : GetOtherAddressLine1.GetRuntimeName();
-        _otherAddressLine2 = GetOtherAddressLine2 == null ? null : GetOtherAddressLine2.GetRuntimeName();
-        _otherAddressLine3 = GetOtherAddressLine3 == null ? null : GetOtherAddressLine3.GetRuntimeName();
-        _otherAddressLine4 = GetOtherAddressLine4 == null ? null : GetOtherAddressLine4.GetRuntimeName();
+        _otherPostcode = GetOtherPostcode?.GetRuntimeName();
+        _otherAddressLine1 = GetOtherAddressLine1?.GetRuntimeName();
+        _otherAddressLine2 = GetOtherAddressLine2?.GetRuntimeName();
+        _otherAddressLine3 = GetOtherAddressLine3?.GetRuntimeName();
+        _otherAddressLine4 = GetOtherAddressLine4?.GetRuntimeName();
 
 
         CheckColumnIsInCollection(_forename, availableColumns);
@@ -327,21 +348,6 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
             throw new Exception(
                 $"Zero rows affected when issuing UPDATE (to record PersonID/CHI), command was {updateSQL}");
     }
-
-
-    string _forename = null;
-    string _surname = null;
-    private string _dateOfBirth;
-    private string _postcode;
-    private string _sex;
-    private string _addressLine1;
-    private string _addressLine2;
-    private string _addressLine3;
-    private string _addressLine4;
-        
-    private string _targetServerName;
-    private string _finalTableName;
-    private string _runtimeTableName;
 
     public void Initialize(DiscoveredDatabase dbInfo, LoadStage loadStage)
     {
@@ -447,14 +453,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
     }
 
-    private int _stackOverFlowPreventer = 0;
-    private string _otherPostcode;
-    private string _otherAddressLine1;
-    private string _otherAddressLine2;
-    private string _otherAddressLine3;
-    private string _otherAddressLine4;
-
-
+    private int _stackOverFlowPreventer;
     private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
     {
         if (_stackOverFlowPreventer == 5)
