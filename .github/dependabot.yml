@@ -2,11 +2,15 @@ version: 2
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/" # Location of package manifests
-    target-branch: "feature/update"
+    target-branch: "main"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
-    target-branch: "feature/update"
+    target-branch: "main"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
