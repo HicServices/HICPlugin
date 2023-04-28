@@ -5,41 +5,41 @@ using System.Text.RegularExpressions;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
-using ReusableLibraryCode.Checks;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Checks;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 
-namespace HICPlugin.DataFlowComponents
+namespace HICPlugin.DataFlowComponents;
+
+[Description("Forces tables being loaded to match the hic regex ")]
+public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>
 {
-    [Description("Forces tables being loaded to match the hic regex ")]
-    public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>
+    private static readonly Regex NamingConvention = new Regex("tt_\\d*",RegexOptions.Compiled);
+
+    public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener job, GracefulCancellationToken cancellationToken)
     {
-        public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener job, GracefulCancellationToken cancellationToken)
-        {
-            return toProcess;
-        }
+        return toProcess;
+    }
 
-        public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
-        {
+    public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
+    {
 
-        }
+    }
 
-        public void Abort(IDataLoadEventListener listener)
-        {
+    public void Abort(IDataLoadEventListener listener)
+    {
             
-        }
+    }
 
-        public void PreInitialize(TableInfo target,IDataLoadEventListener listener)
-        {
-            Regex namingConvention = new Regex("tt_\\d*");
-
-            if (!namingConvention.IsMatch(target.GetRuntimeName()))
-                listener.OnNotify(this,new NotifyEventArgs(ProgressEventType.Error, "TableInfo " + target + " does not match hic regex for naming conventions of project/group data (" + namingConvention + ")"));
-        }
+    public void PreInitialize(TableInfo target,IDataLoadEventListener listener)
+    {
+        if (!NamingConvention.IsMatch(target.GetRuntimeName()))
+            listener.OnNotify(this,new NotifyEventArgs(ProgressEventType.Error,
+                $"TableInfo {target} does not match hic regex for naming conventions of project/group data ({NamingConvention})"));
+    }
 
         
-        public void Check(ICheckNotifier notifier)
-        {
+    public void Check(ICheckNotifier notifier)
+    {
             
-        }
     }
 }

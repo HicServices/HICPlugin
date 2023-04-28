@@ -1,8 +1,7 @@
-﻿namespace SCIStorePlugin.Data
+﻿namespace SCIStorePlugin.Data;
+
+public enum HealthBoard
 {
-    public enum HealthBoard
-    {
-        T,
-        F
-    }
+    T,
+    F
 }

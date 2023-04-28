@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using NUnit.Framework;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Cache;
 using SCIStorePlugin.Data;
 using Tests.Common;

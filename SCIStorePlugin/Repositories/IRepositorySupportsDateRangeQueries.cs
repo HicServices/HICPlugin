@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Rdmp.Core.DataFlowPipeline;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
-namespace SCIStorePlugin.Repositories
+namespace SCIStorePlugin.Repositories;
+
+public interface IRepositorySupportsDateRangeQueries<T> : IRepository<T>
 {
-    public interface IRepositorySupportsDateRangeQueries<T> : IRepository<T>
-    {
-        IEnumerable<CombinedReportData> ReadForInterval(DateTime day, TimeSpan timeSpan, IDataLoadEventListener listener, GracefulCancellationToken token);
-    }
+    IEnumerable<CombinedReportData> ReadForInterval(DateTime day, TimeSpan timeSpan, IDataLoadEventListener listener, GracefulCancellationToken token);
 }

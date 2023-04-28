@@ -2,12 +2,9 @@
 using System.IO;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Requests;
-using Rdmp.Core.Caching.Requests.FetchRequestProvider;
 using Rdmp.Core.Curation;
-using Rdmp.Core.Curation.Data.Cache;
 using Rdmp.Core.DataFlowPipeline;
-using ReusableLibraryCode.Progress;
-using Rhino.Mocks;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin;
 using SCIStorePlugin.Cache.Pipeline;
@@ -73,7 +70,7 @@ namespace SCIStorePluginTests.Integration
             var deleteMe = LoadDirectory.CreateDirectoryStructure(new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"DeleteMe", true);
             try
             {
-                var fetchRequest = MockRepository.Mock<ICacheFetchRequest>();
+                var fetchRequest = new Moq.Mock<ICacheFetchRequest>().Object;
                 
                 var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)
                 {

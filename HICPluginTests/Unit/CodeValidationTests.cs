@@ -1,27 +1,28 @@
+using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Repositories;
 using Rdmp.Core.Validation;
 using Rdmp.Core.Validation.Constraints.Secondary;
-using ReusableLibraryCode.Progress;
-using Rhino.Mocks;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin.Data;
 
-namespace SCIStorePluginTests.Unit
-{
-    public class CodeValidationTests
-    {
-        [OneTimeSetUp]
-        public void BeforeAnyTests()
-        {
-            Validator.LocatorForXMLDeserialization = MockRepository.Mock<IRDMPPlatformRepositoryServiceLocator>();
-        }
+namespace SCIStorePluginTests.Unit;
 
-        [Test]
-        public void Test_TestResultWithOneUndefinedCodeBlockWhichIsALocalCode()
+public class CodeValidationTests
+{
+    [OneTimeSetUp]
+    public void BeforeAnyTests()
+    {
+        Validator.LocatorForXMLDeserialization = new Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
+    }
+
+    [Test]
+    public void Test_TestResultWithOneUndefinedCodeBlockWhichIsALocalCode()
+    {
+        var testType = new TEST_TYPE
         {
-            var testType = new TEST_TYPE();
-            testType.TestName = new[]
+            TestName = new[]
             {
                 new CLINICAL_CIRCUMSTANCE_TYPE()
                 {
@@ -39,26 +40,28 @@ namespace SCIStorePluginTests.Unit
                         ClinicalCodeDescription = "This is a test"
                     }
                 }
-            };
+            }
+        };
 
 
-            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
-            readCodeConstraint.Stub(
-                c => c.Validate(Arg<object>.Is.Equal("NOT_A_READ_CODE"), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Return(new ValidationFailure("This is not a read code", readCodeConstraint));
+        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
+        readCodeConstraint.Setup(
+                c => c.Validate(It.Is<object>(x=>x.Equals("NOT_A_READ_CODE")), It.IsAny<object[]>(), It.IsAny<string[]>()))
+            .Returns(value:new ValidationFailure("This is not a read code", readCodeConstraint.Object));
 
-            var testSetFactory = new TestSetFactory(readCodeConstraint);
-            var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
+        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
 
-            Assert.AreEqual("NOT_A_READ_CODE", testDetails.LocalCode.Value);
-            Assert.IsNull(testDetails.ReadCode);
-        }
+        Assert.AreEqual("NOT_A_READ_CODE", testDetails.LocalCode.Value);
+        Assert.IsNull(testDetails.ReadCode);
+    }
 
-        [Test]
-        public void Test_TestResultWithOneUndefinedCodeBlockWhichIsAReadCode()
+    [Test]
+    public void Test_TestResultWithOneUndefinedCodeBlockWhichIsAReadCode()
+    {
+        var testType = new TEST_TYPE
         {
-            var testType = new TEST_TYPE();
-            testType.TestName = new[]
+            TestName = new[]
             {
                 new CLINICAL_CIRCUMSTANCE_TYPE()
                 {
@@ -76,27 +79,29 @@ namespace SCIStorePluginTests.Unit
                         ClinicalCodeDescription = "This is a test"
                     }
                 }
-            };
+            }
+        };
 
 
-            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
-            readCodeConstraint.Stub(
-                c => c.Validate(Arg<object>.Is.Equal(".0766"), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Return(null);
+        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
+        readCodeConstraint.Setup(
+                c => c.Validate(It.Is<object>(x => x.Equals(".0766")), It.IsAny<object[]>(), It.IsAny<string[]>()))
+            .Returns(value:null);
 
-            var testSetFactory = new TestSetFactory(readCodeConstraint);
-            var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
+        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
 
-            Assert.IsNotNull(testDetails.ReadCode, "The value has not been picked up as a read code");
-            Assert.AreEqual(".0766", testDetails.ReadCode.Value);
-            Assert.IsNull(testDetails.LocalCode);
-        }
+        Assert.IsNotNull(testDetails.ReadCode, "The value has not been picked up as a read code");
+        Assert.AreEqual(".0766", testDetails.ReadCode.Value);
+        Assert.IsNull(testDetails.LocalCode);
+    }
 
-        [Test]
-        public void Test_TestResultWithTwoUndefinedCodeBlocksWhereOneIsReadAndTheOtherLocal()
+    [Test]
+    public void Test_TestResultWithTwoUndefinedCodeBlocksWhereOneIsReadAndTheOtherLocal()
+    {
+        var testType = new TEST_TYPE
         {
-            var testType = new TEST_TYPE();
-            testType.TestName = new[]
+            TestName = new[]
             {
                 new CLINICAL_CIRCUMSTANCE_TYPE()
                 {
@@ -130,26 +135,26 @@ namespace SCIStorePluginTests.Unit
                         ClinicalCodeDescription = "C-terminal GLUCAGON"
                     }
                 }
-            };
+            }
+        };
 
-            var readCodeConstraint = MockRepository.Mock<ReferentialIntegrityConstraint>();
+        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
 
-            readCodeConstraint.Stub(
-                c => c.Validate(Arg<object>.Is.Equal("4Q24."), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Return(null);
+        readCodeConstraint
+            .Setup(c => c.Validate(It.Is<object>(x => x.Equals("4Q24.")), It.IsAny<object[]>(), It.IsAny<string[]>()))
+            .Returns(value: null);
 
-            readCodeConstraint.Stub(
-                c => c.Validate(Arg<object>.Is.Equal("GGOC"), Arg<object[]>.Is.Anything, Arg<string[]>.Is.Anything))
-                .Return(new ValidationFailure("Not a read code", readCodeConstraint));
+        readCodeConstraint
+            .Setup(c => c.Validate(It.Is<object>(x => x.Equals("GGOC")), It.IsAny<object[]>(), It.IsAny<string[]>()))
+            .Returns(value: new ValidationFailure("Not a read code", readCodeConstraint.Object));
 
-            var testSetFactory = new TestSetFactory(readCodeConstraint);
-            var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
+        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
 
-            Assert.IsNotNull(testDetails.ReadCode);
-            Assert.IsNotNull(testDetails.LocalCode);
+        Assert.IsNotNull(testDetails.ReadCode);
+        Assert.IsNotNull(testDetails.LocalCode);
 
-            Assert.AreEqual("4Q24.", testDetails.ReadCode.Value);
-            Assert.AreEqual("GGOC", testDetails.LocalCode.Value);
-        }
+        Assert.AreEqual("4Q24.", testDetails.ReadCode.Value);
+        Assert.AreEqual("GGOC", testDetails.LocalCode.Value);
     }
 }

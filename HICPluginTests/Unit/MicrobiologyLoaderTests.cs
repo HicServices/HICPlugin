@@ -7,44 +7,44 @@ using System.Text;
 using HICPlugin.Microbiology;
 using NUnit.Framework;
 
-namespace HICPluginTests.Unit
+namespace HICPluginTests.Unit;
+
+public class MicrobiologyLoaderTests
 {
-    public class MicrobiologyLoaderTests
+    [Test]
+    [TestCase("",false)]
+    [TestCase("AB102", false)]
+    [TestCase("12AB",true)]
+    [TestCase("   12AB   ",true)]
+    [TestCase("  12 AB  ", false)]
+    [TestCase(", 12AB   ", false)]
+    [TestCase("  AB12  ", false)]
+    [TestCase("  A B 12 ",false)]
+    [TestCase("\t12A ", true)]
+    [TestCase("\r\n12A\r\n", true)]
+    [TestCase("\r\n12\r\n12A\r\n", true)]
+    [TestCase("\r\n  12A\r\n", true)]
+    public void TestParsingTestCodes(string val, bool isValidResultCode)
     {
-        [Test]
-        [TestCase("",false)]
-        [TestCase("AB102", false)]
-        [TestCase("12AB",true)]
-        [TestCase("   12AB   ",true)]
-        [TestCase("  12 AB  ", false)]
-        [TestCase(", 12AB   ", false)]
-        [TestCase("  AB12  ", false)]
-        [TestCase("  A B 12 ",false)]
-        [TestCase("\t12A ", true)]
-        [TestCase("\r\n12A\r\n", true)]
-        [TestCase("\r\n12\r\n12A\r\n", true)]
-        [TestCase("\r\n  12A\r\n", true)]
-        public void TestParsingTestCodes(string val, bool isValidResultCode)
-        {
-            var ms = new MemoryStream();
-            ms.Write(Encoding.ASCII.GetBytes(val), 0, Encoding.ASCII.GetBytes(val).Length);
-            ms.Position = 0;
+        var ms = new MemoryStream();
+        ms.Write(Encoding.ASCII.GetBytes(val), 0, Encoding.ASCII.GetBytes(val).Length);
+        ms.Position = 0;
 
-            TextReader tr = new StreamReader(ms);
+        TextReader tr = new StreamReader(ms);
 
-            MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
+        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
 
             
-            var result1 = mb.GetSpecimenNo(tr);
+        var result1 = mb.GetSpecimenNo(tr);
 
-            //result is not null if it is a valid result code
-            Assert.IsTrue(isValidResultCode == (result1 != null));
-        }
+        //result is not null if it is a valid result code
+        Assert.IsTrue(isValidResultCode == (result1 != null));
+    }
 
-        [Test]
-        public void TestProcessingTestFile_Normal()
-        {
-            var testString =
+    [Test]
+    public void TestProcessingTestFile_Normal()
+    {
+        var testString =
             @"
  11B111111
 1111111111
@@ -221,48 +221,49 @@ MB
 11:11
 GORA1H
 ";
-            var results = CreateReaderFromString(testString, true);
+        var results = CreateReaderFromString(testString, true);
 
 
-            Assert.AreEqual(5, results.Count(r => r is MB_Lab));
-            Assert.AreEqual(5, results.Where(r => r is MB_Tests).Cast<MB_Tests>().Count(t=>t.TestCode.Equals("VTK")));
+        Assert.AreEqual(5, results.Count(r => r is MB_Lab));
+        Assert.AreEqual(5, results.Where(r => r is MB_Tests).Cast<MB_Tests>().Count(t=>t.TestCode.Equals("VTK")));
 
-            Assert.AreEqual(35, results.Count(r => r is MB_IsolationResult));
-            Assert.AreEqual(2, results.Count(r => r is MB_Isolation));
+        Assert.AreEqual(35, results.Count(r => r is MB_IsolationResult));
+        Assert.AreEqual(2, results.Count(r => r is MB_Isolation));
 
 
+    }
+
+    private IList<IMicrobiologyResultRecord> CreateReaderFromString(string testString, bool throwOnWarnings)
+    {
+        TextReader tr = new StreamReader(StringToStream(testString));
+        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
+        mb.Warning += delegate(object sender, string message) { if(throwOnWarnings)throw new Exception(
+            $"Warning was {message}"); };
+        var results = mb.ProcessFile().ToList();
+
+        foreach (IMicrobiologyResultRecord r in results)
+        {
+            Console.Write(r.GetType().Name);
+            WriteOutObject(r);
+            Console.WriteLine();
         }
 
-        private IList<IMicrobiologyResultRecord> CreateReaderFromString(string testString, bool throwOnWarnings)
-        {
-            TextReader tr = new StreamReader(StringToStream(testString));
-            MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
-            mb.Warning += delegate(object sender, string message) { if(throwOnWarnings)throw new Exception("Warning was " + message); };
-            var results = mb.ProcessFile().ToList();
+        return results;
+    }
 
-            foreach (IMicrobiologyResultRecord r in results)
-            {
-                Console.Write(r.GetType().Name);
-                WriteOutObject(r);
-                Console.WriteLine();
-            }
+    private void WriteOutObject(IMicrobiologyResultRecord microbiologyResultRecord)
+    {
+        Console.Write("(");
+        foreach (PropertyInfo p in microbiologyResultRecord.GetType().GetProperties())
+            Console.Write($"{p.Name}:{p.GetValue(microbiologyResultRecord)},");
 
-            return results;
-        }
+        Console.Write(")");
+    }
 
-        private void WriteOutObject(IMicrobiologyResultRecord microbiologyResultRecord)
-        {
-            Console.Write("(");
-            foreach (PropertyInfo p in microbiologyResultRecord.GetType().GetProperties())
-                Console.Write(p.Name + ":" + p.GetValue(microbiologyResultRecord) + ",");
-
-            Console.Write(")");
-        }
-
-        [Test]
-        public void TestProcessingTestFile_MissingIsolationsResults()
-        {
-            var testString =
+    [Test]
+    public void TestProcessingTestFile_MissingIsolationsResults()
+    {
+        var testString =
             @"
  11B111111
 1111111111
@@ -287,33 +288,33 @@ MB
 11:11
 THOK1H
 ";
-            var results = CreateReaderFromString(testString, true);
-            Assert.AreEqual(6,results.Count);
+        var results = CreateReaderFromString(testString, true);
+        Assert.AreEqual(6,results.Count);
 
-            var isolations = results.Where(r => r is MB_Isolation).Cast<MB_Isolation>().ToArray();
-            Assert.AreEqual(2,isolations.Count());
-
-
-            Assert.AreEqual(0, results.Count(r => r is MB_IsolationResult));//should be no results because there are no "$SENS             S" etc bits
-
-            Assert.AreEqual("SAUR",isolations[0].organismCode );
-            Assert.AreEqual("P", isolations[0].WeightGrowth_cd);
-            Assert.AreEqual("Y",isolations[0].IntCode1);
-            Assert.AreEqual("Y",isolations[0].IntCode2);
-
-            Assert.AreEqual("BOBY",isolations[1].organismCode);
-            Assert.AreEqual("Z",isolations[1].WeightGrowth_cd);
-            Assert.AreEqual("N",isolations[1].IntCode1);
-            Assert.AreEqual("N",isolations[1].IntCode2);
+        var isolations = results.Where(r => r is MB_Isolation).Cast<MB_Isolation>().ToArray();
+        Assert.AreEqual(2,isolations.Count());
 
 
+        Assert.AreEqual(0, results.Count(r => r is MB_IsolationResult));//should be no results because there are no "$SENS             S" etc bits
 
-        }
+        Assert.AreEqual("SAUR",isolations[0].organismCode );
+        Assert.AreEqual("P", isolations[0].WeightGrowth_cd);
+        Assert.AreEqual("Y",isolations[0].IntCode1);
+        Assert.AreEqual("Y",isolations[0].IntCode2);
 
-        [Test]
-        public void TestProcessingFile_CommentsAppearAfterResultsButBeforeDate()
-        {
-            var testString = @"11B111111
+        Assert.AreEqual("BOBY",isolations[1].organismCode);
+        Assert.AreEqual("Z",isolations[1].WeightGrowth_cd);
+        Assert.AreEqual("N",isolations[1].IntCode1);
+        Assert.AreEqual("N",isolations[1].IntCode2);
+
+
+
+    }
+
+    [Test]
+    public void TestProcessingFile_CommentsAppearAfterResultsButBeforeDate()
+    {
+        var testString = @"11B111111
 
 FrankyFrank
 11 Nov 1111
@@ -332,16 +333,16 @@ MB
 11:11
 NG
 ";
-            var results = CreateReaderFromString(testString, true);
-            Assert.AreEqual(3, results.Count);
-            Assert.AreEqual("LIKELY APPENDICITIS|PERSISTENT FEVER & SIRS|ON AMOX- GENT- METRO|###SENT IN WITHOUT FORM OR ICE REQUEST. DETAILS ON A HISTORY/CONTINUATION SHEET NP 11/11/11", ((MB_Lab)results.Single(r => r is MB_Lab)).Comments);
+        var results = CreateReaderFromString(testString, true);
+        Assert.AreEqual(3, results.Count);
+        Assert.AreEqual("LIKELY APPENDICITIS|PERSISTENT FEVER & SIRS|ON AMOX- GENT- METRO|###SENT IN WITHOUT FORM OR ICE REQUEST. DETAILS ON A HISTORY/CONTINUATION SHEET NP 11/11/11", ((MB_Lab)results.Single(r => r is MB_Lab)).Comments);
 
-        }
+    }
 
-        [Test]
-        public void TestProcessingFile_CommentsAfterIsolations()
-        {
-            var testString = @"
+    [Test]
+    public void TestProcessingFile_CommentsAfterIsolations()
+    {
+        var testString = @"
  11B111111
 1111111111
 FrankyTheTest
@@ -377,14 +378,14 @@ MB
 11:11
 LOVG1H
 ";
-            var results = CreateReaderFromString(testString, true);
-            Assert.AreEqual(11, results.Count);
-        }
+        var results = CreateReaderFromString(testString, true);
+        Assert.AreEqual(11, results.Count);
+    }
 
-        [Test]
-        public void TestProcessingFile_RandomCrudAtEndOfFile()
-        {
-            var testString = @"
+    [Test]
+    public void TestProcessingFile_RandomCrudAtEndOfFile()
+    {
+        var testString = @"
  11B111111
 1111111111
 FrankyTheTest
@@ -425,16 +426,16 @@ The following record ids do not exist:
 42630*17060*54
 
 ";
-            var results = CreateReaderFromString(testString, true);
-            Assert.AreEqual(11, results.Count);
-            Assert.AreEqual("11:11",((MB_Lab)results.Single(r=>r is MB_Lab)).RcvTime);
-            Assert.AreEqual("11:11", ((MB_Lab)results.Single(r => r is MB_Lab)).SampleTime);
-        }
+        var results = CreateReaderFromString(testString, true);
+        Assert.AreEqual(11, results.Count);
+        Assert.AreEqual("11:11",((MB_Lab)results.Single(r=>r is MB_Lab)).RcvTime);
+        Assert.AreEqual("11:11", ((MB_Lab)results.Single(r => r is MB_Lab)).SampleTime);
+    }
 
-        [Test]
-        public void TestProcessingFile_Overflow()
-        {
-            var testString = @"
+    [Test]
+    public void TestProcessingFile_Overflow()
+    {
+        var testString = @"
  11B111111
 1111111111
 MADGE
@@ -472,16 +473,16 @@ MB
 11:11
 DYMT1G
 ";
-            var results = CreateReaderFromString(testString, false);
-            Assert.AreEqual(4,results.Count);
-        }
+        var results = CreateReaderFromString(testString, false);
+        Assert.AreEqual(4,results.Count);
+    }
 
-        [Test]
-        public void TestProcessingFile_MultipleCultures()
-        {
-            //3 cultures each with  27 results  (+3 isolation headers)= 84 + 3 test results + 2 no isolations +1 lab
+    [Test]
+    public void TestProcessingFile_MultipleCultures()
+    {
+        //3 cultures each with  27 results  (+3 isolation headers)= 84 + 3 test results + 2 no isolations +1 lab
 
-            var testString = @"
+        var testString = @"
  11B111111
 1111111111
 HOLMES
@@ -614,24 +615,24 @@ MB
 11:11
 JOSJ1H
 ";
-            var results = CreateReaderFromString(testString, false);
-            Assert.AreEqual(90, results.Count);
+        var results = CreateReaderFromString(testString, false);
+        Assert.AreEqual(90, results.Count);
 
-        }
+    }
 
-        private Stream StringToStream(string testString)
-        {
-            var ms = new MemoryStream();
-            ms.Write(Encoding.ASCII.GetBytes(testString), 0, Encoding.ASCII.GetBytes(testString).Length);
-            ms.Position = 0;
+    private Stream StringToStream(string testString)
+    {
+        var ms = new MemoryStream();
+        ms.Write(Encoding.ASCII.GetBytes(testString), 0, Encoding.ASCII.GetBytes(testString).Length);
+        ms.Position = 0;
 
-            return ms;
-        }
+        return ms;
+    }
 
-        [Test]
-        public void FreakyShortRecordAtEndOfFile()
-        {
-            var testString = @"
+    [Test]
+    public void FreakyShortRecordAtEndOfFile()
+    {
+        var testString = @"
  
 11B111111Q
 1111111111
@@ -639,17 +640,17 @@ ANDERSON
 11 Apr 
 ";
 
-            var ex = Assert.Throws<Exception>(()=>CreateReaderFromString(testString, true));
-            StringAssert.Contains("Warning was End of file reached halfway through an MB_Lab record population",ex.Message);
+        var ex = Assert.Throws<Exception>(()=>CreateReaderFromString(testString, true));
+        StringAssert.Contains("Warning was End of file reached halfway through an MB_Lab record population",ex.Message);
 
 
-        }
+    }
 
 
-        [Test]
-        public void MissingIsolations()
-        {
-            string testString = @"
+    [Test]
+    public void MissingIsolations()
+    {
+        string testString = @"
 11MP111111
 1111111111
 PIRIE
@@ -692,18 +693,14 @@ MP
 11 Feb 1111
 11:11
 SHEA1H";
-            var results = CreateReaderFromString(testString, true);
+        var results = CreateReaderFromString(testString, true);
 
-            Assert.AreEqual(12,results.Count(r => r is MB_IsolationResult));
+        Assert.AreEqual(12,results.Count(r => r is MB_IsolationResult));
 
-            MB_Tests t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
+        MB_Tests t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
 
-            Assert.NotNull(t);
-            Assert.AreEqual("BLAN", t.TestCode);
+        Assert.NotNull(t);
+        Assert.AreEqual("BLAN", t.TestCode);
 
-        }
     }
-
-    
-
 }

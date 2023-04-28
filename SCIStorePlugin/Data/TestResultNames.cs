@@ -1,9 +1,8 @@
-namespace SCIStorePlugin.Data
+namespace SCIStorePlugin.Data;
+
+public class TestResultNames
 {
-    public class TestResultNames
-    {
-        public string Code = "";
-        public string TestName = "";
-        public string ReadCode = "";
-    }
+    public string Code = "";
+    public string TestName = "";
+    public string ReadCode = "";
 }

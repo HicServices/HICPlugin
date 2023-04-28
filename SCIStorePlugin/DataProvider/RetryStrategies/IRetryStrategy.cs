@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
 using Rdmp.Core.DataFlowPipeline;
-using ReusableLibraryCode.Progress;
+using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
 
-namespace SCIStorePlugin.DataProvider.RetryStrategies
+namespace SCIStorePlugin.DataProvider.RetryStrategies;
+
+public interface IRetryStrategy
 {
-    public interface IRetryStrategy
-    {
-        IEnumerable<CombinedReportData> Fetch(DateTime dateToFetch, TimeSpan interval, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken);
+    IEnumerable<CombinedReportData> Fetch(DateTime dateToFetch, TimeSpan interval, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken);
         
-        IRepositorySupportsDateRangeQueries<CombinedReportData> WebService { get; set; }
-    }
+    IRepositorySupportsDateRangeQueries<CombinedReportData> WebService { get; set; }
 }
