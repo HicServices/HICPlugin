@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>    
@@ -13,7 +13,7 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
+    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc2" />
     <PackageReference Include="SharpCompress" Version="0.33.0" />
   </ItemGroup>
 </Project>
