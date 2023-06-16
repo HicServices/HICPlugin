@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -123,6 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" />
+    <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
   </ItemGroup>
 </Project>
