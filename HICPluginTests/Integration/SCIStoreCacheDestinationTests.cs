@@ -79,8 +79,8 @@ namespace SCIStorePluginTests.Integration
                 };
 
 
-                component.PreInitialize(deleteMe,new ThrowImmediatelyDataLoadEventListener());
-                component.ProcessPipelineData((ICacheChunk)cacheChunk, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+                component.PreInitialize(deleteMe,ThrowImmediatelyDataLoadEventListener.Quiet);
+                component.ProcessPipelineData((ICacheChunk)cacheChunk, ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
 
                 var downloadDir = Path.Combine(rootDirectory.FullName, "T", "Biochemistry");
                 var expectedArchiveFilepath = Path.Combine(downloadDir, "2015-01-01.zip");

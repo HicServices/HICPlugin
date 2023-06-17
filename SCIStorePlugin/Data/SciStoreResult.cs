@@ -67,7 +67,7 @@ public class SciStoreResult : IComparable
     {
         unchecked
         {
-            int hashCode = LabNumber.GetHashCode();
+            var hashCode = LabNumber.GetHashCode();
             hashCode = (hashCode * 396) ^ TestReportID.GetHashCode();
             hashCode = (hashCode * 397) ^ ClinicalCircumstanceDescription.GetHashCode();
             hashCode = (hashCode * 397) ^ TestIdentifier.GetHashCode();
@@ -107,14 +107,14 @@ public class SciStoreResult : IComparable
             var other = (SciStoreResult)obj;
 
             //sort on primary key first (what test is for)
-            int compareOnPk = string.Compare(ClinicalCircumstanceDescription, other.ClinicalCircumstanceDescription, true);
+            var compareOnPk = string.Compare(ClinicalCircumstanceDescription, other.ClinicalCircumstanceDescription, true);
 
             if (compareOnPk != 0)
                 return compareOnPk;
 
             //tests are both for the same thing
-            int thisOrder = TestResultOrder ?? int.MinValue;
-            int otherOrder = other.TestResultOrder ?? int.MinValue;
+            var thisOrder = TestResultOrder ?? int.MinValue;
+            var otherOrder = other.TestResultOrder ?? int.MinValue;
 
             //order by order (as we were informed by the scistore xml bitty called   <DisciplineSpecificValues>TestResultOrder:19</DisciplineSpecificValues>)
             return thisOrder - otherOrder;
@@ -137,8 +137,8 @@ public class SciStoreResult : IComparable
                 continue; //property is marked with nomapping so wont end up in database so dont care for checking identicalness
 
 
-            object val1 = propertyInfo.GetValue(result);
-            object val2 = propertyInfo.GetValue(this);
+            var val1 = propertyInfo.GetValue(result);
+            var val2 = propertyInfo.GetValue(this);
 
             if (val1 == null)
                 if (val2 == null)

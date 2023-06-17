@@ -31,7 +31,7 @@ public class SCIStoreDataTests
             .Returns(value:null);
 
         var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
+        var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.AreEqual(7, report.Samples.Count);
 
@@ -61,7 +61,7 @@ public class SCIStoreDataTests
             .Returns(value:null);
 
         var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
+        var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.AreEqual(7, report.Samples.Count);
 

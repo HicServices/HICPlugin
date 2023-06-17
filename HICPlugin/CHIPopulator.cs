@@ -177,7 +177,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
             {
                 if (r["CHI"] == DBNull.Value || string.IsNullOrWhiteSpace(r["CHI"] as string))
                 {
-                    var chijob = new CHIJob()
+                    var chijob = new CHIJob
                     {
                         TargetServerName = _targetServerName,
                         TableName = _finalTableName
@@ -369,7 +369,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
     public void Check(ICheckNotifier notifier)
     {
-        var chijob = new CHIJob()
+        var chijob = new CHIJob
         {
             TargetServerName = "TEST",
             TableName = "TEST.dbo.TEST",

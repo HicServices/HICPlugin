@@ -22,7 +22,7 @@ public class SciStoreTableRecord : IEquatable<SciStoreTableRecord>
     {
         unchecked
         {
-            int hashCode = (DatabaseName != null ? DatabaseName.GetHashCode() : 0);
+            var hashCode = (DatabaseName != null ? DatabaseName.GetHashCode() : 0);
             hashCode = (hashCode*397) ^ (HeaderTable != null ? HeaderTable.GetHashCode() : 0);
             hashCode = (hashCode*397) ^ (SamplesTable != null ? SamplesTable.GetHashCode() : 0);
             hashCode = (hashCode*397) ^ (ResultsTable != null ? ResultsTable.GetHashCode() : 0);

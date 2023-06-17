@@ -38,8 +38,8 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
     private bool _firstTime = true;
 
-    private List<string> _columnWhitelist = new List<string>();
-    private List<string> _foundChiList = new List<string>();
+    private List<string> _columnWhitelist = new();
+    private readonly List<string> _foundChiList = new();
     private bool _isTableAlreadyNamed;
     private IBasicActivateItems _activator;
 
@@ -70,14 +70,18 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
         }
 
         var batchRowCount = 0;
-        var dtRows = toProcess.Rows.Cast<DataRow>().ToArray();
-        foreach (var row in dtRows)
+        var columns= toProcess.Columns.Cast<DataColumn>().Where(c=>!_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
+        foreach (var row in toProcess.Rows.Cast<DataRow>())
         {
-            foreach (var col in toProcess.Columns.Cast<DataColumn>())
+            foreach (var col in columns)
             {
-                if (_columnWhitelist.Contains(col.ColumnName.Trim()) || !ContainsValidChi(row[col])) continue;
+                if (!ContainsValidChi(row[col])) continue;
                 if (_activator?.IsInteractive == true && ShowUIComponents)
+                {
                     DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);
+                    if (_columnWhitelist.Contains(col.ColumnName.Trim())) // Update column list if the whitelist changed
+                        columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
+                }
                 else
                 {
                     var message =
@@ -103,7 +107,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
                 $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))
         {
 
-            var txt = UsefulStuff.GetInstance().DataTableToCsv(toProcess);
+            var txt = UsefulStuff.DataTableToCsv(toProcess);
             _activator.Show("Data", txt);
         }
 
@@ -152,7 +156,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
         var nineDigitSplit = regexSplitCandidates.Select(m => m.Groups[3].Value + m.Groups[4].Value);
         candidates.AddRange(nineDigitSplit);
 
-        foreach (var candidate in candidates.ToArray())
+        foreach (var candidate in candidates)
         {
             var prefix = "";
             if (candidate.Length == 9)

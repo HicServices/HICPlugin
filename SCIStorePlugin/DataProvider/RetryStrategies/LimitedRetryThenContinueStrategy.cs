@@ -94,7 +94,7 @@ public class LimitedRetryThenContinueStrategy : IRetryStrategy
         if (retryCount < 0)
             throw new DownloadRequestFailedException(_dateToFetch, interval, e);
 
-        int listIndex = NumberOfTimesToRetry - retryCount;
+        var listIndex = NumberOfTimesToRetry - retryCount;
         if (listIndex >= SleepTimeBetweenTries.Count)
             listIndex = SleepTimeBetweenTries.Count - 1;
 

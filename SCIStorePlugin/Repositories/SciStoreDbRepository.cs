@@ -72,10 +72,9 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
         return transformed;
     }
 
-    private string Truncate(string src, int maxLength)
+    private static string Truncate(string src, int maxLength)
     {
-        var dest = string.Copy(src); // don't want to overwrite src
-        return dest.Substring(0, Math.Min(maxLength, src.Length));
+        return src[..Math.Min(maxLength, src.Length)];
     }
 
     /*
@@ -99,12 +98,12 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
     public void Create(IEnumerable<SciStoreReport> reports, IDataLoadEventListener listener)
     {
         var errors = new List<SciStoreReport>();
-        int createdSoFar = 0;
+        var createdSoFar = 0;
 
         _connectionToDestination.Open();
         try
         {
-            Stopwatch startNew = Stopwatch.StartNew();
+            var startNew = Stopwatch.StartNew();
             foreach (var report in reports)
             {
                 var transformedReport = DoTransform(report);
@@ -117,20 +116,16 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
 
                     foreach (var sample in transformedReport.Samples)
                     {
-
                         createdSoFar += ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(sample, _connectionToDestination, dbInfo, _targetTables.SamplesTable);
 
-                        foreach (var result in sample.Results)
-                            createdSoFar += ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(result, _connectionToDestination, dbInfo, _targetTables.ResultsTable);
-
+                        createdSoFar += sample.Results.Sum(result => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(result, _connectionToDestination, dbInfo, _targetTables.ResultsTable));
                     }
 
                     listener.OnProgress(this, new ProgressEventArgs(dbInfo.GetRuntimeName(), new ProgressMeasurement(createdSoFar, ProgressType.Records), startNew.Elapsed));
                 }
                 catch (SqlException e)
                 {
-                    if (InsertionError != null)
-                        InsertionError(this, e, "CONFIDENTIAL");
+                    InsertionError?.Invoke(this, e, "CONFIDENTIAL");
 
                     //do not show query here because it can be logged to logging database with sensitive identifiers in it
                     Log.Warn("Could not insert row into database.", e);

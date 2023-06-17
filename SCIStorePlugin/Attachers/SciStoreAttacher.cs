@@ -174,7 +174,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         {
             foreach (var sample in lab.Samples)
             {
-                int recordsRemoved  = sample.ResolveTestResultOrderDuplication();
+                var recordsRemoved  = sample.ResolveTestResultOrderDuplication();
                 if (recordsRemoved > 0)
                     job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning,
                         $"Resolved duplicate TestResultOrder using method 'ResolveTestResultOrderDuplication' in lab number:{lab.Header.LabNumber}"));

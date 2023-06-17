@@ -149,11 +149,11 @@ public class SciStoreHeaderFactory
         if (!requestingParty.HcpId.Any(id => id.IdScheme.Equals("Requestor")))
             throw new SciStoreDodgyXmlException("Missing HcpId of Scheme Requestor", header.LabNumber);
 
-        ID_TYPE dodgyIDScheme = requestingParty.HcpId.FirstOrDefault(id => !id.IdScheme.Equals("Requestor") && !id.IdScheme.Equals("SCISTOREINPUT"));
+        var dodgyIDScheme = requestingParty.HcpId.FirstOrDefault(id => !id.IdScheme.Equals("Requestor") && !id.IdScheme.Equals("SCISTOREINPUT"));
         if (dodgyIDScheme != null)
             throw new SciStoreDodgyXmlException($"Unexpected HcpId=>IdScheme {dodgyIDScheme.IdScheme}", header.LabNumber);
 
-        foreach (ID_TYPE requestor in requestingParty.HcpId)
+        foreach (var requestor in requestingParty.HcpId)
         {
             if (requestor.IdScheme.Equals("SCISTOREINPUT"))
                 continue;

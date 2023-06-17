@@ -34,11 +34,11 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
     [DemandsInitialization("The table which contains all the specimens which are NOT isolations???")]
     public TableInfo NoIsolationsTable { get; set; }
 
-    List<MB_Tests> Tests = new List<MB_Tests>();
-    List<MB_Lab> Labs = new List<MB_Lab>();
-    List<MB_NoIsolations> NoIsolations = new List<MB_NoIsolations>();
-    List<MB_IsolationResult> IsolationResults = new List<MB_IsolationResult>();
-    List<MB_Isolation> Isolations = new List<MB_Isolation>();
+    List<MB_Tests> Tests = new();
+    List<MB_Lab> Labs = new();
+    List<MB_NoIsolations> NoIsolations = new();
+    List<MB_IsolationResult> IsolationResults = new();
+    List<MB_Isolation> Isolations = new();
 
     [DemandsInitialization("The file(s) to attach e.g. *.txt, this is NOT a REGEX")]
     public string FilePattern { get; set; }
@@ -53,9 +53,9 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             
     }
 
-    private Dictionary<Type,PropertyInfo[]> _propertyCache = new Dictionary<Type, PropertyInfo[]>(); 
-    private Dictionary<TableInfo, DataTable> _dataTables = new Dictionary<TableInfo, DataTable>();
-    private Dictionary<PropertyInfo,int>  _lengthsDictionary = new Dictionary<PropertyInfo, int>();
+    private Dictionary<Type,PropertyInfo[]> _propertyCache = new(); 
+    private Dictionary<TableInfo, DataTable> _dataTables = new();
+    private Dictionary<PropertyInfo,int>  _lengthsDictionary = new();
     private IDataLoadJob _currentJob;
 
 
@@ -66,17 +66,17 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         SetupPropertyBasedReflectionIntoDataTables(null);
         SetupDataTables();
 
-        Stopwatch sw = new Stopwatch();
+        var sw = new Stopwatch();
         sw.Start();
-        int recordCount = 0;
+        var recordCount = 0;
 
         foreach (var fileToLoad in LoadDirectory.ForLoading.EnumerateFiles(FilePattern))
         {
-            MicroBiologyFileReader r = new MicroBiologyFileReader(fileToLoad.FullName);
+            var r = new MicroBiologyFileReader(fileToLoad.FullName);
             r.Warning += r_Warning;
             try
             {
-                foreach (IMicrobiologyResultRecord result in r.ProcessFile())
+                foreach (var result in r.ProcessFile())
                 {
                     //header records
                     if (result is MB_Lab)
@@ -130,7 +130,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         if(warningsSurrendered > 100)
             throw new Exception("100 Warnings encountered... maybe there is something wrong with your file? or the programmer.... best to abort anyway till you figure out the problem");
 
-        MicroBiologyFileReader reader = (MicroBiologyFileReader) sender;
+        var reader = (MicroBiologyFileReader) sender;
         _currentJob.OnNotify(sender,new NotifyEventArgs(ProgressEventType.Warning,
             $"Warning encountered on line {reader.LineNumber} of file {reader.FileName} warning is:{message}"));
         warningsSurrendered++;
@@ -165,7 +165,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         var dataRow = dataTable.Rows.Add();
         foreach (var property in _propertyCache[result.GetType()])
         {
-            object o = property.GetValue(result);
+            var o = property.GetValue(result);
             if (o == null)
                 dataRow[property.Name] = DBNull.Value;
             else
@@ -194,7 +194,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
     private DataTable CreateDataTableFromType(Type t)
     {
 
-        DataTable toReturn = new DataTable();
+        var toReturn = new DataTable();
 
         if(!_propertyCache.ContainsKey(t))
             throw new Exception($"Property Info Cache for type {t.Name} has not been initialzied yet");
@@ -257,12 +257,12 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             return;
         }
 
-        PropertyInfo[] properties = type.GetProperties();
+        var properties = type.GetProperties();
         _propertyCache.Add(type, properties);//cache it so we can use it later on on a per row basis without tanking performance
 
         var columnInfos = tableInfo.ColumnInfos.ToArray();
 
-        bool errors = false;
+        var errors = false;
         foreach (var prop in properties)
         {
             ColumnInfo correspondingColumn = columnInfos.FirstOrDefault(c => c.GetRuntimeName().Equals(prop.Name));

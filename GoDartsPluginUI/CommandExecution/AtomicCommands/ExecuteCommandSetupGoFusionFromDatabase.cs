@@ -24,7 +24,7 @@ namespace GoDartsPluginUI.CommandExecution.AtomicCommands;
 
 public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
 {
-    private IExternalDatabaseServer _loggingServer;
+    private readonly IExternalDatabaseServer _loggingServer;
 
     public ExecuteCommandSetupGoFusionFromDatabase(IActivateItems activator) : base(activator)
     {
@@ -40,10 +40,10 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
 
         var db = SelectDatabase(true,"Import all Tables form Database...");
 
-        ShareManager shareManager = new ShareManager(Activator.RepositoryLocator, LocalReferenceGetter);
+        ShareManager shareManager = new(Activator.RepositoryLocator, LocalReferenceGetter);
 
-        List<ICatalogue> cataloguesToMatch = new List<ICatalogue>();
-        List<ICatalogue> importedCatalogues = new List<ICatalogue>();
+        List<ICatalogue> cataloguesToMatch = new();
+        List<ICatalogue> importedCatalogues = new();
 
         //don't do any double importing!
         var existing = Activator.RepositoryLocator.CatalogueRepository.GetAllObjects<TableInfo>();
@@ -51,22 +51,25 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
 
         if (MessageBox.Show("Would you also like to import ShareDefinitions (metadata)?", "Import Metadata From File(s)", MessageBoxButtons.YesNo) == DialogResult.Yes)
         {
-            OpenFileDialog ofd = new OpenFileDialog() { Multiselect = true };
-            ofd.Filter = "Share Definitions|*.sd";
+            using var ofd = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter = "Share Definitions|*.sd"
+            };
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 foreach (var f in ofd.FileNames)
-                    using (var stream = File.Open(f, FileMode.Open))
-                    {
-                        var newObjects = shareManager.ImportSharedObject(stream);
+                {
+                    using var stream = File.Open(f, FileMode.Open);
+                    var newObjects = shareManager.ImportSharedObject(stream);
 
-                        if (newObjects != null)
-                            cataloguesToMatch.AddRange(newObjects.OfType<ICatalogue>());
-                    }
+                    if (newObjects != null)
+                        cataloguesToMatch.AddRange(newObjects.OfType<ICatalogue>());
+                }
             }
         }
 
-        bool generateCatalogues = false;
+        var generateCatalogues = false;
 
         if (MessageBox.Show("Would you like to try to guess non-matching Catalogues by Name?", "Guess by name", MessageBoxButtons.YesNo) == DialogResult.Yes)
             cataloguesToMatch.AddRange(Activator.RepositoryLocator.CatalogueRepository.GetAllObjects<Catalogue>());
@@ -87,18 +90,16 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
             }
 
             var importer = new TableInfoImporter(Activator.RepositoryLocator.CatalogueRepository, discoveredTable);
-            ITableInfo ti;
-            ColumnInfo[] cis;
 
             //import the table
-            importer.DoImport(out ti, out cis);
+            importer.DoImport(out var ti, out var cis);
 
-            anyNewTable = anyNewTable ?? ti;
+            anyNewTable ??= ti;
 
             //find a Catalogue of the same name (possibly imported from Share Definition)
             var matchingCatalogues = cataloguesToMatch.Where(c => c.Name.Equals(ti.GetRuntimeName(), StringComparison.CurrentCultureIgnoreCase)).ToArray();
 
-            //if theres 1 Catalogue with the same name
+            //if there's 1 Catalogue with the same name
             if (matchingCatalogues.Length == 1)
             {
                 importedCatalogues.Add(matchingCatalogues[0]);
@@ -121,20 +122,19 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
                     }
 
                 //is anyone unmarried? i.e. new ColumnInfos that don't have CatalogueItems with the same name
-                foreach (ColumnInfo columnInfo in unmatched)
+                foreach (var columnInfo in unmatched)
                 {
-                    var cataItem = new CatalogueItem(Activator.RepositoryLocator.CatalogueRepository, (Catalogue)matchingCatalogues[0], columnInfo.GetRuntimeName());
-                    cataItem.ColumnInfo_ID = columnInfo.ID;
+                    var cataItem = new CatalogueItem(Activator.RepositoryLocator.CatalogueRepository, (Catalogue)matchingCatalogues[0], columnInfo.GetRuntimeName())
+                        {
+                            ColumnInfo_ID = columnInfo.ID
+                        };
                     cataItem.SaveToDatabase();
                     married.Add(cataItem, columnInfo);
                 }
             }
             else if (generateCatalogues)
             {
-                ICatalogue newCatalogue;
-                CatalogueItem[] discardCi;
-                ExtractionInformation[] discardEi;
-                new ForwardEngineerCatalogue(ti, cis).ExecuteForwardEngineering(out newCatalogue, out discardCi, out discardEi);
+                new ForwardEngineerCatalogue(ti, cis).ExecuteForwardEngineering(out var newCatalogue, out _, out _);
                 importedCatalogues.Add(newCatalogue);
             }
         }
@@ -142,8 +142,8 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
         if (married.Any() && MessageBox.Show($"Found {married.Count} columns, make them all extractable?", "Make Extractable", MessageBoxButtons.YesNo) == DialogResult.Yes)
             foreach (var kvp in married)
             {
-                //yup thats how we roll, the database is main memory!
-                var ei = new ExtractionInformation(Activator.RepositoryLocator.CatalogueRepository, kvp.Key, kvp.Value, kvp.Value.Name);
+                //yup that's how we roll, the database is main memory!
+                _ = new ExtractionInformation(Activator.RepositoryLocator.CatalogueRepository, kvp.Key, kvp.Value, kvp.Value.Name);
             }
 
         if (ignoredTables.Any())
@@ -161,9 +161,11 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
 
     private LoadMetadata CreateLoadMetadata(List<ICatalogue> importedCatalogues)
     {
-        var lmd = new LoadMetadata(Activator.RepositoryLocator.CatalogueRepository);
-        lmd.Name = "Load GoDartsFusion";
-        lmd.Description = "Load GoDarts Fusion Database from the released MDF from DLS";
+        var lmd = new LoadMetadata(Activator.RepositoryLocator.CatalogueRepository)
+        {
+            Name = "Load GoDartsFusion",
+            Description = "Load GoDarts Fusion Database from the released MDF from DLS"
+        };
         lmd.SaveToDatabase();
 
         foreach (var catalogue in importedCatalogues)
@@ -173,17 +175,21 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
             catalogue.SaveToDatabase();
         }
 
-        var attacher = new ProcessTask(Activator.RepositoryLocator.CatalogueRepository, lmd, LoadStage.Mounting);
-        attacher.Name = "Attach MDF";
-        attacher.ProcessTaskType = ProcessTaskType.Attacher;
-        attacher.Path = typeof (MDFAttacher).FullName;
+        var attacher = new ProcessTask(Activator.RepositoryLocator.CatalogueRepository, lmd, LoadStage.Mounting)
+        {
+            Name = "Attach MDF",
+            ProcessTaskType = ProcessTaskType.Attacher,
+            Path = typeof(MDFAttacher).FullName
+        };
         attacher.SaveToDatabase();
 
-        var metadataImporter = new ProcessTask(Activator.RepositoryLocator.CatalogueRepository, lmd, LoadStage.PostLoad);
-        metadataImporter.Name = "Import Metadata files";
-        metadataImporter.ProcessTaskType = ProcessTaskType.DataProvider;
-        // HACK: Fix this when the class becomes public!
-        metadataImporter.Path = "LoadModules.Generic.DataProvider.ShareDefinitionImporter";
+        var metadataImporter = new ProcessTask(Activator.RepositoryLocator.CatalogueRepository, lmd, LoadStage.PostLoad)
+            {
+                Name = "Import Metadata files",
+                ProcessTaskType = ProcessTaskType.DataProvider,
+                // HACK: Fix this when the class becomes public!
+                Path = "LoadModules.Generic.DataProvider.ShareDefinitionImporter"
+            };
         metadataImporter.SaveToDatabase();
 
         return lmd;

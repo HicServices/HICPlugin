@@ -42,7 +42,7 @@ class RepositoryTests
             .Returns(codeValidator);
 
         var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
+        var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var bloodSample = report.Samples.First();
         var result = bloodSample.Results.First(r => r.ReadCodeValue.Equals("TTTT."));
@@ -63,7 +63,7 @@ class RepositoryTests
 
             Samples = new HashSet<SciStoreSample>
             {
-                new SciStoreSample
+                new()
                 {
                     SampleName = "Blood",
                     LabNumber = "123",

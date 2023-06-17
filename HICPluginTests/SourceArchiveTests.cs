@@ -25,7 +25,7 @@ namespace DrsPluginTests
                 File.WriteAllText(Path.Combine(subdir2.FullName, "file3.txt"), "");
                 File.WriteAllText(Path.Combine(subdir1.FullName, "not-part-of-archive.foo"), "");
 
-                var archiveProvider = new FilesystemArchiveProvider(rootDirPath, new[] {".txt"}, new ThrowImmediatelyDataLoadEventListener());
+                var archiveProvider = new FilesystemArchiveProvider(rootDirPath, new[] {".txt"}, ThrowImmediatelyDataLoadEventListener.Quiet);
                 var entryNames = archiveProvider.EntryNames.ToList();
                 
                 Assert.IsTrue(entryNames.Contains("file1.txt"));

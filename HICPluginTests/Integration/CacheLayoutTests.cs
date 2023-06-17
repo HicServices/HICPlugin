@@ -39,7 +39,7 @@ namespace SCIStorePluginTests.Integration
             
             
             var cacheLayout = new SCIStoreCacheLayout(rootDirectory,new SCIStoreLoadCachePathResolver(HealthBoard.T, Discipline.Biochemistry));
-            var downloadDirectory = cacheLayout.GetLoadCacheDirectory(new ThrowImmediatelyDataLoadEventListener());
+            var downloadDirectory = cacheLayout.GetLoadCacheDirectory(ThrowImmediatelyDataLoadEventListener.Quiet);
 
             var expectedDownloadPath = Path.Combine(rootDirectory.FullName, "T", "Biochemistry");
             Assert.AreEqual(expectedDownloadPath, downloadDirectory.FullName);
@@ -54,7 +54,7 @@ namespace SCIStorePluginTests.Integration
             // the chunk of cache data to be saved
             var fetchDate = new DateTime(2005, 1, 1);
 
-            cacheLayout.CreateIfNotExists(new ThrowImmediatelyDataLoadEventListener());
+            cacheLayout.CreateIfNotExists(ThrowImmediatelyDataLoadEventListener.Quiet);
 
             var expectedDownloadDirectory = new DirectoryInfo(Path.Combine(cacheDirectory.FullName, "T", "Biochemistry"));
             Assert.IsTrue(expectedDownloadDirectory.Exists, "The cache has not created directory into which the individual report files will be copied");
@@ -63,7 +63,7 @@ namespace SCIStorePluginTests.Integration
             File.WriteAllText(Path.Combine(expectedDownloadDirectory.FullName, "12345.xml"), "Test");
 
             cacheLayout.CreateArchive(fetchDate);
-            var archiveFile = cacheLayout.GetArchiveFileInfoForDate(fetchDate, new ThrowImmediatelyDataLoadEventListener());
+            var archiveFile = cacheLayout.GetArchiveFileInfoForDate(fetchDate, ThrowImmediatelyDataLoadEventListener.Quiet);
             Assert.IsTrue(archiveFile.Exists);
 
             const string expectedArchiveFilename = "2005-01-01.zip";

@@ -26,10 +26,10 @@ class CrashOverride : IPluginAttacher
 
         
     private DiscoveredDatabase stagingDatabase;
-    List<string> stagingTableNamesToNuke = new List<string>();
+    List<string> stagingTableNamesToNuke = new();
 
     private DiscoveredDatabase rawDatabase;
-    List<string> rawTableNamesToNuke = new List<string>();
+    List<string> rawTableNamesToNuke = new();
 
     public void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener postLoadEventsListener)
     {
@@ -49,7 +49,7 @@ class CrashOverride : IPluginAttacher
         {
             postLoadEventsListener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Found database {discoveredDatabase}"));
-            foreach (string t in tables)
+            foreach (var t in tables)
             {
                 var tbl = discoveredDatabase.ExpectTable(t);
                 if (tbl.Exists())

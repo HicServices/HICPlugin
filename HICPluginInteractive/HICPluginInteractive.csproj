@@ -11,10 +11,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="8.1.0-rc1" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs" />
     <Compile Update="UIComponents\ExtractDataTableViewer.designer.cs">
       <DependentUpon>ExtractDataTableViewer.cs</DependentUpon>

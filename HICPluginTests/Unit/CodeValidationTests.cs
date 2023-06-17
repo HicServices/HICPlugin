@@ -24,13 +24,13 @@ public class CodeValidationTests
         {
             TestName = new[]
             {
-                new CLINICAL_CIRCUMSTANCE_TYPE()
+                new CLINICAL_CIRCUMSTANCE_TYPE
                 {
-                    Item = new CLINICAL_INFORMATION_TYPE()
+                    Item = new CLINICAL_INFORMATION_TYPE
                     {
-                        ClinicalCode = new CLINICAL_CODE_TYPE()
+                        ClinicalCode = new CLINICAL_CODE_TYPE
                         {
-                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE()
+                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE
                             {
                                 ClinicalCodeSchemeId = "Undefined",
                                 ClinicalCodeSchemeVersion = "Undefined"
@@ -50,7 +50,7 @@ public class CodeValidationTests
             .Returns(value:new ValidationFailure("This is not a read code", readCodeConstraint.Object));
 
         var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
-        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.AreEqual("NOT_A_READ_CODE", testDetails.LocalCode.Value);
         Assert.IsNull(testDetails.ReadCode);
@@ -63,13 +63,13 @@ public class CodeValidationTests
         {
             TestName = new[]
             {
-                new CLINICAL_CIRCUMSTANCE_TYPE()
+                new CLINICAL_CIRCUMSTANCE_TYPE
                 {
-                    Item = new CLINICAL_INFORMATION_TYPE()
+                    Item = new CLINICAL_INFORMATION_TYPE
                     {
-                        ClinicalCode = new CLINICAL_CODE_TYPE()
+                        ClinicalCode = new CLINICAL_CODE_TYPE
                         {
-                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE()
+                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE
                             {
                                 ClinicalCodeSchemeId = "Undefined",
                                 ClinicalCodeSchemeVersion = "Undefined"
@@ -89,7 +89,7 @@ public class CodeValidationTests
             .Returns(value:null);
 
         var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
-        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.IsNotNull(testDetails.ReadCode, "The value has not been picked up as a read code");
         Assert.AreEqual(".0766", testDetails.ReadCode.Value);
@@ -103,13 +103,13 @@ public class CodeValidationTests
         {
             TestName = new[]
             {
-                new CLINICAL_CIRCUMSTANCE_TYPE()
+                new CLINICAL_CIRCUMSTANCE_TYPE
                 {
-                    Item = new CLINICAL_INFORMATION_TYPE()
+                    Item = new CLINICAL_INFORMATION_TYPE
                     {
-                        ClinicalCode = new CLINICAL_CODE_TYPE()
+                        ClinicalCode = new CLINICAL_CODE_TYPE
                         {
-                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE()
+                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE
                             {
                                 ClinicalCodeSchemeId = "Undefined",
                                 ClinicalCodeSchemeVersion = "Undefined"
@@ -119,13 +119,13 @@ public class CodeValidationTests
                         ClinicalCodeDescription = "C-terminal glucagon level"
                     }
                 },
-                new CLINICAL_CIRCUMSTANCE_TYPE()
+                new CLINICAL_CIRCUMSTANCE_TYPE
                 {
-                    Item = new CLINICAL_INFORMATION_TYPE()
+                    Item = new CLINICAL_INFORMATION_TYPE
                     {
-                        ClinicalCode = new CLINICAL_CODE_TYPE()
+                        ClinicalCode = new CLINICAL_CODE_TYPE
                         {
-                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE()
+                            ClinicalCodeScheme = new CLINICAL_CODE_SCHEME_TYPE
                             {
                                 ClinicalCodeSchemeId = "Undefined",
                                 ClinicalCodeSchemeVersion = "Undefined"
@@ -149,7 +149,7 @@ public class CodeValidationTests
             .Returns(value: new ValidationFailure("Not a read code", readCodeConstraint.Object));
 
         var testSetFactory = new TestSetFactory(readCodeConstraint.Object);
-        var testDetails = testSetFactory.CreateFromTestType(testType, new ThrowImmediatelyDataLoadEventListener());
+        var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.IsNotNull(testDetails.ReadCode);
         Assert.IsNotNull(testDetails.LocalCode);

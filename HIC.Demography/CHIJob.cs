@@ -27,7 +27,7 @@ public class CHIJob
     public const int MaxSize_OtherAddressLine3 = 100;
     public const int MaxSize_OtherAddressLine4 = 100;
     public const int MaxSize_OtherPostcode = 10;
-    private static Dictionary<PropertyInfo, int> MaxLengthsDictionary = new Dictionary<PropertyInfo, int>();
+    private static Dictionary<PropertyInfo, int> MaxLengthsDictionary = new();
 
     public string TargetServerName { get; set; }
 
@@ -65,10 +65,10 @@ public class CHIJob
     {
         List<PropertyInfo> list1 = ((IEnumerable<PropertyInfo>)typeof(CHIJob).GetProperties()).ToList<PropertyInfo>();
         List<FieldInfo> list2 = ((IEnumerable<FieldInfo>)typeof(CHIJob).GetFields()).ToList<FieldInfo>();
-        foreach (PropertyInfo propertyInfo in list1)
+        foreach (var propertyInfo in list1)
         {
-            PropertyInfo property = propertyInfo;
-            FieldInfo fieldInfo = list2.SingleOrDefault<FieldInfo>((Func<FieldInfo, bool>)(f => f.Name.Equals("MaxSize_" + property.Name)));
+            var property = propertyInfo;
+            var fieldInfo = list2.SingleOrDefault<FieldInfo>((Func<FieldInfo, bool>)(f => f.Name.Equals("MaxSize_" + property.Name)));
             if (fieldInfo != (FieldInfo)null)
                 CHIJob.MaxLengthsDictionary.Add(property, (int)fieldInfo.GetValue((object)null));
         }
@@ -76,7 +76,7 @@ public class CHIJob
 
     public void Clean()
     {
-        foreach (PropertyInfo key in CHIJob.MaxLengthsDictionary.Keys)
+        foreach (var key in CHIJob.MaxLengthsDictionary.Keys)
             key.SetValue((object)this, (object)this.CleanString((string)key.GetValue((object)this, (object[])null)), (object[])null);
         if (this.Sex != null && this.Sex.Length > 1)
         {
@@ -112,8 +112,8 @@ public class CHIJob
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName was not specified");
         if (this.TableName.Count<char>((Func<char, bool>)(c => c == '.')) != 2)
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + this.TableName + ") must contain exactly 2 dots as in [Database]..[Table] or [Bob].[dbo].[Fish]");
-        int num1 = this.TableName.Count<char>((Func<char, bool>)(c => c == '['));
-        int num2 = this.TableName.Count<char>((Func<char, bool>)(c => c == ']'));
+        var num1 = this.TableName.Count<char>((Func<char, bool>)(c => c == '['));
+        var num2 = this.TableName.Count<char>((Func<char, bool>)(c => c == ']'));
         if (num1 != num2)
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + this.TableName + ") has a missmatch between the number of open square brackets and the number of closing square brackets");
         if (num1 != 2 && num1 == 3)

@@ -39,7 +39,7 @@ public class ChrisHallSpecialExplicitSource : ExecuteDatasetExtractionSource
         
     public override string HackExtractionSQL(string sql, IDataLoadEventListener listener)
     { 
-        StringBuilder sb = new StringBuilder();
+        var sb = new StringBuilder();
 
         if(!string.IsNullOrWhiteSpace(Collation))
             ((QueryBuilder) Request.QueryBuilder).AddCustomLine($"collate {Collation}", QueryComponent.JoinInfoJoin);

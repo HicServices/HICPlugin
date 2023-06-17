@@ -114,11 +114,11 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             SCIStoreCacheChunk chunk;
 
             if (auditAsFailure)
-                chunk = source.GetChunk(new ThrowImmediatelyDataLoadEventListener(), token);
+                chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, token);
             else
             {
                 Assert.Throws<DownloadRequestFailedException>(
-                    () => source.GetChunk(new ThrowImmediatelyDataLoadEventListener(), token));
+                    () => source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, token));
                 return;
             }
                 

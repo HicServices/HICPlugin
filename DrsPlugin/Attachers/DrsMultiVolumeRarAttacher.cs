@@ -216,7 +216,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         notifier.OnCheckPerformed(new CheckEventArgs($"ForLoading contains {rarFileCount} archive files", CheckResult.Success));
 
         // Now check that each of the zip files contains the correct files
-        using (var archiveProvider = CreateExtractedArchiveProvider(LoadDirectory.ForLoading, new ThrowImmediatelyDataLoadEventListener()))
+        using (var archiveProvider = CreateExtractedArchiveProvider(LoadDirectory.ForLoading, ThrowImmediatelyDataLoadEventListener.Quiet))
         {
             CheckImageArchive(archiveProvider, notifier);
         }

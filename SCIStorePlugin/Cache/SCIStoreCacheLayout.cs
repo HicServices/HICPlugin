@@ -11,7 +11,7 @@ namespace SCIStorePlugin.Cache;
 public class SCIStoreCacheLayout : CacheLayout
 {
 
-    private RootHistoryDirectory _rootHistoryDirectory;
+    private readonly RootHistoryDirectory _rootHistoryDirectory;
       
     public SCIStoreCacheLayout(DirectoryInfo cacheDirectory, SCIStoreLoadCachePathResolver resolver): base(cacheDirectory, "yyyy-MM-dd", CacheArchiveType.Zip, CacheFileGranularity.Day, resolver)
     {
@@ -25,9 +25,9 @@ public class SCIStoreCacheLayout : CacheLayout
 
     public void CreateArchive(DateTime archiveDate)
     {
-        var downloadDirectory = GetLoadCacheDirectory(new ThrowImmediatelyDataLoadEventListener());
+        var downloadDirectory = GetLoadCacheDirectory(ThrowImmediatelyDataLoadEventListener.Quiet);
         var dataFiles = downloadDirectory.EnumerateFiles("*.xml").ToArray();
-        ArchiveFiles(dataFiles, archiveDate,new ThrowImmediatelyDataLoadEventListener());
+        ArchiveFiles(dataFiles, archiveDate,ThrowImmediatelyDataLoadEventListener.Quiet);
         Cleanup();
     }
 

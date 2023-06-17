@@ -33,7 +33,7 @@ public class MB_Tests : IMicrobiologyResultRecord
 
     public MB_Tests(MB_Lab parent, string fromLine)
     {
-        string[] data = MicrobiologyHelper.SplitByWhitespace(fromLine);
+        var data = MicrobiologyHelper.SplitByWhitespace(fromLine);
 
 
         //line should look something like 
@@ -113,8 +113,8 @@ public class MB_IsolationsCollection
             throw new Exception("Line must start with $CULT to be a new IsolationCollection");
 
         //basic facts
-        string resultData = MicrobiologyHelper.GetValueFromWhitespaceSeperatedLine(initialLine, 1);
-        string[] fields = resultData.Split(new[] {'|'}).ToArray();
+        var resultData = MicrobiologyHelper.GetValueFromWhitespaceSeperatedLine(initialLine, 1);
+        var fields = resultData.Split(new[] {'|'}).ToArray();
 
         if(fields.Length != 4)
             throw new Exception(
@@ -128,7 +128,7 @@ public class MB_IsolationsCollection
     }
 
         
-    List<string> BlockAStrings = new List<string>();
+    List<string> BlockAStrings = new();
     private int spawnCounter = 0;
 
     /// <summary>
@@ -167,7 +167,7 @@ public class MB_IsolationsCollection
         currentLine = currentLine.Trim();
         try
         {
-            return new MB_IsolationResult()
+            return new MB_IsolationResult
             {
                 SpecimenNo = _specimenNo,
                 organismCode = _organismCode,
@@ -183,7 +183,7 @@ public class MB_IsolationsCollection
 
     public IMicrobiologyResultRecord SpawnIsolation()
     {
-        return new MB_Isolation()
+        return new MB_Isolation
         {
             SpecimenNo = _specimenNo,
             organismCode = _organismCode,
@@ -251,25 +251,25 @@ public class MicroBiologyFileReader
 
         for (; ; )
         {
-            MB_Lab lab = new MB_Lab();
+            var lab = new MB_Lab();
             end_of_tests = false;
             lab.SpecimenNo = specimen; // specimen no. is read at end of previous record
 
             lab.CHI = TrimOrNullify(ReadLine());
             lab.surname = TrimOrNullify(ReadLine());
 
-            string date = ReadLine();
+            var date = ReadLine();
             lab.DoB = DateOrNull(date);
             lab.Sex = TrimOrNullify(ReadLine());
 
             // tests coming up now
-            List<MB_IsolationsCollection> isolationCollections = new List<MB_IsolationsCollection>();
+            var isolationCollections = new List<MB_IsolationsCollection>();
 
 
-            string testComments = "";
+            var testComments = "";
 
-            string currentLine = ReadLine();
-            bool got_cult = false;
+            var currentLine = ReadLine();
+            var got_cult = false;
             while (!end_of_tests)
             {
                 if (string.IsNullOrWhiteSpace(currentLine))
@@ -283,7 +283,7 @@ public class MicroBiologyFileReader
                 if (!currentLine.Contains("            "))
                 {
                     //its something like BLAN or 'bob is fine and happy and dandy'
-                    string randomCrud = currentLine.Trim();
+                    var randomCrud = currentLine.Trim();
 
                     //if it is short it's probably a test code (with no result)
                     if (randomCrud.Length <= 5)
@@ -351,7 +351,7 @@ public class MicroBiologyFileReader
                         }
                         else
                         {
-                            MB_IsolationsCollection collection = new MB_IsolationsCollection(lab, currentLine);
+                            var collection = new MB_IsolationsCollection(lab, currentLine);
                             isolationCollections.Add(collection);
                             yield return collection.SpawnIsolation();//yield the header e.g. MANA|P|Y|Y - but remember the collection for when it comes time to spew out all the results
                         }
@@ -361,10 +361,10 @@ public class MicroBiologyFileReader
                         if(!currentLine.StartsWith("$SENS"))
                             throw new Exception("Expected $SENS to follow after results");
 
-                        bool areInBlockA = true;
-                        int blockCounter = 0;
-                        bool haveComplainedAboutBufferOverflow = false;
-                        bool haveComplainedAboutSpawning = false;
+                        var areInBlockA = true;
+                        var blockCounter = 0;
+                        var haveComplainedAboutBufferOverflow = false;
+                        var haveComplainedAboutSpawning = false;
 
                         //while we are still reading blocks -- terminates with a blank line or a date (part of lab record)
                         while (
@@ -462,7 +462,7 @@ public class MicroBiologyFileReader
             }
 
             //these will go into the Comment field
-            string nwc = "";
+            var nwc = "";
 
             while (currentLine != null &&!is_date(currentLine))
             {
@@ -478,18 +478,18 @@ public class MicroBiologyFileReader
 
             lab.RcvDate = DateOrNull(currentLine);
 
-            string[] lines = ReadLines();
+            var lines = ReadLines();
 
             lab.SpecimenType = lines[0];
             lab.RcvTime = lines[1];
-            int len = lines.Length;
+            var len = lines.Length;
             if (lines[len - 1] == "") len--;
             lab.Source = lines[len - 5];
             lab.Dept = lines[len - 4];
             lab.SampleDate = DateOrNull(lines[len - 3]);
             lab.SampleTime = lines[len - 2];
             lab.Clinician = lines[len - 1];
-            string comment = "";
+            var comment = "";
             if (len - 7 > 0)
                 comment = string.Join(" ", lines, 2, len - 7);
             nwc += comment;
@@ -525,7 +525,7 @@ public class MicroBiologyFileReader
 
     private DateTime? DateOrNull(string readLine)
     {
-        string toReturn = TrimOrNullify(readLine);
+        var toReturn = TrimOrNullify(readLine);
 
         DateTime dateTime;
 
@@ -554,12 +554,12 @@ public class MicroBiologyFileReader
     /// <returns>Array of strings, last line may be blank</returns>
     private string[] ReadLines()
     {
-        bool last_line_blank = false;
-        List<string> lines = new List<string>();
+        var last_line_blank = false;
+        var lines = new List<string>();
         specimen = null;
         for (; ; )
         {
-            string st = ReadLine();
+            var st = ReadLine();
             if (st == null) break;
             st = st.Trim();
 

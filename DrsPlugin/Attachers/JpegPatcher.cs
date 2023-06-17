@@ -45,7 +45,7 @@ public class PngPatcher : IImagePatcher
     public Stream PatchAwayExif(Stream inStream, Stream outStream)
     {
         int readCount;
-        byte[] readBuffer = new byte[4096];
+        var readBuffer = new byte[4096];
         while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
             outStream.Write(readBuffer, 0, readCount);
 
@@ -110,7 +110,7 @@ public class JpegPatcher : IImagePatcher
         outStream.WriteByte(0xd8);
 
         int readCount;
-        byte[] readBuffer = new byte[4096];
+        var readBuffer = new byte[4096];
         while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
             outStream.Write(readBuffer, 0, readCount);
 
@@ -119,17 +119,17 @@ public class JpegPatcher : IImagePatcher
 
     private void SkipAppHeaderSection(Stream inStream)
     {
-        byte[] header = new byte[2];
+        var header = new byte[2];
         header[0] = (byte)inStream.ReadByte();
         header[1] = (byte)inStream.ReadByte();
 
         while (header[0] == 0xff && (header[1] >= 0xe0 && header[1] <= 0xef))
         {
-            int exifLength = inStream.ReadByte();
-            exifLength = exifLength << 8;
+            var exifLength = inStream.ReadByte();
+            exifLength <<= 8;
             exifLength |= inStream.ReadByte();
 
-            for (int i = 0; i < exifLength - 2; i++)
+            for (var i = 0; i < exifLength - 2; i++)
             {
                 inStream.ReadByte();
             }

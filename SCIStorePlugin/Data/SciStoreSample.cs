@@ -74,17 +74,17 @@ public class SciStoreSample
         
     public int ResolveTestResultOrderDuplication()
     {
-        int resolutions = 0;
+        var resolutions = 0;
 
         //todo potentially change this to .AddResult method and make Results private
         if(Results is List<SciStoreResult>)
         {
 
-            List<SciStoreResult> toWorkOn = (List<SciStoreResult>) Results;
+            var toWorkOn = (List<SciStoreResult>) Results;
             toWorkOn.Sort();
             
 
-            for (int index = Results.Count-2; index >= 0; index--)
+            for (var index = Results.Count-2; index >= 0; index--)
             {
                 var previous = toWorkOn[index];
                 var result = toWorkOn[index + 1];
@@ -125,7 +125,7 @@ public class SciStoreSample
     {
         unchecked
         {
-            int hashCode = LabNumber.GetHashCode();
+            var hashCode = LabNumber.GetHashCode();
             hashCode = (hashCode * 397) ^ TestIdentifier.GetHashCode();
             hashCode = (hashCode * 397) ^ TestReportID.GetHashCode();
             return hashCode;
@@ -147,7 +147,7 @@ public class SciStoreSampleFactory
         var testSetDetailsFactory = new TestSetFactory(_readCodeConstraint);
         var resultFactory = new SciStoreResultFactory(_readCodeConstraint);
 
-        var sample = new SciStoreSample()
+        var sample = new SciStoreSample
         {
             LabNumber = header.LabNumber,
             TestReportID = header.TestReportID,

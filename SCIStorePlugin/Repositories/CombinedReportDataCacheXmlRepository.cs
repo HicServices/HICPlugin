@@ -162,7 +162,7 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
                     
 
                 //write results to file
-                StringWriter sw = new StringWriter();
+                var sw = new StringWriter();
 
                 try
                 {

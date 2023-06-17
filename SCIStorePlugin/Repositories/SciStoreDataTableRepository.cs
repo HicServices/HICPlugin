@@ -118,7 +118,7 @@ public class SciStoreDataTableRepository : IRepository<SciStoreReport>
         {
             // find the existing row
             var queryParts = new List<string>();
-            foreach (DataColumn column in dataTable.PrimaryKey)
+            foreach (var column in dataTable.PrimaryKey)
                 queryParts.Add($"{column.ColumnName} = '{row[column.ColumnName]}'");
                 
             var existing = dataTable.Select(string.Join(" AND ", queryParts)).Single();

@@ -28,6 +28,6 @@ public class SCIStoreWebServiceProviderTests : DatabaseTests
             .Returns(value:null);
 
         var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(lab, new ThrowImmediatelyDataLoadEventListener());
+        var report = reportFactory.Create(lab, ThrowImmediatelyDataLoadEventListener.Quiet);
     }
 }

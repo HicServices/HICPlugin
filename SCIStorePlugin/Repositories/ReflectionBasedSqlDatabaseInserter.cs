@@ -5,6 +5,7 @@ using System.Reflection;
 using Rdmp.Core.MapsDirectlyToDatabaseTable;
 using FAnsi.Discovery;
 using Microsoft.Data.SqlClient;
+using System.Collections.Concurrent;
 
 namespace SCIStorePlugin.Repositories;
 
@@ -49,17 +50,11 @@ public static class ReflectionBasedSqlDatabaseInserter
         return $"{surround}{str}{surround}";
     }
 
+    private static readonly ConcurrentDictionary<Type,List<PropertyInfo>> PropertyCache = new ();
     private static IEnumerable<PropertyInfo> GetMappableProperties<T>(string idColumnName)
     {
-        //todo improve performance of this (only do it once , not once per record)
-        return typeof(T).GetProperties()
-            .Where(
-                info =>
-                    info.Name != idColumnName &&
-                    (
-                        !Attribute.IsDefined(info, typeof(NoMappingToDatabase))
-                    )
-            );
+        return PropertyCache.GetOrAdd(typeof(T),
+            t => t.GetProperties().Where(i => i.Name!=idColumnName&&!Attribute.IsDefined(i, typeof(NoMappingToDatabase))).ToList());
     }
     public static string MakeInsertCollectionSql<T>(IEnumerable<T> results, string databaseName, string tableName, string idColumnName = null)
     {
@@ -96,18 +91,18 @@ public static class ReflectionBasedSqlDatabaseInserter
 
         try
         {
-            var cmdInsert = new SqlCommand(sql, con);
+            using var cmdInsert = new SqlCommand(sql, con);
             return cmdInsert.ExecuteNonQuery();
 
         }
         catch (SqlException e)
         {
-            ThrowBetterException<T>(reflectObject, tableName, properties, values, dbInfo, e);
+            ThrowBetterException<T>(tableName, properties, values, dbInfo, e);
             throw;
         }
     }
 
-    private static void ThrowBetterException<T>(T reflectObject, string tableName, List<PropertyInfo> properties, object[] values, DiscoveredDatabase dbInfo, SqlException originalException)
+    private static void ThrowBetterException<T>(string tableName, List<PropertyInfo> properties, object[] values, DiscoveredDatabase dbInfo, SqlException originalException)
     {
         var problemsDetected = "";
 

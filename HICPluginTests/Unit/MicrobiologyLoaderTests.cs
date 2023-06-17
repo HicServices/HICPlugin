@@ -32,7 +32,7 @@ public class MicrobiologyLoaderTests
 
         TextReader tr = new StreamReader(ms);
 
-        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
+        var mb = new MicroBiologyFileReader(tr);
 
             
         var result1 = mb.GetSpecimenNo(tr);
@@ -236,12 +236,12 @@ GORA1H
     private IList<IMicrobiologyResultRecord> CreateReaderFromString(string testString, bool throwOnWarnings)
     {
         TextReader tr = new StreamReader(StringToStream(testString));
-        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
+        var mb = new MicroBiologyFileReader(tr);
         mb.Warning += delegate(object sender, string message) { if(throwOnWarnings)throw new Exception(
             $"Warning was {message}"); };
         var results = mb.ProcessFile().ToList();
 
-        foreach (IMicrobiologyResultRecord r in results)
+        foreach (var r in results)
         {
             Console.Write(r.GetType().Name);
             WriteOutObject(r);
@@ -254,7 +254,7 @@ GORA1H
     private void WriteOutObject(IMicrobiologyResultRecord microbiologyResultRecord)
     {
         Console.Write("(");
-        foreach (PropertyInfo p in microbiologyResultRecord.GetType().GetProperties())
+        foreach (var p in microbiologyResultRecord.GetType().GetProperties())
             Console.Write($"{p.Name}:{p.GetValue(microbiologyResultRecord)},");
 
         Console.Write(")");
@@ -650,7 +650,7 @@ ANDERSON
     [Test]
     public void MissingIsolations()
     {
-        string testString = @"
+        var testString = @"
 11MP111111
 1111111111
 PIRIE
@@ -697,7 +697,7 @@ SHEA1H";
 
         Assert.AreEqual(12,results.Count(r => r is MB_IsolationResult));
 
-        MB_Tests t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
+        var t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
 
         Assert.NotNull(t);
         Assert.AreEqual("BLAN", t.TestCode);

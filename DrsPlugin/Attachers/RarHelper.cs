@@ -29,7 +29,7 @@ public class RarHelper
 
     public void ExtractMultiVolumeArchive(string sourceDir, string destDir = null)
     {
-        destDir = destDir ?? sourceDir;
+        destDir ??= sourceDir;
 
         var firstVolume = FindFirstVolume(sourceDir);
         ArchiveFactory.WriteToDirectory(firstVolume, destDir);

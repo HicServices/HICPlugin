@@ -15,9 +15,9 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
 
         source.DatabaseToUse = "master";
         source.Collation = "Latin1_General_Bin";
-        source.PreInitialize(_request,new ThrowImmediatelyDataLoadEventListener());
+        source.PreInitialize(_request,ThrowImmediatelyDataLoadEventListener.Quiet);
 
-        var chunk = source.GetChunk(new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+        var chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
         Assert.NotNull(chunk);
     }
 }

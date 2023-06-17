@@ -14,12 +14,12 @@
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="8.1.0-rc2" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.131" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\RdmpDicom\RDMP\Tests.Common\Tests.Common.csproj" />
     <ProjectReference Include="..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\HICPluginInteractive\HICPluginInteractive.csproj" />

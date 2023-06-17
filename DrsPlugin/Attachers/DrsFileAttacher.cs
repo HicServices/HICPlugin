@@ -100,18 +100,14 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         chunkTimer.Start();
         long chunkFileSize = 0;
         var chunkNum = 0;
-        foreach (var entry in archiveProvider.EntryStreams)
+        foreach (var (name, stream) in archiveProvider.EntryStreams)
         {
             job.OnProgress(this, new ProgressEventArgs("Total elapsed time", new ProgressMeasurement(entryNum, ProgressType.Records), sw.Elapsed));
 
             readTimer.Stop();
             job.OnProgress(this, new ProgressEventArgs("-- Retrieving files", new ProgressMeasurement(entryNum, ProgressType.Records), readTimer.Elapsed));
-            var name = entry.Key;
-            var stream = entry.Value;
 
-            var extension = Path.GetExtension(name);
-            if (extension == null)
-                throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");
+            var extension = Path.GetExtension(name) ?? throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");
 
             // Copy images to local scratch area so as to not require extra network traffic for future processing
             using (var localCopyStream = File.Open(Path.Combine(localCopyPath, name), FileMode.CreateNew))
@@ -125,16 +121,14 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
                 localCopyStream.Position = 0;
 
                 var patcher = patcherFactory.Create(extension);
-                using (var destStream = File.OpenWrite(Path.Combine(tempDir.FullName, name)))
-                {
-                    chunkFileSize += localCopyStream.Length;
-                    patchTimer.Start();
-                    patcher.PatchAwayExif(localCopyStream, destStream);
-                    patchTimer.Stop();
-                    job.OnProgress(this,
-                        new ProgressEventArgs("-- Patching/saving files",
-                            new ProgressMeasurement(entryNum, ProgressType.Records), patchTimer.Elapsed));
-                }
+                using var destStream = File.OpenWrite(Path.Combine(tempDir.FullName, name));
+                chunkFileSize += localCopyStream.Length;
+                patchTimer.Start();
+                patcher.PatchAwayExif(localCopyStream, destStream);
+                patchTimer.Stop();
+                job.OnProgress(this,
+                    new ProgressEventArgs("-- Patching/saving files",
+                        new ProgressMeasurement(entryNum, ProgressType.Records), patchTimer.Elapsed));
             }
             ++entryNum;
 
@@ -183,24 +177,19 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         job.OnNotify(this,
             new NotifyEventArgs(ProgressEventType.Information,
                 $"Updating [{ImageArchiveUriColumnName}] in RAW with the correct location of each image in the DRS Image Archive"));
-            
-        foreach (var kvp in archiveMappings)
+
+        using var conn = _dbInfo.Server.GetConnection();
+        conn.Open();
+        foreach (var (archive, entry) in archiveMappings)
         {
-            if (!kvp.Value.Any())
-                throw new InvalidOperationException($"There are no file mappings for archive: {kvp.Key}");
+            if (!entry.Any())
+                throw new InvalidOperationException($"There are no file mappings for archive: {archive}");
 
             var query =
-                $"UPDATE [{TableName}] SET {ImageArchiveUriColumnName} = CONCAT('{kvp.Key}!', {FilenameColumnName}) WHERE {FilenameColumnName} IN ('{string.Join("','", kvp.Value)}')";
+                $"UPDATE [{TableName}] SET {ImageArchiveUriColumnName} = CONCAT('{archive}!', {FilenameColumnName}) WHERE {FilenameColumnName} IN ('{string.Join("','", entry)}')";
 
-            var server = _dbInfo.Server;
-            using (var conn = server.GetConnection())
-            {
-                conn.Open();
-                using (var cmd = server.GetCommand(query, conn))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            using var cmd = _dbInfo.Server.GetCommand(query, conn);
+            cmd.ExecuteNonQuery();
         }
     }
 
@@ -287,14 +276,10 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         var manifestFilepath = Path.Combine(LoadDirectory.ForLoading.FullName, ManifestFileName);
         using (var stream = File.OpenRead(manifestFilepath))
         {
-            using (var sr = new StreamReader(stream))
-            {
-                using (var csvReader = new CsvReader(sr, Culture))
-                {
-                    while (csvReader.Read())
-                        imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
-                }
-            }
+            using var sr = new StreamReader(stream);
+            using var csvReader = new CsvReader(sr, Culture);
+            while (csvReader.Read())
+                imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
         }
 
         var notInArchive = imageFilenamesInManifest.Except(imageFilenamesInArchive).ToList();

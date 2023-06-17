@@ -133,7 +133,7 @@ public class DRSImageExtraction : ImageExtraction
 
     public override void Check(ICheckNotifier notifier)
     {
-        List<IColumn> columns = Request.ColumnsToExtract;
+        var columns = Request.ColumnsToExtract;
 
         if (!columns.Any(c => c.GetRuntimeName() == ImageUriColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(

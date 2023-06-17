@@ -57,7 +57,4 @@
   <ItemGroup>
     <Folder Include="Commands\" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
-  </ItemGroup>
 </Project>

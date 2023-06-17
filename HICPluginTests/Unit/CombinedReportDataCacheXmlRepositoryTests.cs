@@ -26,6 +26,6 @@ internal class CombinedReportDataCacheXmlRepositoryTests
             {
                 LabNumber = "sdfdsf",
                 TestReportID = "fff",
-            }}},new ThrowImmediatelyDataLoadEventListener());
+            }}},ThrowImmediatelyDataLoadEventListener.Quiet);
     }
 }

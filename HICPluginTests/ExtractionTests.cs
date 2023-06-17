@@ -43,7 +43,7 @@ namespace DrsPluginTests
 
             var replacer = new DRSFilenameReplacer(extractionIdentifierColumn.Object, "Image_Filename");
 
-            Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", replacer.GetCorrectFilename(dataset.Rows[0], new ThrowImmediatelyDataLoadEventListener()));
+            Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", replacer.GetCorrectFilename(dataset.Rows[0], ThrowImmediatelyDataLoadEventListener.Quiet));
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace DrsPluginTests
 
             try
             {
-                var listener = new ThrowImmediatelyDataLoadEventListener();
+                var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
                 var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
 
                 var extractionComponent = new DRSImageExtraction
@@ -154,7 +154,7 @@ namespace DrsPluginTests
 
             try
             {
-                var listener = new ThrowImmediatelyDataLoadEventListener();
+                var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
                 var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
 
                 var extractionComponent = new DRSImageExtraction
@@ -213,7 +213,7 @@ namespace DrsPluginTests
 
             try
             {
-                var listener = new ThrowImmediatelyDataLoadEventListener();
+                var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
                 var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
 
                 var extractionComponent = new DRSImageExtraction
@@ -268,7 +268,7 @@ namespace DrsPluginTests
                 r =>
                     r.Catalogue==catalogue &&
                     r.DatasetBundle == datasetBundle &&
-                    r.ColumnsToExtract==new List<IColumn>(){extractableColumn.Object} &&
+                    r.ColumnsToExtract==new List<IColumn> {extractableColumn.Object} &&
                     r.Directory==extractionDirectory.Object &&
                     r.ExtractableCohort==cohort.Object &&
                     r.QueryBuilder==queryBuilder.Object

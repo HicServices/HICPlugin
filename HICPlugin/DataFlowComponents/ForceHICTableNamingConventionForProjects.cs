@@ -13,7 +13,7 @@ namespace HICPlugin.DataFlowComponents;
 [Description("Forces tables being loaded to match the hic regex ")]
 public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>
 {
-    private static readonly Regex NamingConvention = new Regex("tt_\\d*",RegexOptions.Compiled);
+    private static readonly Regex NamingConvention = new("tt_\\d*",RegexOptions.Compiled);
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener job, GracefulCancellationToken cancellationToken)
     {

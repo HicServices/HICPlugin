@@ -17,7 +17,7 @@ namespace SCIStorePluginTests.Integration
         [Test]
         public void SendValidDomainObject()
         {
-            TestObject t = new TestObject();
+            var t = new TestObject();
             t.Field1 = "1q234fj";
 
             var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
@@ -26,10 +26,10 @@ namespace SCIStorePluginTests.Integration
             {
                 con.Open();
 
-                SqlCommand cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+                var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
                 cmdDrop.ExecuteNonQuery();
 
-                SqlCommand cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+                var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
                 cmdCreateTestTable.ExecuteNonQuery();
 
                 ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject");
@@ -40,7 +40,7 @@ namespace SCIStorePluginTests.Integration
         [Test]
         public void SendTooLongFieldToDatabase()
         {
-            TestObject t = new TestObject();
+            var t = new TestObject();
             t.Field1 = "asdljkmalsdjflaksdjflkajsd;lfkjasdl;kfj";
 
             var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
@@ -48,10 +48,10 @@ namespace SCIStorePluginTests.Integration
             {
                 con.Open();
 
-                SqlCommand cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+                var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
                 cmdDrop.ExecuteNonQuery();
 
-                SqlCommand cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+                var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
                 cmdCreateTestTable.ExecuteNonQuery();
 
                 try
@@ -75,7 +75,7 @@ namespace SCIStorePluginTests.Integration
         [Test]
         public void SendNonExistantColumn()
         {
-            TestObject2 t = new TestObject2();
+            var t = new TestObject2();
             t.Field1 = "asdljfj";
             t.Field2 = null;
 
@@ -83,10 +83,10 @@ namespace SCIStorePluginTests.Integration
             using (var con = (SqlConnection)dbInfo.Server.GetConnection())
             {
                 con.Open();
-                SqlCommand cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+                var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
                 cmdDrop.ExecuteNonQuery();
 
-                SqlCommand cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+                var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
                 cmdCreateTestTable.ExecuteNonQuery();
 
                 try

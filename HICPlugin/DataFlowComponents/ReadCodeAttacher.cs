@@ -42,7 +42,7 @@ public class ReadCodeAttacher:IPluginAttacher
 
         DiscoveredTable destinationTable = listTables[0];
             
-        Stopwatch timerForPerformance = new Stopwatch();
+        var timerForPerformance = new Stopwatch();
         timerForPerformance.Start();
 
         SqlConnection con = (SqlConnection) _dbInfo.Server.GetConnection();
@@ -59,12 +59,12 @@ public class ReadCodeAttacher:IPluginAttacher
         DeleteCrudFile("contents.txt");
 
         //prepare destination table (for bulk insert)
-        DataTable destination = new DataTable();
+        var destination = new DataTable();
         destination.Columns.Add("ReadCode");
         destination.Columns.Add("Version");
         destination.Columns.Add("OriginFilename");
             
-        for (int i = 1; i <= MaxAdditionalCrudColumns; i++)
+        for (var i = 1; i <= MaxAdditionalCrudColumns; i++)
             destination.Columns.Add($"Column{i}");
             
             
@@ -116,7 +116,7 @@ public class ReadCodeAttacher:IPluginAttacher
 
     private void DeleteCrudFile(string fileName)
     {
-        string todelete = Path.Combine(LoadDirectory.ForLoading.FullName, fileName);
+        var todelete = Path.Combine(LoadDirectory.ForLoading.FullName, fileName);
             
         if(File.Exists(todelete))
             File.Delete(todelete);
@@ -131,10 +131,10 @@ public class ReadCodeAttacher:IPluginAttacher
             job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information,
                 $"Preparing to read data from file:{file.FullName}"));
 
-            string[] readAllLines = File.ReadAllLines(file.FullName);
-            bool isFirstLineInFile = true;
+            var readAllLines = File.ReadAllLines(file.FullName);
+            var isFirstLineInFile = true;
 
-            foreach (string line in readAllLines)
+            foreach (var line in readAllLines)
             {
                 if (isFirstLineInFile && ignoreFirstLineInFile)
                 {
@@ -147,7 +147,7 @@ public class ReadCodeAttacher:IPluginAttacher
                     continue;
 
                 //split by pipes 
-                string[] strings = line.Split(new []{separator},StringSplitOptions.RemoveEmptyEntries);
+                var strings = line.Split(new []{separator},StringSplitOptions.RemoveEmptyEntries);
 
                 //make sure there are enough columns in the data table
                 if (strings.Length > MaxAdditionalCrudColumns +1)
@@ -162,7 +162,7 @@ public class ReadCodeAttacher:IPluginAttacher
                     continue;
                 }
 
-                DataRow dr = destination.Rows.Add();
+                var dr = destination.Rows.Add();
 
                 //first column in file has something long in it (probably not a read code)
                 if (strings[0].Length > maxReadCodeLength)
@@ -184,9 +184,9 @@ public class ReadCodeAttacher:IPluginAttacher
                 dr["Version"] = verison;
 
                 //populate whatever random crud they decided to put into this file
-                string superComboValue = "";
+                var superComboValue = "";
 
-                for (int i = 1; i < strings.Length; i++)
+                for (var i = 1; i < strings.Length; i++)
                     if (!string.IsNullOrWhiteSpace(strings[i]))
                         superComboValue += $"{strings[i]}|";
 

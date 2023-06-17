@@ -122,7 +122,9 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
     <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
 </Project>

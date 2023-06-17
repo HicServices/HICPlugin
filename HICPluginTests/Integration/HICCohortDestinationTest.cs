@@ -27,7 +27,7 @@ public class HICCohortDestinationTest : TestsRequiringACohort
     [Test]
     public void UploadToTarget()
     {
-        Project p = new Project(RepositoryLocator.DataExportRepository, "p");
+        var p = new Project(RepositoryLocator.DataExportRepository, "p");
         p.ProjectNumber = projectNumberInTestData;
         p.SaveToDatabase();
 
@@ -79,7 +79,7 @@ GO
             NewCohortsStoredProcedure = "fishfishfishproc1",
             ExistingCohortsStoredProcedure = "fishfishfishproc2"
         };
-        d.PreInitialize(request,new ThrowImmediatelyDataLoadEventListener());
+        d.PreInitialize(request,ThrowImmediatelyDataLoadEventListener.Quiet);
         d.CreateExternalCohort = true;
 
         var dt = new DataTable("mytbl");
@@ -87,7 +87,7 @@ GO
         dt.Rows.Add("101");
         dt.Rows.Add("102");
 
-        d.ProcessPipelineData(dt, new ThrowImmediatelyDataLoadEventListener(), new GracefulCancellationToken());
+        d.ProcessPipelineData(dt, ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
         var tomem = new ToMemoryDataLoadEventListener(false);
 
         if (_expectToSucceed)
