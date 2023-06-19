@@ -12,6 +12,11 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          repository: HicServices/RDMP
+          ref: feature/rc4
+          path: RDMP
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
@@ -22,22 +27,33 @@ jobs:
           getversions >> %GITHUB_OUTPUT%
       - name: Set up database
         run: |
-          Invoke-WebRequest -Uri https://github.com/HicServices/RDMP/releases/download/v${{ steps.version.outputs.rdmpversion }}/rdmp-${{ steps.version.outputs.rdmpversion }}-cli-win-x64.zip -OutFile rdmp.zip
-          Expand-Archive -Path rdmp.zip -DestinationPath .\rdmpcli
-          cmd.exe /c rdmpcli\rdmp.exe install localhost TEST_ -d
+          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- install localhost TEST_ -d
       - name: Test
         run: |
           dotnet test
       - name: Build
+        shell: bash
         run: |
-          cd Plugin/windows
-          dotnet publish --runtime win-x64 -c Release --self-contained false
-          cd ../main
-          dotnet publish -c Release --self-contained false
-          cd ../..
-          cmd /c nuget pack ./HIC.Plugin.nuspec -Properties Configuration=Release -IncludeReferencedProjects -Symbols -Version ${{ steps.version.outputs.version }}
-          cmd /c rdmpcli\rdmp.exe pack -p --file Rdmp.HIC.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
-          cmd /c rdmpcli\rdmp.exe cmd listsupportedcommands --dir yaml
+          cat > plugin.nuspec <<EOP
+          <?xml version="1.0" encoding="utf-8"?>
+          <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+              <metadata>
+                  <id>Rdmp.HIC.Plugin</id>
+                  <version>${{ steps.version.outputs.version }}</version>
+                  <authors>Health Informatics Service, University of Dundee</authors>
+                  <description>Imaging plugin for Research Data Management Platform </description>
+                  <dependencies>
+                      <dependency id="HIC.RDMP.Plugin" version="${{ steps.version.outputs.rdmpversion }}" />
+                  </dependencies>
+              </metadata>
+          </package>
+          EOP
+
+          dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
+          dotnet publish Plugin/main/main.csproj -c Release -o p/main
+          7z a -tzip HIC.Plugin.nupkg HIC.Plugin.nuspec p
+          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- pack -p --file HIC.Plugin.nupkg --dir yaml
+          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
         uses: actions/upload-artifact@v3
         with:

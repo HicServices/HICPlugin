@@ -4,6 +4,8 @@
     <AssemblyTitle>Rdmp.Hic.Plugin</AssemblyTitle>
     <Product>Rdmp.Hic.Plugin</Product>
     <Copyright>Copyright ©  2019</Copyright>
+    <DebugType>embedded</DebugType>
+      <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DrsPlugin\DrsPlugin.csproj" />

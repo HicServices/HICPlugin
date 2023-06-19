@@ -5,9 +5,7 @@
     <Product>HICPlugin</Product>
     <Copyright>Copyright ©  2016</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PostBuildEvent />
-    <PostBuildEvent />
-    <PostBuildEvent />
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent />

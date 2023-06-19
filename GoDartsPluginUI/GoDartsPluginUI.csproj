@@ -4,6 +4,7 @@
     <AssemblyTitle>GoDartsPluginUI</AssemblyTitle>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />

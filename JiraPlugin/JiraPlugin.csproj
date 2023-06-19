@@ -9,6 +9,7 @@
     <RestoreAdditionalProjectSources>
       https://hic.dundee.ac.uk/nuget/nuget;
     </RestoreAdditionalProjectSources>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
