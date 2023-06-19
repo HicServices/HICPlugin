@@ -26,7 +26,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
     [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
     public DateTime? OverrideUntil { get; set; }
 
-    [DemandsInitialization("Will show errors in messageboxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
+    [DemandsInitialization("Will show errors in message boxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
     public bool ShowUIComponents { get; set; }
 
     [DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
@@ -35,6 +35,8 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
         get => string.Join(',',_columnWhitelist);
         set => _columnWhitelist=(value ?? "").Split(',').Select(s=>s.Trim()).ToList();
     }
+
+    private const bool UseLegacy = false;
 
     private bool _firstTime = true;
 
@@ -139,34 +141,14 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
     }
 
-    private bool ContainsValidChi(object toCheck)
+    private static readonly Regex ChiRegex = new(@"(?<!\d)(\d{9,10}|\d{5,6}(?!\d)\s(?<!\d)\d{4})(?!\d)", RegexOptions.Compiled|RegexOptions.CultureInvariant);
+    private static bool ContainsValidChi(object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
             return false;
 
         var toCheckStr = toCheck.ToString();
-        if (string.IsNullOrWhiteSpace(toCheckStr))
-            return false;
-
-        var candidates = Regex.Matches(toCheckStr, @"(?<!\d)\d{10}(?!\d)|(?<!\d)\d{9}(?!\d)").Cast<Match>().Select(m => m.Value).ToList();
-
-        var regexSplitCandidates = Regex.Matches(toCheckStr, @"(?<!\d)(\d{6})(?!\d)\s(?<!\d)(\d{4})(?!\d)|(?<!\d)(\d{5})(?!\d)\s(?<!\d)(\d{4})(?!\d)").Cast<Match>().ToList();
-        var tenDigitSplit = regexSplitCandidates.Select(m => m.Groups[1].Value + m.Groups[2].Value);
-        candidates.AddRange(tenDigitSplit);
-        var nineDigitSplit = regexSplitCandidates.Select(m => m.Groups[3].Value + m.Groups[4].Value);
-        candidates.AddRange(nineDigitSplit);
-
-        foreach (var candidate in candidates)
-        {
-            var prefix = "";
-            if (candidate.Length == 9)
-                prefix = "0";
-
-            if (Chi.IsValidChi(prefix + candidate, out var outString))
-                return true;
-        }
-
-        return false;
+        return !string.IsNullOrWhiteSpace(toCheckStr) && ChiRegex.Matches(toCheckStr).Select(candidate => candidate.Groups[0].Value[^5]==' '?candidate.Groups[0].Value.Replace(" ", ""): candidate.Groups[0].Value).Any(fixedCandidate => Chi.IsValidChi(fixedCandidate.Length == 9?$"0{fixedCandidate}":fixedCandidate, out _));
     }
 
     public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)

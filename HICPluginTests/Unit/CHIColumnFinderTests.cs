@@ -8,14 +8,8 @@ namespace HICPluginTests.Unit;
 
 public class CHIColumnFinderTests
 {
-    private readonly CHIColumnFinder _chiFinder;
-    private readonly ThrowImmediatelyDataLoadEventListener _listener;
-
-    public CHIColumnFinderTests()
-    {
-        _chiFinder = new();
-        _listener = new() { ThrowOnWarning = true, WriteToConsole = false };
-    }
+    private readonly CHIColumnFinder _chiFinder=new();
+    private readonly ThrowImmediatelyDataLoadEventListener _listener=ThrowImmediatelyDataLoadEventListener.QuietPicky;
 
     [Test]
     [TestCase("1111111111", true)] //valid CHI

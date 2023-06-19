@@ -17,41 +17,43 @@ public class CHIFixer : IPluginDataFlowComponent<DataTable>
     public string CHIColumnName { get; set; }
 
     //must be at least this good (9 digits)
-    Regex minimumQualityRegex = new("[0-9]{9}",RegexOptions.Compiled);
+    private static readonly Regex MinimumQualityRegex = new("[0-9]{9}",RegexOptions.Compiled|RegexOptions.CultureInvariant);
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
         foreach (DataRow r in toProcess.Rows)
-            r[CHIColumnName] = AdjustCHIValue(r[CHIColumnName]);
+            if (AdjustChiValue(r[CHIColumnName],out var chi))
+                r[CHIColumnName] = chi;
 
         return toProcess;
     }
 
-    private int valuesReceived = 0;
-    private int valuesCorrected = 0;
-    private int valuesRejected = 0;
+    private int _valuesReceived = 0;
+    private int _valuesCorrected = 0;
+    private int _valuesRejected = 0;
 
-    private object AdjustCHIValue(object o)
+    private bool AdjustChiValue(object o,out string chi)
     {
-        valuesReceived++;
+        _valuesReceived++;
+        chi = null;
 
         //if it's null leave it
         if (o == null || o == DBNull.Value)
-            return o;
+            return false;
 
-        //if its not string (e.g. int etc) then tostring it
+        //if it's not string (e.g. int etc) then toString it
         var valueAsString = o as string ?? o.ToString();
 
         //if it's blank
         if (string.IsNullOrWhiteSpace(valueAsString))
-            return valueAsString;
+            return false;
 
 
         //it does not match the minimum quality regex reject it
-        if (!minimumQualityRegex.IsMatch(valueAsString))
+        if (!MinimumQualityRegex.IsMatch(valueAsString))
         {
-            valuesRejected++;
-            return o;
+            _valuesRejected++;
+            return false;
         }
 
         //trim it
@@ -59,24 +61,24 @@ public class CHIFixer : IPluginDataFlowComponent<DataTable>
 
             
         //if it is 9 digits make it 10, otherwise give up
-        if (valueAsString.Length != 9) return valueAsString;
+        if (valueAsString.Length != 9) return false;
 
         //try to correct it
         valueAsString = $"0{valueAsString}";
 
-        if (!Chi.IsValidChi(valueAsString, out _)) return o; //could not fix by adding the 0 so just return it as normal
+        if (!Chi.IsValidChi(valueAsString, out _)) return false; //could not fix by adding the 0 so just return it as normal
 
         //correction worked
-        valuesCorrected++;
-        return valueAsString;
-
+        _valuesCorrected++;
+        chi = valueAsString;
+        return true;
     }
 
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
     {
             
-        listener.OnNotify(this,new NotifyEventArgs(valuesRejected ==0?ProgressEventType.Information:ProgressEventType.Warning,
-            $"Finished asjusting CHIs, we received {valuesReceived} values for processing, of these {valuesRejected} were rejected because they did not meet the minimum requirements for processing ({minimumQualityRegex}).  {valuesCorrected} values were succesfully fixed by adding a 0 to the front"));
+        listener.OnNotify(this,new NotifyEventArgs(_valuesRejected ==0?ProgressEventType.Information:ProgressEventType.Warning,
+            $"Finished adjusting CHIs, we received {_valuesReceived} values for processing, of these {_valuesRejected} were rejected because they did not meet the minimum requirements for processing ({MinimumQualityRegex}).  {_valuesCorrected} values were succesfully fixed by adding a 0 to the front"));
     }
 
     public void Abort(IDataLoadEventListener listener)
@@ -84,7 +86,6 @@ public class CHIFixer : IPluginDataFlowComponent<DataTable>
             
     }
 
-    public bool SilentRunning { get; set; }
     public void Check(ICheckNotifier notifier)
     {
         if (string.IsNullOrWhiteSpace(CHIColumnName))
