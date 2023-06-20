@@ -40,11 +40,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "windows", "Plugin\windows\w
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HIC.Demography", "HIC.Demography\HIC.Demography.csproj", "{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.Core", "..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj", "{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.Core", "RDMP\Rdmp.Core\Rdmp.Core.csproj", "{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.UI", "..\RdmpDicom\RDMP\Rdmp.UI\Rdmp.UI.csproj", "{60721BCE-E328-45CF-B6D2-B627364FBBFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.UI", "RDMP\Rdmp.UI\Rdmp.UI.csproj", "{60721BCE-E328-45CF-B6D2-B627364FBBFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Common", "..\RdmpDicom\RDMP\Tests.Common\Tests.Common.csproj", "{CB282875-B9CE-4E31-8B52-0356855501E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Common", "RDMP\Tests.Common\Tests.Common.csproj", "{CB282875-B9CE-4E31-8B52-0356855501E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
