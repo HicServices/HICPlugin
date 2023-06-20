@@ -15,9 +15,10 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
+  <Import Project="..\InterfaceToJira\InterfaceToJira.projitems" Label="Shared" />
 </Project>

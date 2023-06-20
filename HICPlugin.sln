@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.UI", "RDMP\Rdmp.UI\Rdm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Common", "RDMP\Tests.Common\Tests.Common.csproj", "{CB282875-B9CE-4E31-8B52-0356855501E9}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InterfaceToJira", "InterfaceToJira\InterfaceToJira.shproj", "{63CD3E00-4745-481C-B31E-E432B7812BE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,5 +178,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1D791B6-09E0-471B-8363-AFD16F3880BE}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		InterfaceToJira\InterfaceToJira.projitems*{3afe83dd-5c7c-4ca9-8a7f-e6ef93d09800}*SharedItemsImports = 5
+		InterfaceToJira\InterfaceToJira.projitems*{63cd3e00-4745-481c-b31e-e432b7812be9}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

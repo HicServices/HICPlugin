@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>63cd3e00-4745-481c-b31e-e432b7812be9</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>InterfaceToJira</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ExistingTicket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Domain\ExistingTicketWithComments.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)JiraApiConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)JiraInteraction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\BaseEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Issues\Assignee.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Issues\Fields.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Issues\Issue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Issues\IssueKey.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Issues\Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Misc\AvatarUrls.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Projects\ProjectDescription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Searching\SearchRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Searching\SearchResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\JiraResource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Aggregateprogress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\ApplicationProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachments.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Author.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\BasicIssue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Comment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Comments.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Component.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\CreateIssue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\CreateProjectSupportIssue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\CreateSupportIssue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Fields.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Issue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\IssueCreateMeta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Issues.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\IssueType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\JiraApiException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Priority.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Progress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Project.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\ProjectMeta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Resolution.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Subtask.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Timetracking.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Votes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Watches.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Worklog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Worklogs.cs" />
+  </ItemGroup>
+</Project>

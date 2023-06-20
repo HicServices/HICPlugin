@@ -38,7 +38,4 @@
     <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
     <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Web.Extensions" />
-  </ItemGroup>
 </Project>
