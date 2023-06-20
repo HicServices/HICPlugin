@@ -27,7 +27,7 @@ jobs:
           getversions >> %GITHUB_OUTPUT%
       - name: Set up database
         run: |
-          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- install localhost TEST_ -d
+          dotnet run --project RDMP/Tools/rdmp.rdmp.csproj -c Release -- install localhost TEST_ -d
       - name: Test
         run: |
           dotnet test
@@ -52,8 +52,8 @@ jobs:
           dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
           dotnet publish Plugin/main/main.csproj -c Release -o p/main
           7z a -tzip HIC.Plugin.nupkg HIC.Plugin.nuspec p
-          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- pack -p --file HIC.Plugin.nupkg --dir yaml
-          dotnet run RDMP/Tools/rdmp.rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
+          dotnet run --project RDMP/Tools/rdmp.rdmp.csproj -c Release -- pack -p --file HIC.Plugin.nupkg --dir yaml
+          dotnet run --project RDMP/Tools/rdmp.rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
         uses: actions/upload-artifact@v3
         with:
