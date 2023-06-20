@@ -11,6 +11,6 @@
     <PackageReference Include="SharpCompress" Version="0.33.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
 </Project>

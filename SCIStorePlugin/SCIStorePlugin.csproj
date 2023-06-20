@@ -126,6 +126,6 @@
     <PackageReference Include="System.ServiceModel.Http" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
 </Project>

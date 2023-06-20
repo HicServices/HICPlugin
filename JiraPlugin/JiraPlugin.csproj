@@ -18,6 +18,6 @@
     <PackageReference Include="InterfaceToJira" Version="1.1.5098" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
 </Project>

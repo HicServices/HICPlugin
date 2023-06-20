@@ -35,7 +35,7 @@
     <None Include="Resources\MTo1.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
     <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
   </ItemGroup>
   <ItemGroup>

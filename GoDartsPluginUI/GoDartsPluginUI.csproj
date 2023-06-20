@@ -13,6 +13,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Rdmp.UI\Rdmp.UI.csproj" />
+    <ProjectReference Include="..\RDMP\Rdmp.UI\Rdmp.UI.csproj" />
   </ItemGroup>
 </Project>

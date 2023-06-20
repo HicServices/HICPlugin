@@ -20,7 +20,7 @@
     <PackageReference Include="NunitXml.TestLogger" Version="3.0.131" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RdmpDicom\RDMP\Tests.Common\Tests.Common.csproj" />
+    <ProjectReference Include="..\RDMP\Tests.Common\Tests.Common.csproj" />
     <ProjectReference Include="..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\HICPluginInteractive\HICPluginInteractive.csproj" />
