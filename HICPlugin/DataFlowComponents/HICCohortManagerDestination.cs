@@ -103,7 +103,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             using var con = (SqlConnection) cohortDatabase.Server.GetConnection();
             con.Open();
             SqlCommand cmd;
-            var transaction = con.BeginTransaction("Committing cohort");
+            using var transaction = con.BeginTransaction("Committing cohort");
 
             if (Request.NewCohortDefinition.Version == 1)
             {
@@ -115,11 +115,12 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             else
             {
                 //get the existing cohort number 
-                var cmdGetCohortNumber =
-                    new SqlCommand(
-                        $"(SELECT MAX(cohortNumber) FROM {target.DefinitionTableName} where description = '{Request.NewCohortDefinition.Description}')",
-                        con, transaction);
-                var cohortNumber = Convert.ToInt32(cmdGetCohortNumber.ExecuteScalar());
+                int cohortNumber;
+                using (var cmdGetCohortNumber =
+                       new SqlCommand(
+                           $"(SELECT MAX(cohortNumber) FROM {target.DefinitionTableName} where description = '{Request.NewCohortDefinition.Description}')",
+                           con, transaction)) 
+                    cohortNumber = Convert.ToInt32(cmdGetCohortNumber.ExecuteScalar());
 
                 //call the commit
                 cmd = new SqlCommand(ExistingCohortsStoredProcedure, con, transaction);
