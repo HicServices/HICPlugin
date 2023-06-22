@@ -23,9 +23,10 @@ class CacheLayoutTests : DatabaseTests
     }
 
     [OneTimeTearDown]
-    public void TearDown()
+    public new void TearDown()
     {
         _directoryHelper.TearDown();
+        base.TearDown();
     }
 
     // Needs Database for MEF
