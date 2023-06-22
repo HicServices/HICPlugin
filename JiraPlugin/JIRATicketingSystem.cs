@@ -80,7 +80,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             return;
         try
         {
-            Check(new ThrowImmediatelyCheckNotifier());
+            Check(ThrowImmediatelyCheckNotifier.Quiet);
         }
         catch (Exception e)
         {

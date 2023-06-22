@@ -96,22 +96,7 @@ public class DRSImageExtraction : ImageExtraction
         foreach (var entry in extractionMap)
         {
             listener.OnProgress(this, new ProgressEventArgs("Extracting images from archives...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-
-            var archiveType = Path.GetExtension(entry.Key);
-                
-            switch (archiveType)
-            {
-                case ".tar":
-                    archiveRepository.ExtractImageSetFromTar(entry.Key, entry.Value);
-                    break;
-                case ".zip":
-                    archiveRepository.ExtractImageSetFromZip(entry.Key, entry.Value);
-                    break;
-                default:
-                    throw new InvalidOperationException(
-                        $"Unsupported image archive type: {archiveType} (only tar and zip files are supported)");
-            }
-
+            archiveRepository.ExtractImageSetFromZip(entry.Key, entry.Value);
             progress += entry.Value.Count;
         }
 

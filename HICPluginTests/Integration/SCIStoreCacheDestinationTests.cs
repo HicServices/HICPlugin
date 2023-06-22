@@ -27,9 +27,10 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
     }
 
     [OneTimeTearDown]
-    public void TearDown()
+    public new void TearDown()
     {
         _directoryHelper.TearDown();
+        base.TearDown();
     }
 
     /// <summary>

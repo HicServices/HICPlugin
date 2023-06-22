@@ -117,7 +117,7 @@ public class AttacherTests : DatabaseTests
             var attacher = new DrsMultiVolumeRarAttacher();
             attacher.Initialize(LoadDirectory.Object, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
 
             Assert.AreEqual($"No files found in ForLoading: {testDir.FullName}", ex?.Message);
         }
@@ -146,7 +146,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(LoadDirectory.Object, db);
 
-            Assert.DoesNotThrow(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            Assert.DoesNotThrow(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
         }
         finally
         {
@@ -176,7 +176,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(LoadDirectory.Object, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual(ex.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
         }
         finally
@@ -205,7 +205,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(LoadDirectory.Object, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex?.Message);
         }
         finally
@@ -233,7 +233,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(LoadDirectory.Object, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex?.Message);
         }
         finally

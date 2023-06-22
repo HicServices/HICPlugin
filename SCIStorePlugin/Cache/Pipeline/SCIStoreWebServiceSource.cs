@@ -79,8 +79,10 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
 
         //pretty pointless message since we just said what the Request.Start was above
         if(VERBOSE)
+#pragma warning disable CS0162
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"About to download, starting from {chunkStart}"));
+#pragma warning restore CS0162
 
         IEnumerable<CombinedReportData> reports;
         try
