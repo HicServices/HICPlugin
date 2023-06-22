@@ -41,7 +41,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             Discipline = Discipline.Immunology,
         };
 
-        component.Check(new IgnoreAllErrorsCheckNotifier());
+        component.Check(IgnoreAllErrorsCheckNotifier.Instance);
 
     }
 
