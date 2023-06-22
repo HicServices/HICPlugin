@@ -26,12 +26,11 @@ public class IssueKey
 
     public static IssueKey Parse(string issueKeyString)
     {
-        var strArray = issueKeyString != null ? issueKeyString.Split('-') : throw new ArgumentNullException("IssueKeyString is null!");
+        var strArray = issueKeyString?.Split('-') ?? throw new ArgumentNullException(nameof(issueKeyString),"IssueKeyString is null!");
         if (strArray.Length != 2)
             throw new ArgumentException("The string entered is not a JIRA key!");
-        var result = 0;
-        return int.TryParse(strArray[1], out result) ? new IssueKey(strArray[0], result) : throw new ArgumentException("The string entered could not be parsed, issue id is non-integer!");
+        return int.TryParse(strArray[1], out var result) ? new IssueKey(strArray[0], result) : throw new ArgumentException("The string entered could not be parsed, issue id is non-integer!");
     }
 
-    public override string ToString() => string.Format("{0}-{1}", ProjectKey, IssueId);
+    public override string ToString() => $"{ProjectKey}-{IssueId}";
 }

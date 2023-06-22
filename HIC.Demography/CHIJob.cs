@@ -70,29 +70,29 @@ public class CHIJob
             var property = propertyInfo;
             var fieldInfo = list2.SingleOrDefault<FieldInfo>((Func<FieldInfo, bool>)(f => f.Name.Equals("MaxSize_" + property.Name)));
             if (fieldInfo != (FieldInfo)null)
-                CHIJob.MaxLengthsDictionary.Add(property, (int)fieldInfo.GetValue((object)null));
+                MaxLengthsDictionary.Add(property, (int)fieldInfo.GetValue((object)null));
         }
     }
 
     public void Clean()
     {
-        foreach (var key in CHIJob.MaxLengthsDictionary.Keys)
-            key.SetValue((object)this, (object)this.CleanString((string)key.GetValue((object)this, (object[])null)), (object[])null);
-        if (this.Sex != null && this.Sex.Length > 1)
+        foreach (var key in MaxLengthsDictionary.Keys)
+            key.SetValue((object)this, (object)CleanString((string)key.GetValue((object)this, (object[])null)), (object[])null);
+        if (Sex != null && Sex.Length > 1)
         {
-            this.Sex = this.Sex.ToUpper();
-            if (this.Sex[0] == 'M')
-                this.Sex = "M";
-            else if (this.Sex[0] == 'F')
-                this.Sex = "F";
+            Sex = Sex.ToUpper();
+            if (Sex[0] == 'M')
+                Sex = "M";
+            else if (Sex[0] == 'F')
+                Sex = "F";
         }
-        if (this.Postcode == null || this.OtherPostcode == null || !this.Postcode.Equals(this.OtherPostcode))
+        if (Postcode == null || OtherPostcode == null || !Postcode.Equals(OtherPostcode))
             return;
-        this.OtherAddressLine1 = (string)null;
-        this.OtherAddressLine2 = (string)null;
-        this.OtherAddressLine3 = (string)null;
-        this.OtherAddressLine4 = (string)null;
-        this.OtherPostcode = (string)null;
+        OtherAddressLine1 = (string)null;
+        OtherAddressLine2 = (string)null;
+        OtherAddressLine3 = (string)null;
+        OtherAddressLine4 = (string)null;
+        OtherPostcode = (string)null;
     }
 
     private string CleanString(string value)
@@ -106,21 +106,21 @@ public class CHIJob
 
     public CHIJobValidationResult Validate()
     {
-        if (string.IsNullOrEmpty(this.TargetServerName))
+        if (string.IsNullOrEmpty(TargetServerName))
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TargetServerName was not specified");
-        if (string.IsNullOrEmpty(this.TableName))
+        if (string.IsNullOrEmpty(TableName))
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName was not specified");
-        if (this.TableName.Count<char>((Func<char, bool>)(c => c == '.')) != 2)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + this.TableName + ") must contain exactly 2 dots as in [Database]..[Table] or [Bob].[dbo].[Fish]");
-        var num1 = this.TableName.Count<char>((Func<char, bool>)(c => c == '['));
-        var num2 = this.TableName.Count<char>((Func<char, bool>)(c => c == ']'));
+        if (TableName.Count<char>((Func<char, bool>)(c => c == '.')) != 2)
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") must contain exactly 2 dots as in [Database]..[Table] or [Bob].[dbo].[Fish]");
+        var num1 = TableName.Count<char>((Func<char, bool>)(c => c == '['));
+        var num2 = TableName.Count<char>((Func<char, bool>)(c => c == ']'));
         if (num1 != num2)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + this.TableName + ") has a missmatch between the number of open square brackets and the number of closing square brackets");
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") has a missmatch between the number of open square brackets and the number of closing square brackets");
         if (num1 != 2 && num1 == 3)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + this.TableName + ") must have either 2 or 3 openning square brackets e.g. [Database]..[Table] or [Bob].[dbo].[Fish]");
-        if (string.IsNullOrWhiteSpace(this.Forename) && string.IsNullOrWhiteSpace(this.Surname) && !this.DateOfBirth.HasValue && string.IsNullOrWhiteSpace(this.Postcode))
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") must have either 2 or 3 openning square brackets e.g. [Database]..[Table] or [Bob].[dbo].[Fish]");
+        if (string.IsNullOrWhiteSpace(Forename) && string.IsNullOrWhiteSpace(Surname) && !DateOfBirth.HasValue && string.IsNullOrWhiteSpace(Postcode))
             return new CHIJobValidationResult(ValidationCategory.InsufficientData, "Must have at least one of the following: Forename,Surname,DateOfBirth or Postcode");
-        foreach (KeyValuePair<PropertyInfo, int> maxLengths in CHIJob.MaxLengthsDictionary)
+        foreach (KeyValuePair<PropertyInfo, int> maxLengths in MaxLengthsDictionary)
         {
             if (maxLengths.Key.GetValue((object)this, (object[])null) is string str && str.Length > maxLengths.Value)
                 return new CHIJobValidationResult(ValidationCategory.InvalidData, "Field " + (object)maxLengths.Key + " value is too long to fit into the database, value is '" + str + "'");

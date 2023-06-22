@@ -120,13 +120,13 @@ public class DRSImageExtraction : ImageExtraction
     {
         var columns = Request.ColumnsToExtract;
 
-        if (!columns.Any(c => c.GetRuntimeName() == ImageUriColumnName))
+        if (columns.All(c => c.GetRuntimeName() != ImageUriColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
                 $"Expected column {ImageUriColumnName} (points to the image in the archive) but it has not been configured for extraction.", CheckResult.Fail));
         else
             notifier.OnCheckPerformed(new CheckEventArgs($"Found expected column {ImageUriColumnName}", CheckResult.Success));
 
-        if (!columns.Any(c => c.GetRuntimeName() == FilenameColumnName))
+        if (columns.All(c => c.GetRuntimeName() != FilenameColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
                 $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Fail));
         else

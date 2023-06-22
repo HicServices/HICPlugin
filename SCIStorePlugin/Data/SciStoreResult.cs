@@ -55,7 +55,7 @@ public class SciStoreResult : IComparable
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
+        if (obj.GetType() != GetType()) return false;
         return Equals((SciStoreResult)obj);
     }
     protected bool Equals(SciStoreResult other)
@@ -120,7 +120,7 @@ public class SciStoreResult : IComparable
             return thisOrder - otherOrder;
 
         }
-        throw new Exception($"Can only compare {this.GetType().FullName} to other instances of itself");
+        throw new Exception($"Can only compare {GetType().FullName} to other instances of itself");
     }
 
 

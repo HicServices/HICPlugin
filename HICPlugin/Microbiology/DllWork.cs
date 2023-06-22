@@ -502,7 +502,7 @@ public class MicroBiologyFileReader
 
             lab.Comments = lab.Comments.Trim();
 
-            //dont put in hundreds of empty spaces
+            //don't put in hundreds of empty spaces
             if (string.IsNullOrWhiteSpace(lab.Comments))
                 lab.Comments = null;
 
@@ -527,12 +527,10 @@ public class MicroBiologyFileReader
     {
         var toReturn = TrimOrNullify(readLine);
 
-        DateTime dateTime;
-
         if (toReturn == null)
             return null;
 
-        if (DateTime.TryParse(toReturn, out dateTime))
+        if (DateTime.TryParse(toReturn, out var dateTime))
             return dateTime;
            
         return null;
@@ -540,9 +538,7 @@ public class MicroBiologyFileReader
 
     private string TrimOrNullify(string readLine)
     {
-        if (string.IsNullOrWhiteSpace(readLine))
-            return null;
-        return readLine.Trim();
+        return string.IsNullOrWhiteSpace(readLine) ? null : readLine.Trim();
     }
 
        
@@ -592,34 +588,23 @@ public class MicroBiologyFileReader
         return lines.ToArray();
     }
 
-    /*
-    bool is_date(string st)
+    private bool is_date(string st)
     {
-       if (st.Length == 0) return false;
-       return st.IndexOf('/') != -1 && char.IsDigit(st[0]);
-    }
-     */
-
-    bool is_date(string st)
-    {
-        DateTime whoCares;
-        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out whoCares);
+        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out _);
     }
 
 
 
-    private const string specimenRegexPattern = @"^\s*\d{2}[A-Za-z]";
+    private static readonly Regex specimenRegex = new(@"^\s*\d{2}[A-Za-z]");
        
     bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetterLawl(string st)
     {
-        return st != null && Regex.IsMatch(st.Trim(), specimenRegexPattern);
+        return st != null && specimenRegex.IsMatch(st.Trim());
     }
     public string GetSpecimenNo(TextReader tr)
     {
-        string currentLine = null;
-           
         //while there are more lines to read
-        while ((currentLine = tr.ReadLine()) != null)
+        while (tr.ReadLine() is { } currentLine)
         {
             //if line starts with optional whitespace followed by 2 digits and then a character
             if (Regex.IsMatch(currentLine,specimenRegexPattern))

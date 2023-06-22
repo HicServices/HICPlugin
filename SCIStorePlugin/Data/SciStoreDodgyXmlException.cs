@@ -11,12 +11,12 @@ public class SciStoreDodgyXmlException : Exception
     }
     public SciStoreDodgyXmlException(string message, string labNumber): base(message)
     {
-        this.LabNumber = labNumber;
+        LabNumber = labNumber;
     }
 
     public SciStoreDodgyXmlException( string message,string labNumber, Exception e) : base(message,e)
     {
-        this.LabNumber = labNumber;
+        LabNumber = labNumber;
     }
 
     public override string ToString()

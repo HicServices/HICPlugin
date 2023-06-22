@@ -78,8 +78,7 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
 
         var zipArchivePath = _layout.GetArchiveFileInfoForDate(archiveDate,listener).FullName;
             
-        if(!_xmlFileCountWrittenToEachZipFile.ContainsKey(zipArchivePath))
-            _xmlFileCountWrittenToEachZipFile.Add(zipArchivePath,0);
+        _xmlFileCountWrittenToEachZipFile.TryAdd(zipArchivePath, 0);
             
         var sw = new Stopwatch();
         sw.Start();

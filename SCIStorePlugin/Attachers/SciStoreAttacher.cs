@@ -52,7 +52,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         var destRepo = new SciStoreDataTableRepository(dataTableSchemaSource);
         destRepo.InsertionError += (sender, e, query) => job.OnNotify(sender,
             new NotifyEventArgs(ProgressEventType.Warning,
-                $"Received InsertionError from {typeof(SciStoreDbRepository).Name} {e}{Environment.NewLine}Query: {query}", e));
+                $"Received InsertionError from {nameof(SciStoreDbRepository)} {e}{Environment.NewLine}Query: {query}", e));
 
         try
         {
@@ -119,7 +119,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         catch (Exception e)
         {
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error,
-                $"{typeof(SciStoreAttacher).Name}.Attach() failed ", e));
+                $"{nameof(SciStoreAttacher)}.Attach() failed ", e));
             return ExitCodeType.Error;
         }
 

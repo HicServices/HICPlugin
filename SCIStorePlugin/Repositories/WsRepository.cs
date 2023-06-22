@@ -4,7 +4,7 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 
 namespace SCIStorePlugin.Repositories;
 
-abstract public class WsRepository<T> : IRepository<T>
+public abstract class WsRepository<T> : IRepository<T>
 {
     protected readonly WebServiceConfiguration WsConfig;
         

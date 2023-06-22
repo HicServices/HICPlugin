@@ -103,7 +103,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             catch (Exception e)
             {
                 throw new Exception(
-                    $"Exception thrown by {typeof(MicroBiologyFileReader).Name} on line:{r.LineNumber} of file:'{r.FileName}' see InnerException for specifics", e);
+                    $"Exception thrown by {nameof(MicroBiologyFileReader)} on line:{r.LineNumber} of file:'{r.FileName}' see InnerException for specifics", e);
             }
 
             job.OnProgress(this, new ProgressEventArgs("Load Microbiology results into memory", new ProgressMeasurement(recordCount, ProgressType.Records), sw.Elapsed));
@@ -170,8 +170,8 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
                 dataRow[property.Name] = DBNull.Value;
             else
             {
-                if(o is string && _lengthsDictionary.ContainsKey(property))
-                    if(_lengthsDictionary[property] < ((string)o).Length)
+                if(o is string s && _lengthsDictionary.TryGetValue(property, out var value))
+                    if(value < s.Length)
                         throw new Exception(
                             $"Value '{o}' is too long for column {property.Name} when processing result of type {result.GetType().Name}");
 

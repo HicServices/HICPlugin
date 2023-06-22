@@ -21,14 +21,14 @@ class RepositoryTests
     [Test]
     public void DeserialisationOfXMLInterferingWithFloats()
     {
-        var memoryRepository = new Moq.Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
+        var memoryRepository = new Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
         Validator.LocatorForXMLDeserialization = memoryRepository;
 
         var deserializer = new CombinedReportXmlDeserializer();
 
         var data = deserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
-        var readCodeConstraint = new Moq.Mock<ReferentialIntegrityConstraint>();
+        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
         var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>
         {
             var codeString = (string) code;

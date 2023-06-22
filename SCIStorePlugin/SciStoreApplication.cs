@@ -41,172 +41,172 @@ namespace SciStoreApplication.Properties
             // CODEGEN: Generating message contract since the operation Login is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:loginIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.LoginResponse Login(SciStoreApplication.scistore.v71.LoginRequest request);
+            LoginResponse Login(LoginRequest request);
 
             // CODEGEN: Generating message contract since the operation Logout is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:logoutIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.LogoutResponse Logout(SciStoreApplication.scistore.v71.LogoutRequest request);
+            LogoutResponse Logout(LogoutRequest request);
 
             // CODEGEN: Generating message contract since the operation GetNotifications is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getNotificationsIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetNotificationsResponse1 GetNotifications(SciStoreApplication.scistore.v71.GetNotificationsRequest request);
+            GetNotificationsResponse1 GetNotifications(GetNotificationsRequest request);
 
             // CODEGEN: Generating message contract since the operation DeleteSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:deleteSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.DeleteSubscriptionResponse DeleteSubscription(SciStoreApplication.scistore.v71.DeleteSubscriptionRequest request);
+            DeleteSubscriptionResponse DeleteSubscription(DeleteSubscriptionRequest request);
 
             // CODEGEN: Generating message contract since the operation UnSubscribeToStore is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unSubscribeToStoreIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse UnSubscribeToStore(SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest request);
+            UnSubscribeToStoreResponse UnSubscribeToStore(UnSubscribeToStoreRequest request);
 
             // CODEGEN: Generating message contract since the operation BreakGlass is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:breakGlassIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.BreakGlassResponse1 BreakGlass(SciStoreApplication.scistore.v71.BreakGlassRequest request);
+            BreakGlassResponse1 BreakGlass(BreakGlassRequest request);
 
             // CODEGEN: Generating message contract since the operation GetBreakGlassTypes is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getBreakGlassTypesIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 GetBreakGlassTypes(SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest request);
+            GetBreakGlassTypesResponse1 GetBreakGlassTypes(GetBreakGlassTypesRequest request);
 
             // CODEGEN: Generating message contract since the operation FindADT is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findADTIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindADTResponse1 FindADT(SciStoreApplication.scistore.v71.FindADTRequest request);
+            FindADTResponse1 FindADT(FindADTRequest request);
 
             // CODEGEN: Generating message contract since the operation GetADT is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getADTIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetADTResponse1 GetADT(SciStoreApplication.scistore.v71.GetADTRequest request);
+            GetADTResponse1 GetADT(GetADTRequest request);
 
             // CODEGEN: Generating message contract since the operation FindPatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindPatientResponse1 FindPatient(SciStoreApplication.scistore.v71.FindPatientRequest request);
+            FindPatientResponse1 FindPatient(FindPatientRequest request);
 
             // CODEGEN: Generating message contract since the operation GetPatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getPatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetPatientResponse1 GetPatient(SciStoreApplication.scistore.v71.GetPatientRequest request);
+            GetPatientResponse1 GetPatient(GetPatientRequest request);
 
             // CODEGEN: Generating message contract since the operation FindResult is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findResultIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindResultResponse1 FindResult(SciStoreApplication.scistore.v71.FindResultRequest request);
+            FindResultResponse1 FindResult(FindResultRequest request);
 
             // CODEGEN: Generating message contract since the operation GetResult is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getResultIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetResultResponse1 GetResult(SciStoreApplication.scistore.v71.GetResultRequest request);
+            GetResultResponse1 GetResult(GetResultRequest request);
 
             // CODEGEN: Generating message contract since the operation FindDocument is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findDocumentIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindDocumentResponse1 FindDocument(SciStoreApplication.scistore.v71.FindDocumentRequest request);
+            FindDocumentResponse1 FindDocument(FindDocumentRequest request);
 
             // CODEGEN: Generating message contract since the operation GetDocument is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetDocumentResponse1 GetDocument(SciStoreApplication.scistore.v71.GetDocumentRequest request);
+            GetDocumentResponse1 GetDocument(GetDocumentRequest request);
 
             // CODEGEN: Generating message contract since the operation GetDocumentStylesheet is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentStylesheetIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 GetDocumentStylesheet(SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest request);
+            GetDocumentStylesheetResponse1 GetDocumentStylesheet(GetDocumentStylesheetRequest request);
 
             // CODEGEN: Generating message contract since the operation FindTreatmentLog is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findTreatmentLogIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 FindTreatmentLog(SciStoreApplication.scistore.v71.FindTreatmentLogRequest request);
+            FindTreatmentLogResponse1 FindTreatmentLog(FindTreatmentLogRequest request);
 
             // CODEGEN: Generating message contract since the operation GetTreatmentLog is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getTreatmentLogIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 GetTreatmentLog(SciStoreApplication.scistore.v71.GetTreatmentLogRequest request);
+            GetTreatmentLogResponse1 GetTreatmentLog(GetTreatmentLogRequest request);
 
             // CODEGEN: Generating message contract since the operation FindMerge is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findMergeIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindMergeResponse1 FindMerge(SciStoreApplication.scistore.v71.FindMergeRequest request);
+            FindMergeResponse1 FindMerge(FindMergeRequest request);
 
             // CODEGEN: Generating message contract since the operation MergePatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:mergePatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MergePatientResponse MergePatient(SciStoreApplication.scistore.v71.MergePatientRequest request);
+            MergePatientResponse MergePatient(MergePatientRequest request);
 
             // CODEGEN: Generating message contract since the operation UnMergePatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unMergePatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.UnMergePatientResponse UnMergePatient(SciStoreApplication.scistore.v71.UnMergePatientRequest request);
+            UnMergePatientResponse UnMergePatient(UnMergePatientRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueueCount is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueCountIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueueCountResponse1 MessageQueueCount(SciStoreApplication.scistore.v71.MessageQueueCountRequest request);
+            MessageQueueCountResponse1 MessageQueueCount(MessageQueueCountRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueueDelete is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueDeleteIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 MessageQueueDelete(SciStoreApplication.scistore.v71.MessageQueueDeleteRequest request);
+            MessageQueueDeleteResponse1 MessageQueueDelete(MessageQueueDeleteRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueuePeek is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueuePeekIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 MessageQueuePeek(SciStoreApplication.scistore.v71.MessageQueuePeekRequest request);
+            MessageQueuePeekResponse1 MessageQueuePeek(MessageQueuePeekRequest request);
 
             // CODEGEN: Generating message contract since the operation FindHCP is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findHCPIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindHCPResponse1 FindHCP(SciStoreApplication.scistore.v71.FindHCPRequest request);
+            FindHCPResponse1 FindHCP(FindHCPRequest request);
 
             // CODEGEN: Generating message contract since the operation FindOrganisation is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findOrganisationIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindOrganisationResponse1 FindOrganisation(SciStoreApplication.scistore.v71.FindOrganisationRequest request);
+            FindOrganisationResponse1 FindOrganisation(FindOrganisationRequest request);
 
             // CODEGEN: Generating message contract since the operation GetWebTimeout is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getWebTimeoutIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 GetWebTimeout(SciStoreApplication.scistore.v71.GetWebTimeoutRequest request);
+            GetWebTimeoutResponse1 GetWebTimeout(GetWebTimeoutRequest request);
 
             // CODEGEN: Generating message contract since the operation GetInterfaceStatus is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getInterfaceStatusIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 GetInterfaceStatus(SciStoreApplication.scistore.v71.GetInterfaceStatusRequest request);
+            GetInterfaceStatusResponse1 GetInterfaceStatus(GetInterfaceStatusRequest request);
 
             // CODEGEN: Generating message contract since the operation FindBreakGlassAudit is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findBreakGlassAuditIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 FindBreakGlassAudit(SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest request);
+            FindBreakGlassAuditResponse1 FindBreakGlassAudit(FindBreakGlassAuditRequest request);
 
             // CODEGEN: Generating message contract since the operation FindPatientConsentAudit is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientConsentAuditIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 FindPatientConsentAudit(SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest request);
+            FindPatientConsentAuditResponse1 FindPatientConsentAudit(FindPatientConsentAuditRequest request);
 
             // CODEGEN: Generating message contract since the operation GetCumulativeReport is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getCumulativeReportIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 GetCumulativeReport(SciStoreApplication.scistore.v71.GetCumulativeReportRequest request);
+            GetCumulativeReportResponse1 GetCumulativeReport(GetCumulativeReportRequest request);
 
             // CODEGEN: Generating message contract since the operation FindSubscriptions is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findSubscriptionsIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 FindSubscriptions(SciStoreApplication.scistore.v71.FindSubscriptionsRequest request);
+            FindSubscriptionsResponse1 FindSubscriptions(FindSubscriptionsRequest request);
 
             // CODEGEN: Generating message contract since the operation AddSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:addSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.AddSubscriptionResponse1 AddSubscription(SciStoreApplication.scistore.v71.AddSubscriptionRequest request);
+            AddSubscriptionResponse1 AddSubscription(AddSubscriptionRequest request);
 
             // CODEGEN: Generating message contract since the operation AmendSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:amendSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.AmendSubscriptionResponse AmendSubscription(SciStoreApplication.scistore.v71.AmendSubscriptionRequest request);
+            AmendSubscriptionResponse AmendSubscription(AmendSubscriptionRequest request);
         }
 
         /// <remarks/>
@@ -230,12 +230,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.usernameField;
+                    return usernameField;
                 }
                 set
                 {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("Username");
+                    usernameField = value;
+                    RaisePropertyChanged("Username");
                 }
             }
 
@@ -245,12 +245,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.passwordField;
+                    return passwordField;
                 }
                 set
                 {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("Password");
+                    passwordField = value;
+                    RaisePropertyChanged("Password");
                 }
             }
 
@@ -260,12 +260,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -273,7 +273,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -302,12 +302,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionFieldField;
+                    return subscriptionFieldField;
                 }
                 set
                 {
-                    this.subscriptionFieldField = value;
-                    this.RaisePropertyChanged("SubscriptionField");
+                    subscriptionFieldField = value;
+                    RaisePropertyChanged("SubscriptionField");
                 }
             }
 
@@ -317,12 +317,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionValueField;
+                    return subscriptionValueField;
                 }
                 set
                 {
-                    this.subscriptionValueField = value;
-                    this.RaisePropertyChanged("SubscriptionValue");
+                    subscriptionValueField = value;
+                    RaisePropertyChanged("SubscriptionValue");
                 }
             }
 
@@ -332,12 +332,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -345,7 +345,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -376,12 +376,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionIDField;
+                    return subscriptionIDField;
                 }
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -391,12 +391,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionTypeField;
+                    return subscriptionTypeField;
                 }
                 set
                 {
-                    this.subscriptionTypeField = value;
-                    this.RaisePropertyChanged("SubscriptionType");
+                    subscriptionTypeField = value;
+                    RaisePropertyChanged("SubscriptionType");
                 }
             }
 
@@ -407,12 +407,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionFieldListField;
+                    return subscriptionFieldListField;
                 }
                 set
                 {
-                    this.subscriptionFieldListField = value;
-                    this.RaisePropertyChanged("SubscriptionFieldList");
+                    subscriptionFieldListField = value;
+                    RaisePropertyChanged("SubscriptionFieldList");
                 }
             }
 
@@ -422,12 +422,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -435,7 +435,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -470,12 +470,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultSetIDField;
+                    return resultSetIDField;
                 }
                 set
                 {
-                    this.resultSetIDField = value;
-                    this.RaisePropertyChanged("ResultSetID");
+                    resultSetIDField = value;
+                    RaisePropertyChanged("ResultSetID");
                 }
             }
 
@@ -485,12 +485,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateField;
+                    return reportDateField;
                 }
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -500,12 +500,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultField;
+                    return testResultField;
                 }
                 set
                 {
-                    this.testResultField = value;
-                    this.RaisePropertyChanged("TestResult");
+                    testResultField = value;
+                    RaisePropertyChanged("TestResult");
                 }
             }
 
@@ -515,12 +515,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hasCommentsField;
+                    return hasCommentsField;
                 }
                 set
                 {
-                    this.hasCommentsField = value;
-                    this.RaisePropertyChanged("HasComments");
+                    hasCommentsField = value;
+                    RaisePropertyChanged("HasComments");
                 }
             }
 
@@ -530,12 +530,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultAbnormalField;
+                    return resultAbnormalField;
                 }
                 set
                 {
-                    this.resultAbnormalField = value;
-                    this.RaisePropertyChanged("ResultAbnormal");
+                    resultAbnormalField = value;
+                    RaisePropertyChanged("ResultAbnormal");
                 }
             }
 
@@ -545,12 +545,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -558,7 +558,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -595,12 +595,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -610,12 +610,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.measurementIntervalField;
+                    return measurementIntervalField;
                 }
                 set
                 {
-                    this.measurementIntervalField = value;
-                    this.RaisePropertyChanged("MeasurementInterval");
+                    measurementIntervalField = value;
+                    RaisePropertyChanged("MeasurementInterval");
                 }
             }
 
@@ -625,12 +625,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referenceLimitField;
+                    return referenceLimitField;
                 }
                 set
                 {
-                    this.referenceLimitField = value;
-                    this.RaisePropertyChanged("ReferenceLimit");
+                    referenceLimitField = value;
+                    RaisePropertyChanged("ReferenceLimit");
                 }
             }
 
@@ -640,12 +640,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.deviatingResultQuantitativeFlagField;
+                    return deviatingResultQuantitativeFlagField;
                 }
                 set
                 {
-                    this.deviatingResultQuantitativeFlagField = value;
-                    this.RaisePropertyChanged("DeviatingResultQuantitativeFlag");
+                    deviatingResultQuantitativeFlagField = value;
+                    RaisePropertyChanged("DeviatingResultQuantitativeFlag");
                 }
             }
 
@@ -655,12 +655,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -668,7 +668,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -697,12 +697,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeValueField;
+                    return clinicalCodeValueField;
                 }
                 set
                 {
-                    this.clinicalCodeValueField = value;
-                    this.RaisePropertyChanged("ClinicalCodeValue");
+                    clinicalCodeValueField = value;
+                    RaisePropertyChanged("ClinicalCodeValue");
                 }
             }
 
@@ -712,12 +712,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeSchemeField;
+                    return clinicalCodeSchemeField;
                 }
                 set
                 {
-                    this.clinicalCodeSchemeField = value;
-                    this.RaisePropertyChanged("ClinicalCodeScheme");
+                    clinicalCodeSchemeField = value;
+                    RaisePropertyChanged("ClinicalCodeScheme");
                 }
             }
 
@@ -727,12 +727,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeSelectedTermField;
+                    return clinicalCodeSelectedTermField;
                 }
                 set
                 {
-                    this.clinicalCodeSelectedTermField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSelectedTerm");
+                    clinicalCodeSelectedTermField = value;
+                    RaisePropertyChanged("ClinicalCodeSelectedTerm");
                 }
             }
 
@@ -740,7 +740,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -767,12 +767,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeSchemeVersionField;
+                    return clinicalCodeSchemeVersionField;
                 }
                 set
                 {
-                    this.clinicalCodeSchemeVersionField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSchemeVersion");
+                    clinicalCodeSchemeVersionField = value;
+                    RaisePropertyChanged("ClinicalCodeSchemeVersion");
                 }
             }
 
@@ -782,12 +782,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeSchemeIdField;
+                    return clinicalCodeSchemeIdField;
                 }
                 set
                 {
-                    this.clinicalCodeSchemeIdField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSchemeId");
+                    clinicalCodeSchemeIdField = value;
+                    RaisePropertyChanged("ClinicalCodeSchemeId");
                 }
             }
 
@@ -795,7 +795,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -822,12 +822,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultField;
+                    return resultField;
                 }
                 set
                 {
-                    this.resultField = value;
-                    this.RaisePropertyChanged("Result");
+                    resultField = value;
+                    RaisePropertyChanged("Result");
                 }
             }
 
@@ -837,12 +837,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arithmeticComparatorField;
+                    return arithmeticComparatorField;
                 }
                 set
                 {
-                    this.arithmeticComparatorField = value;
-                    this.RaisePropertyChanged("ArithmeticComparator");
+                    arithmeticComparatorField = value;
+                    RaisePropertyChanged("ArithmeticComparator");
                 }
             }
 
@@ -850,7 +850,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -877,12 +877,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.quantityValueField;
+                    return quantityValueField;
                 }
                 set
                 {
-                    this.quantityValueField = value;
-                    this.RaisePropertyChanged("QuantityValue");
+                    quantityValueField = value;
+                    RaisePropertyChanged("QuantityValue");
                 }
             }
 
@@ -892,12 +892,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.quantityUnitField;
+                    return quantityUnitField;
                 }
                 set
                 {
-                    this.quantityUnitField = value;
-                    this.RaisePropertyChanged("QuantityUnit");
+                    quantityUnitField = value;
+                    RaisePropertyChanged("QuantityUnit");
                 }
             }
 
@@ -905,7 +905,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -934,12 +934,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.rangeHighValueField;
+                    return rangeHighValueField;
                 }
                 set
                 {
-                    this.rangeHighValueField = value;
-                    this.RaisePropertyChanged("RangeHighValue");
+                    rangeHighValueField = value;
+                    RaisePropertyChanged("RangeHighValue");
                 }
             }
 
@@ -949,12 +949,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.rangeLowValueField;
+                    return rangeLowValueField;
                 }
                 set
                 {
-                    this.rangeLowValueField = value;
-                    this.RaisePropertyChanged("RangeLowValue");
+                    rangeLowValueField = value;
+                    RaisePropertyChanged("RangeLowValue");
                 }
             }
 
@@ -964,12 +964,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.rangeUnitField;
+                    return rangeUnitField;
                 }
                 set
                 {
-                    this.rangeUnitField = value;
-                    this.RaisePropertyChanged("RangeUnit");
+                    rangeUnitField = value;
+                    RaisePropertyChanged("RangeUnit");
                 }
             }
 
@@ -977,7 +977,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1004,12 +1004,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.timeValueField;
+                    return timeValueField;
                 }
                 set
                 {
-                    this.timeValueField = value;
-                    this.RaisePropertyChanged("TimeValue");
+                    timeValueField = value;
+                    RaisePropertyChanged("TimeValue");
                 }
             }
 
@@ -1019,12 +1019,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.timeUnitField;
+                    return timeUnitField;
                 }
                 set
                 {
-                    this.timeUnitField = value;
-                    this.RaisePropertyChanged("TimeUnit");
+                    timeUnitField = value;
+                    RaisePropertyChanged("TimeUnit");
                 }
             }
 
@@ -1032,7 +1032,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1066,12 +1066,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1081,12 +1081,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.abnormalReferenceLimitField;
+                    return abnormalReferenceLimitField;
                 }
                 set
                 {
-                    this.abnormalReferenceLimitField = value;
-                    this.RaisePropertyChanged("AbnormalReferenceLimit");
+                    abnormalReferenceLimitField = value;
+                    RaisePropertyChanged("AbnormalReferenceLimit");
                 }
             }
 
@@ -1096,12 +1096,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referenceLimitPopulationField;
+                    return referenceLimitPopulationField;
                 }
                 set
                 {
-                    this.referenceLimitPopulationField = value;
-                    this.RaisePropertyChanged("ReferenceLimitPopulation");
+                    referenceLimitPopulationField = value;
+                    RaisePropertyChanged("ReferenceLimitPopulation");
                 }
             }
 
@@ -1111,12 +1111,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentField;
+                    return commentField;
                 }
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -1126,12 +1126,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1139,7 +1139,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1165,12 +1165,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1178,7 +1178,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1215,12 +1215,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testNameField;
+                    return testNameField;
                 }
                 set
                 {
-                    this.testNameField = value;
-                    this.RaisePropertyChanged("TestName");
+                    testNameField = value;
+                    RaisePropertyChanged("TestName");
                 }
             }
 
@@ -1230,12 +1230,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testOrderField;
+                    return testOrderField;
                 }
                 set
                 {
-                    this.testOrderField = value;
-                    this.RaisePropertyChanged("TestOrder");
+                    testOrderField = value;
+                    RaisePropertyChanged("TestOrder");
                 }
             }
 
@@ -1245,12 +1245,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.rangeField;
+                    return rangeField;
                 }
                 set
                 {
-                    this.rangeField = value;
-                    this.RaisePropertyChanged("Range");
+                    rangeField = value;
+                    RaisePropertyChanged("Range");
                 }
             }
 
@@ -1260,12 +1260,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.rangeTextField;
+                    return rangeTextField;
                 }
                 set
                 {
-                    this.rangeTextField = value;
-                    this.RaisePropertyChanged("RangeText");
+                    rangeTextField = value;
+                    RaisePropertyChanged("RangeText");
                 }
             }
 
@@ -1275,12 +1275,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arithmeticComparatorField;
+                    return arithmeticComparatorField;
                 }
                 set
                 {
-                    this.arithmeticComparatorField = value;
-                    this.RaisePropertyChanged("ArithmeticComparator");
+                    arithmeticComparatorField = value;
+                    RaisePropertyChanged("ArithmeticComparator");
                 }
             }
 
@@ -1291,12 +1291,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultValuesField;
+                    return testResultValuesField;
                 }
                 set
                 {
-                    this.testResultValuesField = value;
-                    this.RaisePropertyChanged("TestResultValues");
+                    testResultValuesField = value;
+                    RaisePropertyChanged("TestResultValues");
                 }
             }
 
@@ -1306,12 +1306,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1319,7 +1319,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1345,12 +1345,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1358,7 +1358,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1385,12 +1385,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeField;
+                    return clinicalCodeField;
                 }
                 set
                 {
-                    this.clinicalCodeField = value;
-                    this.RaisePropertyChanged("ClinicalCode");
+                    clinicalCodeField = value;
+                    RaisePropertyChanged("ClinicalCode");
                 }
             }
 
@@ -1400,12 +1400,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalCodeDescriptionField;
+                    return clinicalCodeDescriptionField;
                 }
                 set
                 {
-                    this.clinicalCodeDescriptionField = value;
-                    this.RaisePropertyChanged("ClinicalCodeDescription");
+                    clinicalCodeDescriptionField = value;
+                    RaisePropertyChanged("ClinicalCodeDescription");
                 }
             }
 
@@ -1413,7 +1413,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1458,12 +1458,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultSetIDField;
+                    return resultSetIDField;
                 }
                 set
                 {
-                    this.resultSetIDField = value;
-                    this.RaisePropertyChanged("ResultSetID");
+                    resultSetIDField = value;
+                    RaisePropertyChanged("ResultSetID");
                 }
             }
 
@@ -1473,12 +1473,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testReportIDField;
+                    return testReportIDField;
                 }
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -1488,12 +1488,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleIDField;
+                    return sampleIDField;
                 }
                 set
                 {
-                    this.sampleIDField = value;
-                    this.RaisePropertyChanged("SampleID");
+                    sampleIDField = value;
+                    RaisePropertyChanged("SampleID");
                 }
             }
 
@@ -1503,12 +1503,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportIdentifierField;
+                    return reportIdentifierField;
                 }
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -1518,12 +1518,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateField;
+                    return reportDateField;
                 }
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -1533,12 +1533,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDateField;
+                    return sampleDateField;
                 }
                 set
                 {
-                    this.sampleDateField = value;
-                    this.RaisePropertyChanged("SampleDate");
+                    sampleDateField = value;
+                    RaisePropertyChanged("SampleDate");
                 }
             }
 
@@ -1548,12 +1548,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDateFieldSpecified;
+                    return sampleDateFieldSpecified;
                 }
                 set
                 {
-                    this.sampleDateFieldSpecified = value;
-                    this.RaisePropertyChanged("SampleDateSpecified");
+                    sampleDateFieldSpecified = value;
+                    RaisePropertyChanged("SampleDateSpecified");
                 }
             }
 
@@ -1563,12 +1563,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.setNameField;
+                    return setNameField;
                 }
                 set
                 {
-                    this.setNameField = value;
-                    this.RaisePropertyChanged("SetName");
+                    setNameField = value;
+                    RaisePropertyChanged("SetName");
                 }
             }
 
@@ -1578,12 +1578,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hasCommentsField;
+                    return hasCommentsField;
                 }
                 set
                 {
-                    this.hasCommentsField = value;
-                    this.RaisePropertyChanged("HasComments");
+                    hasCommentsField = value;
+                    RaisePropertyChanged("HasComments");
                 }
             }
 
@@ -1593,12 +1593,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusField;
+                    return statusField;
                 }
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -1608,12 +1608,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1621,7 +1621,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1650,12 +1650,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusTypeField;
+                    return statusTypeField;
                 }
                 set
                 {
-                    this.statusTypeField = value;
-                    this.RaisePropertyChanged("StatusType");
+                    statusTypeField = value;
+                    RaisePropertyChanged("StatusType");
                 }
             }
 
@@ -1665,12 +1665,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusDescriptionField;
+                    return statusDescriptionField;
                 }
                 set
                 {
-                    this.statusDescriptionField = value;
-                    this.RaisePropertyChanged("StatusDescription");
+                    statusDescriptionField = value;
+                    RaisePropertyChanged("StatusDescription");
                 }
             }
 
@@ -1680,12 +1680,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1693,7 +1693,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1756,12 +1756,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -1771,12 +1771,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.selectedSetCodeField;
+                    return selectedSetCodeField;
                 }
                 set
                 {
-                    this.selectedSetCodeField = value;
-                    this.RaisePropertyChanged("SelectedSetCode");
+                    selectedSetCodeField = value;
+                    RaisePropertyChanged("SelectedSetCode");
                 }
             }
 
@@ -1787,12 +1787,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultSetsField;
+                    return resultSetsField;
                 }
                 set
                 {
-                    this.resultSetsField = value;
-                    this.RaisePropertyChanged("ResultSets");
+                    resultSetsField = value;
+                    RaisePropertyChanged("ResultSets");
                 }
             }
 
@@ -1803,12 +1803,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultsField;
+                    return testResultsField;
                 }
                 set
                 {
-                    this.testResultsField = value;
-                    this.RaisePropertyChanged("TestResults");
+                    testResultsField = value;
+                    RaisePropertyChanged("TestResults");
                 }
             }
 
@@ -1818,12 +1818,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1831,7 +1831,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1866,12 +1866,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -1881,12 +1881,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.selectedSetCodeField;
+                    return selectedSetCodeField;
                 }
                 set
                 {
-                    this.selectedSetCodeField = value;
-                    this.RaisePropertyChanged("SelectedSetCode");
+                    selectedSetCodeField = value;
+                    RaisePropertyChanged("SelectedSetCode");
                 }
             }
 
@@ -1896,12 +1896,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateField;
+                    return reportDateField;
                 }
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -1911,12 +1911,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dataPointsField;
+                    return dataPointsField;
                 }
                 set
                 {
-                    this.dataPointsField = value;
-                    this.RaisePropertyChanged("DataPoints");
+                    dataPointsField = value;
+                    RaisePropertyChanged("DataPoints");
                 }
             }
 
@@ -1927,12 +1927,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -1942,12 +1942,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1955,7 +1955,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1982,12 +1982,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateFromField;
+                    return dateFromField;
                 }
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -1997,12 +1997,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateToField;
+                    return dateToField;
                 }
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -2010,7 +2010,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2043,12 +2043,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2058,12 +2058,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTokenField;
+                    return breakGlassTokenField;
                 }
                 set
                 {
-                    this.breakGlassTokenField = value;
-                    this.RaisePropertyChanged("BreakGlassToken");
+                    breakGlassTokenField = value;
+                    RaisePropertyChanged("BreakGlassToken");
                 }
             }
 
@@ -2073,12 +2073,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassExpiresField;
+                    return breakGlassExpiresField;
                 }
                 set
                 {
-                    this.breakGlassExpiresField = value;
-                    this.RaisePropertyChanged("BreakGlassExpires");
+                    breakGlassExpiresField = value;
+                    RaisePropertyChanged("BreakGlassExpires");
                 }
             }
 
@@ -2088,12 +2088,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassExpiresFieldSpecified;
+                    return breakGlassExpiresFieldSpecified;
                 }
                 set
                 {
-                    this.breakGlassExpiresFieldSpecified = value;
-                    this.RaisePropertyChanged("BreakGlassExpiresSpecified");
+                    breakGlassExpiresFieldSpecified = value;
+                    RaisePropertyChanged("BreakGlassExpiresSpecified");
                 }
             }
 
@@ -2103,12 +2103,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2116,7 +2116,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2147,12 +2147,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -2162,12 +2162,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentDetailsField;
+                    return consentDetailsField;
                 }
                 set
                 {
-                    this.consentDetailsField = value;
-                    this.RaisePropertyChanged("ConsentDetails");
+                    consentDetailsField = value;
+                    RaisePropertyChanged("ConsentDetails");
                 }
             }
 
@@ -2177,12 +2177,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userDetailsField;
+                    return userDetailsField;
                 }
                 set
                 {
-                    this.userDetailsField = value;
-                    this.RaisePropertyChanged("UserDetails");
+                    userDetailsField = value;
+                    RaisePropertyChanged("UserDetails");
                 }
             }
 
@@ -2192,12 +2192,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2205,7 +2205,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2230,12 +2230,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2243,7 +2243,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2272,12 +2272,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reasonField;
+                    return reasonField;
                 }
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -2287,12 +2287,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.updatedDateTimeField;
+                    return updatedDateTimeField;
                 }
                 set
                 {
-                    this.updatedDateTimeField = value;
-                    this.RaisePropertyChanged("UpdatedDateTime");
+                    updatedDateTimeField = value;
+                    RaisePropertyChanged("UpdatedDateTime");
                 }
             }
 
@@ -2302,12 +2302,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.newValueField;
+                    return newValueField;
                 }
                 set
                 {
-                    this.newValueField = value;
-                    this.RaisePropertyChanged("NewValue");
+                    newValueField = value;
+                    RaisePropertyChanged("NewValue");
                 }
             }
 
@@ -2315,7 +2315,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2346,12 +2346,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userNameField;
+                    return userNameField;
                 }
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -2361,12 +2361,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.friendlyNameField;
+                    return friendlyNameField;
                 }
                 set
                 {
-                    this.friendlyNameField = value;
-                    this.RaisePropertyChanged("FriendlyName");
+                    friendlyNameField = value;
+                    RaisePropertyChanged("FriendlyName");
                 }
             }
 
@@ -2376,12 +2376,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemCodeField;
+                    return systemCodeField;
                 }
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -2391,12 +2391,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemLocationField;
+                    return systemLocationField;
                 }
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -2404,7 +2404,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2435,12 +2435,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2450,12 +2450,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateRangeField;
+                    return dateRangeField;
                 }
                 set
                 {
-                    this.dateRangeField = value;
-                    this.RaisePropertyChanged("DateRange");
+                    dateRangeField = value;
+                    RaisePropertyChanged("DateRange");
                 }
             }
 
@@ -2465,12 +2465,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userField;
+                    return userField;
                 }
                 set
                 {
-                    this.userField = value;
-                    this.RaisePropertyChanged("User");
+                    userField = value;
+                    RaisePropertyChanged("User");
                 }
             }
 
@@ -2480,12 +2480,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2493,7 +2493,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2524,12 +2524,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateFromField;
+                    return dateFromField;
                 }
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -2539,12 +2539,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateFromFieldSpecified;
+                    return dateFromFieldSpecified;
                 }
                 set
                 {
-                    this.dateFromFieldSpecified = value;
-                    this.RaisePropertyChanged("DateFromSpecified");
+                    dateFromFieldSpecified = value;
+                    RaisePropertyChanged("DateFromSpecified");
                 }
             }
 
@@ -2554,12 +2554,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateToField;
+                    return dateToField;
                 }
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -2569,12 +2569,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateToFieldSpecified;
+                    return dateToFieldSpecified;
                 }
                 set
                 {
-                    this.dateToFieldSpecified = value;
-                    this.RaisePropertyChanged("DateToSpecified");
+                    dateToFieldSpecified = value;
+                    RaisePropertyChanged("DateToSpecified");
                 }
             }
 
@@ -2582,7 +2582,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2611,12 +2611,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userNameField;
+                    return userNameField;
                 }
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -2626,12 +2626,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemCodeField;
+                    return systemCodeField;
                 }
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -2641,12 +2641,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemLocationField;
+                    return systemLocationField;
                 }
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -2654,7 +2654,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2687,12 +2687,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -2702,12 +2702,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassDetailsField;
+                    return breakGlassDetailsField;
                 }
                 set
                 {
-                    this.breakGlassDetailsField = value;
-                    this.RaisePropertyChanged("BreakGlassDetails");
+                    breakGlassDetailsField = value;
+                    RaisePropertyChanged("BreakGlassDetails");
                 }
             }
 
@@ -2717,12 +2717,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypeField;
+                    return breakGlassTypeField;
                 }
                 set
                 {
-                    this.breakGlassTypeField = value;
-                    this.RaisePropertyChanged("BreakGlassType");
+                    breakGlassTypeField = value;
+                    RaisePropertyChanged("BreakGlassType");
                 }
             }
 
@@ -2732,12 +2732,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userDetailsField;
+                    return userDetailsField;
                 }
                 set
                 {
-                    this.userDetailsField = value;
-                    this.RaisePropertyChanged("UserDetails");
+                    userDetailsField = value;
+                    RaisePropertyChanged("UserDetails");
                 }
             }
 
@@ -2747,12 +2747,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2760,7 +2760,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2791,12 +2791,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2806,12 +2806,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cHIField;
+                    return cHIField;
                 }
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -2821,12 +2821,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -2836,12 +2836,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -2849,7 +2849,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2876,12 +2876,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reasonField;
+                    return reasonField;
                 }
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -2891,12 +2891,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassDateTimeField;
+                    return breakGlassDateTimeField;
                 }
                 set
                 {
-                    this.breakGlassDateTimeField = value;
-                    this.RaisePropertyChanged("BreakGlassDateTime");
+                    breakGlassDateTimeField = value;
+                    RaisePropertyChanged("BreakGlassDateTime");
                 }
             }
 
@@ -2904,7 +2904,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2935,12 +2935,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypeIDField;
+                    return breakGlassTypeIDField;
                 }
                 set
                 {
-                    this.breakGlassTypeIDField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeID");
+                    breakGlassTypeIDField = value;
+                    RaisePropertyChanged("BreakGlassTypeID");
                 }
             }
 
@@ -2950,12 +2950,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypeCodeField;
+                    return breakGlassTypeCodeField;
                 }
                 set
                 {
-                    this.breakGlassTypeCodeField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeCode");
+                    breakGlassTypeCodeField = value;
+                    RaisePropertyChanged("BreakGlassTypeCode");
                 }
             }
 
@@ -2965,12 +2965,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypeDescriptionField;
+                    return breakGlassTypeDescriptionField;
                 }
                 set
                 {
-                    this.breakGlassTypeDescriptionField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeDescription");
+                    breakGlassTypeDescriptionField = value;
+                    RaisePropertyChanged("BreakGlassTypeDescription");
                 }
             }
 
@@ -2980,12 +2980,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2993,7 +2993,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3026,12 +3026,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -3041,12 +3041,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateRangeField;
+                    return dateRangeField;
                 }
                 set
                 {
-                    this.dateRangeField = value;
-                    this.RaisePropertyChanged("DateRange");
+                    dateRangeField = value;
+                    RaisePropertyChanged("DateRange");
                 }
             }
 
@@ -3056,12 +3056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userField;
+                    return userField;
                 }
                 set
                 {
-                    this.userField = value;
-                    this.RaisePropertyChanged("User");
+                    userField = value;
+                    RaisePropertyChanged("User");
                 }
             }
 
@@ -3071,12 +3071,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.typeCodeField;
+                    return typeCodeField;
                 }
                 set
                 {
-                    this.typeCodeField = value;
-                    this.RaisePropertyChanged("TypeCode");
+                    typeCodeField = value;
+                    RaisePropertyChanged("TypeCode");
                 }
             }
 
@@ -3086,12 +3086,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3099,7 +3099,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3134,12 +3134,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceIDField;
+                    return serviceIDField;
                 }
                 set
                 {
-                    this.serviceIDField = value;
-                    this.RaisePropertyChanged("ServiceID");
+                    serviceIDField = value;
+                    RaisePropertyChanged("ServiceID");
                 }
             }
 
@@ -3149,12 +3149,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceNameField;
+                    return serviceNameField;
                 }
                 set
                 {
-                    this.serviceNameField = value;
-                    this.RaisePropertyChanged("ServiceName");
+                    serviceNameField = value;
+                    RaisePropertyChanged("ServiceName");
                 }
             }
 
@@ -3164,12 +3164,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messagesReceivedField;
+                    return messagesReceivedField;
                 }
                 set
                 {
-                    this.messagesReceivedField = value;
-                    this.RaisePropertyChanged("MessagesReceived");
+                    messagesReceivedField = value;
+                    RaisePropertyChanged("MessagesReceived");
                 }
             }
 
@@ -3179,12 +3179,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.minutesField;
+                    return minutesField;
                 }
                 set
                 {
-                    this.minutesField = value;
-                    this.RaisePropertyChanged("Minutes");
+                    minutesField = value;
+                    RaisePropertyChanged("Minutes");
                 }
             }
 
@@ -3194,12 +3194,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusField;
+                    return statusField;
                 }
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -3209,12 +3209,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3222,7 +3222,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3251,12 +3251,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.redLimitField;
+                    return redLimitField;
                 }
                 set
                 {
-                    this.redLimitField = value;
-                    this.RaisePropertyChanged("RedLimit");
+                    redLimitField = value;
+                    RaisePropertyChanged("RedLimit");
                 }
             }
 
@@ -3266,12 +3266,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.amberLimitField;
+                    return amberLimitField;
                 }
                 set
                 {
-                    this.amberLimitField = value;
-                    this.RaisePropertyChanged("AmberLimit");
+                    amberLimitField = value;
+                    RaisePropertyChanged("AmberLimit");
                 }
             }
 
@@ -3281,12 +3281,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3294,7 +3294,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3321,12 +3321,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationIDField;
+                    return organisationIDField;
                 }
                 set
                 {
-                    this.organisationIDField = value;
-                    this.RaisePropertyChanged("OrganisationID");
+                    organisationIDField = value;
+                    RaisePropertyChanged("OrganisationID");
                 }
             }
 
@@ -3336,12 +3336,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationDetailsField;
+                    return organisationDetailsField;
                 }
                 set
                 {
-                    this.organisationDetailsField = value;
-                    this.RaisePropertyChanged("OrganisationDetails");
+                    organisationDetailsField = value;
+                    RaisePropertyChanged("OrganisationDetails");
                 }
             }
 
@@ -3349,7 +3349,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3384,12 +3384,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationIdField;
+                    return organisationIdField;
                 }
                 set
                 {
-                    this.organisationIdField = value;
-                    this.RaisePropertyChanged("OrganisationId");
+                    organisationIdField = value;
+                    RaisePropertyChanged("OrganisationId");
                 }
             }
 
@@ -3399,12 +3399,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationNameField;
+                    return organisationNameField;
                 }
                 set
                 {
-                    this.organisationNameField = value;
-                    this.RaisePropertyChanged("OrganisationName");
+                    organisationNameField = value;
+                    RaisePropertyChanged("OrganisationName");
                 }
             }
 
@@ -3414,12 +3414,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationTypeField;
+                    return organisationTypeField;
                 }
                 set
                 {
-                    this.organisationTypeField = value;
-                    this.RaisePropertyChanged("OrganisationType");
+                    organisationTypeField = value;
+                    RaisePropertyChanged("OrganisationType");
                 }
             }
 
@@ -3429,12 +3429,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationAddressField;
+                    return organisationAddressField;
                 }
                 set
                 {
-                    this.organisationAddressField = value;
-                    this.RaisePropertyChanged("OrganisationAddress");
+                    organisationAddressField = value;
+                    RaisePropertyChanged("OrganisationAddress");
                 }
             }
 
@@ -3444,12 +3444,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationTelecomField;
+                    return organisationTelecomField;
                 }
                 set
                 {
-                    this.organisationTelecomField = value;
-                    this.RaisePropertyChanged("OrganisationTelecom");
+                    organisationTelecomField = value;
+                    RaisePropertyChanged("OrganisationTelecom");
                 }
             }
 
@@ -3459,12 +3459,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3472,7 +3472,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3503,12 +3503,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idValueField;
+                    return idValueField;
                 }
                 set
                 {
-                    this.idValueField = value;
-                    this.RaisePropertyChanged("IdValue");
+                    idValueField = value;
+                    RaisePropertyChanged("IdValue");
                 }
             }
 
@@ -3518,12 +3518,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idSchemeField;
+                    return idSchemeField;
                 }
                 set
                 {
-                    this.idSchemeField = value;
-                    this.RaisePropertyChanged("IdScheme");
+                    idSchemeField = value;
+                    RaisePropertyChanged("IdScheme");
                 }
             }
 
@@ -3533,12 +3533,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idTypeField;
+                    return idTypeField;
                 }
                 set
                 {
-                    this.idTypeField = value;
-                    this.RaisePropertyChanged("IdType");
+                    idTypeField = value;
+                    RaisePropertyChanged("IdType");
                 }
             }
 
@@ -3548,12 +3548,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idSourceField;
+                    return idSourceField;
                 }
                 set
                 {
-                    this.idSourceField = value;
-                    this.RaisePropertyChanged("IdSource");
+                    idSourceField = value;
+                    RaisePropertyChanged("IdSource");
                 }
             }
 
@@ -3561,7 +3561,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3597,12 +3597,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -3612,12 +3612,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postCodeField;
+                    return postCodeField;
                 }
                 set
                 {
-                    this.postCodeField = value;
-                    this.RaisePropertyChanged("PostCode");
+                    postCodeField = value;
+                    RaisePropertyChanged("PostCode");
                 }
             }
 
@@ -3627,12 +3627,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nonValidatedPostCodeField;
+                    return nonValidatedPostCodeField;
                 }
                 set
                 {
-                    this.nonValidatedPostCodeField = value;
-                    this.RaisePropertyChanged("NonValidatedPostCode");
+                    nonValidatedPostCodeField = value;
+                    RaisePropertyChanged("NonValidatedPostCode");
                 }
             }
 
@@ -3642,12 +3642,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressTypeField;
+                    return addressTypeField;
                 }
                 set
                 {
-                    this.addressTypeField = value;
-                    this.RaisePropertyChanged("AddressType");
+                    addressTypeField = value;
+                    RaisePropertyChanged("AddressType");
                 }
             }
 
@@ -3657,12 +3657,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressValidPeriodField;
+                    return addressValidPeriodField;
                 }
                 set
                 {
-                    this.addressValidPeriodField = value;
-                    this.RaisePropertyChanged("AddressValidPeriod");
+                    addressValidPeriodField = value;
+                    RaisePropertyChanged("AddressValidPeriod");
                 }
             }
 
@@ -3672,12 +3672,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3685,7 +3685,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3714,12 +3714,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.propertyNumberField;
+                    return propertyNumberField;
                 }
                 set
                 {
-                    this.propertyNumberField = value;
-                    this.RaisePropertyChanged("PropertyNumber");
+                    propertyNumberField = value;
+                    RaisePropertyChanged("PropertyNumber");
                 }
             }
 
@@ -3729,12 +3729,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressLineField;
+                    return addressLineField;
                 }
                 set
                 {
-                    this.addressLineField = value;
-                    this.RaisePropertyChanged("AddressLine");
+                    addressLineField = value;
+                    RaisePropertyChanged("AddressLine");
                 }
             }
 
@@ -3744,12 +3744,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3757,7 +3757,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3789,12 +3789,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -3804,12 +3804,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomTypeField;
+                    return telecomTypeField;
                 }
                 set
                 {
-                    this.telecomTypeField = value;
-                    this.RaisePropertyChanged("TelecomType");
+                    telecomTypeField = value;
+                    RaisePropertyChanged("TelecomType");
                 }
             }
 
@@ -3819,12 +3819,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomModeField;
+                    return telecomModeField;
                 }
                 set
                 {
-                    this.telecomModeField = value;
-                    this.RaisePropertyChanged("TelecomMode");
+                    telecomModeField = value;
+                    RaisePropertyChanged("TelecomMode");
                 }
             }
 
@@ -3834,12 +3834,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3847,7 +3847,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3880,12 +3880,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomCountryField;
+                    return telecomCountryField;
                 }
                 set
                 {
-                    this.telecomCountryField = value;
-                    this.RaisePropertyChanged("TelecomCountry");
+                    telecomCountryField = value;
+                    RaisePropertyChanged("TelecomCountry");
                 }
             }
 
@@ -3895,12 +3895,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomAreaField;
+                    return telecomAreaField;
                 }
                 set
                 {
-                    this.telecomAreaField = value;
-                    this.RaisePropertyChanged("TelecomArea");
+                    telecomAreaField = value;
+                    RaisePropertyChanged("TelecomArea");
                 }
             }
 
@@ -3910,12 +3910,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomNoField;
+                    return telecomNoField;
                 }
                 set
                 {
-                    this.telecomNoField = value;
-                    this.RaisePropertyChanged("TelecomNo");
+                    telecomNoField = value;
+                    RaisePropertyChanged("TelecomNo");
                 }
             }
 
@@ -3925,12 +3925,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomExtField;
+                    return telecomExtField;
                 }
                 set
                 {
-                    this.telecomExtField = value;
-                    this.RaisePropertyChanged("TelecomExt");
+                    telecomExtField = value;
+                    RaisePropertyChanged("TelecomExt");
                 }
             }
 
@@ -3940,12 +3940,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3953,7 +3953,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3986,12 +3986,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationCodeField;
+                    return organisationCodeField;
                 }
                 set
                 {
-                    this.organisationCodeField = value;
-                    this.RaisePropertyChanged("OrganisationCode");
+                    organisationCodeField = value;
+                    RaisePropertyChanged("OrganisationCode");
                 }
             }
 
@@ -4001,12 +4001,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationIDField;
+                    return organisationIDField;
                 }
                 set
                 {
-                    this.organisationIDField = value;
-                    this.RaisePropertyChanged("OrganisationID");
+                    organisationIDField = value;
+                    RaisePropertyChanged("OrganisationID");
                 }
             }
 
@@ -4016,12 +4016,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationNameField;
+                    return organisationNameField;
                 }
                 set
                 {
-                    this.organisationNameField = value;
-                    this.RaisePropertyChanged("OrganisationName");
+                    organisationNameField = value;
+                    RaisePropertyChanged("OrganisationName");
                 }
             }
 
@@ -4031,12 +4031,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationTypeField;
+                    return organisationTypeField;
                 }
                 set
                 {
-                    this.organisationTypeField = value;
-                    this.RaisePropertyChanged("OrganisationType");
+                    organisationTypeField = value;
+                    RaisePropertyChanged("OrganisationType");
                 }
             }
 
@@ -4046,12 +4046,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4059,7 +4059,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4086,12 +4086,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hCPidField;
+                    return hCPidField;
                 }
                 set
                 {
-                    this.hCPidField = value;
-                    this.RaisePropertyChanged("HCPid");
+                    hCPidField = value;
+                    RaisePropertyChanged("HCPid");
                 }
             }
 
@@ -4101,12 +4101,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hCPdetailsField;
+                    return hCPdetailsField;
                 }
                 set
                 {
-                    this.hCPdetailsField = value;
-                    this.RaisePropertyChanged("HCPdetails");
+                    hCPdetailsField = value;
+                    RaisePropertyChanged("HCPdetails");
                 }
             }
 
@@ -4114,7 +4114,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4151,12 +4151,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hcpIdField;
+                    return hcpIdField;
                 }
                 set
                 {
-                    this.hcpIdField = value;
-                    this.RaisePropertyChanged("HcpId");
+                    hcpIdField = value;
+                    RaisePropertyChanged("HcpId");
                 }
             }
 
@@ -4166,12 +4166,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hcpNameField;
+                    return hcpNameField;
                 }
                 set
                 {
-                    this.hcpNameField = value;
-                    this.RaisePropertyChanged("HcpName");
+                    hcpNameField = value;
+                    RaisePropertyChanged("HcpName");
                 }
             }
 
@@ -4181,12 +4181,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.employingOrganisationField;
+                    return employingOrganisationField;
                 }
                 set
                 {
-                    this.employingOrganisationField = value;
-                    this.RaisePropertyChanged("EmployingOrganisation");
+                    employingOrganisationField = value;
+                    RaisePropertyChanged("EmployingOrganisation");
                 }
             }
 
@@ -4196,12 +4196,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hcpTelecomField;
+                    return hcpTelecomField;
                 }
                 set
                 {
-                    this.hcpTelecomField = value;
-                    this.RaisePropertyChanged("HcpTelecom");
+                    hcpTelecomField = value;
+                    RaisePropertyChanged("HcpTelecom");
                 }
             }
 
@@ -4211,12 +4211,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hcpSpecialtyField;
+                    return hcpSpecialtyField;
                 }
                 set
                 {
-                    this.hcpSpecialtyField = value;
-                    this.RaisePropertyChanged("HcpSpecialty");
+                    hcpSpecialtyField = value;
+                    RaisePropertyChanged("HcpSpecialty");
                 }
             }
 
@@ -4226,12 +4226,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.positionField;
+                    return positionField;
                 }
                 set
                 {
-                    this.positionField = value;
-                    this.RaisePropertyChanged("Position");
+                    positionField = value;
+                    RaisePropertyChanged("Position");
                 }
             }
 
@@ -4241,12 +4241,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4254,7 +4254,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4286,12 +4286,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -4301,12 +4301,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameTypeField;
+                    return nameTypeField;
                 }
                 set
                 {
-                    this.nameTypeField = value;
-                    this.RaisePropertyChanged("NameType");
+                    nameTypeField = value;
+                    RaisePropertyChanged("NameType");
                 }
             }
 
@@ -4316,12 +4316,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameValidPeriodField;
+                    return nameValidPeriodField;
                 }
                 set
                 {
-                    this.nameValidPeriodField = value;
-                    this.RaisePropertyChanged("NameValidPeriod");
+                    nameValidPeriodField = value;
+                    RaisePropertyChanged("NameValidPeriod");
                 }
             }
 
@@ -4331,12 +4331,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4344,7 +4344,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4377,12 +4377,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.titleField;
+                    return titleField;
                 }
                 set
                 {
-                    this.titleField = value;
-                    this.RaisePropertyChanged("Title");
+                    titleField = value;
+                    RaisePropertyChanged("Title");
                 }
             }
 
@@ -4392,12 +4392,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.givenNameField;
+                    return givenNameField;
                 }
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -4407,12 +4407,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.middleNameField;
+                    return middleNameField;
                 }
                 set
                 {
-                    this.middleNameField = value;
-                    this.RaisePropertyChanged("MiddleName");
+                    middleNameField = value;
+                    RaisePropertyChanged("MiddleName");
                 }
             }
 
@@ -4422,12 +4422,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.familyNameField;
+                    return familyNameField;
                 }
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -4437,12 +4437,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4450,7 +4450,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4477,12 +4477,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.specialtyNameField;
+                    return specialtyNameField;
                 }
                 set
                 {
-                    this.specialtyNameField = value;
-                    this.RaisePropertyChanged("SpecialtyName");
+                    specialtyNameField = value;
+                    RaisePropertyChanged("SpecialtyName");
                 }
             }
 
@@ -4492,12 +4492,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.specialtyCodeField;
+                    return specialtyCodeField;
                 }
                 set
                 {
-                    this.specialtyCodeField = value;
-                    this.RaisePropertyChanged("SpecialtyCode");
+                    specialtyCodeField = value;
+                    RaisePropertyChanged("SpecialtyCode");
                 }
             }
 
@@ -4505,7 +4505,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4538,12 +4538,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hCPcodeField;
+                    return hCPcodeField;
                 }
                 set
                 {
-                    this.hCPcodeField = value;
-                    this.RaisePropertyChanged("HCPcode");
+                    hCPcodeField = value;
+                    RaisePropertyChanged("HCPcode");
                 }
             }
 
@@ -4553,12 +4553,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hCPidField;
+                    return hCPidField;
                 }
                 set
                 {
-                    this.hCPidField = value;
-                    this.RaisePropertyChanged("HCPid");
+                    hCPidField = value;
+                    RaisePropertyChanged("HCPid");
                 }
             }
 
@@ -4568,12 +4568,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -4583,12 +4583,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.positionField;
+                    return positionField;
                 }
                 set
                 {
-                    this.positionField = value;
-                    this.RaisePropertyChanged("Position");
+                    positionField = value;
+                    RaisePropertyChanged("Position");
                 }
             }
 
@@ -4598,12 +4598,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4611,7 +4611,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4638,12 +4638,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -4653,12 +4653,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4666,7 +4666,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4709,12 +4709,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.primaryPatientIDField;
+                    return primaryPatientIDField;
                 }
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -4724,12 +4724,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.secondaryPatientIDField;
+                    return secondaryPatientIDField;
                 }
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -4739,12 +4739,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cHIField;
+                    return cHIField;
                 }
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -4754,12 +4754,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.familyNameField;
+                    return familyNameField;
                 }
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -4769,12 +4769,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.givenNameField;
+                    return givenNameField;
                 }
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -4784,12 +4784,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sexField;
+                    return sexField;
                 }
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -4799,12 +4799,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -4814,12 +4814,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -4829,12 +4829,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.unmergeField;
+                    return unmergeField;
                 }
                 set
                 {
-                    this.unmergeField = value;
-                    this.RaisePropertyChanged("Unmerge");
+                    unmergeField = value;
+                    RaisePropertyChanged("Unmerge");
                 }
             }
 
@@ -4844,12 +4844,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4857,7 +4857,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4898,12 +4898,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralToTreatClockField;
+                    return referralToTreatClockField;
                 }
                 set
                 {
-                    this.referralToTreatClockField = value;
-                    this.RaisePropertyChanged("ReferralToTreatClock");
+                    referralToTreatClockField = value;
+                    RaisePropertyChanged("ReferralToTreatClock");
                 }
             }
 
@@ -4913,12 +4913,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4926,7 +4926,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4957,12 +4957,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.startDateField;
+                    return startDateField;
                 }
                 set
                 {
-                    this.startDateField = value;
-                    this.RaisePropertyChanged("StartDate");
+                    startDateField = value;
+                    RaisePropertyChanged("StartDate");
                 }
             }
 
@@ -4972,12 +4972,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.targetDateField;
+                    return targetDateField;
                 }
                 set
                 {
-                    this.targetDateField = value;
-                    this.RaisePropertyChanged("TargetDate");
+                    targetDateField = value;
+                    RaisePropertyChanged("TargetDate");
                 }
             }
 
@@ -4987,12 +4987,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusField;
+                    return statusField;
                 }
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -5002,12 +5002,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5015,7 +5015,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5042,12 +5042,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.codeDescriptionField;
+                    return codeDescriptionField;
                 }
                 set
                 {
-                    this.codeDescriptionField = value;
-                    this.RaisePropertyChanged("CodeDescription");
+                    codeDescriptionField = value;
+                    RaisePropertyChanged("CodeDescription");
                 }
             }
 
@@ -5057,12 +5057,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.codeValueField;
+                    return codeValueField;
                 }
                 set
                 {
-                    this.codeValueField = value;
-                    this.RaisePropertyChanged("CodeValue");
+                    codeValueField = value;
+                    RaisePropertyChanged("CodeValue");
                 }
             }
 
@@ -5070,7 +5070,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5105,12 +5105,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateClosedField;
+                    return dateClosedField;
                 }
                 set
                 {
-                    this.dateClosedField = value;
-                    this.RaisePropertyChanged("DateClosed");
+                    dateClosedField = value;
+                    RaisePropertyChanged("DateClosed");
                 }
             }
 
@@ -5120,12 +5120,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateClosedFieldSpecified;
+                    return dateClosedFieldSpecified;
                 }
                 set
                 {
-                    this.dateClosedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateClosedSpecified");
+                    dateClosedFieldSpecified = value;
+                    RaisePropertyChanged("DateClosedSpecified");
                 }
             }
 
@@ -5135,12 +5135,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attendanceStatusField;
+                    return attendanceStatusField;
                 }
                 set
                 {
-                    this.attendanceStatusField = value;
-                    this.RaisePropertyChanged("AttendanceStatus");
+                    attendanceStatusField = value;
+                    RaisePropertyChanged("AttendanceStatus");
                 }
             }
 
@@ -5150,12 +5150,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actualAttendanceDetailsField;
+                    return actualAttendanceDetailsField;
                 }
                 set
                 {
-                    this.actualAttendanceDetailsField = value;
-                    this.RaisePropertyChanged("ActualAttendanceDetails");
+                    actualAttendanceDetailsField = value;
+                    RaisePropertyChanged("ActualAttendanceDetails");
                 }
             }
 
@@ -5165,12 +5165,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentReceivedField;
+                    return treatmentReceivedField;
                 }
                 set
                 {
-                    this.treatmentReceivedField = value;
-                    this.RaisePropertyChanged("TreatmentReceived");
+                    treatmentReceivedField = value;
+                    RaisePropertyChanged("TreatmentReceived");
                 }
             }
 
@@ -5180,12 +5180,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5193,7 +5193,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5242,12 +5242,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arrivalDateField;
+                    return arrivalDateField;
                 }
                 set
                 {
-                    this.arrivalDateField = value;
-                    this.RaisePropertyChanged("ArrivalDate");
+                    arrivalDateField = value;
+                    RaisePropertyChanged("ArrivalDate");
                 }
             }
 
@@ -5257,12 +5257,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arrivalDateFieldSpecified;
+                    return arrivalDateFieldSpecified;
                 }
                 set
                 {
-                    this.arrivalDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ArrivalDateSpecified");
+                    arrivalDateFieldSpecified = value;
+                    RaisePropertyChanged("ArrivalDateSpecified");
                 }
             }
 
@@ -5272,12 +5272,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arrivalTimeField;
+                    return arrivalTimeField;
                 }
                 set
                 {
-                    this.arrivalTimeField = value;
-                    this.RaisePropertyChanged("ArrivalTime");
+                    arrivalTimeField = value;
+                    RaisePropertyChanged("ArrivalTime");
                 }
             }
 
@@ -5287,12 +5287,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.arrivalTimeFieldSpecified;
+                    return arrivalTimeFieldSpecified;
                 }
                 set
                 {
-                    this.arrivalTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ArrivalTimeSpecified");
+                    arrivalTimeFieldSpecified = value;
+                    RaisePropertyChanged("ArrivalTimeSpecified");
                 }
             }
 
@@ -5302,12 +5302,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departureDateField;
+                    return departureDateField;
                 }
                 set
                 {
-                    this.departureDateField = value;
-                    this.RaisePropertyChanged("DepartureDate");
+                    departureDateField = value;
+                    RaisePropertyChanged("DepartureDate");
                 }
             }
 
@@ -5317,12 +5317,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departureDateFieldSpecified;
+                    return departureDateFieldSpecified;
                 }
                 set
                 {
-                    this.departureDateFieldSpecified = value;
-                    this.RaisePropertyChanged("DepartureDateSpecified");
+                    departureDateFieldSpecified = value;
+                    RaisePropertyChanged("DepartureDateSpecified");
                 }
             }
 
@@ -5332,12 +5332,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departureTimeField;
+                    return departureTimeField;
                 }
                 set
                 {
-                    this.departureTimeField = value;
-                    this.RaisePropertyChanged("DepartureTime");
+                    departureTimeField = value;
+                    RaisePropertyChanged("DepartureTime");
                 }
             }
 
@@ -5347,12 +5347,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departureTimeFieldSpecified;
+                    return departureTimeFieldSpecified;
                 }
                 set
                 {
-                    this.departureTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DepartureTimeSpecified");
+                    departureTimeFieldSpecified = value;
+                    RaisePropertyChanged("DepartureTimeSpecified");
                 }
             }
 
@@ -5362,12 +5362,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentDateField;
+                    return treatmentDateField;
                 }
                 set
                 {
-                    this.treatmentDateField = value;
-                    this.RaisePropertyChanged("TreatmentDate");
+                    treatmentDateField = value;
+                    RaisePropertyChanged("TreatmentDate");
                 }
             }
 
@@ -5377,12 +5377,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentDateFieldSpecified;
+                    return treatmentDateFieldSpecified;
                 }
                 set
                 {
-                    this.treatmentDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentDateSpecified");
+                    treatmentDateFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentDateSpecified");
                 }
             }
 
@@ -5392,12 +5392,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentTimeField;
+                    return treatmentTimeField;
                 }
                 set
                 {
-                    this.treatmentTimeField = value;
-                    this.RaisePropertyChanged("TreatmentTime");
+                    treatmentTimeField = value;
+                    RaisePropertyChanged("TreatmentTime");
                 }
             }
 
@@ -5407,12 +5407,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentTimeFieldSpecified;
+                    return treatmentTimeFieldSpecified;
                 }
                 set
                 {
-                    this.treatmentTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentTimeSpecified");
+                    treatmentTimeFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentTimeSpecified");
                 }
             }
 
@@ -5422,12 +5422,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5435,7 +5435,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5472,12 +5472,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.siteField;
+                    return siteField;
                 }
                 set
                 {
-                    this.siteField = value;
-                    this.RaisePropertyChanged("Site");
+                    siteField = value;
+                    RaisePropertyChanged("Site");
                 }
             }
 
@@ -5487,12 +5487,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.locationField;
+                    return locationField;
                 }
                 set
                 {
-                    this.locationField = value;
-                    this.RaisePropertyChanged("Location");
+                    locationField = value;
+                    RaisePropertyChanged("Location");
                 }
             }
 
@@ -5502,12 +5502,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.responsibleHCPField;
+                    return responsibleHCPField;
                 }
                 set
                 {
-                    this.responsibleHCPField = value;
-                    this.RaisePropertyChanged("ResponsibleHCP");
+                    responsibleHCPField = value;
+                    RaisePropertyChanged("ResponsibleHCP");
                 }
             }
 
@@ -5517,12 +5517,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicField;
+                    return clinicField;
                 }
                 set
                 {
-                    this.clinicField = value;
-                    this.RaisePropertyChanged("Clinic");
+                    clinicField = value;
+                    RaisePropertyChanged("Clinic");
                 }
             }
 
@@ -5532,12 +5532,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.specialtyField;
+                    return specialtyField;
                 }
                 set
                 {
-                    this.specialtyField = value;
-                    this.RaisePropertyChanged("Specialty");
+                    specialtyField = value;
+                    RaisePropertyChanged("Specialty");
                 }
             }
 
@@ -5547,12 +5547,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.facilityField;
+                    return facilityField;
                 }
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -5562,12 +5562,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5575,7 +5575,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5612,12 +5612,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentCarePointField;
+                    return treatmentCarePointField;
                 }
                 set
                 {
-                    this.treatmentCarePointField = value;
-                    this.RaisePropertyChanged("TreatmentCarePoint");
+                    treatmentCarePointField = value;
+                    RaisePropertyChanged("TreatmentCarePoint");
                 }
             }
 
@@ -5627,12 +5627,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetDateField;
+                    return toComeInTargetDateField;
                 }
                 set
                 {
-                    this.toComeInTargetDateField = value;
-                    this.RaisePropertyChanged("ToComeInTargetDate");
+                    toComeInTargetDateField = value;
+                    RaisePropertyChanged("ToComeInTargetDate");
                 }
             }
 
@@ -5642,12 +5642,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetDateFieldSpecified;
+                    return toComeInTargetDateFieldSpecified;
                 }
                 set
                 {
-                    this.toComeInTargetDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateSpecified");
+                    toComeInTargetDateFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetDateSpecified");
                 }
             }
 
@@ -5657,12 +5657,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetTimeField;
+                    return toComeInTargetTimeField;
                 }
                 set
                 {
-                    this.toComeInTargetTimeField = value;
-                    this.RaisePropertyChanged("ToComeInTargetTime");
+                    toComeInTargetTimeField = value;
+                    RaisePropertyChanged("ToComeInTargetTime");
                 }
             }
 
@@ -5672,12 +5672,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetTimeFieldSpecified;
+                    return toComeInTargetTimeFieldSpecified;
                 }
                 set
                 {
-                    this.toComeInTargetTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetTimeSpecified");
+                    toComeInTargetTimeFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetTimeSpecified");
                 }
             }
 
@@ -5687,12 +5687,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentBreachDateField;
+                    return treatmentBreachDateField;
                 }
                 set
                 {
-                    this.treatmentBreachDateField = value;
-                    this.RaisePropertyChanged("TreatmentBreachDate");
+                    treatmentBreachDateField = value;
+                    RaisePropertyChanged("TreatmentBreachDate");
                 }
             }
 
@@ -5702,12 +5702,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentBreachDateFieldSpecified;
+                    return treatmentBreachDateFieldSpecified;
                 }
                 set
                 {
-                    this.treatmentBreachDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentBreachDateSpecified");
+                    treatmentBreachDateFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentBreachDateSpecified");
                 }
             }
 
@@ -5715,7 +5715,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5750,12 +5750,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateField;
+                    return requestStateField;
                 }
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -5765,12 +5765,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateFieldSpecified;
+                    return requestStateFieldSpecified;
                 }
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -5780,12 +5780,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusField;
+                    return requestStatusField;
                 }
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -5795,12 +5795,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusFieldSpecified;
+                    return requestStatusFieldSpecified;
                 }
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -5810,12 +5810,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusCommentField;
+                    return requestStatusCommentField;
                 }
                 set
                 {
-                    this.requestStatusCommentField = value;
-                    this.RaisePropertyChanged("RequestStatusComment");
+                    requestStatusCommentField = value;
+                    RaisePropertyChanged("RequestStatusComment");
                 }
             }
 
@@ -5825,12 +5825,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5838,7 +5838,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5910,12 +5910,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientAvailableAtShortNoticeField;
+                    return patientAvailableAtShortNoticeField;
                 }
                 set
                 {
-                    this.patientAvailableAtShortNoticeField = value;
-                    this.RaisePropertyChanged("PatientAvailableAtShortNotice");
+                    patientAvailableAtShortNoticeField = value;
+                    RaisePropertyChanged("PatientAvailableAtShortNotice");
                 }
             }
 
@@ -5925,12 +5925,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientAvailableAtShortNoticeFieldSpecified;
+                    return patientAvailableAtShortNoticeFieldSpecified;
                 }
                 set
                 {
-                    this.patientAvailableAtShortNoticeFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientAvailableAtShortNoticeSpecified");
+                    patientAvailableAtShortNoticeFieldSpecified = value;
+                    RaisePropertyChanged("PatientAvailableAtShortNoticeSpecified");
                 }
             }
 
@@ -5940,12 +5940,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientSuitableForPooledListField;
+                    return patientSuitableForPooledListField;
                 }
                 set
                 {
-                    this.patientSuitableForPooledListField = value;
-                    this.RaisePropertyChanged("PatientSuitableForPooledList");
+                    patientSuitableForPooledListField = value;
+                    RaisePropertyChanged("PatientSuitableForPooledList");
                 }
             }
 
@@ -5955,12 +5955,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientSuitableForPooledListFieldSpecified;
+                    return patientSuitableForPooledListFieldSpecified;
                 }
                 set
                 {
-                    this.patientSuitableForPooledListFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientSuitableForPooledListSpecified");
+                    patientSuitableForPooledListFieldSpecified = value;
+                    RaisePropertyChanged("PatientSuitableForPooledListSpecified");
                 }
             }
 
@@ -5970,12 +5970,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientWillingToChangeClinicianField;
+                    return patientWillingToChangeClinicianField;
                 }
                 set
                 {
-                    this.patientWillingToChangeClinicianField = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeClinician");
+                    patientWillingToChangeClinicianField = value;
+                    RaisePropertyChanged("PatientWillingToChangeClinician");
                 }
             }
 
@@ -5985,12 +5985,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientWillingToChangeClinicianFieldSpecified;
+                    return patientWillingToChangeClinicianFieldSpecified;
                 }
                 set
                 {
-                    this.patientWillingToChangeClinicianFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeClinicianSpecified");
+                    patientWillingToChangeClinicianFieldSpecified = value;
+                    RaisePropertyChanged("PatientWillingToChangeClinicianSpecified");
                 }
             }
 
@@ -6000,12 +6000,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientWillingToChangeHealthBoardField;
+                    return patientWillingToChangeHealthBoardField;
                 }
                 set
                 {
-                    this.patientWillingToChangeHealthBoardField = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeHealthBoard");
+                    patientWillingToChangeHealthBoardField = value;
+                    RaisePropertyChanged("PatientWillingToChangeHealthBoard");
                 }
             }
 
@@ -6015,12 +6015,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientWillingToChangeHealthBoardFieldSpecified;
+                    return patientWillingToChangeHealthBoardFieldSpecified;
                 }
                 set
                 {
-                    this.patientWillingToChangeHealthBoardFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeHealthBoardSpecified");
+                    patientWillingToChangeHealthBoardFieldSpecified = value;
+                    RaisePropertyChanged("PatientWillingToChangeHealthBoardSpecified");
                 }
             }
 
@@ -6030,12 +6030,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6043,7 +6043,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6072,12 +6072,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.careTypeRequestedField;
+                    return careTypeRequestedField;
                 }
                 set
                 {
-                    this.careTypeRequestedField = value;
-                    this.RaisePropertyChanged("CareTypeRequested");
+                    careTypeRequestedField = value;
+                    RaisePropertyChanged("CareTypeRequested");
                 }
             }
 
@@ -6087,12 +6087,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.expectedOutcomeField;
+                    return expectedOutcomeField;
                 }
                 set
                 {
-                    this.expectedOutcomeField = value;
-                    this.RaisePropertyChanged("ExpectedOutcome");
+                    expectedOutcomeField = value;
+                    RaisePropertyChanged("ExpectedOutcome");
                 }
             }
 
@@ -6102,12 +6102,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6115,7 +6115,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6145,12 +6145,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -6160,12 +6160,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentField;
+                    return commentField;
                 }
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -6175,12 +6175,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6188,7 +6188,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6219,12 +6219,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.componentIDField;
+                    return componentIDField;
                 }
                 set
                 {
-                    this.componentIDField = value;
-                    this.RaisePropertyChanged("ComponentID");
+                    componentIDField = value;
+                    RaisePropertyChanged("ComponentID");
                 }
             }
 
@@ -6234,12 +6234,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cRNField;
+                    return cRNField;
                 }
                 set
                 {
-                    this.cRNField = value;
-                    this.RaisePropertyChanged("CRN");
+                    cRNField = value;
+                    RaisePropertyChanged("CRN");
                 }
             }
 
@@ -6249,12 +6249,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -6264,12 +6264,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6277,7 +6277,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6308,12 +6308,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.spellOfCareIDField;
+                    return spellOfCareIDField;
                 }
                 set
                 {
-                    this.spellOfCareIDField = value;
-                    this.RaisePropertyChanged("SpellOfCareID");
+                    spellOfCareIDField = value;
+                    RaisePropertyChanged("SpellOfCareID");
                 }
             }
 
@@ -6323,12 +6323,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.episodeIDField;
+                    return episodeIDField;
                 }
                 set
                 {
-                    this.episodeIDField = value;
-                    this.RaisePropertyChanged("EpisodeID");
+                    episodeIDField = value;
+                    RaisePropertyChanged("EpisodeID");
                 }
             }
 
@@ -6338,12 +6338,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventIDField;
+                    return eventIDField;
                 }
                 set
                 {
-                    this.eventIDField = value;
-                    this.RaisePropertyChanged("EventID");
+                    eventIDField = value;
+                    RaisePropertyChanged("EventID");
                 }
             }
 
@@ -6353,12 +6353,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6366,7 +6366,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6393,12 +6393,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.descriptionField;
+                    return descriptionField;
                 }
                 set
                 {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                    descriptionField = value;
+                    RaisePropertyChanged("Description");
                 }
             }
 
@@ -6408,12 +6408,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.codeField;
+                    return codeField;
                 }
                 set
                 {
-                    this.codeField = value;
-                    this.RaisePropertyChanged("Code");
+                    codeField = value;
+                    RaisePropertyChanged("Code");
                 }
             }
 
@@ -6421,7 +6421,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6470,12 +6470,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCareTypeField;
+                    return patientCareTypeField;
                 }
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -6485,12 +6485,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCategoryField;
+                    return patientCategoryField;
                 }
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -6500,12 +6500,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestDateField;
+                    return requestDateField;
                 }
                 set
                 {
-                    this.requestDateField = value;
-                    this.RaisePropertyChanged("RequestDate");
+                    requestDateField = value;
+                    RaisePropertyChanged("RequestDate");
                 }
             }
 
@@ -6515,12 +6515,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestTimeField;
+                    return requestTimeField;
                 }
                 set
                 {
-                    this.requestTimeField = value;
-                    this.RaisePropertyChanged("RequestTime");
+                    requestTimeField = value;
+                    RaisePropertyChanged("RequestTime");
                 }
             }
 
@@ -6530,12 +6530,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestTimeFieldSpecified;
+                    return requestTimeFieldSpecified;
                 }
                 set
                 {
-                    this.requestTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestTimeSpecified");
+                    requestTimeFieldSpecified = value;
+                    RaisePropertyChanged("RequestTimeSpecified");
                 }
             }
 
@@ -6545,12 +6545,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentIdentifiersField;
+                    return treatmentIdentifiersField;
                 }
                 set
                 {
-                    this.treatmentIdentifiersField = value;
-                    this.RaisePropertyChanged("TreatmentIdentifiers");
+                    treatmentIdentifiersField = value;
+                    RaisePropertyChanged("TreatmentIdentifiers");
                 }
             }
 
@@ -6560,12 +6560,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentRequestedField;
+                    return treatmentRequestedField;
                 }
                 set
                 {
-                    this.treatmentRequestedField = value;
-                    this.RaisePropertyChanged("TreatmentRequested");
+                    treatmentRequestedField = value;
+                    RaisePropertyChanged("TreatmentRequested");
                 }
             }
 
@@ -6575,12 +6575,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.assessedUrgencyValueField;
+                    return assessedUrgencyValueField;
                 }
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -6590,12 +6590,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.assessedUrgencyReasonField;
+                    return assessedUrgencyReasonField;
                 }
                 set
                 {
-                    this.assessedUrgencyReasonField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyReason");
+                    assessedUrgencyReasonField = value;
+                    RaisePropertyChanged("AssessedUrgencyReason");
                 }
             }
 
@@ -6605,12 +6605,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentField;
+                    return commentField;
                 }
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -6620,12 +6620,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralDetailsField;
+                    return referralDetailsField;
                 }
                 set
                 {
-                    this.referralDetailsField = value;
-                    this.RaisePropertyChanged("ReferralDetails");
+                    referralDetailsField = value;
+                    RaisePropertyChanged("ReferralDetails");
                 }
             }
 
@@ -6635,12 +6635,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.waitingTimesDataField;
+                    return waitingTimesDataField;
                 }
                 set
                 {
-                    this.waitingTimesDataField = value;
-                    this.RaisePropertyChanged("WaitingTimesData");
+                    waitingTimesDataField = value;
+                    RaisePropertyChanged("WaitingTimesData");
                 }
             }
 
@@ -6650,12 +6650,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6663,7 +6663,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6696,12 +6696,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralIdentifierField;
+                    return referralIdentifierField;
                 }
                 set
                 {
-                    this.referralIdentifierField = value;
-                    this.RaisePropertyChanged("ReferralIdentifier");
+                    referralIdentifierField = value;
+                    RaisePropertyChanged("ReferralIdentifier");
                 }
             }
 
@@ -6711,12 +6711,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralReasonField;
+                    return referralReasonField;
                 }
                 set
                 {
-                    this.referralReasonField = value;
-                    this.RaisePropertyChanged("ReferralReason");
+                    referralReasonField = value;
+                    RaisePropertyChanged("ReferralReason");
                 }
             }
 
@@ -6726,12 +6726,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralUrgencyValueField;
+                    return referralUrgencyValueField;
                 }
                 set
                 {
-                    this.referralUrgencyValueField = value;
-                    this.RaisePropertyChanged("ReferralUrgencyValue");
+                    referralUrgencyValueField = value;
+                    RaisePropertyChanged("ReferralUrgencyValue");
                 }
             }
 
@@ -6741,12 +6741,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.referralUrgencyReasonField;
+                    return referralUrgencyReasonField;
                 }
                 set
                 {
-                    this.referralUrgencyReasonField = value;
-                    this.RaisePropertyChanged("ReferralUrgencyReason");
+                    referralUrgencyReasonField = value;
+                    RaisePropertyChanged("ReferralUrgencyReason");
                 }
             }
 
@@ -6756,12 +6756,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6769,7 +6769,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6808,12 +6808,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordIdentifierField;
+                    return recordIdentifierField;
                 }
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -6823,12 +6823,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientInformationField;
+                    return patientInformationField;
                 }
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -6838,12 +6838,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentRequestPrfField;
+                    return treatmentRequestPrfField;
                 }
                 set
                 {
-                    this.treatmentRequestPrfField = value;
-                    this.RaisePropertyChanged("TreatmentRequestPrf");
+                    treatmentRequestPrfField = value;
+                    RaisePropertyChanged("TreatmentRequestPrf");
                 }
             }
 
@@ -6853,12 +6853,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusPrfField;
+                    return requestStatusPrfField;
                 }
                 set
                 {
-                    this.requestStatusPrfField = value;
-                    this.RaisePropertyChanged("RequestStatusPrf");
+                    requestStatusPrfField = value;
+                    RaisePropertyChanged("RequestStatusPrf");
                 }
             }
 
@@ -6868,12 +6868,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attendanceRequestedPrfField;
+                    return attendanceRequestedPrfField;
                 }
                 set
                 {
-                    this.attendanceRequestedPrfField = value;
-                    this.RaisePropertyChanged("AttendanceRequestedPrf");
+                    attendanceRequestedPrfField = value;
+                    RaisePropertyChanged("AttendanceRequestedPrf");
                 }
             }
 
@@ -6883,12 +6883,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestOutcomePrfField;
+                    return requestOutcomePrfField;
                 }
                 set
                 {
-                    this.requestOutcomePrfField = value;
-                    this.RaisePropertyChanged("RequestOutcomePrf");
+                    requestOutcomePrfField = value;
+                    RaisePropertyChanged("RequestOutcomePrf");
                 }
             }
 
@@ -6898,12 +6898,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.deliveryStatusPrfField;
+                    return deliveryStatusPrfField;
                 }
                 set
                 {
-                    this.deliveryStatusPrfField = value;
-                    this.RaisePropertyChanged("DeliveryStatusPrf");
+                    deliveryStatusPrfField = value;
+                    RaisePropertyChanged("DeliveryStatusPrf");
                 }
             }
 
@@ -6913,12 +6913,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6926,7 +6926,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6957,12 +6957,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.basicDemographicsField;
+                    return basicDemographicsField;
                 }
                 set
                 {
-                    this.basicDemographicsField = value;
-                    this.RaisePropertyChanged("BasicDemographics");
+                    basicDemographicsField = value;
+                    RaisePropertyChanged("BasicDemographics");
                 }
             }
 
@@ -6972,12 +6972,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.socialCircumstancesField;
+                    return socialCircumstancesField;
                 }
                 set
                 {
-                    this.socialCircumstancesField = value;
-                    this.RaisePropertyChanged("SocialCircumstances");
+                    socialCircumstancesField = value;
+                    RaisePropertyChanged("SocialCircumstances");
                 }
             }
 
@@ -6987,12 +6987,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.extendedDemographicsField;
+                    return extendedDemographicsField;
                 }
                 set
                 {
-                    this.extendedDemographicsField = value;
-                    this.RaisePropertyChanged("ExtendedDemographics");
+                    extendedDemographicsField = value;
+                    RaisePropertyChanged("ExtendedDemographics");
                 }
             }
 
@@ -7002,12 +7002,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7015,7 +7015,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7066,12 +7066,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIdField;
+                    return patientIdField;
                 }
                 set
                 {
-                    this.patientIdField = value;
-                    this.RaisePropertyChanged("PatientId");
+                    patientIdField = value;
+                    RaisePropertyChanged("PatientId");
                 }
             }
 
@@ -7081,12 +7081,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientNameField;
+                    return patientNameField;
                 }
                 set
                 {
-                    this.patientNameField = value;
-                    this.RaisePropertyChanged("PatientName");
+                    patientNameField = value;
+                    RaisePropertyChanged("PatientName");
                 }
             }
 
@@ -7096,12 +7096,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientAddressField;
+                    return patientAddressField;
                 }
                 set
                 {
-                    this.patientAddressField = value;
-                    this.RaisePropertyChanged("PatientAddress");
+                    patientAddressField = value;
+                    RaisePropertyChanged("PatientAddress");
                 }
             }
 
@@ -7111,12 +7111,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTelecomField;
+                    return patientTelecomField;
                 }
                 set
                 {
-                    this.patientTelecomField = value;
-                    this.RaisePropertyChanged("PatientTelecom");
+                    patientTelecomField = value;
+                    RaisePropertyChanged("PatientTelecom");
                 }
             }
 
@@ -7126,12 +7126,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -7141,12 +7141,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -7156,12 +7156,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.ageField;
+                    return ageField;
                 }
                 set
                 {
-                    this.ageField = value;
-                    this.RaisePropertyChanged("Age");
+                    ageField = value;
+                    RaisePropertyChanged("Age");
                 }
             }
 
@@ -7171,12 +7171,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.ageFieldSpecified;
+                    return ageFieldSpecified;
                 }
                 set
                 {
-                    this.ageFieldSpecified = value;
-                    this.RaisePropertyChanged("AgeSpecified");
+                    ageFieldSpecified = value;
+                    RaisePropertyChanged("AgeSpecified");
                 }
             }
 
@@ -7186,12 +7186,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sexAtBirthField;
+                    return sexAtBirthField;
                 }
                 set
                 {
-                    this.sexAtBirthField = value;
-                    this.RaisePropertyChanged("SexAtBirth");
+                    sexAtBirthField = value;
+                    RaisePropertyChanged("SexAtBirth");
                 }
             }
 
@@ -7201,12 +7201,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sexField;
+                    return sexField;
                 }
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -7216,12 +7216,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.maritalStatusField;
+                    return maritalStatusField;
                 }
                 set
                 {
-                    this.maritalStatusField = value;
-                    this.RaisePropertyChanged("MaritalStatus");
+                    maritalStatusField = value;
+                    RaisePropertyChanged("MaritalStatus");
                 }
             }
 
@@ -7231,12 +7231,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.registeredGpField;
+                    return registeredGpField;
                 }
                 set
                 {
-                    this.registeredGpField = value;
-                    this.RaisePropertyChanged("RegisteredGp");
+                    registeredGpField = value;
+                    RaisePropertyChanged("RegisteredGp");
                 }
             }
 
@@ -7246,12 +7246,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.healthBoardOfResidenceField;
+                    return healthBoardOfResidenceField;
                 }
                 set
                 {
-                    this.healthBoardOfResidenceField = value;
-                    this.RaisePropertyChanged("HealthBoardOfResidence");
+                    healthBoardOfResidenceField = value;
+                    RaisePropertyChanged("HealthBoardOfResidence");
                 }
             }
 
@@ -7261,12 +7261,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7274,7 +7274,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7301,12 +7301,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.healthBoardCipherField;
+                    return healthBoardCipherField;
                 }
                 set
                 {
-                    this.healthBoardCipherField = value;
-                    this.RaisePropertyChanged("HealthBoardCipher");
+                    healthBoardCipherField = value;
+                    RaisePropertyChanged("HealthBoardCipher");
                 }
             }
 
@@ -7316,12 +7316,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.healthBoardDetailsField;
+                    return healthBoardDetailsField;
                 }
                 set
                 {
-                    this.healthBoardDetailsField = value;
-                    this.RaisePropertyChanged("HealthBoardDetails");
+                    healthBoardDetailsField = value;
+                    RaisePropertyChanged("HealthBoardDetails");
                 }
             }
 
@@ -7329,7 +7329,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7369,12 +7369,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -7384,12 +7384,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.employmentField;
+                    return employmentField;
                 }
                 set
                 {
-                    this.employmentField = value;
-                    this.RaisePropertyChanged("Employment");
+                    employmentField = value;
+                    RaisePropertyChanged("Employment");
                 }
             }
 
@@ -7399,12 +7399,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.religionField;
+                    return religionField;
                 }
                 set
                 {
-                    this.religionField = value;
-                    this.RaisePropertyChanged("Religion");
+                    religionField = value;
+                    RaisePropertyChanged("Religion");
                 }
             }
 
@@ -7414,12 +7414,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.ethnicOriginField;
+                    return ethnicOriginField;
                 }
                 set
                 {
-                    this.ethnicOriginField = value;
-                    this.RaisePropertyChanged("EthnicOrigin");
+                    ethnicOriginField = value;
+                    RaisePropertyChanged("EthnicOrigin");
                 }
             }
 
@@ -7430,12 +7430,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.item1Field;
+                    return item1Field;
                 }
                 set
                 {
-                    this.item1Field = value;
-                    this.RaisePropertyChanged("Item1");
+                    item1Field = value;
+                    RaisePropertyChanged("Item1");
                 }
             }
 
@@ -7445,12 +7445,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.petsField;
+                    return petsField;
                 }
                 set
                 {
-                    this.petsField = value;
-                    this.RaisePropertyChanged("Pets");
+                    petsField = value;
+                    RaisePropertyChanged("Pets");
                 }
             }
 
@@ -7460,12 +7460,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.personalFinancesField;
+                    return personalFinancesField;
                 }
                 set
                 {
-                    this.personalFinancesField = value;
-                    this.RaisePropertyChanged("PersonalFinances");
+                    personalFinancesField = value;
+                    RaisePropertyChanged("PersonalFinances");
                 }
             }
 
@@ -7475,12 +7475,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7488,7 +7488,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7529,7 +7529,7 @@ namespace SciStoreApplication.Properties
 
             public HOUSING_DETAIL_TYPE()
             {
-                this.communityAlarmField = false;
+                communityAlarmField = false;
             }
 
             /// <remarks/>
@@ -7538,12 +7538,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.accomodationField;
+                    return accomodationField;
                 }
                 set
                 {
-                    this.accomodationField = value;
-                    this.RaisePropertyChanged("Accomodation");
+                    accomodationField = value;
+                    RaisePropertyChanged("Accomodation");
                 }
             }
 
@@ -7553,12 +7553,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.communalControlledDoorField;
+                    return communalControlledDoorField;
                 }
                 set
                 {
-                    this.communalControlledDoorField = value;
-                    this.RaisePropertyChanged("CommunalControlledDoor");
+                    communalControlledDoorField = value;
+                    RaisePropertyChanged("CommunalControlledDoor");
                 }
             }
 
@@ -7568,12 +7568,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.communalControlledDoorFieldSpecified;
+                    return communalControlledDoorFieldSpecified;
                 }
                 set
                 {
-                    this.communalControlledDoorFieldSpecified = value;
-                    this.RaisePropertyChanged("CommunalControlledDoorSpecified");
+                    communalControlledDoorFieldSpecified = value;
+                    RaisePropertyChanged("CommunalControlledDoorSpecified");
                 }
             }
 
@@ -7583,12 +7583,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.individualControlledDoorField;
+                    return individualControlledDoorField;
                 }
                 set
                 {
-                    this.individualControlledDoorField = value;
-                    this.RaisePropertyChanged("IndividualControlledDoor");
+                    individualControlledDoorField = value;
+                    RaisePropertyChanged("IndividualControlledDoor");
                 }
             }
 
@@ -7598,12 +7598,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.individualControlledDoorFieldSpecified;
+                    return individualControlledDoorFieldSpecified;
                 }
                 set
                 {
-                    this.individualControlledDoorFieldSpecified = value;
-                    this.RaisePropertyChanged("IndividualControlledDoorSpecified");
+                    individualControlledDoorFieldSpecified = value;
+                    RaisePropertyChanged("IndividualControlledDoorSpecified");
                 }
             }
 
@@ -7613,12 +7613,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.keyPadNumberField;
+                    return keyPadNumberField;
                 }
                 set
                 {
-                    this.keyPadNumberField = value;
-                    this.RaisePropertyChanged("KeyPadNumber");
+                    keyPadNumberField = value;
+                    RaisePropertyChanged("KeyPadNumber");
                 }
             }
 
@@ -7629,12 +7629,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.communityAlarmField;
+                    return communityAlarmField;
                 }
                 set
                 {
-                    this.communityAlarmField = value;
-                    this.RaisePropertyChanged("CommunityAlarm");
+                    communityAlarmField = value;
+                    RaisePropertyChanged("CommunityAlarm");
                 }
             }
 
@@ -7644,12 +7644,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.smokeAlarmField;
+                    return smokeAlarmField;
                 }
                 set
                 {
-                    this.smokeAlarmField = value;
-                    this.RaisePropertyChanged("SmokeAlarm");
+                    smokeAlarmField = value;
+                    RaisePropertyChanged("SmokeAlarm");
                 }
             }
 
@@ -7659,12 +7659,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.smokeAlarmFieldSpecified;
+                    return smokeAlarmFieldSpecified;
                 }
                 set
                 {
-                    this.smokeAlarmFieldSpecified = value;
-                    this.RaisePropertyChanged("SmokeAlarmSpecified");
+                    smokeAlarmFieldSpecified = value;
+                    RaisePropertyChanged("SmokeAlarmSpecified");
                 }
             }
 
@@ -7674,12 +7674,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.tenureField;
+                    return tenureField;
                 }
                 set
                 {
-                    this.tenureField = value;
-                    this.RaisePropertyChanged("Tenure");
+                    tenureField = value;
+                    RaisePropertyChanged("Tenure");
                 }
             }
 
@@ -7689,12 +7689,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.householdCompositionField;
+                    return householdCompositionField;
                 }
                 set
                 {
-                    this.householdCompositionField = value;
-                    this.RaisePropertyChanged("HouseholdComposition");
+                    householdCompositionField = value;
+                    RaisePropertyChanged("HouseholdComposition");
                 }
             }
 
@@ -7702,7 +7702,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7731,12 +7731,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.preferredLanguageField;
+                    return preferredLanguageField;
                 }
                 set
                 {
-                    this.preferredLanguageField = value;
-                    this.RaisePropertyChanged("PreferredLanguage");
+                    preferredLanguageField = value;
+                    RaisePropertyChanged("PreferredLanguage");
                 }
             }
 
@@ -7746,12 +7746,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.interpreterRequiredField;
+                    return interpreterRequiredField;
                 }
                 set
                 {
-                    this.interpreterRequiredField = value;
-                    this.RaisePropertyChanged("InterpreterRequired");
+                    interpreterRequiredField = value;
+                    RaisePropertyChanged("InterpreterRequired");
                 }
             }
 
@@ -7761,12 +7761,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.usualInterpreterField;
+                    return usualInterpreterField;
                 }
                 set
                 {
-                    this.usualInterpreterField = value;
-                    this.RaisePropertyChanged("UsualInterpreter");
+                    usualInterpreterField = value;
+                    RaisePropertyChanged("UsualInterpreter");
                 }
             }
 
@@ -7774,7 +7774,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7803,7 +7803,7 @@ namespace SciStoreApplication.Properties
 
             public CARER_TYPE()
             {
-                this.keyHolderField = false;
+                keyHolderField = false;
             }
 
             /// <remarks/>
@@ -7812,12 +7812,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.contactDetailsField;
+                    return contactDetailsField;
                 }
                 set
                 {
-                    this.contactDetailsField = value;
-                    this.RaisePropertyChanged("ContactDetails");
+                    contactDetailsField = value;
+                    RaisePropertyChanged("ContactDetails");
                 }
             }
 
@@ -7828,12 +7828,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.keyHolderField;
+                    return keyHolderField;
                 }
                 set
                 {
-                    this.keyHolderField = value;
-                    this.RaisePropertyChanged("KeyHolder");
+                    keyHolderField = value;
+                    RaisePropertyChanged("KeyHolder");
                 }
             }
 
@@ -7843,12 +7843,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.relationshipField;
+                    return relationshipField;
                 }
                 set
                 {
-                    this.relationshipField = value;
-                    this.RaisePropertyChanged("Relationship");
+                    relationshipField = value;
+                    RaisePropertyChanged("Relationship");
                 }
             }
 
@@ -7858,12 +7858,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentsField;
+                    return commentsField;
                 }
                 set
                 {
-                    this.commentsField = value;
-                    this.RaisePropertyChanged("Comments");
+                    commentsField = value;
+                    RaisePropertyChanged("Comments");
                 }
             }
 
@@ -7873,12 +7873,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7886,7 +7886,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7917,12 +7917,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -7932,12 +7932,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressField;
+                    return addressField;
                 }
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -7947,12 +7947,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.telecomField;
+                    return telecomField;
                 }
                 set
                 {
-                    this.telecomField = value;
-                    this.RaisePropertyChanged("Telecom");
+                    telecomField = value;
+                    RaisePropertyChanged("Telecom");
                 }
             }
 
@@ -7962,12 +7962,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7975,7 +7975,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8012,12 +8012,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.benefitsCheckRequiredField;
+                    return benefitsCheckRequiredField;
                 }
                 set
                 {
-                    this.benefitsCheckRequiredField = value;
-                    this.RaisePropertyChanged("BenefitsCheckRequired");
+                    benefitsCheckRequiredField = value;
+                    RaisePropertyChanged("BenefitsCheckRequired");
                 }
             }
 
@@ -8027,12 +8027,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.benefitsCheckRequiredFieldSpecified;
+                    return benefitsCheckRequiredFieldSpecified;
                 }
                 set
                 {
-                    this.benefitsCheckRequiredFieldSpecified = value;
-                    this.RaisePropertyChanged("BenefitsCheckRequiredSpecified");
+                    benefitsCheckRequiredFieldSpecified = value;
+                    RaisePropertyChanged("BenefitsCheckRequiredSpecified");
                 }
             }
 
@@ -8042,12 +8042,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.benefitsReceivedField;
+                    return benefitsReceivedField;
                 }
                 set
                 {
-                    this.benefitsReceivedField = value;
-                    this.RaisePropertyChanged("BenefitsReceived");
+                    benefitsReceivedField = value;
+                    RaisePropertyChanged("BenefitsReceived");
                 }
             }
 
@@ -8057,12 +8057,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.pensionDayField;
+                    return pensionDayField;
                 }
                 set
                 {
-                    this.pensionDayField = value;
-                    this.RaisePropertyChanged("PensionDay");
+                    pensionDayField = value;
+                    RaisePropertyChanged("PensionDay");
                 }
             }
 
@@ -8072,12 +8072,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nINumberField;
+                    return nINumberField;
                 }
                 set
                 {
-                    this.nINumberField = value;
-                    this.RaisePropertyChanged("NINumber");
+                    nINumberField = value;
+                    RaisePropertyChanged("NINumber");
                 }
             }
 
@@ -8087,12 +8087,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.selfManagedField;
+                    return selfManagedField;
                 }
                 set
                 {
-                    this.selfManagedField = value;
-                    this.RaisePropertyChanged("SelfManaged");
+                    selfManagedField = value;
+                    RaisePropertyChanged("SelfManaged");
                 }
             }
 
@@ -8102,12 +8102,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.financialManagerField;
+                    return financialManagerField;
                 }
                 set
                 {
-                    this.financialManagerField = value;
-                    this.RaisePropertyChanged("FinancialManager");
+                    financialManagerField = value;
+                    RaisePropertyChanged("FinancialManager");
                 }
             }
 
@@ -8115,7 +8115,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8164,12 +8164,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.benefitNameField;
+                    return benefitNameField;
                 }
                 set
                 {
-                    this.benefitNameField = value;
-                    this.RaisePropertyChanged("BenefitName");
+                    benefitNameField = value;
+                    RaisePropertyChanged("BenefitName");
                 }
             }
 
@@ -8179,12 +8179,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.amountField;
+                    return amountField;
                 }
                 set
                 {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("Amount");
+                    amountField = value;
+                    RaisePropertyChanged("Amount");
                 }
             }
 
@@ -8194,12 +8194,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.amountFieldSpecified;
+                    return amountFieldSpecified;
                 }
                 set
                 {
-                    this.amountFieldSpecified = value;
-                    this.RaisePropertyChanged("AmountSpecified");
+                    amountFieldSpecified = value;
+                    RaisePropertyChanged("AmountSpecified");
                 }
             }
 
@@ -8207,7 +8207,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8278,12 +8278,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.currentUIDField;
+                    return currentUIDField;
                 }
                 set
                 {
-                    this.currentUIDField = value;
-                    this.RaisePropertyChanged("CurrentUID");
+                    currentUIDField = value;
+                    RaisePropertyChanged("CurrentUID");
                 }
             }
 
@@ -8293,12 +8293,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientUCPNField;
+                    return patientUCPNField;
                 }
                 set
                 {
-                    this.patientUCPNField = value;
-                    this.RaisePropertyChanged("PatientUCPN");
+                    patientUCPNField = value;
+                    RaisePropertyChanged("PatientUCPN");
                 }
             }
 
@@ -8308,12 +8308,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentField;
+                    return consentField;
                 }
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -8323,12 +8323,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentFieldSpecified;
+                    return consentFieldSpecified;
                 }
                 set
                 {
-                    this.consentFieldSpecified = value;
-                    this.RaisePropertyChanged("ConsentSpecified");
+                    consentFieldSpecified = value;
+                    RaisePropertyChanged("ConsentSpecified");
                 }
             }
 
@@ -8338,12 +8338,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consultantField;
+                    return consultantField;
                 }
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -8353,12 +8353,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hospitalField;
+                    return hospitalField;
                 }
                 set
                 {
-                    this.hospitalField = value;
-                    this.RaisePropertyChanged("Hospital");
+                    hospitalField = value;
+                    RaisePropertyChanged("Hospital");
                 }
             }
 
@@ -8368,12 +8368,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.wardField;
+                    return wardField;
                 }
                 set
                 {
-                    this.wardField = value;
-                    this.RaisePropertyChanged("Ward");
+                    wardField = value;
+                    RaisePropertyChanged("Ward");
                 }
             }
 
@@ -8383,12 +8383,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.gPpracticeField;
+                    return gPpracticeField;
                 }
                 set
                 {
-                    this.gPpracticeField = value;
-                    this.RaisePropertyChanged("GPpractice");
+                    gPpracticeField = value;
+                    RaisePropertyChanged("GPpractice");
                 }
             }
 
@@ -8398,12 +8398,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.isDeadField;
+                    return isDeadField;
                 }
                 set
                 {
-                    this.isDeadField = value;
-                    this.RaisePropertyChanged("IsDead");
+                    isDeadField = value;
+                    RaisePropertyChanged("IsDead");
                 }
             }
 
@@ -8413,12 +8413,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.isDeadFieldSpecified;
+                    return isDeadFieldSpecified;
                 }
                 set
                 {
-                    this.isDeadFieldSpecified = value;
-                    this.RaisePropertyChanged("IsDeadSpecified");
+                    isDeadFieldSpecified = value;
+                    RaisePropertyChanged("IsDeadSpecified");
                 }
             }
 
@@ -8428,12 +8428,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfDeathField;
+                    return dateOfDeathField;
                 }
                 set
                 {
-                    this.dateOfDeathField = value;
-                    this.RaisePropertyChanged("DateOfDeath");
+                    dateOfDeathField = value;
+                    RaisePropertyChanged("DateOfDeath");
                 }
             }
 
@@ -8443,12 +8443,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfDeathFieldSpecified;
+                    return dateOfDeathFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfDeathFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfDeathSpecified");
+                    dateOfDeathFieldSpecified = value;
+                    RaisePropertyChanged("DateOfDeathSpecified");
                 }
             }
 
@@ -8458,12 +8458,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.timeofDeathField;
+                    return timeofDeathField;
                 }
                 set
                 {
-                    this.timeofDeathField = value;
-                    this.RaisePropertyChanged("TimeofDeath");
+                    timeofDeathField = value;
+                    RaisePropertyChanged("TimeofDeath");
                 }
             }
 
@@ -8473,12 +8473,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.timeofDeathFieldSpecified;
+                    return timeofDeathFieldSpecified;
                 }
                 set
                 {
-                    this.timeofDeathFieldSpecified = value;
-                    this.RaisePropertyChanged("TimeofDeathSpecified");
+                    timeofDeathFieldSpecified = value;
+                    RaisePropertyChanged("TimeofDeathSpecified");
                 }
             }
 
@@ -8488,12 +8488,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.locationOfDeathField;
+                    return locationOfDeathField;
                 }
                 set
                 {
-                    this.locationOfDeathField = value;
-                    this.RaisePropertyChanged("LocationOfDeath");
+                    locationOfDeathField = value;
+                    RaisePropertyChanged("LocationOfDeath");
                 }
             }
 
@@ -8504,12 +8504,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.previousNamesField;
+                    return previousNamesField;
                 }
                 set
                 {
-                    this.previousNamesField = value;
-                    this.RaisePropertyChanged("PreviousNames");
+                    previousNamesField = value;
+                    RaisePropertyChanged("PreviousNames");
                 }
             }
 
@@ -8519,12 +8519,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.currentPatientStatusField;
+                    return currentPatientStatusField;
                 }
                 set
                 {
-                    this.currentPatientStatusField = value;
-                    this.RaisePropertyChanged("CurrentPatientStatus");
+                    currentPatientStatusField = value;
+                    RaisePropertyChanged("CurrentPatientStatus");
                 }
             }
 
@@ -8534,12 +8534,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientNationalityField;
+                    return patientNationalityField;
                 }
                 set
                 {
-                    this.patientNationalityField = value;
-                    this.RaisePropertyChanged("PatientNationality");
+                    patientNationalityField = value;
+                    RaisePropertyChanged("PatientNationality");
                 }
             }
 
@@ -8549,12 +8549,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.overseasStatusField;
+                    return overseasStatusField;
                 }
                 set
                 {
-                    this.overseasStatusField = value;
-                    this.RaisePropertyChanged("OverseasStatus");
+                    overseasStatusField = value;
+                    RaisePropertyChanged("OverseasStatus");
                 }
             }
 
@@ -8564,12 +8564,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.isAnomymousField;
+                    return isAnomymousField;
                 }
                 set
                 {
-                    this.isAnomymousField = value;
-                    this.RaisePropertyChanged("IsAnomymous");
+                    isAnomymousField = value;
+                    RaisePropertyChanged("IsAnomymous");
                 }
             }
 
@@ -8579,12 +8579,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.isAnomymousFieldSpecified;
+                    return isAnomymousFieldSpecified;
                 }
                 set
                 {
-                    this.isAnomymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IsAnomymousSpecified");
+                    isAnomymousFieldSpecified = value;
+                    RaisePropertyChanged("IsAnomymousSpecified");
                 }
             }
 
@@ -8594,12 +8594,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nextOfKinField;
+                    return nextOfKinField;
                 }
                 set
                 {
-                    this.nextOfKinField = value;
-                    this.RaisePropertyChanged("NextOfKin");
+                    nextOfKinField = value;
+                    RaisePropertyChanged("NextOfKin");
                 }
             }
 
@@ -8609,12 +8609,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -8624,12 +8624,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8637,7 +8637,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8664,12 +8664,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -8679,12 +8679,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dataTypeField;
+                    return dataTypeField;
                 }
                 set
                 {
-                    this.dataTypeField = value;
-                    this.RaisePropertyChanged("DataType");
+                    dataTypeField = value;
+                    RaisePropertyChanged("DataType");
                 }
             }
 
@@ -8692,7 +8692,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8723,12 +8723,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.kinNameField;
+                    return kinNameField;
                 }
                 set
                 {
-                    this.kinNameField = value;
-                    this.RaisePropertyChanged("KinName");
+                    kinNameField = value;
+                    RaisePropertyChanged("KinName");
                 }
             }
 
@@ -8738,12 +8738,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.kinAddressField;
+                    return kinAddressField;
                 }
                 set
                 {
-                    this.kinAddressField = value;
-                    this.RaisePropertyChanged("KinAddress");
+                    kinAddressField = value;
+                    RaisePropertyChanged("KinAddress");
                 }
             }
 
@@ -8753,12 +8753,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.kinTelecomField;
+                    return kinTelecomField;
                 }
                 set
                 {
-                    this.kinTelecomField = value;
-                    this.RaisePropertyChanged("KinTelecom");
+                    kinTelecomField = value;
+                    RaisePropertyChanged("KinTelecom");
                 }
             }
 
@@ -8768,12 +8768,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.kinRelationshipField;
+                    return kinRelationshipField;
                 }
                 set
                 {
-                    this.kinRelationshipField = value;
-                    this.RaisePropertyChanged("KinRelationship");
+                    kinRelationshipField = value;
+                    RaisePropertyChanged("KinRelationship");
                 }
             }
 
@@ -8781,7 +8781,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8808,12 +8808,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerIdentifierField;
+                    return providerIdentifierField;
                 }
                 set
                 {
-                    this.providerIdentifierField = value;
-                    this.RaisePropertyChanged("ProviderIdentifier");
+                    providerIdentifierField = value;
+                    RaisePropertyChanged("ProviderIdentifier");
                 }
             }
 
@@ -8823,12 +8823,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8836,7 +8836,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8867,12 +8867,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -8882,12 +8882,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogIDField;
+                    return treatmentLogIDField;
                 }
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -8897,12 +8897,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -8912,12 +8912,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8925,7 +8925,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8954,12 +8954,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -8969,12 +8969,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogDetailsField;
+                    return treatmentLogDetailsField;
                 }
                 set
                 {
-                    this.treatmentLogDetailsField = value;
-                    this.RaisePropertyChanged("TreatmentLogDetails");
+                    treatmentLogDetailsField = value;
+                    RaisePropertyChanged("TreatmentLogDetails");
                 }
             }
 
@@ -8984,12 +8984,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8997,7 +8997,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9026,12 +9026,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogField;
+                    return treatmentLogField;
                 }
                 set
                 {
-                    this.treatmentLogField = value;
-                    this.RaisePropertyChanged("TreatmentLog");
+                    treatmentLogField = value;
+                    RaisePropertyChanged("TreatmentLog");
                 }
             }
 
@@ -9041,12 +9041,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -9056,12 +9056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -9069,7 +9069,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9140,12 +9140,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogIDField;
+                    return treatmentLogIDField;
                 }
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -9155,12 +9155,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -9170,12 +9170,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCareTypeField;
+                    return patientCareTypeField;
                 }
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -9185,12 +9185,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateField;
+                    return requestStateField;
                 }
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -9200,12 +9200,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateFieldSpecified;
+                    return requestStateFieldSpecified;
                 }
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -9215,12 +9215,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusField;
+                    return requestStatusField;
                 }
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -9230,12 +9230,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusFieldSpecified;
+                    return requestStatusFieldSpecified;
                 }
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -9245,12 +9245,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordIdentifierField;
+                    return recordIdentifierField;
                 }
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -9260,12 +9260,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.assessedUrgencyValueField;
+                    return assessedUrgencyValueField;
                 }
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -9275,12 +9275,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestDateTimeField;
+                    return requestDateTimeField;
                 }
                 set
                 {
-                    this.requestDateTimeField = value;
-                    this.RaisePropertyChanged("RequestDateTime");
+                    requestDateTimeField = value;
+                    RaisePropertyChanged("RequestDateTime");
                 }
             }
 
@@ -9290,12 +9290,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestDateTimeFieldSpecified;
+                    return requestDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.requestDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestDateTimeSpecified");
+                    requestDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("RequestDateTimeSpecified");
                 }
             }
 
@@ -9305,12 +9305,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetDateTimeField;
+                    return toComeInTargetDateTimeField;
                 }
                 set
                 {
-                    this.toComeInTargetDateTimeField = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateTime");
+                    toComeInTargetDateTimeField = value;
+                    RaisePropertyChanged("ToComeInTargetDateTime");
                 }
             }
 
@@ -9320,12 +9320,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.toComeInTargetDateTimeFieldSpecified;
+                    return toComeInTargetDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.toComeInTargetDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateTimeSpecified");
+                    toComeInTargetDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetDateTimeSpecified");
                 }
             }
 
@@ -9335,12 +9335,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointSiteIdField;
+                    return patientCarePointSiteIdField;
                 }
                 set
                 {
-                    this.patientCarePointSiteIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointSiteId");
+                    patientCarePointSiteIdField = value;
+                    RaisePropertyChanged("PatientCarePointSiteId");
                 }
             }
 
@@ -9350,12 +9350,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointLocationIdField;
+                    return patientCarePointLocationIdField;
                 }
                 set
                 {
-                    this.patientCarePointLocationIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointLocationId");
+                    patientCarePointLocationIdField = value;
+                    RaisePropertyChanged("PatientCarePointLocationId");
                 }
             }
 
@@ -9365,12 +9365,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointResponsibleHcpIdField;
+                    return patientCarePointResponsibleHcpIdField;
                 }
                 set
                 {
-                    this.patientCarePointResponsibleHcpIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointResponsibleHcpId");
+                    patientCarePointResponsibleHcpIdField = value;
+                    RaisePropertyChanged("PatientCarePointResponsibleHcpId");
                 }
             }
 
@@ -9380,12 +9380,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointClinicField;
+                    return patientCarePointClinicField;
                 }
                 set
                 {
-                    this.patientCarePointClinicField = value;
-                    this.RaisePropertyChanged("PatientCarePointClinic");
+                    patientCarePointClinicField = value;
+                    RaisePropertyChanged("PatientCarePointClinic");
                 }
             }
 
@@ -9395,12 +9395,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointSpecialtyNameField;
+                    return patientCarePointSpecialtyNameField;
                 }
                 set
                 {
-                    this.patientCarePointSpecialtyNameField = value;
-                    this.RaisePropertyChanged("PatientCarePointSpecialtyName");
+                    patientCarePointSpecialtyNameField = value;
+                    RaisePropertyChanged("PatientCarePointSpecialtyName");
                 }
             }
 
@@ -9410,12 +9410,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarePointFacilityNameField;
+                    return patientCarePointFacilityNameField;
                 }
                 set
                 {
-                    this.patientCarePointFacilityNameField = value;
-                    this.RaisePropertyChanged("PatientCarePointFacilityName");
+                    patientCarePointFacilityNameField = value;
+                    RaisePropertyChanged("PatientCarePointFacilityName");
                 }
             }
 
@@ -9425,12 +9425,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -9440,12 +9440,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateClosedField;
+                    return dateClosedField;
                 }
                 set
                 {
-                    this.dateClosedField = value;
-                    this.RaisePropertyChanged("DateClosed");
+                    dateClosedField = value;
+                    RaisePropertyChanged("DateClosed");
                 }
             }
 
@@ -9455,12 +9455,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateClosedFieldSpecified;
+                    return dateClosedFieldSpecified;
                 }
                 set
                 {
-                    this.dateClosedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateClosedSpecified");
+                    dateClosedFieldSpecified = value;
+                    RaisePropertyChanged("DateClosedSpecified");
                 }
             }
 
@@ -9470,12 +9470,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -9485,12 +9485,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -9498,7 +9498,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9591,12 +9591,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -9606,12 +9606,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.orderColField;
+                    return orderColField;
                 }
                 set
                 {
-                    this.orderColField = value;
-                    this.RaisePropertyChanged("OrderCol");
+                    orderColField = value;
+                    RaisePropertyChanged("OrderCol");
                 }
             }
 
@@ -9621,12 +9621,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.givenNameField;
+                    return givenNameField;
                 }
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -9636,12 +9636,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.middleNameField;
+                    return middleNameField;
                 }
                 set
                 {
-                    this.middleNameField = value;
-                    this.RaisePropertyChanged("MiddleName");
+                    middleNameField = value;
+                    RaisePropertyChanged("MiddleName");
                 }
             }
 
@@ -9651,12 +9651,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.familyNameField;
+                    return familyNameField;
                 }
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -9666,12 +9666,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sexField;
+                    return sexField;
                 }
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -9681,12 +9681,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -9696,12 +9696,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -9711,12 +9711,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cHIField;
+                    return cHIField;
                 }
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -9726,12 +9726,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressField;
+                    return addressField;
                 }
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -9741,12 +9741,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postCodeField;
+                    return postCodeField;
                 }
                 set
                 {
-                    this.postCodeField = value;
-                    this.RaisePropertyChanged("PostCode");
+                    postCodeField = value;
+                    RaisePropertyChanged("PostCode");
                 }
             }
 
@@ -9756,12 +9756,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.gpField;
+                    return gpField;
                 }
                 set
                 {
-                    this.gpField = value;
-                    this.RaisePropertyChanged("GP");
+                    gpField = value;
+                    RaisePropertyChanged("GP");
                 }
             }
 
@@ -9771,12 +9771,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.gPPracticeField;
+                    return gPPracticeField;
                 }
                 set
                 {
-                    this.gPPracticeField = value;
-                    this.RaisePropertyChanged("GPPractice");
+                    gPPracticeField = value;
+                    RaisePropertyChanged("GPPractice");
                 }
             }
 
@@ -9786,12 +9786,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consultantField;
+                    return consultantField;
                 }
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -9801,12 +9801,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.wardField;
+                    return wardField;
                 }
                 set
                 {
-                    this.wardField = value;
-                    this.RaisePropertyChanged("Ward");
+                    wardField = value;
+                    RaisePropertyChanged("Ward");
                 }
             }
 
@@ -9816,12 +9816,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hospitalField;
+                    return hospitalField;
                 }
                 set
                 {
-                    this.hospitalField = value;
-                    this.RaisePropertyChanged("Hospital");
+                    hospitalField = value;
+                    RaisePropertyChanged("Hospital");
                 }
             }
 
@@ -9831,12 +9831,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.soundexField;
+                    return soundexField;
                 }
                 set
                 {
-                    this.soundexField = value;
-                    this.RaisePropertyChanged("Soundex");
+                    soundexField = value;
+                    RaisePropertyChanged("Soundex");
                 }
             }
 
@@ -9846,12 +9846,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceIDField;
+                    return serviceIDField;
                 }
                 set
                 {
-                    this.serviceIDField = value;
-                    this.RaisePropertyChanged("ServiceID");
+                    serviceIDField = value;
+                    RaisePropertyChanged("ServiceID");
                 }
             }
 
@@ -9861,12 +9861,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventUserField;
+                    return eventUserField;
                 }
                 set
                 {
-                    this.eventUserField = value;
-                    this.RaisePropertyChanged("EventUser");
+                    eventUserField = value;
+                    RaisePropertyChanged("EventUser");
                 }
             }
 
@@ -9876,12 +9876,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventDateTimeField;
+                    return eventDateTimeField;
                 }
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -9891,12 +9891,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventDateTimeFieldSpecified;
+                    return eventDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.eventDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("EventDateTimeSpecified");
+                    eventDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("EventDateTimeSpecified");
                 }
             }
 
@@ -9906,12 +9906,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeCreatedField;
+                    return dateTimeCreatedField;
                 }
                 set
                 {
-                    this.dateTimeCreatedField = value;
-                    this.RaisePropertyChanged("DateTimeCreated");
+                    dateTimeCreatedField = value;
+                    RaisePropertyChanged("DateTimeCreated");
                 }
             }
 
@@ -9921,12 +9921,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeCreatedFieldSpecified;
+                    return dateTimeCreatedFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeCreatedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeCreatedSpecified");
+                    dateTimeCreatedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeCreatedSpecified");
                 }
             }
 
@@ -9936,12 +9936,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -9951,12 +9951,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.exceptionField;
+                    return exceptionField;
                 }
                 set
                 {
-                    this.exceptionField = value;
-                    this.RaisePropertyChanged("Exception");
+                    exceptionField = value;
+                    RaisePropertyChanged("Exception");
                 }
             }
 
@@ -9966,12 +9966,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.exceptionFieldSpecified;
+                    return exceptionFieldSpecified;
                 }
                 set
                 {
-                    this.exceptionFieldSpecified = value;
-                    this.RaisePropertyChanged("ExceptionSpecified");
+                    exceptionFieldSpecified = value;
+                    RaisePropertyChanged("ExceptionSpecified");
                 }
             }
 
@@ -9981,12 +9981,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.seededRecordField;
+                    return seededRecordField;
                 }
                 set
                 {
-                    this.seededRecordField = value;
-                    this.RaisePropertyChanged("SeededRecord");
+                    seededRecordField = value;
+                    RaisePropertyChanged("SeededRecord");
                 }
             }
 
@@ -9996,12 +9996,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.seededRecordFieldSpecified;
+                    return seededRecordFieldSpecified;
                 }
                 set
                 {
-                    this.seededRecordFieldSpecified = value;
-                    this.RaisePropertyChanged("SeededRecordSpecified");
+                    seededRecordFieldSpecified = value;
+                    RaisePropertyChanged("SeededRecordSpecified");
                 }
             }
 
@@ -10011,12 +10011,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.mergedField;
+                    return mergedField;
                 }
                 set
                 {
-                    this.mergedField = value;
-                    this.RaisePropertyChanged("Merged");
+                    mergedField = value;
+                    RaisePropertyChanged("Merged");
                 }
             }
 
@@ -10026,12 +10026,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.mergedFieldSpecified;
+                    return mergedFieldSpecified;
                 }
                 set
                 {
-                    this.mergedFieldSpecified = value;
-                    this.RaisePropertyChanged("MergedSpecified");
+                    mergedFieldSpecified = value;
+                    RaisePropertyChanged("MergedSpecified");
                 }
             }
 
@@ -10041,12 +10041,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anonymousField;
+                    return anonymousField;
                 }
                 set
                 {
-                    this.anonymousField = value;
-                    this.RaisePropertyChanged("Anonymous");
+                    anonymousField = value;
+                    RaisePropertyChanged("Anonymous");
                 }
             }
 
@@ -10056,12 +10056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anonymousFieldSpecified;
+                    return anonymousFieldSpecified;
                 }
                 set
                 {
-                    this.anonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("AnonymousSpecified");
+                    anonymousFieldSpecified = value;
+                    RaisePropertyChanged("AnonymousSpecified");
                 }
             }
 
@@ -10071,12 +10071,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentField;
+                    return consentField;
                 }
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -10086,12 +10086,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -10101,12 +10101,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10114,7 +10114,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10207,12 +10207,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogIDField;
+                    return treatmentLogIDField;
                 }
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -10222,12 +10222,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -10237,12 +10237,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordIdentifierField;
+                    return recordIdentifierField;
                 }
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -10252,12 +10252,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateField;
+                    return requestStateField;
                 }
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -10267,12 +10267,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStateFieldSpecified;
+                    return requestStateFieldSpecified;
                 }
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -10282,12 +10282,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusField;
+                    return requestStatusField;
                 }
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -10297,12 +10297,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestStatusFieldSpecified;
+                    return requestStatusFieldSpecified;
                 }
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -10312,12 +10312,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.assessedUrgencyValueField;
+                    return assessedUrgencyValueField;
                 }
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -10327,12 +10327,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCareTypeField;
+                    return patientCareTypeField;
                 }
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -10342,12 +10342,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestDateField;
+                    return requestDateField;
                 }
                 set
                 {
-                    this.requestDateField = value;
-                    this.RaisePropertyChanged("RequestDate");
+                    requestDateField = value;
+                    RaisePropertyChanged("RequestDate");
                 }
             }
 
@@ -10357,12 +10357,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentToComeInDateField;
+                    return treatmentToComeInDateField;
                 }
                 set
                 {
-                    this.treatmentToComeInDateField = value;
-                    this.RaisePropertyChanged("TreatmentToComeInDate");
+                    treatmentToComeInDateField = value;
+                    RaisePropertyChanged("TreatmentToComeInDate");
                 }
             }
 
@@ -10372,12 +10372,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentRequestProcedureCodeField;
+                    return treatmentRequestProcedureCodeField;
                 }
                 set
                 {
-                    this.treatmentRequestProcedureCodeField = value;
-                    this.RaisePropertyChanged("TreatmentRequestProcedureCode");
+                    treatmentRequestProcedureCodeField = value;
+                    RaisePropertyChanged("TreatmentRequestProcedureCode");
                 }
             }
 
@@ -10387,12 +10387,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarepointSiteIDField;
+                    return patientCarepointSiteIDField;
                 }
                 set
                 {
-                    this.patientCarepointSiteIDField = value;
-                    this.RaisePropertyChanged("PatientCarepointSiteID");
+                    patientCarepointSiteIDField = value;
+                    RaisePropertyChanged("PatientCarepointSiteID");
                 }
             }
 
@@ -10402,12 +10402,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCarepointLocationIDField;
+                    return patientCarepointLocationIDField;
                 }
                 set
                 {
-                    this.patientCarepointLocationIDField = value;
-                    this.RaisePropertyChanged("PatientCarepointLocationID");
+                    patientCarepointLocationIDField = value;
+                    RaisePropertyChanged("PatientCarepointLocationID");
                 }
             }
 
@@ -10417,12 +10417,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.specialtyNameField;
+                    return specialtyNameField;
                 }
                 set
                 {
-                    this.specialtyNameField = value;
-                    this.RaisePropertyChanged("SpecialtyName");
+                    specialtyNameField = value;
+                    RaisePropertyChanged("SpecialtyName");
                 }
             }
 
@@ -10432,12 +10432,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.facilityField;
+                    return facilityField;
                 }
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -10447,12 +10447,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -10462,12 +10462,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -10477,12 +10477,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerSearchField;
+                    return providerSearchField;
                 }
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -10493,12 +10493,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -10508,12 +10508,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10521,7 +10521,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10558,12 +10558,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -10573,12 +10573,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idsField;
+                    return idsField;
                 }
                 set
                 {
-                    this.idsField = value;
-                    this.RaisePropertyChanged("Ids");
+                    idsField = value;
+                    RaisePropertyChanged("Ids");
                 }
             }
 
@@ -10588,12 +10588,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -10603,12 +10603,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -10618,12 +10618,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAnonymousField;
+                    return includeAnonymousField;
                 }
                 set
                 {
-                    this.includeAnonymousField = value;
-                    this.RaisePropertyChanged("IncludeAnonymous");
+                    includeAnonymousField = value;
+                    RaisePropertyChanged("IncludeAnonymous");
                 }
             }
 
@@ -10633,12 +10633,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAnonymousFieldSpecified;
+                    return includeAnonymousFieldSpecified;
                 }
                 set
                 {
-                    this.includeAnonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAnonymousSpecified");
+                    includeAnonymousFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAnonymousSpecified");
                 }
             }
 
@@ -10648,12 +10648,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10661,7 +10661,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10696,12 +10696,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.forenameField;
+                    return forenameField;
                 }
                 set
                 {
-                    this.forenameField = value;
-                    this.RaisePropertyChanged("Forename");
+                    forenameField = value;
+                    RaisePropertyChanged("Forename");
                 }
             }
 
@@ -10711,12 +10711,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.forenameComparatorField;
+                    return forenameComparatorField;
                 }
                 set
                 {
-                    this.forenameComparatorField = value;
-                    this.RaisePropertyChanged("ForenameComparator");
+                    forenameComparatorField = value;
+                    RaisePropertyChanged("ForenameComparator");
                 }
             }
 
@@ -10726,12 +10726,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.forenameComparatorFieldSpecified;
+                    return forenameComparatorFieldSpecified;
                 }
                 set
                 {
-                    this.forenameComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("ForenameComparatorSpecified");
+                    forenameComparatorFieldSpecified = value;
+                    RaisePropertyChanged("ForenameComparatorSpecified");
                 }
             }
 
@@ -10741,12 +10741,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.surnameField;
+                    return surnameField;
                 }
                 set
                 {
-                    this.surnameField = value;
-                    this.RaisePropertyChanged("Surname");
+                    surnameField = value;
+                    RaisePropertyChanged("Surname");
                 }
             }
 
@@ -10756,12 +10756,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.surnameComparatorField;
+                    return surnameComparatorField;
                 }
                 set
                 {
-                    this.surnameComparatorField = value;
-                    this.RaisePropertyChanged("SurnameComparator");
+                    surnameComparatorField = value;
+                    RaisePropertyChanged("SurnameComparator");
                 }
             }
 
@@ -10771,12 +10771,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.surnameComparatorFieldSpecified;
+                    return surnameComparatorFieldSpecified;
                 }
                 set
                 {
-                    this.surnameComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("SurnameComparatorSpecified");
+                    surnameComparatorFieldSpecified = value;
+                    RaisePropertyChanged("SurnameComparatorSpecified");
                 }
             }
 
@@ -10784,7 +10784,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10841,12 +10841,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idField;
+                    return idField;
                 }
                 set
                 {
-                    this.idField = value;
-                    this.RaisePropertyChanged("ID");
+                    idField = value;
+                    RaisePropertyChanged("ID");
                 }
             }
 
@@ -10856,12 +10856,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.iDcomparatorField;
+                    return iDcomparatorField;
                 }
                 set
                 {
-                    this.iDcomparatorField = value;
-                    this.RaisePropertyChanged("IDcomparator");
+                    iDcomparatorField = value;
+                    RaisePropertyChanged("IDcomparator");
                 }
             }
 
@@ -10871,12 +10871,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.iDcomparatorFieldSpecified;
+                    return iDcomparatorFieldSpecified;
                 }
                 set
                 {
-                    this.iDcomparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("IDcomparatorSpecified");
+                    iDcomparatorFieldSpecified = value;
+                    RaisePropertyChanged("IDcomparatorSpecified");
                 }
             }
 
@@ -10884,7 +10884,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10917,12 +10917,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchTypeField;
+                    return searchTypeField;
                 }
                 set
                 {
-                    this.searchTypeField = value;
-                    this.RaisePropertyChanged("SearchType");
+                    searchTypeField = value;
+                    RaisePropertyChanged("SearchType");
                 }
             }
 
@@ -10933,12 +10933,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providersField;
+                    return providersField;
                 }
                 set
                 {
-                    this.providersField = value;
-                    this.RaisePropertyChanged("Providers");
+                    providersField = value;
+                    RaisePropertyChanged("Providers");
                 }
             }
 
@@ -10948,12 +10948,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAllField;
+                    return includeAllField;
                 }
                 set
                 {
-                    this.includeAllField = value;
-                    this.RaisePropertyChanged("IncludeAll");
+                    includeAllField = value;
+                    RaisePropertyChanged("IncludeAll");
                 }
             }
 
@@ -10963,12 +10963,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAllFieldSpecified;
+                    return includeAllFieldSpecified;
                 }
                 set
                 {
-                    this.includeAllFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAllSpecified");
+                    includeAllFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAllSpecified");
                 }
             }
 
@@ -10978,12 +10978,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10991,7 +10991,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11034,12 +11034,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.stylesheetIDField;
+                    return stylesheetIDField;
                 }
                 set
                 {
-                    this.stylesheetIDField = value;
-                    this.RaisePropertyChanged("StylesheetID");
+                    stylesheetIDField = value;
+                    RaisePropertyChanged("StylesheetID");
                 }
             }
 
@@ -11049,12 +11049,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.stylesheetDataField;
+                    return stylesheetDataField;
                 }
                 set
                 {
-                    this.stylesheetDataField = value;
-                    this.RaisePropertyChanged("StylesheetData");
+                    stylesheetDataField = value;
+                    RaisePropertyChanged("StylesheetData");
                 }
             }
 
@@ -11064,12 +11064,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -11077,7 +11077,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11112,12 +11112,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -11127,12 +11127,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentDetailsField;
+                    return documentDetailsField;
                 }
                 set
                 {
-                    this.documentDetailsField = value;
-                    this.RaisePropertyChanged("DocumentDetails");
+                    documentDetailsField = value;
+                    RaisePropertyChanged("DocumentDetails");
                 }
             }
 
@@ -11142,12 +11142,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentStylesheetField;
+                    return documentStylesheetField;
                 }
                 set
                 {
-                    this.documentStylesheetField = value;
-                    this.RaisePropertyChanged("DocumentStylesheet");
+                    documentStylesheetField = value;
+                    RaisePropertyChanged("DocumentStylesheet");
                 }
             }
 
@@ -11157,12 +11157,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientInformationField;
+                    return patientInformationField;
                 }
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -11172,12 +11172,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentDataField;
+                    return documentDataField;
                 }
                 set
                 {
-                    this.documentDataField = value;
-                    this.RaisePropertyChanged("DocumentData");
+                    documentDataField = value;
+                    RaisePropertyChanged("DocumentData");
                 }
             }
 
@@ -11187,12 +11187,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11200,7 +11200,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11243,12 +11243,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -11258,12 +11258,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDocumentSearchIDField;
+                    return patientDocumentSearchIDField;
                 }
                 set
                 {
-                    this.patientDocumentSearchIDField = value;
-                    this.RaisePropertyChanged("PatientDocumentSearchID");
+                    patientDocumentSearchIDField = value;
+                    RaisePropertyChanged("PatientDocumentSearchID");
                 }
             }
 
@@ -11273,12 +11273,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -11288,12 +11288,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSourceIDField;
+                    return documentSourceIDField;
                 }
                 set
                 {
-                    this.documentSourceIDField = value;
-                    this.RaisePropertyChanged("DocumentSourceID");
+                    documentSourceIDField = value;
+                    RaisePropertyChanged("DocumentSourceID");
                 }
             }
 
@@ -11303,12 +11303,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDocumentIDField;
+                    return patientDocumentIDField;
                 }
                 set
                 {
-                    this.patientDocumentIDField = value;
-                    this.RaisePropertyChanged("PatientDocumentID");
+                    patientDocumentIDField = value;
+                    RaisePropertyChanged("PatientDocumentID");
                 }
             }
 
@@ -11318,12 +11318,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentToDatabaseIDField;
+                    return documentToDatabaseIDField;
                 }
                 set
                 {
-                    this.documentToDatabaseIDField = value;
-                    this.RaisePropertyChanged("DocumentToDatabaseID");
+                    documentToDatabaseIDField = value;
+                    RaisePropertyChanged("DocumentToDatabaseID");
                 }
             }
 
@@ -11333,12 +11333,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentStatusIDField;
+                    return documentStatusIDField;
                 }
                 set
                 {
-                    this.documentStatusIDField = value;
-                    this.RaisePropertyChanged("DocumentStatusID");
+                    documentStatusIDField = value;
+                    RaisePropertyChanged("DocumentStatusID");
                 }
             }
 
@@ -11348,12 +11348,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIsLinkedField;
+                    return documentIsLinkedField;
                 }
                 set
                 {
-                    this.documentIsLinkedField = value;
-                    this.RaisePropertyChanged("DocumentIsLinked");
+                    documentIsLinkedField = value;
+                    RaisePropertyChanged("DocumentIsLinked");
                 }
             }
 
@@ -11363,12 +11363,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentHasHistoryField;
+                    return documentHasHistoryField;
                 }
                 set
                 {
-                    this.documentHasHistoryField = value;
-                    this.RaisePropertyChanged("DocumentHasHistory");
+                    documentHasHistoryField = value;
+                    RaisePropertyChanged("DocumentHasHistory");
                 }
             }
 
@@ -11378,12 +11378,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11391,7 +11391,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11464,12 +11464,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentCategoryField;
+                    return documentCategoryField;
                 }
                 set
                 {
-                    this.documentCategoryField = value;
-                    this.RaisePropertyChanged("DocumentCategory");
+                    documentCategoryField = value;
+                    RaisePropertyChanged("DocumentCategory");
                 }
             }
 
@@ -11479,12 +11479,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIdentifierField;
+                    return documentIdentifierField;
                 }
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -11494,12 +11494,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -11509,12 +11509,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTitleField;
+                    return documentTitleField;
                 }
                 set
                 {
-                    this.documentTitleField = value;
-                    this.RaisePropertyChanged("DocumentTitle");
+                    documentTitleField = value;
+                    RaisePropertyChanged("DocumentTitle");
                 }
             }
 
@@ -11524,12 +11524,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentRevisionField;
+                    return documentRevisionField;
                 }
                 set
                 {
-                    this.documentRevisionField = value;
-                    this.RaisePropertyChanged("DocumentRevision");
+                    documentRevisionField = value;
+                    RaisePropertyChanged("DocumentRevision");
                 }
             }
 
@@ -11539,12 +11539,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSpecialtyField;
+                    return documentSpecialtyField;
                 }
                 set
                 {
-                    this.documentSpecialtyField = value;
-                    this.RaisePropertyChanged("DocumentSpecialty");
+                    documentSpecialtyField = value;
+                    RaisePropertyChanged("DocumentSpecialty");
                 }
             }
 
@@ -11554,12 +11554,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentOrganisationNameField;
+                    return documentOrganisationNameField;
                 }
                 set
                 {
-                    this.documentOrganisationNameField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationName");
+                    documentOrganisationNameField = value;
+                    RaisePropertyChanged("DocumentOrganisationName");
                 }
             }
 
@@ -11569,12 +11569,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentOrganisationTypeField;
+                    return documentOrganisationTypeField;
                 }
                 set
                 {
-                    this.documentOrganisationTypeField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationType");
+                    documentOrganisationTypeField = value;
+                    RaisePropertyChanged("DocumentOrganisationType");
                 }
             }
 
@@ -11584,12 +11584,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.stylesheetField;
+                    return stylesheetField;
                 }
                 set
                 {
-                    this.stylesheetField = value;
-                    this.RaisePropertyChanged("Stylesheet");
+                    stylesheetField = value;
+                    RaisePropertyChanged("Stylesheet");
                 }
             }
 
@@ -11599,12 +11599,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.additionalTextField;
+                    return additionalTextField;
                 }
                 set
                 {
-                    this.additionalTextField = value;
-                    this.RaisePropertyChanged("AdditionalText");
+                    additionalTextField = value;
+                    RaisePropertyChanged("AdditionalText");
                 }
             }
 
@@ -11614,12 +11614,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationDateTimeField;
+                    return documentAttestationDateTimeField;
                 }
                 set
                 {
-                    this.documentAttestationDateTimeField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDateTime");
+                    documentAttestationDateTimeField = value;
+                    RaisePropertyChanged("DocumentAttestationDateTime");
                 }
             }
 
@@ -11629,12 +11629,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingHcp_HealthcareProfessionalIDField;
+                    return originatingHcp_HealthcareProfessionalIDField;
                 }
                 set
                 {
-                    this.originatingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("OriginatingHcp_HealthcareProfessionalID");
+                    originatingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("OriginatingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11644,12 +11644,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attestingHcp_HealthcareProfessionalIDField;
+                    return attestingHcp_HealthcareProfessionalIDField;
                 }
                 set
                 {
-                    this.attestingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("AttestingHcp_HealthcareProfessionalID");
+                    attestingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("AttestingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11659,12 +11659,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.receivingHcp_HealthcareProfessionalIDField;
+                    return receivingHcp_HealthcareProfessionalIDField;
                 }
                 set
                 {
-                    this.receivingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("ReceivingHcp_HealthcareProfessionalID");
+                    receivingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("ReceivingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11675,12 +11675,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.copiedHcp_HealthcareProfessionalIDsField;
+                    return copiedHcp_HealthcareProfessionalIDsField;
                 }
                 set
                 {
-                    this.copiedHcp_HealthcareProfessionalIDsField = value;
-                    this.RaisePropertyChanged("CopiedHcp_HealthcareProfessionalIDs");
+                    copiedHcp_HealthcareProfessionalIDsField = value;
+                    RaisePropertyChanged("CopiedHcp_HealthcareProfessionalIDs");
                 }
             }
 
@@ -11690,12 +11690,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentToShareField;
+                    return consentToShareField;
                 }
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -11705,12 +11705,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sensitivityField;
+                    return sensitivityField;
                 }
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -11720,12 +11720,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.packageIdentifierField;
+                    return packageIdentifierField;
                 }
                 set
                 {
-                    this.packageIdentifierField = value;
-                    this.RaisePropertyChanged("PackageIdentifier");
+                    packageIdentifierField = value;
+                    RaisePropertyChanged("PackageIdentifier");
                 }
             }
 
@@ -11736,12 +11736,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userNotesField;
+                    return userNotesField;
                 }
                 set
                 {
-                    this.userNotesField = value;
-                    this.RaisePropertyChanged("UserNotes");
+                    userNotesField = value;
+                    RaisePropertyChanged("UserNotes");
                 }
             }
 
@@ -11752,12 +11752,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.stylesheetsField;
+                    return stylesheetsField;
                 }
                 set
                 {
-                    this.stylesheetsField = value;
-                    this.RaisePropertyChanged("Stylesheets");
+                    stylesheetsField = value;
+                    RaisePropertyChanged("Stylesheets");
                 }
             }
 
@@ -11767,12 +11767,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.keywordsField;
+                    return keywordsField;
                 }
                 set
                 {
-                    this.keywordsField = value;
-                    this.RaisePropertyChanged("Keywords");
+                    keywordsField = value;
+                    RaisePropertyChanged("Keywords");
                 }
             }
 
@@ -11782,12 +11782,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userNotesAvailableField;
+                    return userNotesAvailableField;
                 }
                 set
                 {
-                    this.userNotesAvailableField = value;
-                    this.RaisePropertyChanged("UserNotesAvailable");
+                    userNotesAvailableField = value;
+                    RaisePropertyChanged("UserNotesAvailable");
                 }
             }
 
@@ -11797,12 +11797,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.additionalStylesheetsAvailableField;
+                    return additionalStylesheetsAvailableField;
                 }
                 set
                 {
-                    this.additionalStylesheetsAvailableField = value;
-                    this.RaisePropertyChanged("AdditionalStylesheetsAvailable");
+                    additionalStylesheetsAvailableField = value;
+                    RaisePropertyChanged("AdditionalStylesheetsAvailable");
                 }
             }
 
@@ -11812,12 +11812,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.isRetiredField;
+                    return isRetiredField;
                 }
                 set
                 {
-                    this.isRetiredField = value;
-                    this.RaisePropertyChanged("IsRetired");
+                    isRetiredField = value;
+                    RaisePropertyChanged("IsRetired");
                 }
             }
 
@@ -11827,12 +11827,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11840,7 +11840,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11869,12 +11869,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTypeField;
+                    return documentTypeField;
                 }
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -11884,12 +11884,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.separatorField;
+                    return separatorField;
                 }
                 set
                 {
-                    this.separatorField = value;
-                    this.RaisePropertyChanged("Separator");
+                    separatorField = value;
+                    RaisePropertyChanged("Separator");
                 }
             }
 
@@ -11899,12 +11899,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSubTypeField;
+                    return documentSubTypeField;
                 }
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -11912,7 +11912,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11941,12 +11941,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.noteTextField;
+                    return noteTextField;
                 }
                 set
                 {
-                    this.noteTextField = value;
-                    this.RaisePropertyChanged("NoteText");
+                    noteTextField = value;
+                    RaisePropertyChanged("NoteText");
                 }
             }
 
@@ -11956,12 +11956,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.noteDateField;
+                    return noteDateField;
                 }
                 set
                 {
-                    this.noteDateField = value;
-                    this.RaisePropertyChanged("NoteDate");
+                    noteDateField = value;
+                    RaisePropertyChanged("NoteDate");
                 }
             }
 
@@ -11971,12 +11971,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.noteUserField;
+                    return noteUserField;
                 }
                 set
                 {
-                    this.noteUserField = value;
-                    this.RaisePropertyChanged("NoteUser");
+                    noteUserField = value;
+                    RaisePropertyChanged("NoteUser");
                 }
             }
 
@@ -11984,7 +11984,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12015,12 +12015,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -12030,12 +12030,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentDetailsField;
+                    return documentDetailsField;
                 }
                 set
                 {
-                    this.documentDetailsField = value;
-                    this.RaisePropertyChanged("DocumentDetails");
+                    documentDetailsField = value;
+                    RaisePropertyChanged("DocumentDetails");
                 }
             }
 
@@ -12045,12 +12045,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -12060,12 +12060,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12073,7 +12073,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12102,12 +12102,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.identifierField;
+                    return identifierField;
                 }
                 set
                 {
-                    this.identifierField = value;
-                    this.RaisePropertyChanged("Identifier");
+                    identifierField = value;
+                    RaisePropertyChanged("Identifier");
                 }
             }
 
@@ -12117,12 +12117,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.comparatorField;
+                    return comparatorField;
                 }
                 set
                 {
-                    this.comparatorField = value;
-                    this.RaisePropertyChanged("Comparator");
+                    comparatorField = value;
+                    RaisePropertyChanged("Comparator");
                 }
             }
 
@@ -12132,12 +12132,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.comparatorFieldSpecified;
+                    return comparatorFieldSpecified;
                 }
                 set
                 {
-                    this.comparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("ComparatorSpecified");
+                    comparatorFieldSpecified = value;
+                    RaisePropertyChanged("ComparatorSpecified");
                 }
             }
 
@@ -12145,7 +12145,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12216,12 +12216,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -12231,12 +12231,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentToDatabaseIDField;
+                    return documentToDatabaseIDField;
                 }
                 set
                 {
-                    this.documentToDatabaseIDField = value;
-                    this.RaisePropertyChanged("DocumentToDatabaseID");
+                    documentToDatabaseIDField = value;
+                    RaisePropertyChanged("DocumentToDatabaseID");
                 }
             }
 
@@ -12246,12 +12246,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationDateField;
+                    return documentAttestationDateField;
                 }
                 set
                 {
-                    this.documentAttestationDateField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDate");
+                    documentAttestationDateField = value;
+                    RaisePropertyChanged("DocumentAttestationDate");
                 }
             }
 
@@ -12261,12 +12261,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIdentifierField;
+                    return documentIdentifierField;
                 }
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -12276,12 +12276,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTypeField;
+                    return documentTypeField;
                 }
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -12291,12 +12291,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSubTypeField;
+                    return documentSubTypeField;
                 }
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -12306,12 +12306,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTitleField;
+                    return documentTitleField;
                 }
                 set
                 {
-                    this.documentTitleField = value;
-                    this.RaisePropertyChanged("DocumentTitle");
+                    documentTitleField = value;
+                    RaisePropertyChanged("DocumentTitle");
                 }
             }
 
@@ -12321,12 +12321,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.additionalTextField;
+                    return additionalTextField;
                 }
                 set
                 {
-                    this.additionalTextField = value;
-                    this.RaisePropertyChanged("AdditionalText");
+                    additionalTextField = value;
+                    RaisePropertyChanged("AdditionalText");
                 }
             }
 
@@ -12336,12 +12336,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSpecialtyField;
+                    return documentSpecialtyField;
                 }
                 set
                 {
-                    this.documentSpecialtyField = value;
-                    this.RaisePropertyChanged("DocumentSpecialty");
+                    documentSpecialtyField = value;
+                    RaisePropertyChanged("DocumentSpecialty");
                 }
             }
 
@@ -12351,12 +12351,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentOrganisationNameField;
+                    return documentOrganisationNameField;
                 }
                 set
                 {
-                    this.documentOrganisationNameField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationName");
+                    documentOrganisationNameField = value;
+                    RaisePropertyChanged("DocumentOrganisationName");
                 }
             }
 
@@ -12366,12 +12366,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentOrganisationTypeField;
+                    return documentOrganisationTypeField;
                 }
                 set
                 {
-                    this.documentOrganisationTypeField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationType");
+                    documentOrganisationTypeField = value;
+                    RaisePropertyChanged("DocumentOrganisationType");
                 }
             }
 
@@ -12381,12 +12381,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentToShareField;
+                    return consentToShareField;
                 }
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -12396,12 +12396,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sensitivityField;
+                    return sensitivityField;
                 }
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -12411,12 +12411,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.packageIdentifierField;
+                    return packageIdentifierField;
                 }
                 set
                 {
-                    this.packageIdentifierField = value;
-                    this.RaisePropertyChanged("PackageIdentifier");
+                    packageIdentifierField = value;
+                    RaisePropertyChanged("PackageIdentifier");
                 }
             }
 
@@ -12426,12 +12426,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingHCPField;
+                    return originatingHCPField;
                 }
                 set
                 {
-                    this.originatingHCPField = value;
-                    this.RaisePropertyChanged("OriginatingHCP");
+                    originatingHCPField = value;
+                    RaisePropertyChanged("OriginatingHCP");
                 }
             }
 
@@ -12441,12 +12441,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attestingHCPField;
+                    return attestingHCPField;
                 }
                 set
                 {
-                    this.attestingHCPField = value;
-                    this.RaisePropertyChanged("AttestingHCP");
+                    attestingHCPField = value;
+                    RaisePropertyChanged("AttestingHCP");
                 }
             }
 
@@ -12456,12 +12456,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.receivingHCPField;
+                    return receivingHCPField;
                 }
                 set
                 {
-                    this.receivingHCPField = value;
-                    this.RaisePropertyChanged("ReceivingHCP");
+                    receivingHCPField = value;
+                    RaisePropertyChanged("ReceivingHCP");
                 }
             }
 
@@ -12471,12 +12471,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.copiedHCPField;
+                    return copiedHCPField;
                 }
                 set
                 {
-                    this.copiedHCPField = value;
-                    this.RaisePropertyChanged("CopiedHCP");
+                    copiedHCPField = value;
+                    RaisePropertyChanged("CopiedHCP");
                 }
             }
 
@@ -12486,12 +12486,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.keywordsField;
+                    return keywordsField;
                 }
                 set
                 {
-                    this.keywordsField = value;
-                    this.RaisePropertyChanged("Keywords");
+                    keywordsField = value;
+                    RaisePropertyChanged("Keywords");
                 }
             }
 
@@ -12501,12 +12501,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -12516,12 +12516,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -12531,12 +12531,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerSearchField;
+                    return providerSearchField;
                 }
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -12547,12 +12547,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -12562,12 +12562,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12575,7 +12575,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12604,12 +12604,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTypeField;
+                    return documentTypeField;
                 }
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -12619,12 +12619,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.separatorField;
+                    return separatorField;
                 }
                 set
                 {
-                    this.separatorField = value;
-                    this.RaisePropertyChanged("Separator");
+                    separatorField = value;
+                    RaisePropertyChanged("Separator");
                 }
             }
 
@@ -12634,12 +12634,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSubTypeField;
+                    return documentSubTypeField;
                 }
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -12647,7 +12647,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12708,12 +12708,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentCategoryField;
+                    return documentCategoryField;
                 }
                 set
                 {
-                    this.documentCategoryField = value;
-                    this.RaisePropertyChanged("DocumentCategory");
+                    documentCategoryField = value;
+                    RaisePropertyChanged("DocumentCategory");
                 }
             }
 
@@ -12723,12 +12723,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIdentifierField;
+                    return documentIdentifierField;
                 }
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -12738,12 +12738,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentRevisionField;
+                    return documentRevisionField;
                 }
                 set
                 {
-                    this.documentRevisionField = value;
-                    this.RaisePropertyChanged("DocumentRevision");
+                    documentRevisionField = value;
+                    RaisePropertyChanged("DocumentRevision");
                 }
             }
 
@@ -12753,12 +12753,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentStatusField;
+                    return documentStatusField;
                 }
                 set
                 {
-                    this.documentStatusField = value;
-                    this.RaisePropertyChanged("DocumentStatus");
+                    documentStatusField = value;
+                    RaisePropertyChanged("DocumentStatus");
                 }
             }
 
@@ -12768,12 +12768,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -12783,12 +12783,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingHcpField;
+                    return originatingHcpField;
                 }
                 set
                 {
-                    this.originatingHcpField = value;
-                    this.RaisePropertyChanged("OriginatingHcp");
+                    originatingHcpField = value;
+                    RaisePropertyChanged("OriginatingHcp");
                 }
             }
 
@@ -12798,12 +12798,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attesting_HcpField;
+                    return attesting_HcpField;
                 }
                 set
                 {
-                    this.attesting_HcpField = value;
-                    this.RaisePropertyChanged("Attesting_Hcp");
+                    attesting_HcpField = value;
+                    RaisePropertyChanged("Attesting_Hcp");
                 }
             }
 
@@ -12813,12 +12813,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationDateField;
+                    return documentAttestationDateField;
                 }
                 set
                 {
-                    this.documentAttestationDateField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDate");
+                    documentAttestationDateField = value;
+                    RaisePropertyChanged("DocumentAttestationDate");
                 }
             }
 
@@ -12828,12 +12828,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationDateFieldSpecified;
+                    return documentAttestationDateFieldSpecified;
                 }
                 set
                 {
-                    this.documentAttestationDateFieldSpecified = value;
-                    this.RaisePropertyChanged("DocumentAttestationDateSpecified");
+                    documentAttestationDateFieldSpecified = value;
+                    RaisePropertyChanged("DocumentAttestationDateSpecified");
                 }
             }
 
@@ -12843,12 +12843,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationTimeField;
+                    return documentAttestationTimeField;
                 }
                 set
                 {
-                    this.documentAttestationTimeField = value;
-                    this.RaisePropertyChanged("DocumentAttestationTime");
+                    documentAttestationTimeField = value;
+                    RaisePropertyChanged("DocumentAttestationTime");
                 }
             }
 
@@ -12858,12 +12858,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentAttestationTimeFieldSpecified;
+                    return documentAttestationTimeFieldSpecified;
                 }
                 set
                 {
-                    this.documentAttestationTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DocumentAttestationTimeSpecified");
+                    documentAttestationTimeFieldSpecified = value;
+                    RaisePropertyChanged("DocumentAttestationTimeSpecified");
                 }
             }
 
@@ -12873,12 +12873,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.receivingHcpField;
+                    return receivingHcpField;
                 }
                 set
                 {
-                    this.receivingHcpField = value;
-                    this.RaisePropertyChanged("ReceivingHcp");
+                    receivingHcpField = value;
+                    RaisePropertyChanged("ReceivingHcp");
                 }
             }
 
@@ -12888,12 +12888,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.copiedHcpField;
+                    return copiedHcpField;
                 }
                 set
                 {
-                    this.copiedHcpField = value;
-                    this.RaisePropertyChanged("CopiedHcp");
+                    copiedHcpField = value;
+                    RaisePropertyChanged("CopiedHcp");
                 }
             }
 
@@ -12903,12 +12903,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIdField;
+                    return patientIdField;
                 }
                 set
                 {
-                    this.patientIdField = value;
-                    this.RaisePropertyChanged("PatientId");
+                    patientIdField = value;
+                    RaisePropertyChanged("PatientId");
                 }
             }
 
@@ -12918,12 +12918,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentToShareField;
+                    return consentToShareField;
                 }
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -12933,12 +12933,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sensitivityField;
+                    return sensitivityField;
                 }
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -12948,12 +12948,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentCreationDateField;
+                    return documentCreationDateField;
                 }
                 set
                 {
-                    this.documentCreationDateField = value;
-                    this.RaisePropertyChanged("DocumentCreationDate");
+                    documentCreationDateField = value;
+                    RaisePropertyChanged("DocumentCreationDate");
                 }
             }
 
@@ -12963,12 +12963,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentCreationTimeField;
+                    return documentCreationTimeField;
                 }
                 set
                 {
-                    this.documentCreationTimeField = value;
-                    this.RaisePropertyChanged("DocumentCreationTime");
+                    documentCreationTimeField = value;
+                    RaisePropertyChanged("DocumentCreationTime");
                 }
             }
 
@@ -12978,12 +12978,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12991,7 +12991,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13028,12 +13028,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.displayNameField;
+                    return displayNameField;
                 }
                 set
                 {
-                    this.displayNameField = value;
-                    this.RaisePropertyChanged("DisplayName");
+                    displayNameField = value;
+                    RaisePropertyChanged("DisplayName");
                 }
             }
 
@@ -13043,12 +13043,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originalFileNameField;
+                    return originalFileNameField;
                 }
                 set
                 {
-                    this.originalFileNameField = value;
-                    this.RaisePropertyChanged("OriginalFileName");
+                    originalFileNameField = value;
+                    RaisePropertyChanged("OriginalFileName");
                 }
             }
 
@@ -13058,12 +13058,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.fileTypeField;
+                    return fileTypeField;
                 }
                 set
                 {
-                    this.fileTypeField = value;
-                    this.RaisePropertyChanged("FileType");
+                    fileTypeField = value;
+                    RaisePropertyChanged("FileType");
                 }
             }
 
@@ -13073,12 +13073,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.fileSizeInBytesField;
+                    return fileSizeInBytesField;
                 }
                 set
                 {
-                    this.fileSizeInBytesField = value;
-                    this.RaisePropertyChanged("FileSizeInBytes");
+                    fileSizeInBytesField = value;
+                    RaisePropertyChanged("FileSizeInBytes");
                 }
             }
 
@@ -13088,12 +13088,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.compressionMethodField;
+                    return compressionMethodField;
                 }
                 set
                 {
-                    this.compressionMethodField = value;
-                    this.RaisePropertyChanged("CompressionMethod");
+                    compressionMethodField = value;
+                    RaisePropertyChanged("CompressionMethod");
                 }
             }
 
@@ -13103,12 +13103,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.compressedSizeInBytesField;
+                    return compressedSizeInBytesField;
                 }
                 set
                 {
-                    this.compressedSizeInBytesField = value;
-                    this.RaisePropertyChanged("CompressedSizeInBytes");
+                    compressedSizeInBytesField = value;
+                    RaisePropertyChanged("CompressedSizeInBytes");
                 }
             }
 
@@ -13118,12 +13118,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.attachmentDataField;
+                    return attachmentDataField;
                 }
                 set
                 {
-                    this.attachmentDataField = value;
-                    this.RaisePropertyChanged("AttachmentData");
+                    attachmentDataField = value;
+                    RaisePropertyChanged("AttachmentData");
                 }
             }
 
@@ -13131,7 +13131,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13166,12 +13166,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.examinationDetailsField;
+                    return examinationDetailsField;
                 }
                 set
                 {
-                    this.examinationDetailsField = value;
-                    this.RaisePropertyChanged("ExaminationDetails");
+                    examinationDetailsField = value;
+                    RaisePropertyChanged("ExaminationDetails");
                 }
             }
 
@@ -13181,12 +13181,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.authorisingDetailsField;
+                    return authorisingDetailsField;
                 }
                 set
                 {
-                    this.authorisingDetailsField = value;
-                    this.RaisePropertyChanged("AuthorisingDetails");
+                    authorisingDetailsField = value;
+                    RaisePropertyChanged("AuthorisingDetails");
                 }
             }
 
@@ -13196,12 +13196,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportingDetailsField;
+                    return reportingDetailsField;
                 }
                 set
                 {
-                    this.reportingDetailsField = value;
-                    this.RaisePropertyChanged("ReportingDetails");
+                    reportingDetailsField = value;
+                    RaisePropertyChanged("ReportingDetails");
                 }
             }
 
@@ -13211,12 +13211,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.verifyingDetailsField;
+                    return verifyingDetailsField;
                 }
                 set
                 {
-                    this.verifyingDetailsField = value;
-                    this.RaisePropertyChanged("VerifyingDetails");
+                    verifyingDetailsField = value;
+                    RaisePropertyChanged("VerifyingDetails");
                 }
             }
 
@@ -13226,12 +13226,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dataEntryDetailsField;
+                    return dataEntryDetailsField;
                 }
                 set
                 {
-                    this.dataEntryDetailsField = value;
-                    this.RaisePropertyChanged("DataEntryDetails");
+                    dataEntryDetailsField = value;
+                    RaisePropertyChanged("DataEntryDetails");
                 }
             }
 
@@ -13241,12 +13241,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -13254,7 +13254,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13283,12 +13283,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.examinationPartyField;
+                    return examinationPartyField;
                 }
                 set
                 {
-                    this.examinationPartyField = value;
-                    this.RaisePropertyChanged("ExaminationParty");
+                    examinationPartyField = value;
+                    RaisePropertyChanged("ExaminationParty");
                 }
             }
 
@@ -13298,12 +13298,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.examinationDateField;
+                    return examinationDateField;
                 }
                 set
                 {
-                    this.examinationDateField = value;
-                    this.RaisePropertyChanged("ExaminationDate");
+                    examinationDateField = value;
+                    RaisePropertyChanged("ExaminationDate");
                 }
             }
 
@@ -13313,12 +13313,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.examinationDateFieldSpecified;
+                    return examinationDateFieldSpecified;
                 }
                 set
                 {
-                    this.examinationDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ExaminationDateSpecified");
+                    examinationDateFieldSpecified = value;
+                    RaisePropertyChanged("ExaminationDateSpecified");
                 }
             }
 
@@ -13326,7 +13326,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13355,12 +13355,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.authorisingPartyField;
+                    return authorisingPartyField;
                 }
                 set
                 {
-                    this.authorisingPartyField = value;
-                    this.RaisePropertyChanged("AuthorisingParty");
+                    authorisingPartyField = value;
+                    RaisePropertyChanged("AuthorisingParty");
                 }
             }
 
@@ -13370,12 +13370,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.authorisingDateField;
+                    return authorisingDateField;
                 }
                 set
                 {
-                    this.authorisingDateField = value;
-                    this.RaisePropertyChanged("AuthorisingDate");
+                    authorisingDateField = value;
+                    RaisePropertyChanged("AuthorisingDate");
                 }
             }
 
@@ -13385,12 +13385,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.authorisingDateFieldSpecified;
+                    return authorisingDateFieldSpecified;
                 }
                 set
                 {
-                    this.authorisingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("AuthorisingDateSpecified");
+                    authorisingDateFieldSpecified = value;
+                    RaisePropertyChanged("AuthorisingDateSpecified");
                 }
             }
 
@@ -13398,7 +13398,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13427,12 +13427,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportingPartyField;
+                    return reportingPartyField;
                 }
                 set
                 {
-                    this.reportingPartyField = value;
-                    this.RaisePropertyChanged("ReportingParty");
+                    reportingPartyField = value;
+                    RaisePropertyChanged("ReportingParty");
                 }
             }
 
@@ -13442,12 +13442,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportingDateField;
+                    return reportingDateField;
                 }
                 set
                 {
-                    this.reportingDateField = value;
-                    this.RaisePropertyChanged("ReportingDate");
+                    reportingDateField = value;
+                    RaisePropertyChanged("ReportingDate");
                 }
             }
 
@@ -13457,12 +13457,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportingDateFieldSpecified;
+                    return reportingDateFieldSpecified;
                 }
                 set
                 {
-                    this.reportingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportingDateSpecified");
+                    reportingDateFieldSpecified = value;
+                    RaisePropertyChanged("ReportingDateSpecified");
                 }
             }
 
@@ -13470,7 +13470,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13499,12 +13499,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.verifyingPartyField;
+                    return verifyingPartyField;
                 }
                 set
                 {
-                    this.verifyingPartyField = value;
-                    this.RaisePropertyChanged("VerifyingParty");
+                    verifyingPartyField = value;
+                    RaisePropertyChanged("VerifyingParty");
                 }
             }
 
@@ -13514,12 +13514,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.verifyingDateField;
+                    return verifyingDateField;
                 }
                 set
                 {
-                    this.verifyingDateField = value;
-                    this.RaisePropertyChanged("VerifyingDate");
+                    verifyingDateField = value;
+                    RaisePropertyChanged("VerifyingDate");
                 }
             }
 
@@ -13529,12 +13529,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.verifyingDateFieldSpecified;
+                    return verifyingDateFieldSpecified;
                 }
                 set
                 {
-                    this.verifyingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("VerifyingDateSpecified");
+                    verifyingDateFieldSpecified = value;
+                    RaisePropertyChanged("VerifyingDateSpecified");
                 }
             }
 
@@ -13542,7 +13542,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13571,12 +13571,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.typistField;
+                    return typistField;
                 }
                 set
                 {
-                    this.typistField = value;
-                    this.RaisePropertyChanged("Typist");
+                    typistField = value;
+                    RaisePropertyChanged("Typist");
                 }
             }
 
@@ -13586,12 +13586,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTypedField;
+                    return dateTypedField;
                 }
                 set
                 {
-                    this.dateTypedField = value;
-                    this.RaisePropertyChanged("DateTyped");
+                    dateTypedField = value;
+                    RaisePropertyChanged("DateTyped");
                 }
             }
 
@@ -13601,12 +13601,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTypedFieldSpecified;
+                    return dateTypedFieldSpecified;
                 }
                 set
                 {
-                    this.dateTypedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTypedSpecified");
+                    dateTypedFieldSpecified = value;
+                    RaisePropertyChanged("DateTypedSpecified");
                 }
             }
 
@@ -13614,7 +13614,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13645,12 +13645,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.evidenceLocatorField;
+                    return evidenceLocatorField;
                 }
                 set
                 {
-                    this.evidenceLocatorField = value;
-                    this.RaisePropertyChanged("EvidenceLocator");
+                    evidenceLocatorField = value;
+                    RaisePropertyChanged("EvidenceLocator");
                 }
             }
 
@@ -13660,12 +13660,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.evidenceItemField;
+                    return evidenceItemField;
                 }
                 set
                 {
-                    this.evidenceItemField = value;
-                    this.RaisePropertyChanged("EvidenceItem");
+                    evidenceItemField = value;
+                    RaisePropertyChanged("EvidenceItem");
                 }
             }
 
@@ -13675,12 +13675,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.evidenceFormatField;
+                    return evidenceFormatField;
                 }
                 set
                 {
-                    this.evidenceFormatField = value;
-                    this.RaisePropertyChanged("EvidenceFormat");
+                    evidenceFormatField = value;
+                    RaisePropertyChanged("EvidenceFormat");
                 }
             }
 
@@ -13690,12 +13690,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -13703,7 +13703,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13730,12 +13730,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.interpretationField;
+                    return interpretationField;
                 }
                 set
                 {
-                    this.interpretationField = value;
-                    this.RaisePropertyChanged("Interpretation");
+                    interpretationField = value;
+                    RaisePropertyChanged("Interpretation");
                 }
             }
 
@@ -13745,12 +13745,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.deviatingResultQualitativeFlagField;
+                    return deviatingResultQualitativeFlagField;
                 }
                 set
                 {
-                    this.deviatingResultQualitativeFlagField = value;
-                    this.RaisePropertyChanged("DeviatingResultQualitativeFlag");
+                    deviatingResultQualitativeFlagField = value;
+                    RaisePropertyChanged("DeviatingResultQualitativeFlag");
                 }
             }
 
@@ -13758,7 +13758,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13815,12 +13815,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departmentField;
+                    return departmentField;
                 }
                 set
                 {
-                    this.departmentField = value;
-                    this.RaisePropertyChanged("Department");
+                    departmentField = value;
+                    RaisePropertyChanged("Department");
                 }
             }
 
@@ -13830,12 +13830,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testPerformedField;
+                    return testPerformedField;
                 }
                 set
                 {
-                    this.testPerformedField = value;
-                    this.RaisePropertyChanged("TestPerformed");
+                    testPerformedField = value;
+                    RaisePropertyChanged("TestPerformed");
                 }
             }
 
@@ -13845,12 +13845,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testDateField;
+                    return testDateField;
                 }
                 set
                 {
-                    this.testDateField = value;
-                    this.RaisePropertyChanged("TestDate");
+                    testDateField = value;
+                    RaisePropertyChanged("TestDate");
                 }
             }
 
@@ -13860,12 +13860,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testDateFieldSpecified;
+                    return testDateFieldSpecified;
                 }
                 set
                 {
-                    this.testDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TestDateSpecified");
+                    testDateFieldSpecified = value;
+                    RaisePropertyChanged("TestDateSpecified");
                 }
             }
 
@@ -13875,12 +13875,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testSampleDetailsField;
+                    return testSampleDetailsField;
                 }
                 set
                 {
-                    this.testSampleDetailsField = value;
-                    this.RaisePropertyChanged("TestSampleDetails");
+                    testSampleDetailsField = value;
+                    RaisePropertyChanged("TestSampleDetails");
                 }
             }
 
@@ -13890,12 +13890,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testMeasurementField;
+                    return testMeasurementField;
                 }
                 set
                 {
-                    this.testMeasurementField = value;
-                    this.RaisePropertyChanged("TestMeasurement");
+                    testMeasurementField = value;
+                    RaisePropertyChanged("TestMeasurement");
                 }
             }
 
@@ -13905,12 +13905,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testInterpretationField;
+                    return testInterpretationField;
                 }
                 set
                 {
-                    this.testInterpretationField = value;
-                    this.RaisePropertyChanged("TestInterpretation");
+                    testInterpretationField = value;
+                    RaisePropertyChanged("TestInterpretation");
                 }
             }
 
@@ -13920,12 +13920,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReportedField;
+                    return dateTimeReportedField;
                 }
                 set
                 {
-                    this.dateTimeReportedField = value;
-                    this.RaisePropertyChanged("DateTimeReported");
+                    dateTimeReportedField = value;
+                    RaisePropertyChanged("DateTimeReported");
                 }
             }
 
@@ -13935,12 +13935,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReportedFieldSpecified;
+                    return dateTimeReportedFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeReportedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReportedSpecified");
+                    dateTimeReportedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReportedSpecified");
                 }
             }
 
@@ -13950,12 +13950,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.evidenceField;
+                    return evidenceField;
                 }
                 set
                 {
-                    this.evidenceField = value;
-                    this.RaisePropertyChanged("Evidence");
+                    evidenceField = value;
+                    RaisePropertyChanged("Evidence");
                 }
             }
 
@@ -13965,12 +13965,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentField;
+                    return commentField;
                 }
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -13980,12 +13980,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.disciplineSpecificValuesField;
+                    return disciplineSpecificValuesField;
                 }
                 set
                 {
-                    this.disciplineSpecificValuesField = value;
-                    this.RaisePropertyChanged("DisciplineSpecificValues");
+                    disciplineSpecificValuesField = value;
+                    RaisePropertyChanged("DisciplineSpecificValues");
                 }
             }
 
@@ -13995,12 +13995,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultStatusField;
+                    return resultStatusField;
                 }
                 set
                 {
-                    this.resultStatusField = value;
-                    this.RaisePropertyChanged("ResultStatus");
+                    resultStatusField = value;
+                    RaisePropertyChanged("ResultStatus");
                 }
             }
 
@@ -14010,12 +14010,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultDataTypeField;
+                    return resultDataTypeField;
                 }
                 set
                 {
-                    this.resultDataTypeField = value;
-                    this.RaisePropertyChanged("ResultDataType");
+                    resultDataTypeField = value;
+                    RaisePropertyChanged("ResultDataType");
                 }
             }
 
@@ -14025,12 +14025,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDetailsField;
+                    return reportDetailsField;
                 }
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -14041,12 +14041,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultAttachmentsField;
+                    return resultAttachmentsField;
                 }
                 set
                 {
-                    this.resultAttachmentsField = value;
-                    this.RaisePropertyChanged("ResultAttachments");
+                    resultAttachmentsField = value;
+                    RaisePropertyChanged("ResultAttachments");
                 }
             }
 
@@ -14056,12 +14056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14069,7 +14069,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14104,12 +14104,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testNameField;
+                    return testNameField;
                 }
                 set
                 {
-                    this.testNameField = value;
-                    this.RaisePropertyChanged("TestName");
+                    testNameField = value;
+                    RaisePropertyChanged("TestName");
                 }
             }
 
@@ -14119,12 +14119,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testSpecificationField;
+                    return testSpecificationField;
                 }
                 set
                 {
-                    this.testSpecificationField = value;
-                    this.RaisePropertyChanged("TestSpecification");
+                    testSpecificationField = value;
+                    RaisePropertyChanged("TestSpecification");
                 }
             }
 
@@ -14134,12 +14134,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.orderNumberField;
+                    return orderNumberField;
                 }
                 set
                 {
-                    this.orderNumberField = value;
-                    this.RaisePropertyChanged("OrderNumber");
+                    orderNumberField = value;
+                    RaisePropertyChanged("OrderNumber");
                 }
             }
 
@@ -14149,12 +14149,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subOrderNumberField;
+                    return subOrderNumberField;
                 }
                 set
                 {
-                    this.subOrderNumberField = value;
-                    this.RaisePropertyChanged("SubOrderNumber");
+                    subOrderNumberField = value;
+                    RaisePropertyChanged("SubOrderNumber");
                 }
             }
 
@@ -14164,12 +14164,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testIdentifierField;
+                    return testIdentifierField;
                 }
                 set
                 {
-                    this.testIdentifierField = value;
-                    this.RaisePropertyChanged("TestIdentifier");
+                    testIdentifierField = value;
+                    RaisePropertyChanged("TestIdentifier");
                 }
             }
 
@@ -14179,12 +14179,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14192,7 +14192,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14249,12 +14249,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleNameField;
+                    return sampleNameField;
                 }
                 set
                 {
-                    this.sampleNameField = value;
-                    this.RaisePropertyChanged("SampleName");
+                    sampleNameField = value;
+                    RaisePropertyChanged("SampleName");
                 }
             }
 
@@ -14264,12 +14264,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.tissueTypeField;
+                    return tissueTypeField;
                 }
                 set
                 {
-                    this.tissueTypeField = value;
-                    this.RaisePropertyChanged("TissueType");
+                    tissueTypeField = value;
+                    RaisePropertyChanged("TissueType");
                 }
             }
 
@@ -14279,12 +14279,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleRequesterIdField;
+                    return sampleRequesterIdField;
                 }
                 set
                 {
-                    this.sampleRequesterIdField = value;
-                    this.RaisePropertyChanged("SampleRequesterId");
+                    sampleRequesterIdField = value;
+                    RaisePropertyChanged("SampleRequesterId");
                 }
             }
 
@@ -14294,12 +14294,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleLaboratoryIdField;
+                    return sampleLaboratoryIdField;
                 }
                 set
                 {
-                    this.sampleLaboratoryIdField = value;
-                    this.RaisePropertyChanged("SampleLaboratoryId");
+                    sampleLaboratoryIdField = value;
+                    RaisePropertyChanged("SampleLaboratoryId");
                 }
             }
 
@@ -14309,12 +14309,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeSampledField;
+                    return dateTimeSampledField;
                 }
                 set
                 {
-                    this.dateTimeSampledField = value;
-                    this.RaisePropertyChanged("DateTimeSampled");
+                    dateTimeSampledField = value;
+                    RaisePropertyChanged("DateTimeSampled");
                 }
             }
 
@@ -14324,12 +14324,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeSampledFieldSpecified;
+                    return dateTimeSampledFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeSampledFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeSampledSpecified");
+                    dateTimeSampledFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeSampledSpecified");
                 }
             }
 
@@ -14339,12 +14339,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleAmountField;
+                    return sampleAmountField;
                 }
                 set
                 {
-                    this.sampleAmountField = value;
-                    this.RaisePropertyChanged("SampleAmount");
+                    sampleAmountField = value;
+                    RaisePropertyChanged("SampleAmount");
                 }
             }
 
@@ -14354,12 +14354,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReceivedField;
+                    return dateTimeReceivedField;
                 }
                 set
                 {
-                    this.dateTimeReceivedField = value;
-                    this.RaisePropertyChanged("DateTimeReceived");
+                    dateTimeReceivedField = value;
+                    RaisePropertyChanged("DateTimeReceived");
                 }
             }
 
@@ -14369,12 +14369,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReceivedFieldSpecified;
+                    return dateTimeReceivedFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeReceivedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReceivedSpecified");
+                    dateTimeReceivedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReceivedSpecified");
                 }
             }
 
@@ -14384,12 +14384,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeTestedField;
+                    return dateTimeTestedField;
                 }
                 set
                 {
-                    this.dateTimeTestedField = value;
-                    this.RaisePropertyChanged("DateTimeTested");
+                    dateTimeTestedField = value;
+                    RaisePropertyChanged("DateTimeTested");
                 }
             }
 
@@ -14399,12 +14399,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeTestedFieldSpecified;
+                    return dateTimeTestedFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeTestedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeTestedSpecified");
+                    dateTimeTestedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeTestedSpecified");
                 }
             }
 
@@ -14414,12 +14414,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anatomicalSiteField;
+                    return anatomicalSiteField;
                 }
                 set
                 {
-                    this.anatomicalSiteField = value;
-                    this.RaisePropertyChanged("AnatomicalSite");
+                    anatomicalSiteField = value;
+                    RaisePropertyChanged("AnatomicalSite");
                 }
             }
 
@@ -14429,12 +14429,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.biohazardAlertField;
+                    return biohazardAlertField;
                 }
                 set
                 {
-                    this.biohazardAlertField = value;
-                    this.RaisePropertyChanged("BiohazardAlert");
+                    biohazardAlertField = value;
+                    RaisePropertyChanged("BiohazardAlert");
                 }
             }
 
@@ -14444,12 +14444,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.biohazardAlertFieldSpecified;
+                    return biohazardAlertFieldSpecified;
                 }
                 set
                 {
-                    this.biohazardAlertFieldSpecified = value;
-                    this.RaisePropertyChanged("BiohazardAlertSpecified");
+                    biohazardAlertFieldSpecified = value;
+                    RaisePropertyChanged("BiohazardAlertSpecified");
                 }
             }
 
@@ -14459,12 +14459,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleRequesterCommentField;
+                    return sampleRequesterCommentField;
                 }
                 set
                 {
-                    this.sampleRequesterCommentField = value;
-                    this.RaisePropertyChanged("SampleRequesterComment");
+                    sampleRequesterCommentField = value;
+                    RaisePropertyChanged("SampleRequesterComment");
                 }
             }
 
@@ -14474,12 +14474,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceProviderCommentField;
+                    return serviceProviderCommentField;
                 }
                 set
                 {
-                    this.serviceProviderCommentField = value;
-                    this.RaisePropertyChanged("ServiceProviderComment");
+                    serviceProviderCommentField = value;
+                    RaisePropertyChanged("ServiceProviderComment");
                 }
             }
 
@@ -14489,12 +14489,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14502,7 +14502,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14529,12 +14529,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.bodyPartField;
+                    return bodyPartField;
                 }
                 set
                 {
-                    this.bodyPartField = value;
-                    this.RaisePropertyChanged("BodyPart");
+                    bodyPartField = value;
+                    RaisePropertyChanged("BodyPart");
                 }
             }
 
@@ -14544,12 +14544,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.lateralityField;
+                    return lateralityField;
                 }
                 set
                 {
-                    this.lateralityField = value;
-                    this.RaisePropertyChanged("Laterality");
+                    lateralityField = value;
+                    RaisePropertyChanged("Laterality");
                 }
             }
 
@@ -14557,7 +14557,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14594,12 +14594,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testSetDetailsField;
+                    return testSetDetailsField;
                 }
                 set
                 {
-                    this.testSetDetailsField = value;
-                    this.RaisePropertyChanged("TestSetDetails");
+                    testSetDetailsField = value;
+                    RaisePropertyChanged("TestSetDetails");
                 }
             }
 
@@ -14610,12 +14610,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultsField;
+                    return testResultsField;
                 }
                 set
                 {
-                    this.testResultsField = value;
-                    this.RaisePropertyChanged("TestResults");
+                    testResultsField = value;
+                    RaisePropertyChanged("TestResults");
                 }
             }
 
@@ -14625,12 +14625,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.commentField;
+                    return commentField;
                 }
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -14640,12 +14640,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultStatusField;
+                    return resultStatusField;
                 }
                 set
                 {
-                    this.resultStatusField = value;
-                    this.RaisePropertyChanged("ResultStatus");
+                    resultStatusField = value;
+                    RaisePropertyChanged("ResultStatus");
                 }
             }
 
@@ -14655,12 +14655,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultDataTypeField;
+                    return resultDataTypeField;
                 }
                 set
                 {
-                    this.resultDataTypeField = value;
-                    this.RaisePropertyChanged("ResultDataType");
+                    resultDataTypeField = value;
+                    RaisePropertyChanged("ResultDataType");
                 }
             }
 
@@ -14670,12 +14670,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDetailsField;
+                    return reportDetailsField;
                 }
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -14685,12 +14685,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14698,7 +14698,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14727,12 +14727,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDetailsField;
+                    return sampleDetailsField;
                 }
                 set
                 {
-                    this.sampleDetailsField = value;
-                    this.RaisePropertyChanged("SampleDetails");
+                    sampleDetailsField = value;
+                    RaisePropertyChanged("SampleDetails");
                 }
             }
 
@@ -14743,12 +14743,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultSetsField;
+                    return testResultSetsField;
                 }
                 set
                 {
-                    this.testResultSetsField = value;
-                    this.RaisePropertyChanged("TestResultSets");
+                    testResultSetsField = value;
+                    RaisePropertyChanged("TestResultSets");
                 }
             }
 
@@ -14758,12 +14758,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14771,7 +14771,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14812,12 +14812,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -14828,12 +14828,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemElementNameField;
+                    return itemElementNameField;
                 }
                 set
                 {
-                    this.itemElementNameField = value;
-                    this.RaisePropertyChanged("ItemElementName");
+                    itemElementNameField = value;
+                    RaisePropertyChanged("ItemElementName");
                 }
             }
 
@@ -14843,12 +14843,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugReviewRequiredField;
+                    return drugReviewRequiredField;
                 }
                 set
                 {
-                    this.drugReviewRequiredField = value;
-                    this.RaisePropertyChanged("DrugReviewRequired");
+                    drugReviewRequiredField = value;
+                    RaisePropertyChanged("DrugReviewRequired");
                 }
             }
 
@@ -14858,12 +14858,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugReviewRequiredFieldSpecified;
+                    return drugReviewRequiredFieldSpecified;
                 }
                 set
                 {
-                    this.drugReviewRequiredFieldSpecified = value;
-                    this.RaisePropertyChanged("DrugReviewRequiredSpecified");
+                    drugReviewRequiredFieldSpecified = value;
+                    RaisePropertyChanged("DrugReviewRequiredSpecified");
                 }
             }
 
@@ -14873,12 +14873,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.medicationStopDateField;
+                    return medicationStopDateField;
                 }
                 set
                 {
-                    this.medicationStopDateField = value;
-                    this.RaisePropertyChanged("MedicationStopDate");
+                    medicationStopDateField = value;
+                    RaisePropertyChanged("MedicationStopDate");
                 }
             }
 
@@ -14888,12 +14888,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.medicationStopDateFieldSpecified;
+                    return medicationStopDateFieldSpecified;
                 }
                 set
                 {
-                    this.medicationStopDateFieldSpecified = value;
-                    this.RaisePropertyChanged("MedicationStopDateSpecified");
+                    medicationStopDateFieldSpecified = value;
+                    RaisePropertyChanged("MedicationStopDateSpecified");
                 }
             }
 
@@ -14903,12 +14903,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14916,7 +14916,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14980,12 +14980,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -14995,12 +14995,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.frequencyField;
+                    return frequencyField;
                 }
                 set
                 {
-                    this.frequencyField = value;
-                    this.RaisePropertyChanged("Frequency");
+                    frequencyField = value;
+                    RaisePropertyChanged("Frequency");
                 }
             }
 
@@ -15010,12 +15010,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.timeOfAdministrationField;
+                    return timeOfAdministrationField;
                 }
                 set
                 {
-                    this.timeOfAdministrationField = value;
-                    this.RaisePropertyChanged("TimeOfAdministration");
+                    timeOfAdministrationField = value;
+                    RaisePropertyChanged("TimeOfAdministration");
                 }
             }
 
@@ -15025,12 +15025,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.routeField;
+                    return routeField;
                 }
                 set
                 {
-                    this.routeField = value;
-                    this.RaisePropertyChanged("Route");
+                    routeField = value;
+                    RaisePropertyChanged("Route");
                 }
             }
 
@@ -15040,12 +15040,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.maximumDailyDoseField;
+                    return maximumDailyDoseField;
                 }
                 set
                 {
-                    this.maximumDailyDoseField = value;
-                    this.RaisePropertyChanged("MaximumDailyDose");
+                    maximumDailyDoseField = value;
+                    RaisePropertyChanged("MaximumDailyDose");
                 }
             }
 
@@ -15056,12 +15056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemsField;
+                    return itemsField;
                 }
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15071,12 +15071,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugDurationField;
+                    return drugDurationField;
                 }
                 set
                 {
-                    this.drugDurationField = value;
-                    this.RaisePropertyChanged("DrugDuration");
+                    drugDurationField = value;
+                    RaisePropertyChanged("DrugDuration");
                 }
             }
 
@@ -15086,12 +15086,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.lastPrescribedDateField;
+                    return lastPrescribedDateField;
                 }
                 set
                 {
-                    this.lastPrescribedDateField = value;
-                    this.RaisePropertyChanged("LastPrescribedDate");
+                    lastPrescribedDateField = value;
+                    RaisePropertyChanged("LastPrescribedDate");
                 }
             }
 
@@ -15101,12 +15101,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.lastPrescribedDateFieldSpecified;
+                    return lastPrescribedDateFieldSpecified;
                 }
                 set
                 {
-                    this.lastPrescribedDateFieldSpecified = value;
-                    this.RaisePropertyChanged("LastPrescribedDateSpecified");
+                    lastPrescribedDateFieldSpecified = value;
+                    RaisePropertyChanged("LastPrescribedDateSpecified");
                 }
             }
 
@@ -15116,12 +15116,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15129,7 +15129,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15166,12 +15166,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugCodeValueField;
+                    return drugCodeValueField;
                 }
                 set
                 {
-                    this.drugCodeValueField = value;
-                    this.RaisePropertyChanged("DrugCodeValue");
+                    drugCodeValueField = value;
+                    RaisePropertyChanged("DrugCodeValue");
                 }
             }
 
@@ -15181,12 +15181,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugIdentifierField;
+                    return drugIdentifierField;
                 }
                 set
                 {
-                    this.drugIdentifierField = value;
-                    this.RaisePropertyChanged("DrugIdentifier");
+                    drugIdentifierField = value;
+                    RaisePropertyChanged("DrugIdentifier");
                 }
             }
 
@@ -15196,12 +15196,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.formulationField;
+                    return formulationField;
                 }
                 set
                 {
-                    this.formulationField = value;
-                    this.RaisePropertyChanged("Formulation");
+                    formulationField = value;
+                    RaisePropertyChanged("Formulation");
                 }
             }
 
@@ -15211,12 +15211,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugStrengthField;
+                    return drugStrengthField;
                 }
                 set
                 {
-                    this.drugStrengthField = value;
-                    this.RaisePropertyChanged("DrugStrength");
+                    drugStrengthField = value;
+                    RaisePropertyChanged("DrugStrength");
                 }
             }
 
@@ -15226,12 +15226,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugTypeField;
+                    return drugTypeField;
                 }
                 set
                 {
-                    this.drugTypeField = value;
-                    this.RaisePropertyChanged("DrugType");
+                    drugTypeField = value;
+                    RaisePropertyChanged("DrugType");
                 }
             }
 
@@ -15241,12 +15241,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugDictionaryField;
+                    return drugDictionaryField;
                 }
                 set
                 {
-                    this.drugDictionaryField = value;
-                    this.RaisePropertyChanged("DrugDictionary");
+                    drugDictionaryField = value;
+                    RaisePropertyChanged("DrugDictionary");
                 }
             }
 
@@ -15256,12 +15256,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15269,7 +15269,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15300,12 +15300,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemsField;
+                    return itemsField;
                 }
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15316,12 +15316,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemsElementNameField;
+                    return itemsElementNameField;
                 }
                 set
                 {
-                    this.itemsElementNameField = value;
-                    this.RaisePropertyChanged("ItemsElementName");
+                    itemsElementNameField = value;
+                    RaisePropertyChanged("ItemsElementName");
                 }
             }
 
@@ -15329,7 +15329,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15379,12 +15379,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.drugNameField;
+                    return drugNameField;
                 }
                 set
                 {
-                    this.drugNameField = value;
-                    this.RaisePropertyChanged("DrugName");
+                    drugNameField = value;
+                    RaisePropertyChanged("DrugName");
                 }
             }
 
@@ -15395,12 +15395,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -15410,12 +15410,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15423,7 +15423,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15462,12 +15462,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportRequiredField;
+                    return transportRequiredField;
                 }
                 set
                 {
-                    this.transportRequiredField = value;
-                    this.RaisePropertyChanged("TransportRequired");
+                    transportRequiredField = value;
+                    RaisePropertyChanged("TransportRequired");
                 }
             }
 
@@ -15477,12 +15477,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportTypeField;
+                    return transportTypeField;
                 }
                 set
                 {
-                    this.transportTypeField = value;
-                    this.RaisePropertyChanged("TransportType");
+                    transportTypeField = value;
+                    RaisePropertyChanged("TransportType");
                 }
             }
 
@@ -15495,12 +15495,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemsField;
+                    return itemsField;
                 }
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15511,12 +15511,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemsElementNameField;
+                    return itemsElementNameField;
                 }
                 set
                 {
-                    this.itemsElementNameField = value;
-                    this.RaisePropertyChanged("ItemsElementName");
+                    itemsElementNameField = value;
+                    RaisePropertyChanged("ItemsElementName");
                 }
             }
 
@@ -15526,12 +15526,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportPickupField;
+                    return transportPickupField;
                 }
                 set
                 {
-                    this.transportPickupField = value;
-                    this.RaisePropertyChanged("TransportPickup");
+                    transportPickupField = value;
+                    RaisePropertyChanged("TransportPickup");
                 }
             }
 
@@ -15541,12 +15541,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportDestinationField;
+                    return transportDestinationField;
                 }
                 set
                 {
-                    this.transportDestinationField = value;
-                    this.RaisePropertyChanged("TransportDestination");
+                    transportDestinationField = value;
+                    RaisePropertyChanged("TransportDestination");
                 }
             }
 
@@ -15556,12 +15556,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportInstructionsField;
+                    return transportInstructionsField;
                 }
                 set
                 {
-                    this.transportInstructionsField = value;
-                    this.RaisePropertyChanged("TransportInstructions");
+                    transportInstructionsField = value;
+                    RaisePropertyChanged("TransportInstructions");
                 }
             }
 
@@ -15571,12 +15571,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15584,7 +15584,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15636,12 +15636,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicHealthcareOrganisationField;
+                    return clinicHealthcareOrganisationField;
                 }
                 set
                 {
-                    this.clinicHealthcareOrganisationField = value;
-                    this.RaisePropertyChanged("ClinicHealthcareOrganisation");
+                    clinicHealthcareOrganisationField = value;
+                    RaisePropertyChanged("ClinicHealthcareOrganisation");
                 }
             }
 
@@ -15651,12 +15651,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicField;
+                    return clinicField;
                 }
                 set
                 {
-                    this.clinicField = value;
-                    this.RaisePropertyChanged("Clinic");
+                    clinicField = value;
+                    RaisePropertyChanged("Clinic");
                 }
             }
 
@@ -15666,12 +15666,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.appointmentDateField;
+                    return appointmentDateField;
                 }
                 set
                 {
-                    this.appointmentDateField = value;
-                    this.RaisePropertyChanged("AppointmentDate");
+                    appointmentDateField = value;
+                    RaisePropertyChanged("AppointmentDate");
                 }
             }
 
@@ -15681,12 +15681,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.appointmentTimeField;
+                    return appointmentTimeField;
                 }
                 set
                 {
-                    this.appointmentTimeField = value;
-                    this.RaisePropertyChanged("AppointmentTime");
+                    appointmentTimeField = value;
+                    RaisePropertyChanged("AppointmentTime");
                 }
             }
 
@@ -15696,12 +15696,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.slotLengthField;
+                    return slotLengthField;
                 }
                 set
                 {
-                    this.slotLengthField = value;
-                    this.RaisePropertyChanged("SlotLength");
+                    slotLengthField = value;
+                    RaisePropertyChanged("SlotLength");
                 }
             }
 
@@ -15711,12 +15711,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15724,7 +15724,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15753,12 +15753,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.slotField;
+                    return slotField;
                 }
                 set
                 {
-                    this.slotField = value;
-                    this.RaisePropertyChanged("Slot");
+                    slotField = value;
+                    RaisePropertyChanged("Slot");
                 }
             }
 
@@ -15768,12 +15768,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transportDetailsField;
+                    return transportDetailsField;
                 }
                 set
                 {
-                    this.transportDetailsField = value;
-                    this.RaisePropertyChanged("TransportDetails");
+                    transportDetailsField = value;
+                    RaisePropertyChanged("TransportDetails");
                 }
             }
 
@@ -15783,12 +15783,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15796,7 +15796,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15835,12 +15835,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.departmentField;
+                    return departmentField;
                 }
                 set
                 {
-                    this.departmentField = value;
-                    this.RaisePropertyChanged("Department");
+                    departmentField = value;
+                    RaisePropertyChanged("Department");
                 }
             }
 
@@ -15850,12 +15850,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testRequestedField;
+                    return testRequestedField;
                 }
                 set
                 {
-                    this.testRequestedField = value;
-                    this.RaisePropertyChanged("TestRequested");
+                    testRequestedField = value;
+                    RaisePropertyChanged("TestRequested");
                 }
             }
 
@@ -15865,12 +15865,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testSampleDetailsField;
+                    return testSampleDetailsField;
                 }
                 set
                 {
-                    this.testSampleDetailsField = value;
-                    this.RaisePropertyChanged("TestSampleDetails");
+                    testSampleDetailsField = value;
+                    RaisePropertyChanged("TestSampleDetails");
                 }
             }
 
@@ -15880,12 +15880,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTestAdministrationField;
+                    return patientTestAdministrationField;
                 }
                 set
                 {
-                    this.patientTestAdministrationField = value;
-                    this.RaisePropertyChanged("PatientTestAdministration");
+                    patientTestAdministrationField = value;
+                    RaisePropertyChanged("PatientTestAdministration");
                 }
             }
 
@@ -15895,12 +15895,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestUrgencyValueField;
+                    return requestUrgencyValueField;
                 }
                 set
                 {
-                    this.requestUrgencyValueField = value;
-                    this.RaisePropertyChanged("RequestUrgencyValue");
+                    requestUrgencyValueField = value;
+                    RaisePropertyChanged("RequestUrgencyValue");
                 }
             }
 
@@ -15910,12 +15910,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.clinicalDataRequiredField;
+                    return clinicalDataRequiredField;
                 }
                 set
                 {
-                    this.clinicalDataRequiredField = value;
-                    this.RaisePropertyChanged("ClinicalDataRequired");
+                    clinicalDataRequiredField = value;
+                    RaisePropertyChanged("ClinicalDataRequired");
                 }
             }
 
@@ -15925,12 +15925,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.currentMedicationField;
+                    return currentMedicationField;
                 }
                 set
                 {
-                    this.currentMedicationField = value;
-                    this.RaisePropertyChanged("CurrentMedication");
+                    currentMedicationField = value;
+                    RaisePropertyChanged("CurrentMedication");
                 }
             }
 
@@ -15940,12 +15940,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15953,7 +15953,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16006,12 +16006,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportIdentifierField;
+                    return reportIdentifierField;
                 }
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -16021,12 +16021,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateField;
+                    return reportDateField;
                 }
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -16036,12 +16036,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportTimeField;
+                    return reportTimeField;
                 }
                 set
                 {
-                    this.reportTimeField = value;
-                    this.RaisePropertyChanged("ReportTime");
+                    reportTimeField = value;
+                    RaisePropertyChanged("ReportTime");
                 }
             }
 
@@ -16051,12 +16051,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportTimeFieldSpecified;
+                    return reportTimeFieldSpecified;
                 }
                 set
                 {
-                    this.reportTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportTimeSpecified");
+                    reportTimeFieldSpecified = value;
+                    RaisePropertyChanged("ReportTimeSpecified");
                 }
             }
 
@@ -16066,12 +16066,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.disciplineField;
+                    return disciplineField;
                 }
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -16081,12 +16081,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sectionNameField;
+                    return sectionNameField;
                 }
                 set
                 {
-                    this.sectionNameField = value;
-                    this.RaisePropertyChanged("SectionName");
+                    sectionNameField = value;
+                    RaisePropertyChanged("SectionName");
                 }
             }
 
@@ -16096,12 +16096,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceProviderField;
+                    return serviceProviderField;
                 }
                 set
                 {
-                    this.serviceProviderField = value;
-                    this.RaisePropertyChanged("ServiceProvider");
+                    serviceProviderField = value;
+                    RaisePropertyChanged("ServiceProvider");
                 }
             }
 
@@ -16111,12 +16111,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestingPartyField;
+                    return requestingPartyField;
                 }
                 set
                 {
-                    this.requestingPartyField = value;
-                    this.RaisePropertyChanged("RequestingParty");
+                    requestingPartyField = value;
+                    RaisePropertyChanged("RequestingParty");
                 }
             }
 
@@ -16126,12 +16126,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.confidentialityStatusField;
+                    return confidentialityStatusField;
                 }
                 set
                 {
-                    this.confidentialityStatusField = value;
-                    this.RaisePropertyChanged("ConfidentialityStatus");
+                    confidentialityStatusField = value;
+                    RaisePropertyChanged("ConfidentialityStatus");
                 }
             }
 
@@ -16141,12 +16141,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.confidentialityStatusFieldSpecified;
+                    return confidentialityStatusFieldSpecified;
                 }
                 set
                 {
-                    this.confidentialityStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("ConfidentialityStatusSpecified");
+                    confidentialityStatusFieldSpecified = value;
+                    RaisePropertyChanged("ConfidentialityStatusSpecified");
                 }
             }
 
@@ -16156,12 +16156,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceRequestField;
+                    return serviceRequestField;
                 }
                 set
                 {
-                    this.serviceRequestField = value;
-                    this.RaisePropertyChanged("ServiceRequest");
+                    serviceRequestField = value;
+                    RaisePropertyChanged("ServiceRequest");
                 }
             }
 
@@ -16171,12 +16171,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.serviceResultField;
+                    return serviceResultField;
                 }
                 set
                 {
-                    this.serviceResultField = value;
-                    this.RaisePropertyChanged("ServiceResult");
+                    serviceResultField = value;
+                    RaisePropertyChanged("ServiceResult");
                 }
             }
 
@@ -16186,12 +16186,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientInformationField;
+                    return patientInformationField;
                 }
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -16201,12 +16201,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientClassField;
+                    return patientClassField;
                 }
                 set
                 {
-                    this.patientClassField = value;
-                    this.RaisePropertyChanged("PatientClass");
+                    patientClassField = value;
+                    RaisePropertyChanged("PatientClass");
                 }
             }
 
@@ -16216,12 +16216,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16229,7 +16229,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16256,12 +16256,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providingSiteField;
+                    return providingSiteField;
                 }
                 set
                 {
-                    this.providingSiteField = value;
-                    this.RaisePropertyChanged("ProvidingSite");
+                    providingSiteField = value;
+                    RaisePropertyChanged("ProvidingSite");
                 }
             }
 
@@ -16271,12 +16271,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providingLocationField;
+                    return providingLocationField;
                 }
                 set
                 {
-                    this.providingLocationField = value;
-                    this.RaisePropertyChanged("ProvidingLocation");
+                    providingLocationField = value;
+                    RaisePropertyChanged("ProvidingLocation");
                 }
             }
 
@@ -16284,7 +16284,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16313,12 +16313,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDataField;
+                    return reportDataField;
                 }
                 set
                 {
-                    this.reportDataField = value;
-                    this.RaisePropertyChanged("ReportData");
+                    reportDataField = value;
+                    RaisePropertyChanged("ReportData");
                 }
             }
 
@@ -16328,12 +16328,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentDataField;
+                    return documentDataField;
                 }
                 set
                 {
-                    this.documentDataField = value;
-                    this.RaisePropertyChanged("DocumentData");
+                    documentDataField = value;
+                    RaisePropertyChanged("DocumentData");
                 }
             }
 
@@ -16343,12 +16343,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16356,7 +16356,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16389,12 +16389,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testReportIDField;
+                    return testReportIDField;
                 }
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -16404,12 +16404,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -16419,12 +16419,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportHasHistoryField;
+                    return reportHasHistoryField;
                 }
                 set
                 {
-                    this.reportHasHistoryField = value;
-                    this.RaisePropertyChanged("ReportHasHistory");
+                    reportHasHistoryField = value;
+                    RaisePropertyChanged("ReportHasHistory");
                 }
             }
 
@@ -16434,12 +16434,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -16449,12 +16449,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16462,7 +16462,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16491,12 +16491,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDetailsField;
+                    return reportDetailsField;
                 }
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -16506,12 +16506,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -16521,12 +16521,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16534,7 +16534,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16621,12 +16621,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testReportIDField;
+                    return testReportIDField;
                 }
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -16636,12 +16636,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -16651,12 +16651,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestingPartyHealthcareProfessionalIDField;
+                    return requestingPartyHealthcareProfessionalIDField;
                 }
                 set
                 {
-                    this.requestingPartyHealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
+                    requestingPartyHealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
                 }
             }
 
@@ -16666,12 +16666,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestingOrganisationIDField;
+                    return requestingOrganisationIDField;
                 }
                 set
                 {
-                    this.requestingOrganisationIDField = value;
-                    this.RaisePropertyChanged("RequestingOrganisationID");
+                    requestingOrganisationIDField = value;
+                    RaisePropertyChanged("RequestingOrganisationID");
                 }
             }
 
@@ -16681,12 +16681,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.confidentialityStatusField;
+                    return confidentialityStatusField;
                 }
                 set
                 {
-                    this.confidentialityStatusField = value;
-                    this.RaisePropertyChanged("ConfidentialityStatus");
+                    confidentialityStatusField = value;
+                    RaisePropertyChanged("ConfidentialityStatus");
                 }
             }
 
@@ -16696,12 +16696,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDemographicsIDField;
+                    return patientDemographicsIDField;
                 }
                 set
                 {
-                    this.patientDemographicsIDField = value;
-                    this.RaisePropertyChanged("PatientDemographicsID");
+                    patientDemographicsIDField = value;
+                    RaisePropertyChanged("PatientDemographicsID");
                 }
             }
 
@@ -16711,12 +16711,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.disciplineField;
+                    return disciplineField;
                 }
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -16726,12 +16726,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sectionNameField;
+                    return sectionNameField;
                 }
                 set
                 {
-                    this.sectionNameField = value;
-                    this.RaisePropertyChanged("SectionName");
+                    sectionNameField = value;
+                    RaisePropertyChanged("SectionName");
                 }
             }
 
@@ -16741,12 +16741,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportIdentifierField;
+                    return reportIdentifierField;
                 }
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -16756,12 +16756,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateTimeField;
+                    return reportDateTimeField;
                 }
                 set
                 {
-                    this.reportDateTimeField = value;
-                    this.RaisePropertyChanged("ReportDateTime");
+                    reportDateTimeField = value;
+                    RaisePropertyChanged("ReportDateTime");
                 }
             }
 
@@ -16771,12 +16771,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateTimeFieldSpecified;
+                    return reportDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.reportDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportDateTimeSpecified");
+                    reportDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ReportDateTimeSpecified");
                 }
             }
 
@@ -16786,12 +16786,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventDateTimeField;
+                    return eventDateTimeField;
                 }
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -16801,12 +16801,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventDateTimeFieldSpecified;
+                    return eventDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.eventDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("EventDateTimeSpecified");
+                    eventDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("EventDateTimeSpecified");
                 }
             }
 
@@ -16816,12 +16816,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventUserField;
+                    return eventUserField;
                 }
                 set
                 {
-                    this.eventUserField = value;
-                    this.RaisePropertyChanged("EventUser");
+                    eventUserField = value;
+                    RaisePropertyChanged("EventUser");
                 }
             }
 
@@ -16831,12 +16831,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recipientOrganisationIDField;
+                    return recipientOrganisationIDField;
                 }
                 set
                 {
-                    this.recipientOrganisationIDField = value;
-                    this.RaisePropertyChanged("RecipientOrganisationID");
+                    recipientOrganisationIDField = value;
+                    RaisePropertyChanged("RecipientOrganisationID");
                 }
             }
 
@@ -16846,12 +16846,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleIDField;
+                    return sampleIDField;
                 }
                 set
                 {
-                    this.sampleIDField = value;
-                    this.RaisePropertyChanged("SampleID");
+                    sampleIDField = value;
+                    RaisePropertyChanged("SampleID");
                 }
             }
 
@@ -16861,12 +16861,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleCodeField;
+                    return sampleCodeField;
                 }
                 set
                 {
-                    this.sampleCodeField = value;
-                    this.RaisePropertyChanged("SampleCode");
+                    sampleCodeField = value;
+                    RaisePropertyChanged("SampleCode");
                 }
             }
 
@@ -16876,12 +16876,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDescriptionField;
+                    return sampleDescriptionField;
                 }
                 set
                 {
-                    this.sampleDescriptionField = value;
-                    this.RaisePropertyChanged("SampleDescription");
+                    sampleDescriptionField = value;
+                    RaisePropertyChanged("SampleDescription");
                 }
             }
 
@@ -16891,12 +16891,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeSampledField;
+                    return dateTimeSampledField;
                 }
                 set
                 {
-                    this.dateTimeSampledField = value;
-                    this.RaisePropertyChanged("DateTimeSampled");
+                    dateTimeSampledField = value;
+                    RaisePropertyChanged("DateTimeSampled");
                 }
             }
 
@@ -16906,12 +16906,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeSampledFieldSpecified;
+                    return dateTimeSampledFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeSampledFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeSampledSpecified");
+                    dateTimeSampledFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeSampledSpecified");
                 }
             }
 
@@ -16921,12 +16921,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testIDField;
+                    return testIDField;
                 }
                 set
                 {
-                    this.testIDField = value;
-                    this.RaisePropertyChanged("TestID");
+                    testIDField = value;
+                    RaisePropertyChanged("TestID");
                 }
             }
 
@@ -16936,12 +16936,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.setDescriptionField;
+                    return setDescriptionField;
                 }
                 set
                 {
-                    this.setDescriptionField = value;
-                    this.RaisePropertyChanged("SetDescription");
+                    setDescriptionField = value;
+                    RaisePropertyChanged("SetDescription");
                 }
             }
 
@@ -16951,12 +16951,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentTypeField;
+                    return documentTypeField;
                 }
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -16966,12 +16966,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentSubTypeField;
+                    return documentSubTypeField;
                 }
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -16981,12 +16981,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultSetStatusField;
+                    return resultSetStatusField;
                 }
                 set
                 {
-                    this.resultSetStatusField = value;
-                    this.RaisePropertyChanged("ResultSetStatus");
+                    resultSetStatusField = value;
+                    RaisePropertyChanged("ResultSetStatus");
                 }
             }
 
@@ -16996,12 +16996,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportAbnormalField;
+                    return reportAbnormalField;
                 }
                 set
                 {
-                    this.reportAbnormalField = value;
-                    this.RaisePropertyChanged("ReportAbnormal");
+                    reportAbnormalField = value;
+                    RaisePropertyChanged("ReportAbnormal");
                 }
             }
 
@@ -17011,12 +17011,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportAbnormalFieldSpecified;
+                    return reportAbnormalFieldSpecified;
                 }
                 set
                 {
-                    this.reportAbnormalFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportAbnormalSpecified");
+                    reportAbnormalFieldSpecified = value;
+                    RaisePropertyChanged("ReportAbnormalSpecified");
                 }
             }
 
@@ -17026,12 +17026,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -17041,12 +17041,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.numCommentsField;
+                    return numCommentsField;
                 }
                 set
                 {
-                    this.numCommentsField = value;
-                    this.RaisePropertyChanged("NumComments");
+                    numCommentsField = value;
+                    RaisePropertyChanged("NumComments");
                 }
             }
 
@@ -17056,12 +17056,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeCreatedField;
+                    return dateTimeCreatedField;
                 }
                 set
                 {
-                    this.dateTimeCreatedField = value;
-                    this.RaisePropertyChanged("DateTimeCreated");
+                    dateTimeCreatedField = value;
+                    RaisePropertyChanged("DateTimeCreated");
                 }
             }
 
@@ -17071,12 +17071,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -17086,12 +17086,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17099,7 +17099,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17142,12 +17142,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateFromField;
+                    return dateFromField;
                 }
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -17157,12 +17157,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateToField;
+                    return dateToField;
                 }
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -17170,7 +17170,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17241,12 +17241,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -17256,12 +17256,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportIdentifierField;
+                    return reportIdentifierField;
                 }
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -17271,12 +17271,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reportDateField;
+                    return reportDateField;
                 }
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -17286,12 +17286,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventDateTimeField;
+                    return eventDateTimeField;
                 }
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -17301,12 +17301,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateSampledField;
+                    return dateSampledField;
                 }
                 set
                 {
-                    this.dateSampledField = value;
-                    this.RaisePropertyChanged("DateSampled");
+                    dateSampledField = value;
+                    RaisePropertyChanged("DateSampled");
                 }
             }
 
@@ -17316,12 +17316,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDateReceivedField;
+                    return sampleDateReceivedField;
                 }
                 set
                 {
-                    this.sampleDateReceivedField = value;
-                    this.RaisePropertyChanged("SampleDateReceived");
+                    sampleDateReceivedField = value;
+                    RaisePropertyChanged("SampleDateReceived");
                 }
             }
 
@@ -17331,12 +17331,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDateTestedField;
+                    return sampleDateTestedField;
                 }
                 set
                 {
-                    this.sampleDateTestedField = value;
-                    this.RaisePropertyChanged("SampleDateTested");
+                    sampleDateTestedField = value;
+                    RaisePropertyChanged("SampleDateTested");
                 }
             }
 
@@ -17346,12 +17346,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testResultSetField;
+                    return testResultSetField;
                 }
                 set
                 {
-                    this.testResultSetField = value;
-                    this.RaisePropertyChanged("TestResultSet");
+                    testResultSetField = value;
+                    RaisePropertyChanged("TestResultSet");
                 }
             }
 
@@ -17361,12 +17361,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestingPartyHealthcareProfessionalIDField;
+                    return requestingPartyHealthcareProfessionalIDField;
                 }
                 set
                 {
-                    this.requestingPartyHealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
+                    requestingPartyHealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
                 }
             }
 
@@ -17376,12 +17376,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.requestingOrganisationIDField;
+                    return requestingOrganisationIDField;
                 }
                 set
                 {
-                    this.requestingOrganisationIDField = value;
-                    this.RaisePropertyChanged("RequestingOrganisationID");
+                    requestingOrganisationIDField = value;
+                    RaisePropertyChanged("RequestingOrganisationID");
                 }
             }
 
@@ -17391,12 +17391,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sampleDescriptionField;
+                    return sampleDescriptionField;
                 }
                 set
                 {
-                    this.sampleDescriptionField = value;
-                    this.RaisePropertyChanged("SampleDescription");
+                    sampleDescriptionField = value;
+                    RaisePropertyChanged("SampleDescription");
                 }
             }
 
@@ -17406,12 +17406,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchNotesField;
+                    return searchNotesField;
                 }
                 set
                 {
-                    this.searchNotesField = value;
-                    this.RaisePropertyChanged("SearchNotes");
+                    searchNotesField = value;
+                    RaisePropertyChanged("SearchNotes");
                 }
             }
 
@@ -17421,12 +17421,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.testPerformedField;
+                    return testPerformedField;
                 }
                 set
                 {
-                    this.testPerformedField = value;
-                    this.RaisePropertyChanged("TestPerformed");
+                    testPerformedField = value;
+                    RaisePropertyChanged("TestPerformed");
                 }
             }
 
@@ -17436,12 +17436,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.disciplineField;
+                    return disciplineField;
                 }
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -17451,12 +17451,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.gPidField;
+                    return gPidField;
                 }
                 set
                 {
-                    this.gPidField = value;
-                    this.RaisePropertyChanged("GPid");
+                    gPidField = value;
+                    RaisePropertyChanged("GPid");
                 }
             }
 
@@ -17466,12 +17466,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.practiceIDField;
+                    return practiceIDField;
                 }
                 set
                 {
-                    this.practiceIDField = value;
-                    this.RaisePropertyChanged("PracticeID");
+                    practiceIDField = value;
+                    RaisePropertyChanged("PracticeID");
                 }
             }
 
@@ -17481,12 +17481,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consultantIDField;
+                    return consultantIDField;
                 }
                 set
                 {
-                    this.consultantIDField = value;
-                    this.RaisePropertyChanged("ConsultantID");
+                    consultantIDField = value;
+                    RaisePropertyChanged("ConsultantID");
                 }
             }
 
@@ -17496,12 +17496,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -17511,12 +17511,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultStatusTypeField;
+                    return resultStatusTypeField;
                 }
                 set
                 {
-                    this.resultStatusTypeField = value;
-                    this.RaisePropertyChanged("ResultStatusType");
+                    resultStatusTypeField = value;
+                    RaisePropertyChanged("ResultStatusType");
                 }
             }
 
@@ -17526,12 +17526,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultStatusTypeFieldSpecified;
+                    return resultStatusTypeFieldSpecified;
                 }
                 set
                 {
-                    this.resultStatusTypeFieldSpecified = value;
-                    this.RaisePropertyChanged("ResultStatusTypeSpecified");
+                    resultStatusTypeFieldSpecified = value;
+                    RaisePropertyChanged("ResultStatusTypeSpecified");
                 }
             }
 
@@ -17541,12 +17541,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -17556,12 +17556,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerSearchField;
+                    return providerSearchField;
                 }
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -17572,12 +17572,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -17587,12 +17587,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17600,7 +17600,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17635,12 +17635,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingSystemField;
+                    return originatingSystemField;
                 }
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -17650,12 +17650,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingUserField;
+                    return originatingUserField;
                 }
                 set
                 {
-                    this.originatingUserField = value;
-                    this.RaisePropertyChanged("OriginatingUser");
+                    originatingUserField = value;
+                    RaisePropertyChanged("OriginatingUser");
                 }
             }
 
@@ -17665,12 +17665,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.effectiveDateField;
+                    return effectiveDateField;
                 }
                 set
                 {
-                    this.effectiveDateField = value;
-                    this.RaisePropertyChanged("EffectiveDate");
+                    effectiveDateField = value;
+                    RaisePropertyChanged("EffectiveDate");
                 }
             }
 
@@ -17680,12 +17680,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -17695,12 +17695,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -17710,12 +17710,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17723,7 +17723,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17752,12 +17752,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postcodeField;
+                    return postcodeField;
                 }
                 set
                 {
-                    this.postcodeField = value;
-                    this.RaisePropertyChanged("Postcode");
+                    postcodeField = value;
+                    RaisePropertyChanged("Postcode");
                 }
             }
 
@@ -17767,12 +17767,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postCodeComparatorField;
+                    return postCodeComparatorField;
                 }
                 set
                 {
-                    this.postCodeComparatorField = value;
-                    this.RaisePropertyChanged("PostCodeComparator");
+                    postCodeComparatorField = value;
+                    RaisePropertyChanged("PostCodeComparator");
                 }
             }
 
@@ -17782,12 +17782,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postCodeComparatorFieldSpecified;
+                    return postCodeComparatorFieldSpecified;
                 }
                 set
                 {
-                    this.postCodeComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("PostCodeComparatorSpecified");
+                    postCodeComparatorFieldSpecified = value;
+                    RaisePropertyChanged("PostCodeComparatorSpecified");
                 }
             }
 
@@ -17795,7 +17795,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17850,12 +17850,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.nameField;
+                    return nameField;
                 }
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -17865,12 +17865,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.addressField;
+                    return addressField;
                 }
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -17880,12 +17880,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.idsField;
+                    return idsField;
                 }
                 set
                 {
-                    this.idsField = value;
-                    this.RaisePropertyChanged("Ids");
+                    idsField = value;
+                    RaisePropertyChanged("Ids");
                 }
             }
 
@@ -17895,12 +17895,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateField;
+                    return dateField;
                 }
                 set
                 {
-                    this.dateField = value;
-                    this.RaisePropertyChanged("Date");
+                    dateField = value;
+                    RaisePropertyChanged("Date");
                 }
             }
 
@@ -17910,12 +17910,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.sexField;
+                    return sexField;
                 }
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -17925,12 +17925,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.gPidField;
+                    return gPidField;
                 }
                 set
                 {
-                    this.gPidField = value;
-                    this.RaisePropertyChanged("GPid");
+                    gPidField = value;
+                    RaisePropertyChanged("GPid");
                 }
             }
 
@@ -17940,12 +17940,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.practiceIDField;
+                    return practiceIDField;
                 }
                 set
                 {
-                    this.practiceIDField = value;
-                    this.RaisePropertyChanged("PracticeID");
+                    practiceIDField = value;
+                    RaisePropertyChanged("PracticeID");
                 }
             }
 
@@ -17955,12 +17955,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consultantIDField;
+                    return consultantIDField;
                 }
                 set
                 {
-                    this.consultantIDField = value;
-                    this.RaisePropertyChanged("ConsultantID");
+                    consultantIDField = value;
+                    RaisePropertyChanged("ConsultantID");
                 }
             }
 
@@ -17970,12 +17970,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hospitalIDField;
+                    return hospitalIDField;
                 }
                 set
                 {
-                    this.hospitalIDField = value;
-                    this.RaisePropertyChanged("HospitalID");
+                    hospitalIDField = value;
+                    RaisePropertyChanged("HospitalID");
                 }
             }
 
@@ -17985,12 +17985,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.wardIDField;
+                    return wardIDField;
                 }
                 set
                 {
-                    this.wardIDField = value;
-                    this.RaisePropertyChanged("WardID");
+                    wardIDField = value;
+                    RaisePropertyChanged("WardID");
                 }
             }
 
@@ -18000,12 +18000,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -18015,12 +18015,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAnonymousField;
+                    return includeAnonymousField;
                 }
                 set
                 {
-                    this.includeAnonymousField = value;
-                    this.RaisePropertyChanged("IncludeAnonymous");
+                    includeAnonymousField = value;
+                    RaisePropertyChanged("IncludeAnonymous");
                 }
             }
 
@@ -18030,12 +18030,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.includeAnonymousFieldSpecified;
+                    return includeAnonymousFieldSpecified;
                 }
                 set
                 {
-                    this.includeAnonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAnonymousSpecified");
+                    includeAnonymousFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAnonymousSpecified");
                 }
             }
 
@@ -18045,12 +18045,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerSearchField;
+                    return providerSearchField;
                 }
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -18061,12 +18061,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -18076,12 +18076,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18089,7 +18089,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18116,12 +18116,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthField;
+                    return dateOfBirthField;
                 }
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -18131,12 +18131,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateOfBirthFieldSpecified;
+                    return dateOfBirthFieldSpecified;
                 }
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -18144,7 +18144,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18177,12 +18177,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageIdentifierField;
+                    return messageIdentifierField;
                 }
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -18192,12 +18192,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingSystemField;
+                    return originatingSystemField;
                 }
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -18207,12 +18207,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageCreationDateField;
+                    return messageCreationDateField;
                 }
                 set
                 {
-                    this.messageCreationDateField = value;
-                    this.RaisePropertyChanged("MessageCreationDate");
+                    messageCreationDateField = value;
+                    RaisePropertyChanged("MessageCreationDate");
                 }
             }
 
@@ -18222,12 +18222,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageCreationTimeField;
+                    return messageCreationTimeField;
                 }
                 set
                 {
-                    this.messageCreationTimeField = value;
-                    this.RaisePropertyChanged("MessageCreationTime");
+                    messageCreationTimeField = value;
+                    RaisePropertyChanged("MessageCreationTime");
                 }
             }
 
@@ -18237,12 +18237,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18250,7 +18250,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18291,12 +18291,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionDateTimeField;
+                    return admissionDateTimeField;
                 }
                 set
                 {
-                    this.admissionDateTimeField = value;
-                    this.RaisePropertyChanged("AdmissionDateTime");
+                    admissionDateTimeField = value;
+                    RaisePropertyChanged("AdmissionDateTime");
                 }
             }
 
@@ -18306,12 +18306,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.statusField;
+                    return statusField;
                 }
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -18321,12 +18321,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionFromCodeField;
+                    return admissionFromCodeField;
                 }
                 set
                 {
-                    this.admissionFromCodeField = value;
-                    this.RaisePropertyChanged("AdmissionFromCode");
+                    admissionFromCodeField = value;
+                    RaisePropertyChanged("AdmissionFromCode");
                 }
             }
 
@@ -18336,12 +18336,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admittedCodeField;
+                    return admittedCodeField;
                 }
                 set
                 {
-                    this.admittedCodeField = value;
-                    this.RaisePropertyChanged("AdmittedCode");
+                    admittedCodeField = value;
+                    RaisePropertyChanged("AdmittedCode");
                 }
             }
 
@@ -18351,12 +18351,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionReasonField;
+                    return admissionReasonField;
                 }
                 set
                 {
-                    this.admissionReasonField = value;
-                    this.RaisePropertyChanged("AdmissionReason");
+                    admissionReasonField = value;
+                    RaisePropertyChanged("AdmissionReason");
                 }
             }
 
@@ -18366,12 +18366,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCategoryField;
+                    return patientCategoryField;
                 }
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18381,12 +18381,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTypeField;
+                    return patientTypeField;
                 }
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18396,12 +18396,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionCarePointField;
+                    return admissionCarePointField;
                 }
                 set
                 {
-                    this.admissionCarePointField = value;
-                    this.RaisePropertyChanged("AdmissionCarePoint");
+                    admissionCarePointField = value;
+                    RaisePropertyChanged("AdmissionCarePoint");
                 }
             }
 
@@ -18411,12 +18411,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18424,7 +18424,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18459,12 +18459,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.siteField;
+                    return siteField;
                 }
                 set
                 {
-                    this.siteField = value;
-                    this.RaisePropertyChanged("Site");
+                    siteField = value;
+                    RaisePropertyChanged("Site");
                 }
             }
 
@@ -18474,12 +18474,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.locationField;
+                    return locationField;
                 }
                 set
                 {
-                    this.locationField = value;
-                    this.RaisePropertyChanged("Location");
+                    locationField = value;
+                    RaisePropertyChanged("Location");
                 }
             }
 
@@ -18489,12 +18489,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consultantField;
+                    return consultantField;
                 }
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -18504,12 +18504,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.specialtyField;
+                    return specialtyField;
                 }
                 set
                 {
-                    this.specialtyField = value;
-                    this.RaisePropertyChanged("Specialty");
+                    specialtyField = value;
+                    RaisePropertyChanged("Specialty");
                 }
             }
 
@@ -18519,12 +18519,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.facilityField;
+                    return facilityField;
                 }
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -18534,12 +18534,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18547,7 +18547,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18576,12 +18576,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.codeField;
+                    return codeField;
                 }
                 set
                 {
-                    this.codeField = value;
-                    this.RaisePropertyChanged("Code");
+                    codeField = value;
+                    RaisePropertyChanged("Code");
                 }
             }
 
@@ -18591,12 +18591,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.descriptionField;
+                    return descriptionField;
                 }
                 set
                 {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                    descriptionField = value;
+                    RaisePropertyChanged("Description");
                 }
             }
 
@@ -18606,12 +18606,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18619,7 +18619,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18656,12 +18656,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transferDateTimeField;
+                    return transferDateTimeField;
                 }
                 set
                 {
-                    this.transferDateTimeField = value;
-                    this.RaisePropertyChanged("TransferDateTime");
+                    transferDateTimeField = value;
+                    RaisePropertyChanged("TransferDateTime");
                 }
             }
 
@@ -18671,12 +18671,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transferCodeField;
+                    return transferCodeField;
                 }
                 set
                 {
-                    this.transferCodeField = value;
-                    this.RaisePropertyChanged("TransferCode");
+                    transferCodeField = value;
+                    RaisePropertyChanged("TransferCode");
                 }
             }
 
@@ -18686,12 +18686,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCategoryField;
+                    return patientCategoryField;
                 }
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18701,12 +18701,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTypeField;
+                    return patientTypeField;
                 }
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18716,12 +18716,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.preCarePointField;
+                    return preCarePointField;
                 }
                 set
                 {
-                    this.preCarePointField = value;
-                    this.RaisePropertyChanged("PreCarePoint");
+                    preCarePointField = value;
+                    RaisePropertyChanged("PreCarePoint");
                 }
             }
 
@@ -18731,12 +18731,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.postCarePointField;
+                    return postCarePointField;
                 }
                 set
                 {
-                    this.postCarePointField = value;
-                    this.RaisePropertyChanged("PostCarePoint");
+                    postCarePointField = value;
+                    RaisePropertyChanged("PostCarePoint");
                 }
             }
 
@@ -18746,12 +18746,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18759,7 +18759,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18802,12 +18802,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeDateTimeField;
+                    return dischargeDateTimeField;
                 }
                 set
                 {
-                    this.dischargeDateTimeField = value;
-                    this.RaisePropertyChanged("DischargeDateTime");
+                    dischargeDateTimeField = value;
+                    RaisePropertyChanged("DischargeDateTime");
                 }
             }
 
@@ -18817,12 +18817,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeCodeField;
+                    return dischargeCodeField;
                 }
                 set
                 {
-                    this.dischargeCodeField = value;
-                    this.RaisePropertyChanged("DischargeCode");
+                    dischargeCodeField = value;
+                    RaisePropertyChanged("DischargeCode");
                 }
             }
 
@@ -18832,12 +18832,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeDescriptionField;
+                    return dischargeDescriptionField;
                 }
                 set
                 {
-                    this.dischargeDescriptionField = value;
-                    this.RaisePropertyChanged("DischargeDescription");
+                    dischargeDescriptionField = value;
+                    RaisePropertyChanged("DischargeDescription");
                 }
             }
 
@@ -18847,12 +18847,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateReadyForDischargeField;
+                    return dateReadyForDischargeField;
                 }
                 set
                 {
-                    this.dateReadyForDischargeField = value;
-                    this.RaisePropertyChanged("DateReadyForDischarge");
+                    dateReadyForDischargeField = value;
+                    RaisePropertyChanged("DateReadyForDischarge");
                 }
             }
 
@@ -18862,12 +18862,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateReadyForDischargeFieldSpecified;
+                    return dateReadyForDischargeFieldSpecified;
                 }
                 set
                 {
-                    this.dateReadyForDischargeFieldSpecified = value;
-                    this.RaisePropertyChanged("DateReadyForDischargeSpecified");
+                    dateReadyForDischargeFieldSpecified = value;
+                    RaisePropertyChanged("DateReadyForDischargeSpecified");
                 }
             }
 
@@ -18877,12 +18877,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeDestinationField;
+                    return dischargeDestinationField;
                 }
                 set
                 {
-                    this.dischargeDestinationField = value;
-                    this.RaisePropertyChanged("DischargeDestination");
+                    dischargeDestinationField = value;
+                    RaisePropertyChanged("DischargeDestination");
                 }
             }
 
@@ -18892,12 +18892,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCategoryField;
+                    return patientCategoryField;
                 }
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18907,12 +18907,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTypeField;
+                    return patientTypeField;
                 }
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18922,12 +18922,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeCarePointField;
+                    return dischargeCarePointField;
                 }
                 set
                 {
-                    this.dischargeCarePointField = value;
-                    this.RaisePropertyChanged("DischargeCarePoint");
+                    dischargeCarePointField = value;
+                    RaisePropertyChanged("DischargeCarePoint");
                 }
             }
 
@@ -18937,12 +18937,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18950,7 +18950,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18983,12 +18983,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordIdentifierField;
+                    return recordIdentifierField;
                 }
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -18998,12 +18998,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTComponentIDField;
+                    return aDTComponentIDField;
                 }
                 set
                 {
-                    this.aDTComponentIDField = value;
-                    this.RaisePropertyChanged("ADTComponentID");
+                    aDTComponentIDField = value;
+                    RaisePropertyChanged("ADTComponentID");
                 }
             }
 
@@ -19013,12 +19013,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.incidenceIDField;
+                    return incidenceIDField;
                 }
                 set
                 {
-                    this.incidenceIDField = value;
-                    this.RaisePropertyChanged("IncidenceID");
+                    incidenceIDField = value;
+                    RaisePropertyChanged("IncidenceID");
                 }
             }
 
@@ -19028,12 +19028,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -19043,12 +19043,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19056,7 +19056,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19087,12 +19087,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTidField;
+                    return aDTidField;
                 }
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19102,12 +19102,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTmessageContentField;
+                    return aDTmessageContentField;
                 }
                 set
                 {
-                    this.aDTmessageContentField = value;
-                    this.RaisePropertyChanged("ADTmessageContent");
+                    aDTmessageContentField = value;
+                    RaisePropertyChanged("ADTmessageContent");
                 }
             }
 
@@ -19117,12 +19117,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transactionDateTimeField;
+                    return transactionDateTimeField;
                 }
                 set
                 {
-                    this.transactionDateTimeField = value;
-                    this.RaisePropertyChanged("TransactionDateTime");
+                    transactionDateTimeField = value;
+                    RaisePropertyChanged("TransactionDateTime");
                 }
             }
 
@@ -19132,12 +19132,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19145,7 +19145,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19172,12 +19172,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -19185,7 +19185,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19218,12 +19218,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTInformationField;
+                    return aDTInformationField;
                 }
                 set
                 {
-                    this.aDTInformationField = value;
-                    this.RaisePropertyChanged("ADTInformation");
+                    aDTInformationField = value;
+                    RaisePropertyChanged("ADTInformation");
                 }
             }
 
@@ -19233,12 +19233,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientInformationField;
+                    return patientInformationField;
                 }
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -19248,12 +19248,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.originatingSystemField;
+                    return originatingSystemField;
                 }
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -19263,12 +19263,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transactionTypeField;
+                    return transactionTypeField;
                 }
                 set
                 {
-                    this.transactionTypeField = value;
-                    this.RaisePropertyChanged("TransactionType");
+                    transactionTypeField = value;
+                    RaisePropertyChanged("TransactionType");
                 }
             }
 
@@ -19278,12 +19278,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19291,7 +19291,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19320,12 +19320,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageDataField;
+                    return messageDataField;
                 }
                 set
                 {
-                    this.messageDataField = value;
-                    this.RaisePropertyChanged("MessageData");
+                    messageDataField = value;
+                    RaisePropertyChanged("MessageData");
                 }
             }
 
@@ -19335,12 +19335,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageHeaderPrfField;
+                    return messageHeaderPrfField;
                 }
                 set
                 {
-                    this.messageHeaderPrfField = value;
-                    this.RaisePropertyChanged("MessageHeaderPrf");
+                    messageHeaderPrfField = value;
+                    RaisePropertyChanged("MessageHeaderPrf");
                 }
             }
 
@@ -19350,12 +19350,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19363,7 +19363,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19394,12 +19394,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTidField;
+                    return aDTidField;
                 }
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19409,12 +19409,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -19424,12 +19424,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -19439,12 +19439,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19452,7 +19452,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19489,12 +19489,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.identifierField;
+                    return identifierField;
                 }
                 set
                 {
-                    this.identifierField = value;
-                    this.RaisePropertyChanged("Identifier");
+                    identifierField = value;
+                    RaisePropertyChanged("Identifier");
                 }
             }
 
@@ -19504,12 +19504,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultCountField;
+                    return resultCountField;
                 }
                 set
                 {
-                    this.resultCountField = value;
-                    this.RaisePropertyChanged("ResultCount");
+                    resultCountField = value;
+                    RaisePropertyChanged("ResultCount");
                 }
             }
 
@@ -19519,12 +19519,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.infoMessageField;
+                    return infoMessageField;
                 }
                 set
                 {
-                    this.infoMessageField = value;
-                    this.RaisePropertyChanged("InfoMessage");
+                    infoMessageField = value;
+                    RaisePropertyChanged("InfoMessage");
                 }
             }
 
@@ -19534,12 +19534,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.warningMessageField;
+                    return warningMessageField;
                 }
                 set
                 {
-                    this.warningMessageField = value;
-                    this.RaisePropertyChanged("WarningMessage");
+                    warningMessageField = value;
+                    RaisePropertyChanged("WarningMessage");
                 }
             }
 
@@ -19549,12 +19549,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.errorMessageField;
+                    return errorMessageField;
                 }
                 set
                 {
-                    this.errorMessageField = value;
-                    this.RaisePropertyChanged("ErrorMessage");
+                    errorMessageField = value;
+                    RaisePropertyChanged("ErrorMessage");
                 }
             }
 
@@ -19564,12 +19564,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchTimeField;
+                    return searchTimeField;
                 }
                 set
                 {
-                    this.searchTimeField = value;
-                    this.RaisePropertyChanged("SearchTime");
+                    searchTimeField = value;
+                    RaisePropertyChanged("SearchTime");
                 }
             }
 
@@ -19579,12 +19579,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19592,7 +19592,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19621,12 +19621,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTDetailsField;
+                    return aDTDetailsField;
                 }
                 set
                 {
-                    this.aDTDetailsField = value;
-                    this.RaisePropertyChanged("ADTDetails");
+                    aDTDetailsField = value;
+                    RaisePropertyChanged("ADTDetails");
                 }
             }
 
@@ -19636,12 +19636,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -19651,12 +19651,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19664,7 +19664,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19735,12 +19735,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTidField;
+                    return aDTidField;
                 }
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19750,12 +19750,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actionTypeField;
+                    return actionTypeField;
                 }
                 set
                 {
-                    this.actionTypeField = value;
-                    this.RaisePropertyChanged("ActionType");
+                    actionTypeField = value;
+                    RaisePropertyChanged("ActionType");
                 }
             }
 
@@ -19765,12 +19765,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -19780,12 +19780,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actionDateTimeField;
+                    return actionDateTimeField;
                 }
                 set
                 {
-                    this.actionDateTimeField = value;
-                    this.RaisePropertyChanged("ActionDateTime");
+                    actionDateTimeField = value;
+                    RaisePropertyChanged("ActionDateTime");
                 }
             }
 
@@ -19795,12 +19795,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actionDateTimeFieldSpecified;
+                    return actionDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.actionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ActionDateTimeSpecified");
+                    actionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ActionDateTimeSpecified");
                 }
             }
 
@@ -19810,12 +19810,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transactionDateTimeField;
+                    return transactionDateTimeField;
                 }
                 set
                 {
-                    this.transactionDateTimeField = value;
-                    this.RaisePropertyChanged("TransactionDateTime");
+                    transactionDateTimeField = value;
+                    RaisePropertyChanged("TransactionDateTime");
                 }
             }
 
@@ -19825,12 +19825,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transactionDateTimeFieldSpecified;
+                    return transactionDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.transactionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TransactionDateTimeSpecified");
+                    transactionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("TransactionDateTimeSpecified");
                 }
             }
 
@@ -19840,12 +19840,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionDateTimeField;
+                    return admissionDateTimeField;
                 }
                 set
                 {
-                    this.admissionDateTimeField = value;
-                    this.RaisePropertyChanged("AdmissionDateTime");
+                    admissionDateTimeField = value;
+                    RaisePropertyChanged("AdmissionDateTime");
                 }
             }
 
@@ -19855,12 +19855,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admissionDateTimeFieldSpecified;
+                    return admissionDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.admissionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("AdmissionDateTimeSpecified");
+                    admissionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("AdmissionDateTimeSpecified");
                 }
             }
 
@@ -19870,12 +19870,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeDateTimeField;
+                    return dischargeDateTimeField;
                 }
                 set
                 {
-                    this.dischargeDateTimeField = value;
-                    this.RaisePropertyChanged("DischargeDateTime");
+                    dischargeDateTimeField = value;
+                    RaisePropertyChanged("DischargeDateTime");
                 }
             }
 
@@ -19885,12 +19885,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeDateTimeFieldSpecified;
+                    return dischargeDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.dischargeDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DischargeDateTimeSpecified");
+                    dischargeDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("DischargeDateTimeSpecified");
                 }
             }
 
@@ -19900,12 +19900,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transferDateTimeField;
+                    return transferDateTimeField;
                 }
                 set
                 {
-                    this.transferDateTimeField = value;
-                    this.RaisePropertyChanged("TransferDateTime");
+                    transferDateTimeField = value;
+                    RaisePropertyChanged("TransferDateTime");
                 }
             }
 
@@ -19915,12 +19915,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transferDateTimeFieldSpecified;
+                    return transferDateTimeFieldSpecified;
                 }
                 set
                 {
-                    this.transferDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TransferDateTimeSpecified");
+                    transferDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("TransferDateTimeSpecified");
                 }
             }
 
@@ -19930,12 +19930,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hospitalCodeField;
+                    return hospitalCodeField;
                 }
                 set
                 {
-                    this.hospitalCodeField = value;
-                    this.RaisePropertyChanged("HospitalCode");
+                    hospitalCodeField = value;
+                    RaisePropertyChanged("HospitalCode");
                 }
             }
 
@@ -19945,12 +19945,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReadyForDischargeField;
+                    return dateTimeReadyForDischargeField;
                 }
                 set
                 {
-                    this.dateTimeReadyForDischargeField = value;
-                    this.RaisePropertyChanged("DateTimeReadyForDischarge");
+                    dateTimeReadyForDischargeField = value;
+                    RaisePropertyChanged("DateTimeReadyForDischarge");
                 }
             }
 
@@ -19960,12 +19960,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dateTimeReadyForDischargeFieldSpecified;
+                    return dateTimeReadyForDischargeFieldSpecified;
                 }
                 set
                 {
-                    this.dateTimeReadyForDischargeFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReadyForDischargeSpecified");
+                    dateTimeReadyForDischargeFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReadyForDischargeSpecified");
                 }
             }
 
@@ -19975,12 +19975,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admittedCodeField;
+                    return admittedCodeField;
                 }
                 set
                 {
-                    this.admittedCodeField = value;
-                    this.RaisePropertyChanged("AdmittedCode");
+                    admittedCodeField = value;
+                    RaisePropertyChanged("AdmittedCode");
                 }
             }
 
@@ -19990,12 +19990,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.admittedFromCodeField;
+                    return admittedFromCodeField;
                 }
                 set
                 {
-                    this.admittedFromCodeField = value;
-                    this.RaisePropertyChanged("AdmittedFromCode");
+                    admittedFromCodeField = value;
+                    RaisePropertyChanged("AdmittedFromCode");
                 }
             }
 
@@ -20005,12 +20005,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.dischargeCodeField;
+                    return dischargeCodeField;
                 }
                 set
                 {
-                    this.dischargeCodeField = value;
-                    this.RaisePropertyChanged("DischargeCode");
+                    dischargeCodeField = value;
+                    RaisePropertyChanged("DischargeCode");
                 }
             }
 
@@ -20020,12 +20020,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientCategoryField;
+                    return patientCategoryField;
                 }
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -20035,12 +20035,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientTypeField;
+                    return patientTypeField;
                 }
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -20050,12 +20050,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -20065,12 +20065,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -20080,12 +20080,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20093,7 +20093,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20134,12 +20134,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20149,12 +20149,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cHIField;
+                    return cHIField;
                 }
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -20164,12 +20164,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actionCodeField;
+                    return actionCodeField;
                 }
                 set
                 {
-                    this.actionCodeField = value;
-                    this.RaisePropertyChanged("ActionCode");
+                    actionCodeField = value;
+                    RaisePropertyChanged("ActionCode");
                 }
             }
 
@@ -20179,12 +20179,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.actionDateRangeField;
+                    return actionDateRangeField;
                 }
                 set
                 {
-                    this.actionDateRangeField = value;
-                    this.RaisePropertyChanged("ActionDateRange");
+                    actionDateRangeField = value;
+                    RaisePropertyChanged("ActionDateRange");
                 }
             }
 
@@ -20194,12 +20194,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.uniqueCarePathwayNumberField;
+                    return uniqueCarePathwayNumberField;
                 }
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -20209,12 +20209,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientDetailsField;
+                    return patientDetailsField;
                 }
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -20224,12 +20224,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerSearchField;
+                    return providerSearchField;
                 }
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -20240,12 +20240,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -20255,12 +20255,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20268,7 +20268,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20299,12 +20299,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20314,12 +20314,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypeCodeField;
+                    return breakGlassTypeCodeField;
                 }
                 set
                 {
-                    this.breakGlassTypeCodeField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeCode");
+                    breakGlassTypeCodeField = value;
+                    RaisePropertyChanged("BreakGlassTypeCode");
                 }
             }
 
@@ -20329,12 +20329,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.reasonField;
+                    return reasonField;
                 }
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -20344,12 +20344,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20357,7 +20357,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20400,12 +20400,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20415,12 +20415,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.mergeIDField;
+                    return mergeIDField;
                 }
                 set
                 {
-                    this.mergeIDField = value;
-                    this.RaisePropertyChanged("MergeID");
+                    mergeIDField = value;
+                    RaisePropertyChanged("MergeID");
                 }
             }
 
@@ -20430,12 +20430,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.eventTypeField;
+                    return eventTypeField;
                 }
                 set
                 {
-                    this.eventTypeField = value;
-                    this.RaisePropertyChanged("EventType");
+                    eventTypeField = value;
+                    RaisePropertyChanged("EventType");
                 }
             }
 
@@ -20445,12 +20445,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.consentField;
+                    return consentField;
                 }
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -20460,12 +20460,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.transactionTypeField;
+                    return transactionTypeField;
                 }
                 set
                 {
-                    this.transactionTypeField = value;
-                    this.RaisePropertyChanged("TransactionType");
+                    transactionTypeField = value;
+                    RaisePropertyChanged("TransactionType");
                 }
             }
 
@@ -20475,12 +20475,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cHIField;
+                    return cHIField;
                 }
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -20490,12 +20490,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordTypeField;
+                    return recordTypeField;
                 }
                 set
                 {
-                    this.recordTypeField = value;
-                    this.RaisePropertyChanged("RecordType");
+                    recordTypeField = value;
+                    RaisePropertyChanged("RecordType");
                 }
             }
 
@@ -20505,12 +20505,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.recordKeyField;
+                    return recordKeyField;
                 }
                 set
                 {
-                    this.recordKeyField = value;
-                    this.RaisePropertyChanged("RecordKey");
+                    recordKeyField = value;
+                    RaisePropertyChanged("RecordKey");
                 }
             }
 
@@ -20520,12 +20520,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.processEventsField;
+                    return processEventsField;
                 }
                 set
                 {
-                    this.processEventsField = value;
-                    this.RaisePropertyChanged("ProcessEvents");
+                    processEventsField = value;
+                    RaisePropertyChanged("ProcessEvents");
                 }
             }
 
@@ -20535,12 +20535,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20548,7 +20548,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20579,12 +20579,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.notificationIDField;
+                    return notificationIDField;
                 }
                 set
                 {
-                    this.notificationIDField = value;
-                    this.RaisePropertyChanged("NotificationID");
+                    notificationIDField = value;
+                    RaisePropertyChanged("NotificationID");
                 }
             }
 
@@ -20594,12 +20594,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.notificationTypeField;
+                    return notificationTypeField;
                 }
                 set
                 {
-                    this.notificationTypeField = value;
-                    this.RaisePropertyChanged("NotificationType");
+                    notificationTypeField = value;
+                    RaisePropertyChanged("NotificationType");
                 }
             }
 
@@ -20609,12 +20609,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.notificationDetailField;
+                    return notificationDetailField;
                 }
                 set
                 {
-                    this.notificationDetailField = value;
-                    this.RaisePropertyChanged("NotificationDetail");
+                    notificationDetailField = value;
+                    RaisePropertyChanged("NotificationDetail");
                 }
             }
 
@@ -20624,12 +20624,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20637,7 +20637,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20663,12 +20663,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.itemField;
+                    return itemField;
                 }
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -20676,7 +20676,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20705,12 +20705,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.tokenField;
+                    return tokenField;
                 }
                 set
                 {
-                    this.tokenField = value;
-                    this.RaisePropertyChanged("Token");
+                    tokenField = value;
+                    RaisePropertyChanged("Token");
                 }
             }
 
@@ -20720,12 +20720,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userInfoField;
+                    return userInfoField;
                 }
                 set
                 {
-                    this.userInfoField = value;
-                    this.RaisePropertyChanged("UserInfo");
+                    userInfoField = value;
+                    RaisePropertyChanged("UserInfo");
                 }
             }
 
@@ -20735,12 +20735,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyAttrField;
+                    return anyAttrField;
                 }
                 set
                 {
-                    this.anyAttrField = value;
-                    this.RaisePropertyChanged("AnyAttr");
+                    anyAttrField = value;
+                    RaisePropertyChanged("AnyAttr");
                 }
             }
 
@@ -20748,7 +20748,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20779,12 +20779,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.userNameField;
+                    return userNameField;
                 }
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -20794,12 +20794,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.friendlyNameField;
+                    return friendlyNameField;
                 }
                 set
                 {
-                    this.friendlyNameField = value;
-                    this.RaisePropertyChanged("FriendlyName");
+                    friendlyNameField = value;
+                    RaisePropertyChanged("FriendlyName");
                 }
             }
 
@@ -20809,12 +20809,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemCodeField;
+                    return systemCodeField;
                 }
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -20824,12 +20824,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemLocationField;
+                    return systemLocationField;
                 }
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -20837,7 +20837,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20866,12 +20866,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.tokenField;
+                    return tokenField;
                 }
                 set
                 {
-                    this.tokenField = value;
-                    this.RaisePropertyChanged("Token");
+                    tokenField = value;
+                    RaisePropertyChanged("Token");
                 }
             }
 
@@ -20881,12 +20881,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.applicationField;
+                    return applicationField;
                 }
                 set
                 {
-                    this.applicationField = value;
-                    this.RaisePropertyChanged("Application");
+                    applicationField = value;
+                    RaisePropertyChanged("Application");
                 }
             }
 
@@ -20896,12 +20896,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20909,7 +20909,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20936,12 +20936,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.versionField;
+                    return versionField;
                 }
                 set
                 {
-                    this.versionField = value;
-                    this.RaisePropertyChanged("Version");
+                    versionField = value;
+                    RaisePropertyChanged("Version");
                 }
             }
 
@@ -20951,12 +20951,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.builtDateTimeField;
+                    return builtDateTimeField;
                 }
                 set
                 {
-                    this.builtDateTimeField = value;
-                    this.RaisePropertyChanged("BuiltDateTime");
+                    builtDateTimeField = value;
+                    RaisePropertyChanged("BuiltDateTime");
                 }
             }
 
@@ -20964,7 +20964,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20980,13 +20980,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.Login Login;
+            public Login Login;
 
             public LoginRequest()
             {
             }
 
-            public LoginRequest(SciStoreApplication.scistore.v71.Login Login)
+            public LoginRequest(Login Login)
             {
                 this.Login = Login;
             }
@@ -21000,13 +21000,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Name = "LoginResponse", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.LoginTokenResponse LoginResponse1;
+            public LoginTokenResponse LoginResponse1;
 
             public LoginResponse()
             {
             }
 
-            public LoginResponse(SciStoreApplication.scistore.v71.LoginTokenResponse LoginResponse1)
+            public LoginResponse(LoginTokenResponse LoginResponse1)
             {
                 this.LoginResponse1 = LoginResponse1;
             }
@@ -21031,12 +21031,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageField;
+                    return messageField;
                 }
                 set
                 {
-                    this.messageField = value;
-                    this.RaisePropertyChanged("Message");
+                    messageField = value;
+                    RaisePropertyChanged("Message");
                 }
             }
 
@@ -21046,12 +21046,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21059,7 +21059,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21075,16 +21075,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.Logout Logout;
+            public Logout Logout;
 
             public LogoutRequest()
             {
             }
 
-            public LogoutRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.Logout Logout)
+            public LogoutRequest(Credentials UserCredentials, Logout Logout)
             {
                 this.UserCredentials = UserCredentials;
                 this.Logout = Logout;
@@ -21134,12 +21134,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.notificationTypeField;
+                    return notificationTypeField;
                 }
                 set
                 {
-                    this.notificationTypeField = value;
-                    this.RaisePropertyChanged("NotificationType");
+                    notificationTypeField = value;
+                    RaisePropertyChanged("NotificationType");
                 }
             }
 
@@ -21149,12 +21149,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.totalNotificationsToReturnField;
+                    return totalNotificationsToReturnField;
                 }
                 set
                 {
-                    this.totalNotificationsToReturnField = value;
-                    this.RaisePropertyChanged("TotalNotificationsToReturn");
+                    totalNotificationsToReturnField = value;
+                    RaisePropertyChanged("TotalNotificationsToReturn");
                 }
             }
 
@@ -21164,12 +21164,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.totalNotificationsToReturnFieldSpecified;
+                    return totalNotificationsToReturnFieldSpecified;
                 }
                 set
                 {
-                    this.totalNotificationsToReturnFieldSpecified = value;
-                    this.RaisePropertyChanged("TotalNotificationsToReturnSpecified");
+                    totalNotificationsToReturnFieldSpecified = value;
+                    RaisePropertyChanged("TotalNotificationsToReturnSpecified");
                 }
             }
 
@@ -21179,12 +21179,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21192,7 +21192,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21220,12 +21220,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.notificationListField;
+                    return notificationListField;
                 }
                 set
                 {
-                    this.notificationListField = value;
-                    this.RaisePropertyChanged("NotificationList");
+                    notificationListField = value;
+                    RaisePropertyChanged("NotificationList");
                 }
             }
 
@@ -21235,12 +21235,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21248,7 +21248,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21264,16 +21264,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetNotifications GetNotifications;
+            public GetNotifications GetNotifications;
 
             public GetNotificationsRequest()
             {
             }
 
-            public GetNotificationsRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetNotifications GetNotifications)
+            public GetNotificationsRequest(Credentials UserCredentials, GetNotifications GetNotifications)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetNotifications = GetNotifications;
@@ -21288,13 +21288,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotificationsResponse;
+            public GetNotificationsResponse GetNotificationsResponse;
 
             public GetNotificationsResponse1()
             {
             }
 
-            public GetNotificationsResponse1(SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotificationsResponse)
+            public GetNotificationsResponse1(GetNotificationsResponse GetNotificationsResponse)
             {
                 this.GetNotificationsResponse = GetNotificationsResponse;
             }
@@ -21319,12 +21319,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionIDField;
+                    return subscriptionIDField;
                 }
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -21334,12 +21334,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21347,7 +21347,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21363,16 +21363,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription;
+            public DeleteSubscription DeleteSubscription;
 
             public DeleteSubscriptionRequest()
             {
             }
 
-            public DeleteSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription)
+            public DeleteSubscriptionRequest(Credentials UserCredentials, DeleteSubscription DeleteSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.DeleteSubscription = DeleteSubscription;
@@ -21407,7 +21407,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement UnSubscribeToStore;
@@ -21416,7 +21416,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public UnSubscribeToStoreRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore)
+            public UnSubscribeToStoreRequest(Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore)
             {
                 this.UserCredentials = UserCredentials;
                 this.UnSubscribeToStore = UnSubscribeToStore;
@@ -21460,12 +21460,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemField;
+                    return breakGlassItemField;
                 }
                 set
                 {
-                    this.breakGlassItemField = value;
-                    this.RaisePropertyChanged("BreakGlassItem");
+                    breakGlassItemField = value;
+                    RaisePropertyChanged("BreakGlassItem");
                 }
             }
 
@@ -21473,7 +21473,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21489,16 +21489,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass;
+            public BreakGlassInfo BreakGlass;
 
             public BreakGlassRequest()
             {
             }
 
-            public BreakGlassRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass)
+            public BreakGlassRequest(Credentials UserCredentials, BreakGlassInfo BreakGlass)
             {
                 this.UserCredentials = UserCredentials;
                 this.BreakGlass = BreakGlass;
@@ -21513,13 +21513,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlassResponse;
+            public BreakGlassResponse BreakGlassResponse;
 
             public BreakGlassResponse1()
             {
             }
 
-            public BreakGlassResponse1(SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlassResponse)
+            public BreakGlassResponse1(BreakGlassResponse BreakGlassResponse)
             {
                 this.BreakGlassResponse = BreakGlassResponse;
             }
@@ -21543,12 +21543,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassTypesField;
+                    return breakGlassTypesField;
                 }
                 set
                 {
-                    this.breakGlassTypesField = value;
-                    this.RaisePropertyChanged("BreakGlassTypes");
+                    breakGlassTypesField = value;
+                    RaisePropertyChanged("BreakGlassTypes");
                 }
             }
 
@@ -21556,7 +21556,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21572,7 +21572,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement GetBreakGlassTypes;
@@ -21581,7 +21581,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public GetBreakGlassTypesRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes)
+            public GetBreakGlassTypesRequest(Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetBreakGlassTypes = GetBreakGlassTypes;
@@ -21596,13 +21596,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypesResponse;
+            public GetBreakGlassTypesResponse GetBreakGlassTypesResponse;
 
             public GetBreakGlassTypesResponse1()
             {
             }
 
-            public GetBreakGlassTypesResponse1(SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypesResponse)
+            public GetBreakGlassTypesResponse1(GetBreakGlassTypesResponse GetBreakGlassTypesResponse)
             {
                 this.GetBreakGlassTypesResponse = GetBreakGlassTypesResponse;
             }
@@ -21630,12 +21630,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTMessagesField;
+                    return aDTMessagesField;
                 }
                 set
                 {
-                    this.aDTMessagesField = value;
-                    this.RaisePropertyChanged("ADTMessages");
+                    aDTMessagesField = value;
+                    RaisePropertyChanged("ADTMessages");
                 }
             }
 
@@ -21646,12 +21646,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -21661,12 +21661,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21674,7 +21674,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21690,16 +21690,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindADTcriteria FindADT;
+            public FindADTcriteria FindADT;
 
             public FindADTRequest()
             {
             }
 
-            public FindADTRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindADTcriteria FindADT)
+            public FindADTRequest(Credentials UserCredentials, FindADTcriteria FindADT)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindADT = FindADT;
@@ -21714,13 +21714,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindADTresponse FindADTresponse;
+            public FindADTresponse FindADTresponse;
 
             public FindADTResponse1()
             {
             }
 
-            public FindADTResponse1(SciStoreApplication.scistore.v71.FindADTresponse FindADTresponse)
+            public FindADTResponse1(FindADTresponse FindADTresponse)
             {
                 this.FindADTresponse = FindADTresponse;
             }
@@ -21749,12 +21749,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTIdField;
+                    return aDTIdField;
                 }
                 set
                 {
-                    this.aDTIdField = value;
-                    this.RaisePropertyChanged("ADTId");
+                    aDTIdField = value;
+                    RaisePropertyChanged("ADTId");
                 }
             }
 
@@ -21764,12 +21764,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -21780,12 +21780,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -21795,12 +21795,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21808,7 +21808,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21835,12 +21835,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -21850,12 +21850,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.aDTinformationField;
+                    return aDTinformationField;
                 }
                 set
                 {
-                    this.aDTinformationField = value;
-                    this.RaisePropertyChanged("ADTinformation");
+                    aDTinformationField = value;
+                    RaisePropertyChanged("ADTinformation");
                 }
             }
 
@@ -21863,7 +21863,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21879,16 +21879,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetADT GetADT;
+            public GetADT GetADT;
 
             public GetADTRequest()
             {
             }
 
-            public GetADTRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetADT GetADT)
+            public GetADTRequest(Credentials UserCredentials, GetADT GetADT)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetADT = GetADT;
@@ -21903,13 +21903,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetADTResponse GetADTResponse;
+            public GetADTResponse GetADTResponse;
 
             public GetADTResponse1()
             {
             }
 
-            public GetADTResponse1(SciStoreApplication.scistore.v71.GetADTResponse GetADTResponse)
+            public GetADTResponse1(GetADTResponse GetADTResponse)
             {
                 this.GetADTResponse = GetADTResponse;
             }
@@ -21937,12 +21937,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientsField;
+                    return patientsField;
                 }
                 set
                 {
-                    this.patientsField = value;
-                    this.RaisePropertyChanged("Patients");
+                    patientsField = value;
+                    RaisePropertyChanged("Patients");
                 }
             }
 
@@ -21953,12 +21953,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -21968,12 +21968,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21981,7 +21981,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21997,16 +21997,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient;
+            public FindPatientCriteria FindPatient;
 
             public FindPatientRequest()
             {
             }
 
-            public FindPatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient)
+            public FindPatientRequest(Credentials UserCredentials, FindPatientCriteria FindPatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindPatient = FindPatient;
@@ -22021,13 +22021,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientResponse FindPatientResponse;
+            public FindPatientResponse FindPatientResponse;
 
             public FindPatientResponse1()
             {
             }
 
-            public FindPatientResponse1(SciStoreApplication.scistore.v71.FindPatientResponse FindPatientResponse)
+            public FindPatientResponse1(FindPatientResponse FindPatientResponse)
             {
                 this.FindPatientResponse = FindPatientResponse;
             }
@@ -22062,12 +22062,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientIDField;
+                    return patientIDField;
                 }
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -22077,12 +22077,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.iDformatField;
+                    return iDformatField;
                 }
                 set
                 {
-                    this.iDformatField = value;
-                    this.RaisePropertyChanged("IDformat");
+                    iDformatField = value;
+                    RaisePropertyChanged("IDformat");
                 }
             }
 
@@ -22092,12 +22092,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22107,12 +22107,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.saveInStoreField;
+                    return saveInStoreField;
                 }
                 set
                 {
-                    this.saveInStoreField = value;
-                    this.RaisePropertyChanged("SaveInStore");
+                    saveInStoreField = value;
+                    RaisePropertyChanged("SaveInStore");
                 }
             }
 
@@ -22122,12 +22122,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.saveInStoreFieldSpecified;
+                    return saveInStoreFieldSpecified;
                 }
                 set
                 {
-                    this.saveInStoreFieldSpecified = value;
-                    this.RaisePropertyChanged("SaveInStoreSpecified");
+                    saveInStoreFieldSpecified = value;
+                    RaisePropertyChanged("SaveInStoreSpecified");
                 }
             }
 
@@ -22138,12 +22138,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22153,12 +22153,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22166,7 +22166,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22197,12 +22197,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -22212,12 +22212,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientInformationField;
+                    return patientInformationField;
                 }
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -22227,12 +22227,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22242,12 +22242,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22255,7 +22255,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22271,16 +22271,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetPatient GetPatient;
+            public GetPatient GetPatient;
 
             public GetPatientRequest()
             {
             }
 
-            public GetPatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetPatient GetPatient)
+            public GetPatientRequest(Credentials UserCredentials, GetPatient GetPatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetPatient = GetPatient;
@@ -22295,13 +22295,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetPatientResponse GetPatientResponse;
+            public GetPatientResponse GetPatientResponse;
 
             public GetPatientResponse1()
             {
             }
 
-            public GetPatientResponse1(SciStoreApplication.scistore.v71.GetPatientResponse GetPatientResponse)
+            public GetPatientResponse1(GetPatientResponse GetPatientResponse)
             {
                 this.GetPatientResponse = GetPatientResponse;
             }
@@ -22329,12 +22329,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultsField;
+                    return resultsField;
                 }
                 set
                 {
-                    this.resultsField = value;
-                    this.RaisePropertyChanged("Results");
+                    resultsField = value;
+                    RaisePropertyChanged("Results");
                 }
             }
 
@@ -22345,12 +22345,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22360,12 +22360,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22373,7 +22373,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22389,16 +22389,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindResultCriteria FindResult;
+            public FindResultCriteria FindResult;
 
             public FindResultRequest()
             {
             }
 
-            public FindResultRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindResultCriteria FindResult)
+            public FindResultRequest(Credentials UserCredentials, FindResultCriteria FindResult)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindResult = FindResult;
@@ -22413,13 +22413,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindResultResponse FindResultResponse;
+            public FindResultResponse FindResultResponse;
 
             public FindResultResponse1()
             {
             }
 
-            public FindResultResponse1(SciStoreApplication.scistore.v71.FindResultResponse FindResultResponse)
+            public FindResultResponse1(FindResultResponse FindResultResponse)
             {
                 this.FindResultResponse = FindResultResponse;
             }
@@ -22448,12 +22448,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.resultIDField;
+                    return resultIDField;
                 }
                 set
                 {
-                    this.resultIDField = value;
-                    this.RaisePropertyChanged("ResultID");
+                    resultIDField = value;
+                    RaisePropertyChanged("ResultID");
                 }
             }
 
@@ -22463,12 +22463,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22479,12 +22479,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22494,12 +22494,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22507,7 +22507,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22536,12 +22536,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.systemInformationField;
+                    return systemInformationField;
                 }
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -22551,12 +22551,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.investigationReportField;
+                    return investigationReportField;
                 }
                 set
                 {
-                    this.investigationReportField = value;
-                    this.RaisePropertyChanged("InvestigationReport");
+                    investigationReportField = value;
+                    RaisePropertyChanged("InvestigationReport");
                 }
             }
 
@@ -22566,12 +22566,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22579,7 +22579,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22595,16 +22595,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetResult GetResult;
+            public GetResult GetResult;
 
             public GetResultRequest()
             {
             }
 
-            public GetResultRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetResult GetResult)
+            public GetResultRequest(Credentials UserCredentials, GetResult GetResult)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetResult = GetResult;
@@ -22619,13 +22619,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetResultResponse GetResultResponse;
+            public GetResultResponse GetResultResponse;
 
             public GetResultResponse1()
             {
             }
 
-            public GetResultResponse1(SciStoreApplication.scistore.v71.GetResultResponse GetResultResponse)
+            public GetResultResponse1(GetResultResponse GetResultResponse)
             {
                 this.GetResultResponse = GetResultResponse;
             }
@@ -22653,12 +22653,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentsField;
+                    return documentsField;
                 }
                 set
                 {
-                    this.documentsField = value;
-                    this.RaisePropertyChanged("Documents");
+                    documentsField = value;
+                    RaisePropertyChanged("Documents");
                 }
             }
 
@@ -22669,12 +22669,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22684,12 +22684,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22697,7 +22697,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22713,16 +22713,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument;
+            public FindDocumentCriteria FindDocument;
 
             public FindDocumentRequest()
             {
             }
 
-            public FindDocumentRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument)
+            public FindDocumentRequest(Credentials UserCredentials, FindDocumentCriteria FindDocument)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindDocument = FindDocument;
@@ -22737,13 +22737,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindDocumentResponse FindDocumentResponse;
+            public FindDocumentResponse FindDocumentResponse;
 
             public FindDocumentResponse1()
             {
             }
 
-            public FindDocumentResponse1(SciStoreApplication.scistore.v71.FindDocumentResponse FindDocumentResponse)
+            public FindDocumentResponse1(FindDocumentResponse FindDocumentResponse)
             {
                 this.FindDocumentResponse = FindDocumentResponse;
             }
@@ -22772,12 +22772,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIDField;
+                    return documentIDField;
                 }
                 set
                 {
-                    this.documentIDField = value;
-                    this.RaisePropertyChanged("DocumentID");
+                    documentIDField = value;
+                    RaisePropertyChanged("DocumentID");
                 }
             }
 
@@ -22787,12 +22787,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22803,12 +22803,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassItemsField;
+                    return breakGlassItemsField;
                 }
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22818,12 +22818,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22831,7 +22831,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22858,12 +22858,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentField;
+                    return documentField;
                 }
                 set
                 {
-                    this.documentField = value;
-                    this.RaisePropertyChanged("Document");
+                    documentField = value;
+                    RaisePropertyChanged("Document");
                 }
             }
 
@@ -22873,12 +22873,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22886,7 +22886,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22902,16 +22902,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocument GetDocument;
+            public GetDocument GetDocument;
 
             public GetDocumentRequest()
             {
             }
 
-            public GetDocumentRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocument GetDocument)
+            public GetDocumentRequest(Credentials UserCredentials, GetDocument GetDocument)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetDocument = GetDocument;
@@ -22926,13 +22926,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentResponse GetDocumentResponse;
+            public GetDocumentResponse GetDocumentResponse;
 
             public GetDocumentResponse1()
             {
             }
 
-            public GetDocumentResponse1(SciStoreApplication.scistore.v71.GetDocumentResponse GetDocumentResponse)
+            public GetDocumentResponse1(GetDocumentResponse GetDocumentResponse)
             {
                 this.GetDocumentResponse = GetDocumentResponse;
             }
@@ -22961,12 +22961,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.documentIDField;
+                    return documentIDField;
                 }
                 set
                 {
-                    this.documentIDField = value;
-                    this.RaisePropertyChanged("DocumentID");
+                    documentIDField = value;
+                    RaisePropertyChanged("DocumentID");
                 }
             }
 
@@ -22976,12 +22976,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.stylesheetField;
+                    return stylesheetField;
                 }
                 set
                 {
-                    this.stylesheetField = value;
-                    this.RaisePropertyChanged("Stylesheet");
+                    stylesheetField = value;
+                    RaisePropertyChanged("Stylesheet");
                 }
             }
 
@@ -22991,12 +22991,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -23006,12 +23006,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23019,7 +23019,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23044,12 +23044,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.styleSheetDetailsField;
+                    return styleSheetDetailsField;
                 }
                 set
                 {
-                    this.styleSheetDetailsField = value;
-                    this.RaisePropertyChanged("StyleSheetDetails");
+                    styleSheetDetailsField = value;
+                    RaisePropertyChanged("StyleSheetDetails");
                 }
             }
 
@@ -23057,7 +23057,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23073,16 +23073,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet;
+            public GetDocumentStylesheet GetDocumentStylesheet;
 
             public GetDocumentStylesheetRequest()
             {
             }
 
-            public GetDocumentStylesheetRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet)
+            public GetDocumentStylesheetRequest(Credentials UserCredentials, GetDocumentStylesheet GetDocumentStylesheet)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetDocumentStylesheet = GetDocumentStylesheet;
@@ -23097,13 +23097,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheetResponse;
+            public GetDocumentStylesheetResponse GetDocumentStylesheetResponse;
 
             public GetDocumentStylesheetResponse1()
             {
             }
 
-            public GetDocumentStylesheetResponse1(SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheetResponse)
+            public GetDocumentStylesheetResponse1(GetDocumentStylesheetResponse GetDocumentStylesheetResponse)
             {
                 this.GetDocumentStylesheetResponse = GetDocumentStylesheetResponse;
             }
@@ -23131,12 +23131,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogListField;
+                    return treatmentLogListField;
                 }
                 set
                 {
-                    this.treatmentLogListField = value;
-                    this.RaisePropertyChanged("TreatmentLogList");
+                    treatmentLogListField = value;
+                    RaisePropertyChanged("TreatmentLogList");
                 }
             }
 
@@ -23147,12 +23147,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.searchSummaryField;
+                    return searchSummaryField;
                 }
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -23162,12 +23162,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23175,7 +23175,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23191,16 +23191,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog;
+            public FindTreatmentLogCriteria FindTreatmentLog;
 
             public FindTreatmentLogRequest()
             {
             }
 
-            public FindTreatmentLogRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog)
+            public FindTreatmentLogRequest(Credentials UserCredentials, FindTreatmentLogCriteria FindTreatmentLog)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindTreatmentLog = FindTreatmentLog;
@@ -23215,13 +23215,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLogResponse;
+            public FindTreatmentLogResponse FindTreatmentLogResponse;
 
             public FindTreatmentLogResponse1()
             {
             }
 
-            public FindTreatmentLogResponse1(SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLogResponse)
+            public FindTreatmentLogResponse1(FindTreatmentLogResponse FindTreatmentLogResponse)
             {
                 this.FindTreatmentLogResponse = FindTreatmentLogResponse;
             }
@@ -23248,12 +23248,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogIDField;
+                    return treatmentLogIDField;
                 }
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -23263,12 +23263,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.providerField;
+                    return providerField;
                 }
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -23278,12 +23278,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23291,7 +23291,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23318,12 +23318,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.treatmentLogField;
+                    return treatmentLogField;
                 }
                 set
                 {
-                    this.treatmentLogField = value;
-                    this.RaisePropertyChanged("TreatmentLog");
+                    treatmentLogField = value;
+                    RaisePropertyChanged("TreatmentLog");
                 }
             }
 
@@ -23333,12 +23333,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23346,7 +23346,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23362,16 +23362,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog;
+            public GetTreatmentLog GetTreatmentLog;
 
             public GetTreatmentLogRequest()
             {
             }
 
-            public GetTreatmentLogRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog)
+            public GetTreatmentLogRequest(Credentials UserCredentials, GetTreatmentLog GetTreatmentLog)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetTreatmentLog = GetTreatmentLog;
@@ -23386,13 +23386,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLogResponse;
+            public GetTreatmentLogResponse GetTreatmentLogResponse;
 
             public GetTreatmentLogResponse1()
             {
             }
 
-            public GetTreatmentLogResponse1(SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLogResponse)
+            public GetTreatmentLogResponse1(GetTreatmentLogResponse GetTreatmentLogResponse)
             {
                 this.GetTreatmentLogResponse = GetTreatmentLogResponse;
             }
@@ -23417,12 +23417,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.primaryPatientIdField;
+                    return primaryPatientIdField;
                 }
                 set
                 {
-                    this.primaryPatientIdField = value;
-                    this.RaisePropertyChanged("PrimaryPatientId");
+                    primaryPatientIdField = value;
+                    RaisePropertyChanged("PrimaryPatientId");
                 }
             }
 
@@ -23432,12 +23432,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23445,7 +23445,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23473,12 +23473,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientsField;
+                    return patientsField;
                 }
                 set
                 {
-                    this.patientsField = value;
-                    this.RaisePropertyChanged("Patients");
+                    patientsField = value;
+                    RaisePropertyChanged("Patients");
                 }
             }
 
@@ -23488,12 +23488,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23501,7 +23501,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23517,16 +23517,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindMerge FindMerge;
+            public FindMerge FindMerge;
 
             public FindMergeRequest()
             {
             }
 
-            public FindMergeRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindMerge FindMerge)
+            public FindMergeRequest(Credentials UserCredentials, FindMerge FindMerge)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindMerge = FindMerge;
@@ -23541,13 +23541,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindMergeResponse FindMergeResponse;
+            public FindMergeResponse FindMergeResponse;
 
             public FindMergeResponse1()
             {
             }
 
-            public FindMergeResponse1(SciStoreApplication.scistore.v71.FindMergeResponse FindMergeResponse)
+            public FindMergeResponse1(FindMergeResponse FindMergeResponse)
             {
                 this.FindMergeResponse = FindMergeResponse;
             }
@@ -23574,12 +23574,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.primaryPatientIDField;
+                    return primaryPatientIDField;
                 }
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -23589,12 +23589,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.secondaryPatientIDField;
+                    return secondaryPatientIDField;
                 }
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -23604,12 +23604,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23617,7 +23617,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23633,16 +23633,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MergePatient MergePatient;
+            public MergePatient MergePatient;
 
             public MergePatientRequest()
             {
             }
 
-            public MergePatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MergePatient MergePatient)
+            public MergePatientRequest(Credentials UserCredentials, MergePatient MergePatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.MergePatient = MergePatient;
@@ -23690,12 +23690,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.primaryPatientIDField;
+                    return primaryPatientIDField;
                 }
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -23705,12 +23705,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.secondaryPatientIDField;
+                    return secondaryPatientIDField;
                 }
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -23720,12 +23720,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23733,7 +23733,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23749,16 +23749,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient;
+            public UnMergePatient UnMergePatient;
 
             public UnMergePatientRequest()
             {
             }
 
-            public UnMergePatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient)
+            public UnMergePatientRequest(Credentials UserCredentials, UnMergePatient UnMergePatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.UnMergePatient = UnMergePatient;
@@ -23804,12 +23804,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23819,12 +23819,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23832,7 +23832,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23861,12 +23861,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.countField;
+                    return countField;
                 }
                 set
                 {
-                    this.countField = value;
-                    this.RaisePropertyChanged("Count");
+                    countField = value;
+                    RaisePropertyChanged("Count");
                 }
             }
 
@@ -23876,12 +23876,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23891,12 +23891,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23904,7 +23904,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23920,16 +23920,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount;
+            public MessageQueueCount MessageQueueCount;
 
             public MessageQueueCountRequest()
             {
             }
 
-            public MessageQueueCountRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount)
+            public MessageQueueCountRequest(Credentials UserCredentials, MessageQueueCount MessageQueueCount)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueueCount = MessageQueueCount;
@@ -23944,13 +23944,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCountResponse;
+            public MessageQueueCountResponse MessageQueueCountResponse;
 
             public MessageQueueCountResponse1()
             {
             }
 
-            public MessageQueueCountResponse1(SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCountResponse)
+            public MessageQueueCountResponse1(MessageQueueCountResponse MessageQueueCountResponse)
             {
                 this.MessageQueueCountResponse = MessageQueueCountResponse;
             }
@@ -23977,12 +23977,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23992,12 +23992,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageIdentifierField;
+                    return messageIdentifierField;
                 }
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24007,12 +24007,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24020,7 +24020,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24049,12 +24049,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24064,12 +24064,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageIdentifierField;
+                    return messageIdentifierField;
                 }
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24079,12 +24079,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24092,7 +24092,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24108,16 +24108,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete;
+            public MessageQueueDelete MessageQueueDelete;
 
             public MessageQueueDeleteRequest()
             {
             }
 
-            public MessageQueueDeleteRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete)
+            public MessageQueueDeleteRequest(Credentials UserCredentials, MessageQueueDelete MessageQueueDelete)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueueDelete = MessageQueueDelete;
@@ -24132,13 +24132,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDeleteResponse;
+            public MessageQueueDeleteResponse MessageQueueDeleteResponse;
 
             public MessageQueueDeleteResponse1()
             {
             }
 
-            public MessageQueueDeleteResponse1(SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDeleteResponse)
+            public MessageQueueDeleteResponse1(MessageQueueDeleteResponse MessageQueueDeleteResponse)
             {
                 this.MessageQueueDeleteResponse = MessageQueueDeleteResponse;
             }
@@ -24163,12 +24163,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24178,12 +24178,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24191,7 +24191,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24222,12 +24222,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.queueField;
+                    return queueField;
                 }
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24237,12 +24237,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageIdentifierField;
+                    return messageIdentifierField;
                 }
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24252,12 +24252,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.messageBodyField;
+                    return messageBodyField;
                 }
                 set
                 {
-                    this.messageBodyField = value;
-                    this.RaisePropertyChanged("MessageBody");
+                    messageBodyField = value;
+                    RaisePropertyChanged("MessageBody");
                 }
             }
 
@@ -24267,12 +24267,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24280,7 +24280,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24296,16 +24296,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek;
+            public MessageQueuePeek MessageQueuePeek;
 
             public MessageQueuePeekRequest()
             {
             }
 
-            public MessageQueuePeekRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek)
+            public MessageQueuePeekRequest(Credentials UserCredentials, MessageQueuePeek MessageQueuePeek)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueuePeek = MessageQueuePeek;
@@ -24320,13 +24320,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeekResponse;
+            public MessageQueuePeekResponse MessageQueuePeekResponse;
 
             public MessageQueuePeekResponse1()
             {
             }
 
-            public MessageQueuePeekResponse1(SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeekResponse)
+            public MessageQueuePeekResponse1(MessageQueuePeekResponse MessageQueuePeekResponse)
             {
                 this.MessageQueuePeekResponse = MessageQueuePeekResponse;
             }
@@ -24352,12 +24352,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.hCPsField;
+                    return hCPsField;
                 }
                 set
                 {
-                    this.hCPsField = value;
-                    this.RaisePropertyChanged("HCPs");
+                    hCPsField = value;
+                    RaisePropertyChanged("HCPs");
                 }
             }
 
@@ -24367,12 +24367,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24380,7 +24380,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24396,16 +24396,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP;
+            public FindHCPcriteria FindHCP;
 
             public FindHCPRequest()
             {
             }
 
-            public FindHCPRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP)
+            public FindHCPRequest(Credentials UserCredentials, FindHCPcriteria FindHCP)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindHCP = FindHCP;
@@ -24420,13 +24420,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindHCPResponse FindHCPResponse;
+            public FindHCPResponse FindHCPResponse;
 
             public FindHCPResponse1()
             {
             }
 
-            public FindHCPResponse1(SciStoreApplication.scistore.v71.FindHCPResponse FindHCPResponse)
+            public FindHCPResponse1(FindHCPResponse FindHCPResponse)
             {
                 this.FindHCPResponse = FindHCPResponse;
             }
@@ -24452,12 +24452,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.organisationsField;
+                    return organisationsField;
                 }
                 set
                 {
-                    this.organisationsField = value;
-                    this.RaisePropertyChanged("Organisations");
+                    organisationsField = value;
+                    RaisePropertyChanged("Organisations");
                 }
             }
 
@@ -24467,12 +24467,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24480,7 +24480,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24496,16 +24496,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation;
+            public FindOrganisationCriteria FindOrganisation;
 
             public FindOrganisationRequest()
             {
             }
 
-            public FindOrganisationRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation)
+            public FindOrganisationRequest(Credentials UserCredentials, FindOrganisationCriteria FindOrganisation)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindOrganisation = FindOrganisation;
@@ -24520,13 +24520,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisationResponse;
+            public FindOrganisationResponse FindOrganisationResponse;
 
             public FindOrganisationResponse1()
             {
             }
 
-            public FindOrganisationResponse1(SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisationResponse)
+            public FindOrganisationResponse1(FindOrganisationResponse FindOrganisationResponse)
             {
                 this.FindOrganisationResponse = FindOrganisationResponse;
             }
@@ -24551,12 +24551,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.minutesField;
+                    return minutesField;
                 }
                 set
                 {
-                    this.minutesField = value;
-                    this.RaisePropertyChanged("Minutes");
+                    minutesField = value;
+                    RaisePropertyChanged("Minutes");
                 }
             }
 
@@ -24566,12 +24566,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24579,7 +24579,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24595,7 +24595,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement GetWebTimeout;
@@ -24604,7 +24604,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public GetWebTimeoutRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout)
+            public GetWebTimeoutRequest(Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetWebTimeout = GetWebTimeout;
@@ -24619,13 +24619,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeoutResponse;
+            public GetWebTimeoutResponse GetWebTimeoutResponse;
 
             public GetWebTimeoutResponse1()
             {
             }
 
-            public GetWebTimeoutResponse1(SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeoutResponse)
+            public GetWebTimeoutResponse1(GetWebTimeoutResponse GetWebTimeoutResponse)
             {
                 this.GetWebTimeoutResponse = GetWebTimeoutResponse;
             }
@@ -24650,12 +24650,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.limitsField;
+                    return limitsField;
                 }
                 set
                 {
-                    this.limitsField = value;
-                    this.RaisePropertyChanged("Limits");
+                    limitsField = value;
+                    RaisePropertyChanged("Limits");
                 }
             }
 
@@ -24665,12 +24665,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24678,7 +24678,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24706,12 +24706,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.servicesField;
+                    return servicesField;
                 }
                 set
                 {
-                    this.servicesField = value;
-                    this.RaisePropertyChanged("Services");
+                    servicesField = value;
+                    RaisePropertyChanged("Services");
                 }
             }
 
@@ -24721,12 +24721,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24734,7 +24734,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24750,16 +24750,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus;
+            public GetInterfaceStatus GetInterfaceStatus;
 
             public GetInterfaceStatusRequest()
             {
             }
 
-            public GetInterfaceStatusRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus)
+            public GetInterfaceStatusRequest(Credentials UserCredentials, GetInterfaceStatus GetInterfaceStatus)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetInterfaceStatus = GetInterfaceStatus;
@@ -24774,13 +24774,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatusResponse;
+            public GetInterfaceStatusResponse GetInterfaceStatusResponse;
 
             public GetInterfaceStatusResponse1()
             {
             }
 
-            public GetInterfaceStatusResponse1(SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatusResponse)
+            public GetInterfaceStatusResponse1(GetInterfaceStatusResponse GetInterfaceStatusResponse)
             {
                 this.GetInterfaceStatusResponse = GetInterfaceStatusResponse;
             }
@@ -24806,12 +24806,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.breakGlassAuditInstancesField;
+                    return breakGlassAuditInstancesField;
                 }
                 set
                 {
-                    this.breakGlassAuditInstancesField = value;
-                    this.RaisePropertyChanged("BreakGlassAuditInstances");
+                    breakGlassAuditInstancesField = value;
+                    RaisePropertyChanged("BreakGlassAuditInstances");
                 }
             }
 
@@ -24821,12 +24821,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24834,7 +24834,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24850,16 +24850,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit;
+            public FindBreakGlassAuditCriteria FindBreakGlassAudit;
 
             public FindBreakGlassAuditRequest()
             {
             }
 
-            public FindBreakGlassAuditRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit)
+            public FindBreakGlassAuditRequest(Credentials UserCredentials, FindBreakGlassAuditCriteria FindBreakGlassAudit)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindBreakGlassAudit = FindBreakGlassAudit;
@@ -24874,13 +24874,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAuditResponse;
+            public FindBreakGlassAuditResponse FindBreakGlassAuditResponse;
 
             public FindBreakGlassAuditResponse1()
             {
             }
 
-            public FindBreakGlassAuditResponse1(SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAuditResponse)
+            public FindBreakGlassAuditResponse1(FindBreakGlassAuditResponse FindBreakGlassAuditResponse)
             {
                 this.FindBreakGlassAuditResponse = FindBreakGlassAuditResponse;
             }
@@ -24906,12 +24906,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.patientConsentAuditInstancesField;
+                    return patientConsentAuditInstancesField;
                 }
                 set
                 {
-                    this.patientConsentAuditInstancesField = value;
-                    this.RaisePropertyChanged("PatientConsentAuditInstances");
+                    patientConsentAuditInstancesField = value;
+                    RaisePropertyChanged("PatientConsentAuditInstances");
                 }
             }
 
@@ -24921,12 +24921,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24934,7 +24934,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24950,16 +24950,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit;
+            public PatientConsentAuditCriteria FindPatientConsentAudit;
 
             public FindPatientConsentAuditRequest()
             {
             }
 
-            public FindPatientConsentAuditRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit)
+            public FindPatientConsentAuditRequest(Credentials UserCredentials, PatientConsentAuditCriteria FindPatientConsentAudit)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindPatientConsentAudit = FindPatientConsentAudit;
@@ -24974,13 +24974,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAuditResponse;
+            public FindPatientConsentAuditResponse FindPatientConsentAuditResponse;
 
             public FindPatientConsentAuditResponse1()
             {
             }
 
-            public FindPatientConsentAuditResponse1(SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAuditResponse)
+            public FindPatientConsentAuditResponse1(FindPatientConsentAuditResponse FindPatientConsentAuditResponse)
             {
                 this.FindPatientConsentAuditResponse = FindPatientConsentAuditResponse;
             }
@@ -25005,12 +25005,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.cumulativeReportField;
+                    return cumulativeReportField;
                 }
                 set
                 {
-                    this.cumulativeReportField = value;
-                    this.RaisePropertyChanged("CumulativeReport");
+                    cumulativeReportField = value;
+                    RaisePropertyChanged("CumulativeReport");
                 }
             }
 
@@ -25020,12 +25020,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25033,7 +25033,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25049,16 +25049,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport;
+            public CumulativeReportCriteria GetCumulativeReport;
 
             public GetCumulativeReportRequest()
             {
             }
 
-            public GetCumulativeReportRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport)
+            public GetCumulativeReportRequest(Credentials UserCredentials, CumulativeReportCriteria GetCumulativeReport)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetCumulativeReport = GetCumulativeReport;
@@ -25073,13 +25073,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReportResponse;
+            public GetCumulativeReportResponse GetCumulativeReportResponse;
 
             public GetCumulativeReportResponse1()
             {
             }
 
-            public GetCumulativeReportResponse1(SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReportResponse)
+            public GetCumulativeReportResponse1(GetCumulativeReportResponse GetCumulativeReportResponse)
             {
                 this.GetCumulativeReportResponse = GetCumulativeReportResponse;
             }
@@ -25104,12 +25104,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionTypeField;
+                    return subscriptionTypeField;
                 }
                 set
                 {
-                    this.subscriptionTypeField = value;
-                    this.RaisePropertyChanged("SubscriptionType");
+                    subscriptionTypeField = value;
+                    RaisePropertyChanged("SubscriptionType");
                 }
             }
 
@@ -25119,12 +25119,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25132,7 +25132,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25160,12 +25160,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionsField;
+                    return subscriptionsField;
                 }
                 set
                 {
-                    this.subscriptionsField = value;
-                    this.RaisePropertyChanged("Subscriptions");
+                    subscriptionsField = value;
+                    RaisePropertyChanged("Subscriptions");
                 }
             }
 
@@ -25175,12 +25175,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25188,7 +25188,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25204,16 +25204,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions;
+            public FindSubscriptions FindSubscriptions;
 
             public FindSubscriptionsRequest()
             {
             }
 
-            public FindSubscriptionsRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions)
+            public FindSubscriptionsRequest(Credentials UserCredentials, FindSubscriptions FindSubscriptions)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindSubscriptions = FindSubscriptions;
@@ -25228,13 +25228,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptionsResponse;
+            public FindSubscriptionsResponse FindSubscriptionsResponse;
 
             public FindSubscriptionsResponse1()
             {
             }
 
-            public FindSubscriptionsResponse1(SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptionsResponse)
+            public FindSubscriptionsResponse1(FindSubscriptionsResponse FindSubscriptionsResponse)
             {
                 this.FindSubscriptionsResponse = FindSubscriptionsResponse;
             }
@@ -25259,12 +25259,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionInfoField;
+                    return subscriptionInfoField;
                 }
                 set
                 {
-                    this.subscriptionInfoField = value;
-                    this.RaisePropertyChanged("SubscriptionInfo");
+                    subscriptionInfoField = value;
+                    RaisePropertyChanged("SubscriptionInfo");
                 }
             }
 
@@ -25274,12 +25274,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25287,7 +25287,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25314,12 +25314,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionIDField;
+                    return subscriptionIDField;
                 }
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -25329,12 +25329,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25342,7 +25342,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25358,16 +25358,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AddSubscription AddSubscription;
+            public AddSubscription AddSubscription;
 
             public AddSubscriptionRequest()
             {
             }
 
-            public AddSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AddSubscription AddSubscription)
+            public AddSubscriptionRequest(Credentials UserCredentials, AddSubscription AddSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.AddSubscription = AddSubscription;
@@ -25382,13 +25382,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscriptionResponse;
+            public AddSubscriptionResponse AddSubscriptionResponse;
 
             public AddSubscriptionResponse1()
             {
             }
 
-            public AddSubscriptionResponse1(SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscriptionResponse)
+            public AddSubscriptionResponse1(AddSubscriptionResponse AddSubscriptionResponse)
             {
                 this.AddSubscriptionResponse = AddSubscriptionResponse;
             }
@@ -25413,12 +25413,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.subscriptionInfoField;
+                    return subscriptionInfoField;
                 }
                 set
                 {
-                    this.subscriptionInfoField = value;
-                    this.RaisePropertyChanged("SubscriptionInfo");
+                    subscriptionInfoField = value;
+                    RaisePropertyChanged("SubscriptionInfo");
                 }
             }
 
@@ -25428,12 +25428,12 @@ namespace SciStoreApplication.Properties
             {
                 get
                 {
-                    return this.anyField;
+                    return anyField;
                 }
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25441,7 +25441,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25457,16 +25457,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription;
+            public AmendSubscription AmendSubscription;
 
             public AmendSubscriptionRequest()
             {
             }
 
-            public AmendSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription)
+            public AmendSubscriptionRequest(Credentials UserCredentials, AmendSubscription AmendSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.AmendSubscription = AmendSubscription;
@@ -25494,13 +25494,13 @@ namespace SciStoreApplication.Properties
         }
 
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-        public interface SCIStoreServicesChannel : SciStoreApplication.scistore.v71.SCIStoreServices, System.ServiceModel.IClientChannel
+        public interface SCIStoreServicesChannel : SCIStoreServices, System.ServiceModel.IClientChannel
         {
         }
 
         [System.Diagnostics.DebuggerStepThroughAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-        public partial class SCIStoreServicesClient : System.ServiceModel.ClientBase<SciStoreApplication.scistore.v71.SCIStoreServices>, SciStoreApplication.scistore.v71.SCIStoreServices
+        public partial class SCIStoreServicesClient : System.ServiceModel.ClientBase<SCIStoreServices>, SCIStoreServices
         {
 
             public SCIStoreServicesClient()
@@ -25528,511 +25528,511 @@ namespace SciStoreApplication.Properties
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.LoginResponse SciStoreApplication.scistore.v71.SCIStoreServices.Login(SciStoreApplication.scistore.v71.LoginRequest request)
+            LoginResponse SCIStoreServices.Login(LoginRequest request)
             {
-                return base.Channel.Login(request);
+                return Channel.Login(request);
             }
 
-            public SciStoreApplication.scistore.v71.LoginTokenResponse Login(SciStoreApplication.scistore.v71.Login Login1)
+            public LoginTokenResponse Login(Login Login1)
             {
-                SciStoreApplication.scistore.v71.LoginRequest inValue = new SciStoreApplication.scistore.v71.LoginRequest();
+                LoginRequest inValue = new LoginRequest();
                 inValue.Login = Login1;
-                SciStoreApplication.scistore.v71.LoginResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).Login(inValue);
+                LoginResponse retVal = ((SCIStoreServices)(this)).Login(inValue);
                 return retVal.LoginResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.LogoutResponse SciStoreApplication.scistore.v71.SCIStoreServices.Logout(SciStoreApplication.scistore.v71.LogoutRequest request)
+            LogoutResponse SCIStoreServices.Logout(LogoutRequest request)
             {
-                return base.Channel.Logout(request);
+                return Channel.Logout(request);
             }
 
-            public System.Xml.XmlElement Logout(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.Logout Logout1)
+            public System.Xml.XmlElement Logout(Credentials UserCredentials, Logout Logout1)
             {
-                SciStoreApplication.scistore.v71.LogoutRequest inValue = new SciStoreApplication.scistore.v71.LogoutRequest();
+                LogoutRequest inValue = new LogoutRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.Logout = Logout1;
-                SciStoreApplication.scistore.v71.LogoutResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).Logout(inValue);
+                LogoutResponse retVal = ((SCIStoreServices)(this)).Logout(inValue);
                 return retVal.LogoutResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetNotificationsResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetNotifications(SciStoreApplication.scistore.v71.GetNotificationsRequest request)
+            GetNotificationsResponse1 SCIStoreServices.GetNotifications(GetNotificationsRequest request)
             {
-                return base.Channel.GetNotifications(request);
+                return Channel.GetNotifications(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotifications(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetNotifications GetNotifications1)
+            public GetNotificationsResponse GetNotifications(Credentials UserCredentials, GetNotifications GetNotifications1)
             {
-                SciStoreApplication.scistore.v71.GetNotificationsRequest inValue = new SciStoreApplication.scistore.v71.GetNotificationsRequest();
+                GetNotificationsRequest inValue = new GetNotificationsRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetNotifications = GetNotifications1;
-                SciStoreApplication.scistore.v71.GetNotificationsResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetNotifications(inValue);
+                GetNotificationsResponse1 retVal = ((SCIStoreServices)(this)).GetNotifications(inValue);
                 return retVal.GetNotificationsResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.DeleteSubscriptionResponse SciStoreApplication.scistore.v71.SCIStoreServices.DeleteSubscription(SciStoreApplication.scistore.v71.DeleteSubscriptionRequest request)
+            DeleteSubscriptionResponse SCIStoreServices.DeleteSubscription(DeleteSubscriptionRequest request)
             {
-                return base.Channel.DeleteSubscription(request);
+                return Channel.DeleteSubscription(request);
             }
 
-            public System.Xml.XmlElement DeleteSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription1)
+            public System.Xml.XmlElement DeleteSubscription(Credentials UserCredentials, DeleteSubscription DeleteSubscription1)
             {
-                SciStoreApplication.scistore.v71.DeleteSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.DeleteSubscriptionRequest();
+                DeleteSubscriptionRequest inValue = new DeleteSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.DeleteSubscription = DeleteSubscription1;
-                SciStoreApplication.scistore.v71.DeleteSubscriptionResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).DeleteSubscription(inValue);
+                DeleteSubscriptionResponse retVal = ((SCIStoreServices)(this)).DeleteSubscription(inValue);
                 return retVal.DeleteSubscriptionResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse SciStoreApplication.scistore.v71.SCIStoreServices.UnSubscribeToStore(SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest request)
+            UnSubscribeToStoreResponse SCIStoreServices.UnSubscribeToStore(UnSubscribeToStoreRequest request)
             {
-                return base.Channel.UnSubscribeToStore(request);
+                return Channel.UnSubscribeToStore(request);
             }
 
-            public System.Xml.XmlElement UnSubscribeToStore(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore1)
+            public System.Xml.XmlElement UnSubscribeToStore(Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore1)
             {
-                SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest inValue = new SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest();
+                UnSubscribeToStoreRequest inValue = new UnSubscribeToStoreRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.UnSubscribeToStore = UnSubscribeToStore1;
-                SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).UnSubscribeToStore(inValue);
+                UnSubscribeToStoreResponse retVal = ((SCIStoreServices)(this)).UnSubscribeToStore(inValue);
                 return retVal.UnSubscribeToStoreResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.BreakGlassResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.BreakGlass(SciStoreApplication.scistore.v71.BreakGlassRequest request)
+            BreakGlassResponse1 SCIStoreServices.BreakGlass(BreakGlassRequest request)
             {
-                return base.Channel.BreakGlass(request);
+                return Channel.BreakGlass(request);
             }
 
-            public SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlass(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass1)
+            public BreakGlassResponse BreakGlass(Credentials UserCredentials, BreakGlassInfo BreakGlass1)
             {
-                SciStoreApplication.scistore.v71.BreakGlassRequest inValue = new SciStoreApplication.scistore.v71.BreakGlassRequest();
+                BreakGlassRequest inValue = new BreakGlassRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.BreakGlass = BreakGlass1;
-                SciStoreApplication.scistore.v71.BreakGlassResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).BreakGlass(inValue);
+                BreakGlassResponse1 retVal = ((SCIStoreServices)(this)).BreakGlass(inValue);
                 return retVal.BreakGlassResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetBreakGlassTypes(SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest request)
+            GetBreakGlassTypesResponse1 SCIStoreServices.GetBreakGlassTypes(GetBreakGlassTypesRequest request)
             {
-                return base.Channel.GetBreakGlassTypes(request);
+                return Channel.GetBreakGlassTypes(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypes(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes1)
+            public GetBreakGlassTypesResponse GetBreakGlassTypes(Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes1)
             {
-                SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest inValue = new SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest();
+                GetBreakGlassTypesRequest inValue = new GetBreakGlassTypesRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetBreakGlassTypes = GetBreakGlassTypes1;
-                SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetBreakGlassTypes(inValue);
+                GetBreakGlassTypesResponse1 retVal = ((SCIStoreServices)(this)).GetBreakGlassTypes(inValue);
                 return retVal.GetBreakGlassTypesResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindADTResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindADT(SciStoreApplication.scistore.v71.FindADTRequest request)
+            FindADTResponse1 SCIStoreServices.FindADT(FindADTRequest request)
             {
-                return base.Channel.FindADT(request);
+                return Channel.FindADT(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindADTresponse FindADT(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindADTcriteria FindADT1)
+            public FindADTresponse FindADT(Credentials UserCredentials, FindADTcriteria FindADT1)
             {
-                SciStoreApplication.scistore.v71.FindADTRequest inValue = new SciStoreApplication.scistore.v71.FindADTRequest();
+                FindADTRequest inValue = new FindADTRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindADT = FindADT1;
-                SciStoreApplication.scistore.v71.FindADTResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindADT(inValue);
+                FindADTResponse1 retVal = ((SCIStoreServices)(this)).FindADT(inValue);
                 return retVal.FindADTresponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetADTResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetADT(SciStoreApplication.scistore.v71.GetADTRequest request)
+            GetADTResponse1 SCIStoreServices.GetADT(GetADTRequest request)
             {
-                return base.Channel.GetADT(request);
+                return Channel.GetADT(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetADTResponse GetADT(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetADT GetADT1)
+            public GetADTResponse GetADT(Credentials UserCredentials, GetADT GetADT1)
             {
-                SciStoreApplication.scistore.v71.GetADTRequest inValue = new SciStoreApplication.scistore.v71.GetADTRequest();
+                GetADTRequest inValue = new GetADTRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetADT = GetADT1;
-                SciStoreApplication.scistore.v71.GetADTResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetADT(inValue);
+                GetADTResponse1 retVal = ((SCIStoreServices)(this)).GetADT(inValue);
                 return retVal.GetADTResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindPatientResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindPatient(SciStoreApplication.scistore.v71.FindPatientRequest request)
+            FindPatientResponse1 SCIStoreServices.FindPatient(FindPatientRequest request)
             {
-                return base.Channel.FindPatient(request);
+                return Channel.FindPatient(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindPatientResponse FindPatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient1)
+            public FindPatientResponse FindPatient(Credentials UserCredentials, FindPatientCriteria FindPatient1)
             {
-                SciStoreApplication.scistore.v71.FindPatientRequest inValue = new SciStoreApplication.scistore.v71.FindPatientRequest();
+                FindPatientRequest inValue = new FindPatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindPatient = FindPatient1;
-                SciStoreApplication.scistore.v71.FindPatientResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindPatient(inValue);
+                FindPatientResponse1 retVal = ((SCIStoreServices)(this)).FindPatient(inValue);
                 return retVal.FindPatientResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetPatientResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetPatient(SciStoreApplication.scistore.v71.GetPatientRequest request)
+            GetPatientResponse1 SCIStoreServices.GetPatient(GetPatientRequest request)
             {
-                return base.Channel.GetPatient(request);
+                return Channel.GetPatient(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetPatientResponse GetPatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetPatient GetPatient1)
+            public GetPatientResponse GetPatient(Credentials UserCredentials, GetPatient GetPatient1)
             {
-                SciStoreApplication.scistore.v71.GetPatientRequest inValue = new SciStoreApplication.scistore.v71.GetPatientRequest();
+                GetPatientRequest inValue = new GetPatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetPatient = GetPatient1;
-                SciStoreApplication.scistore.v71.GetPatientResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetPatient(inValue);
+                GetPatientResponse1 retVal = ((SCIStoreServices)(this)).GetPatient(inValue);
                 return retVal.GetPatientResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindResultResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindResult(SciStoreApplication.scistore.v71.FindResultRequest request)
+            FindResultResponse1 SCIStoreServices.FindResult(FindResultRequest request)
             {
-                return base.Channel.FindResult(request);
+                return Channel.FindResult(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindResultResponse FindResult(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindResultCriteria FindResult1)
+            public FindResultResponse FindResult(Credentials UserCredentials, FindResultCriteria FindResult1)
             {
-                SciStoreApplication.scistore.v71.FindResultRequest inValue = new SciStoreApplication.scistore.v71.FindResultRequest();
+                FindResultRequest inValue = new FindResultRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindResult = FindResult1;
-                SciStoreApplication.scistore.v71.FindResultResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindResult(inValue);
+                FindResultResponse1 retVal = ((SCIStoreServices)(this)).FindResult(inValue);
                 return retVal.FindResultResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetResultResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetResult(SciStoreApplication.scistore.v71.GetResultRequest request)
+            GetResultResponse1 SCIStoreServices.GetResult(GetResultRequest request)
             {
-                return base.Channel.GetResult(request);
+                return Channel.GetResult(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetResultResponse GetResult(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetResult GetResult1)
+            public GetResultResponse GetResult(Credentials UserCredentials, GetResult GetResult1)
             {
-                SciStoreApplication.scistore.v71.GetResultRequest inValue = new SciStoreApplication.scistore.v71.GetResultRequest();
+                GetResultRequest inValue = new GetResultRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetResult = GetResult1;
-                SciStoreApplication.scistore.v71.GetResultResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetResult(inValue);
+                GetResultResponse1 retVal = ((SCIStoreServices)(this)).GetResult(inValue);
                 return retVal.GetResultResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindDocumentResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindDocument(SciStoreApplication.scistore.v71.FindDocumentRequest request)
+            FindDocumentResponse1 SCIStoreServices.FindDocument(FindDocumentRequest request)
             {
-                return base.Channel.FindDocument(request);
+                return Channel.FindDocument(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindDocumentResponse FindDocument(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument1)
+            public FindDocumentResponse FindDocument(Credentials UserCredentials, FindDocumentCriteria FindDocument1)
             {
-                SciStoreApplication.scistore.v71.FindDocumentRequest inValue = new SciStoreApplication.scistore.v71.FindDocumentRequest();
+                FindDocumentRequest inValue = new FindDocumentRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindDocument = FindDocument1;
-                SciStoreApplication.scistore.v71.FindDocumentResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindDocument(inValue);
+                FindDocumentResponse1 retVal = ((SCIStoreServices)(this)).FindDocument(inValue);
                 return retVal.FindDocumentResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetDocumentResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetDocument(SciStoreApplication.scistore.v71.GetDocumentRequest request)
+            GetDocumentResponse1 SCIStoreServices.GetDocument(GetDocumentRequest request)
             {
-                return base.Channel.GetDocument(request);
+                return Channel.GetDocument(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetDocumentResponse GetDocument(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocument GetDocument1)
+            public GetDocumentResponse GetDocument(Credentials UserCredentials, GetDocument GetDocument1)
             {
-                SciStoreApplication.scistore.v71.GetDocumentRequest inValue = new SciStoreApplication.scistore.v71.GetDocumentRequest();
+                GetDocumentRequest inValue = new GetDocumentRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetDocument = GetDocument1;
-                SciStoreApplication.scistore.v71.GetDocumentResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetDocument(inValue);
+                GetDocumentResponse1 retVal = ((SCIStoreServices)(this)).GetDocument(inValue);
                 return retVal.GetDocumentResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetDocumentStylesheet(SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest request)
+            GetDocumentStylesheetResponse1 SCIStoreServices.GetDocumentStylesheet(GetDocumentStylesheetRequest request)
             {
-                return base.Channel.GetDocumentStylesheet(request);
+                return Channel.GetDocumentStylesheet(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheet(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet1)
+            public GetDocumentStylesheetResponse GetDocumentStylesheet(Credentials UserCredentials, GetDocumentStylesheet GetDocumentStylesheet1)
             {
-                SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest inValue = new SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest();
+                GetDocumentStylesheetRequest inValue = new GetDocumentStylesheetRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetDocumentStylesheet = GetDocumentStylesheet1;
-                SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetDocumentStylesheet(inValue);
+                GetDocumentStylesheetResponse1 retVal = ((SCIStoreServices)(this)).GetDocumentStylesheet(inValue);
                 return retVal.GetDocumentStylesheetResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindTreatmentLog(SciStoreApplication.scistore.v71.FindTreatmentLogRequest request)
+            FindTreatmentLogResponse1 SCIStoreServices.FindTreatmentLog(FindTreatmentLogRequest request)
             {
-                return base.Channel.FindTreatmentLog(request);
+                return Channel.FindTreatmentLog(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLog(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog1)
+            public FindTreatmentLogResponse FindTreatmentLog(Credentials UserCredentials, FindTreatmentLogCriteria FindTreatmentLog1)
             {
-                SciStoreApplication.scistore.v71.FindTreatmentLogRequest inValue = new SciStoreApplication.scistore.v71.FindTreatmentLogRequest();
+                FindTreatmentLogRequest inValue = new FindTreatmentLogRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindTreatmentLog = FindTreatmentLog1;
-                SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindTreatmentLog(inValue);
+                FindTreatmentLogResponse1 retVal = ((SCIStoreServices)(this)).FindTreatmentLog(inValue);
                 return retVal.FindTreatmentLogResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetTreatmentLog(SciStoreApplication.scistore.v71.GetTreatmentLogRequest request)
+            GetTreatmentLogResponse1 SCIStoreServices.GetTreatmentLog(GetTreatmentLogRequest request)
             {
-                return base.Channel.GetTreatmentLog(request);
+                return Channel.GetTreatmentLog(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLog(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog1)
+            public GetTreatmentLogResponse GetTreatmentLog(Credentials UserCredentials, GetTreatmentLog GetTreatmentLog1)
             {
-                SciStoreApplication.scistore.v71.GetTreatmentLogRequest inValue = new SciStoreApplication.scistore.v71.GetTreatmentLogRequest();
+                GetTreatmentLogRequest inValue = new GetTreatmentLogRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetTreatmentLog = GetTreatmentLog1;
-                SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetTreatmentLog(inValue);
+                GetTreatmentLogResponse1 retVal = ((SCIStoreServices)(this)).GetTreatmentLog(inValue);
                 return retVal.GetTreatmentLogResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindMergeResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindMerge(SciStoreApplication.scistore.v71.FindMergeRequest request)
+            FindMergeResponse1 SCIStoreServices.FindMerge(FindMergeRequest request)
             {
-                return base.Channel.FindMerge(request);
+                return Channel.FindMerge(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindMergeResponse FindMerge(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindMerge FindMerge1)
+            public FindMergeResponse FindMerge(Credentials UserCredentials, FindMerge FindMerge1)
             {
-                SciStoreApplication.scistore.v71.FindMergeRequest inValue = new SciStoreApplication.scistore.v71.FindMergeRequest();
+                FindMergeRequest inValue = new FindMergeRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindMerge = FindMerge1;
-                SciStoreApplication.scistore.v71.FindMergeResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindMerge(inValue);
+                FindMergeResponse1 retVal = ((SCIStoreServices)(this)).FindMerge(inValue);
                 return retVal.FindMergeResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MergePatientResponse SciStoreApplication.scistore.v71.SCIStoreServices.MergePatient(SciStoreApplication.scistore.v71.MergePatientRequest request)
+            MergePatientResponse SCIStoreServices.MergePatient(MergePatientRequest request)
             {
-                return base.Channel.MergePatient(request);
+                return Channel.MergePatient(request);
             }
 
-            public System.Xml.XmlElement MergePatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MergePatient MergePatient1)
+            public System.Xml.XmlElement MergePatient(Credentials UserCredentials, MergePatient MergePatient1)
             {
-                SciStoreApplication.scistore.v71.MergePatientRequest inValue = new SciStoreApplication.scistore.v71.MergePatientRequest();
+                MergePatientRequest inValue = new MergePatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MergePatient = MergePatient1;
-                SciStoreApplication.scistore.v71.MergePatientResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MergePatient(inValue);
+                MergePatientResponse retVal = ((SCIStoreServices)(this)).MergePatient(inValue);
                 return retVal.MergePatientResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.UnMergePatientResponse SciStoreApplication.scistore.v71.SCIStoreServices.UnMergePatient(SciStoreApplication.scistore.v71.UnMergePatientRequest request)
+            UnMergePatientResponse SCIStoreServices.UnMergePatient(UnMergePatientRequest request)
             {
-                return base.Channel.UnMergePatient(request);
+                return Channel.UnMergePatient(request);
             }
 
-            public System.Xml.XmlElement UnMergePatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient1)
+            public System.Xml.XmlElement UnMergePatient(Credentials UserCredentials, UnMergePatient UnMergePatient1)
             {
-                SciStoreApplication.scistore.v71.UnMergePatientRequest inValue = new SciStoreApplication.scistore.v71.UnMergePatientRequest();
+                UnMergePatientRequest inValue = new UnMergePatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.UnMergePatient = UnMergePatient1;
-                SciStoreApplication.scistore.v71.UnMergePatientResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).UnMergePatient(inValue);
+                UnMergePatientResponse retVal = ((SCIStoreServices)(this)).UnMergePatient(inValue);
                 return retVal.UnMergePatientResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueueCountResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueueCount(SciStoreApplication.scistore.v71.MessageQueueCountRequest request)
+            MessageQueueCountResponse1 SCIStoreServices.MessageQueueCount(MessageQueueCountRequest request)
             {
-                return base.Channel.MessageQueueCount(request);
+                return Channel.MessageQueueCount(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCount(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount1)
+            public MessageQueueCountResponse MessageQueueCount(Credentials UserCredentials, MessageQueueCount MessageQueueCount1)
             {
-                SciStoreApplication.scistore.v71.MessageQueueCountRequest inValue = new SciStoreApplication.scistore.v71.MessageQueueCountRequest();
+                MessageQueueCountRequest inValue = new MessageQueueCountRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueueCount = MessageQueueCount1;
-                SciStoreApplication.scistore.v71.MessageQueueCountResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueueCount(inValue);
+                MessageQueueCountResponse1 retVal = ((SCIStoreServices)(this)).MessageQueueCount(inValue);
                 return retVal.MessageQueueCountResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueueDelete(SciStoreApplication.scistore.v71.MessageQueueDeleteRequest request)
+            MessageQueueDeleteResponse1 SCIStoreServices.MessageQueueDelete(MessageQueueDeleteRequest request)
             {
-                return base.Channel.MessageQueueDelete(request);
+                return Channel.MessageQueueDelete(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDelete(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete1)
+            public MessageQueueDeleteResponse MessageQueueDelete(Credentials UserCredentials, MessageQueueDelete MessageQueueDelete1)
             {
-                SciStoreApplication.scistore.v71.MessageQueueDeleteRequest inValue = new SciStoreApplication.scistore.v71.MessageQueueDeleteRequest();
+                MessageQueueDeleteRequest inValue = new MessageQueueDeleteRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueueDelete = MessageQueueDelete1;
-                SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueueDelete(inValue);
+                MessageQueueDeleteResponse1 retVal = ((SCIStoreServices)(this)).MessageQueueDelete(inValue);
                 return retVal.MessageQueueDeleteResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueuePeek(SciStoreApplication.scistore.v71.MessageQueuePeekRequest request)
+            MessageQueuePeekResponse1 SCIStoreServices.MessageQueuePeek(MessageQueuePeekRequest request)
             {
-                return base.Channel.MessageQueuePeek(request);
+                return Channel.MessageQueuePeek(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeek(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek1)
+            public MessageQueuePeekResponse MessageQueuePeek(Credentials UserCredentials, MessageQueuePeek MessageQueuePeek1)
             {
-                SciStoreApplication.scistore.v71.MessageQueuePeekRequest inValue = new SciStoreApplication.scistore.v71.MessageQueuePeekRequest();
+                MessageQueuePeekRequest inValue = new MessageQueuePeekRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueuePeek = MessageQueuePeek1;
-                SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueuePeek(inValue);
+                MessageQueuePeekResponse1 retVal = ((SCIStoreServices)(this)).MessageQueuePeek(inValue);
                 return retVal.MessageQueuePeekResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindHCPResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindHCP(SciStoreApplication.scistore.v71.FindHCPRequest request)
+            FindHCPResponse1 SCIStoreServices.FindHCP(FindHCPRequest request)
             {
-                return base.Channel.FindHCP(request);
+                return Channel.FindHCP(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindHCPResponse FindHCP(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP1)
+            public FindHCPResponse FindHCP(Credentials UserCredentials, FindHCPcriteria FindHCP1)
             {
-                SciStoreApplication.scistore.v71.FindHCPRequest inValue = new SciStoreApplication.scistore.v71.FindHCPRequest();
+                FindHCPRequest inValue = new FindHCPRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindHCP = FindHCP1;
-                SciStoreApplication.scistore.v71.FindHCPResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindHCP(inValue);
+                FindHCPResponse1 retVal = ((SCIStoreServices)(this)).FindHCP(inValue);
                 return retVal.FindHCPResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindOrganisationResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindOrganisation(SciStoreApplication.scistore.v71.FindOrganisationRequest request)
+            FindOrganisationResponse1 SCIStoreServices.FindOrganisation(FindOrganisationRequest request)
             {
-                return base.Channel.FindOrganisation(request);
+                return Channel.FindOrganisation(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisation(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation1)
+            public FindOrganisationResponse FindOrganisation(Credentials UserCredentials, FindOrganisationCriteria FindOrganisation1)
             {
-                SciStoreApplication.scistore.v71.FindOrganisationRequest inValue = new SciStoreApplication.scistore.v71.FindOrganisationRequest();
+                FindOrganisationRequest inValue = new FindOrganisationRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindOrganisation = FindOrganisation1;
-                SciStoreApplication.scistore.v71.FindOrganisationResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindOrganisation(inValue);
+                FindOrganisationResponse1 retVal = ((SCIStoreServices)(this)).FindOrganisation(inValue);
                 return retVal.FindOrganisationResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetWebTimeout(SciStoreApplication.scistore.v71.GetWebTimeoutRequest request)
+            GetWebTimeoutResponse1 SCIStoreServices.GetWebTimeout(GetWebTimeoutRequest request)
             {
-                return base.Channel.GetWebTimeout(request);
+                return Channel.GetWebTimeout(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeout(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout1)
+            public GetWebTimeoutResponse GetWebTimeout(Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout1)
             {
-                SciStoreApplication.scistore.v71.GetWebTimeoutRequest inValue = new SciStoreApplication.scistore.v71.GetWebTimeoutRequest();
+                GetWebTimeoutRequest inValue = new GetWebTimeoutRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetWebTimeout = GetWebTimeout1;
-                SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetWebTimeout(inValue);
+                GetWebTimeoutResponse1 retVal = ((SCIStoreServices)(this)).GetWebTimeout(inValue);
                 return retVal.GetWebTimeoutResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetInterfaceStatus(SciStoreApplication.scistore.v71.GetInterfaceStatusRequest request)
+            GetInterfaceStatusResponse1 SCIStoreServices.GetInterfaceStatus(GetInterfaceStatusRequest request)
             {
-                return base.Channel.GetInterfaceStatus(request);
+                return Channel.GetInterfaceStatus(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatus(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus1)
+            public GetInterfaceStatusResponse GetInterfaceStatus(Credentials UserCredentials, GetInterfaceStatus GetInterfaceStatus1)
             {
-                SciStoreApplication.scistore.v71.GetInterfaceStatusRequest inValue = new SciStoreApplication.scistore.v71.GetInterfaceStatusRequest();
+                GetInterfaceStatusRequest inValue = new GetInterfaceStatusRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetInterfaceStatus = GetInterfaceStatus1;
-                SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetInterfaceStatus(inValue);
+                GetInterfaceStatusResponse1 retVal = ((SCIStoreServices)(this)).GetInterfaceStatus(inValue);
                 return retVal.GetInterfaceStatusResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindBreakGlassAudit(SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest request)
+            FindBreakGlassAuditResponse1 SCIStoreServices.FindBreakGlassAudit(FindBreakGlassAuditRequest request)
             {
-                return base.Channel.FindBreakGlassAudit(request);
+                return Channel.FindBreakGlassAudit(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAudit(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit1)
+            public FindBreakGlassAuditResponse FindBreakGlassAudit(Credentials UserCredentials, FindBreakGlassAuditCriteria FindBreakGlassAudit1)
             {
-                SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest inValue = new SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest();
+                FindBreakGlassAuditRequest inValue = new FindBreakGlassAuditRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindBreakGlassAudit = FindBreakGlassAudit1;
-                SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindBreakGlassAudit(inValue);
+                FindBreakGlassAuditResponse1 retVal = ((SCIStoreServices)(this)).FindBreakGlassAudit(inValue);
                 return retVal.FindBreakGlassAuditResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindPatientConsentAudit(SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest request)
+            FindPatientConsentAuditResponse1 SCIStoreServices.FindPatientConsentAudit(FindPatientConsentAuditRequest request)
             {
-                return base.Channel.FindPatientConsentAudit(request);
+                return Channel.FindPatientConsentAudit(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAudit(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit1)
+            public FindPatientConsentAuditResponse FindPatientConsentAudit(Credentials UserCredentials, PatientConsentAuditCriteria FindPatientConsentAudit1)
             {
-                SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest inValue = new SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest();
+                FindPatientConsentAuditRequest inValue = new FindPatientConsentAuditRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindPatientConsentAudit = FindPatientConsentAudit1;
-                SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindPatientConsentAudit(inValue);
+                FindPatientConsentAuditResponse1 retVal = ((SCIStoreServices)(this)).FindPatientConsentAudit(inValue);
                 return retVal.FindPatientConsentAuditResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetCumulativeReport(SciStoreApplication.scistore.v71.GetCumulativeReportRequest request)
+            GetCumulativeReportResponse1 SCIStoreServices.GetCumulativeReport(GetCumulativeReportRequest request)
             {
-                return base.Channel.GetCumulativeReport(request);
+                return Channel.GetCumulativeReport(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReport(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport1)
+            public GetCumulativeReportResponse GetCumulativeReport(Credentials UserCredentials, CumulativeReportCriteria GetCumulativeReport1)
             {
-                SciStoreApplication.scistore.v71.GetCumulativeReportRequest inValue = new SciStoreApplication.scistore.v71.GetCumulativeReportRequest();
+                GetCumulativeReportRequest inValue = new GetCumulativeReportRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetCumulativeReport = GetCumulativeReport1;
-                SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetCumulativeReport(inValue);
+                GetCumulativeReportResponse1 retVal = ((SCIStoreServices)(this)).GetCumulativeReport(inValue);
                 return retVal.GetCumulativeReportResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindSubscriptions(SciStoreApplication.scistore.v71.FindSubscriptionsRequest request)
+            FindSubscriptionsResponse1 SCIStoreServices.FindSubscriptions(FindSubscriptionsRequest request)
             {
-                return base.Channel.FindSubscriptions(request);
+                return Channel.FindSubscriptions(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptions(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions1)
+            public FindSubscriptionsResponse FindSubscriptions(Credentials UserCredentials, FindSubscriptions FindSubscriptions1)
             {
-                SciStoreApplication.scistore.v71.FindSubscriptionsRequest inValue = new SciStoreApplication.scistore.v71.FindSubscriptionsRequest();
+                FindSubscriptionsRequest inValue = new FindSubscriptionsRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindSubscriptions = FindSubscriptions1;
-                SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindSubscriptions(inValue);
+                FindSubscriptionsResponse1 retVal = ((SCIStoreServices)(this)).FindSubscriptions(inValue);
                 return retVal.FindSubscriptionsResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.AddSubscriptionResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.AddSubscription(SciStoreApplication.scistore.v71.AddSubscriptionRequest request)
+            AddSubscriptionResponse1 SCIStoreServices.AddSubscription(AddSubscriptionRequest request)
             {
-                return base.Channel.AddSubscription(request);
+                return Channel.AddSubscription(request);
             }
 
-            public SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AddSubscription AddSubscription1)
+            public AddSubscriptionResponse AddSubscription(Credentials UserCredentials, AddSubscription AddSubscription1)
             {
-                SciStoreApplication.scistore.v71.AddSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.AddSubscriptionRequest();
+                AddSubscriptionRequest inValue = new AddSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.AddSubscription = AddSubscription1;
-                SciStoreApplication.scistore.v71.AddSubscriptionResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).AddSubscription(inValue);
+                AddSubscriptionResponse1 retVal = ((SCIStoreServices)(this)).AddSubscription(inValue);
                 return retVal.AddSubscriptionResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.AmendSubscriptionResponse SciStoreApplication.scistore.v71.SCIStoreServices.AmendSubscription(SciStoreApplication.scistore.v71.AmendSubscriptionRequest request)
+            AmendSubscriptionResponse SCIStoreServices.AmendSubscription(AmendSubscriptionRequest request)
             {
-                return base.Channel.AmendSubscription(request);
+                return Channel.AmendSubscription(request);
             }
 
-            public System.Xml.XmlElement AmendSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription1)
+            public System.Xml.XmlElement AmendSubscription(Credentials UserCredentials, AmendSubscription AmendSubscription1)
             {
-                SciStoreApplication.scistore.v71.AmendSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.AmendSubscriptionRequest();
+                AmendSubscriptionRequest inValue = new AmendSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.AmendSubscription = AmendSubscription1;
-                SciStoreApplication.scistore.v71.AmendSubscriptionResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).AmendSubscription(inValue);
+                AmendSubscriptionResponse retVal = ((SCIStoreServices)(this)).AmendSubscription(inValue);
                 return retVal.AmendSubscriptionResponse1;
             }
         }
