@@ -93,7 +93,7 @@ public class AttacherTests : DatabaseTests
 
         // Try to make sure we have the correct database (shouldn't need to do this, it's named with a GUID after all, but let's be safe)
         var tables = database.DiscoverTables(true).ToList();
-        if (tables.Count > 1 || tables.Count == 0)
+        if (tables.Count != 1)
             throw new Exception($"{_databaseName} should have 1 table in it (GoDARTSv2_TEST) but has {tables.Count}");
 
         if (tables[0].GetRuntimeName() != "GoDARTSv2_TEST")
