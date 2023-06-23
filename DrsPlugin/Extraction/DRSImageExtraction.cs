@@ -96,7 +96,7 @@ public class DRSImageExtraction : ImageExtraction
         foreach (var entry in extractionMap)
         {
             listener.OnProgress(this, new ProgressEventArgs("Extracting images from archives...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            archiveRepository.ExtractImageSetFromZip(entry.Key, entry.Value);
+            archiveRepository.ExtractImageSetFromArchive(entry.Key, entry.Value);
             progress += entry.Value.Count;
         }
 

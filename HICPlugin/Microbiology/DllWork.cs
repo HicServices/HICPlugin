@@ -571,7 +571,7 @@ public class MicroBiologyFileReader
             if (Regex.IsMatch(st, @"^\d+ records listed"))
                 continue;
 
-            if(IsSpecimenNumber_AKAStartsWith2DigitsThenALetterLawl(st))
+            if(IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(st))
                 if(last_line_blank)
                 {
                     specimen = st;
@@ -595,19 +595,19 @@ public class MicroBiologyFileReader
 
 
 
-    private static readonly Regex specimenRegex = new(@"^\s*\d{2}[A-Za-z]");
-       
-    bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetterLawl(string st)
+    private static readonly Regex SpecimenRegex = new(@"^\s*\d{2}[A-Za-z]",RegexOptions.Compiled|RegexOptions.CultureInvariant);
+
+    private static bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(string st)
     {
-        return st != null && specimenRegex.IsMatch(st.Trim());
+        return st != null && SpecimenRegex.IsMatch(st.Trim());
     }
-    public string GetSpecimenNo(TextReader tr)
+    public static string GetSpecimenNo(TextReader tr)
     {
         //while there are more lines to read
         while (tr.ReadLine() is { } currentLine)
         {
             //if line starts with optional whitespace followed by 2 digits and then a character
-            if (Regex.IsMatch(currentLine,specimenRegexPattern))
+            if (SpecimenRegex.IsMatch(currentLine))
                 return currentLine.Trim();
         }
 

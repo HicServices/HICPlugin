@@ -35,7 +35,7 @@ public class MicrobiologyLoaderTests
         var mb = new MicroBiologyFileReader(tr);
 
             
-        var result1 = mb.GetSpecimenNo(tr);
+        var result1 = MicroBiologyFileReader.GetSpecimenNo(tr);
 
         //result is not null if it is a valid result code
         Assert.IsTrue(isValidResultCode == (result1 != null));

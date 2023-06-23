@@ -2,8 +2,6 @@ using ICSharpCode.SharpZipLib.Tar;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
 
 namespace DrsPlugin.Extraction;
 
@@ -42,44 +40,6 @@ public class ImageArchiveRepository
         // Check that we found all the entries
         if (extractionMap.Count != 0)
             throw new InvalidOperationException(
-                $"The following entries were not found in {archiveFilePath}: {string.Join(", ", entryNames)}");
+                $"The following entries were not found in {archiveFilePath}: {string.Join(", ", extractionMap.Keys)}");
     }
-
-    /// <summary>
-    /// Extracts a set of images from one archive. Looks for entries named after the keys in extractionMap and saves them to the path given in the map's corresponding value.
-    /// </summary>
-    /// <param name="archiveFilePath">Path to the file from which to extract the images</param>
-    /// <param name="extractionMap">Map of entry names in the archive to full output path</param>
-    public void ExtractImageSetFromZip(string archiveFilePath, Dictionary<string, string> extractionMap)
-    {
-        // Create a HashSet of the entry names, we'll be doing a lot of membership testing
-        var entryNames = new HashSet<string>(extractionMap.Keys);
-
-        using (var archive = ZipFile.Open(archiveFilePath, ZipArchiveMode.Read))
-        {
-            foreach (var entry in archive.Entries.Where(entry => entryNames.Contains(entry.Name)))
-            {
-                using (var entryStream = entry.Open())
-                {
-                    using (var outputStream = new FileStream(extractionMap[entry.Name], FileMode.CreateNew))
-                    {
-                        entryStream.CopyTo(outputStream);
-                    }
-                }
-
-                entryNames.Remove(entry.Name);
-
-                if (entryNames.Count == 0)
-                    return;
-            }
-        }
-
-        // Check that we found all the entries
-        if (entryNames.Count == 0)
-            return;
-
-        throw new InvalidOperationException(
-            $"The following entries were not found in {archiveFilePath}: {string.Join(", ", entryNames)}");
-    }
-    
 }
