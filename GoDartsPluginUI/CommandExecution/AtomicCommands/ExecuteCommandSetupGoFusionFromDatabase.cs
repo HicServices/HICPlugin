@@ -38,7 +38,7 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
     {
         base.Execute();
 
-        var db = SelectDatabase(true,"Import all Tables form Database...");
+        var db = SelectDatabase(true,"Import all Tables from Database...");
 
         ShareManager shareManager = new(Activator.RepositoryLocator, LocalReferenceGetter);
 
