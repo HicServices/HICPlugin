@@ -46,7 +46,7 @@ jobs:
                   </dependencies>
               </metadata>
           </package>
-          "@ | Out-File plugin.nuspec
+          "@ | Out-File -Encoding ASCII plugin.nuspec
 
           dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
           dotnet publish Plugin/main/main.csproj -c Release -o p/main
