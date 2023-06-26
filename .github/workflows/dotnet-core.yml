@@ -32,9 +32,8 @@ jobs:
         run: |
           dotnet test
       - name: Build
-        shell: bash
         run: |
-          cat > plugin.nuspec <<EOP
+          @"
           <?xml version="1.0" encoding="utf-8"?>
           <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
               <metadata>
@@ -47,7 +46,7 @@ jobs:
                   </dependencies>
               </metadata>
           </package>
-          EOP
+          "@ | Out-File plugin.nuspec
 
           dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
           dotnet publish Plugin/main/main.csproj -c Release -o p/main
