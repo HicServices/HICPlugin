@@ -50,7 +50,7 @@ jobs:
 
           dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
           dotnet publish Plugin/main/main.csproj -c Release -o p/main
-          cmd /c 7z a -tzip HIC.Plugin.nupkg HIC.Plugin.nuspec p
+          cmd /c 7z a -tzip HIC.Plugin.nupkg plugin.nuspec p
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file HIC.Plugin.nupkg --dir yaml
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
