@@ -41,11 +41,7 @@ public class PngPatcher : IImagePatcher
 {
     public Stream PatchAwayExif(Stream inStream, Stream outStream)
     {
-        int readCount;
-        var readBuffer = new byte[4096];
-        while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
-            outStream.Write(readBuffer, 0, readCount);
-
+        inStream.CopyTo(outStream);
         return outStream;
     }
 
@@ -88,11 +84,7 @@ public class JpegPatcher : IImagePatcher
         outStream.WriteByte(0xff);
         outStream.WriteByte(0xd8);
 
-        int readCount;
-        var readBuffer = new byte[4096];
-        while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
-            outStream.Write(readBuffer, 0, readCount);
-
+        inStream.CopyTo(outStream);
         return outStream;
     }
 

@@ -64,7 +64,7 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
     {
         var outputStream = new MemoryStream();
         stream.CopyTo(outputStream);
-        stream.Seek(0, SeekOrigin.Begin);
+        outputStream.Seek(0, SeekOrigin.Begin);
         return outputStream;
     }
 

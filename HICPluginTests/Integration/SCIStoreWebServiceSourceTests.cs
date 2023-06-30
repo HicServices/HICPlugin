@@ -28,7 +28,6 @@ namespace SCIStorePluginTests.Integration;
 public class SCIStoreWebServiceSourceTests : DatabaseTests
 {
     [Test]
-    [Ignore("Can't get this to work on Jenkins because the configuration file is not being read correctly in that environment.")]
     public void CheckerTest_InvalidConfiguration()
     {
         var component = new SCIStoreWebServiceSource
