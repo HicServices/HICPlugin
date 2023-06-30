@@ -16,7 +16,7 @@ public class CHIJobValidationResult
         Reason = reason;
     }
 
-    public string Reason { get; set; }
+    public string? Reason { get; set; }
 
     public ValidationCategory Result { get; set; }
 }

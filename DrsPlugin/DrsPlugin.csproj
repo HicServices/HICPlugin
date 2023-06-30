@@ -8,9 +8,6 @@
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="SharpCompress" Version="0.33.0" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
   </ItemGroup>
 </Project>

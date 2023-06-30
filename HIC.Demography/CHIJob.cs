@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace HIC.Demography;
 
-public class CHIJob
+public partial class CHIJob
 {
     public const string PersonIDColumnName = "PersonID";
     public const int MaxSize_TargetServerName = 200;
@@ -27,58 +27,55 @@ public class CHIJob
     public const int MaxSize_OtherAddressLine3 = 100;
     public const int MaxSize_OtherAddressLine4 = 100;
     public const int MaxSize_OtherPostcode = 10;
-    private static Dictionary<PropertyInfo, int> MaxLengthsDictionary = new();
+    private static readonly Dictionary<PropertyInfo, int> MaxLengthsDictionary = new();
 
-    public string TargetServerName { get; set; }
+    public string? TargetServerName { get; set; }
 
-    public string TableName { get; set; }
+    public string? TableName { get; set; }
 
-    public string Forename { get; set; }
+    public string? Forename { get; set; }
 
-    public string Surname { get; set; }
+    public string? Surname { get; set; }
 
     public DateTime? DateOfBirth { get; set; }
 
-    public string Sex { get; set; }
+    public string? Sex { get; set; }
 
-    public string AddressLine1 { get; set; }
+    public string? AddressLine1 { get; set; }
 
-    public string AddressLine2 { get; set; }
+    public string? AddressLine2 { get; set; }
 
-    public string AddressLine3 { get; set; }
+    public string? AddressLine3 { get; set; }
 
-    public string AddressLine4 { get; set; }
+    public string? AddressLine4 { get; set; }
 
-    public string Postcode { get; set; }
+    public string? Postcode { get; set; }
 
-    public string OtherAddressLine1 { get; set; }
+    public string? OtherAddressLine1 { get; set; }
 
-    public string OtherAddressLine2 { get; set; }
+    public string? OtherAddressLine2 { get; set; }
 
-    public string OtherAddressLine3 { get; set; }
+    public string? OtherAddressLine3 { get; set; }
 
-    public string OtherAddressLine4 { get; set; }
+    public string? OtherAddressLine4 { get; set; }
 
-    public string OtherPostcode { get; set; }
+    public string? OtherPostcode { get; set; }
 
     static CHIJob()
     {
-        List<PropertyInfo> list1 = ((IEnumerable<PropertyInfo>)typeof(CHIJob).GetProperties()).ToList<PropertyInfo>();
-        List<FieldInfo> list2 = ((IEnumerable<FieldInfo>)typeof(CHIJob).GetFields()).ToList<FieldInfo>();
-        foreach (var propertyInfo in list1)
+        foreach (var propertyInfo in typeof(CHIJob).GetProperties())
         {
-            var property = propertyInfo;
-            var fieldInfo = list2.SingleOrDefault<FieldInfo>((Func<FieldInfo, bool>)(f => f.Name.Equals("MaxSize_" + property.Name)));
-            if (fieldInfo != (FieldInfo)null)
-                MaxLengthsDictionary.Add(property, (int)fieldInfo.GetValue((object)null));
+            var fieldInfo = typeof(CHIJob).GetProperty($"MaxSize_{propertyInfo.Name}");
+            if (fieldInfo != null)
+                MaxLengthsDictionary.Add(propertyInfo, (int)fieldInfo.GetValue(null));
         }
     }
 
     public void Clean()
     {
         foreach (var key in MaxLengthsDictionary.Keys)
-            key.SetValue((object)this, (object)CleanString((string)key.GetValue((object)this, (object[])null)), (object[])null);
-        if (Sex != null && Sex.Length > 1)
+            key.SetValue(this, CleanString((string)key.GetValue(this, null)), null);
+        if (Sex is { Length: > 1 })
         {
             Sex = Sex.ToUpper();
             if (Sex[0] == 'M')
@@ -88,19 +85,19 @@ public class CHIJob
         }
         if (Postcode == null || OtherPostcode == null || !Postcode.Equals(OtherPostcode))
             return;
-        OtherAddressLine1 = (string)null;
-        OtherAddressLine2 = (string)null;
-        OtherAddressLine3 = (string)null;
-        OtherAddressLine4 = (string)null;
-        OtherPostcode = (string)null;
+        OtherAddressLine1 = null;
+        OtherAddressLine2 = null;
+        OtherAddressLine3 = null;
+        OtherAddressLine4 = null;
+        OtherPostcode = null;
     }
 
-    private string CleanString(string value)
+    private string? CleanString(string? value)
     {
         if (string.IsNullOrWhiteSpace(value))
-            return (string)null;
+            return null;
         value = value.Trim();
-        value = Regex.Replace(value, "\\s+", " ");
+        value = SpacesRegex().Replace(value, " ");
         return value;
     }
 
@@ -110,21 +107,28 @@ public class CHIJob
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TargetServerName was not specified");
         if (string.IsNullOrEmpty(TableName))
             return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName was not specified");
-        if (TableName.Count<char>((Func<char, bool>)(c => c == '.')) != 2)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") must contain exactly 2 dots as in [Database]..[Table] or [Bob].[dbo].[Fish]");
-        var num1 = TableName.Count<char>((Func<char, bool>)(c => c == '['));
-        var num2 = TableName.Count<char>((Func<char, bool>)(c => c == ']'));
+        if (TableName.Count(c => c == '.') != 2)
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable,
+                $"TableName provided ({TableName}) must contain exactly 2 dots as in [Database]..[Table] or [Bob].[dbo].[Fish]");
+        var num1 = TableName.Count(c => c == '[');
+        var num2 = TableName.Count(c => c == ']');
         if (num1 != num2)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") has a missmatch between the number of open square brackets and the number of closing square brackets");
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable,
+                $"TableName provided ({TableName}) has a missmatch between the number of open square brackets and the number of closing square brackets");
         if (num1 != 2 && num1 == 3)
-            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable, "TableName provided (" + TableName + ") must have either 2 or 3 openning square brackets e.g. [Database]..[Table] or [Bob].[dbo].[Fish]");
+            return new CHIJobValidationResult(ValidationCategory.RequestingPartyUnacceptable,
+                $"TableName provided ({TableName}) must have either 2 or 3 openning square brackets e.g. [Database]..[Table] or [Bob].[dbo].[Fish]");
         if (string.IsNullOrWhiteSpace(Forename) && string.IsNullOrWhiteSpace(Surname) && !DateOfBirth.HasValue && string.IsNullOrWhiteSpace(Postcode))
             return new CHIJobValidationResult(ValidationCategory.InsufficientData, "Must have at least one of the following: Forename,Surname,DateOfBirth or Postcode");
         foreach (KeyValuePair<PropertyInfo, int> maxLengths in MaxLengthsDictionary)
         {
-            if (maxLengths.Key.GetValue((object)this, (object[])null) is string str && str.Length > maxLengths.Value)
-                return new CHIJobValidationResult(ValidationCategory.InvalidData, "Field " + (object)maxLengths.Key + " value is too long to fit into the database, value is '" + str + "'");
+            if (maxLengths.Key.GetValue(this, null) is string str && str.Length > maxLengths.Value)
+                return new CHIJobValidationResult(ValidationCategory.InvalidData,
+                    $"Field {maxLengths.Key} value is too long to fit into the database, value is '{str}'");
         }
         return new CHIJobValidationResult(ValidationCategory.Success);
     }
+
+    [GeneratedRegex("\\s+")]
+    private static partial Regex SpacesRegex();
 }

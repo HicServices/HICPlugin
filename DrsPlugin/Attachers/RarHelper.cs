@@ -1,37 +1,21 @@
 using SharpCompress.Archives;
-using SharpCompress.Archives.Rar;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace DrsPlugin.Attachers;
 
 public class RarHelper
 {
-    public void ExtractMultiVolumeArchive(DirectoryInfo sourceDir, string destDir = null)
+    public void ExtractMultiVolumeArchive(DirectoryInfo sourceDir, string destinationDir = null)
     {
-        ExtractMultiVolumeArchive(sourceDir.FullName, destDir);
+        ExtractMultiVolumeArchive(sourceDir.FullName, destinationDir);
     }
 
-    private string FindFirstVolume(string sourceDir)
+    public void ExtractMultiVolumeArchive(string sourceDir, string destinationDir = null)
     {
-        foreach (var archive in Directory.EnumerateFiles(sourceDir, "*.rar"))
-        {
-            using (var file = RarArchive.Open(archive))
-            {
-                if (file.IsFirstVolume())
-                    return archive;
-            }
-        }
-
-        throw new InvalidOperationException(
-            $"No archive files in this directory identify as the first volume in a multi-volume archive: {sourceDir}");
-    }
-
-    public void ExtractMultiVolumeArchive(string sourceDir, string destDir = null)
-    {
-        destDir ??= sourceDir;
-
-        var firstVolume = FindFirstVolume(sourceDir);
-        ArchiveFactory.WriteToDirectory(firstVolume, destDir);
+        destinationDir ??= sourceDir;
+        var firstVolume = Directory.EnumerateFiles(sourceDir, "*.rar").FirstOrDefault() ?? throw new InvalidOperationException($"No RAR files found in {sourceDir}");
+        ArchiveFactory.WriteToDirectory(firstVolume, destinationDir);
     }
 }
