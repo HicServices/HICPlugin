@@ -11,13 +11,13 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 namespace HICPlugin.DataFlowComponents;
 
 [Description("Attempts to fix the specified CHIColumnName by adding 0 to the front of 9 digit CHIs")]
-public class CHIFixer : IPluginDataFlowComponent<DataTable>
+public partial class CHIFixer : IPluginDataFlowComponent<DataTable>
 {
     [DemandsInitialization("The name of the CHI column that is to be adjusted", DemandType = DemandType.Unspecified)]
     public string CHIColumnName { get; set; }
 
     //must be at least this good (9 digits)
-    private static readonly Regex MinimumQualityRegex = new("[0-9]{9}",RegexOptions.Compiled|RegexOptions.CultureInvariant);
+    private static readonly Regex MinimumQualityRegex;
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
@@ -31,6 +31,11 @@ public class CHIFixer : IPluginDataFlowComponent<DataTable>
     private int _valuesReceived = 0;
     private int _valuesCorrected = 0;
     private int _valuesRejected = 0;
+
+    static CHIFixer()
+    {
+        MinimumQualityRegex = NineDigits();
+    }
 
     private bool AdjustChiValue(object o,out string chi)
     {
@@ -91,4 +96,7 @@ public class CHIFixer : IPluginDataFlowComponent<DataTable>
         if (string.IsNullOrWhiteSpace(CHIColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs("CHIColumnName is blank, this component will crash if run", CheckResult.Fail,null));
     }
+
+    [GeneratedRegex("[0-9]{9}", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    private static partial Regex NineDigits();
 }

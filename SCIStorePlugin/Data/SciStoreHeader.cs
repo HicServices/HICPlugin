@@ -53,7 +53,7 @@ public class SciStoreHeader
     
 public class SciStoreHeaderFactory 
 {
-    public SciStoreHeader Create(CombinedReportData combinedReport)
+    public static SciStoreHeader Create(CombinedReportData combinedReport)
     {
         var combinedReportHeader = combinedReport.SciStoreRecord;
 
@@ -104,11 +104,11 @@ public class SciStoreHeaderFactory
         return header;
     }
 
-    private string CleanCHI(string chi)
+    private static string CleanCHI(string chi)
     {
         // encountered in Fife Haematology load
         if (!string.IsNullOrWhiteSpace(chi) && chi.Equals("Temp Residen"))
-            return chi.Substring(0, 10);
+            return chi[..10];
 
         return chi;
     }
@@ -139,7 +139,7 @@ public class SciStoreHeaderFactory
         return labNumber;
     }
 
-    private void PopulateConsultantInfo(SciStoreHeader header, HCP_DETAIL_TYPE requestingParty)
+    private static void PopulateConsultantInfo(SciStoreHeader header, HCP_DETAIL_TYPE requestingParty)
     {
         ID_TYPE consultant = null;
 
@@ -176,16 +176,14 @@ public class SciStoreHeaderFactory
         var personalName = requestingParty.HcpName;
         if (personalName != null)
         {
-            var structuredName = personalName.Item as STRUCTURED_NAME_TYPE;
-            if (structuredName != null)
+            if (personalName.Item is STRUCTURED_NAME_TYPE structuredName)
             {
                 header.RequestingPartyName =
                     $"{structuredName.Title} {structuredName.GivenName} {structuredName.MiddleName} {structuredName.FamilyName}";
                 return;
             }
 
-            var unstructuredName = personalName.Item as string;
-            if (unstructuredName != null)
+            if (personalName.Item is string unstructuredName)
             {
                 header.RequestingPartyName = unstructuredName;
                 return;

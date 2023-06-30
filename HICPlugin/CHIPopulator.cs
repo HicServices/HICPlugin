@@ -355,7 +355,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
         _loadStage = loadStage;
     }
 
-    private void CheckColumnIsInCollection(string toFind, string[] availableColumns)
+    private static void CheckColumnIsInCollection(string toFind, string[] availableColumns)
     {
         if (toFind != null && !availableColumns.Contains(toFind))
             throw new KeyNotFoundException(

@@ -35,14 +35,14 @@ public class SciStoreRecord : IEquatable<SciStoreRecord>
 
     public bool Equals(SciStoreRecord other)
     {
-        if (ReferenceEquals(null, other)) return false;
+        if (other is null) return false;
         if (ReferenceEquals(this, other)) return true;
         return string.Equals(LabNumber, other.LabNumber) && string.Equals(TestReportID, other.TestReportID);
     }
 
     public override bool Equals(object obj)
     {
-        if (ReferenceEquals(null, obj)) return false;
+        if (obj is null) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != GetType()) return false;
         return Equals((SciStoreRecord) obj);
@@ -50,10 +50,7 @@ public class SciStoreRecord : IEquatable<SciStoreRecord>
 
     public override int GetHashCode()
     {
-        unchecked
-        {
-            return ((LabNumber != null ? LabNumber.GetHashCode() : 0)*397) ^ (TestReportID != null ? TestReportID.GetHashCode() : 0);
-        }
+        return HashCode.Combine(LabNumber, TestReportID);
     }
 
     public static bool operator ==(SciStoreRecord left, SciStoreRecord right)

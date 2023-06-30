@@ -11,10 +11,12 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
     [Test]
     public void TestUse()
     {
-        var source = new ChrisHallSpecialExplicitSource();
+        var source = new ChrisHallSpecialExplicitSource
+        {
+            DatabaseToUse = "master",
+            Collation = "Latin1_General_Bin"
+        };
 
-        source.DatabaseToUse = "master";
-        source.Collation = "Latin1_General_Bin";
         source.PreInitialize(_request,ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());

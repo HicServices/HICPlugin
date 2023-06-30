@@ -13,15 +13,13 @@ public class SampleType
 
     public SampleType(CLINICAL_CIRCUMSTANCE_TYPE type)
     {
-        var name = type.Item as string;
-        if (name != null)
+        if (type.Item is string name)
         {
             Description = name;
             Code = Description;
         }
 
-        var clinicalInformation = type.Item as CLINICAL_INFORMATION_TYPE;
-        if (clinicalInformation != null)
+        if (type.Item is CLINICAL_INFORMATION_TYPE clinicalInformation)
         {
             Code = clinicalInformation.ClinicalCode.ClinicalCodeValue[0];
             Description = Code;

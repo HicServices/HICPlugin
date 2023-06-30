@@ -7,12 +7,12 @@ namespace DrsPlugin.Attachers;
 
 public class RarHelper
 {
-    public void ExtractMultiVolumeArchive(DirectoryInfo sourceDir, string destinationDir = null)
+    public static void ExtractMultiVolumeArchive(DirectoryInfo sourceDir, string destinationDir = null)
     {
         ExtractMultiVolumeArchive(sourceDir.FullName, destinationDir);
     }
 
-    public void ExtractMultiVolumeArchive(string sourceDir, string destinationDir = null)
+    public static void ExtractMultiVolumeArchive(string sourceDir, string destinationDir = null)
     {
         destinationDir ??= sourceDir;
         var firstVolume = Directory.EnumerateFiles(sourceDir, "*.rar").FirstOrDefault() ?? throw new InvalidOperationException($"No RAR files found in {sourceDir}");

@@ -39,11 +39,13 @@ public class MetIDQAttacher : IPluginAttacher
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Started processing file {file.FullName}"));
 
-            DelimitedFlatFileDataFlowSource fromCSV = new DelimitedFlatFileDataFlowSource();
+            DelimitedFlatFileDataFlowSource fromCSV = new()
+            {
+                //Read it all in one go
+                MaxBatchSize = int.MaxValue
+            };
             fromCSV.PreInitialize(new FlatFileToLoad(file),job);
 
-            //Read it all in one go
-            fromCSV.MaxBatchSize = int.MaxValue;
             fromCSV.GetChunk(job, new GracefulCancellationToken());
 
             var dt = fromCSV.GetChunk(job, new GracefulCancellationToken());

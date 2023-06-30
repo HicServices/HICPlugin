@@ -43,8 +43,7 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
             $"Creating a temporary directory for archive extraction: {_fileDirectory}"));
         Directory.CreateDirectory(_fileDirectory);
 
-        var rarHelper = new RarHelper();
-        rarHelper.ExtractMultiVolumeArchive(_archiveDirectory, _fileDirectory);
+        RarHelper.ExtractMultiVolumeArchive(_archiveDirectory, _fileDirectory);
         _isExtracted = true;
     }
 
@@ -57,25 +56,16 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
         if (!File.Exists(filepath))
             throw new InvalidOperationException($"Could not find the entry: {entryName}");
 
-        using (var fs = new FileStream(filepath, FileMode.Open, FileAccess.Read))
-        {
-            return new MemoryStream(ReadBytesFromStream(fs));
-        }
+        using var fs = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+        return ReadMemoryStreamFromStream(fs);
     }
 
-    private static byte[] ReadBytesFromStream(Stream stream)
+    private static MemoryStream ReadMemoryStreamFromStream(Stream stream)
     {
-        var buffer = new byte[32768];
-        using (var outputStream = new MemoryStream())
-        {
-            while (true)
-            {
-                var numBytesRead = stream.Read(buffer, 0, buffer.Length);
-                if (numBytesRead <= 0)
-                    return outputStream.ToArray();
-                outputStream.Write(buffer, 0, numBytesRead);
-            }
-        }
+        var outputStream = new MemoryStream();
+        stream.CopyTo(outputStream);
+        stream.Seek(0, SeekOrigin.Begin);
+        return outputStream;
     }
 
     public int GetNumEntries()
@@ -111,10 +101,11 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
         }
     }
         
-    public string Name { get { return $"Multi-volume archive at {_archiveDirectory}"; } }
-        
+    public string Name => $"Multi-volume archive at {_archiveDirectory}";
+
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         if (!_doNotDeleteFileDirectory)
             Directory.Delete(_fileDirectory, true);
 

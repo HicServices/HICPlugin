@@ -34,11 +34,11 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
     [DemandsInitialization("The table which contains all the specimens which are NOT isolations???")]
     public TableInfo NoIsolationsTable { get; set; }
 
-    List<MB_Tests> Tests = new();
-    List<MB_Lab> Labs = new();
-    List<MB_NoIsolations> NoIsolations = new();
-    List<MB_IsolationResult> IsolationResults = new();
-    List<MB_Isolation> Isolations = new();
+    readonly List<MB_Tests> Tests = new();
+    readonly List<MB_Lab> Labs = new();
+    readonly List<MB_NoIsolations> NoIsolations = new();
+    readonly List<MB_IsolationResult> IsolationResults = new();
+    readonly List<MB_Isolation> Isolations = new();
 
     [DemandsInitialization("The file(s) to attach e.g. *.txt, this is NOT a REGEX")]
     public string FilePattern { get; set; }
@@ -53,9 +53,9 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             
     }
 
-    private Dictionary<Type,PropertyInfo[]> _propertyCache = new(); 
-    private Dictionary<TableInfo, DataTable> _dataTables = new();
-    private Dictionary<PropertyInfo,int>  _lengthsDictionary = new();
+    private readonly Dictionary<Type,PropertyInfo[]> _propertyCache = new(); 
+    private readonly Dictionary<TableInfo, DataTable> _dataTables = new();
+    private readonly Dictionary<PropertyInfo,int>  _lengthsDictionary = new();
     private IDataLoadJob _currentJob;
 
 
@@ -78,21 +78,27 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             {
                 foreach (var result in r.ProcessFile())
                 {
-                    //header records
-                    if (result is MB_Lab)
-                        AddResultToDataTable(_dataTables[LabTable],result);
-                        
-                    //things that were isolated
-                    if (result is MB_Isolation)
-                        AddResultToDataTable(_dataTables[IsolationsTable], result);
-                    //the results of that isolation
-                    if (result is MB_IsolationResult)
-                        AddResultToDataTable(_dataTables[IsolationResultsTable], result);
-
-                    if (result is MB_NoIsolations)
-                        AddResultToDataTable(_dataTables[NoIsolationsTable], result);
-                    if (result is MB_Tests)
-                        AddResultToDataTable(_dataTables[TestsTable], result);
+                    switch (result)
+                    {
+                        //header records
+                        case MB_Lab:
+                            AddResultToDataTable(_dataTables[LabTable],result);
+                            break;
+                        //things that were isolated
+                        case MB_Isolation:
+                            AddResultToDataTable(_dataTables[IsolationsTable], result);
+                            break;
+                        //the results of that isolation
+                        case MB_IsolationResult:
+                            AddResultToDataTable(_dataTables[IsolationResultsTable], result);
+                            break;
+                        case MB_NoIsolations:
+                            AddResultToDataTable(_dataTables[NoIsolationsTable], result);
+                            break;
+                        case MB_Tests:
+                            AddResultToDataTable(_dataTables[TestsTable], result);
+                            break;
+                    }
 
                     recordCount++;
 
@@ -138,25 +144,24 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
 
     private void BulkInsertAllDataTables()
     {
-        foreach (KeyValuePair<TableInfo, DataTable> keyValuePair in _dataTables)
+        foreach (var (tableInfo, dataTable) in _dataTables)
         {
-            string targetTableName = keyValuePair.Key.GetRuntimeName(LoadStage.Mounting);
+            var targetTableName = tableInfo.GetRuntimeName(LoadStage.Mounting);
 
             var tbl = _dbInfo.ExpectTable(targetTableName);
                 
             try
             {
-                using(var blk = tbl.BeginBulkInsert())
-                {
-                    blk.Upload(keyValuePair.Value);
-                }                
+                using var blk = tbl.BeginBulkInsert();
+                dataTable.EndLoadData();
+                blk.Upload(dataTable);
             }
             catch (Exception e)
             {
                 throw new Exception($"Failed to bulk insert into table {targetTableName}",e);
             }
                 
-            keyValuePair.Value.Clear();
+            dataTable.Clear();
         }
     }
 
@@ -195,9 +200,10 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
     {
 
         var toReturn = new DataTable();
+        toReturn.BeginLoadData();
 
         if(!_propertyCache.ContainsKey(t))
-            throw new Exception($"Property Info Cache for type {t.Name} has not been initialzied yet");
+            throw new Exception($"Property Info Cache for type {t.Name} has not been initialized yet");
          
         //now create columns in the data table for each property
         foreach (var prop in _propertyCache[t])
@@ -205,7 +211,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
 
             //if it is nullable type 
             if(prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
-                toReturn.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType));//give it underlying type
+                toReturn.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);//give it underlying type
             else
                 toReturn.Columns.Add(prop.Name, prop.PropertyType);//else give it actual type
 
@@ -265,7 +271,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         var errors = false;
         foreach (var prop in properties)
         {
-            ColumnInfo correspondingColumn = columnInfos.FirstOrDefault(c => c.GetRuntimeName().Equals(prop.Name));
+            var correspondingColumn = columnInfos.FirstOrDefault(c => c.GetRuntimeName().Equals(prop.Name));
             if (correspondingColumn == null)
             {
                 ComplainOrThrow($"No column exists called {prop.Name} in TableInfo {tableInfo.GetRuntimeName()}",notifier);
@@ -273,7 +279,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             }
             else
             {
-                int maxLength = correspondingColumn.Discover(DataAccessContext.DataLoad).DataType.GetLengthIfString();
+                var maxLength = correspondingColumn.Discover(DataAccessContext.DataLoad).DataType.GetLengthIfString();
                 if(maxLength > -1)
                     _lengthsDictionary.Add(prop,(int)maxLength);
             }
@@ -284,11 +290,10 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
                 $"All columns present and correct in TableInfo {tableInfo.GetRuntimeName()} (when tested against underlying type {type.Name})", CheckResult.Success, null));
     }
 
-    private void ComplainOrThrow(string message,ICheckNotifier notifier)
+    private static void ComplainOrThrow(string message,ICheckNotifier notifier)
     {
-        if (notifier != null)
-            notifier.OnCheckPerformed(new CheckEventArgs(message, CheckResult.Fail, null));
-        else
+        if (notifier == null)
             throw new Exception(message);
+        notifier.OnCheckPerformed(new CheckEventArgs(message, CheckResult.Fail, null));
     }
 }

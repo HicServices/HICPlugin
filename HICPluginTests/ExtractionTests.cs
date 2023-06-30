@@ -79,7 +79,7 @@ public class ExtractionTests : DatabaseTests
         try
         {
             var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
-            var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
+            var request = SetupRequestObject(projDir, rootDir);
 
             var extractionComponent = new DRSImageExtraction
             {
@@ -155,7 +155,7 @@ public class ExtractionTests : DatabaseTests
         try
         {
             var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
-            var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
+            var request = SetupRequestObject(projDir, rootDir);
 
             var extractionComponent = new DRSImageExtraction
             {
@@ -214,7 +214,7 @@ public class ExtractionTests : DatabaseTests
         try
         {
             var listener = ThrowImmediatelyDataLoadEventListener.Quiet;
-            var request = SetupRequestObject(projDir, rootDir, identifierMap, listener);
+            var request = SetupRequestObject(projDir, rootDir);
 
             var extractionComponent = new DRSImageExtraction
             {
@@ -237,7 +237,7 @@ public class ExtractionTests : DatabaseTests
         }
     }
 
-    private IExtractDatasetCommand SetupRequestObject(string projDir, DirectoryInfo rootDir, DataTable identifierMap, IDataLoadEventListener listener)
+    private IExtractDatasetCommand SetupRequestObject(string projDir, DirectoryInfo rootDir)
     {
         var loadMetadata = new LoadMetadata(CatalogueRepository)
         {

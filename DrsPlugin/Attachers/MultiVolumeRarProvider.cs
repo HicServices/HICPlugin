@@ -47,11 +47,6 @@ public class MultiVolumeRarProvider : IArchiveProvider
         throw new FileNotFoundException($"Could not find {name} in archive at {_files[0]}");
     }
 
-    private void Rewind()
-    {
-        _streams.ForEach(s => s.Position = 0);
-    }
-
     public int GetNumEntries()
     {
         return Entries.Count();

@@ -73,9 +73,6 @@ public class HICCohortManagerDestination : IPluginCohortDestination
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
     {
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "About to send all the buffered data up to the server"));
-
-        var sw = Stopwatch.StartNew();
-
         var target = Request.NewCohortDefinition.LocationOfCohort;
         var cohortDatabase = target.Discover();
 

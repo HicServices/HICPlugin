@@ -67,7 +67,7 @@ public class SciStoreReportFactory
         {
             var report = new SciStoreReport
             {
-                Header = headerFactory.Create(combinedReport),
+                Header = SciStoreHeaderFactory.Create(combinedReport),
                 Samples = new HashSet<SciStoreSample>()
             };
 

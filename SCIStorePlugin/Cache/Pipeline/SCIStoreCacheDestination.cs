@@ -24,7 +24,7 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
     [DemandsInitialization("The type of lab to be retrieved")]
     public Discipline Discipline { get; set; }
 
-    Dictionary<string,int> _xmlFileCountWrittenToEachZipFile = new();
+    readonly Dictionary<string,int> _xmlFileCountWrittenToEachZipFile = new();
     private SCIStoreCacheLayout _layout;
 
     public override ICacheLayout CreateCacheLayout()
@@ -34,8 +34,7 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
 
     public virtual SCIStoreCacheChunk ProcessPipelineData(SCIStoreCacheChunk toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
-        if(_layout == null)
-            _layout = (SCIStoreCacheLayout) CreateCacheLayout();
+        _layout ??= (SCIStoreCacheLayout)CreateCacheLayout();
 
         if (toProcess.Request == null)
             throw new InvalidOperationException("The current FetchRequest is null, meaning we have lost track of which cache fetch this chunk belongs to.");

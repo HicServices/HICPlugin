@@ -47,14 +47,14 @@ public class CHIMutilator:IPluginMutilateDataTables
         _loadStage = loadStage;
     }
         
-    private string DropCHIFunctionIfExists()
+    private static string DropCHIFunctionIfExists()
     {
         return @"IF OBJECT_ID('dbo.checkCHI') IS NOT NULL
   DROP FUNCTION checkCHI";
     }
 
 
-    private string CreateCHIFunction()
+    private static string CreateCHIFunction()
     {
         return @"
 CREATE FUNCTION [dbo].[checkCHI](@CHI as varchar(255))

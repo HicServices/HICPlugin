@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DrsPlugin.Attachers;
 
-public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
+public class FilesystemArchiveProvider : IArchiveProvider
 {
     private readonly string _rootPath;
     private readonly string[] _fileExtensions;
@@ -40,10 +40,7 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
             CreateFileList();
             
         // Find the file
-        var entry = _fileList.SingleOrDefault(p => Path.GetFileName(p) == entryName);
-        if (entry == null)
-            throw new InvalidOperationException($"Could not find file {entryName} in {_rootPath} or subdirectories");
-
+        var entry = _fileList?.SingleOrDefault(p => Path.GetFileName(p) == entryName) ?? throw new InvalidOperationException($"Could not find file {entryName} in {_rootPath} or subdirectories");
         return new MemoryStream(File.ReadAllBytes(entry));
     }
 
@@ -52,7 +49,7 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
         if (_fileList == null)
             CreateFileList();
 
-        return _fileList.Length;
+        return _fileList?.Length??0;
     }
 
     public IEnumerable<KeyValuePair<string, MemoryStream>> EntryStreams 
@@ -92,12 +89,9 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
             if (_fileList == null)
                 CreateFileList();
 
-            return _fileList.Select(Path.GetFileName);
+            return _fileList?.Select(Path.GetFileName);
         }
     }
 
-    public string Name { get; private set; }
-    public void Dispose()
-    {
-    }
+    public string Name { get; }
 }

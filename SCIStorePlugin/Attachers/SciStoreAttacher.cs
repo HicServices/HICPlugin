@@ -132,10 +132,8 @@ False - Stop the data load with an error",DefaultValue = true)]
             $"Bulk inserting data in DataTable ({dataTable.TableName}) to {_dbInfo.Server.Name}, {_dbInfo.GetRuntimeName()}..{dataTable.TableName}"));
 
         var tbl = _dbInfo.ExpectTable(dataTable.TableName);
-        using (var blk = tbl.BeginBulkInsert())
-        {
-            blk.Upload(dataTable);
-        }
+        using var blk = tbl.BeginBulkInsert();
+        blk.Upload(dataTable);
     }
 
     public bool SilentRunning { get; set; }

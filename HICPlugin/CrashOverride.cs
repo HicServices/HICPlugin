@@ -25,22 +25,20 @@ class CrashOverride : IPluginAttacher
     public bool BurnSTAGING { get; set; }
 
         
-    private DiscoveredDatabase stagingDatabase;
-    List<string> stagingTableNamesToNuke = new();
+    private DiscoveredDatabase _stagingDatabase;
+    readonly List<string> _stagingTableNamesToNuke = new();
 
-    private DiscoveredDatabase rawDatabase;
-    List<string> rawTableNamesToNuke = new();
+    private DiscoveredDatabase _rawDatabase;
+    readonly List<string> _rawTableNamesToNuke = new();
 
     public void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener postLoadEventsListener)
     {
-        if (exitCode == ExitCodeType.Abort || exitCode == ExitCodeType.Error)
-        {
-            if(BurnSTAGING)
-                DropTables(stagingDatabase, stagingTableNamesToNuke, postLoadEventsListener);
+        if (exitCode is not (ExitCodeType.Abort or ExitCodeType.Error)) return;
+        if(BurnSTAGING)
+            DropTables(_stagingDatabase, _stagingTableNamesToNuke, postLoadEventsListener);
 
-            if(BurnRAW)
-                DropTables(rawDatabase, rawTableNamesToNuke, postLoadEventsListener);
-        }
+        if(BurnRAW)
+            DropTables(_rawDatabase, _rawTableNamesToNuke, postLoadEventsListener);
     }
 
     private void DropTables(DiscoveredDatabase discoveredDatabase, List<string> tables, IDataLoadEventListener postLoadEventsListener)
@@ -77,12 +75,12 @@ class CrashOverride : IPluginAttacher
     public ExitCodeType Attach(IDataLoadJob job,GracefulCancellationToken token)
     {
         foreach (var t in job.LookupTablesToLoad)
-            stagingTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustStaging));
+            _stagingTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustStaging));
 
         foreach (var t in job.LookupTablesToLoad)
-            rawTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustRaw));
+            _rawTableNamesToNuke.Add(t.GetRuntimeName(LoadStage.AdjustRaw));
 
-        stagingDatabase = job.LoadMetadata.GetDistinctLiveDatabaseServer().ExpectDatabase("DLE_STAGING");
+        _stagingDatabase = job.LoadMetadata.GetDistinctLiveDatabaseServer().ExpectDatabase("DLE_STAGING");
 
 
         return ExitCodeType.Success;
@@ -90,9 +88,9 @@ class CrashOverride : IPluginAttacher
 
     public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
     {
-        rawDatabase = dbInfo;
+        _rawDatabase = dbInfo;
     }
 
     public ILoadDirectory LoadDirectory { get; set; }
-    public bool RequestsExternalDatabaseCreation { get; private set; }
+    public bool RequestsExternalDatabaseCreation { get; }
 }

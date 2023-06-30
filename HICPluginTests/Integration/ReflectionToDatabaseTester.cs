@@ -17,52 +17,53 @@ public class ReflectionToDatabaseTester : DatabaseTests
     [Test]
     public void SendValidDomainObject()
     {
-        var t = new TestObject();
-        t.Field1 = "1q234fj";
+        var t = new TestObject
+        {
+            Field1 = "1q234fj"
+        };
 
         var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
 
-        using (var con = (SqlConnection)dbInfo.Server.GetConnection())
-        {
-            con.Open();
+        using var con = (SqlConnection)dbInfo.Server.GetConnection();
+        con.Open();
 
-            var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
-            cmdDrop.ExecuteNonQuery();
+        using var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+        cmdDrop.ExecuteNonQuery();
 
-            var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
-            cmdCreateTestTable.ExecuteNonQuery();
+        using var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+        cmdCreateTestTable.ExecuteNonQuery();
 
-            ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject");
-        }
+        ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject");
     }
 
 
     [Test]
     public void SendTooLongFieldToDatabase()
     {
-        var t = new TestObject();
-        t.Field1 = "asdljkmalsdjflaksdjflkajsd;lfkjasdl;kfj";
+        var t = new TestObject
+        {
+            Field1 = "asdljkmalsdjflaksdjflkajsd;lfkjasdl;kfj"
+        };
 
         var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
-        using (var con = (SqlConnection)dbInfo.Server.GetConnection())
+        using var con = (SqlConnection)dbInfo.Server.GetConnection();
+        con.Open();
+
+        var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+        cmdDrop.ExecuteNonQuery();
+
+        var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+        cmdCreateTestTable.ExecuteNonQuery();
+
+        try
         {
-            con.Open();
-
-            var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
-            cmdDrop.ExecuteNonQuery();
-
-            var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
-            cmdCreateTestTable.ExecuteNonQuery();
-
-            try
-            {
-                var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject"));
-                Assert.IsTrue(ex.Message.Contains("Field1 in table TestObject is defined as length  10 in the database but you tried to insert a string value of length 41"));
-            }
-            finally
-            {
-                new SqlCommand("DROP TABLE TestObject", con).ExecuteNonQuery();
-            }
+            var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject"));
+            Assert.IsTrue(ex?.Message.Contains("Field1 in table TestObject is defined as length  10 in the database but you tried to insert a string value of length 41"));
+        }
+        finally
+        {
+            using var q=new SqlCommand("DROP TABLE TestObject", con);
+            q.ExecuteNonQuery();
         }
     }
 
@@ -75,29 +76,30 @@ public class ReflectionToDatabaseTester : DatabaseTests
     [Test]
     public void SendNonExistantColumn()
     {
-        var t = new TestObject2();
-        t.Field1 = "asdljfj";
-        t.Field2 = null;
+        var t = new TestObject2
+        {
+            Field1 = "asdljfj",
+            Field2 = null
+        };
 
         var dbInfo = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
-        using (var con = (SqlConnection)dbInfo.Server.GetConnection())
+        using var con = (SqlConnection)dbInfo.Server.GetConnection();
+        con.Open();
+        using var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
+        cmdDrop.ExecuteNonQuery();
+
+        using var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
+        cmdCreateTestTable.ExecuteNonQuery();
+
+        try
         {
-            con.Open();
-            var cmdDrop = new SqlCommand("IF OBJECT_ID('dbo.TestObject', 'U') IS NOT NULL DROP TABLE dbo.TestObject", con);
-            cmdDrop.ExecuteNonQuery();
-
-            var cmdCreateTestTable = new SqlCommand("CREATE TABLE TestObject ( Field1 varchar(10))", con);
-            cmdCreateTestTable.ExecuteNonQuery();
-
-            try
-            {
-                var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(t, con, dbInfo, "TestObject"));
-                Assert.IsTrue(ex.Message.Contains("Domain object has a property called Field2 which does not exist in table TestObject"));
-            }
-            finally
-            {
-                new SqlCommand("DROP TABLE TestObject", con).ExecuteNonQuery();
-            }
+            var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(t, con, dbInfo, "TestObject"));
+            Assert.IsTrue(ex?.Message.Contains("Domain object has a property called Field2 which does not exist in table TestObject"));
+        }
+        finally
+        {
+            using var q=new SqlCommand("DROP TABLE TestObject", con);
+            q.ExecuteNonQuery();
         }
     }
 }

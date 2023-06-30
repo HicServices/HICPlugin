@@ -132,22 +132,16 @@ public class SciStoreDataTableRepository : IRepository<SciStoreReport>
         }
     }
 
-    private string DataRowToStringWithoutCHI(DataRow row)
+    private static string DataRowToStringWithoutCHI(DataRow row)
     {
-        var dataString = "";
-        foreach (DataColumn column in row.Table.Columns)
-        {
-            if (column.ColumnName == "CHI") continue;
-            dataString += $"{column.ColumnName}: {row[column.ColumnName]}{Environment.NewLine}";
-        }
-
-        return dataString;
+        return string.Join("",
+            row.Table.Columns.Cast<DataColumn>().Where(column => column.ColumnName != "CHI").Select(column =>
+                $"{column.ColumnName}: {row[column.ColumnName]}{Environment.NewLine}"));
     }
 
     public event InsertionErrorHandler InsertionError;
     protected virtual void OnInsertionError(SqlException exception, string querystring)
     {
-        var handler = InsertionError;
-        if (handler != null) handler(this, exception, querystring);
+        InsertionError?.Invoke(this, exception, querystring);
     }
 }

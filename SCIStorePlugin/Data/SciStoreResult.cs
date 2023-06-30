@@ -53,7 +53,7 @@ public class SciStoreResult : IComparable
     #region Primary Key logic (Equals/GetHashCode)
     public override bool Equals(object obj)
     {
-        if (ReferenceEquals(null, obj)) return false;
+        if (obj is null) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != GetType()) return false;
         return Equals((SciStoreResult)obj);
@@ -65,19 +65,12 @@ public class SciStoreResult : IComparable
 
     public override int GetHashCode()
     {
-        unchecked
-        {
-            var hashCode = LabNumber.GetHashCode();
-            hashCode = (hashCode * 396) ^ TestReportID.GetHashCode();
-            hashCode = (hashCode * 397) ^ ClinicalCircumstanceDescription.GetHashCode();
-            hashCode = (hashCode * 397) ^ TestIdentifier.GetHashCode();
-            return hashCode;
-        }
+        return HashCode.Combine(LabNumber, TestReportID, ClinicalCircumstanceDescription, TestIdentifier);
     }
     #endregion
     public void PopulateDenormalisedTestSetDetailsFields()
     {
-        //todo these are seperate, one is the resolved test set e.g. 'Liver function tests' and one is the child one(s) 'Alanine transaminase' the two fields you need are TestSet_ClinicalCircumstanceDescription and regular (test level) ClinicalCircumstanceDescription
+        //todo these are separate, one is the resolved test set e.g. 'Liver function tests' and one is the child one(s) 'Alanine transaminase' the two fields you need are TestSet_ClinicalCircumstanceDescription and regular (test level) ClinicalCircumstanceDescription
         ClinicalCircumstanceDescription = TestPerformed.ClinicalCircumstanceDescription;
 
         if (TestPerformed.ReadCode != null)
@@ -101,26 +94,20 @@ public class SciStoreResult : IComparable
 
     public int CompareTo(object obj)
     {
-        if (obj is SciStoreResult)
-        {
+        if (obj is not SciStoreResult other)
+            throw new Exception($"Can only compare {GetType().FullName} to other instances of itself");
+        //sort on primary key first (what test is for)
+        var compareOnPk = String.Compare(ClinicalCircumstanceDescription, other.ClinicalCircumstanceDescription, StringComparison.OrdinalIgnoreCase);
 
-            var other = (SciStoreResult)obj;
+        if (compareOnPk != 0)
+            return compareOnPk;
 
-            //sort on primary key first (what test is for)
-            var compareOnPk = string.Compare(ClinicalCircumstanceDescription, other.ClinicalCircumstanceDescription, true);
+        //tests are both for the same thing
+        var thisOrder = TestResultOrder ?? int.MinValue;
+        var otherOrder = other.TestResultOrder ?? int.MinValue;
 
-            if (compareOnPk != 0)
-                return compareOnPk;
-
-            //tests are both for the same thing
-            var thisOrder = TestResultOrder ?? int.MinValue;
-            var otherOrder = other.TestResultOrder ?? int.MinValue;
-
-            //order by order (as we were informed by the scistore xml bitty called   <DisciplineSpecificValues>TestResultOrder:19</DisciplineSpecificValues>)
-            return thisOrder - otherOrder;
-
-        }
-        throw new Exception($"Can only compare {GetType().FullName} to other instances of itself");
+        //order by order (as we were informed by the scistore xml bitty called   <DisciplineSpecificValues>TestResultOrder:19</DisciplineSpecificValues>)
+        return thisOrder - otherOrder;
     }
 
 
@@ -154,7 +141,7 @@ public class SciStoreResult : IComparable
     }
 }
     
-public class SciStoreResultFactory 
+public partial class SciStoreResultFactory 
 {
     private readonly ReferentialIntegrityConstraint _readCodeConstraint;
 
@@ -216,7 +203,7 @@ public class SciStoreResultFactory
                 throw new Exception(
                     $"DisciplineSpecificValues contains a previously unencountered string ({specificValueString}), investigate Lab Number {result.LabNumber}/{result.TestReportID}");
 
-            result.TestResultOrder = int.Parse(specificValueString.Substring(expectedTestResultOrderString.Length));
+            result.TestResultOrder = int.Parse(specificValueString[expectedTestResultOrderString.Length..]);
         }
 
         return result;
@@ -233,20 +220,15 @@ public class SciStoreResultFactory
     private void HydrateFromTestMeasurement(SciStoreResult result, QUANTIFIABLE_RESULT_TYPE measurement, TEST_RESULT_TYPE test)
     {
         // Does <ReferenceLimit /> exist inside <TestMeasurement />
-        if (measurement.ReferenceLimit != null)
+        if (measurement.ReferenceLimit?.Item is RANGE_TYPE range)
         {
-            var range = measurement.ReferenceLimit.Item as RANGE_TYPE;
-            if (range != null)
-            {
-                result.RangeLowValue = range.RangeLowValue;
-                result.RangeHighValue = range.RangeHighValue;
-                result.RangeUnit = range.RangeUnit;
-            }
+            result.RangeLowValue = range.RangeLowValue;
+            result.RangeHighValue = range.RangeHighValue;
+            result.RangeUnit = range.RangeUnit;
         }
 
         // Test whether the child items is a <MeasurementNumeric /> node
-        var measurementNumeric = measurement.Item as VALUE_COMPARATOR_TYPE;
-        if (measurementNumeric != null)
+        if (measurement.Item is VALUE_COMPARATOR_TYPE measurementNumeric)
         {
             result.QuantityValue = measurementNumeric.Result.QuantityValue;
             result.QuantityUnit = measurementNumeric.Result.QuantityUnit;
@@ -255,8 +237,7 @@ public class SciStoreResultFactory
         }
 
         // Test whether the child items is a <MeasurementDescription /> node
-        var measurementDescription = measurement.Item as string;
-        if (measurementDescription != null)
+        if (measurement.Item is string measurementDescription)
         {
             result.QuantityValue = null;
             result.QuantityUnit = null;
@@ -265,7 +246,7 @@ public class SciStoreResultFactory
         }
     }
 
-    private string Clean(string comment)
+    private static string Clean(string comment)
     {
         // logic taken from sp_Update_biochem.sql
         var clean = comment.Trim()
@@ -274,9 +255,11 @@ public class SciStoreResultFactory
             .Replace('"', '-');
 
         // Multiple spaces
-        clean = Regex.Replace(clean, @"\s+", " ");
+        clean = Spaces().Replace(clean, " ");
 
         return clean;
     }
 
+    [GeneratedRegex("\\s+")]
+    private static partial Regex Spaces();
 }

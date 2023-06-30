@@ -92,11 +92,11 @@ public class MB_IsolationsCollection
 {
 
     //basic facts -- will be the same for all Isolations spawned by this collection:
-    private string _specimenNo;
-    private string _organismCode;
-    private string _weightGrowth_cd;
-    private string _intCode1;
-    private string _intCode2;
+    private readonly string _specimenNo;
+    private readonly string _organismCode;
+    private readonly string _weightGrowth_cd;
+    private readonly string _intCode1;
+    private readonly string _intCode2;
 
     /// <summary>
     /// Create one of these every time you see a field like SMAR|P|Y|Y then remember that you created it because you need to update it with data
@@ -127,8 +127,8 @@ public class MB_IsolationsCollection
         _intCode2 = fields[3];
     }
 
-        
-    List<string> BlockAStrings = new();
+
+    readonly List<string> BlockAStrings = new();
     private int spawnCounter = 0;
 
     /// <summary>
@@ -148,7 +148,7 @@ public class MB_IsolationsCollection
     public void AddBlockAString(string currentLine)
     {
         if (currentLine.StartsWith("$SENS"))
-            currentLine = currentLine.Substring("$SENS".Length);
+            currentLine = currentLine[5..];
 
         BlockAStrings.Add(currentLine.Trim());
     }
@@ -162,7 +162,7 @@ public class MB_IsolationsCollection
                 throw new Exception("Cannot spawn results because not enough BlockA strings were passed to collection (is there a difference between the number of SENS results in Block A and the number of SENS results in Block B?");
 
         if (currentLine.StartsWith("$SENS"))
-            currentLine = currentLine.Substring("$SENS".Length);
+            currentLine = currentLine[5..];
             
         currentLine = currentLine.Trim();
         try
@@ -211,10 +211,10 @@ public class MB_IsolationResult : IMicrobiologyResultRecord
     public string AB_result { get; set; }
 }
 
-public class MicroBiologyFileReader
+public partial class MicroBiologyFileReader
 {
 
-    private TextReader _textReader = null;
+    private readonly TextReader _textReader;
        
        
     /// <summary>
@@ -226,7 +226,7 @@ public class MicroBiologyFileReader
     /// </summary>
     public int LineNumber { get; private set; }
 
-    string specimen;
+    private string specimen;
     public event WarningHandler Warning;
 
     public MicroBiologyFileReader(string fileName)
@@ -279,10 +279,10 @@ public class MicroBiologyFileReader
                 if (currentLine[0] != '$' && got_cult)
                     break;
 
-                //its not got spaces in it so it is either a comment or a test code which has no result (since ones with results appear like 'GWBC                    FW')
+                //it's not got spaces in it so it is either a comment or a test code which has no result (since ones with results appear like 'GWBC                    FW')
                 if (!currentLine.Contains("            "))
                 {
-                    //its something like BLAN or 'bob is fine and happy and dandy'
+                    //it's something like BLAN or 'bob is fine and happy and dandy'
                     var randomCrud = currentLine.Trim();
 
                     //if it is short it's probably a test code (with no result)
@@ -523,7 +523,7 @@ public class MicroBiologyFileReader
         return _textReader.ReadLine();
     }
 
-    private DateTime? DateOrNull(string readLine)
+    private static DateTime? DateOrNull(string readLine)
     {
         var toReturn = TrimOrNullify(readLine);
 
@@ -536,7 +536,7 @@ public class MicroBiologyFileReader
         return null;
     }
 
-    private string TrimOrNullify(string readLine)
+    private static string TrimOrNullify(string readLine)
     {
         return string.IsNullOrWhiteSpace(readLine) ? null : readLine.Trim();
     }
@@ -568,7 +568,7 @@ public class MicroBiologyFileReader
                 continue;
             }
             //if it is a statement about the number of records listed by the lab machine who cares
-            if (Regex.IsMatch(st, @"^\d+ records listed"))
+            if (RecordsListed().IsMatch(st))
                 continue;
 
             if(IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(st))
@@ -595,7 +595,7 @@ public class MicroBiologyFileReader
 
 
 
-    private static readonly Regex SpecimenRegex = new(@"^\s*\d{2}[A-Za-z]",RegexOptions.Compiled|RegexOptions.CultureInvariant);
+    private static readonly Regex SpecimenRegex = SpecimenRe();
 
     private static bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(string st)
     {
@@ -613,6 +613,11 @@ public class MicroBiologyFileReader
 
         return null;
     }
+
+    [GeneratedRegex("^\\s*\\d{2}[A-Za-z]", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    private static partial Regex SpecimenRe();
+    [GeneratedRegex("^\\d+ records listed",RegexOptions.Compiled)]
+    private static partial Regex RecordsListed();
 }
 
 public delegate void WarningHandler(object sender, string message);

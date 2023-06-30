@@ -32,14 +32,8 @@ public class CombinedReportArchivedXmlRepository : IRepository<CombinedReportDat
         {
             try
             {
-                using (var zipArchive = ZipFile.Open(archive.FullName, ZipArchiveMode.Read))
-                {
-                    foreach (var entry in zipArchive.Entries)
-                    {
-                        var report = deserializer.DeserializeFromZipEntry(entry, Path.Combine(archive.FullName, entry.Name));
-                        reports.Add(report);
-                    }
-                }
+                using var zipArchive = ZipFile.Open(archive.FullName, ZipArchiveMode.Read);
+                reports.AddRange(zipArchive.Entries.Select(entry => deserializer.DeserializeFromZipEntry(entry, Path.Combine(archive.FullName, entry.Name))));
             }
             catch (Exception e)
             {
@@ -56,15 +50,11 @@ public class CombinedReportArchivedXmlRepository : IRepository<CombinedReportDat
 
         foreach (var archive in archives)
         {
-            using (var zipArchive = ZipFile.Open(archive.FullName, ZipArchiveMode.Read))
+            using var zipArchive = ZipFile.Open(archive.FullName, ZipArchiveMode.Read);
+            if (zipArchive.Entries.Select(entry => entry.Name.Split(new [] {'-', '.'})).Any(nameParts => nameParts[1].Equals(report.SciStoreRecord.LabNumber) &&
+                    nameParts[2].Equals(report.SciStoreRecord.TestReportID)))
             {
-                foreach (var entry in zipArchive.Entries)
-                {
-                    var nameParts = entry.Name.Split(new [] {'-', '.'});
-                    if (nameParts[1].Equals(report.SciStoreRecord.LabNumber) &&
-                        nameParts[2].Equals(report.SciStoreRecord.TestReportID))
-                        return archive.FullName;
-                }
+                return archive.FullName;
             }
         }
         return null;

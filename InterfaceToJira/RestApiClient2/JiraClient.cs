@@ -180,7 +180,7 @@ public class JiraClient
     public Author GetDefaultAuthor()
     {
         var defaultAuthor = new Author();
-        if (!(ConfigurationManager.GetSection("interfaceToJira") is JiraApiConfiguration section))
+        if (ConfigurationManager.GetSection("interfaceToJira") is not JiraApiConfiguration section)
             throw new ConfigurationErrorsException("Web.config interfaceToJira section is not present!");
         defaultAuthor.self = $"{section.ApiUrl}user?username={section.User}";
         defaultAuthor.name = section.User;

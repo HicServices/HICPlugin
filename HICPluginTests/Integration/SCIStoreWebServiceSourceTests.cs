@@ -126,7 +126,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             Assert.AreEqual(downloadException, chunk.DownloadRequestFailedException);
 
             var failures = CatalogueRepository.GetAllObjects<CacheFetchFailure>();
-            var numFailures = failures.Count();
+            var numFailures = failures.Length;
             Assert.AreEqual(1, numFailures, "The cache fetch failure was not recorded correctly.");
 
             var failure = failures[0];

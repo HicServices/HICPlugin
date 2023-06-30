@@ -21,7 +21,7 @@ namespace HICPluginInteractive.DataFlowComponents;
 /// if it finds columns which contain valid CHIs.
 /// </summary>
 [Description("Crashes the pipeline if any columns are suspected of containing CHIs")]
-public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
+public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
 {
     [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
     public DateTime? OverrideUntil { get; set; }
@@ -141,7 +141,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
     }
 
-    private static readonly Regex ChiRegex = new(@"(?<!\d)(\d{9,10}|\d{5,6}(?!\d)\s(?<!\d)\d{4})(?!\d)", RegexOptions.Compiled|RegexOptions.CultureInvariant);
+    private static readonly Regex ChiRegex = ChiRegexM();
     private static bool ContainsValidChi(object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
@@ -174,4 +174,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
     {
         _activator = value;
     }
+
+    [GeneratedRegex("(?<!\\d)(\\d{9,10}|\\d{5,6}(?!\\d)\\s(?<!\\d)\\d{4})(?!\\d)", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    private static partial Regex ChiRegexM();
 }

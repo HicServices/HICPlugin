@@ -33,23 +33,11 @@ public class ImageIntegrityChecker
 
             // Find the image in the archive
             var filename = Path.GetFileName(strippedImage);
-            if (filename == null)
-                throw new InvalidOperationException(
-                    $"Could not retrieve filename from stripped image path: {strippedImage}");
-
-            var file = Directory.EnumerateFiles(pathToOriginalFiles, filename, SearchOption.AllDirectories).SingleOrDefault();
-            if (file == null)
-                throw new FileNotFoundException(
+            var file = Directory.EnumerateFiles(pathToOriginalFiles, filename, SearchOption.AllDirectories).SingleOrDefault() ?? throw new FileNotFoundException(
                     $"Could not find original file {strippedImage} in {pathToOriginalFiles}");
-
-            using (var originalFileStream = File.OpenRead(file))
-            {
-                using (var strippedFileStream = File.OpenRead(strippedImage))
-                {
-                    CompareStreams(patcher, originalFileStream, strippedFileStream);
-                }
-            }
-
+            using var originalFileStream = File.OpenRead(file);
+            using var strippedFileStream = File.OpenRead(strippedImage);
+            CompareStreams(patcher, originalFileStream, strippedFileStream);
         }
     }
 
@@ -69,13 +57,9 @@ public class ImageIntegrityChecker
             var patcher = patcherFactory.Create(Path.GetExtension(image));
 
             // Find the image in the archive
-            using (var ms = archive.GetEntry(Path.GetFileName(image)))
-            {
-                using (var strippedFileStream = File.OpenRead(image))
-                {
-                    CompareStreams(patcher, ms, strippedFileStream);
-                }
-            }
+            using var ms = archive.GetEntry(Path.GetFileName(image));
+            using var strippedFileStream = File.OpenRead(image);
+            CompareStreams(patcher, ms, strippedFileStream);
         }
     }
 
@@ -83,27 +67,14 @@ public class ImageIntegrityChecker
     {
         var originalPixels = patcher.ReadPixelData(originalImageStream);
         var strippedPixels = patcher.ReadPixelData(strippedImageStream);
-        if (ByteArrayCompare(originalPixels, strippedPixels)) return;
+        if (originalPixels.SequenceEqual(strippedPixels)) return;
 
         // There is an integrity issue
-        string additional;
-        if (originalPixels.Length == strippedPixels.Length)
-            additional = "The pixel byte arrays are the same length, some of the pixel values have been changed.";
-        else
-            additional =
-                $"The pixel byte array lengths are different. Original = {originalPixels.Length}, Stripped = {strippedPixels.Length}";
+        var additional = originalPixels.Length == strippedPixels.Length
+            ? "The pixel byte arrays are the same length, some of the pixel values have been changed."
+            : $"The pixel byte array lengths are different. Original = {originalPixels.Length}, Stripped = {strippedPixels.Length}";
 
         throw new InvalidOperationException(
             $"The EXIF stripping process appears to have altered the pixel data. {additional}");
-    }
-
-    [DllImport("msvcrt.dll", CallingConvention = CallingConvention.Cdecl)]
-    static extern int memcmp(byte[] b1, byte[] b2, long count);
-
-    static bool ByteArrayCompare(byte[] b1, byte[] b2)
-    {
-        // Validate buffers are the same length.
-        // This also ensures that the count does not exceed the length of either buffer.  
-        return b1.Length == b2.Length && memcmp(b1, b2, b1.Length) == 0;
     }
 }

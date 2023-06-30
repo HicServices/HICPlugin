@@ -41,10 +41,8 @@ public class CombinedReportXmlDeserializer
 
     public CombinedReportData DeserializeFromXmlString(string xml)
     {
-        using (var reader = new StringReader(xml))
-        {
-            return _serializer.Deserialize(reader) as CombinedReportData;
-        }
+        using var reader = new StringReader(xml);
+        return _serializer.Deserialize(reader) as CombinedReportData;
     }
 
     public string RemoveInvalidCharactersFromStream(Stream stream)
@@ -58,11 +56,9 @@ public class CombinedReportXmlDeserializer
             {"&#x1B;", ""} // basic escape sequence, if this remains on its own then get rid of it
         };
 
-        using (var reader = new StreamReader(stream))
-        {
-            var xmlString = reader.ReadToEnd();
-            return characterSubstitutions.Aggregate(xmlString, (current, value) => current.Replace(value.Key, value.Value));
-        }
+        using var reader = new StreamReader(stream);
+        var xmlString = reader.ReadToEnd();
+        return characterSubstitutions.Aggregate(xmlString, (current, value) => current.Replace(value.Key, value.Value));
     }
 
     private CombinedReportData RetryDeserializationAfterCharacterReplacement(Stream stream, string fileLocation)

@@ -77,10 +77,8 @@ public class SciStoreSample
         var resolutions = 0;
 
         //todo potentially change this to .AddResult method and make Results private
-        if(Results is List<SciStoreResult>)
+        if(Results is List<SciStoreResult> toWorkOn)
         {
-
-            var toWorkOn = (List<SciStoreResult>) Results;
             toWorkOn.Sort();
             
 
@@ -102,7 +100,7 @@ public class SciStoreSample
         else
         {
             throw new Exception(
-                $"Results is an {Results.GetType()} excpected it to be a List, possibly you have called this method multiple times or something");
+                $"Results is an {Results.GetType()} expected it to be a List, possibly you have called this method multiple times or something");
         }
 
         return resolutions;
@@ -110,7 +108,7 @@ public class SciStoreSample
 
     public override bool Equals(object obj)
     {
-        if (ReferenceEquals(null, obj)) return false;
+        if (obj is null) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != GetType()) return false;
         return Equals((SciStoreSample) obj);
@@ -123,13 +121,7 @@ public class SciStoreSample
 
     public override int GetHashCode()
     {
-        unchecked
-        {
-            var hashCode = LabNumber.GetHashCode();
-            hashCode = (hashCode * 397) ^ TestIdentifier.GetHashCode();
-            hashCode = (hashCode * 397) ^ TestReportID.GetHashCode();
-            return hashCode;
-        }
+        return HashCode.Combine(LabNumber, TestIdentifier, TestReportID);
     }
 }
 
@@ -222,8 +214,7 @@ public class SciStoreSampleFactory
             if (sampleNames.Length > 1)
                 throw new Exception($"Not expecting multiple sample names (found {sampleNames.Length})");
 
-            var sampleNameItem = sampleNames[0].Item as string;
-            if (sampleNameItem == null)
+            if (sampleNames[0].Item is not string sampleNameItem)
                 throw new Exception(
                     $"Could not interpret the sample name as a string in Lab {sample.LabNumber}. Will likely be a 'CLINICAL_INFORMATION_TYPE' but this hasn't been encountered during build, please investigate.");
 
@@ -236,7 +227,7 @@ public class SciStoreSampleFactory
         if (sampleDetails.ServiceProviderComment != null)
             sample.ServiceProviderComment = string.Join(",", sampleDetails.ServiceProviderComment);
 
-        sample.DateTimeSampled = (sampleDetails.DateTimeSampled == DateTime.MinValue) ? (DateTime?) null : sampleDetails.DateTimeSampled;
-        sample.DateTimeReceived = (sampleDetails.DateTimeReceived == DateTime.MinValue ) ? (DateTime?) null : sampleDetails.DateTimeReceived;
+        sample.DateTimeSampled = sampleDetails.DateTimeSampled == DateTime.MinValue ? null : sampleDetails.DateTimeSampled;
+        sample.DateTimeReceived = sampleDetails.DateTimeReceived == DateTime.MinValue ? null : sampleDetails.DateTimeReceived;
     }
 }

@@ -54,10 +54,8 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
 
         var workingDir = LoadDirectory.ForLoading;
 
-        using (var archiveProvider = new FilesystemArchiveProvider(workingDir.FullName, _permittedImageExtensions, job))
-        {
-            Process(archiveProvider, job);
-        }
+        var archiveProvider = new FilesystemArchiveProvider(workingDir.FullName, _permittedImageExtensions, job);
+        Process(archiveProvider, job);
 
         var doNotDelete = SecureLocalScratchArea.Name;
         job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Deleting image directories from ForLoading"));

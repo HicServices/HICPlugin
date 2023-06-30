@@ -111,8 +111,10 @@ public class JiraInteraction
         try
         {
             var jiraClient = new JiraClient(new JiraAccount());
-            var request = new RestRequest("/rest/api/latest/issueLink", Method.Post);
-            request.RequestFormat = DataFormat.Json;
+            var request = new RestRequest("/rest/api/latest/issueLink", Method.Post)
+            {
+                RequestFormat = DataFormat.Json
+            };
             request.AddBody(new
             {
                 type = new{ name = "Relates" },

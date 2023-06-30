@@ -92,7 +92,7 @@ public partial class CHIJob
         OtherPostcode = null;
     }
 
-    private string? CleanString(string? value)
+    private static string? CleanString(string? value)
     {
         if (string.IsNullOrWhiteSpace(value))
             return null;

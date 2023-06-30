@@ -156,7 +156,6 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
         };
     }
 
-    private int _numReportsDownloaded;
     private readonly Stopwatch _downloadTimer = new();
         
 
@@ -219,7 +218,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
         return new SCIStoreServicesClient(GeneratingBinding(), new EndpointAddress(Configuration.Endpoint));
     }
 
-    private BasicHttpsBinding GeneratingBinding()
+    private static BasicHttpsBinding GeneratingBinding()
     {
         var b = new BasicHttpsBinding
         {

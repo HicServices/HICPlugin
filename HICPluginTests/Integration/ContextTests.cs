@@ -58,18 +58,24 @@ internal class PipelineDatabaseTestHelper
         var testDirHelper = new TestDirectoryHelper(GetType());
         testDirHelper.SetUp();
             
-        var _lmd = new LoadMetadata(catalogueRepository, "JobDateGenerationStrategyFactoryTestsIntegration");
-        _lmd.LocationOfFlatFiles = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test",true).RootPath.FullName;
+        var _lmd = new LoadMetadata(catalogueRepository, "JobDateGenerationStrategyFactoryTestsIntegration")
+            {
+                LocationOfFlatFiles = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test",true).RootPath.FullName
+            };
         _lmd.SaveToDatabase();
 
-        var _lp = new LoadProgress(catalogueRepository, _lmd);
+        var _lp = new LoadProgress(catalogueRepository, _lmd)
+        {
+            OriginDate = new DateTime(2001, 1, 1),
+            DataLoadProgress = new DateTime(2001, 1, 1)
+        };
 
-        _lp.OriginDate = new DateTime(2001, 1, 1);
-        _lp.DataLoadProgress = new DateTime(2001, 1, 1);
         _lp.SaveToDatabase();
 
-        var _cp = new CacheProgress(catalogueRepository, _lp);
-        _cp.Pipeline_ID = Pipe.ID;
+        var _cp = new CacheProgress(catalogueRepository, _lp)
+        {
+            Pipeline_ID = Pipe.ID
+        };
         _cp.SaveToDatabase();
 
         PipelineUseCase = new CachingPipelineUseCase(_cp);

@@ -24,25 +24,20 @@ public class TestSetFactory
 
         foreach (var clinicalCircumstanceType in testSetDetails.TestName)
         {
-            var asClinicalInformationType = clinicalCircumstanceType.Item as CLINICAL_INFORMATION_TYPE;
-            if (asClinicalInformationType != null)
+            switch (clinicalCircumstanceType.Item)
             {
-                clinicalInformationList.Add(new ClinicalCodeInfo(asClinicalInformationType));
-                continue;
-            }
-
-            var asString = clinicalCircumstanceType.Item as string;
-            if (asString != null)
-            {
-                if (testSet.ClinicalCircumstanceDescription != null)
+                case CLINICAL_INFORMATION_TYPE asClinicalInformationType:
+                    clinicalInformationList.Add(new ClinicalCodeInfo(asClinicalInformationType));
+                    continue;
+                case string asString when testSet.ClinicalCircumstanceDescription != null:
                     throw new Exception(
                         $"Multiple <ClinicalCircumstanceDescription>. Encountered: {asString}, but have already seen: {testSet.ClinicalCircumstanceDescription}");
-
-                testSet.ClinicalCircumstanceDescription = asString;
-                continue;
+                case string asString:
+                    testSet.ClinicalCircumstanceDescription = asString;
+                    continue;
+                default:
+                    throw new Exception("Could not interpret the <TestName> as either a CLINICAL_INFORMATION_TYPE or string");
             }
-
-            throw new Exception("Could not interpret the <TestName> as either a CLINICAL_INFORMATION_TYPE or string");
         }
 
         var numClinicalInfos = clinicalInformationList.Count;

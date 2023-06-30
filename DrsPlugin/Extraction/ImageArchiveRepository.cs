@@ -1,4 +1,3 @@
-using ICSharpCode.SharpZipLib.Tar;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,11 +9,8 @@ namespace DrsPlugin.Extraction;
 /// </summary>
 public class ImageArchiveRepository
 {
-    private readonly string _archiveRoot;
-
-    public ImageArchiveRepository(string archiveRoot)
+    public ImageArchiveRepository(string _)
     {
-        _archiveRoot = archiveRoot;
     }
 
     /// <summary>
@@ -29,7 +25,7 @@ public class ImageArchiveRepository
         {
             if (extractionMap.TryGetValue(entry.Name,out var destination))
             {
-                using var outputStream = new FileStream(extractionMap[entry.Name], FileMode.CreateNew);
+                using var outputStream = new FileStream(destination, FileMode.CreateNew);
                 using var source=entry.Stream;
                 source.CopyTo(outputStream);
                 extractionMap.Remove(entry.Name);

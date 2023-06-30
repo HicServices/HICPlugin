@@ -126,10 +126,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         sw.Start();
         foreach (var (name, stream) in archiveProvider.EntryStreams)
         {
-            var extension = Path.GetExtension(name);
-            if (extension == null)
-                throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");
-
+            var extension = Path.GetExtension(name) ?? throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");
             job.OnProgress(this, new ProgressEventArgs("Retrieving and Patching image files", new ProgressMeasurement(entryNum, ProgressType.Records), sw.Elapsed));
 
             var patcher = patcherFactory.Create(extension);
@@ -165,6 +162,9 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Updating [{ImageArchiveUriColumnName}] in RAW with the correct location of each image in the DRS Image Archive"));
 
+        var server = _dbInfo.Server;
+        using var conn = server.GetConnection();
+        conn.Open();
         foreach (var kvp in archiveMappings)
         {
             if (!kvp.Value.Any())
@@ -173,15 +173,8 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
             var query =
                 $"UPDATE [{TableName}] SET {ImageArchiveUriColumnName} = CONCAT('{kvp.Key}!', {FilenameColumnName}) WHERE {FilenameColumnName} IN ('{string.Join("','", kvp.Value)}')";
 
-            var server = _dbInfo.Server;
-            using (var conn = server.GetConnection())
-            {
-                conn.Open();
-                using (var cmd = server.GetCommand(query, conn))
-                {
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            using var cmd = server.GetCommand(query, conn);
+            cmd.ExecuteNonQuery();
         }
     }
 
@@ -216,10 +209,8 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         notifier.OnCheckPerformed(new CheckEventArgs($"ForLoading contains {rarFileCount} archive files", CheckResult.Success));
 
         // Now check that each of the zip files contains the correct files
-        using (var archiveProvider = CreateExtractedArchiveProvider(LoadDirectory.ForLoading, ThrowImmediatelyDataLoadEventListener.Quiet))
-        {
-            CheckImageArchive(archiveProvider, notifier);
-        }
+        using var archiveProvider = CreateExtractedArchiveProvider(LoadDirectory.ForLoading, ThrowImmediatelyDataLoadEventListener.Quiet);
+        CheckImageArchive(archiveProvider, notifier);
     }
 
     private void CheckImageArchive(IArchiveProvider archiveProvider, ICheckNotifier notifier)
@@ -256,21 +247,17 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         var manifestFilepath = Path.Combine(LoadDirectory.ForLoading.FullName, ManifestFileName);
         using (var stream = File.OpenRead(manifestFilepath))
         {
-            using (var sr = new StreamReader(stream))
+            using var sr = new StreamReader(stream);
+            using var csvReader = new CsvReader(sr, Culture);
+            while (csvReader.Read())
             {
-                using (var csvReader = new CsvReader(sr, Culture))
+                if(csvReader.Context.Reader.HeaderRecord == null)
                 {
-                    while (csvReader.Read())
-                    {
-                        if(csvReader.Context.Reader.HeaderRecord == null)
-                        {
-                            csvReader.ReadHeader();
-                            continue;
-                        }
-
-                        imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
-                    }
+                    csvReader.ReadHeader();
+                    continue;
                 }
+
+                imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
             }
         }
 

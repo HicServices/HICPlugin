@@ -184,7 +184,7 @@ public class CacheRefiller
         }
     }
 
-    private CacheDirectoryIdentifiers GetCacheDirectoryIdentifiers(CombinedReportData report)
+    private static CacheDirectoryIdentifiers GetCacheDirectoryIdentifiers(CombinedReportData report)
     {
         if (!Enum.TryParse(report.HbExtract, out HealthBoard hb))
             throw new Exception(

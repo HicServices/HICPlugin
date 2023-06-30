@@ -33,13 +33,9 @@ public class SourceArchiveTests
             Assert.IsTrue(entryNames.Contains("file3.txt"));
             Assert.IsFalse(entryNames.Contains("not-part-of-archive.foo"));
 
-            using (var file1 = archiveProvider.EntryStreams.Single(kvp => kvp.Key == "file1.txt").Value)
-            {
-                using (var reader = new StreamReader(file1))
-                {
-                    Assert.AreEqual("test", reader.ReadLine());
-                }
-            }
+            using var file1 = archiveProvider.EntryStreams.Single(kvp => kvp.Key == "file1.txt").Value;
+            using var reader = new StreamReader(file1);
+            Assert.AreEqual("test", reader.ReadLine());
         }
         finally
         {

@@ -35,17 +35,11 @@ public class DRSImageExtraction : ImageExtraction
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Images will be saved to {imageExtractionPath.FullName}"));
 
-        var columnsToExtract = Request.QueryBuilder.SelectColumns.ToList();
-        if (columnsToExtract == null)
-            throw new InvalidOperationException("The request does not contain a list of extractable columns.");
-
+        var columnsToExtract = Request.QueryBuilder.SelectColumns?.ToList() ?? throw new InvalidOperationException("The request does not contain a list of extractable columns.");
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"{columnsToExtract.Count} extractable columns found"));
 
-        var extractionIdentifier = columnsToExtract.SingleOrDefault(c => c.IColumn.IsExtractionIdentifier);
-        if (extractionIdentifier == null)
-            throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
-
+        var extractionIdentifier = columnsToExtract.SingleOrDefault(c => c.IColumn.IsExtractionIdentifier) ?? throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Extraction identifier column = {extractionIdentifier.IColumn.GetRuntimeName()}"));
 

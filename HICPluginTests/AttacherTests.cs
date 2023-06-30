@@ -320,9 +320,8 @@ public class AttacherTests : DatabaseTests
             ProvisionTestData(loadDirectory.ForLoading);
 
             // Pre-extract the archive
-            var rarHelper = new RarHelper();
             var extractionDir = loadDirectory.ForLoading.CreateSubdirectory("Images");
-            rarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading.FullName, extractionDir.FullName);
+            RarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading.FullName, extractionDir.FullName);
 
             var attacher = new DrsMultiVolumeRarAttacher
             {
@@ -474,7 +473,7 @@ public class AttacherTests : DatabaseTests
             ProvisionTestData(testDir);
 
             var rarHelper = new RarHelper();
-            rarHelper.ExtractMultiVolumeArchive(testDir);
+            RarHelper.ExtractMultiVolumeArchive(testDir);
 
             // Now check we have the correct files
             Assert.AreEqual(2, testDir.EnumerateFiles("*.jpeg").Count());
@@ -496,7 +495,7 @@ public class AttacherTests : DatabaseTests
         {
             ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
             var helper = new RarHelper();
-            helper.ExtractMultiVolumeArchive(testDir);
+            RarHelper.ExtractMultiVolumeArchive(testDir);
 
             var files = testDir.EnumerateFiles().ToList();
 
@@ -537,7 +536,7 @@ public class AttacherTests : DatabaseTests
         {
             ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST);
             var helper = new RarHelper();
-            helper.ExtractMultiVolumeArchive(loadDirectory.ForLoading);
+            RarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading);
 
             // Create directory structure analagous to that received in the full extract
             var dir1 = loadDirectory.ForLoading.CreateSubdirectory("GoDARTS01-02");

@@ -26,17 +26,14 @@ public class CachedPatcherFactory
 
     public IImagePatcher Create(string extension)
     {
-        switch (extension)
+        return extension switch
         {
-            case ".jpg":
-            case ".jpeg":
-                return _jpegPatcher;
-            case ".png":
-                return _pngPatcher;
-            default:
-                throw new InvalidOperationException(
-                    $"Can't create a patcher for images with extension type: {extension}");
-        }
+            ".jpg" => _jpegPatcher,
+            ".jpeg" => _jpegPatcher,
+            ".png" => _pngPatcher,
+            _ => throw new InvalidOperationException(
+                $"Can't create a patcher for images with extension type: {extension}")
+        };
     }
 }
 
@@ -54,18 +51,9 @@ public class PngPatcher : IImagePatcher
 
     public byte[] ReadPixelData(Stream stream)
     {
-        using (var ms = new MemoryStream())
-        {
-            var buffer = new byte[4096];
-            while (true)
-            {
-                var numBytesRead = stream.Read(buffer, 0, buffer.Length);
-                if (numBytesRead <= 0)
-                    return ms.ToArray();
-
-                ms.Write(buffer, 0, numBytesRead);
-            }
-        }
+        using var ms = new MemoryStream();
+        stream.CopyTo(ms);
+        return ms.ToArray();
     }
 }
 
@@ -78,21 +66,12 @@ public class JpegPatcher : IImagePatcher
 
         SkipAppHeaderSection(stream);
 
-        using (var ms = new MemoryStream())
-        {
-            var buffer = new byte[4096];
-            while (true)
-            {
-                var numBytesRead = stream.Read(buffer, 0, buffer.Length);
-                if (numBytesRead <= 0)
-                    return ms.ToArray();
-
-                ms.Write(buffer, 0, numBytesRead);
-            }
-        }
+        using var ms = new MemoryStream();
+        stream.CopyTo(ms);
+        return ms.ToArray();
     }
 
-    private bool CheckIsJpegFile(Stream stream)
+    private static bool CheckIsJpegFile(Stream stream)
     {
         var jpegHeader = new byte[2];
         jpegHeader[0] = (byte)stream.ReadByte();
@@ -117,7 +96,7 @@ public class JpegPatcher : IImagePatcher
         return outStream;
     }
 
-    private void SkipAppHeaderSection(Stream inStream)
+    private static void SkipAppHeaderSection(Stream inStream)
     {
         var header = new byte[2];
         header[0] = (byte)inStream.ReadByte();
