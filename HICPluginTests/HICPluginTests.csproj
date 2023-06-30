@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>

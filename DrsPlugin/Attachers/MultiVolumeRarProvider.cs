@@ -46,26 +46,20 @@ public class MultiVolumeRarProvider : IArchiveProvider, IDisposable
         }
     }
 
-    private MemoryStream GetMemoryStreamForEntry(IEntry entryToFind)
+    private MemoryStream GetMemoryStreamForEntry(string name)
     {
-        MemoryStream memoryStream  = null;
-        using (var reader = RarReader.Open(_streams))
+        using var reader = RarReader.Open(_streams);
+        while (reader.MoveToNextEntry())
         {
-            while (reader.MoveToNextEntry())
-            {
-                if (reader.Entry.Key == entryToFind.Key)
-                {
-                    memoryStream = new MemoryStream(ReadImageBytesFromEntry(reader));
-                }
-            }
+            if (reader.Entry.Key != name) continue;
+            var memoryStream = new MemoryStream((int)reader.Entry.Size);
+            using var inStream = reader.OpenEntryStream();
+            inStream.CopyTo(memoryStream);
+            Rewind();
+            return memoryStream;
         }
 
-        if (memoryStream == null)
-            throw new InvalidOperationException($"Could not find {entryToFind} in archive at {_archiveDirectory}");
-
-        Rewind();
-
-        return memoryStream;
+        throw new FileNotFoundException($"Could not find {name} in archive at {_archiveDirectory}");
     }
 
     private void Rewind()
@@ -75,14 +69,9 @@ public class MultiVolumeRarProvider : IArchiveProvider, IDisposable
 
     public MemoryStream GetEntry(string entryName)
     {
-        var entry = Entries.SingleOrDefault(e => e.Key == entryName);
-        if (entry == null)
-            throw new FileNotFoundException(
-                $"Could not find entry in the archive at {_archiveDirectory} which matches '{entryName}'");
-
         Rewind();
 
-        return GetMemoryStreamForEntry(entry);
+        return GetMemoryStreamForEntry(entryName);
     }
 
     public int GetNumEntries()
@@ -96,45 +85,32 @@ public class MultiVolumeRarProvider : IArchiveProvider, IDisposable
     {
         get
         {
-            using (var reader = RarReader.Open(_streams))
+            using var reader = RarReader.Open(_streams);
+            while (reader.MoveToNextEntry())
             {
-                while (reader.MoveToNextEntry())
-                {
-                    yield return new KeyValuePair<string, MemoryStream>(reader.Entry.Key, new MemoryStream(ReadImageBytesFromEntry(reader)));
-                }
+                yield return new KeyValuePair<string, MemoryStream>(reader.Entry.Key, ReadImageBytesFromEntry(reader));
             }
 
             Rewind();
         }
     }
 
-    public IEnumerable<string> EntryNames
-    {
-        get { return Entries.Select(e => e.Key); }
-    }
+    public IEnumerable<string> EntryNames => Entries.Select(e => e.Key);
 
-    public string Name { get { return $"Multi-volume archive at {_archiveDirectory}"; } }
+    public string Name => $"Multi-volume archive at {_archiveDirectory}";
 
-    private byte[] ReadImageBytesFromEntry(RarReader reader)
+    private static MemoryStream ReadImageBytesFromEntry(RarReader reader)
     {
-        var buffer = new byte[32768];
-        using (var inputStream = reader.OpenEntryStream())
-        {
-            using (var outputStream = new MemoryStream())
-            {
-                while (true)
-                {
-                    var numBytesRead = inputStream.Read(buffer, 0, buffer.Length);
-                    if (numBytesRead <= 0)
-                        return outputStream.ToArray();
-                    outputStream.Write(buffer, 0, numBytesRead);
-                }
-            }
-        }
+        using var inputStream = reader.OpenEntryStream();
+        var outputStream = new MemoryStream((int)reader.Entry.Size);
+        inputStream.CopyTo(outputStream);
+        outputStream.Seek(0, SeekOrigin.Begin);
+        return outputStream;
     }
 
     public void Dispose()
     {
+        GC.SuppressFinalize(this);
         _streams.ForEach(s => s.Dispose());
     }
 }
