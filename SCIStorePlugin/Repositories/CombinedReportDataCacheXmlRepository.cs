@@ -16,7 +16,8 @@ namespace SCIStorePlugin.Repositories;
 public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportData>
 {
     private readonly ICacheLayout _cacheLayout;
-    private static readonly Logger log = LogManager.GetCurrentClassLogger();
+    private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+    private static readonly XmlSerializer Serialiser = new (typeof(CombinedReportData));
 
 
     public CombinedReportDataCacheXmlRepository(ICacheLayout cacheLayout)
@@ -24,17 +25,13 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
         _cacheLayout = cacheLayout;
     }
 
-    public CombinedReportDataCacheXmlRepository(ICacheLayout cacheLayout, bool onDuplicationInsteadCreateNewFile, bool createHealthboardSubDirectory) : this(cacheLayout)
-    {
-    }
-        
     /// <summary>
     /// The information will be in the filesystem under two directories: T and F, for the relevant health board
     /// </summary>
     /// <returns></returns>
     public IEnumerable<CombinedReportData> ReadAll()
     {
-        log.Info($"Reading all data from {_cacheLayout.RootDirectory}");
+        Log.Info($"Reading all data from {_cacheLayout.RootDirectory}");
 
         if (_cacheLayout.RootDirectory == null)
             throw new Exception("Root directory can't be null");
@@ -63,13 +60,13 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
             }
         }
 
-        log.Info($"Read {reports.Count} reports");
+        Log.Info($"Read {reports.Count} reports");
         return reports;
     }
 
-    private static void ReadDir(List<CombinedReportData> reports, DirectoryInfo rootPath)
+    private static void ReadDir(ICollection<CombinedReportData> reports, DirectoryInfo rootPath)
     {
-        log.Info($"Reading reports from {rootPath}");
+        Log.Info($"Reading reports from {rootPath}");
         var serializer = new XmlSerializer(typeof(CombinedReportData));
         foreach (var file in rootPath.EnumerateFiles("*.xml"))
         {
@@ -84,9 +81,8 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
 
     private static void ReadDir(List<CombinedReportData> reports, DirectoryInfo rootPath, string hbExtract)
     {
-        log.Info($"Reading reports from {rootPath}");
-        var serializer = new XmlSerializer(typeof(CombinedReportData));
-        reports.AddRange(rootPath.EnumerateFiles("*.xml").Select(file => ReadFile(hbExtract, file, serializer)));
+        Log.Info($"Reading reports from {rootPath}");
+        reports.AddRange(rootPath.EnumerateFiles("*.xml").Select(file => ReadFile(hbExtract, file, Serialiser)));
     }
 
     public static CombinedReportData ReadFile(string hbExtract, FileInfo file, XmlSerializer serializer)
@@ -121,7 +117,6 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
 
     public void Create(IEnumerable<CombinedReportData> reports, IDataLoadEventListener listener)
     {
-        var serialiser = new XmlSerializer(typeof (CombinedReportData));
         foreach (var report in reports)
         {
             if (report == null)
@@ -148,7 +143,7 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
 
                 try
                 {
-                    serialiser.Serialize(sw,report);
+                    Serialiser.Serialize(sw,report);
                 }
                 catch(Exception ex)
                 {

@@ -42,10 +42,8 @@ public class SciStoreXmlRepository : IRepository<SciStoreReport>
             try
             {
                 var path = $"{_rootPath}{Path.DirectorySeparatorChar}report-{report.Header.LabNumber}.xml";
-                using (var stream = new StreamWriter(path, false))
-                {
-                    serialiser.Serialize(stream, report);
-                }
+                using var stream = new StreamWriter(path, false);
+                serialiser.Serialize(stream, report);
             }
             catch (Exception e)
             {

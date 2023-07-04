@@ -36,8 +36,6 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
         set => _columnWhitelist=(value ?? "").Split(',').Select(s=>s.Trim()).ToList();
     }
 
-    private const bool UseLegacy = false;
-
     private bool _firstTime = true;
 
     private List<string> _columnWhitelist = new();
@@ -80,7 +78,7 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
                 if (!ContainsValidChi(row[col])) continue;
                 if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
-                    DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);
+                    DoTheMessageBoxDance(toProcess, listener, col, row);
                     if (_columnWhitelist.Contains(col.ColumnName.Trim())) // Update column list if the whitelist changed
                         columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
                 }
@@ -103,7 +101,7 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
     }
         
 
-    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row, int batchRowCount) 
+    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row) 
     {
         if (_activator.IsInteractive && _activator.YesNo(
                 $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))

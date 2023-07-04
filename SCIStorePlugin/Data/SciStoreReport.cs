@@ -60,7 +60,6 @@ public class SciStoreReportFactory
     /// <exception cref="BadCombinedReportDataException">False to issue an Exception, True to issue warning to <paramref name="listener"/> and return null </exception>
     public SciStoreReport Create(CombinedReportData combinedReport,IDataLoadEventListener listener) 
     {   
-        var headerFactory = new SciStoreHeaderFactory();
         var sampleFactory = new SciStoreSampleFactory(_readCodeConstraint);
 
         try

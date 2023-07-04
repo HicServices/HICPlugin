@@ -28,7 +28,7 @@ public partial class ReadCodeAttacher:IPluginAttacher
     }
 
 
-    private int MaxAdditionalCrudColumns = 10;
+    private const int MaxAdditionalCrudColumns = 10;
 
 
     public ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
@@ -209,7 +209,7 @@ public partial class ReadCodeAttacher:IPluginAttacher
         
     public ILoadDirectory LoadDirectory { get; set; }
         
-    public bool RequestsExternalDatabaseCreation { get { return true; } } 
+    public bool RequestsExternalDatabaseCreation => true;
 
     public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)
     {

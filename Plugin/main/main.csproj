@@ -5,11 +5,11 @@
     <Product>Rdmp.Hic.Plugin</Product>
     <Copyright>Copyright ©  2019</Copyright>
     <DebugType>embedded</DebugType>
-      <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DrsPlugin\DrsPlugin.csproj" />
-    <ProjectReference Include="..\..\GoDartsPlugin\GoDartsPlugin.csproj" />
     <ProjectReference Include="..\..\HICPlugin\HICPlugin.csproj" />
     <ProjectReference Include="..\..\JiraPlugin\JiraPlugin.csproj" />
     <ProjectReference Include="..\..\SCIStorePlugin\SCIStorePlugin.csproj" />

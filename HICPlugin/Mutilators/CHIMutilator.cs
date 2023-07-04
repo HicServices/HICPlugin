@@ -119,7 +119,7 @@ END
             MutilationAction.DeleteRows => $"DELETE FROM {tableName} WHERE dbo.checkCHI({colName}) = 0",
             MutilationAction.CrashDataLoad =>
                 $"IF EXISTS (SELECT 1 FROM {tableName} WHERE dbo.checkCHI({colName}) = 0) raiserror('Found Dodgy CHIs', 16, 1);",
-            _ => throw new ArgumentOutOfRangeException()
+            _ => throw new InvalidOperationException($"Invalid {nameof(MutilationAction)} value {FailedRows}")
         };
     }
 

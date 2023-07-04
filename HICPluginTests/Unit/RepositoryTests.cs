@@ -26,7 +26,7 @@ class RepositoryTests
 
         var deserializer = new CombinedReportXmlDeserializer();
 
-        var data = deserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
+        var data = CombinedReportXmlDeserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
         var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
         var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>
@@ -126,7 +126,7 @@ class RepositoryTests
 
         var deserializer = new CombinedReportXmlDeserializer();
         var stream = new MemoryStream(Encoding.UTF8.GetBytes(badXmlString));
-        var actualString = deserializer.RemoveInvalidCharactersFromStream(stream);
+        var actualString = CombinedReportXmlDeserializer.RemoveInvalidCharactersFromStream(stream);
         Assert.AreEqual(expectedXmlString, actualString);
     }
 }

@@ -77,11 +77,12 @@ public partial class CHIJob
             key.SetValue(this, CleanString((string)key.GetValue(this, null)), null);
         if (Sex is { Length: > 1 })
         {
-            Sex = Sex.ToUpper();
-            if (Sex[0] == 'M')
-                Sex = "M";
-            else if (Sex[0] == 'F')
-                Sex = "F";
+            Sex = char.ToUpperInvariant(Sex[0]) switch
+            {
+                'M' => "M",
+                'F' => "F",
+                _ => Sex.ToUpper()
+            };
         }
         if (Postcode == null || OtherPostcode == null || !Postcode.Equals(OtherPostcode))
             return;

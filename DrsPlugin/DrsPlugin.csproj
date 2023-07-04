@@ -3,6 +3,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <DebugType>embedded</DebugType>
+    <NeutralLanguage>en-GB</NeutralLanguage>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="Properties\SharedAssemblyInfo.cs" />

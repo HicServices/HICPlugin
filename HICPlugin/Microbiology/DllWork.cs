@@ -274,7 +274,7 @@ public partial class MicroBiologyFileReader
             {
                 if (string.IsNullOrWhiteSpace(currentLine))
                     break;
-                if (is_date(currentLine))
+                if (Is_date(currentLine))
                     break;
                 if (currentLine[0] != '$' && got_cult)
                     break;
@@ -370,7 +370,7 @@ public partial class MicroBiologyFileReader
                         while (
                             !string.IsNullOrWhiteSpace(currentLine) //stop if we reach end of file
                             &&
-                            !is_date(currentLine)//stop if we reach date
+                            !Is_date(currentLine)//stop if we reach date
                             &&
                             currentLine.Contains("            ")//stop if we reach a comment (-something that doesn't contain a fistfull of spaces)
                             &&
@@ -464,7 +464,7 @@ public partial class MicroBiologyFileReader
             //these will go into the Comment field
             var nwc = "";
 
-            while (currentLine != null &&!is_date(currentLine))
+            while (currentLine != null &&!Is_date(currentLine))
             {
                 nwc += $"{currentLine} ";
                 currentLine = ReadLine();
@@ -588,9 +588,9 @@ public partial class MicroBiologyFileReader
         return lines.ToArray();
     }
 
-    private bool is_date(string st)
+    private static bool Is_date(string st)
     {
-        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out _);
+        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
     }
 
 

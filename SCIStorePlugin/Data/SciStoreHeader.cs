@@ -51,7 +51,7 @@ public class SciStoreHeader
     public string hb_extract { get; set; }
 }
     
-public class SciStoreHeaderFactory 
+public static class SciStoreHeaderFactory 
 {
     public static SciStoreHeader Create(CombinedReportData combinedReport)
     {

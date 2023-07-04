@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -10,12 +9,7 @@ namespace SCIStorePlugin.Repositories;
 
 public class CombinedReportXmlDeserializer
 {
-    private readonly XmlSerializer _serializer;
-
-    public CombinedReportXmlDeserializer()
-    {
-        _serializer = new XmlSerializer(typeof (CombinedReportData));
-    }
+    private static readonly XmlSerializer Serializer = new(typeof(CombinedReportData));
 
     public CombinedReportData DeserializeFromZipEntry(ZipArchiveEntry entry, string fileLocation)
     {
@@ -23,7 +17,7 @@ public class CombinedReportXmlDeserializer
         {
             try
             {
-                return _serializer.Deserialize(stream) as CombinedReportData;
+                return Serializer.Deserialize(stream) as CombinedReportData;
             }
             catch (Exception)
             {
@@ -39,45 +33,40 @@ public class CombinedReportXmlDeserializer
         }
     }
 
-    public CombinedReportData DeserializeFromXmlString(string xml)
+    public static CombinedReportData DeserializeFromXmlString(string xml)
     {
         using var reader = new StringReader(xml);
-        return _serializer.Deserialize(reader) as CombinedReportData;
+        return Serializer.Deserialize(reader) as CombinedReportData;
     }
 
-    public string RemoveInvalidCharactersFromStream(Stream stream)
+    // The first three were found in Fife Haematology data, they are PCL escape codes
+    private static readonly ValueTuple<string, string>[] CharacterSubstitutions = new ValueTuple<string, string>[]
     {
-        // The first three were found in Fife Haematology data, they are PCL escape codes
-        var characterSubstitutions = new Dictionary<string, string>
-        {
-            {"&#x1B;(s3B", "[b]"}, // begin bold
-            {"&#x1B;(s0B", "[/b]"}, // end bold
-            {"&#x1B;(s", "[unknown|x1B;(s]"}, // looks like truncation, in original file it looked like a truncation of 'end bold',
-            {"&#x1B;", ""} // basic escape sequence, if this remains on its own then get rid of it
-        };
+        ("&#x1B;(s3B", "[b]"), // begin bold
+        ("&#x1B;(s0B", "[/b]"), // end bold
+        ("&#x1B;(s", "[unknown|x1B;(s]"), // looks like truncation, in original file it looked like a truncation of 'end bold',
+        ("&#x1B;", "") // basic escape sequence, if this remains on its own then get rid of it
+    };
 
+    public static string RemoveInvalidCharactersFromStream(Stream stream)
+    {
         using var reader = new StreamReader(stream);
         var xmlString = reader.ReadToEnd();
-        return characterSubstitutions.Aggregate(xmlString, (current, value) => current.Replace(value.Key, value.Value));
+        return CharacterSubstitutions.Aggregate(xmlString, (current, value) => current.Replace(value.Item1, value.Item2));
     }
 
-    private CombinedReportData RetryDeserializationAfterCharacterReplacement(Stream stream, string fileLocation)
+    private static CombinedReportData RetryDeserializationAfterCharacterReplacement(Stream stream, string fileLocation)
     {
-        CombinedReportData report;
-
         try
         {
             var xmlString = RemoveInvalidCharactersFromStream(stream);
 
-            var xmlSerialiser = new XmlSerializer(typeof(CombinedReportData));
-            var reader = new StringReader(xmlString);
-            report = xmlSerialiser.Deserialize(reader) as CombinedReportData;
+            using var reader = new StringReader(xmlString);
+            return Serializer.Deserialize(reader) as CombinedReportData;
         }
         catch (Exception e)
         {
             throw new Exception($"Error deserializing report, even after replacing invalid characters:{fileLocation}", e);
         }
-
-        return report;
     }
 }

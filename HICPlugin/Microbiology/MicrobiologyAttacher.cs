@@ -73,7 +73,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         foreach (var fileToLoad in LoadDirectory.ForLoading.EnumerateFiles(FilePattern))
         {
             var r = new MicroBiologyFileReader(fileToLoad.FullName);
-            r.Warning += r_Warning;
+            r.Warning += R_Warning;
             try
             {
                 foreach (var result in r.ProcessFile())
@@ -129,17 +129,16 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
     }
 
 
-    private int warningsSurrendered = 0;
+    private int _warningsSurrendered = 0;
 
-    void r_Warning(object sender, string message)
+    private void R_Warning(object sender, string message)
     {
-        if(warningsSurrendered > 100)
+        if(_warningsSurrendered++ > 100)
             throw new Exception("100 Warnings encountered... maybe there is something wrong with your file? or the programmer.... best to abort anyway till you figure out the problem");
 
         var reader = (MicroBiologyFileReader) sender;
         _currentJob.OnNotify(sender,new NotifyEventArgs(ProgressEventType.Warning,
             $"Warning encountered on line {reader.LineNumber} of file {reader.FileName} warning is:{message}"));
-        warningsSurrendered++;
     }
 
     private void BulkInsertAllDataTables()
