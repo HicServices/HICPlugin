@@ -70,8 +70,16 @@ public class DRSImageExtraction : ImageExtraction
             row[FilenameColumnName] = newFilename;
 
             // Build the extraction map
-            var uri = row[ImageUriColumnName].ToString();
-            var parts = uri.Split('!');
+            var sourceFileName = row[ImageUriColumnName].ToString();
+
+            // Fast path for pre-extracted files - JS 2023-07-10
+            if (!sourceFileName.Contains('!'))
+            {
+                File.Copy(Path.Combine(imageExtractionPath.FullName,sourceFileName),newFilename);
+                continue;
+            }
+
+            var parts = sourceFileName.Split('!');
             var archiveName = parts[0];
             var archivePath = Path.Combine(PathToImageArchive, archiveName);
             var entry = parts[1];
