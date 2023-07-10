@@ -17,7 +17,7 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 namespace HICPluginInteractive.DataFlowComponents;
 
 /// <summary>
-/// Pipeline component designed to prevent DataTable columns containing CHIs passing through the pipeline. The component will crash the entire pipeline 
+/// Pipeline component designed to prevent DataTable columns containing CHIs passing through the pipeline. The component will crash the entire pipeline
 /// if it finds columns which contain valid CHIs.
 /// </summary>
 [Description("Crashes the pipeline if any columns are suspected of containing CHIs")]
@@ -99,9 +99,9 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
 
         return toProcess;
     }
-        
 
-    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row) 
+
+    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row)
     {
         if (_activator.IsInteractive && _activator.YesNo(
                 $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))

@@ -102,7 +102,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             };
 
             source.SetPrivateVariableRetryStrategy_NunitOnly(failStrategy.Object);
-               
+
 
             // Create the cancellation token and ask the source for a chunk
             var stopTokenSource = new CancellationTokenSource();
@@ -120,7 +120,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
                     () => source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, token));
                 return;
             }
-                
+
             Assert.IsNotNull(chunk);
             Assert.AreEqual(downloadException, chunk.DownloadRequestFailedException);
 

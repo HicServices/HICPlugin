@@ -26,7 +26,7 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
 
     private readonly SqlConnection _connectionToDestination;
     private static readonly Logger Log = LogManager.GetCurrentClassLogger();
-        
+
     public SciStoreDbRepository(DatabaseHelper databaseHelper, SciStoreTableRecord targetTables, IRepository<SciStoreReport> errorRepo)
     {
         _databaseHelper = databaseHelper;
@@ -51,7 +51,7 @@ public class SciStoreDbRepository : IRepository<SciStoreReport>
         throw new NotImplementedException();
     }
 
-   
+
     private SciStoreReport DoTransform(SciStoreReport report)
     {
         var transformed = new SciStoreReport(report); // don't want to modify the original

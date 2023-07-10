@@ -76,7 +76,7 @@ public class SCIStoreDataTests
             {
                 sciStoreResult.ClinicalCircumstanceDescription = "Test for fish presence";
                 sciStoreResult.TestResultOrder = 0;
-                    
+
             }
             sciStoreSample.ResolveTestResultOrderDuplication();
         }

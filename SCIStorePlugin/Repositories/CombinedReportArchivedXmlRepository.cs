@@ -11,7 +11,7 @@ namespace SCIStorePlugin.Repositories;
 public class CombinedReportArchivedXmlRepository : IRepository<CombinedReportData>
 {
     private readonly DirectoryInfo _sourceDirectory;
-        
+
     public CombinedReportArchivedXmlRepository(DirectoryInfo sourceDirectory)
     {
         _sourceDirectory = sourceDirectory;

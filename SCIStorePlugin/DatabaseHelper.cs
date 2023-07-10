@@ -8,7 +8,7 @@ public class DatabaseHelper
     public string Database { get; set; }
 
     public string Server { get; private set; }
-        
+
     public string Username { get; }
 
     public string Password { get; }

@@ -90,7 +90,7 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
         }
     }
 
-    public IEnumerable<string> EntryNames 
+    public IEnumerable<string> EntryNames
     {
         get
         {
@@ -100,7 +100,7 @@ public class ExtractedMultiVolumeRarProvider : IArchiveProvider, IDisposable
             return Directory.EnumerateFiles(_fileDirectory);
         }
     }
-        
+
     public string Name => $"Multi-volume archive at {_archiveDirectory}";
 
     public void Dispose()

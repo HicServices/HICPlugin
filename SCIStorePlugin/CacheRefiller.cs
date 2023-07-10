@@ -92,7 +92,7 @@ public class CacheRefiller
 
             OnCacheRefillProgress(new NotifyEventArgs(ProgressEventType.Information,
                 $"Creating {zipArchiveFile.FullName}"));
-                
+
             if (zipArchiveFile.Exists)
             {
                 //throw new Exception(
@@ -104,7 +104,7 @@ public class CacheRefiller
                 using var zipFile = ZipFile.Open(zipArchiveFile.FullName, ZipArchiveMode.Update);
                 foreach (var file in dateDir.EnumerateFiles())
                 {
-                    var entry = zipFile.GetEntry(file.Name);                            
+                    var entry = zipFile.GetEntry(file.Name);
                     if (entry == null)
                         zipFile.CreateEntryFromFile(file.FullName, file.Name);
                     else

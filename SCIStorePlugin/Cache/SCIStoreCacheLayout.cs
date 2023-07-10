@@ -12,7 +12,7 @@ public class SCIStoreCacheLayout : CacheLayout
 {
 
     private readonly RootHistoryDirectory _rootHistoryDirectory;
-      
+
     public SCIStoreCacheLayout(DirectoryInfo cacheDirectory, SCIStoreLoadCachePathResolver resolver): base(cacheDirectory, "yyyy-MM-dd", CacheArchiveType.Zip, CacheFileGranularity.Day, resolver)
     {
         _rootHistoryDirectory = new RootHistoryDirectory(cacheDirectory);

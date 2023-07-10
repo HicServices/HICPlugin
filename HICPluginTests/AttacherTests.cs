@@ -450,7 +450,7 @@ public class AttacherTests : DatabaseTests
 
             var integrityChecker = new ImageIntegrityChecker();
             using var archiveProvider = new ExtractedMultiVolumeRarProvider(loadDirectory.ForLoading.FullName, ThrowImmediatelyDataLoadEventListener.Quiet);
-            var ex = Assert.Throws<InvalidOperationException>(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, imageDir.FullName, ThrowImmediatelyDataLoadEventListener.Quiet), 
+            var ex = Assert.Throws<InvalidOperationException>(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, imageDir.FullName, ThrowImmediatelyDataLoadEventListener.Quiet),
                 "The image pixel data does not match so this method should throw. Otherwise it is reporting that there is no integrity problem when there is one.");
 
             Assert.IsTrue(ex?.Message.Contains("The pixel byte array lengths are different"));
@@ -502,7 +502,7 @@ public class AttacherTests : DatabaseTests
             // Remove any test data that isn't an image file
             foreach (var imgFile in files.Except(files.Where(f => f.Extension == ".jpeg" || f.Extension == ".png")))
             {
-                imgFile.Delete();   
+                imgFile.Delete();
             }
 
             Assert.AreEqual(4, testDir.EnumerateFiles().Count());
@@ -577,7 +577,7 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-            Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(), 
+            Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(),
                 "There should be 3 zip files in the archive directory.");
 
             // Check that the ImageArchiveUriColumn has been updated in the database

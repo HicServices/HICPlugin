@@ -58,7 +58,7 @@ public class SciStoreReportFactory
     /// <param name="listener"></param>
     /// <returns></returns>
     /// <exception cref="BadCombinedReportDataException">False to issue an Exception, True to issue warning to <paramref name="listener"/> and return null </exception>
-    public SciStoreReport Create(CombinedReportData combinedReport,IDataLoadEventListener listener) 
+    public SciStoreReport Create(CombinedReportData combinedReport,IDataLoadEventListener listener)
     {   
         var sampleFactory = new SciStoreSampleFactory(_readCodeConstraint);
 
@@ -90,7 +90,7 @@ public class SciStoreReportFactory
             //if we are not ignoring bad data throw
             if (!IgnoreBadData)
                 throw new BadCombinedReportDataException(this, combinedReport, e);
-	            
+
             //we are ignoring bad data
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "Ignoring bad data", e));
             return null;

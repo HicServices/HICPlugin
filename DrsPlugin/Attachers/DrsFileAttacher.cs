@@ -15,7 +15,7 @@ using System.Linq;
 namespace DrsPlugin.Attachers;
 
 public class DrsFileAttacher : Attacher, IPluginAttacher
-{        
+{
     [DemandsInitialization("The name of the column in the manifest file which contains the names of the image files")]
     public string FilenameColumnName { get; set; }
 
@@ -311,5 +311,5 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                 $"SecureLocalScratchArea is not empty - a successful load should result in an empty directory at {SecureLocalScratchArea.FullName}"));
     }
-        
+
 }

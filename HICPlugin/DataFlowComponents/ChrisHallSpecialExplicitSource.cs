@@ -14,7 +14,7 @@ public class ChrisHallSpecialExplicitSource : ExecuteDatasetExtractionSource
 {
     [DemandsInitialization("The database you want a using statement put in front of")]
     public string DatabaseToUse { get; set; }
-        
+
     [DemandsInitialization("The collation you want injected into join SQL")]
     public string Collation { get; set; }
 
@@ -36,9 +36,9 @@ public class ChrisHallSpecialExplicitSource : ExecuteDatasetExtractionSource
 
     [DemandsInitialization(@"If you have an ANOWrapFunction function then columns matching this regex will also get wrapped")]
     public StandardRegex AlsoANORegex { get; set; }
-        
+
     public override string HackExtractionSQL(string sql, IDataLoadEventListener listener)
-    { 
+    {
         var sb = new StringBuilder();
 
         if(!string.IsNullOrWhiteSpace(Collation))
@@ -68,14 +68,14 @@ public class ChrisHallSpecialExplicitSource : ExecuteDatasetExtractionSource
         {
             if (queryTimeColumn.UnderlyingColumn is { ANOTable_ID: { } })
                 ApplyANOWrap(queryTimeColumn, listener);
-            else 
+            else
             if(regex?.IsMatch(queryTimeColumn.IColumn.GetRuntimeName()) == true)
                 ApplyANOWrap(queryTimeColumn, listener);
             else
                 listener.OnNotify(this,
                     new NotifyEventArgs(ProgressEventType.Information, $"No Match:{queryTimeColumn}"));
         }
-            
+
         Request.QueryBuilder.RegenerateSQL();
     }
 
@@ -92,8 +92,8 @@ public class ChrisHallSpecialExplicitSource : ExecuteDatasetExtractionSource
 
         var runtimeName = queryTimeColumn.IColumn.GetRuntimeName();
 
-        ec.SelectSQL = string.Format(ANOWrapFunction, queryTimeColumn.IColumn.SelectSQL, 
-            queryTimeColumn.UnderlyingColumn.GetRuntimeName(), 
+        ec.SelectSQL = string.Format(ANOWrapFunction, queryTimeColumn.IColumn.SelectSQL,
+            queryTimeColumn.UnderlyingColumn.GetRuntimeName(),
             Request.Salt.GetSalt());
 
         if(string.IsNullOrWhiteSpace(queryTimeColumn.IColumn.Alias))

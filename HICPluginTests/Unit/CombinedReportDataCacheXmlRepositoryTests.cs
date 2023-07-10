@@ -16,7 +16,7 @@ internal class CombinedReportDataCacheXmlRepositoryTests
         var dir = new DirectoryInfo(Path.Combine(TestContext.CurrentContext.TestDirectory, "bleh"));
         dir.Create();
 
-        var layout = new SCIStoreCacheLayout( dir, 
+        var layout = new SCIStoreCacheLayout( dir,
             new SCIStoreLoadCachePathResolver(HealthBoard.T, Discipline.Biochemistry));
 
         var repo = new CombinedReportDataCacheXmlRepository(layout);

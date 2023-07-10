@@ -41,7 +41,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
     public bool AuditFailureAndMoveOn { get; set; }
 
     private IRetryStrategy _retryStrategy;
-        
+
     // made public so the type of Downloader can be mocked/stubbed for testing purpose
     public IRepositorySupportsDateRangeQueries<CombinedReportData> Downloader { get; set; }
 
@@ -54,7 +54,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
             $"About to request chunk for {HealthBoard} {Discipline} on {Request.Start}"));
 
         CheckObjectIsValid(listener);
-            
+
         if (Request.IsRetry)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "(this is a retry attempt)"));
 
@@ -157,7 +157,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
     }
 
     private readonly Stopwatch _downloadTimer = new();
-        
+
 
     private void CheckObjectIsValid(IDataLoadEventListener listener)
     {

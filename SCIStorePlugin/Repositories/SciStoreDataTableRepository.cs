@@ -120,7 +120,7 @@ public class SciStoreDataTableRepository : IRepository<SciStoreReport>
             var queryParts = new List<string>();
             foreach (var column in dataTable.PrimaryKey)
                 queryParts.Add($"{column.ColumnName} = '{row[column.ColumnName]}'");
-                
+
             var existing = dataTable.Select(string.Join(" AND ", queryParts)).Single();
             var message =
                 $"Data Table already contains: {Environment.NewLine}{DataRowToStringWithoutCHI(existing)}{Environment.NewLine}{Environment.NewLine}**REPLACING WITH **: {Environment.NewLine}{DataRowToStringWithoutCHI(row)}";

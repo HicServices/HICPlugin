@@ -23,10 +23,10 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     private const bool VERBOSE = false;
 
     public IPermissionWindow PermissionWindow { get; set; }
-        
+
     public int ResultsFetchedSoFar { get; private set; }
     public int NumReportsForInterval { get; private set; }
-        
+
     private readonly SCIStoreServicesClient _client;
     private readonly Discipline _discipline;
     private readonly HealthBoard _healthBoard;
@@ -93,7 +93,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
             // retry once then fail
             OnNotify($"Initial login attempt failed: {e.Message}");
             OnNotify("Retrying...");
-                
+
             // Don't bother to catch the exception this time as we will let someone further up the chain decide what to do
             Login(_client, WsConfig);
         }
@@ -234,7 +234,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
                 return null;
 
             token.ThrowIfAbortRequested();
-                
+
             // todo: we may want to catch the LabReportRetrievalFailureException here and initiate a retry
             report.InvestigationReport = RetrieveInvestigationReportForResult(report.SciStoreRecord);
 
@@ -284,14 +284,14 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
 #pragma warning disable CS0162
             OnNotify("Logging in to web service");
 #pragma warning restore CS0162
-            
+
         //todo add timeout here and anywhere else you do Login
         var response = client.Login(new Login
         {
             Username = wsConfig.Username,
             Password = wsConfig.GetDecryptedPassword()
         });
-            
+
         if (string.IsNullOrEmpty(response.Token))
             throw new WebServiceLoginFailureException(
                 $"Can't login to SCIStore endpoint '{wsConfig.Endpoint}' with user={wsConfig.Username} (check caching pipeline configuration for password)");
@@ -300,7 +300,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
 #pragma warning disable CS0162
             OnNotify("Creating credentials");
 #pragma warning restore CS0162
-            
+
         _cred = new Credentials
         {
             Token = response.Token,
@@ -326,7 +326,7 @@ public class WebServiceRetrievalFailure : Exception
 {
     public DateTime Day { get; private set; }
     public TimeSpan TimeSpan { get; private set; }
-    
+
     public WebServiceRetrievalFailure(DateTime day, TimeSpan timeSpan, Exception innerException = null) : base ("Failed to retrieve data from the web service", innerException)
     {
         Day = day;

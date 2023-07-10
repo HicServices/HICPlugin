@@ -50,8 +50,8 @@ public class SciStoreHeader
     public string Discipline { get; set; }
     public string hb_extract { get; set; }
 }
-    
-public static class SciStoreHeaderFactory 
+
+public static class SciStoreHeaderFactory
 {
     public static SciStoreHeader Create(CombinedReportData combinedReport)
     {
@@ -72,7 +72,7 @@ public static class SciStoreHeaderFactory
             Discipline = reportData.Discipline,
             CHI = CleanCHI(combinedReportHeader.CHI),
             hb_extract = combinedReport.HbExtract,
-                
+
             //ClinicalDataRequired is ok to be null? TN
             ClinicalDataRequired = reportData.ServiceRequest.ClinicalDataRequired == null ? null : string.Join(" ", reportData.ServiceRequest.ClinicalDataRequired)
         };
@@ -119,7 +119,7 @@ public static class SciStoreHeaderFactory
         var report = combinedReport.InvestigationReport;
         var reportData = report.ReportData;
 
-        if (reportData.Discipline.Equals("Biochemistry") 
+        if (reportData.Discipline.Equals("Biochemistry")
             && !combinedReportHeader.LabNumber.StartsWith("C")
             && !combinedReportHeader.LabNumber.StartsWith("POC"))
             throw new Exception($"Malformed (or otherwise unexpected) LabNumber: {combinedReportHeader.LabNumber}");

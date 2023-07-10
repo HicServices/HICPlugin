@@ -32,7 +32,7 @@ public class SciStoreSample
     public string SampleRequesterComment { get; set; }
     public string ServiceProviderComment { get; set; }
     public string TestIdentifier { get; set; }
-        
+
     // Denormalised from TestSetDetails
     public string TestSet_ClinicalCircumstanceDescription { get; set; }
     public string TestSet_ReadCodeValue { get; set; }
@@ -43,12 +43,12 @@ public class SciStoreSample
     public string TestSet_LocalClinicalCodeScheme { get; set; }
     public string TestSet_LocalClinicalCodeSchemeId { get; set; }
     public string TestSet_LocalClinicalCodeDescription { get; set; }
-        
+
     [NoMappingToDatabase]
     public TestSet TestSetDetails { get; set; }
     [NoMappingToDatabase]
     public ICollection<SciStoreResult> Results { get; set; }
-        
+
     public void PopulateDenormalisedTestSetDetailsFields()
     {
         TestSet_ClinicalCircumstanceDescription = TestSetDetails.ClinicalCircumstanceDescription;
@@ -71,7 +71,7 @@ public class SciStoreSample
             TestSet_LocalClinicalCodeDescription = code.Description;
         }
     }
-        
+
     public int ResolveTestResultOrderDuplication()
     {
         var resolutions = 0;
@@ -80,7 +80,7 @@ public class SciStoreSample
         if(Results is List<SciStoreResult> toWorkOn)
         {
             toWorkOn.Sort();
-            
+
 
             for (var index = Results.Count-2; index >= 0; index--)
             {
@@ -125,7 +125,7 @@ public class SciStoreSample
     }
 }
 
-public class SciStoreSampleFactory 
+public class SciStoreSampleFactory
 {
     private readonly ReferentialIntegrityConstraint _readCodeConstraint;
 

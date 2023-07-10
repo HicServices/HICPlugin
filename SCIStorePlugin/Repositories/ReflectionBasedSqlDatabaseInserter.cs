@@ -66,7 +66,7 @@ public static class ReflectionBasedSqlDatabaseInserter
             $"INSERT INTO {databaseName}..{tableName} ({string.Join(",", resultColumnNames)}) VALUES {string.Join(",", valueStrings)}";
     }
 
-        
+
     public static string MakeInsertSql<T>(T header, string databaseName, string tableName,
         string idColumnName = null)
     {

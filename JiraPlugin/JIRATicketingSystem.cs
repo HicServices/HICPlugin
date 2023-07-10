@@ -30,7 +30,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
     {
            
     }
-        
+
     public override void Check(ICheckNotifier notifier)
     {
         if (Credentials == null)
@@ -58,7 +58,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
         try
         {
             var projects = _client.GetProjectNames();
-                
+
             notifier.OnCheckPerformed(new CheckEventArgs($"Found {projects.Count} projects",
                 projects.Count == 0 ? CheckResult.Warning : CheckResult.Success));
         }
@@ -151,7 +151,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             reason = "Problem occurred getting the status of the release ticket or the attachemnts stored under the request ticket";
             exception = e;
             return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
-                
+
         }
 
         //if it isn't at required status

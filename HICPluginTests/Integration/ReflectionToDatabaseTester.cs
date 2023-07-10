@@ -13,7 +13,7 @@ public class ReflectionToDatabaseTester : DatabaseTests
     {
         public string Field1 { get; set; }
     }
-        
+
     [Test]
     public void SendValidDomainObject()
     {

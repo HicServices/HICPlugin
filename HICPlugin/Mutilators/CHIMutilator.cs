@@ -18,7 +18,7 @@ public class CHIMutilator:IPluginMutilateDataTables
 
     [DemandsInitialization("The CHI column you want to mutilate based on")]
     public ColumnInfo ChiColumn { get; set; }
-        
+
     [DemandsInitialization("If true, program will attempt to add zero to the front of 9 digit CHIs prior to running the CHI validity check", Mandatory = true, DefaultValue = true)]
     public bool TryAddingZeroToFront { get; set; }
 
@@ -27,7 +27,7 @@ public class CHIMutilator:IPluginMutilateDataTables
 
     [DemandsInitialization("Columns failing validation will have this consequence applied to them", Mandatory=true, DefaultValue = MutilationAction.CrashDataLoad)]
     public MutilationAction FailedRows { get; set; }
-        
+
 
     public void Check(ICheckNotifier notifier)
     {
@@ -46,7 +46,7 @@ public class CHIMutilator:IPluginMutilateDataTables
         _dbInfo = dbInfo;
         _loadStage = loadStage;
     }
-        
+
     private static string DropCHIFunctionIfExists()
     {
         return @"IF OBJECT_ID('dbo.checkCHI') IS NOT NULL

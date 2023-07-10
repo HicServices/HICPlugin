@@ -21,7 +21,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
 
     [DemandsInitialization("The 'header' table which contains all the lab details e.g. CHI, SampleDate, Clinician etc")]
     public TableInfo LabTable { get; set; }
-        
+
     [DemandsInitialization("The 'results' table which contains all the different results for each header lab details (TestCode and ResultCode)")]
     public TableInfo TestsTable { get; set; }
 
@@ -53,7 +53,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             
     }
 
-    private readonly Dictionary<Type,PropertyInfo[]> _propertyCache = new(); 
+    private readonly Dictionary<Type,PropertyInfo[]> _propertyCache = new();
     private readonly Dictionary<TableInfo, DataTable> _dataTables = new();
     private readonly Dictionary<PropertyInfo,int>  _lengthsDictionary = new();
     private IDataLoadJob _currentJob;
@@ -118,7 +118,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
 
             job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Information,
                 $"About to bulk insert the records read from file {fileToLoad.Name}"));
-            //bulk insert all data from the file we just processed 
+            //bulk insert all data from the file we just processed
             BulkInsertAllDataTables();
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Bulk insert succesful{fileToLoad.Name}"));
@@ -148,7 +148,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             var targetTableName = tableInfo.GetRuntimeName(LoadStage.Mounting);
 
             var tbl = _dbInfo.ExpectTable(targetTableName);
-                
+
             try
             {
                 using var blk = tbl.BeginBulkInsert();
@@ -159,7 +159,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
             {
                 throw new Exception($"Failed to bulk insert into table {targetTableName}",e);
             }
-                
+
             dataTable.Clear();
         }
     }
@@ -208,7 +208,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
         foreach (var prop in _propertyCache[t])
         {
 
-            //if it is nullable type 
+            //if it is nullable type
             if(prop.PropertyType.IsGenericType && prop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
                 toReturn.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);//give it underlying type
             else
@@ -220,7 +220,7 @@ public class MicrobiologyAttacher : Attacher, IPluginAttacher
 
     }
 
-        
+
 
     public override void Check(ICheckNotifier notifier)
     {

@@ -61,7 +61,7 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
             {
                 ReportData = new InvestigationReportMessageType
                 {
-                        
+
                 }
             }
         };
@@ -72,7 +72,7 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
         try
         {
             var fetchRequest = new Moq.Mock<ICacheFetchRequest>().Object;
-                
+
             var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)
             {
                 HealthBoard = HealthBoard.T,
@@ -93,8 +93,8 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
         finally
         {
             Directory.Delete(deleteMe.RootPath.FullName,true);
-                
+
         }
     }
-        
+
 }

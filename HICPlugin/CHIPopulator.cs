@@ -27,7 +27,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
     private const string ChiServiceUrl = "https://hic.tayside.scot.nhs.uk/hicdemographylookupservice/api/CHILookup";
     //private const string ChiServiceUrl = "http://localhost:63804/api/CHILookup";
 
-    [DemandsInitialization("The table containing demographical information and a CHI column that requires to be populated")] 
+    [DemandsInitialization("The table containing demographical information and a CHI column that requires to be populated")]
     public TableInfo TargetTable { get; set; }
 
     protected abstract IHasRuntimeName GetSurname { get; }
@@ -47,7 +47,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
     protected abstract IHasRuntimeName GetOtherAddressLine4 { get; }
     protected abstract IHasRuntimeName GetOtherPostcode { get; }
 
-        
+
     public bool DisposeImmediately { get; set; }
 
     private string _forename;
@@ -76,7 +76,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
     //populated during initialization
     private DiscoveredDatabase _dbInfo;
-        
+
     private string[] _pks; //used to update PersonID and CHI on a per row basis
     private LoadStage _loadStage;
 
@@ -135,7 +135,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
                 sql += $"{_dateOfBirth},";
             if (_sex != null)
                 sql += $"{_sex},";
-                
+
             if (_postcode != null)
                 sql += $"{_postcode},";
             if (_addressLine1 != null)
@@ -187,7 +187,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
                         chijob.Forename = r[_forename] as string;
                     if (_surname != null)
                         chijob.Surname = r[_surname] as string;
-                            
+
                     if (_dateOfBirth != null)
                         if (r[_dateOfBirth] != DBNull.Value)
                             chijob.DateOfBirth = Convert.ToDateTime(r[_dateOfBirth]);
@@ -224,9 +224,9 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
 
                     if (validationResult.Result == ValidationCategory.InsufficientData)
                         continue;
-                            
+
                     var response = client.PostAsync(ChiServiceUrl, new StringContent(JsonSerializer.Serialize(chijob), Encoding.UTF8, "application/json")).Result.Content;
-                            
+
                     var result = JsonSerializer.Deserialize<DemographyLookupResponse>(response.ReadAsStringAsync().Result);
 
 
@@ -249,13 +249,13 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
                 doneSoFar++;
                 job.OnProgress(this, new ProgressEventArgs("Read demography records for AutoCHI service", new ProgressMeasurement(doneSoFar, ProgressType.Records), clock.Elapsed));
             }
-        } finally 
+        } finally
         {
             AppDomain.CurrentDomain.AssemblyResolve -= CurrentDomain_AssemblyResolve;
             con.Close();
 
             updaterConnection.Close();
-                     
+
         }
         return ExitCodeType.Success;
     }
@@ -365,7 +365,7 @@ public abstract class CHIPopulator : IPluginMutilateDataTables
     public string DatabaseServer { get; private set; }
     public string DatabaseName { get; private set; }
 
-        
+
 
     public void Check(ICheckNotifier notifier)
     {

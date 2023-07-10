@@ -10,6 +10,6 @@ namespace SCIStorePlugin.DataProvider.RetryStrategies;
 public interface IRetryStrategy
 {
     IEnumerable<CombinedReportData> Fetch(DateTime dateToFetch, TimeSpan interval, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken);
-        
+
     IRepositorySupportsDateRangeQueries<CombinedReportData> WebService { get; set; }
 }

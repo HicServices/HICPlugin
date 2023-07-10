@@ -106,7 +106,7 @@ public partial class ReadCodeAttacher:IPluginAttacher
         return ExitCodeType.Success;
     }
 
-        
+
 
     public void Check(ICheckNotifier notifier)
     {
@@ -148,14 +148,14 @@ public partial class ReadCodeAttacher:IPluginAttacher
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
 
-                //split by pipes 
+                //split by pipes
                 var strings = line.Split(new []{separator},StringSplitOptions.RemoveEmptyEntries);
 
                 //make sure there are enough columns in the data table
                 if (strings.Length > MaxAdditionalCrudColumns +1)
                     throw new Exception(
                         $"Found {strings.Length} columns in file {file.Name} but had only allocated space for {MaxAdditionalCrudColumns} crud columns (Column1,2,3 etc) + ReadCode");
-                    
+
                 //if it is nothing but dots, ignore it.
                 if (AllDots().IsMatch(strings[0]))
                 {
@@ -170,10 +170,10 @@ public partial class ReadCodeAttacher:IPluginAttacher
                 if (strings[0].Length > maxReadCodeLength)
                     throw new Exception(
                         $"Found readcode {strings[0]} in file {file.Name} which is too big to fit in database which has a column called ReadCode with length {maxReadCodeLength}");
-                    
+
                 if (file.Name.Equals("Gpiset.v3"))
                 {
-                    //this extra special file has GP|somereadcode|someother randomstuff 
+                    //this extra special file has GP|somereadcode|someother randomstuff
                     //instead of the expected somereadcode|somerandomstuff
                     //so for this file only, take element 1 instead of element 0 (LIKE ALLL THE OTHER FILES!)
                     dr["ReadCode"] = strings[1];
@@ -206,9 +206,9 @@ public partial class ReadCodeAttacher:IPluginAttacher
     {
 
     }
-        
+
     public ILoadDirectory LoadDirectory { get; set; }
-        
+
     public bool RequestsExternalDatabaseCreation => true;
 
     public void Initialize(ILoadDirectory hicProjectDirectory, DiscoveredDatabase dbInfo)

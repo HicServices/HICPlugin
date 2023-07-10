@@ -19,7 +19,7 @@ public class SourceArchiveTests
             // Create some fake directories and files
             var subdir1 = rootDir.CreateSubdirectory("Subdir1");
             var subdir2 = rootDir.CreateSubdirectory("Subdir2");
-                
+
             File.WriteAllText(Path.Combine(subdir1.FullName, "file1.txt"), "test");
             File.WriteAllText(Path.Combine(subdir1.FullName, "file2.txt"), "");
             File.WriteAllText(Path.Combine(subdir2.FullName, "file3.txt"), "");
@@ -27,7 +27,7 @@ public class SourceArchiveTests
 
             var archiveProvider = new FilesystemArchiveProvider(rootDirPath, new[] {".txt"}, ThrowImmediatelyDataLoadEventListener.Quiet);
             var entryNames = archiveProvider.EntryNames.ToList();
-                
+
             Assert.IsTrue(entryNames.Contains("file1.txt"));
             Assert.IsTrue(entryNames.Contains("file2.txt"));
             Assert.IsTrue(entryNames.Contains("file3.txt"));

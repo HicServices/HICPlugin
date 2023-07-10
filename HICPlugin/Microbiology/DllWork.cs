@@ -9,7 +9,7 @@ namespace HICPlugin.Microbiology;
 
 public interface IMicrobiologyResultRecord
 {
-        
+
 }
 
 internal class MicrobiologyHelper
@@ -36,13 +36,13 @@ public class MB_Tests : IMicrobiologyResultRecord
         var data = MicrobiologyHelper.SplitByWhitespace(fromLine);
 
 
-        //line should look something like 
+        //line should look something like
         //BCOM                    P
         //but could equally be
         //NBC                     GPC ( ? STAPH )
         //notice the spam of spaces in NBC result, that is why we have to aggregate
-            
-            
+
+
         SpecimenNo = parent.SpecimenNo;
         TestCode = data[0];//first array element enters as the Test Code
 
@@ -132,7 +132,7 @@ public class MB_IsolationsCollection
     private int spawnCounter = 0;
 
     /// <summary>
-    /// Input file comes in as 
+    /// Input file comes in as
     /// 
     ///$CULT                   SMAR|P|Y|Y
     ///$CULT                   PAER|P|Y|Y
@@ -215,8 +215,8 @@ public partial class MicroBiologyFileReader
 {
 
     private readonly TextReader _textReader;
-       
-       
+
+
     /// <summary>
     /// file name being currently loaded, can be accessed during enumeration of ProcessFile to find out more about the error location
     /// </summary>
@@ -290,7 +290,7 @@ public partial class MicroBiologyFileReader
                         yield return new MB_Tests(lab, randomCrud);
                     else
                         testComments += $"{randomCrud} "; //otherwise it's probably a comment <- scientific!
-                      
+
                 }
                 else
                     //anything that doesn't start with a $ is a specimen
@@ -313,7 +313,7 @@ public partial class MicroBiologyFileReader
                     //$CULT                   NHEC                            --NoIsolation
                     //or
                     //$CULT                   MANA|P|Y|Y                      --Isolation which means a culture with known sens blocks, which will appear further down file
-                    //or 
+                    //or
                     //$SENS                   NYS                             --Sens Block A --matches the MANA above (you can tell it matches the MANA because it has pipes in it... yes that's how wacky this file is)
                     //                        MET
                     //$SENS                   r                               --Sens Block B1
@@ -406,7 +406,7 @@ public partial class MicroBiologyFileReader
                                         haveComplainedAboutSpawning = true;
 
                                     }
-                                      
+
                                 }
                                 else
                                 {
@@ -414,7 +414,7 @@ public partial class MicroBiologyFileReader
 
                                     try
                                     {
-                                          
+
                                         spawn = isolationCollections[blockCounter].SpawnResultWithBlockBString(currentLine);
                                     }
                                     catch (Exception e)
@@ -440,7 +440,7 @@ public partial class MicroBiologyFileReader
 
                             //read next line
                             currentLine = ReadLine();
-                              
+
                             //deal with what is on the new line - decide if we have transitioned ino BlockB and if we are missing data -- expected a block but transitioned into something else
                             if(currentLine.StartsWith("$SENS"))
                                 if (areInBlockA)
@@ -452,12 +452,12 @@ public partial class MicroBiologyFileReader
                                 }
                         }
 
-                                     
+
                         end_of_tests = true;
                     }
                 }
 
-                if (!end_of_tests) 
+                if (!end_of_tests)
                     currentLine = ReadLine();
             }
 
@@ -508,7 +508,7 @@ public partial class MicroBiologyFileReader
 
             //yield result
             yield return lab;
-              
+
             //if there are no more to come in file, stop
             if (specimen == null)
                 break;
@@ -516,7 +516,7 @@ public partial class MicroBiologyFileReader
          
     }
 
-       
+
     private string ReadLine()
     {
         LineNumber++;
@@ -541,7 +541,7 @@ public partial class MicroBiologyFileReader
         return string.IsNullOrWhiteSpace(readLine) ? null : readLine.Trim();
     }
 
-       
+
     /// <summary>
     /// This reads lines at the end of the record until the start of the next record is detected
     /// When this happens the specimen number at the start of the next record is saved
@@ -580,7 +580,7 @@ public partial class MicroBiologyFileReader
             //if last line was blank and this line is blank too then stop adding blanks to the damn list!
             if (last_line_blank && st == "")
                 continue;
-             
+
             //add line to array of lines to return
             lines.Add(st);
             last_line_blank = st == "";

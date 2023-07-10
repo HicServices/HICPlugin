@@ -52,7 +52,7 @@ public class FilesystemArchiveProvider : IArchiveProvider
         return _fileList?.Length??0;
     }
 
-    public IEnumerable<KeyValuePair<string, MemoryStream>> EntryStreams 
+    public IEnumerable<KeyValuePair<string, MemoryStream>> EntryStreams
     {
         get
         {
@@ -82,7 +82,7 @@ public class FilesystemArchiveProvider : IArchiveProvider
         }
     }
 
-    public IEnumerable<string> EntryNames 
+    public IEnumerable<string> EntryNames
     {
         get
         {

@@ -13,8 +13,8 @@ using Rdmp.Core.Curation;
 namespace HICPlugin;
 
 /// <summary>
-/// Overrides the default crash behaviour of the RDMP which is to leave remnants (RAW/STAGING) intact for inspection debugging.  This component will predict the staging database and then 
-/// nuke it 
+/// Overrides the default crash behaviour of the RDMP which is to leave remnants (RAW/STAGING) intact for inspection debugging.  This component will predict the staging database and then
+/// nuke it
 /// </summary>
 class CrashOverride : IPluginAttacher
 {
@@ -24,7 +24,7 @@ class CrashOverride : IPluginAttacher
     [DemandsInitialization("Attempts to delete all tables relevant to the load in STAGING database in the even that the data load crashes", DemandType.Unspecified, true)]
     public bool BurnSTAGING { get; set; }
 
-        
+
     private DiscoveredDatabase _stagingDatabase;
     readonly List<string> _stagingTableNamesToNuke = new();
 

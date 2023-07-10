@@ -74,7 +74,7 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
 
             if (report.HbExtract == null)
                 throw new Exception($"Lab {report.SciStoreRecord.LabNumber} has no HbExtract tag");
-                
+
             reports.Add(report);
         }
     }
@@ -136,7 +136,7 @@ public class CombinedReportDataCacheXmlRepository : IRepository<CombinedReportDa
 
                 var path = Path.Combine(reportDir.FullName, SCIStoreLoadCachePathResolver.GetFilename(report));
 
-                    
+
 
                 //write results to file
                 var sw = new StringWriter();

@@ -140,8 +140,8 @@ public class SciStoreResult : IComparable
         return true;
     }
 }
-    
-public partial class SciStoreResultFactory 
+
+public partial class SciStoreResultFactory
 {
     private readonly ReferentialIntegrityConstraint _readCodeConstraint;
 

@@ -11,7 +11,7 @@ public class SCIStoreLoadCachePathResolver : ILoadCachePathResolver
 {
     private readonly HealthBoard _healthBoard;
     private readonly Discipline _discipline;
-        
+
     public SCIStoreLoadCachePathResolver(HealthBoard healthboard, Discipline discipline)
     {
         _healthBoard = healthboard;

@@ -37,7 +37,7 @@ public partial class ForceHICTableNamingConventionForProjects : IPluginDataFlowC
                 $"TableInfo {target} does not match hic regex for naming conventions of project/group data ({NamingConvention})"));
     }
 
-        
+
     public void Check(ICheckNotifier notifier)
     {
             
