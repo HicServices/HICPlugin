@@ -9,6 +9,9 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+  <PropertyGroup>
+    <SGenTypes>SCIStorePlugin.Data.SciStoreReport;SCIStorePlugin.Data.CombinedReportData</SGenTypes>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="Service References\SciStoreServices81\Reference.cs">
       <AutoGen>True</AutoGen>
