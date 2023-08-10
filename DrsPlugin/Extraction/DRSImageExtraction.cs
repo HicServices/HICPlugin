@@ -66,6 +66,7 @@ public class DRSImageExtraction : ImageExtraction
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
+            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
 
             // Build the extraction map
             var sourceFileName = row[ImageUriColumnName].ToString();
@@ -87,7 +88,7 @@ public class DRSImageExtraction : ImageExtraction
                 extractionMap.Add(archivePath, new Dictionary<string, string>());
             }
 
-            extractionMap[archivePath].Add(entry, Path.Combine(imageExtractionPath.FullName, newFilename));
+            extractionMap[archivePath].Add(entry, newFilename);
         }
 
         // Now extract the images from the archives
