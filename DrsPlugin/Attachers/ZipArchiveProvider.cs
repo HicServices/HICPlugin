@@ -33,7 +33,7 @@ public class ZipArchiveProvider : IArchiveProvider
     private static MemoryStream ReadImageBytesFromEntry(ZipArchiveEntry entry)
     {
         using var inputStream = entry.Open();
-        using var outputStream = new MemoryStream();
+        var outputStream = new MemoryStream();
         inputStream.CopyTo(outputStream);
         outputStream.Seek(0, SeekOrigin.Begin);
         return outputStream;
