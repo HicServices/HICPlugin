@@ -43,14 +43,14 @@ public class ExtractionTests : DatabaseTests
 
         var replacer = new DRSFilenameReplacer(extractionIdentifierColumn.Object, "Image_Filename");
 
-        Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", replacer.GetCorrectFilename(dataset.Rows[0]));
+        Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0]));
     }
 
     [Test]
     public void ExtractionTestWithZipArchive()
     {
         var tempDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), "1"));
-        File.WriteAllText(Path.Combine(tempDir.FullName, "2_P12345_2016-05-07_RM_1_PW1024_PH768.png"), "");
+        File.WriteAllText(Path.Combine(tempDir.FullName, "2_P12345_2016-05-07_1.png"), "");
 
         var archiveDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
         var archiveSubdir = archiveDir.CreateSubdirectory("1");
@@ -59,7 +59,7 @@ public class ExtractionTests : DatabaseTests
         var rootDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
         LoadDirectory.CreateDirectoryStructure(rootDir, "DRS");
         var projDir = Path.Combine(rootDir.FullName, "DRS");
-            
+
         var identifierMap = new DataTable("IdentifierMap");
         identifierMap.Columns.Add("PrivateID");
         identifierMap.Columns.Add("ReleaseID");
@@ -74,7 +74,7 @@ public class ExtractionTests : DatabaseTests
         dataset.Columns.Add("Pixel_Height");
         dataset.Columns.Add("Image_Filename");
         dataset.Columns.Add("ImageArchiveUri");
-        dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_RM_1_PW1024_PH768.png", @"1\1.zip!2_P12345_2016-05-07_RM_1_PW1024_PH768.png");
+        dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_1.png", @"1\1.zip!2_P12345_2016-05-07_1.png");
 
         try
         {
@@ -99,7 +99,7 @@ public class ExtractionTests : DatabaseTests
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
             Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", imageFiles[0].Name);
+            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
 
             Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
         }
@@ -116,7 +116,7 @@ public class ExtractionTests : DatabaseTests
     public void ExtractionTestWithTarArchive()
     {
         var tempDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName(), "1"));
-        var imagePath = Path.Combine(tempDir.FullName, "2_P12345_2016-05-07_RM_1_PW1024_PH768.png");
+        var imagePath = Path.Combine(tempDir.FullName, "2_P12345_2016-05-07_1.png");
         File.WriteAllText(imagePath, "");
 
         var archiveDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
@@ -150,7 +150,7 @@ public class ExtractionTests : DatabaseTests
         dataset.Columns.Add("Pixel_Height");
         dataset.Columns.Add("Image_Filename");
         dataset.Columns.Add("ImageArchiveUri");
-        dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_RM_1_PW1024_PH768.png", @"1\1.tar!2_P12345_2016-05-07_RM_1_PW1024_PH768.png");
+        dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_1.png", @"1\1.tar!2_P12345_2016-05-07_1.png");
 
         try
         {
@@ -175,7 +175,7 @@ public class ExtractionTests : DatabaseTests
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
             Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", imageFiles[0].Name);
+            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
 
             Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
         }
@@ -272,7 +272,7 @@ public class ExtractionTests : DatabaseTests
                 r.Directory==extractionDirectory.Object &&
                 r.ExtractableCohort==cohort.Object &&
                 r.QueryBuilder==queryBuilder.Object
-        ); 
+        );
         return request;
     }
 }

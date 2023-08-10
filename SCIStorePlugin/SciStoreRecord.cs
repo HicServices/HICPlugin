@@ -12,21 +12,21 @@ public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEqu
     public string LabNumber
     {
         get => _labNumber;
-        init => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
         get => _testReportId;
-        init => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
+        set => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string ReportType;
     public string patientid;
     public string testid;
     public string name;
-    private readonly string _labNumber;
-    private readonly string _testReportId;
+    private string _labNumber;
+    private string _testReportId;
 
     [MemberwiseEqualityIgnore]
     public string Dept { get; set; }
