@@ -17,14 +17,14 @@ public class SciStoreHeader
 
     public string LabNumber
     {
-        get { return _labNumber; }
-        set { _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _labNumber;
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
-        get { return _testReportId; }
-        set { _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _testReportId;
+        set => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string PatientID { get; set; }

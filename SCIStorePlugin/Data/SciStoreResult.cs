@@ -15,14 +15,14 @@ public class SciStoreResult : IComparable
     private string _testReportID;
     public string LabNumber
     {
-        get { return _labNumber; }
-        set { _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _labNumber;
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
-        get { return _testReportID; }
-        set { _testReportID = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _testReportID;
+        set => _testReportID = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestIdentifier { get; set; }

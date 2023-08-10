@@ -4,13 +4,7 @@ namespace SciStoreApplication.Properties
     {
         private static readonly Settings defaultInstance = ((Settings)Synchronized(new Settings()));
 
-        public static Settings Default
-        {
-            get
-            {
-                return defaultInstance;
-            }
-        }
+        public static Settings Default => defaultInstance;
 
         public string FriendlyName { get; set; }
         public string SystemCode { get; set; }
@@ -228,10 +222,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Username
             {
-                get
-                {
-                    return usernameField;
-                }
+                get => usernameField;
                 set
                 {
                     usernameField = value;
@@ -243,10 +234,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Password
             {
-                get
-                {
-                    return passwordField;
-                }
+                get => passwordField;
                 set
                 {
                     passwordField = value;
@@ -258,10 +246,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -300,10 +285,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionField
             {
-                get
-                {
-                    return subscriptionFieldField;
-                }
+                get => subscriptionFieldField;
                 set
                 {
                     subscriptionFieldField = value;
@@ -315,10 +297,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SubscriptionValue
             {
-                get
-                {
-                    return subscriptionValueField;
-                }
+                get => subscriptionValueField;
                 set
                 {
                     subscriptionValueField = value;
@@ -330,10 +309,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -374,10 +350,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
                     subscriptionIDField = value;
@@ -389,10 +362,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SubscriptionType
             {
-                get
-                {
-                    return subscriptionTypeField;
-                }
+                get => subscriptionTypeField;
                 set
                 {
                     subscriptionTypeField = value;
@@ -405,10 +375,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public SubscriptionFieldInfo[] SubscriptionFieldList
             {
-                get
-                {
-                    return subscriptionFieldListField;
-                }
+                get => subscriptionFieldListField;
                 set
                 {
                     subscriptionFieldListField = value;
@@ -420,10 +387,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -468,10 +432,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultSetID
             {
-                get
-                {
-                    return resultSetIDField;
-                }
+                get => resultSetIDField;
                 set
                 {
                     resultSetIDField = value;
@@ -483,10 +444,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
                     reportDateField = value;
@@ -498,10 +456,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public QUANTIFIABLE_RESULT_TYPE TestResult
             {
-                get
-                {
-                    return testResultField;
-                }
+                get => testResultField;
                 set
                 {
                     testResultField = value;
@@ -513,10 +468,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool HasComments
             {
-                get
-                {
-                    return hasCommentsField;
-                }
+                get => hasCommentsField;
                 set
                 {
                     hasCommentsField = value;
@@ -528,10 +480,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public bool ResultAbnormal
             {
-                get
-                {
-                    return resultAbnormalField;
-                }
+                get => resultAbnormalField;
                 set
                 {
                     resultAbnormalField = value;
@@ -543,10 +492,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -593,10 +539,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MeasurementRange", typeof(RANGE_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -608,10 +551,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public INTERVAL_TYPE MeasurementInterval
             {
-                get
-                {
-                    return measurementIntervalField;
-                }
+                get => measurementIntervalField;
                 set
                 {
                     measurementIntervalField = value;
@@ -623,10 +563,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public REFERENCE_LIMIT_TYPE ReferenceLimit
             {
-                get
-                {
-                    return referenceLimitField;
-                }
+                get => referenceLimitField;
                 set
                 {
                     referenceLimitField = value;
@@ -638,10 +575,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DeviatingResultQuantitativeFlag
             {
-                get
-                {
-                    return deviatingResultQuantitativeFlagField;
-                }
+                get => deviatingResultQuantitativeFlagField;
                 set
                 {
                     deviatingResultQuantitativeFlagField = value;
@@ -653,10 +587,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -695,10 +626,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalCodeValue", Order = 0)]
             public string[] ClinicalCodeValue
             {
-                get
-                {
-                    return clinicalCodeValueField;
-                }
+                get => clinicalCodeValueField;
                 set
                 {
                     clinicalCodeValueField = value;
@@ -710,10 +638,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public CLINICAL_CODE_SCHEME_TYPE ClinicalCodeScheme
             {
-                get
-                {
-                    return clinicalCodeSchemeField;
-                }
+                get => clinicalCodeSchemeField;
                 set
                 {
                     clinicalCodeSchemeField = value;
@@ -725,10 +650,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ClinicalCodeSelectedTerm
             {
-                get
-                {
-                    return clinicalCodeSelectedTermField;
-                }
+                get => clinicalCodeSelectedTermField;
                 set
                 {
                     clinicalCodeSelectedTermField = value;
@@ -765,10 +687,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ClinicalCodeSchemeVersion
             {
-                get
-                {
-                    return clinicalCodeSchemeVersionField;
-                }
+                get => clinicalCodeSchemeVersionField;
                 set
                 {
                     clinicalCodeSchemeVersionField = value;
@@ -780,10 +699,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ClinicalCodeSchemeId
             {
-                get
-                {
-                    return clinicalCodeSchemeIdField;
-                }
+                get => clinicalCodeSchemeIdField;
                 set
                 {
                     clinicalCodeSchemeIdField = value;
@@ -820,10 +736,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public QUANTITY_TYPE Result
             {
-                get
-                {
-                    return resultField;
-                }
+                get => resultField;
                 set
                 {
                     resultField = value;
@@ -835,10 +748,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ArithmeticComparator
             {
-                get
-                {
-                    return arithmeticComparatorField;
-                }
+                get => arithmeticComparatorField;
                 set
                 {
                     arithmeticComparatorField = value;
@@ -875,10 +785,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public decimal QuantityValue
             {
-                get
-                {
-                    return quantityValueField;
-                }
+                get => quantityValueField;
                 set
                 {
                     quantityValueField = value;
@@ -890,10 +797,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string QuantityUnit
             {
-                get
-                {
-                    return quantityUnitField;
-                }
+                get => quantityUnitField;
                 set
                 {
                     quantityUnitField = value;
@@ -932,10 +836,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RangeHighValue
             {
-                get
-                {
-                    return rangeHighValueField;
-                }
+                get => rangeHighValueField;
                 set
                 {
                     rangeHighValueField = value;
@@ -947,10 +848,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string RangeLowValue
             {
-                get
-                {
-                    return rangeLowValueField;
-                }
+                get => rangeLowValueField;
                 set
                 {
                     rangeLowValueField = value;
@@ -962,10 +860,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RangeUnit
             {
-                get
-                {
-                    return rangeUnitField;
-                }
+                get => rangeUnitField;
                 set
                 {
                     rangeUnitField = value;
@@ -1002,10 +897,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public decimal TimeValue
             {
-                get
-                {
-                    return timeValueField;
-                }
+                get => timeValueField;
                 set
                 {
                     timeValueField = value;
@@ -1017,10 +909,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TimeUnit
             {
-                get
-                {
-                    return timeUnitField;
-                }
+                get => timeUnitField;
                 set
                 {
                     timeUnitField = value;
@@ -1064,10 +953,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ReferenceLimitText", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -1079,10 +965,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public REFERENCE_LIMIT_TYPEAbnormalReferenceLimit AbnormalReferenceLimit
             {
-                get
-                {
-                    return abnormalReferenceLimitField;
-                }
+                get => abnormalReferenceLimitField;
                 set
                 {
                     abnormalReferenceLimitField = value;
@@ -1094,10 +977,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ReferenceLimitPopulation
             {
-                get
-                {
-                    return referenceLimitPopulationField;
-                }
+                get => referenceLimitPopulationField;
                 set
                 {
                     referenceLimitPopulationField = value;
@@ -1109,10 +989,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Comment
             {
-                get
-                {
-                    return commentField;
-                }
+                get => commentField;
                 set
                 {
                     commentField = value;
@@ -1124,10 +1001,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1163,10 +1037,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("AbnormalReferenceLimitText", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -1213,10 +1084,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE TestName
             {
-                get
-                {
-                    return testNameField;
-                }
+                get => testNameField;
                 set
                 {
                     testNameField = value;
@@ -1228,10 +1096,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string TestOrder
             {
-                get
-                {
-                    return testOrderField;
-                }
+                get => testOrderField;
                 set
                 {
                     testOrderField = value;
@@ -1243,10 +1108,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public RANGE_TYPE Range
             {
-                get
-                {
-                    return rangeField;
-                }
+                get => rangeField;
                 set
                 {
                     rangeField = value;
@@ -1258,10 +1120,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string RangeText
             {
-                get
-                {
-                    return rangeTextField;
-                }
+                get => rangeTextField;
                 set
                 {
                     rangeTextField = value;
@@ -1273,10 +1132,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ArithmeticComparator
             {
-                get
-                {
-                    return arithmeticComparatorField;
-                }
+                get => arithmeticComparatorField;
                 set
                 {
                     arithmeticComparatorField = value;
@@ -1289,10 +1145,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResultValue", IsNullable = false)]
             public CumulativeTestResultValue[] TestResultValues
             {
-                get
-                {
-                    return testResultValuesField;
-                }
+                get => testResultValuesField;
                 set
                 {
                     testResultValuesField = value;
@@ -1304,10 +1157,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1343,10 +1193,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalInformation", typeof(CLINICAL_INFORMATION_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -1383,10 +1230,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CODE_TYPE ClinicalCode
             {
-                get
-                {
-                    return clinicalCodeField;
-                }
+                get => clinicalCodeField;
                 set
                 {
                     clinicalCodeField = value;
@@ -1398,10 +1242,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ClinicalCodeDescription
             {
-                get
-                {
-                    return clinicalCodeDescriptionField;
-                }
+                get => clinicalCodeDescriptionField;
                 set
                 {
                     clinicalCodeDescriptionField = value;
@@ -1456,10 +1297,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultSetID
             {
-                get
-                {
-                    return resultSetIDField;
-                }
+                get => resultSetIDField;
                 set
                 {
                     resultSetIDField = value;
@@ -1471,10 +1309,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string TestReportID
             {
-                get
-                {
-                    return testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
                     testReportIDField = value;
@@ -1486,10 +1321,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string SampleID
             {
-                get
-                {
-                    return sampleIDField;
-                }
+                get => sampleIDField;
                 set
                 {
                     sampleIDField = value;
@@ -1501,10 +1333,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
                     reportIdentifierField = value;
@@ -1516,10 +1345,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
                     reportDateField = value;
@@ -1531,10 +1357,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 5)]
             public System.DateTime SampleDate
             {
-                get
-                {
-                    return sampleDateField;
-                }
+                get => sampleDateField;
                 set
                 {
                     sampleDateField = value;
@@ -1546,10 +1369,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SampleDateSpecified
             {
-                get
-                {
-                    return sampleDateFieldSpecified;
-                }
+                get => sampleDateFieldSpecified;
                 set
                 {
                     sampleDateFieldSpecified = value;
@@ -1561,10 +1381,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public CLINICAL_CIRCUMSTANCE_TYPE SetName
             {
-                get
-                {
-                    return setNameField;
-                }
+                get => setNameField;
                 set
                 {
                     setNameField = value;
@@ -1576,10 +1393,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool HasComments
             {
-                get
-                {
-                    return hasCommentsField;
-                }
+                get => hasCommentsField;
                 set
                 {
                     hasCommentsField = value;
@@ -1591,10 +1405,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public TEST_STATUS_TYPE Status
             {
-                get
-                {
-                    return statusField;
-                }
+                get => statusField;
                 set
                 {
                     statusField = value;
@@ -1606,10 +1417,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1648,10 +1456,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public RESULT_STATUS_TYPE StatusType
             {
-                get
-                {
-                    return statusTypeField;
-                }
+                get => statusTypeField;
                 set
                 {
                     statusTypeField = value;
@@ -1663,10 +1468,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string StatusDescription
             {
-                get
-                {
-                    return statusDescriptionField;
-                }
+                get => statusDescriptionField;
                 set
                 {
                     statusDescriptionField = value;
@@ -1678,10 +1480,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1754,10 +1553,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -1769,10 +1565,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SelectedSetCode
             {
-                get
-                {
-                    return selectedSetCodeField;
-                }
+                get => selectedSetCodeField;
                 set
                 {
                     selectedSetCodeField = value;
@@ -1785,10 +1578,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ResultSet", IsNullable = false)]
             public CumulativeResultSet[] ResultSets
             {
-                get
-                {
-                    return resultSetsField;
-                }
+                get => resultSetsField;
                 set
                 {
                     resultSetsField = value;
@@ -1801,10 +1591,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResult", IsNullable = false)]
             public CumulativeTestResult[] TestResults
             {
-                get
-                {
-                    return testResultsField;
-                }
+                get => testResultsField;
                 set
                 {
                     testResultsField = value;
@@ -1816,10 +1603,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1864,10 +1648,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -1879,10 +1660,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SelectedSetCode
             {
-                get
-                {
-                    return selectedSetCodeField;
-                }
+                get => selectedSetCodeField;
                 set
                 {
                     selectedSetCodeField = value;
@@ -1894,10 +1672,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindDateRange ReportDate
             {
-                get
-                {
-                    return reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
                     reportDateField = value;
@@ -1909,10 +1684,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
             public string DataPoints
             {
-                get
-                {
-                    return dataPointsField;
-                }
+                get => dataPointsField;
                 set
                 {
                     dataPointsField = value;
@@ -1925,10 +1697,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -1940,10 +1709,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -1980,10 +1746,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
                     dateFromField = value;
@@ -1995,10 +1758,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return dateToField;
-                }
+                get => dateToField;
                 set
                 {
                     dateToField = value;
@@ -2041,10 +1801,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -2056,10 +1813,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassToken
             {
-                get
-                {
-                    return breakGlassTokenField;
-                }
+                get => breakGlassTokenField;
                 set
                 {
                     breakGlassTokenField = value;
@@ -2071,10 +1825,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public System.DateTime BreakGlassExpires
             {
-                get
-                {
-                    return breakGlassExpiresField;
-                }
+                get => breakGlassExpiresField;
                 set
                 {
                     breakGlassExpiresField = value;
@@ -2086,10 +1837,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BreakGlassExpiresSpecified
             {
-                get
-                {
-                    return breakGlassExpiresFieldSpecified;
-                }
+                get => breakGlassExpiresFieldSpecified;
                 set
                 {
                     breakGlassExpiresFieldSpecified = value;
@@ -2101,10 +1849,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -2145,10 +1890,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientConsentAuditItemPatientDetails PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -2160,10 +1902,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientConsentAuditItemConsentDetails ConsentDetails
             {
-                get
-                {
-                    return consentDetailsField;
-                }
+                get => consentDetailsField;
                 set
                 {
                     consentDetailsField = value;
@@ -2175,10 +1914,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public UserInfo UserDetails
             {
-                get
-                {
-                    return userDetailsField;
-                }
+                get => userDetailsField;
                 set
                 {
                     userDetailsField = value;
@@ -2190,10 +1926,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -2228,10 +1961,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -2270,10 +2000,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Reason
             {
-                get
-                {
-                    return reasonField;
-                }
+                get => reasonField;
                 set
                 {
                     reasonField = value;
@@ -2285,10 +2012,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime UpdatedDateTime
             {
-                get
-                {
-                    return updatedDateTimeField;
-                }
+                get => updatedDateTimeField;
                 set
                 {
                     updatedDateTimeField = value;
@@ -2300,10 +2024,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string NewValue
             {
-                get
-                {
-                    return newValueField;
-                }
+                get => newValueField;
                 set
                 {
                     newValueField = value;
@@ -2344,10 +2065,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return userNameField;
-                }
+                get => userNameField;
                 set
                 {
                     userNameField = value;
@@ -2359,10 +2077,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string FriendlyName
             {
-                get
-                {
-                    return friendlyNameField;
-                }
+                get => friendlyNameField;
                 set
                 {
                     friendlyNameField = value;
@@ -2374,10 +2089,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemCode
             {
-                get
-                {
-                    return systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
                     systemCodeField = value;
@@ -2389,10 +2101,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SystemLocation
             {
-                get
-                {
-                    return systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
                     systemLocationField = value;
@@ -2433,10 +2142,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -2448,10 +2154,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DateRangeSelection DateRange
             {
-                get
-                {
-                    return dateRangeField;
-                }
+                get => dateRangeField;
                 set
                 {
                     dateRangeField = value;
@@ -2463,10 +2166,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindUserCriteria User
             {
-                get
-                {
-                    return userField;
-                }
+                get => userField;
                 set
                 {
                     userField = value;
@@ -2478,10 +2178,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -2522,10 +2219,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
                     dateFromField = value;
@@ -2537,10 +2231,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateFromSpecified
             {
-                get
-                {
-                    return dateFromFieldSpecified;
-                }
+                get => dateFromFieldSpecified;
                 set
                 {
                     dateFromFieldSpecified = value;
@@ -2552,10 +2243,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return dateToField;
-                }
+                get => dateToField;
                 set
                 {
                     dateToField = value;
@@ -2567,10 +2255,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateToSpecified
             {
-                get
-                {
-                    return dateToFieldSpecified;
-                }
+                get => dateToFieldSpecified;
                 set
                 {
                     dateToFieldSpecified = value;
@@ -2609,10 +2294,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return userNameField;
-                }
+                get => userNameField;
                 set
                 {
                     userNameField = value;
@@ -2624,10 +2306,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SystemCode
             {
-                get
-                {
-                    return systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
                     systemCodeField = value;
@@ -2639,10 +2318,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemLocation
             {
-                get
-                {
-                    return systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
                     systemLocationField = value;
@@ -2685,10 +2361,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public BreakGlassAuditItemPatientDetails PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -2700,10 +2373,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public BreakGlassAuditItemBreakGlassDetails BreakGlassDetails
             {
-                get
-                {
-                    return breakGlassDetailsField;
-                }
+                get => breakGlassDetailsField;
                 set
                 {
                     breakGlassDetailsField = value;
@@ -2715,10 +2385,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public BreakGlassTypeItem BreakGlassType
             {
-                get
-                {
-                    return breakGlassTypeField;
-                }
+                get => breakGlassTypeField;
                 set
                 {
                     breakGlassTypeField = value;
@@ -2730,10 +2397,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public UserInfo UserDetails
             {
-                get
-                {
-                    return userDetailsField;
-                }
+                get => userDetailsField;
                 set
                 {
                     userDetailsField = value;
@@ -2745,10 +2409,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -2789,10 +2450,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -2804,10 +2462,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CHI
             {
-                get
-                {
-                    return cHIField;
-                }
+                get => cHIField;
                 set
                 {
                     cHIField = value;
@@ -2819,10 +2474,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -2834,10 +2486,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -2874,10 +2523,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Reason
             {
-                get
-                {
-                    return reasonField;
-                }
+                get => reasonField;
                 set
                 {
                     reasonField = value;
@@ -2889,10 +2535,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime BreakGlassDateTime
             {
-                get
-                {
-                    return breakGlassDateTimeField;
-                }
+                get => breakGlassDateTimeField;
                 set
                 {
                     breakGlassDateTimeField = value;
@@ -2933,10 +2576,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string BreakGlassTypeID
             {
-                get
-                {
-                    return breakGlassTypeIDField;
-                }
+                get => breakGlassTypeIDField;
                 set
                 {
                     breakGlassTypeIDField = value;
@@ -2948,10 +2588,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassTypeCode
             {
-                get
-                {
-                    return breakGlassTypeCodeField;
-                }
+                get => breakGlassTypeCodeField;
                 set
                 {
                     breakGlassTypeCodeField = value;
@@ -2963,10 +2600,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string BreakGlassTypeDescription
             {
-                get
-                {
-                    return breakGlassTypeDescriptionField;
-                }
+                get => breakGlassTypeDescriptionField;
                 set
                 {
                     breakGlassTypeDescriptionField = value;
@@ -2978,10 +2612,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3024,10 +2655,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -3039,10 +2667,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DateRangeSelection DateRange
             {
-                get
-                {
-                    return dateRangeField;
-                }
+                get => dateRangeField;
                 set
                 {
                     dateRangeField = value;
@@ -3054,10 +2679,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindUserCriteria User
             {
-                get
-                {
-                    return userField;
-                }
+                get => userField;
                 set
                 {
                     userField = value;
@@ -3069,10 +2691,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TypeCode
             {
-                get
-                {
-                    return typeCodeField;
-                }
+                get => typeCodeField;
                 set
                 {
                     typeCodeField = value;
@@ -3084,10 +2703,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3132,10 +2748,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ServiceID
             {
-                get
-                {
-                    return serviceIDField;
-                }
+                get => serviceIDField;
                 set
                 {
                     serviceIDField = value;
@@ -3147,10 +2760,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ServiceName
             {
-                get
-                {
-                    return serviceNameField;
-                }
+                get => serviceNameField;
                 set
                 {
                     serviceNameField = value;
@@ -3162,10 +2772,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string MessagesReceived
             {
-                get
-                {
-                    return messagesReceivedField;
-                }
+                get => messagesReceivedField;
                 set
                 {
                     messagesReceivedField = value;
@@ -3177,10 +2784,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Minutes
             {
-                get
-                {
-                    return minutesField;
-                }
+                get => minutesField;
                 set
                 {
                     minutesField = value;
@@ -3192,10 +2796,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Status
             {
-                get
-                {
-                    return statusField;
-                }
+                get => statusField;
                 set
                 {
                     statusField = value;
@@ -3207,10 +2808,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3249,10 +2847,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string RedLimit
             {
-                get
-                {
-                    return redLimitField;
-                }
+                get => redLimitField;
                 set
                 {
                     redLimitField = value;
@@ -3264,10 +2859,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 1)]
             public string AmberLimit
             {
-                get
-                {
-                    return amberLimitField;
-                }
+                get => amberLimitField;
                 set
                 {
                     amberLimitField = value;
@@ -3279,10 +2871,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3319,10 +2908,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string OrganisationID
             {
-                get
-                {
-                    return organisationIDField;
-                }
+                get => organisationIDField;
                 set
                 {
                     organisationIDField = value;
@@ -3334,10 +2920,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE OrganisationDetails
             {
-                get
-                {
-                    return organisationDetailsField;
-                }
+                get => organisationDetailsField;
                 set
                 {
                     organisationDetailsField = value;
@@ -3382,10 +2965,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE OrganisationId
             {
-                get
-                {
-                    return organisationIdField;
-                }
+                get => organisationIdField;
                 set
                 {
                     organisationIdField = value;
@@ -3397,10 +2977,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OrganisationName
             {
-                get
-                {
-                    return organisationNameField;
-                }
+                get => organisationNameField;
                 set
                 {
                     organisationNameField = value;
@@ -3412,10 +2989,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrganisationType
             {
-                get
-                {
-                    return organisationTypeField;
-                }
+                get => organisationTypeField;
                 set
                 {
                     organisationTypeField = value;
@@ -3427,10 +3001,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("OrganisationAddress", Order = 3)]
             public ADDRESS_TYPE[] OrganisationAddress
             {
-                get
-                {
-                    return organisationAddressField;
-                }
+                get => organisationAddressField;
                 set
                 {
                     organisationAddressField = value;
@@ -3442,10 +3013,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("OrganisationTelecom", Order = 4)]
             public TELECOM_TYPE[] OrganisationTelecom
             {
-                get
-                {
-                    return organisationTelecomField;
-                }
+                get => organisationTelecomField;
                 set
                 {
                     organisationTelecomField = value;
@@ -3457,10 +3025,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3501,10 +3066,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string IdValue
             {
-                get
-                {
-                    return idValueField;
-                }
+                get => idValueField;
                 set
                 {
                     idValueField = value;
@@ -3516,10 +3078,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string IdScheme
             {
-                get
-                {
-                    return idSchemeField;
-                }
+                get => idSchemeField;
                 set
                 {
                     idSchemeField = value;
@@ -3531,10 +3090,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string IdType
             {
-                get
-                {
-                    return idTypeField;
-                }
+                get => idTypeField;
                 set
                 {
                     idTypeField = value;
@@ -3546,10 +3102,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string IdSource
             {
-                get
-                {
-                    return idSourceField;
-                }
+                get => idSourceField;
                 set
                 {
                     idSourceField = value;
@@ -3595,10 +3148,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredAddress", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -3610,10 +3160,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PostCode
             {
-                get
-                {
-                    return postCodeField;
-                }
+                get => postCodeField;
                 set
                 {
                     postCodeField = value;
@@ -3625,10 +3172,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string NonValidatedPostCode
             {
-                get
-                {
-                    return nonValidatedPostCodeField;
-                }
+                get => nonValidatedPostCodeField;
                 set
                 {
                     nonValidatedPostCodeField = value;
@@ -3640,10 +3184,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string AddressType
             {
-                get
-                {
-                    return addressTypeField;
-                }
+                get => addressTypeField;
                 set
                 {
                     addressTypeField = value;
@@ -3655,10 +3196,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "duration", Order = 4)]
             public string AddressValidPeriod
             {
-                get
-                {
-                    return addressValidPeriodField;
-                }
+                get => addressValidPeriodField;
                 set
                 {
                     addressValidPeriodField = value;
@@ -3670,10 +3208,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3712,10 +3247,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PropertyNumber
             {
-                get
-                {
-                    return propertyNumberField;
-                }
+                get => propertyNumberField;
                 set
                 {
                     propertyNumberField = value;
@@ -3727,10 +3259,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("AddressLine", Order = 1)]
             public string[] AddressLine
             {
-                get
-                {
-                    return addressLineField;
-                }
+                get => addressLineField;
                 set
                 {
                     addressLineField = value;
@@ -3742,10 +3271,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3787,10 +3313,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredTelecom", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -3802,10 +3325,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TelecomType
             {
-                get
-                {
-                    return telecomTypeField;
-                }
+                get => telecomTypeField;
                 set
                 {
                     telecomTypeField = value;
@@ -3817,10 +3337,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TelecomMode
             {
-                get
-                {
-                    return telecomModeField;
-                }
+                get => telecomModeField;
                 set
                 {
                     telecomModeField = value;
@@ -3832,10 +3349,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3878,10 +3392,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string TelecomCountry
             {
-                get
-                {
-                    return telecomCountryField;
-                }
+                get => telecomCountryField;
                 set
                 {
                     telecomCountryField = value;
@@ -3893,10 +3404,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TelecomArea
             {
-                get
-                {
-                    return telecomAreaField;
-                }
+                get => telecomAreaField;
                 set
                 {
                     telecomAreaField = value;
@@ -3908,10 +3416,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TelecomNo
             {
-                get
-                {
-                    return telecomNoField;
-                }
+                get => telecomNoField;
                 set
                 {
                     telecomNoField = value;
@@ -3923,10 +3428,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TelecomExt
             {
-                get
-                {
-                    return telecomExtField;
-                }
+                get => telecomExtField;
                 set
                 {
                     telecomExtField = value;
@@ -3938,10 +3440,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -3984,10 +3483,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string OrganisationCode
             {
-                get
-                {
-                    return organisationCodeField;
-                }
+                get => organisationCodeField;
                 set
                 {
                     organisationCodeField = value;
@@ -3999,10 +3495,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string OrganisationID
             {
-                get
-                {
-                    return organisationIDField;
-                }
+                get => organisationIDField;
                 set
                 {
                     organisationIDField = value;
@@ -4014,10 +3507,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrganisationName
             {
-                get
-                {
-                    return organisationNameField;
-                }
+                get => organisationNameField;
                 set
                 {
                     organisationNameField = value;
@@ -4029,10 +3519,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string OrganisationType
             {
-                get
-                {
-                    return organisationTypeField;
-                }
+                get => organisationTypeField;
                 set
                 {
                     organisationTypeField = value;
@@ -4044,10 +3531,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4084,10 +3568,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string HCPid
             {
-                get
-                {
-                    return hCPidField;
-                }
+                get => hCPidField;
                 set
                 {
                     hCPidField = value;
@@ -4099,10 +3580,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public HCP_DETAIL_TYPE HCPdetails
             {
-                get
-                {
-                    return hCPdetailsField;
-                }
+                get => hCPdetailsField;
                 set
                 {
                     hCPdetailsField = value;
@@ -4149,10 +3627,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HcpId", Order = 0)]
             public ID_TYPE[] HcpId
             {
-                get
-                {
-                    return hcpIdField;
-                }
+                get => hcpIdField;
                 set
                 {
                     hcpIdField = value;
@@ -4164,10 +3639,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PERSONAL_NAME_TYPE HcpName
             {
-                get
-                {
-                    return hcpNameField;
-                }
+                get => hcpNameField;
                 set
                 {
                     hcpNameField = value;
@@ -4179,10 +3651,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ORGANISATION_TYPE EmployingOrganisation
             {
-                get
-                {
-                    return employingOrganisationField;
-                }
+                get => employingOrganisationField;
                 set
                 {
                     employingOrganisationField = value;
@@ -4194,10 +3663,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HcpTelecom", Order = 3)]
             public TELECOM_TYPE[] HcpTelecom
             {
-                get
-                {
-                    return hcpTelecomField;
-                }
+                get => hcpTelecomField;
                 set
                 {
                     hcpTelecomField = value;
@@ -4209,10 +3675,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public SPECIALTY_TYPE HcpSpecialty
             {
-                get
-                {
-                    return hcpSpecialtyField;
-                }
+                get => hcpSpecialtyField;
                 set
                 {
                     hcpSpecialtyField = value;
@@ -4224,10 +3687,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Position
             {
-                get
-                {
-                    return positionField;
-                }
+                get => positionField;
                 set
                 {
                     positionField = value;
@@ -4239,10 +3699,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4284,10 +3741,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredName", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -4299,10 +3753,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string NameType
             {
-                get
-                {
-                    return nameTypeField;
-                }
+                get => nameTypeField;
                 set
                 {
                     nameTypeField = value;
@@ -4314,10 +3765,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "duration", Order = 2)]
             public string NameValidPeriod
             {
-                get
-                {
-                    return nameValidPeriodField;
-                }
+                get => nameValidPeriodField;
                 set
                 {
                     nameValidPeriodField = value;
@@ -4329,10 +3777,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4375,10 +3820,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Title
             {
-                get
-                {
-                    return titleField;
-                }
+                get => titleField;
                 set
                 {
                     titleField = value;
@@ -4390,10 +3832,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string GivenName
             {
-                get
-                {
-                    return givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
                     givenNameField = value;
@@ -4405,10 +3844,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MiddleName", Order = 2)]
             public string[] MiddleName
             {
-                get
-                {
-                    return middleNameField;
-                }
+                get => middleNameField;
                 set
                 {
                     middleNameField = value;
@@ -4420,10 +3856,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string FamilyName
             {
-                get
-                {
-                    return familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
                     familyNameField = value;
@@ -4435,10 +3868,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4475,10 +3905,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SpecialtyName
             {
-                get
-                {
-                    return specialtyNameField;
-                }
+                get => specialtyNameField;
                 set
                 {
                     specialtyNameField = value;
@@ -4490,10 +3917,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SpecialtyCode
             {
-                get
-                {
-                    return specialtyCodeField;
-                }
+                get => specialtyCodeField;
                 set
                 {
                     specialtyCodeField = value;
@@ -4536,10 +3960,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string HCPcode
             {
-                get
-                {
-                    return hCPcodeField;
-                }
+                get => hCPcodeField;
                 set
                 {
                     hCPcodeField = value;
@@ -4551,10 +3972,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string HCPid
             {
-                get
-                {
-                    return hCPidField;
-                }
+                get => hCPidField;
                 set
                 {
                     hCPidField = value;
@@ -4566,10 +3984,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -4581,10 +3996,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Position
             {
-                get
-                {
-                    return positionField;
-                }
+                get => positionField;
                 set
                 {
                     positionField = value;
@@ -4596,10 +4008,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4636,10 +4045,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -4651,10 +4057,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4707,10 +4110,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
                     primaryPatientIDField = value;
@@ -4722,10 +4122,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
                     secondaryPatientIDField = value;
@@ -4737,10 +4134,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string CHI
             {
-                get
-                {
-                    return cHIField;
-                }
+                get => cHIField;
                 set
                 {
                     cHIField = value;
@@ -4752,10 +4146,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string FamilyName
             {
-                get
-                {
-                    return familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
                     familyNameField = value;
@@ -4767,10 +4158,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string GivenName
             {
-                get
-                {
-                    return givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
                     givenNameField = value;
@@ -4782,10 +4170,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Sex
             {
-                get
-                {
-                    return sexField;
-                }
+                get => sexField;
                 set
                 {
                     sexField = value;
@@ -4797,10 +4182,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 6)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -4812,10 +4194,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -4827,10 +4206,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public FindMergeItemUnmerge Unmerge
             {
-                get
-                {
-                    return unmergeField;
-                }
+                get => unmergeField;
                 set
                 {
                     unmergeField = value;
@@ -4842,10 +4218,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4896,10 +4269,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentRequestDeliveryScheduleTypeReferralToTreatClock ReferralToTreatClock
             {
-                get
-                {
-                    return referralToTreatClockField;
-                }
+                get => referralToTreatClockField;
                 set
                 {
                     referralToTreatClockField = value;
@@ -4911,10 +4281,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -4955,10 +4322,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime StartDate
             {
-                get
-                {
-                    return startDateField;
-                }
+                get => startDateField;
                 set
                 {
                     startDateField = value;
@@ -4970,10 +4334,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime TargetDate
             {
-                get
-                {
-                    return targetDateField;
-                }
+                get => targetDateField;
                 set
                 {
                     targetDateField = value;
@@ -4985,10 +4346,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public GENERAL_CODE_TYPE Status
             {
-                get
-                {
-                    return statusField;
-                }
+                get => statusField;
                 set
                 {
                     statusField = value;
@@ -5000,10 +4358,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -5040,10 +4395,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string CodeDescription
             {
-                get
-                {
-                    return codeDescriptionField;
-                }
+                get => codeDescriptionField;
                 set
                 {
                     codeDescriptionField = value;
@@ -5055,10 +4407,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CodeValue
             {
-                get
-                {
-                    return codeValueField;
-                }
+                get => codeValueField;
                 set
                 {
                     codeValueField = value;
@@ -5103,10 +4452,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateClosed
             {
-                get
-                {
-                    return dateClosedField;
-                }
+                get => dateClosedField;
                 set
                 {
                     dateClosedField = value;
@@ -5118,10 +4464,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateClosedSpecified
             {
-                get
-                {
-                    return dateClosedFieldSpecified;
-                }
+                get => dateClosedFieldSpecified;
                 set
                 {
                     dateClosedFieldSpecified = value;
@@ -5133,10 +4476,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string AttendanceStatus
             {
-                get
-                {
-                    return attendanceStatusField;
-                }
+                get => attendanceStatusField;
                 set
                 {
                     attendanceStatusField = value;
@@ -5148,10 +4488,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TreatmentRequestOutcomeTypeActualAttendanceDetails ActualAttendanceDetails
             {
-                get
-                {
-                    return actualAttendanceDetailsField;
-                }
+                get => actualAttendanceDetailsField;
                 set
                 {
                     actualAttendanceDetailsField = value;
@@ -5163,10 +4500,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TreatmentReceived", Order = 3)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] TreatmentReceived
             {
-                get
-                {
-                    return treatmentReceivedField;
-                }
+                get => treatmentReceivedField;
                 set
                 {
                     treatmentReceivedField = value;
@@ -5178,10 +4512,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -5240,10 +4571,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime ArrivalDate
             {
-                get
-                {
-                    return arrivalDateField;
-                }
+                get => arrivalDateField;
                 set
                 {
                     arrivalDateField = value;
@@ -5255,10 +4583,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ArrivalDateSpecified
             {
-                get
-                {
-                    return arrivalDateFieldSpecified;
-                }
+                get => arrivalDateFieldSpecified;
                 set
                 {
                     arrivalDateFieldSpecified = value;
@@ -5270,10 +4595,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 1)]
             public System.DateTime ArrivalTime
             {
-                get
-                {
-                    return arrivalTimeField;
-                }
+                get => arrivalTimeField;
                 set
                 {
                     arrivalTimeField = value;
@@ -5285,10 +4607,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ArrivalTimeSpecified
             {
-                get
-                {
-                    return arrivalTimeFieldSpecified;
-                }
+                get => arrivalTimeFieldSpecified;
                 set
                 {
                     arrivalTimeFieldSpecified = value;
@@ -5300,10 +4619,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DepartureDate
             {
-                get
-                {
-                    return departureDateField;
-                }
+                get => departureDateField;
                 set
                 {
                     departureDateField = value;
@@ -5315,10 +4631,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DepartureDateSpecified
             {
-                get
-                {
-                    return departureDateFieldSpecified;
-                }
+                get => departureDateFieldSpecified;
                 set
                 {
                     departureDateFieldSpecified = value;
@@ -5330,10 +4643,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime DepartureTime
             {
-                get
-                {
-                    return departureTimeField;
-                }
+                get => departureTimeField;
                 set
                 {
                     departureTimeField = value;
@@ -5345,10 +4655,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DepartureTimeSpecified
             {
-                get
-                {
-                    return departureTimeFieldSpecified;
-                }
+                get => departureTimeFieldSpecified;
                 set
                 {
                     departureTimeFieldSpecified = value;
@@ -5360,10 +4667,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime TreatmentDate
             {
-                get
-                {
-                    return treatmentDateField;
-                }
+                get => treatmentDateField;
                 set
                 {
                     treatmentDateField = value;
@@ -5375,10 +4679,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentDateSpecified
             {
-                get
-                {
-                    return treatmentDateFieldSpecified;
-                }
+                get => treatmentDateFieldSpecified;
                 set
                 {
                     treatmentDateFieldSpecified = value;
@@ -5390,10 +4691,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 5)]
             public System.DateTime TreatmentTime
             {
-                get
-                {
-                    return treatmentTimeField;
-                }
+                get => treatmentTimeField;
                 set
                 {
                     treatmentTimeField = value;
@@ -5405,10 +4703,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentTimeSpecified
             {
-                get
-                {
-                    return treatmentTimeFieldSpecified;
-                }
+                get => treatmentTimeFieldSpecified;
                 set
                 {
                     treatmentTimeFieldSpecified = value;
@@ -5420,10 +4715,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -5470,10 +4762,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Site
             {
-                get
-                {
-                    return siteField;
-                }
+                get => siteField;
                 set
                 {
                     siteField = value;
@@ -5485,10 +4774,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE Location
             {
-                get
-                {
-                    return locationField;
-                }
+                get => locationField;
                 set
                 {
                     locationField = value;
@@ -5500,10 +4786,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public HCP_DETAIL_TYPE ResponsibleHCP
             {
-                get
-                {
-                    return responsibleHCPField;
-                }
+                get => responsibleHCPField;
                 set
                 {
                     responsibleHCPField = value;
@@ -5515,10 +4798,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Clinic
             {
-                get
-                {
-                    return clinicField;
-                }
+                get => clinicField;
                 set
                 {
                     clinicField = value;
@@ -5530,10 +4810,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public SPECIALTY_TYPE Specialty
             {
-                get
-                {
-                    return specialtyField;
-                }
+                get => specialtyField;
                 set
                 {
                     specialtyField = value;
@@ -5545,10 +4822,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public GENERAL_CODE_TYPE Facility
             {
-                get
-                {
-                    return facilityField;
-                }
+                get => facilityField;
                 set
                 {
                     facilityField = value;
@@ -5560,10 +4834,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -5610,10 +4881,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientCarePoint TreatmentCarePoint
             {
-                get
-                {
-                    return treatmentCarePointField;
-                }
+                get => treatmentCarePointField;
                 set
                 {
                     treatmentCarePointField = value;
@@ -5625,10 +4893,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ToComeInTargetDate
             {
-                get
-                {
-                    return toComeInTargetDateField;
-                }
+                get => toComeInTargetDateField;
                 set
                 {
                     toComeInTargetDateField = value;
@@ -5640,10 +4905,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetDateSpecified
             {
-                get
-                {
-                    return toComeInTargetDateFieldSpecified;
-                }
+                get => toComeInTargetDateFieldSpecified;
                 set
                 {
                     toComeInTargetDateFieldSpecified = value;
@@ -5655,10 +4917,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 2)]
             public System.DateTime ToComeInTargetTime
             {
-                get
-                {
-                    return toComeInTargetTimeField;
-                }
+                get => toComeInTargetTimeField;
                 set
                 {
                     toComeInTargetTimeField = value;
@@ -5670,10 +4929,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetTimeSpecified
             {
-                get
-                {
-                    return toComeInTargetTimeFieldSpecified;
-                }
+                get => toComeInTargetTimeFieldSpecified;
                 set
                 {
                     toComeInTargetTimeFieldSpecified = value;
@@ -5685,10 +4941,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
             public System.DateTime TreatmentBreachDate
             {
-                get
-                {
-                    return treatmentBreachDateField;
-                }
+                get => treatmentBreachDateField;
                 set
                 {
                     treatmentBreachDateField = value;
@@ -5700,10 +4953,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentBreachDateSpecified
             {
-                get
-                {
-                    return treatmentBreachDateFieldSpecified;
-                }
+                get => treatmentBreachDateFieldSpecified;
                 set
                 {
                     treatmentBreachDateFieldSpecified = value;
@@ -5748,10 +4998,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
                     requestStateField = value;
@@ -5763,10 +5010,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
                     requestStateFieldSpecified = value;
@@ -5778,10 +5022,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
                     requestStatusField = value;
@@ -5793,10 +5034,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
                     requestStatusFieldSpecified = value;
@@ -5808,10 +5046,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RequestStatusComment
             {
-                get
-                {
-                    return requestStatusCommentField;
-                }
+                get => requestStatusCommentField;
                 set
                 {
                     requestStatusCommentField = value;
@@ -5823,10 +5058,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -5908,10 +5140,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public bool PatientAvailableAtShortNotice
             {
-                get
-                {
-                    return patientAvailableAtShortNoticeField;
-                }
+                get => patientAvailableAtShortNoticeField;
                 set
                 {
                     patientAvailableAtShortNoticeField = value;
@@ -5923,10 +5152,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientAvailableAtShortNoticeSpecified
             {
-                get
-                {
-                    return patientAvailableAtShortNoticeFieldSpecified;
-                }
+                get => patientAvailableAtShortNoticeFieldSpecified;
                 set
                 {
                     patientAvailableAtShortNoticeFieldSpecified = value;
@@ -5938,10 +5164,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool PatientSuitableForPooledList
             {
-                get
-                {
-                    return patientSuitableForPooledListField;
-                }
+                get => patientSuitableForPooledListField;
                 set
                 {
                     patientSuitableForPooledListField = value;
@@ -5953,10 +5176,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientSuitableForPooledListSpecified
             {
-                get
-                {
-                    return patientSuitableForPooledListFieldSpecified;
-                }
+                get => patientSuitableForPooledListFieldSpecified;
                 set
                 {
                     patientSuitableForPooledListFieldSpecified = value;
@@ -5968,10 +5188,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool PatientWillingToChangeClinician
             {
-                get
-                {
-                    return patientWillingToChangeClinicianField;
-                }
+                get => patientWillingToChangeClinicianField;
                 set
                 {
                     patientWillingToChangeClinicianField = value;
@@ -5983,10 +5200,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientWillingToChangeClinicianSpecified
             {
-                get
-                {
-                    return patientWillingToChangeClinicianFieldSpecified;
-                }
+                get => patientWillingToChangeClinicianFieldSpecified;
                 set
                 {
                     patientWillingToChangeClinicianFieldSpecified = value;
@@ -5998,10 +5212,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool PatientWillingToChangeHealthBoard
             {
-                get
-                {
-                    return patientWillingToChangeHealthBoardField;
-                }
+                get => patientWillingToChangeHealthBoardField;
                 set
                 {
                     patientWillingToChangeHealthBoardField = value;
@@ -6013,10 +5224,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientWillingToChangeHealthBoardSpecified
             {
-                get
-                {
-                    return patientWillingToChangeHealthBoardFieldSpecified;
-                }
+                get => patientWillingToChangeHealthBoardFieldSpecified;
                 set
                 {
                     patientWillingToChangeHealthBoardFieldSpecified = value;
@@ -6028,10 +5236,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6070,10 +5275,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string CareTypeRequested
             {
-                get
-                {
-                    return careTypeRequestedField;
-                }
+                get => careTypeRequestedField;
                 set
                 {
                     careTypeRequestedField = value;
@@ -6085,10 +5287,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ExpectedOutcome
             {
-                get
-                {
-                    return expectedOutcomeField;
-                }
+                get => expectedOutcomeField;
                 set
                 {
                     expectedOutcomeField = value;
@@ -6100,10 +5299,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6143,10 +5339,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredReferralReason", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -6158,10 +5351,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "normalizedString", Order = 1)]
             public string Comment
             {
-                get
-                {
-                    return commentField;
-                }
+                get => commentField;
                 set
                 {
                     commentField = value;
@@ -6173,10 +5363,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6217,10 +5404,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ComponentID ComponentID
             {
-                get
-                {
-                    return componentIDField;
-                }
+                get => componentIDField;
                 set
                 {
                     componentIDField = value;
@@ -6232,10 +5416,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CRN
             {
-                get
-                {
-                    return cRNField;
-                }
+                get => cRNField;
                 set
                 {
                     cRNField = value;
@@ -6247,10 +5428,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -6262,10 +5440,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6306,10 +5481,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SpellOfCareID
             {
-                get
-                {
-                    return spellOfCareIDField;
-                }
+                get => spellOfCareIDField;
                 set
                 {
                     spellOfCareIDField = value;
@@ -6321,10 +5493,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string EpisodeID
             {
-                get
-                {
-                    return episodeIDField;
-                }
+                get => episodeIDField;
                 set
                 {
                     episodeIDField = value;
@@ -6336,10 +5505,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EventID
             {
-                get
-                {
-                    return eventIDField;
-                }
+                get => eventIDField;
                 set
                 {
                     eventIDField = value;
@@ -6351,10 +5517,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6391,10 +5554,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Description
             {
-                get
-                {
-                    return descriptionField;
-                }
+                get => descriptionField;
                 set
                 {
                     descriptionField = value;
@@ -6406,10 +5566,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Code
             {
-                get
-                {
-                    return codeField;
-                }
+                get => codeField;
                 set
                 {
                     codeField = value;
@@ -6468,10 +5625,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PATIENT_CARE_TYPE PatientCareType
             {
-                get
-                {
-                    return patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
                     patientCareTypeField = value;
@@ -6483,10 +5637,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public GENERAL_CODE_TYPE PatientCategory
             {
-                get
-                {
-                    return patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
                     patientCategoryField = value;
@@ -6498,10 +5649,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime RequestDate
             {
-                get
-                {
-                    return requestDateField;
-                }
+                get => requestDateField;
                 set
                 {
                     requestDateField = value;
@@ -6513,10 +5661,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime RequestTime
             {
-                get
-                {
-                    return requestTimeField;
-                }
+                get => requestTimeField;
                 set
                 {
                     requestTimeField = value;
@@ -6528,10 +5673,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestTimeSpecified
             {
-                get
-                {
-                    return requestTimeFieldSpecified;
-                }
+                get => requestTimeFieldSpecified;
                 set
                 {
                     requestTimeFieldSpecified = value;
@@ -6543,10 +5685,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public TreatmentRequestIdentifiers TreatmentIdentifiers
             {
-                get
-                {
-                    return treatmentIdentifiersField;
-                }
+                get => treatmentIdentifiersField;
                 set
                 {
                     treatmentIdentifiersField = value;
@@ -6558,10 +5697,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CLINICAL_CIRCUMSTANCE_TYPE TreatmentRequested
             {
-                get
-                {
-                    return treatmentRequestedField;
-                }
+                get => treatmentRequestedField;
                 set
                 {
                     treatmentRequestedField = value;
@@ -6573,10 +5709,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
                     assessedUrgencyValueField = value;
@@ -6588,10 +5721,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string AssessedUrgencyReason
             {
-                get
-                {
-                    return assessedUrgencyReasonField;
-                }
+                get => assessedUrgencyReasonField;
                 set
                 {
                     assessedUrgencyReasonField = value;
@@ -6603,10 +5733,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Comment
             {
-                get
-                {
-                    return commentField;
-                }
+                get => commentField;
                 set
                 {
                     commentField = value;
@@ -6618,10 +5745,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public TreatmentRequestInfoReferralDetails ReferralDetails
             {
-                get
-                {
-                    return referralDetailsField;
-                }
+                get => referralDetailsField;
                 set
                 {
                     referralDetailsField = value;
@@ -6633,10 +5757,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public WAITING_TIMES_DATA_TYPE WaitingTimesData
             {
-                get
-                {
-                    return waitingTimesDataField;
-                }
+                get => waitingTimesDataField;
                 set
                 {
                     waitingTimesDataField = value;
@@ -6648,10 +5769,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 11)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6694,10 +5812,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE ReferralIdentifier
             {
-                get
-                {
-                    return referralIdentifierField;
-                }
+                get => referralIdentifierField;
                 set
                 {
                     referralIdentifierField = value;
@@ -6709,10 +5824,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public REFERRAL_REASON_TYPE ReferralReason
             {
-                get
-                {
-                    return referralReasonField;
-                }
+                get => referralReasonField;
                 set
                 {
                     referralReasonField = value;
@@ -6724,10 +5836,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ReferralUrgencyValue
             {
-                get
-                {
-                    return referralUrgencyValueField;
-                }
+                get => referralUrgencyValueField;
                 set
                 {
                     referralUrgencyValueField = value;
@@ -6739,10 +5848,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string ReferralUrgencyReason
             {
-                get
-                {
-                    return referralUrgencyReasonField;
-                }
+                get => referralUrgencyReasonField;
                 set
                 {
                     referralUrgencyReasonField = value;
@@ -6754,10 +5860,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6806,10 +5909,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
                     recordIdentifierField = value;
@@ -6821,10 +5921,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
                     patientInformationField = value;
@@ -6836,10 +5933,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TreatmentRequestInfo TreatmentRequestPrf
             {
-                get
-                {
-                    return treatmentRequestPrfField;
-                }
+                get => treatmentRequestPrfField;
                 set
                 {
                     treatmentRequestPrfField = value;
@@ -6851,10 +5945,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TreatmentRequestStatusType RequestStatusPrf
             {
-                get
-                {
-                    return requestStatusPrfField;
-                }
+                get => requestStatusPrfField;
                 set
                 {
                     requestStatusPrfField = value;
@@ -6866,10 +5957,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public AttendanceRequestedType AttendanceRequestedPrf
             {
-                get
-                {
-                    return attendanceRequestedPrfField;
-                }
+                get => attendanceRequestedPrfField;
                 set
                 {
                     attendanceRequestedPrfField = value;
@@ -6881,10 +5969,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public TreatmentRequestOutcomeType RequestOutcomePrf
             {
-                get
-                {
-                    return requestOutcomePrfField;
-                }
+                get => requestOutcomePrfField;
                 set
                 {
                     requestOutcomePrfField = value;
@@ -6896,10 +5981,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public TreatmentRequestDeliveryScheduleType DeliveryStatusPrf
             {
-                get
-                {
-                    return deliveryStatusPrfField;
-                }
+                get => deliveryStatusPrfField;
                 set
                 {
                     deliveryStatusPrfField = value;
@@ -6911,10 +5993,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -6955,10 +6034,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PATIENT_DEMOGRAPHICS_TYPE BasicDemographics
             {
-                get
-                {
-                    return basicDemographicsField;
-                }
+                get => basicDemographicsField;
                 set
                 {
                     basicDemographicsField = value;
@@ -6970,10 +6046,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SOCIAL_CIRCUMSTANCES_TYPE SocialCircumstances
             {
-                get
-                {
-                    return socialCircumstancesField;
-                }
+                get => socialCircumstancesField;
                 set
                 {
                     socialCircumstancesField = value;
@@ -6985,10 +6058,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public PatientExtendedInformation ExtendedDemographics
             {
-                get
-                {
-                    return extendedDemographicsField;
-                }
+                get => extendedDemographicsField;
                 set
                 {
                     extendedDemographicsField = value;
@@ -7000,10 +6070,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -7064,10 +6131,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientId", Order = 0)]
             public ID_TYPE[] PatientId
             {
-                get
-                {
-                    return patientIdField;
-                }
+                get => patientIdField;
                 set
                 {
                     patientIdField = value;
@@ -7079,10 +6143,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientName", Order = 1)]
             public PERSONAL_NAME_TYPE[] PatientName
             {
-                get
-                {
-                    return patientNameField;
-                }
+                get => patientNameField;
                 set
                 {
                     patientNameField = value;
@@ -7094,10 +6155,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientAddress", Order = 2)]
             public ADDRESS_TYPE[] PatientAddress
             {
-                get
-                {
-                    return patientAddressField;
-                }
+                get => patientAddressField;
                 set
                 {
                     patientAddressField = value;
@@ -7109,10 +6167,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientTelecom", Order = 3)]
             public TELECOM_TYPE[] PatientTelecom
             {
-                get
-                {
-                    return patientTelecomField;
-                }
+                get => patientTelecomField;
                 set
                 {
                     patientTelecomField = value;
@@ -7124,10 +6179,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -7139,10 +6191,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -7154,10 +6203,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public decimal Age
             {
-                get
-                {
-                    return ageField;
-                }
+                get => ageField;
                 set
                 {
                     ageField = value;
@@ -7169,10 +6215,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AgeSpecified
             {
-                get
-                {
-                    return ageFieldSpecified;
-                }
+                get => ageFieldSpecified;
                 set
                 {
                     ageFieldSpecified = value;
@@ -7184,10 +6227,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string SexAtBirth
             {
-                get
-                {
-                    return sexAtBirthField;
-                }
+                get => sexAtBirthField;
                 set
                 {
                     sexAtBirthField = value;
@@ -7199,10 +6239,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string Sex
             {
-                get
-                {
-                    return sexField;
-                }
+                get => sexField;
                 set
                 {
                     sexField = value;
@@ -7214,10 +6251,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string MaritalStatus
             {
-                get
-                {
-                    return maritalStatusField;
-                }
+                get => maritalStatusField;
                 set
                 {
                     maritalStatusField = value;
@@ -7229,10 +6263,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public HCP_DETAIL_TYPE RegisteredGp
             {
-                get
-                {
-                    return registeredGpField;
-                }
+                get => registeredGpField;
                 set
                 {
                     registeredGpField = value;
@@ -7244,10 +6275,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public HEALTH_BOARD_TYPE HealthBoardOfResidence
             {
-                get
-                {
-                    return healthBoardOfResidenceField;
-                }
+                get => healthBoardOfResidenceField;
                 set
                 {
                     healthBoardOfResidenceField = value;
@@ -7259,10 +6287,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 11)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -7299,10 +6324,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string HealthBoardCipher
             {
-                get
-                {
-                    return healthBoardCipherField;
-                }
+                get => healthBoardCipherField;
                 set
                 {
                     healthBoardCipherField = value;
@@ -7314,10 +6336,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE HealthBoardDetails
             {
-                get
-                {
-                    return healthBoardDetailsField;
-                }
+                get => healthBoardDetailsField;
                 set
                 {
                     healthBoardDetailsField = value;
@@ -7367,10 +6386,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HousingDetail", typeof(HOUSING_DETAIL_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -7382,10 +6398,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Employment
             {
-                get
-                {
-                    return employmentField;
-                }
+                get => employmentField;
                 set
                 {
                     employmentField = value;
@@ -7397,10 +6410,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Religion
             {
-                get
-                {
-                    return religionField;
-                }
+                get => religionField;
                 set
                 {
                     religionField = value;
@@ -7412,10 +6422,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string EthnicOrigin
             {
-                get
-                {
-                    return ethnicOriginField;
-                }
+                get => ethnicOriginField;
                 set
                 {
                     ethnicOriginField = value;
@@ -7428,10 +6435,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("LanguageDetail", typeof(LANGUAGE_DETAIL_TYPE), Order = 4)]
             public object Item1
             {
-                get
-                {
-                    return item1Field;
-                }
+                get => item1Field;
                 set
                 {
                     item1Field = value;
@@ -7443,10 +6447,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Pets
             {
-                get
-                {
-                    return petsField;
-                }
+                get => petsField;
                 set
                 {
                     petsField = value;
@@ -7458,10 +6459,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public PERSONAL_FINANCES_TYPE PersonalFinances
             {
-                get
-                {
-                    return personalFinancesField;
-                }
+                get => personalFinancesField;
                 set
                 {
                     personalFinancesField = value;
@@ -7473,10 +6471,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -7536,10 +6531,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Accomodation
             {
-                get
-                {
-                    return accomodationField;
-                }
+                get => accomodationField;
                 set
                 {
                     accomodationField = value;
@@ -7551,10 +6543,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool CommunalControlledDoor
             {
-                get
-                {
-                    return communalControlledDoorField;
-                }
+                get => communalControlledDoorField;
                 set
                 {
                     communalControlledDoorField = value;
@@ -7566,10 +6555,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool CommunalControlledDoorSpecified
             {
-                get
-                {
-                    return communalControlledDoorFieldSpecified;
-                }
+                get => communalControlledDoorFieldSpecified;
                 set
                 {
                     communalControlledDoorFieldSpecified = value;
@@ -7581,10 +6567,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool IndividualControlledDoor
             {
-                get
-                {
-                    return individualControlledDoorField;
-                }
+                get => individualControlledDoorField;
                 set
                 {
                     individualControlledDoorField = value;
@@ -7596,10 +6579,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IndividualControlledDoorSpecified
             {
-                get
-                {
-                    return individualControlledDoorFieldSpecified;
-                }
+                get => individualControlledDoorFieldSpecified;
                 set
                 {
                     individualControlledDoorFieldSpecified = value;
@@ -7611,10 +6591,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string KeyPadNumber
             {
-                get
-                {
-                    return keyPadNumberField;
-                }
+                get => keyPadNumberField;
                 set
                 {
                     keyPadNumberField = value;
@@ -7627,10 +6604,7 @@ namespace SciStoreApplication.Properties
             [System.ComponentModel.DefaultValueAttribute(false)]
             public bool CommunityAlarm
             {
-                get
-                {
-                    return communityAlarmField;
-                }
+                get => communityAlarmField;
                 set
                 {
                     communityAlarmField = value;
@@ -7642,10 +6616,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public bool SmokeAlarm
             {
-                get
-                {
-                    return smokeAlarmField;
-                }
+                get => smokeAlarmField;
                 set
                 {
                     smokeAlarmField = value;
@@ -7657,10 +6628,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SmokeAlarmSpecified
             {
-                get
-                {
-                    return smokeAlarmFieldSpecified;
-                }
+                get => smokeAlarmFieldSpecified;
                 set
                 {
                     smokeAlarmFieldSpecified = value;
@@ -7672,10 +6640,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string Tenure
             {
-                get
-                {
-                    return tenureField;
-                }
+                get => tenureField;
                 set
                 {
                     tenureField = value;
@@ -7687,10 +6652,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string HouseholdComposition
             {
-                get
-                {
-                    return householdCompositionField;
-                }
+                get => householdCompositionField;
                 set
                 {
                     householdCompositionField = value;
@@ -7729,10 +6691,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PreferredLanguage
             {
-                get
-                {
-                    return preferredLanguageField;
-                }
+                get => preferredLanguageField;
                 set
                 {
                     preferredLanguageField = value;
@@ -7744,10 +6703,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool InterpreterRequired
             {
-                get
-                {
-                    return interpreterRequiredField;
-                }
+                get => interpreterRequiredField;
                 set
                 {
                     interpreterRequiredField = value;
@@ -7759,10 +6715,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UsualInterpreter", Order = 2)]
             public CARER_TYPE[] UsualInterpreter
             {
-                get
-                {
-                    return usualInterpreterField;
-                }
+                get => usualInterpreterField;
                 set
                 {
                     usualInterpreterField = value;
@@ -7810,10 +6763,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSON_DEMOGRAPHICS_TYPE ContactDetails
             {
-                get
-                {
-                    return contactDetailsField;
-                }
+                get => contactDetailsField;
                 set
                 {
                     contactDetailsField = value;
@@ -7826,10 +6776,7 @@ namespace SciStoreApplication.Properties
             [System.ComponentModel.DefaultValueAttribute(false)]
             public bool KeyHolder
             {
-                get
-                {
-                    return keyHolderField;
-                }
+                get => keyHolderField;
                 set
                 {
                     keyHolderField = value;
@@ -7841,10 +6788,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Relationship
             {
-                get
-                {
-                    return relationshipField;
-                }
+                get => relationshipField;
                 set
                 {
                     relationshipField = value;
@@ -7856,10 +6800,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Comments
             {
-                get
-                {
-                    return commentsField;
-                }
+                get => commentsField;
                 set
                 {
                     commentsField = value;
@@ -7871,10 +6812,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -7915,10 +6853,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Name", Order = 0)]
             public PERSONAL_NAME_TYPE[] Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -7930,10 +6865,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Address", Order = 1)]
             public ADDRESS_TYPE[] Address
             {
-                get
-                {
-                    return addressField;
-                }
+                get => addressField;
                 set
                 {
                     addressField = value;
@@ -7945,10 +6877,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Telecom", Order = 2)]
             public TELECOM_TYPE[] Telecom
             {
-                get
-                {
-                    return telecomField;
-                }
+                get => telecomField;
                 set
                 {
                     telecomField = value;
@@ -7960,10 +6889,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -8010,10 +6936,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSONAL_FINANCES_TYPEBenefitsCheckRequired BenefitsCheckRequired
             {
-                get
-                {
-                    return benefitsCheckRequiredField;
-                }
+                get => benefitsCheckRequiredField;
                 set
                 {
                     benefitsCheckRequiredField = value;
@@ -8025,10 +6948,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BenefitsCheckRequiredSpecified
             {
-                get
-                {
-                    return benefitsCheckRequiredFieldSpecified;
-                }
+                get => benefitsCheckRequiredFieldSpecified;
                 set
                 {
                     benefitsCheckRequiredFieldSpecified = value;
@@ -8040,10 +6960,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("BenefitsReceived", Order = 1)]
             public PERSONAL_FINANCES_TYPEBenefitsReceived[] BenefitsReceived
             {
-                get
-                {
-                    return benefitsReceivedField;
-                }
+                get => benefitsReceivedField;
                 set
                 {
                     benefitsReceivedField = value;
@@ -8055,10 +6972,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string PensionDay
             {
-                get
-                {
-                    return pensionDayField;
-                }
+                get => pensionDayField;
                 set
                 {
                     pensionDayField = value;
@@ -8070,10 +6984,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string NINumber
             {
-                get
-                {
-                    return nINumberField;
-                }
+                get => nINumberField;
                 set
                 {
                     nINumberField = value;
@@ -8085,10 +6996,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public bool SelfManaged
             {
-                get
-                {
-                    return selfManagedField;
-                }
+                get => selfManagedField;
                 set
                 {
                     selfManagedField = value;
@@ -8100,10 +7008,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CARER_TYPE FinancialManager
             {
-                get
-                {
-                    return financialManagerField;
-                }
+                get => financialManagerField;
                 set
                 {
                     financialManagerField = value;
@@ -8162,10 +7067,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string BenefitName
             {
-                get
-                {
-                    return benefitNameField;
-                }
+                get => benefitNameField;
                 set
                 {
                     benefitNameField = value;
@@ -8177,10 +7079,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public decimal Amount
             {
-                get
-                {
-                    return amountField;
-                }
+                get => amountField;
                 set
                 {
                     amountField = value;
@@ -8192,10 +7091,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AmountSpecified
             {
-                get
-                {
-                    return amountFieldSpecified;
-                }
+                get => amountFieldSpecified;
                 set
                 {
                     amountFieldSpecified = value;
@@ -8276,10 +7172,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE CurrentUID
             {
-                get
-                {
-                    return currentUIDField;
-                }
+                get => currentUIDField;
                 set
                 {
                     currentUIDField = value;
@@ -8291,10 +7184,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientUCPN", Order = 1)]
             public UniqueCarePathwayNumberDataType[] PatientUCPN
             {
-                get
-                {
-                    return patientUCPNField;
-                }
+                get => patientUCPNField;
                 set
                 {
                     patientUCPNField = value;
@@ -8306,10 +7196,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool Consent
             {
-                get
-                {
-                    return consentField;
-                }
+                get => consentField;
                 set
                 {
                     consentField = value;
@@ -8321,10 +7208,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ConsentSpecified
             {
-                get
-                {
-                    return consentFieldSpecified;
-                }
+                get => consentFieldSpecified;
                 set
                 {
                     consentFieldSpecified = value;
@@ -8336,10 +7220,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public HCP_DETAIL_TYPE Consultant
             {
-                get
-                {
-                    return consultantField;
-                }
+                get => consultantField;
                 set
                 {
                     consultantField = value;
@@ -8351,10 +7232,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ORGANISATION_TYPE Hospital
             {
-                get
-                {
-                    return hospitalField;
-                }
+                get => hospitalField;
                 set
                 {
                     hospitalField = value;
@@ -8366,10 +7244,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public ORGANISATION_TYPE Ward
             {
-                get
-                {
-                    return wardField;
-                }
+                get => wardField;
                 set
                 {
                     wardField = value;
@@ -8381,10 +7256,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public ORGANISATION_TYPE GPpractice
             {
-                get
-                {
-                    return gPpracticeField;
-                }
+                get => gPpracticeField;
                 set
                 {
                     gPpracticeField = value;
@@ -8396,10 +7268,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool IsDead
             {
-                get
-                {
-                    return isDeadField;
-                }
+                get => isDeadField;
                 set
                 {
                     isDeadField = value;
@@ -8411,10 +7280,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IsDeadSpecified
             {
-                get
-                {
-                    return isDeadFieldSpecified;
-                }
+                get => isDeadFieldSpecified;
                 set
                 {
                     isDeadFieldSpecified = value;
@@ -8426,10 +7292,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", IsNullable = true, Order = 8)]
             public System.Nullable<System.DateTime> DateOfDeath
             {
-                get
-                {
-                    return dateOfDeathField;
-                }
+                get => dateOfDeathField;
                 set
                 {
                     dateOfDeathField = value;
@@ -8441,10 +7304,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfDeathSpecified
             {
-                get
-                {
-                    return dateOfDeathFieldSpecified;
-                }
+                get => dateOfDeathFieldSpecified;
                 set
                 {
                     dateOfDeathFieldSpecified = value;
@@ -8456,10 +7316,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", IsNullable = true, Order = 9)]
             public System.Nullable<System.DateTime> TimeofDeath
             {
-                get
-                {
-                    return timeofDeathField;
-                }
+                get => timeofDeathField;
                 set
                 {
                     timeofDeathField = value;
@@ -8471,10 +7328,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TimeofDeathSpecified
             {
-                get
-                {
-                    return timeofDeathFieldSpecified;
-                }
+                get => timeofDeathFieldSpecified;
                 set
                 {
                     timeofDeathFieldSpecified = value;
@@ -8486,10 +7340,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string LocationOfDeath
             {
-                get
-                {
-                    return locationOfDeathField;
-                }
+                get => locationOfDeathField;
                 set
                 {
                     locationOfDeathField = value;
@@ -8502,10 +7353,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("PreviousName", IsNullable = false)]
             public PERSONAL_NAME_TYPE[] PreviousNames
             {
-                get
-                {
-                    return previousNamesField;
-                }
+                get => previousNamesField;
                 set
                 {
                     previousNamesField = value;
@@ -8517,10 +7365,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 12)]
             public string CurrentPatientStatus
             {
-                get
-                {
-                    return currentPatientStatusField;
-                }
+                get => currentPatientStatusField;
                 set
                 {
                     currentPatientStatusField = value;
@@ -8532,10 +7377,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 13)]
             public string PatientNationality
             {
-                get
-                {
-                    return patientNationalityField;
-                }
+                get => patientNationalityField;
                 set
                 {
                     patientNationalityField = value;
@@ -8547,10 +7389,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 14)]
             public string OverseasStatus
             {
-                get
-                {
-                    return overseasStatusField;
-                }
+                get => overseasStatusField;
                 set
                 {
                     overseasStatusField = value;
@@ -8562,10 +7401,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public bool IsAnomymous
             {
-                get
-                {
-                    return isAnomymousField;
-                }
+                get => isAnomymousField;
                 set
                 {
                     isAnomymousField = value;
@@ -8577,10 +7413,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IsAnomymousSpecified
             {
-                get
-                {
-                    return isAnomymousFieldSpecified;
-                }
+                get => isAnomymousFieldSpecified;
                 set
                 {
                     isAnomymousFieldSpecified = value;
@@ -8592,10 +7425,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public NextOfKinInfo NextOfKin
             {
-                get
-                {
-                    return nextOfKinField;
-                }
+                get => nextOfKinField;
                 set
                 {
                     nextOfKinField = value;
@@ -8607,10 +7437,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -8622,10 +7449,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -8662,10 +7486,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -8677,10 +7498,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DataType", Order = 1)]
             public string[] DataType
             {
-                get
-                {
-                    return dataTypeField;
-                }
+                get => dataTypeField;
                 set
                 {
                     dataTypeField = value;
@@ -8721,10 +7539,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSONAL_NAME_TYPE KinName
             {
-                get
-                {
-                    return kinNameField;
-                }
+                get => kinNameField;
                 set
                 {
                     kinNameField = value;
@@ -8736,10 +7551,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADDRESS_TYPE KinAddress
             {
-                get
-                {
-                    return kinAddressField;
-                }
+                get => kinAddressField;
                 set
                 {
                     kinAddressField = value;
@@ -8751,10 +7563,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("KinTelecom", Order = 2)]
             public TELECOM_TYPE[] KinTelecom
             {
-                get
-                {
-                    return kinTelecomField;
-                }
+                get => kinTelecomField;
                 set
                 {
                     kinTelecomField = value;
@@ -8766,10 +7575,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 3)]
             public string KinRelationship
             {
-                get
-                {
-                    return kinRelationshipField;
-                }
+                get => kinRelationshipField;
                 set
                 {
                     kinRelationshipField = value;
@@ -8806,10 +7612,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ProviderIdentifier
             {
-                get
-                {
-                    return providerIdentifierField;
-                }
+                get => providerIdentifierField;
                 set
                 {
                     providerIdentifierField = value;
@@ -8821,10 +7624,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -8865,10 +7665,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -8880,10 +7677,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
                     treatmentLogIDField = value;
@@ -8895,10 +7689,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -8910,10 +7701,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -8952,10 +7740,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentLogSystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -8967,10 +7752,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TreatmentLog TreatmentLogDetails
             {
-                get
-                {
-                    return treatmentLogDetailsField;
-                }
+                get => treatmentLogDetailsField;
                 set
                 {
                     treatmentLogDetailsField = value;
@@ -8982,10 +7764,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -9024,10 +7803,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindTreatmentLogItemTreatmentLog TreatmentLog
             {
-                get
-                {
-                    return treatmentLogField;
-                }
+                get => treatmentLogField;
                 set
                 {
                     treatmentLogField = value;
@@ -9039,10 +7815,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -9054,10 +7827,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -9138,10 +7908,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
                     treatmentLogIDField = value;
@@ -9153,10 +7920,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -9168,10 +7932,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string PatientCareType
             {
-                get
-                {
-                    return patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
                     patientCareTypeField = value;
@@ -9183,10 +7944,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
                     requestStateField = value;
@@ -9198,10 +7956,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
                     requestStateFieldSpecified = value;
@@ -9213,10 +7968,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
                     requestStatusField = value;
@@ -9228,10 +7980,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
                     requestStatusFieldSpecified = value;
@@ -9243,10 +7992,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
                     recordIdentifierField = value;
@@ -9258,10 +8004,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
                     assessedUrgencyValueField = value;
@@ -9273,10 +8016,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public System.DateTime RequestDateTime
             {
-                get
-                {
-                    return requestDateTimeField;
-                }
+                get => requestDateTimeField;
                 set
                 {
                     requestDateTimeField = value;
@@ -9288,10 +8028,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestDateTimeSpecified
             {
-                get
-                {
-                    return requestDateTimeFieldSpecified;
-                }
+                get => requestDateTimeFieldSpecified;
                 set
                 {
                     requestDateTimeFieldSpecified = value;
@@ -9303,10 +8040,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public System.DateTime ToComeInTargetDateTime
             {
-                get
-                {
-                    return toComeInTargetDateTimeField;
-                }
+                get => toComeInTargetDateTimeField;
                 set
                 {
                     toComeInTargetDateTimeField = value;
@@ -9318,10 +8052,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetDateTimeSpecified
             {
-                get
-                {
-                    return toComeInTargetDateTimeFieldSpecified;
-                }
+                get => toComeInTargetDateTimeFieldSpecified;
                 set
                 {
                     toComeInTargetDateTimeFieldSpecified = value;
@@ -9333,10 +8064,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string PatientCarePointSiteId
             {
-                get
-                {
-                    return patientCarePointSiteIdField;
-                }
+                get => patientCarePointSiteIdField;
                 set
                 {
                     patientCarePointSiteIdField = value;
@@ -9348,10 +8076,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string PatientCarePointLocationId
             {
-                get
-                {
-                    return patientCarePointLocationIdField;
-                }
+                get => patientCarePointLocationIdField;
                 set
                 {
                     patientCarePointLocationIdField = value;
@@ -9363,10 +8088,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string PatientCarePointResponsibleHcpId
             {
-                get
-                {
-                    return patientCarePointResponsibleHcpIdField;
-                }
+                get => patientCarePointResponsibleHcpIdField;
                 set
                 {
                     patientCarePointResponsibleHcpIdField = value;
@@ -9378,10 +8100,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string PatientCarePointClinic
             {
-                get
-                {
-                    return patientCarePointClinicField;
-                }
+                get => patientCarePointClinicField;
                 set
                 {
                     patientCarePointClinicField = value;
@@ -9393,10 +8112,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PatientCarePointSpecialtyName
             {
-                get
-                {
-                    return patientCarePointSpecialtyNameField;
-                }
+                get => patientCarePointSpecialtyNameField;
                 set
                 {
                     patientCarePointSpecialtyNameField = value;
@@ -9408,10 +8124,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string PatientCarePointFacilityName
             {
-                get
-                {
-                    return patientCarePointFacilityNameField;
-                }
+                get => patientCarePointFacilityNameField;
                 set
                 {
                     patientCarePointFacilityNameField = value;
@@ -9423,10 +8136,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -9438,10 +8148,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 16)]
             public System.DateTime DateClosed
             {
-                get
-                {
-                    return dateClosedField;
-                }
+                get => dateClosedField;
                 set
                 {
                     dateClosedField = value;
@@ -9453,10 +8160,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateClosedSpecified
             {
-                get
-                {
-                    return dateClosedFieldSpecified;
-                }
+                get => dateClosedFieldSpecified;
                 set
                 {
                     dateClosedFieldSpecified = value;
@@ -9468,10 +8172,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -9483,10 +8184,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -9589,10 +8287,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -9604,10 +8299,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string OrderCol
             {
-                get
-                {
-                    return orderColField;
-                }
+                get => orderColField;
                 set
                 {
                     orderColField = value;
@@ -9619,10 +8311,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string GivenName
             {
-                get
-                {
-                    return givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
                     givenNameField = value;
@@ -9634,10 +8323,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string MiddleName
             {
-                get
-                {
-                    return middleNameField;
-                }
+                get => middleNameField;
                 set
                 {
                     middleNameField = value;
@@ -9649,10 +8335,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string FamilyName
             {
-                get
-                {
-                    return familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
                     familyNameField = value;
@@ -9664,10 +8347,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Sex
             {
-                get
-                {
-                    return sexField;
-                }
+                get => sexField;
                 set
                 {
                     sexField = value;
@@ -9679,10 +8359,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 6)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -9694,10 +8371,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -9709,10 +8383,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string CHI
             {
-                get
-                {
-                    return cHIField;
-                }
+                get => cHIField;
                 set
                 {
                     cHIField = value;
@@ -9724,10 +8395,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Address
             {
-                get
-                {
-                    return addressField;
-                }
+                get => addressField;
                 set
                 {
                     addressField = value;
@@ -9739,10 +8407,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string PostCode
             {
-                get
-                {
-                    return postCodeField;
-                }
+                get => postCodeField;
                 set
                 {
                     postCodeField = value;
@@ -9754,10 +8419,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string GP
             {
-                get
-                {
-                    return gpField;
-                }
+                get => gpField;
                 set
                 {
                     gpField = value;
@@ -9769,10 +8431,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string GPPractice
             {
-                get
-                {
-                    return gPPracticeField;
-                }
+                get => gPPracticeField;
                 set
                 {
                     gPPracticeField = value;
@@ -9784,10 +8443,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 12)]
             public string Consultant
             {
-                get
-                {
-                    return consultantField;
-                }
+                get => consultantField;
                 set
                 {
                     consultantField = value;
@@ -9799,10 +8455,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 13)]
             public string Ward
             {
-                get
-                {
-                    return wardField;
-                }
+                get => wardField;
                 set
                 {
                     wardField = value;
@@ -9814,10 +8467,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 14)]
             public string Hospital
             {
-                get
-                {
-                    return hospitalField;
-                }
+                get => hospitalField;
                 set
                 {
                     hospitalField = value;
@@ -9829,10 +8479,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string Soundex
             {
-                get
-                {
-                    return soundexField;
-                }
+                get => soundexField;
                 set
                 {
                     soundexField = value;
@@ -9844,10 +8491,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 16)]
             public string ServiceID
             {
-                get
-                {
-                    return serviceIDField;
-                }
+                get => serviceIDField;
                 set
                 {
                     serviceIDField = value;
@@ -9859,10 +8503,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string EventUser
             {
-                get
-                {
-                    return eventUserField;
-                }
+                get => eventUserField;
                 set
                 {
                     eventUserField = value;
@@ -9874,10 +8515,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public System.DateTime EventDateTime
             {
-                get
-                {
-                    return eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
                     eventDateTimeField = value;
@@ -9889,10 +8527,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool EventDateTimeSpecified
             {
-                get
-                {
-                    return eventDateTimeFieldSpecified;
-                }
+                get => eventDateTimeFieldSpecified;
                 set
                 {
                     eventDateTimeFieldSpecified = value;
@@ -9904,10 +8539,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public System.DateTime DateTimeCreated
             {
-                get
-                {
-                    return dateTimeCreatedField;
-                }
+                get => dateTimeCreatedField;
                 set
                 {
                     dateTimeCreatedField = value;
@@ -9919,10 +8551,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeCreatedSpecified
             {
-                get
-                {
-                    return dateTimeCreatedFieldSpecified;
-                }
+                get => dateTimeCreatedFieldSpecified;
                 set
                 {
                     dateTimeCreatedFieldSpecified = value;
@@ -9934,10 +8563,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -9949,10 +8575,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public FindPatientItemException Exception
             {
-                get
-                {
-                    return exceptionField;
-                }
+                get => exceptionField;
                 set
                 {
                     exceptionField = value;
@@ -9964,10 +8587,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ExceptionSpecified
             {
-                get
-                {
-                    return exceptionFieldSpecified;
-                }
+                get => exceptionFieldSpecified;
                 set
                 {
                     exceptionFieldSpecified = value;
@@ -9979,10 +8599,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public FindPatientItemSeededRecord SeededRecord
             {
-                get
-                {
-                    return seededRecordField;
-                }
+                get => seededRecordField;
                 set
                 {
                     seededRecordField = value;
@@ -9994,10 +8611,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SeededRecordSpecified
             {
-                get
-                {
-                    return seededRecordFieldSpecified;
-                }
+                get => seededRecordFieldSpecified;
                 set
                 {
                     seededRecordFieldSpecified = value;
@@ -10009,10 +8623,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public bool Merged
             {
-                get
-                {
-                    return mergedField;
-                }
+                get => mergedField;
                 set
                 {
                     mergedField = value;
@@ -10024,10 +8635,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool MergedSpecified
             {
-                get
-                {
-                    return mergedFieldSpecified;
-                }
+                get => mergedFieldSpecified;
                 set
                 {
                     mergedFieldSpecified = value;
@@ -10039,10 +8647,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 24)]
             public bool Anonymous
             {
-                get
-                {
-                    return anonymousField;
-                }
+                get => anonymousField;
                 set
                 {
                     anonymousField = value;
@@ -10054,10 +8659,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AnonymousSpecified
             {
-                get
-                {
-                    return anonymousFieldSpecified;
-                }
+                get => anonymousFieldSpecified;
                 set
                 {
                     anonymousFieldSpecified = value;
@@ -10069,10 +8671,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 25)]
             public string Consent
             {
-                get
-                {
-                    return consentField;
-                }
+                get => consentField;
                 set
                 {
                     consentField = value;
@@ -10084,10 +8683,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 26)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -10099,10 +8695,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 27)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -10205,10 +8798,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
                     treatmentLogIDField = value;
@@ -10220,10 +8810,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -10235,10 +8822,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
                     recordIdentifierField = value;
@@ -10250,10 +8834,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
                     requestStateField = value;
@@ -10265,10 +8846,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
                     requestStateFieldSpecified = value;
@@ -10280,10 +8858,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
                     requestStatusField = value;
@@ -10295,10 +8870,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
                     requestStatusFieldSpecified = value;
@@ -10310,10 +8882,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
                     assessedUrgencyValueField = value;
@@ -10325,10 +8894,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientCareType
             {
-                get
-                {
-                    return patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
                     patientCareTypeField = value;
@@ -10340,10 +8906,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public DateRangeSelection RequestDate
             {
-                get
-                {
-                    return requestDateField;
-                }
+                get => requestDateField;
                 set
                 {
                     requestDateField = value;
@@ -10355,10 +8918,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public DateRangeSelection TreatmentToComeInDate
             {
-                get
-                {
-                    return treatmentToComeInDateField;
-                }
+                get => treatmentToComeInDateField;
                 set
                 {
                     treatmentToComeInDateField = value;
@@ -10370,10 +8930,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string TreatmentRequestProcedureCode
             {
-                get
-                {
-                    return treatmentRequestProcedureCodeField;
-                }
+                get => treatmentRequestProcedureCodeField;
                 set
                 {
                     treatmentRequestProcedureCodeField = value;
@@ -10385,10 +8942,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string PatientCarepointSiteID
             {
-                get
-                {
-                    return patientCarepointSiteIDField;
-                }
+                get => patientCarepointSiteIDField;
                 set
                 {
                     patientCarepointSiteIDField = value;
@@ -10400,10 +8954,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string PatientCarepointLocationID
             {
-                get
-                {
-                    return patientCarepointLocationIDField;
-                }
+                get => patientCarepointLocationIDField;
                 set
                 {
                     patientCarepointLocationIDField = value;
@@ -10415,10 +8966,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string SpecialtyName
             {
-                get
-                {
-                    return specialtyNameField;
-                }
+                get => specialtyNameField;
                 set
                 {
                     specialtyNameField = value;
@@ -10430,10 +8978,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Facility
             {
-                get
-                {
-                    return facilityField;
-                }
+                get => facilityField;
                 set
                 {
                     facilityField = value;
@@ -10445,10 +8990,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -10460,10 +9002,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -10475,10 +9014,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
                     providerSearchField = value;
@@ -10491,10 +9027,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -10506,10 +9039,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -10556,10 +9086,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindPatientNameCriteria Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -10571,10 +9098,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientIDCriteria Ids
             {
-                get
-                {
-                    return idsField;
-                }
+                get => idsField;
                 set
                 {
                     idsField = value;
@@ -10586,10 +9110,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -10601,10 +9122,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -10616,10 +9134,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool IncludeAnonymous
             {
-                get
-                {
-                    return includeAnonymousField;
-                }
+                get => includeAnonymousField;
                 set
                 {
                     includeAnonymousField = value;
@@ -10631,10 +9146,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAnonymousSpecified
             {
-                get
-                {
-                    return includeAnonymousFieldSpecified;
-                }
+                get => includeAnonymousFieldSpecified;
                 set
                 {
                     includeAnonymousFieldSpecified = value;
@@ -10646,10 +9158,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -10694,10 +9203,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Forename
             {
-                get
-                {
-                    return forenameField;
-                }
+                get => forenameField;
                 set
                 {
                     forenameField = value;
@@ -10709,10 +9215,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator ForenameComparator
             {
-                get
-                {
-                    return forenameComparatorField;
-                }
+                get => forenameComparatorField;
                 set
                 {
                     forenameComparatorField = value;
@@ -10724,10 +9227,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ForenameComparatorSpecified
             {
-                get
-                {
-                    return forenameComparatorFieldSpecified;
-                }
+                get => forenameComparatorFieldSpecified;
                 set
                 {
                     forenameComparatorFieldSpecified = value;
@@ -10739,10 +9239,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Surname
             {
-                get
-                {
-                    return surnameField;
-                }
+                get => surnameField;
                 set
                 {
                     surnameField = value;
@@ -10754,10 +9251,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public SearchComparator SurnameComparator
             {
-                get
-                {
-                    return surnameComparatorField;
-                }
+                get => surnameComparatorField;
                 set
                 {
                     surnameComparatorField = value;
@@ -10769,10 +9263,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SurnameComparatorSpecified
             {
-                get
-                {
-                    return surnameComparatorFieldSpecified;
-                }
+                get => surnameComparatorFieldSpecified;
                 set
                 {
                     surnameComparatorFieldSpecified = value;
@@ -10839,10 +9330,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ID
             {
-                get
-                {
-                    return idField;
-                }
+                get => idField;
                 set
                 {
                     idField = value;
@@ -10854,10 +9342,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator IDcomparator
             {
-                get
-                {
-                    return iDcomparatorField;
-                }
+                get => iDcomparatorField;
                 set
                 {
                     iDcomparatorField = value;
@@ -10869,10 +9354,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IDcomparatorSpecified
             {
-                get
-                {
-                    return iDcomparatorFieldSpecified;
-                }
+                get => iDcomparatorFieldSpecified;
                 set
                 {
                     iDcomparatorFieldSpecified = value;
@@ -10915,10 +9397,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ProviderSearchType SearchType
             {
-                get
-                {
-                    return searchTypeField;
-                }
+                get => searchTypeField;
                 set
                 {
                     searchTypeField = value;
@@ -10931,10 +9410,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Provider", IsNullable = false)]
             public ProviderItem[] Providers
             {
-                get
-                {
-                    return providersField;
-                }
+                get => providersField;
                 set
                 {
                     providersField = value;
@@ -10946,10 +9422,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool IncludeAll
             {
-                get
-                {
-                    return includeAllField;
-                }
+                get => includeAllField;
                 set
                 {
                     includeAllField = value;
@@ -10961,10 +9434,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAllSpecified
             {
-                get
-                {
-                    return includeAllFieldSpecified;
-                }
+                get => includeAllFieldSpecified;
                 set
                 {
                     includeAllFieldSpecified = value;
@@ -10976,10 +9446,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -11032,10 +9499,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string StylesheetID
             {
-                get
-                {
-                    return stylesheetIDField;
-                }
+                get => stylesheetIDField;
                 set
                 {
                     stylesheetIDField = value;
@@ -11047,10 +9511,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 1)]
             public byte[] StylesheetData
             {
-                get
-                {
-                    return stylesheetDataField;
-                }
+                get => stylesheetDataField;
                 set
                 {
                     stylesheetDataField = value;
@@ -11062,10 +9523,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -11110,10 +9568,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentSystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -11125,10 +9580,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DocumentMetadata DocumentDetails
             {
-                get
-                {
-                    return documentDetailsField;
-                }
+                get => documentDetailsField;
                 set
                 {
                     documentDetailsField = value;
@@ -11140,10 +9592,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public DocumentStylesheetType DocumentStylesheet
             {
-                get
-                {
-                    return documentStylesheetField;
-                }
+                get => documentStylesheetField;
                 set
                 {
                     documentStylesheetField = value;
@@ -11155,10 +9604,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
                     patientInformationField = value;
@@ -11170,10 +9616,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 4)]
             public byte[] DocumentData
             {
-                get
-                {
-                    return documentDataField;
-                }
+                get => documentDataField;
                 set
                 {
                     documentDataField = value;
@@ -11185,10 +9628,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -11241,10 +9681,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -11256,10 +9693,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string PatientDocumentSearchID
             {
-                get
-                {
-                    return patientDocumentSearchIDField;
-                }
+                get => patientDocumentSearchIDField;
                 set
                 {
                     patientDocumentSearchIDField = value;
@@ -11271,10 +9705,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -11286,10 +9717,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", IsNullable = true, Order = 3)]
             public string DocumentSourceID
             {
-                get
-                {
-                    return documentSourceIDField;
-                }
+                get => documentSourceIDField;
                 set
                 {
                     documentSourceIDField = value;
@@ -11301,10 +9729,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 4)]
             public string PatientDocumentID
             {
-                get
-                {
-                    return patientDocumentIDField;
-                }
+                get => patientDocumentIDField;
                 set
                 {
                     patientDocumentIDField = value;
@@ -11316,10 +9741,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string DocumentToDatabaseID
             {
-                get
-                {
-                    return documentToDatabaseIDField;
-                }
+                get => documentToDatabaseIDField;
                 set
                 {
                     documentToDatabaseIDField = value;
@@ -11331,10 +9753,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 6)]
             public string DocumentStatusID
             {
-                get
-                {
-                    return documentStatusIDField;
-                }
+                get => documentStatusIDField;
                 set
                 {
                     documentStatusIDField = value;
@@ -11346,10 +9765,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool DocumentIsLinked
             {
-                get
-                {
-                    return documentIsLinkedField;
-                }
+                get => documentIsLinkedField;
                 set
                 {
                     documentIsLinkedField = value;
@@ -11361,10 +9777,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public bool DocumentHasHistory
             {
-                get
-                {
-                    return documentHasHistoryField;
-                }
+                get => documentHasHistoryField;
                 set
                 {
                     documentHasHistoryField = value;
@@ -11376,10 +9789,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -11462,10 +9872,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_INDEX_TYPE DocumentCategory
             {
-                get
-                {
-                    return documentCategoryField;
-                }
+                get => documentCategoryField;
                 set
                 {
                     documentCategoryField = value;
@@ -11477,10 +9884,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DocumentIdentifier
             {
-                get
-                {
-                    return documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
                     documentIdentifierField = value;
@@ -11492,10 +9896,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -11507,10 +9908,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DocumentTitle
             {
-                get
-                {
-                    return documentTitleField;
-                }
+                get => documentTitleField;
                 set
                 {
                     documentTitleField = value;
@@ -11522,10 +9920,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DocumentRevision
             {
-                get
-                {
-                    return documentRevisionField;
-                }
+                get => documentRevisionField;
                 set
                 {
                     documentRevisionField = value;
@@ -11537,10 +9932,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public SPECIALTY_TYPE DocumentSpecialty
             {
-                get
-                {
-                    return documentSpecialtyField;
-                }
+                get => documentSpecialtyField;
                 set
                 {
                     documentSpecialtyField = value;
@@ -11552,10 +9944,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string DocumentOrganisationName
             {
-                get
-                {
-                    return documentOrganisationNameField;
-                }
+                get => documentOrganisationNameField;
                 set
                 {
                     documentOrganisationNameField = value;
@@ -11567,10 +9956,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string DocumentOrganisationType
             {
-                get
-                {
-                    return documentOrganisationTypeField;
-                }
+                get => documentOrganisationTypeField;
                 set
                 {
                     documentOrganisationTypeField = value;
@@ -11582,10 +9968,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Stylesheet
             {
-                get
-                {
-                    return stylesheetField;
-                }
+                get => stylesheetField;
                 set
                 {
                     stylesheetField = value;
@@ -11597,10 +9980,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string AdditionalText
             {
-                get
-                {
-                    return additionalTextField;
-                }
+                get => additionalTextField;
                 set
                 {
                     additionalTextField = value;
@@ -11612,10 +9992,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public System.DateTime DocumentAttestationDateTime
             {
-                get
-                {
-                    return documentAttestationDateTimeField;
-                }
+                get => documentAttestationDateTimeField;
                 set
                 {
                     documentAttestationDateTimeField = value;
@@ -11627,10 +10004,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 11)]
             public string OriginatingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return originatingHcp_HealthcareProfessionalIDField;
-                }
+                get => originatingHcp_HealthcareProfessionalIDField;
                 set
                 {
                     originatingHcp_HealthcareProfessionalIDField = value;
@@ -11642,10 +10016,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 12)]
             public string AttestingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return attestingHcp_HealthcareProfessionalIDField;
-                }
+                get => attestingHcp_HealthcareProfessionalIDField;
                 set
                 {
                     attestingHcp_HealthcareProfessionalIDField = value;
@@ -11657,10 +10028,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 13)]
             public string ReceivingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return receivingHcp_HealthcareProfessionalIDField;
-                }
+                get => receivingHcp_HealthcareProfessionalIDField;
                 set
                 {
                     receivingHcp_HealthcareProfessionalIDField = value;
@@ -11673,10 +10041,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("CopiedHcp_HealthcareProfessionalID", DataType = "integer", IsNullable = false)]
             public string[] CopiedHcp_HealthcareProfessionalIDs
             {
-                get
-                {
-                    return copiedHcp_HealthcareProfessionalIDsField;
-                }
+                get => copiedHcp_HealthcareProfessionalIDsField;
                 set
                 {
                     copiedHcp_HealthcareProfessionalIDsField = value;
@@ -11688,10 +10053,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string ConsentToShare
             {
-                get
-                {
-                    return consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
                     consentToShareField = value;
@@ -11703,10 +10065,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public string Sensitivity
             {
-                get
-                {
-                    return sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
                     sensitivityField = value;
@@ -11718,10 +10077,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string PackageIdentifier
             {
-                get
-                {
-                    return packageIdentifierField;
-                }
+                get => packageIdentifierField;
                 set
                 {
                     packageIdentifierField = value;
@@ -11734,10 +10090,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Note", IsNullable = false)]
             public DocumentNote[] UserNotes
             {
-                get
-                {
-                    return userNotesField;
-                }
+                get => userNotesField;
                 set
                 {
                     userNotesField = value;
@@ -11750,10 +10103,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Stylesheet", IsNullable = false)]
             public string[] Stylesheets
             {
-                get
-                {
-                    return stylesheetsField;
-                }
+                get => stylesheetsField;
                 set
                 {
                     stylesheetsField = value;
@@ -11765,10 +10115,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string Keywords
             {
-                get
-                {
-                    return keywordsField;
-                }
+                get => keywordsField;
                 set
                 {
                     keywordsField = value;
@@ -11780,10 +10127,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public bool UserNotesAvailable
             {
-                get
-                {
-                    return userNotesAvailableField;
-                }
+                get => userNotesAvailableField;
                 set
                 {
                     userNotesAvailableField = value;
@@ -11795,10 +10139,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public bool AdditionalStylesheetsAvailable
             {
-                get
-                {
-                    return additionalStylesheetsAvailableField;
-                }
+                get => additionalStylesheetsAvailableField;
                 set
                 {
                     additionalStylesheetsAvailableField = value;
@@ -11810,10 +10151,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public bool IsRetired
             {
-                get
-                {
-                    return isRetiredField;
-                }
+                get => isRetiredField;
                 set
                 {
                     isRetiredField = value;
@@ -11825,10 +10163,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 24)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -11867,10 +10202,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DocumentType
             {
-                get
-                {
-                    return documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
                     documentTypeField = value;
@@ -11882,10 +10214,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Separator
             {
-                get
-                {
-                    return separatorField;
-                }
+                get => separatorField;
                 set
                 {
                     separatorField = value;
@@ -11897,10 +10226,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentSubType
             {
-                get
-                {
-                    return documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
                     documentSubTypeField = value;
@@ -11939,10 +10265,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NoteText
             {
-                get
-                {
-                    return noteTextField;
-                }
+                get => noteTextField;
                 set
                 {
                     noteTextField = value;
@@ -11954,10 +10277,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime NoteDate
             {
-                get
-                {
-                    return noteDateField;
-                }
+                get => noteDateField;
                 set
                 {
                     noteDateField = value;
@@ -11969,10 +10289,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public UserInfo NoteUser
             {
-                get
-                {
-                    return noteUserField;
-                }
+                get => noteUserField;
                 set
                 {
                     noteUserField = value;
@@ -12013,10 +10330,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentSystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -12028,10 +10342,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DocumentMetadata DocumentDetails
             {
-                get
-                {
-                    return documentDetailsField;
-                }
+                get => documentDetailsField;
                 set
                 {
                     documentDetailsField = value;
@@ -12043,10 +10354,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -12058,10 +10366,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -12100,10 +10405,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Identifier
             {
-                get
-                {
-                    return identifierField;
-                }
+                get => identifierField;
                 set
                 {
                     identifierField = value;
@@ -12115,10 +10417,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator Comparator
             {
-                get
-                {
-                    return comparatorField;
-                }
+                get => comparatorField;
                 set
                 {
                     comparatorField = value;
@@ -12130,10 +10429,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ComparatorSpecified
             {
-                get
-                {
-                    return comparatorFieldSpecified;
-                }
+                get => comparatorFieldSpecified;
                 set
                 {
                     comparatorFieldSpecified = value;
@@ -12214,10 +10510,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -12229,10 +10522,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 1)]
             public string DocumentToDatabaseID
             {
-                get
-                {
-                    return documentToDatabaseIDField;
-                }
+                get => documentToDatabaseIDField;
                 set
                 {
                     documentToDatabaseIDField = value;
@@ -12244,10 +10534,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public DateRangeSelection DocumentAttestationDate
             {
-                get
-                {
-                    return documentAttestationDateField;
-                }
+                get => documentAttestationDateField;
                 set
                 {
                     documentAttestationDateField = value;
@@ -12259,10 +10546,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDocumentIdentifierCriteria DocumentIdentifier
             {
-                get
-                {
-                    return documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
                     documentIdentifierField = value;
@@ -12274,10 +10558,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DocumentType
             {
-                get
-                {
-                    return documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
                     documentTypeField = value;
@@ -12289,10 +10570,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string DocumentSubType
             {
-                get
-                {
-                    return documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
                     documentSubTypeField = value;
@@ -12304,10 +10582,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string DocumentTitle
             {
-                get
-                {
-                    return documentTitleField;
-                }
+                get => documentTitleField;
                 set
                 {
                     documentTitleField = value;
@@ -12319,10 +10594,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string AdditionalText
             {
-                get
-                {
-                    return additionalTextField;
-                }
+                get => additionalTextField;
                 set
                 {
                     additionalTextField = value;
@@ -12334,10 +10606,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string DocumentSpecialty
             {
-                get
-                {
-                    return documentSpecialtyField;
-                }
+                get => documentSpecialtyField;
                 set
                 {
                     documentSpecialtyField = value;
@@ -12349,10 +10618,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string DocumentOrganisationName
             {
-                get
-                {
-                    return documentOrganisationNameField;
-                }
+                get => documentOrganisationNameField;
                 set
                 {
                     documentOrganisationNameField = value;
@@ -12364,10 +10630,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string DocumentOrganisationType
             {
-                get
-                {
-                    return documentOrganisationTypeField;
-                }
+                get => documentOrganisationTypeField;
                 set
                 {
                     documentOrganisationTypeField = value;
@@ -12379,10 +10642,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string ConsentToShare
             {
-                get
-                {
-                    return consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
                     consentToShareField = value;
@@ -12394,10 +10654,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string Sensitivity
             {
-                get
-                {
-                    return sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
                     sensitivityField = value;
@@ -12409,10 +10666,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PackageIdentifier
             {
-                get
-                {
-                    return packageIdentifierField;
-                }
+                get => packageIdentifierField;
                 set
                 {
                     packageIdentifierField = value;
@@ -12424,10 +10678,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string OriginatingHCP
             {
-                get
-                {
-                    return originatingHCPField;
-                }
+                get => originatingHCPField;
                 set
                 {
                     originatingHCPField = value;
@@ -12439,10 +10690,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string AttestingHCP
             {
-                get
-                {
-                    return attestingHCPField;
-                }
+                get => attestingHCPField;
                 set
                 {
                     attestingHCPField = value;
@@ -12454,10 +10702,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public string ReceivingHCP
             {
-                get
-                {
-                    return receivingHCPField;
-                }
+                get => receivingHCPField;
                 set
                 {
                     receivingHCPField = value;
@@ -12469,10 +10714,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string CopiedHCP
             {
-                get
-                {
-                    return copiedHCPField;
-                }
+                get => copiedHCPField;
                 set
                 {
                     copiedHCPField = value;
@@ -12484,10 +10726,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public string Keywords
             {
-                get
-                {
-                    return keywordsField;
-                }
+                get => keywordsField;
                 set
                 {
                     keywordsField = value;
@@ -12499,10 +10738,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -12514,10 +10750,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -12529,10 +10762,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
                     providerSearchField = value;
@@ -12545,10 +10775,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -12560,10 +10787,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 23)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -12602,10 +10826,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DocumentType
             {
-                get
-                {
-                    return documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
                     documentTypeField = value;
@@ -12617,10 +10838,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Separator
             {
-                get
-                {
-                    return separatorField;
-                }
+                get => separatorField;
                 set
                 {
                     separatorField = value;
@@ -12632,10 +10850,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentSubType
             {
-                get
-                {
-                    return documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
                     documentSubTypeField = value;
@@ -12706,10 +10921,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DOCUMENT_CATEGORY_TYPE DocumentCategory
             {
-                get
-                {
-                    return documentCategoryField;
-                }
+                get => documentCategoryField;
                 set
                 {
                     documentCategoryField = value;
@@ -12721,10 +10933,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DocumentIdentifier", Order = 1)]
             public ID_TYPE[] DocumentIdentifier
             {
-                get
-                {
-                    return documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
                     documentIdentifierField = value;
@@ -12736,10 +10945,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentRevision
             {
-                get
-                {
-                    return documentRevisionField;
-                }
+                get => documentRevisionField;
                 set
                 {
                     documentRevisionField = value;
@@ -12751,10 +10957,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DocumentStatus
             {
-                get
-                {
-                    return documentStatusField;
-                }
+                get => documentStatusField;
                 set
                 {
                     documentStatusField = value;
@@ -12766,10 +10969,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -12781,10 +10981,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public HCP_DETAIL_TYPE OriginatingHcp
             {
-                get
-                {
-                    return originatingHcpField;
-                }
+                get => originatingHcpField;
                 set
                 {
                     originatingHcpField = value;
@@ -12796,10 +10993,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public HCP_DETAIL_TYPE Attesting_Hcp
             {
-                get
-                {
-                    return attesting_HcpField;
-                }
+                get => attesting_HcpField;
                 set
                 {
                     attesting_HcpField = value;
@@ -12811,10 +11005,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 7)]
             public System.DateTime DocumentAttestationDate
             {
-                get
-                {
-                    return documentAttestationDateField;
-                }
+                get => documentAttestationDateField;
                 set
                 {
                     documentAttestationDateField = value;
@@ -12826,10 +11017,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DocumentAttestationDateSpecified
             {
-                get
-                {
-                    return documentAttestationDateFieldSpecified;
-                }
+                get => documentAttestationDateFieldSpecified;
                 set
                 {
                     documentAttestationDateFieldSpecified = value;
@@ -12841,10 +11029,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 8)]
             public System.DateTime DocumentAttestationTime
             {
-                get
-                {
-                    return documentAttestationTimeField;
-                }
+                get => documentAttestationTimeField;
                 set
                 {
                     documentAttestationTimeField = value;
@@ -12856,10 +11041,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DocumentAttestationTimeSpecified
             {
-                get
-                {
-                    return documentAttestationTimeFieldSpecified;
-                }
+                get => documentAttestationTimeFieldSpecified;
                 set
                 {
                     documentAttestationTimeFieldSpecified = value;
@@ -12871,10 +11053,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public HCP_DETAIL_TYPE ReceivingHcp
             {
-                get
-                {
-                    return receivingHcpField;
-                }
+                get => receivingHcpField;
                 set
                 {
                     receivingHcpField = value;
@@ -12886,10 +11065,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("CopiedHcp", Order = 10)]
             public HCP_DETAIL_TYPE[] CopiedHcp
             {
-                get
-                {
-                    return copiedHcpField;
-                }
+                get => copiedHcpField;
                 set
                 {
                     copiedHcpField = value;
@@ -12901,10 +11077,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientId", Order = 11)]
             public ID_TYPE[] PatientId
             {
-                get
-                {
-                    return patientIdField;
-                }
+                get => patientIdField;
                 set
                 {
                     patientIdField = value;
@@ -12916,10 +11089,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string ConsentToShare
             {
-                get
-                {
-                    return consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
                     consentToShareField = value;
@@ -12931,10 +11101,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Sensitivity
             {
-                get
-                {
-                    return sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
                     sensitivityField = value;
@@ -12946,10 +11113,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 14)]
             public System.DateTime DocumentCreationDate
             {
-                get
-                {
-                    return documentCreationDateField;
-                }
+                get => documentCreationDateField;
                 set
                 {
                     documentCreationDateField = value;
@@ -12961,10 +11125,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 15)]
             public System.DateTime DocumentCreationTime
             {
-                get
-                {
-                    return documentCreationTimeField;
-                }
+                get => documentCreationTimeField;
                 set
                 {
                     documentCreationTimeField = value;
@@ -12976,10 +11137,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 16)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -13026,10 +11184,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DisplayName
             {
-                get
-                {
-                    return displayNameField;
-                }
+                get => displayNameField;
                 set
                 {
                     displayNameField = value;
@@ -13041,10 +11196,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OriginalFileName
             {
-                get
-                {
-                    return originalFileNameField;
-                }
+                get => originalFileNameField;
                 set
                 {
                     originalFileNameField = value;
@@ -13056,10 +11208,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string FileType
             {
-                get
-                {
-                    return fileTypeField;
-                }
+                get => fileTypeField;
                 set
                 {
                     fileTypeField = value;
@@ -13071,10 +11220,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 3)]
             public string FileSizeInBytes
             {
-                get
-                {
-                    return fileSizeInBytesField;
-                }
+                get => fileSizeInBytesField;
                 set
                 {
                     fileSizeInBytesField = value;
@@ -13086,10 +11232,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string CompressionMethod
             {
-                get
-                {
-                    return compressionMethodField;
-                }
+                get => compressionMethodField;
                 set
                 {
                     compressionMethodField = value;
@@ -13101,10 +11244,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 5)]
             public string CompressedSizeInBytes
             {
-                get
-                {
-                    return compressedSizeInBytesField;
-                }
+                get => compressedSizeInBytesField;
                 set
                 {
                     compressedSizeInBytesField = value;
@@ -13116,10 +11256,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 6)]
             public byte[] AttachmentData
             {
-                get
-                {
-                    return attachmentDataField;
-                }
+                get => attachmentDataField;
                 set
                 {
                     attachmentDataField = value;
@@ -13164,10 +11301,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TEST_REPORTING_TYPEExaminationDetails ExaminationDetails
             {
-                get
-                {
-                    return examinationDetailsField;
-                }
+                get => examinationDetailsField;
                 set
                 {
                     examinationDetailsField = value;
@@ -13179,10 +11313,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TEST_REPORTING_TYPEAuthorisingDetails AuthorisingDetails
             {
-                get
-                {
-                    return authorisingDetailsField;
-                }
+                get => authorisingDetailsField;
                 set
                 {
                     authorisingDetailsField = value;
@@ -13194,10 +11325,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TEST_REPORTING_TYPEReportingDetails ReportingDetails
             {
-                get
-                {
-                    return reportingDetailsField;
-                }
+                get => reportingDetailsField;
                 set
                 {
                     reportingDetailsField = value;
@@ -13209,10 +11337,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TEST_REPORTING_TYPEVerifyingDetails VerifyingDetails
             {
-                get
-                {
-                    return verifyingDetailsField;
-                }
+                get => verifyingDetailsField;
                 set
                 {
                     verifyingDetailsField = value;
@@ -13224,10 +11349,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public TEST_REPORTING_TYPEDataEntryDetails DataEntryDetails
             {
-                get
-                {
-                    return dataEntryDetailsField;
-                }
+                get => dataEntryDetailsField;
                 set
                 {
                     dataEntryDetailsField = value;
@@ -13239,10 +11361,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -13281,10 +11400,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE ExaminationParty
             {
-                get
-                {
-                    return examinationPartyField;
-                }
+                get => examinationPartyField;
                 set
                 {
                     examinationPartyField = value;
@@ -13296,10 +11412,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime ExaminationDate
             {
-                get
-                {
-                    return examinationDateField;
-                }
+                get => examinationDateField;
                 set
                 {
                     examinationDateField = value;
@@ -13311,10 +11424,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ExaminationDateSpecified
             {
-                get
-                {
-                    return examinationDateFieldSpecified;
-                }
+                get => examinationDateFieldSpecified;
                 set
                 {
                     examinationDateFieldSpecified = value;
@@ -13353,10 +11463,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE AuthorisingParty
             {
-                get
-                {
-                    return authorisingPartyField;
-                }
+                get => authorisingPartyField;
                 set
                 {
                     authorisingPartyField = value;
@@ -13368,10 +11475,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime AuthorisingDate
             {
-                get
-                {
-                    return authorisingDateField;
-                }
+                get => authorisingDateField;
                 set
                 {
                     authorisingDateField = value;
@@ -13383,10 +11487,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AuthorisingDateSpecified
             {
-                get
-                {
-                    return authorisingDateFieldSpecified;
-                }
+                get => authorisingDateFieldSpecified;
                 set
                 {
                     authorisingDateFieldSpecified = value;
@@ -13425,10 +11526,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE ReportingParty
             {
-                get
-                {
-                    return reportingPartyField;
-                }
+                get => reportingPartyField;
                 set
                 {
                     reportingPartyField = value;
@@ -13440,10 +11538,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime ReportingDate
             {
-                get
-                {
-                    return reportingDateField;
-                }
+                get => reportingDateField;
                 set
                 {
                     reportingDateField = value;
@@ -13455,10 +11550,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportingDateSpecified
             {
-                get
-                {
-                    return reportingDateFieldSpecified;
-                }
+                get => reportingDateFieldSpecified;
                 set
                 {
                     reportingDateFieldSpecified = value;
@@ -13497,10 +11589,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE VerifyingParty
             {
-                get
-                {
-                    return verifyingPartyField;
-                }
+                get => verifyingPartyField;
                 set
                 {
                     verifyingPartyField = value;
@@ -13512,10 +11601,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime VerifyingDate
             {
-                get
-                {
-                    return verifyingDateField;
-                }
+                get => verifyingDateField;
                 set
                 {
                     verifyingDateField = value;
@@ -13527,10 +11613,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool VerifyingDateSpecified
             {
-                get
-                {
-                    return verifyingDateFieldSpecified;
-                }
+                get => verifyingDateFieldSpecified;
                 set
                 {
                     verifyingDateFieldSpecified = value;
@@ -13569,10 +11652,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE Typist
             {
-                get
-                {
-                    return typistField;
-                }
+                get => typistField;
                 set
                 {
                     typistField = value;
@@ -13584,10 +11664,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime DateTyped
             {
-                get
-                {
-                    return dateTypedField;
-                }
+                get => dateTypedField;
                 set
                 {
                     dateTypedField = value;
@@ -13599,10 +11676,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTypedSpecified
             {
-                get
-                {
-                    return dateTypedFieldSpecified;
-                }
+                get => dateTypedFieldSpecified;
                 set
                 {
                     dateTypedFieldSpecified = value;
@@ -13643,10 +11717,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("EvidenceLocator", Order = 0)]
             public string[] EvidenceLocator
             {
-                get
-                {
-                    return evidenceLocatorField;
-                }
+                get => evidenceLocatorField;
                 set
                 {
                     evidenceLocatorField = value;
@@ -13658,10 +11729,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("EvidenceItem", Order = 1)]
             public string[] EvidenceItem
             {
-                get
-                {
-                    return evidenceItemField;
-                }
+                get => evidenceItemField;
                 set
                 {
                     evidenceItemField = value;
@@ -13673,10 +11741,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EvidenceFormat
             {
-                get
-                {
-                    return evidenceFormatField;
-                }
+                get => evidenceFormatField;
                 set
                 {
                     evidenceFormatField = value;
@@ -13688,10 +11753,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -13728,10 +11790,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Interpretation
             {
-                get
-                {
-                    return interpretationField;
-                }
+                get => interpretationField;
                 set
                 {
                     interpretationField = value;
@@ -13743,10 +11802,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DeviatingResultQualitativeFlag
             {
-                get
-                {
-                    return deviatingResultQualitativeFlagField;
-                }
+                get => deviatingResultQualitativeFlagField;
                 set
                 {
                     deviatingResultQualitativeFlagField = value;
@@ -13813,10 +11869,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Department
             {
-                get
-                {
-                    return departmentField;
-                }
+                get => departmentField;
                 set
                 {
                     departmentField = value;
@@ -13828,10 +11881,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TEST_TYPE TestPerformed
             {
-                get
-                {
-                    return testPerformedField;
-                }
+                get => testPerformedField;
                 set
                 {
                     testPerformedField = value;
@@ -13843,10 +11893,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime TestDate
             {
-                get
-                {
-                    return testDateField;
-                }
+                get => testDateField;
                 set
                 {
                     testDateField = value;
@@ -13858,10 +11905,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TestDateSpecified
             {
-                get
-                {
-                    return testDateFieldSpecified;
-                }
+                get => testDateFieldSpecified;
                 set
                 {
                     testDateFieldSpecified = value;
@@ -13873,10 +11917,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestSampleDetails", Order = 3)]
             public SAMPLE_TYPE[] TestSampleDetails
             {
-                get
-                {
-                    return testSampleDetailsField;
-                }
+                get => testSampleDetailsField;
                 set
                 {
                     testSampleDetailsField = value;
@@ -13888,10 +11929,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestMeasurement", Order = 4)]
             public QUANTIFIABLE_RESULT_TYPE[] TestMeasurement
             {
-                get
-                {
-                    return testMeasurementField;
-                }
+                get => testMeasurementField;
                 set
                 {
                     testMeasurementField = value;
@@ -13903,10 +11941,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public INTERPRETATION_TYPE TestInterpretation
             {
-                get
-                {
-                    return testInterpretationField;
-                }
+                get => testInterpretationField;
                 set
                 {
                     testInterpretationField = value;
@@ -13918,10 +11953,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public System.DateTime DateTimeReported
             {
-                get
-                {
-                    return dateTimeReportedField;
-                }
+                get => dateTimeReportedField;
                 set
                 {
                     dateTimeReportedField = value;
@@ -13933,10 +11965,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReportedSpecified
             {
-                get
-                {
-                    return dateTimeReportedFieldSpecified;
-                }
+                get => dateTimeReportedFieldSpecified;
                 set
                 {
                     dateTimeReportedFieldSpecified = value;
@@ -13948,10 +11977,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Evidence", Order = 7)]
             public EVIDENCE_TYPE[] Evidence
             {
-                get
-                {
-                    return evidenceField;
-                }
+                get => evidenceField;
                 set
                 {
                     evidenceField = value;
@@ -13963,10 +11989,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Comment", Order = 8)]
             public string[] Comment
             {
-                get
-                {
-                    return commentField;
-                }
+                get => commentField;
                 set
                 {
                     commentField = value;
@@ -13978,10 +12001,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string DisciplineSpecificValues
             {
-                get
-                {
-                    return disciplineSpecificValuesField;
-                }
+                get => disciplineSpecificValuesField;
                 set
                 {
                     disciplineSpecificValuesField = value;
@@ -13993,10 +12013,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public TEST_STATUS_TYPE ResultStatus
             {
-                get
-                {
-                    return resultStatusField;
-                }
+                get => resultStatusField;
                 set
                 {
                     resultStatusField = value;
@@ -14008,10 +12025,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string ResultDataType
             {
-                get
-                {
-                    return resultDataTypeField;
-                }
+                get => resultDataTypeField;
                 set
                 {
                     resultDataTypeField = value;
@@ -14023,10 +12037,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public TEST_REPORTING_TYPE ReportDetails
             {
-                get
-                {
-                    return reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
                     reportDetailsField = value;
@@ -14039,10 +12050,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ResultAttachment", IsNullable = false)]
             public ATTACHMENT_TYPE[] ResultAttachments
             {
-                get
-                {
-                    return resultAttachmentsField;
-                }
+                get => resultAttachmentsField;
                 set
                 {
                     resultAttachmentsField = value;
@@ -14054,10 +12062,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 14)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14102,10 +12107,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestName", Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] TestName
             {
-                get
-                {
-                    return testNameField;
-                }
+                get => testNameField;
                 set
                 {
                     testNameField = value;
@@ -14117,10 +12119,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TestSpecification
             {
-                get
-                {
-                    return testSpecificationField;
-                }
+                get => testSpecificationField;
                 set
                 {
                     testSpecificationField = value;
@@ -14132,10 +12131,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrderNumber
             {
-                get
-                {
-                    return orderNumberField;
-                }
+                get => orderNumberField;
                 set
                 {
                     orderNumberField = value;
@@ -14147,10 +12143,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SubOrderNumber
             {
-                get
-                {
-                    return subOrderNumberField;
-                }
+                get => subOrderNumberField;
                 set
                 {
                     subOrderNumberField = value;
@@ -14162,10 +12155,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ID_TYPE TestIdentifier
             {
-                get
-                {
-                    return testIdentifierField;
-                }
+                get => testIdentifierField;
                 set
                 {
                     testIdentifierField = value;
@@ -14177,10 +12167,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14247,10 +12234,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("SampleName", Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] SampleName
             {
-                get
-                {
-                    return sampleNameField;
-                }
+                get => sampleNameField;
                 set
                 {
                     sampleNameField = value;
@@ -14262,10 +12246,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TissueType
             {
-                get
-                {
-                    return tissueTypeField;
-                }
+                get => tissueTypeField;
                 set
                 {
                     tissueTypeField = value;
@@ -14277,10 +12258,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SampleRequesterId
             {
-                get
-                {
-                    return sampleRequesterIdField;
-                }
+                get => sampleRequesterIdField;
                 set
                 {
                     sampleRequesterIdField = value;
@@ -14292,10 +12270,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SampleLaboratoryId
             {
-                get
-                {
-                    return sampleLaboratoryIdField;
-                }
+                get => sampleLaboratoryIdField;
                 set
                 {
                     sampleLaboratoryIdField = value;
@@ -14307,10 +12282,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public System.DateTime DateTimeSampled
             {
-                get
-                {
-                    return dateTimeSampledField;
-                }
+                get => dateTimeSampledField;
                 set
                 {
                     dateTimeSampledField = value;
@@ -14322,10 +12294,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeSampledSpecified
             {
-                get
-                {
-                    return dateTimeSampledFieldSpecified;
-                }
+                get => dateTimeSampledFieldSpecified;
                 set
                 {
                     dateTimeSampledFieldSpecified = value;
@@ -14337,10 +12306,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public QUANTITY_TYPE SampleAmount
             {
-                get
-                {
-                    return sampleAmountField;
-                }
+                get => sampleAmountField;
                 set
                 {
                     sampleAmountField = value;
@@ -14352,10 +12318,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public System.DateTime DateTimeReceived
             {
-                get
-                {
-                    return dateTimeReceivedField;
-                }
+                get => dateTimeReceivedField;
                 set
                 {
                     dateTimeReceivedField = value;
@@ -14367,10 +12330,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReceivedSpecified
             {
-                get
-                {
-                    return dateTimeReceivedFieldSpecified;
-                }
+                get => dateTimeReceivedFieldSpecified;
                 set
                 {
                     dateTimeReceivedFieldSpecified = value;
@@ -14382,10 +12342,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public System.DateTime DateTimeTested
             {
-                get
-                {
-                    return dateTimeTestedField;
-                }
+                get => dateTimeTestedField;
                 set
                 {
                     dateTimeTestedField = value;
@@ -14397,10 +12354,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeTestedSpecified
             {
-                get
-                {
-                    return dateTimeTestedFieldSpecified;
-                }
+                get => dateTimeTestedFieldSpecified;
                 set
                 {
                     dateTimeTestedFieldSpecified = value;
@@ -14412,10 +12366,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public ANATOMICAL_SITE_TYPE AnatomicalSite
             {
-                get
-                {
-                    return anatomicalSiteField;
-                }
+                get => anatomicalSiteField;
                 set
                 {
                     anatomicalSiteField = value;
@@ -14427,10 +12378,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public bool BiohazardAlert
             {
-                get
-                {
-                    return biohazardAlertField;
-                }
+                get => biohazardAlertField;
                 set
                 {
                     biohazardAlertField = value;
@@ -14442,10 +12390,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BiohazardAlertSpecified
             {
-                get
-                {
-                    return biohazardAlertFieldSpecified;
-                }
+                get => biohazardAlertFieldSpecified;
                 set
                 {
                     biohazardAlertFieldSpecified = value;
@@ -14457,10 +12402,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("SampleRequesterComment", Order = 10)]
             public string[] SampleRequesterComment
             {
-                get
-                {
-                    return sampleRequesterCommentField;
-                }
+                get => sampleRequesterCommentField;
                 set
                 {
                     sampleRequesterCommentField = value;
@@ -14472,10 +12414,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ServiceProviderComment", Order = 11)]
             public string[] ServiceProviderComment
             {
-                get
-                {
-                    return serviceProviderCommentField;
-                }
+                get => serviceProviderCommentField;
                 set
                 {
                     serviceProviderCommentField = value;
@@ -14487,10 +12426,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 12)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14527,10 +12463,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE BodyPart
             {
-                get
-                {
-                    return bodyPartField;
-                }
+                get => bodyPartField;
                 set
                 {
                     bodyPartField = value;
@@ -14542,10 +12475,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Laterality
             {
-                get
-                {
-                    return lateralityField;
-                }
+                get => lateralityField;
                 set
                 {
                     lateralityField = value;
@@ -14592,10 +12522,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TEST_TYPE TestSetDetails
             {
-                get
-                {
-                    return testSetDetailsField;
-                }
+                get => testSetDetailsField;
                 set
                 {
                     testSetDetailsField = value;
@@ -14608,10 +12535,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResult", IsNullable = false)]
             public TEST_RESULT_TYPE[] TestResults
             {
-                get
-                {
-                    return testResultsField;
-                }
+                get => testResultsField;
                 set
                 {
                     testResultsField = value;
@@ -14623,10 +12547,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Comment", Order = 2)]
             public string[] Comment
             {
-                get
-                {
-                    return commentField;
-                }
+                get => commentField;
                 set
                 {
                     commentField = value;
@@ -14638,10 +12559,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TEST_STATUS_TYPE ResultStatus
             {
-                get
-                {
-                    return resultStatusField;
-                }
+                get => resultStatusField;
                 set
                 {
                     resultStatusField = value;
@@ -14653,10 +12571,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ResultDataType
             {
-                get
-                {
-                    return resultDataTypeField;
-                }
+                get => resultDataTypeField;
                 set
                 {
                     resultDataTypeField = value;
@@ -14668,10 +12583,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public TEST_REPORTING_TYPE ReportDetails
             {
-                get
-                {
-                    return reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
                     reportDetailsField = value;
@@ -14683,10 +12595,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14725,10 +12634,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SAMPLE_TYPE SampleDetails
             {
-                get
-                {
-                    return sampleDetailsField;
-                }
+                get => sampleDetailsField;
                 set
                 {
                     sampleDetailsField = value;
@@ -14741,10 +12647,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResultSet", IsNullable = false)]
             public TEST_SET_RESULT_TYPE[] TestResultSets
             {
-                get
-                {
-                    return testResultSetsField;
-                }
+                get => testResultSetsField;
                 set
                 {
                     testResultSetsField = value;
@@ -14756,10 +12659,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14810,10 +12710,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -14826,10 +12723,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemChoiceType ItemElementName
             {
-                get
-                {
-                    return itemElementNameField;
-                }
+                get => itemElementNameField;
                 set
                 {
                     itemElementNameField = value;
@@ -14841,10 +12735,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool DrugReviewRequired
             {
-                get
-                {
-                    return drugReviewRequiredField;
-                }
+                get => drugReviewRequiredField;
                 set
                 {
                     drugReviewRequiredField = value;
@@ -14856,10 +12747,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DrugReviewRequiredSpecified
             {
-                get
-                {
-                    return drugReviewRequiredFieldSpecified;
-                }
+                get => drugReviewRequiredFieldSpecified;
                 set
                 {
                     drugReviewRequiredFieldSpecified = value;
@@ -14871,10 +12759,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
             public System.DateTime MedicationStopDate
             {
-                get
-                {
-                    return medicationStopDateField;
-                }
+                get => medicationStopDateField;
                 set
                 {
                     medicationStopDateField = value;
@@ -14886,10 +12771,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool MedicationStopDateSpecified
             {
-                get
-                {
-                    return medicationStopDateFieldSpecified;
-                }
+                get => medicationStopDateFieldSpecified;
                 set
                 {
                     medicationStopDateFieldSpecified = value;
@@ -14901,10 +12783,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -14978,10 +12857,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DoseDescription", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -14993,10 +12869,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Frequency
             {
-                get
-                {
-                    return frequencyField;
-                }
+                get => frequencyField;
                 set
                 {
                     frequencyField = value;
@@ -15008,10 +12881,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TimeOfAdministration
             {
-                get
-                {
-                    return timeOfAdministrationField;
-                }
+                get => timeOfAdministrationField;
                 set
                 {
                     timeOfAdministrationField = value;
@@ -15023,10 +12893,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Route
             {
-                get
-                {
-                    return routeField;
-                }
+                get => routeField;
                 set
                 {
                     routeField = value;
@@ -15038,10 +12905,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public QUANTITY_TYPE MaximumDailyDose
             {
-                get
-                {
-                    return maximumDailyDoseField;
-                }
+                get => maximumDailyDoseField;
                 set
                 {
                     maximumDailyDoseField = value;
@@ -15054,10 +12918,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TriggerForAdministration", typeof(string), Order = 5)]
             public object[] Items
             {
-                get
-                {
-                    return itemsField;
-                }
+                get => itemsField;
                 set
                 {
                     itemsField = value;
@@ -15069,10 +12930,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public DRUG_DURATION_TYPE DrugDuration
             {
-                get
-                {
-                    return drugDurationField;
-                }
+                get => drugDurationField;
                 set
                 {
                     drugDurationField = value;
@@ -15084,10 +12942,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 7)]
             public System.DateTime LastPrescribedDate
             {
-                get
-                {
-                    return lastPrescribedDateField;
-                }
+                get => lastPrescribedDateField;
                 set
                 {
                     lastPrescribedDateField = value;
@@ -15099,10 +12954,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool LastPrescribedDateSpecified
             {
-                get
-                {
-                    return lastPrescribedDateFieldSpecified;
-                }
+                get => lastPrescribedDateFieldSpecified;
                 set
                 {
                     lastPrescribedDateFieldSpecified = value;
@@ -15114,10 +12966,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15164,10 +13013,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DrugCodeValue
             {
-                get
-                {
-                    return drugCodeValueField;
-                }
+                get => drugCodeValueField;
                 set
                 {
                     drugCodeValueField = value;
@@ -15179,10 +13025,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DrugIdentifier
             {
-                get
-                {
-                    return drugIdentifierField;
-                }
+                get => drugIdentifierField;
                 set
                 {
                     drugIdentifierField = value;
@@ -15194,10 +13037,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Formulation
             {
-                get
-                {
-                    return formulationField;
-                }
+                get => formulationField;
                 set
                 {
                     formulationField = value;
@@ -15209,10 +13049,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public QUANTITY_TYPE DrugStrength
             {
-                get
-                {
-                    return drugStrengthField;
-                }
+                get => drugStrengthField;
                 set
                 {
                     drugStrengthField = value;
@@ -15224,10 +13061,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DrugType
             {
-                get
-                {
-                    return drugTypeField;
-                }
+                get => drugTypeField;
                 set
                 {
                     drugTypeField = value;
@@ -15239,10 +13073,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CLINICAL_CODE_SCHEME_TYPE DrugDictionary
             {
-                get
-                {
-                    return drugDictionaryField;
-                }
+                get => drugDictionaryField;
                 set
                 {
                     drugDictionaryField = value;
@@ -15254,10 +13085,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15298,10 +13126,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
             public object[] Items
             {
-                get
-                {
-                    return itemsField;
-                }
+                get => itemsField;
                 set
                 {
                     itemsField = value;
@@ -15314,10 +13139,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemsChoiceType1[] ItemsElementName
             {
-                get
-                {
-                    return itemsElementNameField;
-                }
+                get => itemsElementNameField;
                 set
                 {
                     itemsElementNameField = value;
@@ -15377,10 +13199,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DRUG_IDENTIFICATION_TYPE DrugName
             {
-                get
-                {
-                    return drugNameField;
-                }
+                get => drugNameField;
                 set
                 {
                     drugNameField = value;
@@ -15393,10 +13212,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredDosage", typeof(string), Order = 1)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -15408,10 +13224,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15460,10 +13273,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public bool TransportRequired
             {
-                get
-                {
-                    return transportRequiredField;
-                }
+                get => transportRequiredField;
                 set
                 {
                     transportRequiredField = value;
@@ -15475,10 +13285,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TransportType
             {
-                get
-                {
-                    return transportTypeField;
-                }
+                get => transportTypeField;
                 set
                 {
                     transportTypeField = value;
@@ -15493,10 +13300,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
             public object[] Items
             {
-                get
-                {
-                    return itemsField;
-                }
+                get => itemsField;
                 set
                 {
                     itemsField = value;
@@ -15509,10 +13313,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemsChoiceType[] ItemsElementName
             {
-                get
-                {
-                    return itemsElementNameField;
-                }
+                get => itemsElementNameField;
                 set
                 {
                     itemsElementNameField = value;
@@ -15524,10 +13325,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string TransportPickup
             {
-                get
-                {
-                    return transportPickupField;
-                }
+                get => transportPickupField;
                 set
                 {
                     transportPickupField = value;
@@ -15539,10 +13337,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string TransportDestination
             {
-                get
-                {
-                    return transportDestinationField;
-                }
+                get => transportDestinationField;
                 set
                 {
                     transportDestinationField = value;
@@ -15554,10 +13349,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string TransportInstructions
             {
-                get
-                {
-                    return transportInstructionsField;
-                }
+                get => transportInstructionsField;
                 set
                 {
                     transportInstructionsField = value;
@@ -15569,10 +13361,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15634,10 +13423,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE ClinicHealthcareOrganisation
             {
-                get
-                {
-                    return clinicHealthcareOrganisationField;
-                }
+                get => clinicHealthcareOrganisationField;
                 set
                 {
                     clinicHealthcareOrganisationField = value;
@@ -15649,10 +13435,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Clinic
             {
-                get
-                {
-                    return clinicField;
-                }
+                get => clinicField;
                 set
                 {
                     clinicField = value;
@@ -15664,10 +13447,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime AppointmentDate
             {
-                get
-                {
-                    return appointmentDateField;
-                }
+                get => appointmentDateField;
                 set
                 {
                     appointmentDateField = value;
@@ -15679,10 +13459,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime AppointmentTime
             {
-                get
-                {
-                    return appointmentTimeField;
-                }
+                get => appointmentTimeField;
                 set
                 {
                     appointmentTimeField = value;
@@ -15694,10 +13471,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public INTERVAL_TYPE SlotLength
             {
-                get
-                {
-                    return slotLengthField;
-                }
+                get => slotLengthField;
                 set
                 {
                     slotLengthField = value;
@@ -15709,10 +13483,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15751,10 +13522,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Slot", Order = 0)]
             public SLOT_TYPE[] Slot
             {
-                get
-                {
-                    return slotField;
-                }
+                get => slotField;
                 set
                 {
                     slotField = value;
@@ -15766,10 +13534,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TRANSPORT_DETAILS_TYPE TransportDetails
             {
-                get
-                {
-                    return transportDetailsField;
-                }
+                get => transportDetailsField;
                 set
                 {
                     transportDetailsField = value;
@@ -15781,10 +13546,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -15833,10 +13595,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Department
             {
-                get
-                {
-                    return departmentField;
-                }
+                get => departmentField;
                 set
                 {
                     departmentField = value;
@@ -15848,10 +13607,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestRequested", Order = 1)]
             public TEST_TYPE[] TestRequested
             {
-                get
-                {
-                    return testRequestedField;
-                }
+                get => testRequestedField;
                 set
                 {
                     testRequestedField = value;
@@ -15863,10 +13619,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestSampleDetails", Order = 2)]
             public SAMPLE_TYPE[] TestSampleDetails
             {
-                get
-                {
-                    return testSampleDetailsField;
-                }
+                get => testSampleDetailsField;
                 set
                 {
                     testSampleDetailsField = value;
@@ -15878,10 +13631,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public PATIENT_TEST_ADMINISTRATION_TYPE PatientTestAdministration
             {
-                get
-                {
-                    return patientTestAdministrationField;
-                }
+                get => patientTestAdministrationField;
                 set
                 {
                     patientTestAdministrationField = value;
@@ -15893,10 +13643,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string RequestUrgencyValue
             {
-                get
-                {
-                    return requestUrgencyValueField;
-                }
+                get => requestUrgencyValueField;
                 set
                 {
                     requestUrgencyValueField = value;
@@ -15908,10 +13655,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalDataRequired", Order = 5)]
             public string[] ClinicalDataRequired
             {
-                get
-                {
-                    return clinicalDataRequiredField;
-                }
+                get => clinicalDataRequiredField;
                 set
                 {
                     clinicalDataRequiredField = value;
@@ -15923,10 +13667,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("CurrentMedication", Order = 6)]
             public MEDICATION_TYPE[] CurrentMedication
             {
-                get
-                {
-                    return currentMedicationField;
-                }
+                get => currentMedicationField;
                 set
                 {
                     currentMedicationField = value;
@@ -15938,10 +13679,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -16004,10 +13742,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
                     reportIdentifierField = value;
@@ -16019,10 +13754,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
                     reportDateField = value;
@@ -16034,10 +13766,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 2)]
             public System.DateTime ReportTime
             {
-                get
-                {
-                    return reportTimeField;
-                }
+                get => reportTimeField;
                 set
                 {
                     reportTimeField = value;
@@ -16049,10 +13778,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportTimeSpecified
             {
-                get
-                {
-                    return reportTimeFieldSpecified;
-                }
+                get => reportTimeFieldSpecified;
                 set
                 {
                     reportTimeFieldSpecified = value;
@@ -16064,10 +13790,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Discipline
             {
-                get
-                {
-                    return disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
                     disciplineField = value;
@@ -16079,10 +13802,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string SectionName
             {
-                get
-                {
-                    return sectionNameField;
-                }
+                get => sectionNameField;
                 set
                 {
                     sectionNameField = value;
@@ -16094,10 +13814,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public InvestigationReportMessageTypeServiceProvider ServiceProvider
             {
-                get
-                {
-                    return serviceProviderField;
-                }
+                get => serviceProviderField;
                 set
                 {
                     serviceProviderField = value;
@@ -16109,10 +13826,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public HCP_DETAIL_TYPE RequestingParty
             {
-                get
-                {
-                    return requestingPartyField;
-                }
+                get => requestingPartyField;
                 set
                 {
                     requestingPartyField = value;
@@ -16124,10 +13838,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool ConfidentialityStatus
             {
-                get
-                {
-                    return confidentialityStatusField;
-                }
+                get => confidentialityStatusField;
                 set
                 {
                     confidentialityStatusField = value;
@@ -16139,10 +13850,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ConfidentialityStatusSpecified
             {
-                get
-                {
-                    return confidentialityStatusFieldSpecified;
-                }
+                get => confidentialityStatusFieldSpecified;
                 set
                 {
                     confidentialityStatusFieldSpecified = value;
@@ -16154,10 +13862,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public SERVICE_REQUEST_TYPE ServiceRequest
             {
-                get
-                {
-                    return serviceRequestField;
-                }
+                get => serviceRequestField;
                 set
                 {
                     serviceRequestField = value;
@@ -16169,10 +13874,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ServiceResult", Order = 9)]
             public ResultSuite[] ServiceResult
             {
-                get
-                {
-                    return serviceResultField;
-                }
+                get => serviceResultField;
                 set
                 {
                     serviceResultField = value;
@@ -16184,10 +13886,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
                     patientInformationField = value;
@@ -16199,10 +13898,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string PatientClass
             {
-                get
-                {
-                    return patientClassField;
-                }
+                get => patientClassField;
                 set
                 {
                     patientClassField = value;
@@ -16214,10 +13910,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 12)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -16254,10 +13947,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE ProvidingSite
             {
-                get
-                {
-                    return providingSiteField;
-                }
+                get => providingSiteField;
                 set
                 {
                     providingSiteField = value;
@@ -16269,10 +13959,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE ProvidingLocation
             {
-                get
-                {
-                    return providingLocationField;
-                }
+                get => providingLocationField;
                 set
                 {
                     providingLocationField = value;
@@ -16311,10 +13998,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public InvestigationReportMessageType ReportData
             {
-                get
-                {
-                    return reportDataField;
-                }
+                get => reportDataField;
                 set
                 {
                     reportDataField = value;
@@ -16326,10 +14010,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DOCUMENT_DATA_TYPE DocumentData
             {
-                get
-                {
-                    return documentDataField;
-                }
+                get => documentDataField;
                 set
                 {
                     documentDataField = value;
@@ -16341,10 +14022,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -16387,10 +14065,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string TestReportID
             {
-                get
-                {
-                    return testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
                     testReportIDField = value;
@@ -16402,10 +14077,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -16417,10 +14089,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public System.Nullable<bool> ReportHasHistory
             {
-                get
-                {
-                    return reportHasHistoryField;
-                }
+                get => reportHasHistoryField;
                 set
                 {
                     reportHasHistoryField = value;
@@ -16432,10 +14101,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 3)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -16447,10 +14113,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -16489,10 +14152,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindResultItemReportDetails ReportDetails
             {
-                get
-                {
-                    return reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
                     reportDetailsField = value;
@@ -16504,10 +14164,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -16519,10 +14176,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -16619,10 +14273,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string TestReportID
             {
-                get
-                {
-                    return testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
                     testReportIDField = value;
@@ -16634,10 +14285,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -16649,10 +14297,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string RequestingPartyHealthcareProfessionalID
             {
-                get
-                {
-                    return requestingPartyHealthcareProfessionalIDField;
-                }
+                get => requestingPartyHealthcareProfessionalIDField;
                 set
                 {
                     requestingPartyHealthcareProfessionalIDField = value;
@@ -16664,10 +14309,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 3)]
             public string RequestingOrganisationID
             {
-                get
-                {
-                    return requestingOrganisationIDField;
-                }
+                get => requestingOrganisationIDField;
                 set
                 {
                     requestingOrganisationIDField = value;
@@ -16679,10 +14321,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ConfidentialityStatus
             {
-                get
-                {
-                    return confidentialityStatusField;
-                }
+                get => confidentialityStatusField;
                 set
                 {
                     confidentialityStatusField = value;
@@ -16694,10 +14333,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string PatientDemographicsID
             {
-                get
-                {
-                    return patientDemographicsIDField;
-                }
+                get => patientDemographicsIDField;
                 set
                 {
                     patientDemographicsIDField = value;
@@ -16709,10 +14345,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string Discipline
             {
-                get
-                {
-                    return disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
                     disciplineField = value;
@@ -16724,10 +14357,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string SectionName
             {
-                get
-                {
-                    return sectionNameField;
-                }
+                get => sectionNameField;
                 set
                 {
                     sectionNameField = value;
@@ -16739,10 +14369,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
                     reportIdentifierField = value;
@@ -16754,10 +14381,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public System.DateTime ReportDateTime
             {
-                get
-                {
-                    return reportDateTimeField;
-                }
+                get => reportDateTimeField;
                 set
                 {
                     reportDateTimeField = value;
@@ -16769,10 +14393,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportDateTimeSpecified
             {
-                get
-                {
-                    return reportDateTimeFieldSpecified;
-                }
+                get => reportDateTimeFieldSpecified;
                 set
                 {
                     reportDateTimeFieldSpecified = value;
@@ -16784,10 +14405,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public System.DateTime EventDateTime
             {
-                get
-                {
-                    return eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
                     eventDateTimeField = value;
@@ -16799,10 +14417,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool EventDateTimeSpecified
             {
-                get
-                {
-                    return eventDateTimeFieldSpecified;
-                }
+                get => eventDateTimeFieldSpecified;
                 set
                 {
                     eventDateTimeFieldSpecified = value;
@@ -16814,10 +14429,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string EventUser
             {
-                get
-                {
-                    return eventUserField;
-                }
+                get => eventUserField;
                 set
                 {
                     eventUserField = value;
@@ -16829,10 +14441,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 12)]
             public string RecipientOrganisationID
             {
-                get
-                {
-                    return recipientOrganisationIDField;
-                }
+                get => recipientOrganisationIDField;
                 set
                 {
                     recipientOrganisationIDField = value;
@@ -16844,10 +14453,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 13)]
             public string SampleID
             {
-                get
-                {
-                    return sampleIDField;
-                }
+                get => sampleIDField;
                 set
                 {
                     sampleIDField = value;
@@ -16859,10 +14465,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string SampleCode
             {
-                get
-                {
-                    return sampleCodeField;
-                }
+                get => sampleCodeField;
                 set
                 {
                     sampleCodeField = value;
@@ -16874,10 +14477,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string SampleDescription
             {
-                get
-                {
-                    return sampleDescriptionField;
-                }
+                get => sampleDescriptionField;
                 set
                 {
                     sampleDescriptionField = value;
@@ -16889,10 +14489,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public System.DateTime DateTimeSampled
             {
-                get
-                {
-                    return dateTimeSampledField;
-                }
+                get => dateTimeSampledField;
                 set
                 {
                     dateTimeSampledField = value;
@@ -16904,10 +14501,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeSampledSpecified
             {
-                get
-                {
-                    return dateTimeSampledFieldSpecified;
-                }
+                get => dateTimeSampledFieldSpecified;
                 set
                 {
                     dateTimeSampledFieldSpecified = value;
@@ -16919,10 +14513,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 17)]
             public string TestID
             {
-                get
-                {
-                    return testIDField;
-                }
+                get => testIDField;
                 set
                 {
                     testIDField = value;
@@ -16934,10 +14525,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public string SetDescription
             {
-                get
-                {
-                    return setDescriptionField;
-                }
+                get => setDescriptionField;
                 set
                 {
                     setDescriptionField = value;
@@ -16949,10 +14537,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public string DocumentType
             {
-                get
-                {
-                    return documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
                     documentTypeField = value;
@@ -16964,10 +14549,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string DocumentSubType
             {
-                get
-                {
-                    return documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
                     documentSubTypeField = value;
@@ -16979,10 +14561,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public TEST_STATUS_TYPE ResultSetStatus
             {
-                get
-                {
-                    return resultSetStatusField;
-                }
+                get => resultSetStatusField;
                 set
                 {
                     resultSetStatusField = value;
@@ -16994,10 +14573,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public FindResultItemReportDetailsReportAbnormal ReportAbnormal
             {
-                get
-                {
-                    return reportAbnormalField;
-                }
+                get => reportAbnormalField;
                 set
                 {
                     reportAbnormalField = value;
@@ -17009,10 +14585,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportAbnormalSpecified
             {
-                get
-                {
-                    return reportAbnormalFieldSpecified;
-                }
+                get => reportAbnormalFieldSpecified;
                 set
                 {
                     reportAbnormalFieldSpecified = value;
@@ -17024,10 +14597,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -17039,10 +14609,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 24)]
             public string NumComments
             {
-                get
-                {
-                    return numCommentsField;
-                }
+                get => numCommentsField;
                 set
                 {
                     numCommentsField = value;
@@ -17054,10 +14621,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 25)]
             public System.DateTime DateTimeCreated
             {
-                get
-                {
-                    return dateTimeCreatedField;
-                }
+                get => dateTimeCreatedField;
                 set
                 {
                     dateTimeCreatedField = value;
@@ -17069,10 +14633,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 26)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -17084,10 +14645,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 27)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -17140,10 +14698,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
                     dateFromField = value;
@@ -17155,10 +14710,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return dateToField;
-                }
+                get => dateToField;
                 set
                 {
                     dateToField = value;
@@ -17239,10 +14791,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -17254,10 +14803,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
                     reportIdentifierField = value;
@@ -17269,10 +14815,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindDateRange ReportDate
             {
-                get
-                {
-                    return reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
                     reportDateField = value;
@@ -17284,10 +14827,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDateTimeRange EventDateTime
             {
-                get
-                {
-                    return eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
                     eventDateTimeField = value;
@@ -17299,10 +14839,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public FindDateRange DateSampled
             {
-                get
-                {
-                    return dateSampledField;
-                }
+                get => dateSampledField;
                 set
                 {
                     dateSampledField = value;
@@ -17314,10 +14851,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public FindDateRange SampleDateReceived
             {
-                get
-                {
-                    return sampleDateReceivedField;
-                }
+                get => sampleDateReceivedField;
                 set
                 {
                     sampleDateReceivedField = value;
@@ -17329,10 +14863,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public FindDateRange SampleDateTested
             {
-                get
-                {
-                    return sampleDateTestedField;
-                }
+                get => sampleDateTestedField;
                 set
                 {
                     sampleDateTestedField = value;
@@ -17344,10 +14875,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string TestResultSet
             {
-                get
-                {
-                    return testResultSetField;
-                }
+                get => testResultSetField;
                 set
                 {
                     testResultSetField = value;
@@ -17359,10 +14887,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string RequestingPartyHealthcareProfessionalID
             {
-                get
-                {
-                    return requestingPartyHealthcareProfessionalIDField;
-                }
+                get => requestingPartyHealthcareProfessionalIDField;
                 set
                 {
                     requestingPartyHealthcareProfessionalIDField = value;
@@ -17374,10 +14899,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string RequestingOrganisationID
             {
-                get
-                {
-                    return requestingOrganisationIDField;
-                }
+                get => requestingOrganisationIDField;
                 set
                 {
                     requestingOrganisationIDField = value;
@@ -17389,10 +14911,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string SampleDescription
             {
-                get
-                {
-                    return sampleDescriptionField;
-                }
+                get => sampleDescriptionField;
                 set
                 {
                     sampleDescriptionField = value;
@@ -17404,10 +14923,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string SearchNotes
             {
-                get
-                {
-                    return searchNotesField;
-                }
+                get => searchNotesField;
                 set
                 {
                     searchNotesField = value;
@@ -17419,10 +14935,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string TestPerformed
             {
-                get
-                {
-                    return testPerformedField;
-                }
+                get => testPerformedField;
                 set
                 {
                     testPerformedField = value;
@@ -17434,10 +14947,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Discipline
             {
-                get
-                {
-                    return disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
                     disciplineField = value;
@@ -17449,10 +14959,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 14)]
             public string GPid
             {
-                get
-                {
-                    return gPidField;
-                }
+                get => gPidField;
                 set
                 {
                     gPidField = value;
@@ -17464,10 +14971,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 15)]
             public string PracticeID
             {
-                get
-                {
-                    return practiceIDField;
-                }
+                get => practiceIDField;
                 set
                 {
                     practiceIDField = value;
@@ -17479,10 +14983,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 16)]
             public string ConsultantID
             {
-                get
-                {
-                    return consultantIDField;
-                }
+                get => consultantIDField;
                 set
                 {
                     consultantIDField = value;
@@ -17494,10 +14995,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -17509,10 +15007,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public RESULT_STATUS_TYPE ResultStatusType
             {
-                get
-                {
-                    return resultStatusTypeField;
-                }
+                get => resultStatusTypeField;
                 set
                 {
                     resultStatusTypeField = value;
@@ -17524,10 +15019,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ResultStatusTypeSpecified
             {
-                get
-                {
-                    return resultStatusTypeFieldSpecified;
-                }
+                get => resultStatusTypeFieldSpecified;
                 set
                 {
                     resultStatusTypeFieldSpecified = value;
@@ -17539,10 +15031,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -17554,10 +15043,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
                     providerSearchField = value;
@@ -17570,10 +15056,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -17585,10 +15068,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 22)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -17633,10 +15113,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
                     originatingSystemField = value;
@@ -17648,10 +15125,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 1)]
             public string OriginatingUser
             {
-                get
-                {
-                    return originatingUserField;
-                }
+                get => originatingUserField;
                 set
                 {
                     originatingUserField = value;
@@ -17663,10 +15137,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public string EffectiveDate
             {
-                get
-                {
-                    return effectiveDateField;
-                }
+                get => effectiveDateField;
                 set
                 {
                     effectiveDateField = value;
@@ -17678,10 +15149,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -17693,10 +15161,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -17708,10 +15173,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -17750,10 +15212,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Postcode
             {
-                get
-                {
-                    return postcodeField;
-                }
+                get => postcodeField;
                 set
                 {
                     postcodeField = value;
@@ -17765,10 +15224,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator PostCodeComparator
             {
-                get
-                {
-                    return postCodeComparatorField;
-                }
+                get => postCodeComparatorField;
                 set
                 {
                     postCodeComparatorField = value;
@@ -17780,10 +15236,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PostCodeComparatorSpecified
             {
-                get
-                {
-                    return postCodeComparatorFieldSpecified;
-                }
+                get => postCodeComparatorFieldSpecified;
                 set
                 {
                     postCodeComparatorFieldSpecified = value;
@@ -17848,10 +15301,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindPatientNameCriteria Name
             {
-                get
-                {
-                    return nameField;
-                }
+                get => nameField;
                 set
                 {
                     nameField = value;
@@ -17863,10 +15313,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientAddressCriteria Address
             {
-                get
-                {
-                    return addressField;
-                }
+                get => addressField;
                 set
                 {
                     addressField = value;
@@ -17878,10 +15325,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindPatientIDCriteria Ids
             {
-                get
-                {
-                    return idsField;
-                }
+                get => idsField;
                 set
                 {
                     idsField = value;
@@ -17893,10 +15337,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindPatientCriteriaDate Date
             {
-                get
-                {
-                    return dateField;
-                }
+                get => dateField;
                 set
                 {
                     dateField = value;
@@ -17908,10 +15349,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Sex
             {
-                get
-                {
-                    return sexField;
-                }
+                get => sexField;
                 set
                 {
                     sexField = value;
@@ -17923,10 +15361,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string GPid
             {
-                get
-                {
-                    return gPidField;
-                }
+                get => gPidField;
                 set
                 {
                     gPidField = value;
@@ -17938,10 +15373,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 6)]
             public string PracticeID
             {
-                get
-                {
-                    return practiceIDField;
-                }
+                get => practiceIDField;
                 set
                 {
                     practiceIDField = value;
@@ -17953,10 +15385,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 7)]
             public string ConsultantID
             {
-                get
-                {
-                    return consultantIDField;
-                }
+                get => consultantIDField;
                 set
                 {
                     consultantIDField = value;
@@ -17968,10 +15397,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 8)]
             public string HospitalID
             {
-                get
-                {
-                    return hospitalIDField;
-                }
+                get => hospitalIDField;
                 set
                 {
                     hospitalIDField = value;
@@ -17983,10 +15409,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string WardID
             {
-                get
-                {
-                    return wardIDField;
-                }
+                get => wardIDField;
                 set
                 {
                     wardIDField = value;
@@ -17998,10 +15421,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -18013,10 +15433,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public bool IncludeAnonymous
             {
-                get
-                {
-                    return includeAnonymousField;
-                }
+                get => includeAnonymousField;
                 set
                 {
                     includeAnonymousField = value;
@@ -18028,10 +15445,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAnonymousSpecified
             {
-                get
-                {
-                    return includeAnonymousFieldSpecified;
-                }
+                get => includeAnonymousFieldSpecified;
                 set
                 {
                     includeAnonymousFieldSpecified = value;
@@ -18043,10 +15457,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
                     providerSearchField = value;
@@ -18059,10 +15470,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -18074,10 +15482,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 14)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18114,10 +15519,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
                     dateOfBirthField = value;
@@ -18129,10 +15531,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
                     dateOfBirthFieldSpecified = value;
@@ -18175,10 +15574,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MessageIdentifier", Order = 0)]
             public ID_TYPE[] MessageIdentifier
             {
-                get
-                {
-                    return messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
                     messageIdentifierField = value;
@@ -18190,10 +15586,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
                     originatingSystemField = value;
@@ -18205,10 +15598,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime MessageCreationDate
             {
-                get
-                {
-                    return messageCreationDateField;
-                }
+                get => messageCreationDateField;
                 set
                 {
                     messageCreationDateField = value;
@@ -18220,10 +15610,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime MessageCreationTime
             {
-                get
-                {
-                    return messageCreationTimeField;
-                }
+                get => messageCreationTimeField;
                 set
                 {
                     messageCreationTimeField = value;
@@ -18235,10 +15622,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18289,10 +15673,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 0)]
             public System.Nullable<System.DateTime> AdmissionDateTime
             {
-                get
-                {
-                    return admissionDateTimeField;
-                }
+                get => admissionDateTimeField;
                 set
                 {
                     admissionDateTimeField = value;
@@ -18304,10 +15685,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Status
             {
-                get
-                {
-                    return statusField;
-                }
+                get => statusField;
                 set
                 {
                     statusField = value;
@@ -18319,10 +15697,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string AdmissionFromCode
             {
-                get
-                {
-                    return admissionFromCodeField;
-                }
+                get => admissionFromCodeField;
                 set
                 {
                     admissionFromCodeField = value;
@@ -18334,10 +15709,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
             public string AdmittedCode
             {
-                get
-                {
-                    return admittedCodeField;
-                }
+                get => admittedCodeField;
                 set
                 {
                     admittedCodeField = value;
@@ -18349,10 +15721,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string AdmissionReason
             {
-                get
-                {
-                    return admissionReasonField;
-                }
+                get => admissionReasonField;
                 set
                 {
                     admissionReasonField = value;
@@ -18364,10 +15733,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 5)]
             public string PatientCategory
             {
-                get
-                {
-                    return patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
                     patientCategoryField = value;
@@ -18379,10 +15745,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientType
             {
-                get
-                {
-                    return patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
                     patientTypeField = value;
@@ -18394,10 +15757,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public ADTpatientCarePoint AdmissionCarePoint
             {
-                get
-                {
-                    return admissionCarePointField;
-                }
+                get => admissionCarePointField;
                 set
                 {
                     admissionCarePointField = value;
@@ -18409,10 +15769,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18457,10 +15814,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE Site
             {
-                get
-                {
-                    return siteField;
-                }
+                get => siteField;
                 set
                 {
                     siteField = value;
@@ -18472,10 +15826,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MedicalFacility Location
             {
-                get
-                {
-                    return locationField;
-                }
+                get => locationField;
                 set
                 {
                     locationField = value;
@@ -18487,10 +15838,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ID_TYPE Consultant
             {
-                get
-                {
-                    return consultantField;
-                }
+                get => consultantField;
                 set
                 {
                     consultantField = value;
@@ -18502,10 +15850,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Specialty
             {
-                get
-                {
-                    return specialtyField;
-                }
+                get => specialtyField;
                 set
                 {
                     specialtyField = value;
@@ -18517,10 +15862,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Facility
             {
-                get
-                {
-                    return facilityField;
-                }
+                get => facilityField;
                 set
                 {
                     facilityField = value;
@@ -18532,10 +15874,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18574,10 +15913,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Code
             {
-                get
-                {
-                    return codeField;
-                }
+                get => codeField;
                 set
                 {
                     codeField = value;
@@ -18589,10 +15925,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Description
             {
-                get
-                {
-                    return descriptionField;
-                }
+                get => descriptionField;
                 set
                 {
                     descriptionField = value;
@@ -18604,10 +15937,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18654,10 +15984,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public System.DateTime TransferDateTime
             {
-                get
-                {
-                    return transferDateTimeField;
-                }
+                get => transferDateTimeField;
                 set
                 {
                     transferDateTimeField = value;
@@ -18669,10 +15996,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TransferCode
             {
-                get
-                {
-                    return transferCodeField;
-                }
+                get => transferCodeField;
                 set
                 {
                     transferCodeField = value;
@@ -18684,10 +16008,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 2)]
             public string PatientCategory
             {
-                get
-                {
-                    return patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
                     patientCategoryField = value;
@@ -18699,10 +16020,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string PatientType
             {
-                get
-                {
-                    return patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
                     patientTypeField = value;
@@ -18714,10 +16032,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ADTpatientCarePoint PreCarePoint
             {
-                get
-                {
-                    return preCarePointField;
-                }
+                get => preCarePointField;
                 set
                 {
                     preCarePointField = value;
@@ -18729,10 +16044,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public ADTpatientCarePoint PostCarePoint
             {
-                get
-                {
-                    return postCarePointField;
-                }
+                get => postCarePointField;
                 set
                 {
                     postCarePointField = value;
@@ -18744,10 +16056,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18800,10 +16109,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 0)]
             public System.Nullable<System.DateTime> DischargeDateTime
             {
-                get
-                {
-                    return dischargeDateTimeField;
-                }
+                get => dischargeDateTimeField;
                 set
                 {
                     dischargeDateTimeField = value;
@@ -18815,10 +16121,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string DischargeCode
             {
-                get
-                {
-                    return dischargeCodeField;
-                }
+                get => dischargeCodeField;
                 set
                 {
                     dischargeCodeField = value;
@@ -18830,10 +16133,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DischargeDescription
             {
-                get
-                {
-                    return dischargeDescriptionField;
-                }
+                get => dischargeDescriptionField;
                 set
                 {
                     dischargeDescriptionField = value;
@@ -18845,10 +16145,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 3)]
             public System.Nullable<System.DateTime> DateReadyForDischarge
             {
-                get
-                {
-                    return dateReadyForDischargeField;
-                }
+                get => dateReadyForDischargeField;
                 set
                 {
                     dateReadyForDischargeField = value;
@@ -18860,10 +16157,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateReadyForDischargeSpecified
             {
-                get
-                {
-                    return dateReadyForDischargeFieldSpecified;
-                }
+                get => dateReadyForDischargeFieldSpecified;
                 set
                 {
                     dateReadyForDischargeFieldSpecified = value;
@@ -18875,10 +16169,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 4)]
             public string DischargeDestination
             {
-                get
-                {
-                    return dischargeDestinationField;
-                }
+                get => dischargeDestinationField;
                 set
                 {
                     dischargeDestinationField = value;
@@ -18890,10 +16181,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 5)]
             public string PatientCategory
             {
-                get
-                {
-                    return patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
                     patientCategoryField = value;
@@ -18905,10 +16193,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientType
             {
-                get
-                {
-                    return patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
                     patientTypeField = value;
@@ -18920,10 +16205,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public ADTpatientCarePoint DischargeCarePoint
             {
-                get
-                {
-                    return dischargeCarePointField;
-                }
+                get => dischargeCarePointField;
                 set
                 {
                     dischargeCarePointField = value;
@@ -18935,10 +16217,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -18981,10 +16260,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
                     recordIdentifierField = value;
@@ -18996,10 +16272,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ComponentID ADTComponentID
             {
-                get
-                {
-                    return aDTComponentIDField;
-                }
+                get => aDTComponentIDField;
                 set
                 {
                     aDTComponentIDField = value;
@@ -19011,10 +16284,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string IncidenceID
             {
-                get
-                {
-                    return incidenceIDField;
-                }
+                get => incidenceIDField;
                 set
                 {
                     incidenceIDField = value;
@@ -19026,10 +16296,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -19041,10 +16308,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19085,10 +16349,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTtransactionID ADTid
             {
-                get
-                {
-                    return aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
                     aDTidField = value;
@@ -19100,10 +16361,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADTinfoDetailedADTmessageContent ADTmessageContent
             {
-                get
-                {
-                    return aDTmessageContentField;
-                }
+                get => aDTmessageContentField;
                 set
                 {
                     aDTmessageContentField = value;
@@ -19115,10 +16373,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public System.Nullable<System.DateTime> TransactionDateTime
             {
-                get
-                {
-                    return transactionDateTimeField;
-                }
+                get => transactionDateTimeField;
                 set
                 {
                     transactionDateTimeField = value;
@@ -19130,10 +16385,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19170,10 +16422,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TransferContent", typeof(ADTtransferType), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -19216,10 +16465,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTinfoDetailed ADTInformation
             {
-                get
-                {
-                    return aDTInformationField;
-                }
+                get => aDTInformationField;
                 set
                 {
                     aDTInformationField = value;
@@ -19231,10 +16477,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
                     patientInformationField = value;
@@ -19246,10 +16489,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
                     originatingSystemField = value;
@@ -19261,10 +16501,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TransactionType
             {
-                get
-                {
-                    return transactionTypeField;
-                }
+                get => transactionTypeField;
                 set
                 {
                     transactionTypeField = value;
@@ -19276,10 +16513,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19318,10 +16552,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTinterface MessageData
             {
-                get
-                {
-                    return messageDataField;
-                }
+                get => messageDataField;
                 set
                 {
                     messageDataField = value;
@@ -19333,10 +16564,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MESSAGE_HEADER_TYPE MessageHeaderPrf
             {
-                get
-                {
-                    return messageHeaderPrfField;
-                }
+                get => messageHeaderPrfField;
                 set
                 {
                     messageHeaderPrfField = value;
@@ -19348,10 +16576,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19392,10 +16617,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string ADTid
             {
-                get
-                {
-                    return aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
                     aDTidField = value;
@@ -19407,10 +16629,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -19422,10 +16641,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -19437,10 +16653,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19487,10 +16700,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Identifier
             {
-                get
-                {
-                    return identifierField;
-                }
+                get => identifierField;
                 set
                 {
                     identifierField = value;
@@ -19502,10 +16712,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string ResultCount
             {
-                get
-                {
-                    return resultCountField;
-                }
+                get => resultCountField;
                 set
                 {
                     resultCountField = value;
@@ -19517,10 +16724,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string InfoMessage
             {
-                get
-                {
-                    return infoMessageField;
-                }
+                get => infoMessageField;
                 set
                 {
                     infoMessageField = value;
@@ -19532,10 +16736,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string WarningMessage
             {
-                get
-                {
-                    return warningMessageField;
-                }
+                get => warningMessageField;
                 set
                 {
                     warningMessageField = value;
@@ -19547,10 +16748,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ErrorMessage
             {
-                get
-                {
-                    return errorMessageField;
-                }
+                get => errorMessageField;
                 set
                 {
                     errorMessageField = value;
@@ -19562,10 +16760,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string SearchTime
             {
-                get
-                {
-                    return searchTimeField;
-                }
+                get => searchTimeField;
                 set
                 {
                     searchTimeField = value;
@@ -19577,10 +16772,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19619,10 +16811,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindADTItemADTDetails ADTDetails
             {
-                get
-                {
-                    return aDTDetailsField;
-                }
+                get => aDTDetailsField;
                 set
                 {
                     aDTDetailsField = value;
@@ -19634,10 +16823,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -19649,10 +16835,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -19733,10 +16916,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string ADTid
             {
-                get
-                {
-                    return aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
                     aDTidField = value;
@@ -19748,10 +16928,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ActionType
             {
-                get
-                {
-                    return actionTypeField;
-                }
+                get => actionTypeField;
                 set
                 {
                     actionTypeField = value;
@@ -19763,10 +16940,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -19778,10 +16952,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public System.DateTime ActionDateTime
             {
-                get
-                {
-                    return actionDateTimeField;
-                }
+                get => actionDateTimeField;
                 set
                 {
                     actionDateTimeField = value;
@@ -19793,10 +16964,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ActionDateTimeSpecified
             {
-                get
-                {
-                    return actionDateTimeFieldSpecified;
-                }
+                get => actionDateTimeFieldSpecified;
                 set
                 {
                     actionDateTimeFieldSpecified = value;
@@ -19808,10 +16976,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public System.DateTime TransactionDateTime
             {
-                get
-                {
-                    return transactionDateTimeField;
-                }
+                get => transactionDateTimeField;
                 set
                 {
                     transactionDateTimeField = value;
@@ -19823,10 +16988,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TransactionDateTimeSpecified
             {
-                get
-                {
-                    return transactionDateTimeFieldSpecified;
-                }
+                get => transactionDateTimeFieldSpecified;
                 set
                 {
                     transactionDateTimeFieldSpecified = value;
@@ -19838,10 +17000,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 5)]
             public System.Nullable<System.DateTime> AdmissionDateTime
             {
-                get
-                {
-                    return admissionDateTimeField;
-                }
+                get => admissionDateTimeField;
                 set
                 {
                     admissionDateTimeField = value;
@@ -19853,10 +17012,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AdmissionDateTimeSpecified
             {
-                get
-                {
-                    return admissionDateTimeFieldSpecified;
-                }
+                get => admissionDateTimeFieldSpecified;
                 set
                 {
                     admissionDateTimeFieldSpecified = value;
@@ -19868,10 +17024,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 6)]
             public System.Nullable<System.DateTime> DischargeDateTime
             {
-                get
-                {
-                    return dischargeDateTimeField;
-                }
+                get => dischargeDateTimeField;
                 set
                 {
                     dischargeDateTimeField = value;
@@ -19883,10 +17036,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DischargeDateTimeSpecified
             {
-                get
-                {
-                    return dischargeDateTimeFieldSpecified;
-                }
+                get => dischargeDateTimeFieldSpecified;
                 set
                 {
                     dischargeDateTimeFieldSpecified = value;
@@ -19898,10 +17048,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 7)]
             public System.Nullable<System.DateTime> TransferDateTime
             {
-                get
-                {
-                    return transferDateTimeField;
-                }
+                get => transferDateTimeField;
                 set
                 {
                     transferDateTimeField = value;
@@ -19913,10 +17060,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TransferDateTimeSpecified
             {
-                get
-                {
-                    return transferDateTimeFieldSpecified;
-                }
+                get => transferDateTimeFieldSpecified;
                 set
                 {
                     transferDateTimeFieldSpecified = value;
@@ -19928,10 +17072,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string HospitalCode
             {
-                get
-                {
-                    return hospitalCodeField;
-                }
+                get => hospitalCodeField;
                 set
                 {
                     hospitalCodeField = value;
@@ -19943,10 +17084,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 9)]
             public System.Nullable<System.DateTime> DateTimeReadyForDischarge
             {
-                get
-                {
-                    return dateTimeReadyForDischargeField;
-                }
+                get => dateTimeReadyForDischargeField;
                 set
                 {
                     dateTimeReadyForDischargeField = value;
@@ -19958,10 +17096,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReadyForDischargeSpecified
             {
-                get
-                {
-                    return dateTimeReadyForDischargeFieldSpecified;
-                }
+                get => dateTimeReadyForDischargeFieldSpecified;
                 set
                 {
                     dateTimeReadyForDischargeFieldSpecified = value;
@@ -19973,10 +17108,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", IsNullable = true, Order = 10)]
             public string AdmittedCode
             {
-                get
-                {
-                    return admittedCodeField;
-                }
+                get => admittedCodeField;
                 set
                 {
                     admittedCodeField = value;
@@ -19988,10 +17120,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string AdmittedFromCode
             {
-                get
-                {
-                    return admittedFromCodeField;
-                }
+                get => admittedFromCodeField;
                 set
                 {
                     admittedFromCodeField = value;
@@ -20003,10 +17132,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", IsNullable = true, Order = 12)]
             public string DischargeCode
             {
-                get
-                {
-                    return dischargeCodeField;
-                }
+                get => dischargeCodeField;
                 set
                 {
                     dischargeCodeField = value;
@@ -20018,10 +17144,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PatientCategory
             {
-                get
-                {
-                    return patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
                     patientCategoryField = value;
@@ -20033,10 +17156,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string PatientType
             {
-                get
-                {
-                    return patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
                     patientTypeField = value;
@@ -20048,10 +17168,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -20063,10 +17180,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -20078,10 +17192,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 17)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20132,10 +17243,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -20147,10 +17255,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CHI
             {
-                get
-                {
-                    return cHIField;
-                }
+                get => cHIField;
                 set
                 {
                     cHIField = value;
@@ -20162,10 +17267,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ActionCode
             {
-                get
-                {
-                    return actionCodeField;
-                }
+                get => actionCodeField;
                 set
                 {
                     actionCodeField = value;
@@ -20177,10 +17279,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDateRange ActionDateRange
             {
-                get
-                {
-                    return actionDateRangeField;
-                }
+                get => actionDateRangeField;
                 set
                 {
                     actionDateRangeField = value;
@@ -20192,10 +17291,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
                     uniqueCarePathwayNumberField = value;
@@ -20207,10 +17303,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
                     patientDetailsField = value;
@@ -20222,10 +17315,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
                     providerSearchField = value;
@@ -20238,10 +17328,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -20253,10 +17340,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20297,10 +17381,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -20312,10 +17393,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassTypeCode
             {
-                get
-                {
-                    return breakGlassTypeCodeField;
-                }
+                get => breakGlassTypeCodeField;
                 set
                 {
                     breakGlassTypeCodeField = value;
@@ -20327,10 +17405,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Reason
             {
-                get
-                {
-                    return reasonField;
-                }
+                get => reasonField;
                 set
                 {
                     reasonField = value;
@@ -20342,10 +17417,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20398,10 +17470,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -20413,10 +17482,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MergeID
             {
-                get
-                {
-                    return mergeIDField;
-                }
+                get => mergeIDField;
                 set
                 {
                     mergeIDField = value;
@@ -20428,10 +17494,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EventType
             {
-                get
-                {
-                    return eventTypeField;
-                }
+                get => eventTypeField;
                 set
                 {
                     eventTypeField = value;
@@ -20443,10 +17506,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Consent
             {
-                get
-                {
-                    return consentField;
-                }
+                get => consentField;
                 set
                 {
                     consentField = value;
@@ -20458,10 +17518,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string TransactionType
             {
-                get
-                {
-                    return transactionTypeField;
-                }
+                get => transactionTypeField;
                 set
                 {
                     transactionTypeField = value;
@@ -20473,10 +17530,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string CHI
             {
-                get
-                {
-                    return cHIField;
-                }
+                get => cHIField;
                 set
                 {
                     cHIField = value;
@@ -20488,10 +17542,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string RecordType
             {
-                get
-                {
-                    return recordTypeField;
-                }
+                get => recordTypeField;
                 set
                 {
                     recordTypeField = value;
@@ -20503,10 +17554,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string RecordKey
             {
-                get
-                {
-                    return recordKeyField;
-                }
+                get => recordKeyField;
                 set
                 {
                     recordKeyField = value;
@@ -20518,10 +17566,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string ProcessEvents
             {
-                get
-                {
-                    return processEventsField;
-                }
+                get => processEventsField;
                 set
                 {
                     processEventsField = value;
@@ -20533,10 +17578,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20577,10 +17619,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NotificationID
             {
-                get
-                {
-                    return notificationIDField;
-                }
+                get => notificationIDField;
                 set
                 {
                     notificationIDField = value;
@@ -20592,10 +17631,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string NotificationType
             {
-                get
-                {
-                    return notificationTypeField;
-                }
+                get => notificationTypeField;
                 set
                 {
                     notificationTypeField = value;
@@ -20607,10 +17643,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public NotificationInfoNotificationDetail NotificationDetail
             {
-                get
-                {
-                    return notificationDetailField;
-                }
+                get => notificationDetailField;
                 set
                 {
                     notificationDetailField = value;
@@ -20622,10 +17655,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20661,10 +17691,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("StoreIdentifier", typeof(string), DataType = "nonNegativeInteger", Order = 0)]
             public object Item
             {
-                get
-                {
-                    return itemField;
-                }
+                get => itemField;
                 set
                 {
                     itemField = value;
@@ -20703,10 +17730,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Token
             {
-                get
-                {
-                    return tokenField;
-                }
+                get => tokenField;
                 set
                 {
                     tokenField = value;
@@ -20718,10 +17742,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public CredentialsUserInfo UserInfo
             {
-                get
-                {
-                    return userInfoField;
-                }
+                get => userInfoField;
                 set
                 {
                     userInfoField = value;
@@ -20733,10 +17754,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyAttributeAttribute()]
             public System.Xml.XmlAttribute[] AnyAttr
             {
-                get
-                {
-                    return anyAttrField;
-                }
+                get => anyAttrField;
                 set
                 {
                     anyAttrField = value;
@@ -20777,10 +17795,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return userNameField;
-                }
+                get => userNameField;
                 set
                 {
                     userNameField = value;
@@ -20792,10 +17807,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string FriendlyName
             {
-                get
-                {
-                    return friendlyNameField;
-                }
+                get => friendlyNameField;
                 set
                 {
                     friendlyNameField = value;
@@ -20807,10 +17819,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemCode
             {
-                get
-                {
-                    return systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
                     systemCodeField = value;
@@ -20822,10 +17831,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SystemLocation
             {
-                get
-                {
-                    return systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
                     systemLocationField = value;
@@ -20864,10 +17870,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Token
             {
-                get
-                {
-                    return tokenField;
-                }
+                get => tokenField;
                 set
                 {
                     tokenField = value;
@@ -20879,10 +17882,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public LoginTokenResponseApplication Application
             {
-                get
-                {
-                    return applicationField;
-                }
+                get => applicationField;
                 set
                 {
                     applicationField = value;
@@ -20894,10 +17894,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -20934,10 +17931,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Version
             {
-                get
-                {
-                    return versionField;
-                }
+                get => versionField;
                 set
                 {
                     versionField = value;
@@ -20949,10 +17943,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime BuiltDateTime
             {
-                get
-                {
-                    return builtDateTimeField;
-                }
+                get => builtDateTimeField;
                 set
                 {
                     builtDateTimeField = value;
@@ -21029,10 +18020,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Message
             {
-                get
-                {
-                    return messageField;
-                }
+                get => messageField;
                 set
                 {
                     messageField = value;
@@ -21044,10 +18032,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21132,10 +18117,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NotificationType
             {
-                get
-                {
-                    return notificationTypeField;
-                }
+                get => notificationTypeField;
                 set
                 {
                     notificationTypeField = value;
@@ -21147,10 +18129,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public int TotalNotificationsToReturn
             {
-                get
-                {
-                    return totalNotificationsToReturnField;
-                }
+                get => totalNotificationsToReturnField;
                 set
                 {
                     totalNotificationsToReturnField = value;
@@ -21162,10 +18141,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TotalNotificationsToReturnSpecified
             {
-                get
-                {
-                    return totalNotificationsToReturnFieldSpecified;
-                }
+                get => totalNotificationsToReturnFieldSpecified;
                 set
                 {
                     totalNotificationsToReturnFieldSpecified = value;
@@ -21177,10 +18153,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21218,10 +18191,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Notification", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public NotificationInfo[] NotificationList
             {
-                get
-                {
-                    return notificationListField;
-                }
+                get => notificationListField;
                 set
                 {
                     notificationListField = value;
@@ -21233,10 +18203,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21317,10 +18284,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
                     subscriptionIDField = value;
@@ -21332,10 +18296,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21458,10 +18419,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public BreakGlassItem BreakGlassItem
             {
-                get
-                {
-                    return breakGlassItemField;
-                }
+                get => breakGlassItemField;
                 set
                 {
                     breakGlassItemField = value;
@@ -21541,10 +18499,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("BreakGlassType", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassTypeItem[] BreakGlassTypes
             {
-                get
-                {
-                    return breakGlassTypesField;
-                }
+                get => breakGlassTypesField;
                 set
                 {
                     breakGlassTypesField = value;
@@ -21628,10 +18583,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ADTmessage", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindADTItem[] ADTMessages
             {
-                get
-                {
-                    return aDTMessagesField;
-                }
+                get => aDTMessagesField;
                 set
                 {
                     aDTMessagesField = value;
@@ -21644,10 +18596,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -21659,10 +18608,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21747,10 +18693,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string ADTId
             {
-                get
-                {
-                    return aDTIdField;
-                }
+                get => aDTIdField;
                 set
                 {
                     aDTIdField = value;
@@ -21762,10 +18705,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -21778,10 +18718,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -21793,10 +18730,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -21833,10 +18767,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTsystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -21848,10 +18779,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADTmessageType ADTinformation
             {
-                get
-                {
-                    return aDTinformationField;
-                }
+                get => aDTinformationField;
                 set
                 {
                     aDTinformationField = value;
@@ -21935,10 +18863,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Patient", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindPatientItem[] Patients
             {
-                get
-                {
-                    return patientsField;
-                }
+                get => patientsField;
                 set
                 {
                     patientsField = value;
@@ -21951,10 +18876,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -21966,10 +18888,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22060,10 +18979,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
                     patientIDField = value;
@@ -22075,10 +18991,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string IDformat
             {
-                get
-                {
-                    return iDformatField;
-                }
+                get => iDformatField;
                 set
                 {
                     iDformatField = value;
@@ -22090,10 +19003,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -22105,10 +19015,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool SaveInStore
             {
-                get
-                {
-                    return saveInStoreField;
-                }
+                get => saveInStoreField;
                 set
                 {
                     saveInStoreField = value;
@@ -22120,10 +19027,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SaveInStoreSpecified
             {
-                get
-                {
-                    return saveInStoreFieldSpecified;
-                }
+                get => saveInStoreFieldSpecified;
                 set
                 {
                     saveInStoreFieldSpecified = value;
@@ -22136,10 +19040,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -22151,10 +19052,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22195,10 +19093,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientSystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -22210,10 +19105,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
                     patientInformationField = value;
@@ -22225,10 +19117,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public SearchSummaryItem SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -22240,10 +19129,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22327,10 +19213,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Result", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindResultItem[] Results
             {
-                get
-                {
-                    return resultsField;
-                }
+                get => resultsField;
                 set
                 {
                     resultsField = value;
@@ -22343,10 +19226,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -22358,10 +19238,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22446,10 +19323,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultID
             {
-                get
-                {
-                    return resultIDField;
-                }
+                get => resultIDField;
                 set
                 {
                     resultIDField = value;
@@ -22461,10 +19335,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -22477,10 +19348,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -22492,10 +19360,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22534,10 +19399,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ReportSystemInformation SystemInformation
             {
-                get
-                {
-                    return systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
                     systemInformationField = value;
@@ -22549,10 +19411,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public InvestigationReport InvestigationReport
             {
-                get
-                {
-                    return investigationReportField;
-                }
+                get => investigationReportField;
                 set
                 {
                     investigationReportField = value;
@@ -22564,10 +19423,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22651,10 +19507,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Document", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindDocumentItem[] Documents
             {
-                get
-                {
-                    return documentsField;
-                }
+                get => documentsField;
                 set
                 {
                     documentsField = value;
@@ -22667,10 +19520,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -22682,10 +19532,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22770,10 +19617,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string DocumentID
             {
-                get
-                {
-                    return documentIDField;
-                }
+                get => documentIDField;
                 set
                 {
                     documentIDField = value;
@@ -22785,10 +19629,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -22801,10 +19642,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
                     breakGlassItemsField = value;
@@ -22816,10 +19654,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22856,10 +19691,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentInfo Document
             {
-                get
-                {
-                    return documentField;
-                }
+                get => documentField;
                 set
                 {
                     documentField = value;
@@ -22871,10 +19703,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -22959,10 +19788,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string DocumentID
             {
-                get
-                {
-                    return documentIDField;
-                }
+                get => documentIDField;
                 set
                 {
                     documentIDField = value;
@@ -22974,10 +19800,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Stylesheet
             {
-                get
-                {
-                    return stylesheetField;
-                }
+                get => stylesheetField;
                 set
                 {
                     stylesheetField = value;
@@ -22989,10 +19812,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -23004,10 +19824,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23042,10 +19859,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentStylesheetType StyleSheetDetails
             {
-                get
-                {
-                    return styleSheetDetailsField;
-                }
+                get => styleSheetDetailsField;
                 set
                 {
                     styleSheetDetailsField = value;
@@ -23129,10 +19943,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TreatmentLog", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindTreatmentLogItem[] TreatmentLogList
             {
-                get
-                {
-                    return treatmentLogListField;
-                }
+                get => treatmentLogListField;
                 set
                 {
                     treatmentLogListField = value;
@@ -23145,10 +19956,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
                     searchSummaryField = value;
@@ -23160,10 +19968,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23246,10 +20051,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
                     treatmentLogIDField = value;
@@ -23261,10 +20063,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return providerField;
-                }
+                get => providerField;
                 set
                 {
                     providerField = value;
@@ -23276,10 +20075,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23316,10 +20112,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentLogInfo TreatmentLog
             {
-                get
-                {
-                    return treatmentLogField;
-                }
+                get => treatmentLogField;
                 set
                 {
                     treatmentLogField = value;
@@ -23331,10 +20124,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23415,10 +20205,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientId
             {
-                get
-                {
-                    return primaryPatientIdField;
-                }
+                get => primaryPatientIdField;
                 set
                 {
                     primaryPatientIdField = value;
@@ -23430,10 +20217,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23471,10 +20255,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Patient", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindMergeItem[] Patients
             {
-                get
-                {
-                    return patientsField;
-                }
+                get => patientsField;
                 set
                 {
                     patientsField = value;
@@ -23486,10 +20267,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23572,10 +20350,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
                     primaryPatientIDField = value;
@@ -23587,10 +20362,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
                     secondaryPatientIDField = value;
@@ -23602,10 +20374,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23688,10 +20457,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
                     primaryPatientIDField = value;
@@ -23703,10 +20469,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
                     secondaryPatientIDField = value;
@@ -23718,10 +20481,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23802,10 +20562,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -23817,10 +20574,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23859,10 +20613,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string Count
             {
-                get
-                {
-                    return countField;
-                }
+                get => countField;
                 set
                 {
                     countField = value;
@@ -23874,10 +20625,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -23889,10 +20637,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -23975,10 +20720,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -23990,10 +20732,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
                     messageIdentifierField = value;
@@ -24005,10 +20744,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24047,10 +20783,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -24062,10 +20795,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
                     messageIdentifierField = value;
@@ -24077,10 +20807,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24161,10 +20888,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -24176,10 +20900,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24220,10 +20941,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return queueField;
-                }
+                get => queueField;
                 set
                 {
                     queueField = value;
@@ -24235,10 +20953,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
                     messageIdentifierField = value;
@@ -24250,10 +20965,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string MessageBody
             {
-                get
-                {
-                    return messageBodyField;
-                }
+                get => messageBodyField;
                 set
                 {
                     messageBodyField = value;
@@ -24265,10 +20977,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24350,10 +21059,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("HCP", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public HCPitem[] HCPs
             {
-                get
-                {
-                    return hCPsField;
-                }
+                get => hCPsField;
                 set
                 {
                     hCPsField = value;
@@ -24365,10 +21071,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24450,10 +21153,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Organisation", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public OrganisationItem[] Organisations
             {
-                get
-                {
-                    return organisationsField;
-                }
+                get => organisationsField;
                 set
                 {
                     organisationsField = value;
@@ -24465,10 +21165,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24549,10 +21246,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string Minutes
             {
-                get
-                {
-                    return minutesField;
-                }
+                get => minutesField;
                 set
                 {
                     minutesField = value;
@@ -24564,10 +21258,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24648,10 +21339,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public InterfaceStatusLimits Limits
             {
-                get
-                {
-                    return limitsField;
-                }
+                get => limitsField;
                 set
                 {
                     limitsField = value;
@@ -24663,10 +21351,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24704,10 +21389,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Service", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public ServiceItem[] Services
             {
-                get
-                {
-                    return servicesField;
-                }
+                get => servicesField;
                 set
                 {
                     servicesField = value;
@@ -24719,10 +21401,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24804,10 +21483,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("BreakGlassAuditInstance", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassAuditItem[] BreakGlassAuditInstances
             {
-                get
-                {
-                    return breakGlassAuditInstancesField;
-                }
+                get => breakGlassAuditInstancesField;
                 set
                 {
                     breakGlassAuditInstancesField = value;
@@ -24819,10 +21495,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -24904,10 +21577,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("PatientConsentAuditInstance", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public PatientConsentAuditItem[] PatientConsentAuditInstances
             {
-                get
-                {
-                    return patientConsentAuditInstancesField;
-                }
+                get => patientConsentAuditInstancesField;
                 set
                 {
                     patientConsentAuditInstancesField = value;
@@ -24919,10 +21589,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25003,10 +21670,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CumulativeReport CumulativeReport
             {
-                get
-                {
-                    return cumulativeReportField;
-                }
+                get => cumulativeReportField;
                 set
                 {
                     cumulativeReportField = value;
@@ -25018,10 +21682,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25102,10 +21763,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionType
             {
-                get
-                {
-                    return subscriptionTypeField;
-                }
+                get => subscriptionTypeField;
                 set
                 {
                     subscriptionTypeField = value;
@@ -25117,10 +21775,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25158,10 +21813,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Subscription", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SubscriptionInfo[] Subscriptions
             {
-                get
-                {
-                    return subscriptionsField;
-                }
+                get => subscriptionsField;
                 set
                 {
                     subscriptionsField = value;
@@ -25173,10 +21825,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25257,10 +21906,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SubscriptionInfo SubscriptionInfo
             {
-                get
-                {
-                    return subscriptionInfoField;
-                }
+                get => subscriptionInfoField;
                 set
                 {
                     subscriptionInfoField = value;
@@ -25272,10 +21918,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25312,10 +21955,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
                     subscriptionIDField = value;
@@ -25327,10 +21967,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;
@@ -25411,10 +22048,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SubscriptionInfo SubscriptionInfo
             {
-                get
-                {
-                    return subscriptionInfoField;
-                }
+                get => subscriptionInfoField;
                 set
                 {
                     subscriptionInfoField = value;
@@ -25426,10 +22060,7 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement Any
             {
-                get
-                {
-                    return anyField;
-                }
+                get => anyField;
                 set
                 {
                     anyField = value;

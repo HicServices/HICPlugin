@@ -9,21 +9,21 @@ using SCIStore.SciStoreServices81;
 
 namespace SCIStorePlugin.Data;
 
-public class SciStoreSample
+public sealed class SciStoreSample
 {
     private string _labNumber;
     private string _testReportId;
 
     public string LabNumber
     {
-        get { return _labNumber; }
-        set { _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _labNumber;
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
-        get { return _testReportId; }
-        set { _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _testReportId;
+        set => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string SampleName { get; set; }
@@ -52,7 +52,7 @@ public class SciStoreSample
     public void PopulateDenormalisedTestSetDetailsFields()
     {
         TestSet_ClinicalCircumstanceDescription = TestSetDetails.ClinicalCircumstanceDescription;
-            
+
         if (TestSetDetails.ReadCode != null)
         {
             var code = TestSetDetails.ReadCode;
@@ -114,7 +114,7 @@ public class SciStoreSample
         return Equals((SciStoreSample) obj);
     }
 
-    protected bool Equals(SciStoreSample other)
+    private bool Equals(SciStoreSample other)
     {
         return string.Equals(LabNumber, other.LabNumber) && string.Equals(TestIdentifier, other.TestIdentifier) && string.Equals(TestReportID, other.TestReportID);
     }

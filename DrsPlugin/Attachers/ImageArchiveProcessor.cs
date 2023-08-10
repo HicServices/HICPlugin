@@ -33,7 +33,7 @@ public class ImageArchiveProcessor
 
         var filesToArchive = _sourceDir.EnumerateFiles().ToList();
         var archiveStub = Path.Combine(_jobId.ToString(), $"{_jobId}_");
-            
+
         var i = 0;
         var sw = new Stopwatch();
         sw.Start();

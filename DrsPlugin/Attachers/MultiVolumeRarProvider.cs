@@ -28,6 +28,7 @@ public class MultiVolumeRarProvider : IArchiveProvider
             var sw = Stopwatch.StartNew();
             foreach (var e in arc.Entries())
                 yield return e.Name;
+
             _listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Listed multi-volume RAR archive contents in {sw.ElapsedMilliseconds}ms"));
         }
     }
@@ -38,6 +39,7 @@ public class MultiVolumeRarProvider : IArchiveProvider
         foreach (var e in arc.Entries())
         {
             if (e.Name != name) continue;
+
             var ms = new MemoryStream();
             using var input = e.Stream;
             input.CopyTo(ms);

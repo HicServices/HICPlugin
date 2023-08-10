@@ -109,8 +109,9 @@ public class RootHistoryDirectory : IDictionary<HealthBoard, HealthboardHistoryD
         throw new NotSupportedException();
     }
 
-    public int Count { get { return HealthBoardDirectories.Count; } }
-    public bool IsReadOnly { get { return true; } }
+    public int Count => HealthBoardDirectories.Count;
+    public bool IsReadOnly => true;
+
     public bool ContainsKey(HealthBoard key)
     {
         return HealthBoardDirectories.ContainsKey(key);
