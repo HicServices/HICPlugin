@@ -12,17 +12,15 @@ public class TicketFactoryTests : DatabaseTests
     [Test]
     public void FactoryKnowsAboutJIRA()
     {
-        var factory = new TicketingSystemFactory(CatalogueRepository);
-        Assert.Contains(typeof (JIRATicketingSystem), factory.GetAllKnownTicketingSystems());
+        Assert.Contains(typeof (JIRATicketingSystem), TicketingSystemFactory.GetAllKnownTicketingSystems());
     }
 
 
     [Test]
     public void FactoryCreateAJIRA()
     {
-        var factory = new TicketingSystemFactory(CatalogueRepository);
         var credentials = new Moq.Mock<IDataAccessCredentials>().Object;
-        Assert.DoesNotThrow(() => factory.Create(typeof(JIRATicketingSystem).FullName, "Bob", credentials));
+        Assert.DoesNotThrow(() => TicketingSystemFactory.Create(typeof(JIRATicketingSystem).FullName, "Bob", credentials));
     }
 
 }

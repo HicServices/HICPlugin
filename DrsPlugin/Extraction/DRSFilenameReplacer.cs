@@ -1,5 +1,4 @@
 using Rdmp.Core.QueryBuilding;
-using Rdmp.Core.ReusableLibraryCode.Progress;
 using System;
 using System.Data;
 using System.Globalization;
@@ -8,7 +7,7 @@ using TypeGuesser.Deciders;
 
 namespace DrsPlugin.Extraction;
 
-public class DRSFilenameReplacer
+public sealed class DRSFilenameReplacer
 {
     private readonly IColumn _extractionIdentifier;
     private readonly string _filenameColumnName;
@@ -19,12 +18,12 @@ public class DRSFilenameReplacer
         _filenameColumnName = filenameColumnName;
     }
 
-    public string GetCorrectFilename(DataRow originalRow, IDataLoadEventListener _)
+    public string GetCorrectFilename(DataRow originalRow)
     {
         //DRS files are always in uk format?
         var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
         return
-            $"{originalRow[_extractionIdentifier.GetRuntimeName()]}_{((DateTime)dt.Parse(originalRow["Examination_Date"].ToString())):yyyy-MM-dd}_{originalRow["Eye"]}M_{originalRow["Image_Num"]}_PW{originalRow["Pixel_Width"]}_PH{originalRow["Pixel_Height"]}{Path.GetExtension(originalRow[_filenameColumnName].ToString())}";
+            $"{originalRow[_extractionIdentifier.GetRuntimeName()]}_{(DateTime)dt.Parse(originalRow["Examination_Date"].ToString()):yyyy-MM-dd}_{originalRow["Eye"]}M_{originalRow["Image_Num"]}_PW{originalRow["Pixel_Width"]}_PH{originalRow["Pixel_Height"]}{Path.GetExtension(originalRow[_filenameColumnName].ToString())}";
     }
 }

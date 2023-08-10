@@ -1,4 +1,4 @@
-/**
+/*
  * From http://www.techmikael.com/2009/07/removing-exif-data-continued.html
  * */
 
@@ -13,24 +13,18 @@ public interface IImagePatcher
     byte[] ReadPixelData(Stream stream);
 }
 
-public class CachedPatcherFactory
+internal static class CachedPatcherFactory
 {
-    private readonly JpegPatcher _jpegPatcher;
-    private readonly PngPatcher _pngPatcher;
+    private static readonly JpegPatcher JpegPatcher = new();
+    private static readonly PngPatcher PngPatcher = new();
 
-    public CachedPatcherFactory()
-    {
-        _jpegPatcher = new JpegPatcher();
-        _pngPatcher = new PngPatcher();
-    }
-
-    public IImagePatcher Create(string extension)
+    internal static IImagePatcher Create(string extension)
     {
         return extension switch
         {
-            ".jpg" => _jpegPatcher,
-            ".jpeg" => _jpegPatcher,
-            ".png" => _pngPatcher,
+            ".jpg" => JpegPatcher,
+            ".jpeg" => JpegPatcher,
+            ".png" => PngPatcher,
             _ => throw new InvalidOperationException(
                 $"Can't create a patcher for images with extension type: {extension}")
         };
@@ -94,7 +88,7 @@ public class JpegPatcher : IImagePatcher
         header[0] = (byte)inStream.ReadByte();
         header[1] = (byte)inStream.ReadByte();
 
-        while (header[0] == 0xff && (header[1] >= 0xe0 && header[1] <= 0xef))
+        while (header[0] == 0xff && header[1] >= 0xe0 && header[1] <= 0xef)
         {
             var exifLength = inStream.ReadByte();
             exifLength <<= 8;

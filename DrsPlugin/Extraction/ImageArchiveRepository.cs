@@ -7,18 +7,14 @@ namespace DrsPlugin.Extraction;
 /// <summary>
 /// This class wraps functionality for interacting with the image archive used across loading and extraction
 /// </summary>
-public class ImageArchiveRepository
+public static class ImageArchiveRepository
 {
-    public ImageArchiveRepository(string _)
-    {
-    }
-
     /// <summary>
     /// Extracts a set of images from one archive. Looks for entries named after the keys in extractionMap and saves them to the path given in the map's corresponding value.
     /// </summary>
     /// <param name="archiveFilePath">Path to the file from which to extract the images</param>
     /// <param name="extractionMap">Map of entry names in the archive to full output path</param>
-    public void ExtractImageSetFromArchive(string archiveFilePath, Dictionary<string, string> extractionMap)
+    public static void ExtractImageSetFromArchive(string archiveFilePath, Dictionary<string, string> extractionMap)
     {
         using var archive = new LibArchive.Net.LibArchiveReader(archiveFilePath);
         foreach(var entry in archive.Entries())

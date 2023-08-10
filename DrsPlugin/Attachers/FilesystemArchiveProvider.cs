@@ -16,7 +16,7 @@ public class FilesystemArchiveProvider : IArchiveProvider
 
     public FilesystemArchiveProvider(string rootPath, string[] fileExtensions, IDataLoadEventListener listener)
     {
-        if (fileExtensions.Any(ext => !ext.StartsWith(".")))
+        if (fileExtensions.Any(static ext => !ext.StartsWith(".", StringComparison.Ordinal)))
             throw new ArgumentException("Please ensure the extensions start with '.', i.e. '.txt'");
 
         _rootPath = rootPath;
@@ -28,7 +28,7 @@ public class FilesystemArchiveProvider : IArchiveProvider
 
     private void CreateFileList()
     {
-        _fileList = _fileExtensions.AsParallel()
+        _fileList = _fileExtensions
             .SelectMany(
                 fileExtension => Directory.GetFiles(_rootPath, $"*{fileExtension}", SearchOption.AllDirectories))
             .ToArray();
@@ -38,7 +38,7 @@ public class FilesystemArchiveProvider : IArchiveProvider
     {
         if (_fileList == null)
             CreateFileList();
-            
+
         // Find the file
         var entry = _fileList?.SingleOrDefault(p => Path.GetFileName(p) == entryName) ?? throw new InvalidOperationException($"Could not find file {entryName} in {_rootPath} or subdirectories");
         return new MemoryStream(File.ReadAllBytes(entry));

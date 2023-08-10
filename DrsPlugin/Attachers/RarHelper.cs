@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DrsPlugin.Attachers;
 
-public class RarHelper
+public static class RarHelper
 {
     public static void ExtractMultiVolumeArchive(DirectoryInfo sourceDir, string destinationDir = null)
     {

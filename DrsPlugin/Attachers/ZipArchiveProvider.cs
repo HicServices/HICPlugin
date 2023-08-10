@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -30,8 +29,6 @@ public class ZipArchiveProvider : IArchiveProvider
     public IEnumerable<string> EntryNames => throw new NotImplementedException();
 
     public string Name => throw new NotImplementedException();
-
-    public IEnumerable EntryStreams => throw new NotImplementedException();
 
     private static MemoryStream ReadImageBytesFromEntry(ZipArchiveEntry entry)
     {

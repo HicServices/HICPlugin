@@ -39,14 +39,12 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
 
 
         var datasetName = Request.DatasetBundle.DataSet.ToString();
-        if (!DatasetName.IsMatch(datasetName))
-        {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"Ignoring batch because it does not come from a image bundle (DatasetName). Table name was: {datasetName}, didn't match regex: {DatasetName}"));
-            return false;
-        }
+        if (DatasetName.IsMatch(datasetName)) return true;
 
-        return true;
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+            $"Ignoring batch because it does not come from an image bundle (DatasetName). Table name was: {datasetName}, didn't match regex: {DatasetName}"));
+        return false;
+
     }
 
     public void PreInitialize(IExtractCommand request, IDataLoadEventListener listener)
@@ -56,7 +54,7 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         // We only care about dataset extraction requests
         if (Request == null)
             return;
-            
+
         if(Request.Directory == null)
             throw new InvalidOperationException("The Extraction Directory must be set.");
 

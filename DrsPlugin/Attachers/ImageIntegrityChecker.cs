@@ -3,7 +3,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 
 namespace DrsPlugin.Attachers;
 
@@ -19,17 +18,15 @@ public class ImageIntegrityChecker
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Comparing images in {pathToStrippedFiles} to {pathToOriginalFiles}"));
 
-        var patcherFactory = new CachedPatcherFactory();
-        var sw = new Stopwatch();
+        var sw = Stopwatch.StartNew();
         var imageNum = 0;
-        sw.Start();
         foreach (var strippedImage in Directory.EnumerateFiles(pathToStrippedFiles))
         {
             imageNum++;
             listener.OnProgress(this,
                 new ProgressEventArgs("Checking images", new ProgressMeasurement(imageNum, ProgressType.Records),
                     sw.Elapsed));
-            var patcher = patcherFactory.Create(Path.GetExtension(strippedImage));
+            var patcher = CachedPatcherFactory.Create(Path.GetExtension(strippedImage));
 
             // Find the image in the archive
             var filename = Path.GetFileName(strippedImage);
@@ -46,15 +43,13 @@ public class ImageIntegrityChecker
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Stripped images in {pathToStrippedFiles}"));
 
-        var patcherFactory = new CachedPatcherFactory();
-        var sw = new Stopwatch();
+        var sw = Stopwatch.StartNew();
         var imageNum = 0;
-        sw.Start();
         foreach (var image in Directory.EnumerateFiles(pathToStrippedFiles))
         {
             imageNum++;
             listener.OnProgress(this, new ProgressEventArgs("Checking images", new ProgressMeasurement(imageNum, ProgressType.Records), sw.Elapsed));
-            var patcher = patcherFactory.Create(Path.GetExtension(image));
+            var patcher = CachedPatcherFactory.Create(Path.GetExtension(image));
 
             // Find the image in the archive
             using var ms = archive.GetEntry(Path.GetFileName(image));

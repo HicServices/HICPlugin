@@ -43,7 +43,7 @@ public class ExtractionTests : DatabaseTests
 
         var replacer = new DRSFilenameReplacer(extractionIdentifierColumn.Object, "Image_Filename");
 
-        Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", replacer.GetCorrectFilename(dataset.Rows[0], ThrowImmediatelyDataLoadEventListener.Quiet));
+        Assert.AreEqual("R00001_2016-05-17_RM_1_PW1024_PH768.png", replacer.GetCorrectFilename(dataset.Rows[0]));
     }
 
     [Test]

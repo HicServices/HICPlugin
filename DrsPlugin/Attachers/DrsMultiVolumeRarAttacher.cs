@@ -46,7 +46,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
     }
 
 
-    // hack: (until we implement pipelines for DLE) I don't want the framework archiving the image data as it will always zip it to a fixed location. So we copy it to a special directory that is ignored by the framework archiver. It then still exists when the dispose part of the attacher's lifecycle is triggered (which happens after the fraemwork archiver has done its thing).
+    // hack: (until we implement pipelines for DLE) I don't want the framework archiving the image data as it will always zip it to a fixed location. So we copy it to a special directory that is ignored by the framework archiver. It then still exists when the dispose part of the attacher's lifecycle is triggered (which happens after the framework archiver has done its thing).
     private DirectoryInfo GetSuperSecretDirectory()
     {
         var superSecretDirectory = Path.Combine(LoadDirectory.ForLoading.FullName, "__hidden_from_archiver__");
@@ -59,15 +59,14 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
     private ExtractedMultiVolumeRarProvider CreateExtractedArchiveProvider(DirectoryInfo workingDir, IDataLoadEventListener listener)
     {
         var archiveProvider = new ExtractedMultiVolumeRarProvider(workingDir.FullName, listener);
-            
+
         // The images may already have been extracted from the archive, so check for them
         _existingExtractionDirectory = Directory.EnumerateDirectories(workingDir.FullName, "Images").SingleOrDefault();
-        if (_existingExtractionDirectory != null)
-        {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"Using existing image files in {_existingExtractionDirectory}"));
-            archiveProvider.UseExistingExtractionDirectory(_existingExtractionDirectory);
-        }
+        if (_existingExtractionDirectory == null) return archiveProvider;
+
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+            $"Using existing image files in {_existingExtractionDirectory}"));
+        archiveProvider.UseExistingExtractionDirectory(_existingExtractionDirectory);
 
         return archiveProvider;
     }
@@ -92,15 +91,15 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         }
 
         // if we had been provided with an existing extraction directory, delete it now so it doesn't end up in ForArchiving
-        if (!string.IsNullOrWhiteSpace(_existingExtractionDirectory))
+        if (string.IsNullOrWhiteSpace(_existingExtractionDirectory)) return ExitCodeType.Success;
+        
+        // Don't use the nuclear option Directory.Delete(true), just in case we've somehow ended up pointing somewhere we shouldn't be
+        foreach (var aFile in Directory.EnumerateFiles(_existingExtractionDirectory))
         {
-            // Don't use the nuclear option Directory.Delete(true), just in case we've somehow ended up pointing somewhere we shouldn't be
-            foreach (var aFile in Directory.EnumerateFiles(_existingExtractionDirectory))
-            {
-                File.Delete(aFile);
-            }
-            Directory.Delete(_existingExtractionDirectory);
+            File.Delete(aFile);
         }
+
+        Directory.Delete(_existingExtractionDirectory);
 
         return ExitCodeType.Success;
     }
@@ -119,8 +118,6 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         job.OnNotify(this, new NotifyEventArgs(numEntries == 0 ? ProgressEventType.Warning : ProgressEventType.Information,
             $"Found {numEntries} entries when looking for {string.Join(", ", _permittedImageExtensions)}"));
 
-        var patcherFactory = new CachedPatcherFactory();
-
         var entryNum = 0;
         var sw = new Stopwatch();
         sw.Start();
@@ -129,7 +126,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
             var extension = Path.GetExtension(name) ?? throw new InvalidOperationException($"Could not recover the file extension of this entry: {name}");
             job.OnProgress(this, new ProgressEventArgs("Retrieving and Patching image files", new ProgressMeasurement(entryNum, ProgressType.Records), sw.Elapsed));
 
-            var patcher = patcherFactory.Create(extension);
+            var patcher = CachedPatcherFactory.Create(extension);
             using (var destStream = File.OpenWrite(Path.Combine(tempDir.FullName, name)))
             {
                 patcher.PatchAwayExif(stream, destStream);
@@ -200,7 +197,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
         }
         notifier.OnCheckPerformed(new CheckEventArgs($"Manifest file found: {ManifestFileName}", CheckResult.Success));
 
-        var rarFileCount = filesInForLoading.Count(f => f.Extension == ".rar");
+        var rarFileCount = filesInForLoading.Count(static f => f.Extension == ".rar");
         if (rarFileCount == 0)
         {
             notifier.OnCheckPerformed(new CheckEventArgs("ForLoading doesn't contain any rar files.", CheckResult.Fail));
@@ -240,7 +237,7 @@ public class DrsMultiVolumeRarAttacher : Attacher, IPluginAttacher
     private void CheckManifestAgreement(IArchiveProvider archiveProvider, ICheckNotifier notifier)
     {
         notifier.OnCheckPerformed(new CheckEventArgs("Checking that the manifest agrees with the images in the archive", CheckResult.Success));
-            
+
         var imageFilenamesInArchive = archiveProvider.EntryNames.Select(Path.GetFileName).ToList();
         var imageFilenamesInManifest = new List<string>();
 

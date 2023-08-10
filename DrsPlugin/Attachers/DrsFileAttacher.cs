@@ -1,4 +1,3 @@
-using CsvHelper;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataLoad;
@@ -61,7 +60,7 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "Deleting image directories from ForLoading"));
         var directoriesToDelete = LoadDirectory.ForLoading.EnumerateDirectories("*", SearchOption.TopDirectoryOnly)
             .Where(d => d.Name != doNotDelete).ToList();
-                
+
         foreach(var d in directoriesToDelete)
             d.Delete(true);
 
@@ -85,7 +84,6 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         job.OnNotify(this, new NotifyEventArgs(numEntries == 0 ? ProgressEventType.Warning : ProgressEventType.Information,
             $"Found {numEntries} entries when looking for {string.Join(", ", _permittedImageExtensions)}"));
 
-        var patcherFactory = new CachedPatcherFactory();
         var processor = new ImageArchiveProcessor(tempDir, SecureLocalScratchArea, job.JobID);
 
         var entryNum = 0;
@@ -118,7 +116,7 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
                 // Rewind our local copy's stream
                 localCopyStream.Position = 0;
 
-                var patcher = patcherFactory.Create(extension);
+                var patcher = CachedPatcherFactory.Create(extension);
                 using var destStream = File.OpenWrite(Path.Combine(tempDir.FullName, name));
                 chunkFileSize += localCopyStream.Length;
                 patchTimer.Start();
@@ -238,57 +236,6 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
             return;
         }
         notifier.OnCheckPerformed(new CheckEventArgs("SecureLocalScratchArea is empty.", CheckResult.Success));
-    }
-
-    private void CheckImageArchive(IArchiveProvider archiveProvider, ICheckNotifier notifier)
-    {
-        notifier.OnCheckPerformed(new CheckEventArgs("Calculating number of entries...", CheckResult.Success));
-        var numEntries = archiveProvider.GetNumEntries();
-        if (numEntries == 0)
-        {
-            notifier.OnCheckPerformed(new CheckEventArgs($"Archive is empty! - {archiveProvider.Name}", CheckResult.Fail));
-            return;
-        }
-        notifier.OnCheckPerformed(new CheckEventArgs($"{numEntries} files found across all archives", CheckResult.Success));
-
-        var archiveExtensions = archiveProvider.EntryNames.Select(Path.GetExtension).Distinct().ToList();
-        var permittedFileExtensionsInArchive = _permittedImageExtensions.Intersect(archiveExtensions).ToList();
-        if (!permittedFileExtensionsInArchive.Any())
-            notifier.OnCheckPerformed(new CheckEventArgs("The archive contains no permitted files", CheckResult.Fail));
-
-        var unexpectedFileExtensions = archiveExtensions.Except(_permittedImageExtensions).ToList();
-        if (unexpectedFileExtensions.Any())
-            notifier.OnCheckPerformed(new CheckEventArgs(
-                $"Unexpected file extensions in {archiveProvider.Name}: {string.Join(",", unexpectedFileExtensions)}", CheckResult.Fail));
-
-        CheckManifestAgreement(archiveProvider, notifier);
-    }
-
-    private void CheckManifestAgreement(IArchiveProvider archiveProvider, ICheckNotifier notifier)
-    {
-        notifier.OnCheckPerformed(new CheckEventArgs("Checking that the manifest agrees with the images in the archive", CheckResult.Success));
-            
-        var imageFilenamesInArchive = archiveProvider.EntryNames.Select(Path.GetFileName).ToList();
-        var imageFilenamesInManifest = new List<string>();
-
-        var manifestFilepath = Path.Combine(LoadDirectory.ForLoading.FullName, ManifestFileName);
-        using (var stream = File.OpenRead(manifestFilepath))
-        {
-            using var sr = new StreamReader(stream);
-            using var csvReader = new CsvReader(sr, Culture);
-            while (csvReader.Read())
-                imageFilenamesInManifest.Add(csvReader[FilenameColumnName]);
-        }
-
-        var notInArchive = imageFilenamesInManifest.Except(imageFilenamesInArchive).ToList();
-        if (notInArchive.Any())
-            notifier.OnCheckPerformed(new CheckEventArgs(
-                $"These files are specified in the manifest but are not present in the archive: {string.Join(",", notInArchive)}", CheckResult.Fail));
-
-        var notInManifest = imageFilenamesInArchive.Except(imageFilenamesInManifest).ToList();
-        if (notInManifest.Any())
-            notifier.OnCheckPerformed(new CheckEventArgs(
-                $"These files are present in the archive but are not specified in the manifest: {string.Join(",", notInManifest)}", CheckResult.Fail));
     }
 
     public override void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener listener)

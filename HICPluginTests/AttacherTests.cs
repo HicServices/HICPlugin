@@ -472,7 +472,6 @@ public class AttacherTests : DatabaseTests
         {
             ProvisionTestData(testDir);
 
-            var rarHelper = new RarHelper();
             RarHelper.ExtractMultiVolumeArchive(testDir);
 
             // Now check we have the correct files
@@ -494,7 +493,6 @@ public class AttacherTests : DatabaseTests
         try
         {
             ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
-            var helper = new RarHelper();
             RarHelper.ExtractMultiVolumeArchive(testDir);
 
             var files = testDir.EnumerateFiles().ToList();
@@ -535,10 +533,9 @@ public class AttacherTests : DatabaseTests
         try
         {
             ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST);
-            var helper = new RarHelper();
             RarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading);
 
-            // Create directory structure analagous to that received in the full extract
+            // Create directory structure analogous to that received in the full extract
             var dir1 = loadDirectory.ForLoading.CreateSubdirectory("GoDARTS01-02");
             var dir2 = loadDirectory.ForLoading.CreateSubdirectory("GoDARTS03-04");
             foreach (var jpeg in loadDirectory.ForLoading.EnumerateFiles("*.jpeg"))

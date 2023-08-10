@@ -1,6 +1,5 @@
 ﻿using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
-using Rdmp.Core.QueryBuilding;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using System;
@@ -27,7 +26,6 @@ public class DRSImageExtraction : ImageExtraction
             throw new InvalidOperationException(
                 $"The DataTable does not contain the image filename column '{FilenameColumnName}'. The filename is required for the researcher to link between images on disk and entries in the dataset extract.");
 
-        var archiveRepository = new ImageArchiveRepository(PathToImageArchive);
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Using image archive at {PathToImageArchive}"));
 
@@ -39,12 +37,12 @@ public class DRSImageExtraction : ImageExtraction
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"{columnsToExtract.Count} extractable columns found"));
 
-        var extractionIdentifier = columnsToExtract.SingleOrDefault(c => c.IColumn.IsExtractionIdentifier) ?? throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
+        var extractionIdentifier = columnsToExtract.SingleOrDefault(static c => c.IColumn.IsExtractionIdentifier) ?? throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Extraction identifier column = {extractionIdentifier.IColumn.GetRuntimeName()}"));
 
         var replacer = new DRSFilenameReplacer(extractionIdentifier.IColumn, FilenameColumnName);
-            
+
         var progress = 0;
         var extractionMap = new Dictionary<string, Dictionary<string, string>>();
 
@@ -64,7 +62,7 @@ public class DRSImageExtraction : ImageExtraction
             }
 
             listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            var newFilename = replacer.GetCorrectFilename(row, listener);
+            var newFilename = replacer.GetCorrectFilename(row);
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
@@ -98,7 +96,7 @@ public class DRSImageExtraction : ImageExtraction
         foreach (var entry in extractionMap)
         {
             listener.OnProgress(this, new ProgressEventArgs("Extracting images from archives...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            archiveRepository.ExtractImageSetFromArchive(entry.Key, entry.Value);
+            ImageArchiveRepository.ExtractImageSetFromArchive(entry.Key, entry.Value);
             progress += entry.Value.Count;
         }
 
