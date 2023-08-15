@@ -68,6 +68,10 @@ public class DRSImageExtraction : ImageExtraction
             row[FilenameColumnName] = newFilename;
             newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
 
+            // Skip existing - JS 2023-08-15
+            if (File.Exists(newFilename)) 
+                continue;
+
             // Build the extraction map
             var sourceFileName = row[ImageUriColumnName].ToString();
 
