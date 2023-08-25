@@ -5,11 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using HICPluginTests;
-using Moq;
 using NUnit.Framework;
-using Rdmp.Core.Repositories;
-using Rdmp.Core.Validation;
-using Rdmp.Core.Validation.Constraints.Secondary;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.Repositories;
@@ -21,33 +17,16 @@ class RepositoryTests
     [Test]
     public void DeserialisationOfXMLInterferingWithFloats()
     {
-        var memoryRepository = new Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
-        Validator.LocatorForXMLDeserialization = memoryRepository;
-
-        var deserializer = new CombinedReportXmlDeserializer();
-
         var data = CombinedReportXmlDeserializer.DeserializeFromXmlString(TestReports.report_with_float_values);
 
-        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
-        var codeValidator = new Func<object, object[], string[], ValidationFailure>((code, cols, colNames) =>
-        {
-            var codeString = (string) code;
-            if (codeString == "TTTT.")
-                return null;
-
-            return new ValidationFailure("Not a read code", readCodeConstraint.Object);
-        });
-
-        readCodeConstraint.Setup(c => c.Validate(It.IsAny<object>(), It.IsAny<object[]>(), It.IsAny<string[]>()))
-            .Returns(codeValidator);
-
-        var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
+        var readCodeConstraint = new MockReferentialIntegrityConstraint(static x=>x.Equals("TTTT.")?null:"Not a read code");
+        var reportFactory = new SciStoreReportFactory(readCodeConstraint);
         var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var bloodSample = report.Samples.First();
-        var result = bloodSample.Results.First(r => r.ReadCodeValue.Equals("TTTT."));
+        var result = bloodSample.Results.First(static r => r.ReadCodeValue.Equals("TTTT."));
 
-        Assert.AreEqual(8.9, result.QuantityValue.Value);
+        Assert.AreEqual(8.9, result.QuantityValue ?? 0.0m);
     }
 
     [Test]
@@ -124,7 +103,6 @@ class RepositoryTests
                   <Interpretation>
                     for 4 days.[b] XX to[unknown|x1B;(s][b]exclude another pathology.[/b]";
 
-        var deserializer = new CombinedReportXmlDeserializer();
         var stream = new MemoryStream(Encoding.UTF8.GetBytes(badXmlString));
         var actualString = CombinedReportXmlDeserializer.RemoveInvalidCharactersFromStream(stream);
         Assert.AreEqual(expectedXmlString, actualString);

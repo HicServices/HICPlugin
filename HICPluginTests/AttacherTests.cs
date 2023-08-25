@@ -7,8 +7,8 @@ using System.Text;
 using DrsPlugin.Attachers;
 using FAnsi;
 using FAnsi.Discovery;
+using HICPluginTests;
 using ICSharpCode.SharpZipLib.Tar;
-using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Curation;
 using Rdmp.Core.DataFlowPipeline;
@@ -25,7 +25,7 @@ namespace DrsPluginTests;
 public class AttacherTests : DatabaseTests
 {
     private string _databaseName;
-    private readonly IDataLoadJob job = Mock.Of<IDataLoadJob>(j => j.JobID == 1);
+    private readonly IDataLoadJob _job = new MockDataLoadJob(1);
 
 
     [OneTimeSetUp]
@@ -111,15 +111,13 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
             var attacher = new DrsMultiVolumeRarAttacher();
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
 
-            Assert.AreEqual($"No files found in ForLoading: {testDir.FullName}", ex?.Message);
+            Assert.AreEqual($"No files found in ForLoading: {loadDirectory.ForLoading}", ex?.Message);
         }
         finally
         {
@@ -134,17 +132,15 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir);
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading);
 
             var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
             Assert.DoesNotThrow(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
         }
@@ -163,10 +159,8 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir);
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading);
 
             var attacher = new DrsFileAttacher
             {
@@ -174,10 +168,10 @@ public class AttacherTests : DatabaseTests
                 FilenameColumnName = "Image_Filename",
                 SecureLocalScratchArea = scratchDir
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.AreEqual(ex.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
+            Assert.AreEqual(ex?.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
         }
         finally
         {
@@ -193,17 +187,15 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
 
             var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex?.Message);
@@ -221,17 +213,15 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
 
             var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex?.Message);
@@ -265,7 +255,7 @@ public class AttacherTests : DatabaseTests
             };
 
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
-            attacher.Attach(job,new GracefulCancellationToken());
+            attacher.Attach(_job,new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
@@ -292,8 +282,7 @@ public class AttacherTests : DatabaseTests
 
     private DiscoveredTable GetPhenotypeTable()
     {
-        var database = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName);
-        return database.DiscoverTables(false).Single(t => t.GetRuntimeName() == "GoDARTSv2_TEST");
+        return DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName).ExpectTable("GoDARTSv2_TEST");
     }
 
     private void TruncatePhenotypeTable()
@@ -334,7 +323,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
 
-            attacher.Attach(job,new GracefulCancellationToken());
+            attacher.Attach(_job,new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
@@ -382,7 +371,7 @@ public class AttacherTests : DatabaseTests
             };
 
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
-            attacher.Attach(job, new GracefulCancellationToken());
+            attacher.Attach(_job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // The stripped files will now be in the archive so unzip them
@@ -557,7 +546,7 @@ public class AttacherTests : DatabaseTests
             };
             csvAttacher.Initialize(loadDirectory, database);
 
-            csvAttacher.Attach(job, new GracefulCancellationToken());
+            csvAttacher.Attach(_job, new GracefulCancellationToken());
 
             var attacher = new DrsFileAttacher
             {
@@ -571,7 +560,7 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(loadDirectory, database);
 
-            attacher.Attach(job, new GracefulCancellationToken());
+            attacher.Attach(_job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(),

@@ -6,16 +6,12 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 using DrsPlugin.Extraction;
+using HICPluginTests;
 using ICSharpCode.SharpZipLib.Tar;
-using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Curation;
-using Rdmp.Core.Curation.Data;
 using Rdmp.Core.Curation.Data.DataLoad;
-using Rdmp.Core.DataExport.Data;
-using Rdmp.Core.DataExport.DataExtraction;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
-using Rdmp.Core.DataExport.DataExtraction.UserPicks;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.QueryBuilding;
 using Rdmp.Core.ReusableLibraryCode.Progress;
@@ -38,10 +34,9 @@ public class ExtractionTests : DatabaseTests
         dataset.Columns.Add("Image_Filename");
         dataset.Rows.Add("R00001", @"17/05/2016", "R", "1", "1024", "768", "2_P12345_2016-05-07_RM_1_PW1024_PH768.png");
 
-        var extractionIdentifierColumn = new Mock<IColumn>();
-        extractionIdentifierColumn.Setup(c => c.GetRuntimeName()).Returns("ReleaseID");
+        var extractionIdentifierColumn = new MockColumn("ReleaseID");
 
-        var replacer = new DRSFilenameReplacer(extractionIdentifierColumn.Object, "Image_Filename");
+        var replacer = new DRSFilenameReplacer(extractionIdentifierColumn, "Image_Filename");
 
         Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0]));
     }
@@ -245,34 +240,13 @@ public class ExtractionTests : DatabaseTests
         };
         loadMetadata.SaveToDatabase();
 
-        var catalogue = Mock.Of<ICatalogue>(c=>c.LoadMetadata==loadMetadata);
+        var catalogue = new MockCatalogue(loadMetadata);
 
-        var extractableDataset = Mock.Of<IExtractableDataSet>();
-        var datasetBundle = Mock.Of<IExtractableDatasetBundle>(
-            dsb => dsb.DataSet == extractableDataset);
+        var extractionDirectory = new MockExtractionDirectory(rootDir);
 
-        var extractionDirectory = new Mock<IExtractionDirectory>();
-        extractionDirectory.Setup(d => d.GetDirectoryForDataset(It.IsAny<IExtractableDataSet>())).Returns(rootDir);
-
-        var cohort = new Mock<IExtractableCohort>();
-        cohort.Setup(c => c.GetPrivateIdentifier(It.IsAny<bool>())).Returns("PrivateID");
-        cohort.Setup(c => c.GetReleaseIdentifier(It.IsAny<bool>())).Returns("ReleaseID");
-
-        var extractableColumn = new Mock<IColumn>();
-        extractableColumn.Setup(c => c.GetRuntimeName()).Returns("CHI");
-        extractableColumn.Setup(c => c.IsExtractionIdentifier).Returns(true);
-        var queryTimeColumn = new QueryTimeColumn(extractableColumn.Object);
-        var queryBuilder = new Mock<ISqlQueryBuilder>();
-        queryBuilder.Setup(qb => qb.SelectColumns).Returns(new[] { queryTimeColumn }.ToList());
-        var request = Mock.Of<IExtractDatasetCommand>(
-            r =>
-                r.Catalogue==catalogue &&
-                r.DatasetBundle == datasetBundle &&
-                r.ColumnsToExtract==new List<IColumn> {extractableColumn.Object} &&
-                r.Directory==extractionDirectory.Object &&
-                r.ExtractableCohort==cohort.Object &&
-                r.QueryBuilder==queryBuilder.Object
-        );
-        return request;
+        var extractableColumn = new MockColumn("CHI",true);
+        var queryTimeColumn = new QueryTimeColumn(extractableColumn);
+        var queryBuilder = new MockSqlQueryBuilder(new List<QueryTimeColumn> { queryTimeColumn });
+        return new MockExtractDatasetCommand(catalogue,extractionDirectory,new List<IColumn> {extractableColumn},queryBuilder);
     }
 }
