@@ -4,15 +4,17 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStore.SciStoreServices81;
 using SCIStorePlugin.Data;
 using HICPluginTests;
+using Rdmp.Core.Validation;
+using Tests.Common;
 
 namespace SCIStorePluginTests.Unit;
 
-public class CodeValidationTests
+public class CodeValidationTests : DatabaseTests
 {
     [OneTimeSetUp]
     public void BeforeAnyTests()
     {
-        //Validator.LocatorForXMLDeserialization = new Mock<IRDMPPlatformRepositoryServiceLocator>().Object;
+        Validator.LocatorForXMLDeserialization = RepositoryLocator;
     }
 
     [Test]
@@ -42,7 +44,7 @@ public class CodeValidationTests
         };
 
 
-        var readCodeConstraint = new MockReferentialIntegrityConstraint();
+        var readCodeConstraint = new MockReferentialIntegrityConstraint(x=>x.Equals("NOT_A_READ_CODE",StringComparison.Ordinal)?"This is not a read code":null);
         var testSetFactory = new TestSetFactory(readCodeConstraint);
         var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 

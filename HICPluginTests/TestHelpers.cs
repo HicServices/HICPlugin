@@ -13,7 +13,9 @@ using Rdmp.Core.CohortCreation.Execution;
 using Rdmp.Core.Curation;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.Curation.Data.Aggregation;
+using Rdmp.Core.Curation.Data.Cache;
 using Rdmp.Core.Curation.Data.DataLoad;
+using Rdmp.Core.Curation.Data.Pipelines;
 using Rdmp.Core.DataExport.Data;
 using Rdmp.Core.DataExport.DataExtraction;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -25,6 +27,7 @@ using Rdmp.Core.DataLoad.Engine.DatabaseManagement.EntityNaming;
 using Rdmp.Core.DataLoad.Engine.DatabaseManagement.Operations;
 using Rdmp.Core.DataLoad.Engine.Job;
 using Rdmp.Core.Logging;
+using Rdmp.Core.Logging.PastEvents;
 using Rdmp.Core.MapsDirectlyToDatabaseTable;
 using Rdmp.Core.MapsDirectlyToDatabaseTable.Revertable;
 using Rdmp.Core.Providers;
@@ -44,6 +47,277 @@ using IContainer = Rdmp.Core.Curation.Data.IContainer;
 
 namespace HICPluginTests;
 
+internal sealed class MockLoadProgress : ILoadProgress
+{
+    private readonly ILoadMetadata _lmd;
+
+    public MockLoadProgress(ILoadMetadata lmd)
+    {
+        _lmd = lmd;
+    }
+
+    /// <inheritdoc />
+    public void DeleteInDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    /// <inheritdoc />
+    public int ID { get; set; }
+
+    /// <inheritdoc />
+    public IRepository Repository { get; set; }
+
+    /// <inheritdoc />
+    public void SetReadOnly()
+    {
+    }
+
+    /// <inheritdoc />
+    public void SaveToDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public void RevertToDatabaseState()
+    {
+    }
+
+    /// <inheritdoc />
+    public RevertableObjectReport HasLocalChanges() => null;
+
+    /// <inheritdoc />
+    public bool Exists() => false;
+
+    /// <inheritdoc />
+    public string Name { get; set; }
+
+    /// <inheritdoc />
+    public void Check(ICheckNotifier notifier)
+    {
+    }
+
+    /// <inheritdoc />
+    public DateTime? OriginDate { get; set; }
+
+    /// <inheritdoc />
+    public DateTime? DataLoadProgress { get; set; }
+
+    /// <inheritdoc />
+    public int LoadMetadata_ID { get; set; }
+
+    /// <inheritdoc />
+    public ILoadMetadata LoadMetadata => _lmd;
+
+    /// <inheritdoc />
+    public ICacheProgress CacheProgress { get; }
+
+    /// <inheritdoc />
+    public bool IsDisabled { get; set; }
+
+    /// <inheritdoc />
+    public int DefaultNumberOfDaysToLoadEachTime { get; }
+}
+internal sealed class MockPipeline : IPipeline
+{
+    /// <inheritdoc />
+    public void InjectKnown(IPipelineComponent[] instance)
+    {
+    }
+
+    /// <inheritdoc />
+    public void ClearAllInjections()
+    {
+    }
+
+    /// <inheritdoc />
+    public void DeleteInDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    /// <inheritdoc />
+    public int ID { get; set; }
+
+    /// <inheritdoc />
+    public IRepository Repository { get; set; }
+
+    /// <inheritdoc />
+    public void SetReadOnly()
+    {
+    }
+
+    /// <inheritdoc />
+    public void SaveToDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public void RevertToDatabaseState()
+    {
+    }
+
+    /// <inheritdoc />
+    public RevertableObjectReport HasLocalChanges() => null;
+
+    /// <inheritdoc />
+    public bool Exists() => false;
+
+    /// <inheritdoc />
+    public string Name { get; set; }
+
+    /// <inheritdoc />
+    public string Description { get; set; }
+
+    /// <inheritdoc />
+    public int? DestinationPipelineComponent_ID { get; set; }
+
+    /// <inheritdoc />
+    public int? SourcePipelineComponent_ID { get; set; }
+
+    /// <inheritdoc />
+    public IList<IPipelineComponent> PipelineComponents { get; }
+
+    /// <inheritdoc />
+    public IPipelineComponent Destination { get; }
+
+    /// <inheritdoc />
+    public IPipelineComponent Source { get; }
+
+    /// <inheritdoc />
+    public Pipeline Clone() => null;
+}
+internal sealed class MockCacheProgress : ICacheProgress
+{
+    private readonly LoadMetadata _lmd;
+
+    public MockCacheProgress(LoadMetadata lmd)
+    {
+        _lmd = lmd;
+    }
+
+    /// <inheritdoc />
+    public void DeleteInDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    /// <inheritdoc />
+    public int ID { get; set; }
+
+    /// <inheritdoc />
+    public IRepository Repository { get; set; }
+
+    /// <inheritdoc />
+    public void SetReadOnly()
+    {
+    }
+
+    /// <inheritdoc />
+    public void SaveToDatabase()
+    {
+    }
+
+    /// <inheritdoc />
+    public void RevertToDatabaseState()
+    {
+    }
+
+    /// <inheritdoc />
+    public RevertableObjectReport HasLocalChanges() => null;
+
+    /// <inheritdoc />
+    public bool Exists() => false;
+
+    /// <inheritdoc />
+    public string Name { get; set; }
+
+    /// <inheritdoc />
+    public DiscoveredServer GetDistinctLoggingDatabase() => null;
+
+    /// <inheritdoc />
+    public DiscoveredServer GetDistinctLoggingDatabase(out IExternalDatabaseServer serverChosen)
+    {
+        serverChosen = null;
+        return null;
+    }
+
+    /// <inheritdoc />
+    public string GetDistinctLoggingTask() => null;
+
+    /// <inheritdoc />
+    public IEnumerable<ArchivalDataLoadInfo> FilterRuns(IEnumerable<ArchivalDataLoadInfo> runs)
+    {
+        yield break;
+    }
+
+    /// <inheritdoc />
+    public string CacheLagPeriodLoadDelay { get; }
+
+    /// <inheritdoc />
+    public int LoadProgress_ID { get; set; }
+
+    /// <inheritdoc />
+    public int? PermissionWindow_ID { get; set; }
+
+    /// <inheritdoc />
+    public DateTime? CacheFillProgress { get; set; }
+
+    /// <inheritdoc />
+    public string CacheLagPeriod { get; set; }
+
+    /// <inheritdoc />
+    public TimeSpan ChunkPeriod { get; set; }
+
+    /// <inheritdoc />
+    public int? Pipeline_ID { get; set; }
+
+    /// <inheritdoc />
+    public IPipeline Pipeline { get; } = new MockPipeline();
+
+    /// <inheritdoc />
+    public IPermissionWindow PermissionWindow { get; }
+
+    /// <inheritdoc />
+    public IEnumerable<ICacheFetchFailure> CacheFetchFailures { get; }
+
+    /// <inheritdoc />
+    public ILoadProgress LoadProgress => new MockLoadProgress(_lmd);
+
+    /// <inheritdoc />
+    public CacheLagPeriod GetCacheLagPeriod() => null;
+
+    /// <inheritdoc />
+    public void SetCacheLagPeriod(CacheLagPeriod cacheLagPeriod)
+    {
+    }
+
+    /// <inheritdoc />
+    public CacheLagPeriod GetCacheLagPeriodLoadDelay() => null;
+
+    /// <inheritdoc />
+    public void SetCacheLagPeriodLoadDelay(CacheLagPeriod cacheLagPeriod)
+    {
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<ICacheFetchFailure> FetchPage(int start, int batchSize)
+    {
+        yield break;
+    }
+
+    /// <inheritdoc />
+    public TimeSpan GetShortfall() => default;
+
+    /// <inheritdoc />
+    public string GetLoggingRunName() => null;
+}
 internal sealed class MockRepositorySupportsDateRangeQueries_CombinedReportData : IRepositorySupportsDateRangeQueries<CombinedReportData>
 {
     /// <inheritdoc />
@@ -91,9 +365,9 @@ internal sealed class MockCacheFetchRequestProvider : ICacheFetchRequestProvider
 {
     private readonly ICacheFetchRequest _request;
 
-    public MockCacheFetchRequestProvider(ICacheFetchRequest request)
+    public MockCacheFetchRequestProvider(ICacheFetchRequest request=null)
     {
-        _request = request;
+        _request = request ?? new CacheFetchRequest(null,DateTime.Now);
     }
 
     /// <inheritdoc />
