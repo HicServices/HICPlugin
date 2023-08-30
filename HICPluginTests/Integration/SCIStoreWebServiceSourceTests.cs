@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
 using System.Threading;
+using HICPluginTests;
 using Rdmp.Core.MapsDirectlyToDatabaseTable;
-using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Requests;
-using Rdmp.Core.Caching.Requests.FetchRequestProvider;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.Curation.Data.Cache;
 using Rdmp.Core.Curation.Data.DataLoad;
@@ -28,7 +26,6 @@ namespace SCIStorePluginTests.Integration;
 public class SCIStoreWebServiceSourceTests : DatabaseTests
 {
     [Test]
-    [Ignore("Can't get this to work on Jenkins because the configuration file is not being read correctly in that environment.")]
     public void CheckerTest_InvalidConfiguration()
     {
         var component = new SCIStoreWebServiceSource
@@ -41,7 +38,7 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             Discipline = Discipline.Immunology,
         };
 
-        component.Check(new IgnoreAllErrorsCheckNotifier());
+        component.Check(IgnoreAllErrorsCheckNotifier.Instance);
 
     }
 
@@ -75,35 +72,27 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
                 PermissionWindow = new SpontaneouslyInventedPermissionWindow(cacheProgress)
             };
 
-            var requestProvider = new Mock<ICacheFetchRequestProvider>();
-            requestProvider.Setup(provider => provider.GetNext(It.IsAny<IDataLoadEventListener>())).Returns(cacheFetchRequest);
+            var requestProvider = new MockCacheFetchRequestProvider(cacheFetchRequest);
 
             // Create a stubbed retry strategy which will fail and throw the 'DownloadRequestFailedException'
-            var failStrategy = new Mock<IRetryStrategy>();
             var faultException = new FaultException(new FaultReason("Error on the server"), new FaultCode("Fault Code"), "Action");
             var downloadException = new DownloadRequestFailedException(cacheFetchRequest.Start, cacheFetchRequest.ChunkPeriod, faultException);
-            failStrategy.Setup(
-                    strategy =>
-                        strategy.Fetch(It.IsAny<DateTime>(), It.IsAny<TimeSpan>(),
-                            It.IsAny<IDataLoadEventListener>(), It.IsAny<GracefulCancellationToken>()))
-                .Throws(downloadException);
-            failStrategy.Object.WebService =
-                new Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>().Object;
+            var failStrategy = new MockRetryStrategy(downloadException);
 
             // Create the source
             var source = new SCIStoreWebServiceSource
             {
                 PermissionWindow = new SpontaneouslyInventedPermissionWindow(cacheProgress),
-                RequestProvider = requestProvider.Object,
+                RequestProvider = requestProvider,
                 NumberOfTimesToRetry = 1,
                 NumberOfSecondsToWaitBetweenRetries = "1",
                 AuditFailureAndMoveOn = auditAsFailure,
                 // todo: why does the source need this if it is in the CacheFetchRequest object?
-                Downloader = new Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>().Object
+                Downloader = failStrategy.WebService
             };
 
-            source.SetPrivateVariableRetryStrategy_NunitOnly(failStrategy.Object);
-               
+            source.SetPrivateVariableRetryStrategy_NunitOnly(failStrategy);
+
 
             // Create the cancellation token and ask the source for a chunk
             var stopTokenSource = new CancellationTokenSource();
@@ -114,19 +103,19 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
             SCIStoreCacheChunk chunk;
 
             if (auditAsFailure)
-                chunk = source.GetChunk(new ThrowImmediatelyDataLoadEventListener(), token);
+                chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, token);
             else
             {
                 Assert.Throws<DownloadRequestFailedException>(
-                    () => source.GetChunk(new ThrowImmediatelyDataLoadEventListener(), token));
+                    () => source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, token));
                 return;
             }
-                
+
             Assert.IsNotNull(chunk);
             Assert.AreEqual(downloadException, chunk.DownloadRequestFailedException);
 
             var failures = CatalogueRepository.GetAllObjects<CacheFetchFailure>();
-            var numFailures = failures.Count();
+            var numFailures = failures.Length;
             Assert.AreEqual(1, numFailures, "The cache fetch failure was not recorded correctly.");
 
             var failure = failures[0];

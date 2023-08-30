@@ -26,16 +26,14 @@ public class MicrobiologyLoaderTests
     [TestCase("\r\n  12A\r\n", true)]
     public void TestParsingTestCodes(string val, bool isValidResultCode)
     {
-        var ms = new MemoryStream();
-        ms.Write(Encoding.ASCII.GetBytes(val), 0, Encoding.ASCII.GetBytes(val).Length);
-        ms.Position = 0;
+        var ms = new MemoryStream(Encoding.ASCII.GetBytes(val));
 
         TextReader tr = new StreamReader(ms);
 
-        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
+        var _ = new MicroBiologyFileReader(tr);
 
             
-        var result1 = mb.GetSpecimenNo(tr);
+        var result1 = MicroBiologyFileReader.GetSpecimenNo(tr);
 
         //result is not null if it is a valid result code
         Assert.IsTrue(isValidResultCode == (result1 != null));
@@ -233,15 +231,15 @@ GORA1H
 
     }
 
-    private IList<IMicrobiologyResultRecord> CreateReaderFromString(string testString, bool throwOnWarnings)
+    private static IList<IMicrobiologyResultRecord> CreateReaderFromString(string testString, bool throwOnWarnings)
     {
         TextReader tr = new StreamReader(StringToStream(testString));
-        MicroBiologyFileReader mb = new MicroBiologyFileReader(tr);
-        mb.Warning += delegate(object sender, string message) { if(throwOnWarnings)throw new Exception(
+        var mb = new MicroBiologyFileReader(tr);
+        mb.Warning += delegate(object _, string message) { if(throwOnWarnings)throw new Exception(
             $"Warning was {message}"); };
         var results = mb.ProcessFile().ToList();
 
-        foreach (IMicrobiologyResultRecord r in results)
+        foreach (var r in results)
         {
             Console.Write(r.GetType().Name);
             WriteOutObject(r);
@@ -251,10 +249,10 @@ GORA1H
         return results;
     }
 
-    private void WriteOutObject(IMicrobiologyResultRecord microbiologyResultRecord)
+    private static void WriteOutObject(IMicrobiologyResultRecord microbiologyResultRecord)
     {
         Console.Write("(");
-        foreach (PropertyInfo p in microbiologyResultRecord.GetType().GetProperties())
+        foreach (var p in microbiologyResultRecord.GetType().GetProperties())
             Console.Write($"{p.Name}:{p.GetValue(microbiologyResultRecord)},");
 
         Console.Write(")");
@@ -292,7 +290,7 @@ THOK1H
         Assert.AreEqual(6,results.Count);
 
         var isolations = results.Where(r => r is MB_Isolation).Cast<MB_Isolation>().ToArray();
-        Assert.AreEqual(2,isolations.Count());
+        Assert.AreEqual(2, isolations.Length);
 
 
         Assert.AreEqual(0, results.Count(r => r is MB_IsolationResult));//should be no results because there are no "$SENS             S" etc bits
@@ -620,13 +618,9 @@ JOSJ1H
 
     }
 
-    private Stream StringToStream(string testString)
+    private static Stream StringToStream(string testString)
     {
-        var ms = new MemoryStream();
-        ms.Write(Encoding.ASCII.GetBytes(testString), 0, Encoding.ASCII.GetBytes(testString).Length);
-        ms.Position = 0;
-
-        return ms;
+        return new MemoryStream(Encoding.ASCII.GetBytes(testString));
     }
 
     [Test]
@@ -650,7 +644,7 @@ ANDERSON
     [Test]
     public void MissingIsolations()
     {
-        string testString = @"
+        var testString = @"
 11MP111111
 1111111111
 PIRIE
@@ -697,7 +691,7 @@ SHEA1H";
 
         Assert.AreEqual(12,results.Count(r => r is MB_IsolationResult));
 
-        MB_Tests t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
+        var t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
 
         Assert.NotNull(t);
         Assert.AreEqual("BLAN", t.TestCode);

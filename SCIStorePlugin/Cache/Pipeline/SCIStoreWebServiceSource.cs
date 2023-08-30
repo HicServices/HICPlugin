@@ -41,7 +41,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
     public bool AuditFailureAndMoveOn { get; set; }
 
     private IRetryStrategy _retryStrategy;
-        
+
     // made public so the type of Downloader can be mocked/stubbed for testing purpose
     public IRepositorySupportsDateRangeQueries<CombinedReportData> Downloader { get; set; }
 
@@ -54,7 +54,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
             $"About to request chunk for {HealthBoard} {Discipline} on {Request.Start}"));
 
         CheckObjectIsValid(listener);
-            
+
         if (Request.IsRetry)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "(this is a retry attempt)"));
 
@@ -79,8 +79,10 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
 
         //pretty pointless message since we just said what the Request.Start was above
         if(VERBOSE)
+#pragma warning disable CS0162
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"About to download, starting from {chunkStart}"));
+#pragma warning restore CS0162
 
         IEnumerable<CombinedReportData> reports;
         try
@@ -105,9 +107,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
         }
 
         // null signals that the repository has discovered we are now outside the permission window and has stopped, discarding everything up to now. Cache progress won't be updated in the database so we'll start from the correct point next time.
-        if (reports == null) return Chunk;  
-            
-        return CreateCacheChunk(chunkStart, reports);
+        return reports == null ? Chunk : CreateCacheChunk(chunkStart, reports);
     }
 
     private void InitializeRetryStrategy()
@@ -118,14 +118,13 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
             throw new Exception("NumberOfSecondsToWaitBetweenRetries is blank");
 
 
-        string[] waitTimes = NumberOfSecondsToWaitBetweenRetries.Split(new []{","}, StringSplitOptions.RemoveEmptyEntries);
+        var waitTimes = NumberOfSecondsToWaitBetweenRetries.Split(new []{","}, StringSplitOptions.RemoveEmptyEntries);
             
-        List<int> waitTimesAsInts = new List<int>();
+        var waitTimesAsInts = new List<int>();
 
-        foreach (string t in waitTimes)
+        foreach (var t in waitTimes)
         {
-            int i;
-            if (!int.TryParse(t, out i))
+            if (!int.TryParse(t, out var i))
                 throw new Exception(
                     $"NumberOfSecondsToWaitBetweenRetries contained the value '{t}' which could not be converted into an integer - all values should be a number of seconds");
 
@@ -140,7 +139,7 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
 
 
     /// <summary>
-    /// Really dont call this, I added it because of horrible integration tests that force failing strategies on this poor component
+    /// Really don't call this, I added it because of horrible integration tests that force failing strategies on this poor component
     /// </summary>
     public void SetPrivateVariableRetryStrategy_NunitOnly(IRetryStrategy s)
     {
@@ -157,9 +156,8 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
         };
     }
 
-    private int _numReportsDownloaded;
-    private readonly Stopwatch _downloadTimer = new Stopwatch();
-        
+    private readonly Stopwatch _downloadTimer = new();
+
 
     private void CheckObjectIsValid(IDataLoadEventListener listener)
     {
@@ -220,33 +218,43 @@ public class SCIStoreWebServiceSource : CacheSource<SCIStoreCacheChunk>
         return new SCIStoreServicesClient(GeneratingBinding(), new EndpointAddress(Configuration.Endpoint));
     }
 
-    private BasicHttpsBinding GeneratingBinding()
+    private static BasicHttpsBinding GeneratingBinding()
     {
-        var b = new BasicHttpsBinding();
-        b.Name = "SCIStoreServices";
-        b.CloseTimeout = new TimeSpan(0, 1, 0);
-        b.OpenTimeout = new TimeSpan(0, 1, 0);
-        b.ReceiveTimeout = new TimeSpan(0, 10, 0);
-        b.SendTimeout = new TimeSpan(0, 10, 0);
-        b.AllowCookies = false;
-        b.BypassProxyOnLocal = false;
-        //b.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
-        b.MaxBufferPoolSize = 524288;
-        b.MaxBufferSize = 20000000;
-        b.MaxReceivedMessageSize = 20000000;
-        b.TransferMode = TransferMode.Buffered;
-        b.UseDefaultWebProxy = true;
-        //b.MessageEncoding = WSMessageEncoding.Text;
+        var b = new BasicHttpsBinding
+        {
+            Name = "SCIStoreServices",
+            CloseTimeout = new TimeSpan(0, 1, 0),
+            OpenTimeout = new TimeSpan(0, 1, 0),
+            ReceiveTimeout = new TimeSpan(0, 10, 0),
+            SendTimeout = new TimeSpan(0, 10, 0),
+            AllowCookies = false,
+            BypassProxyOnLocal = false,
+            //b.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
+            MaxBufferPoolSize = 524288,
+            MaxBufferSize = 20000000,
+            MaxReceivedMessageSize = 20000000,
+            TransferMode = TransferMode.Buffered,
+            UseDefaultWebProxy = true,
+            ReaderQuotas =
+            {
+                //b.MessageEncoding = WSMessageEncoding.Text;
+                MaxDepth = 32,
+                MaxStringContentLength = 8192,
+                MaxArrayLength = 16384,
+                MaxBytesPerRead = 4096,
+                MaxNameTableCharCount = 16384
+            },
+            Security =
+            {
+                Mode = BasicHttpsSecurityMode.Transport,
+                Transport =
+                {
+                    ClientCredentialType = HttpClientCredentialType.None,
+                    ProxyCredentialType = HttpProxyCredentialType.None
+                }
+            }
+        };
 
-        b.ReaderQuotas.MaxDepth = 32;
-        b.ReaderQuotas.MaxStringContentLength = 8192;
-        b.ReaderQuotas.MaxArrayLength = 16384;
-        b.ReaderQuotas.MaxBytesPerRead = 4096;
-        b.ReaderQuotas.MaxNameTableCharCount = 16384;
-
-        b.Security.Mode = BasicHttpsSecurityMode.Transport;
-        b.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
-        b.Security.Transport.ProxyCredentialType = HttpProxyCredentialType.None;
         //b.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
 
         return b;

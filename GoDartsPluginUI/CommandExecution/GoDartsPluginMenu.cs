@@ -10,7 +10,7 @@ namespace GoDartsPluginUI.CommandExecution;
 
 public class GoDartsPluginMenu : PluginUserInterface
 {
-    IActivateItems activator;
+    readonly IActivateItems activator;
 
     public GoDartsPluginMenu(IBasicActivateItems itemActivator) : base(itemActivator)
     {

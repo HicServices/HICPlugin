@@ -22,5 +22,5 @@ public class SCIStoreCacheChunk : ICacheChunk
         Request = request;
     }
 
-        
+
 }

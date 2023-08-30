@@ -52,7 +52,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         var destRepo = new SciStoreDataTableRepository(dataTableSchemaSource);
         destRepo.InsertionError += (sender, e, query) => job.OnNotify(sender,
             new NotifyEventArgs(ProgressEventType.Warning,
-                $"Received InsertionError from {typeof(SciStoreDbRepository).Name} {e}{Environment.NewLine}Query: {query}", e));
+                $"Received InsertionError from {nameof(SciStoreDbRepository)} {e}{Environment.NewLine}Query: {query}", e));
 
         try
         {
@@ -119,7 +119,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         catch (Exception e)
         {
             job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error,
-                $"{typeof(SciStoreAttacher).Name}.Attach() failed ", e));
+                $"{nameof(SciStoreAttacher)}.Attach() failed ", e));
             return ExitCodeType.Error;
         }
 
@@ -132,10 +132,8 @@ False - Stop the data load with an error",DefaultValue = true)]
             $"Bulk inserting data in DataTable ({dataTable.TableName}) to {_dbInfo.Server.Name}, {_dbInfo.GetRuntimeName()}..{dataTable.TableName}"));
 
         var tbl = _dbInfo.ExpectTable(dataTable.TableName);
-        using (var blk = tbl.BeginBulkInsert())
-        {
-            blk.Upload(dataTable);
-        }
+        using var blk = tbl.BeginBulkInsert();
+        blk.Upload(dataTable);
     }
 
     public bool SilentRunning { get; set; }
@@ -174,7 +172,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         {
             foreach (var sample in lab.Samples)
             {
-                int recordsRemoved  = sample.ResolveTestResultOrderDuplication();
+                var recordsRemoved  = sample.ResolveTestResultOrderDuplication();
                 if (recordsRemoved > 0)
                     job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning,
                         $"Resolved duplicate TestResultOrder using method 'ResolveTestResultOrderDuplication' in lab number:{lab.Header.LabNumber}"));

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DrsPlugin.Attachers;
 
-public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
+public class FilesystemArchiveProvider : IArchiveProvider
 {
     private readonly string _rootPath;
     private readonly string[] _fileExtensions;
@@ -16,7 +16,7 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
 
     public FilesystemArchiveProvider(string rootPath, string[] fileExtensions, IDataLoadEventListener listener)
     {
-        if (fileExtensions.Any(ext => !ext.StartsWith(".")))
+        if (fileExtensions.Any(static ext => !ext.StartsWith(".", StringComparison.Ordinal)))
             throw new ArgumentException("Please ensure the extensions start with '.', i.e. '.txt'");
 
         _rootPath = rootPath;
@@ -28,7 +28,7 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
 
     private void CreateFileList()
     {
-        _fileList = _fileExtensions.AsParallel()
+        _fileList = _fileExtensions
             .SelectMany(
                 fileExtension => Directory.GetFiles(_rootPath, $"*{fileExtension}", SearchOption.AllDirectories))
             .ToArray();
@@ -38,12 +38,9 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
     {
         if (_fileList == null)
             CreateFileList();
-            
-        // Find the file
-        var entry = _fileList.SingleOrDefault(p => Path.GetFileName(p) == entryName);
-        if (entry == null)
-            throw new InvalidOperationException($"Could not find file {entryName} in {_rootPath} or subdirectories");
 
+        // Find the file
+        var entry = _fileList?.SingleOrDefault(p => Path.GetFileName(p) == entryName) ?? throw new InvalidOperationException($"Could not find file {entryName} in {_rootPath} or subdirectories");
         return new MemoryStream(File.ReadAllBytes(entry));
     }
 
@@ -52,10 +49,10 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
         if (_fileList == null)
             CreateFileList();
 
-        return _fileList.Length;
+        return _fileList?.Length??0;
     }
 
-    public IEnumerable<KeyValuePair<string, MemoryStream>> EntryStreams 
+    public IEnumerable<KeyValuePair<string, MemoryStream>> EntryStreams
     {
         get
         {
@@ -85,19 +82,16 @@ public class FilesystemArchiveProvider : IArchiveProvider, IDisposable
         }
     }
 
-    public IEnumerable<string> EntryNames 
+    public IEnumerable<string> EntryNames
     {
         get
         {
             if (_fileList == null)
                 CreateFileList();
 
-            return _fileList.Select(Path.GetFileName);
+            return _fileList?.Select(Path.GetFileName);
         }
     }
 
-    public string Name { get; private set; }
-    public void Dispose()
-    {
-    }
+    public string Name { get; }
 }

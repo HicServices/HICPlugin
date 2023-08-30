@@ -8,14 +8,8 @@ namespace HICPluginTests.Unit;
 
 public class CHIColumnFinderTests
 {
-    private readonly CHIColumnFinder _chiFinder;
-    private readonly ThrowImmediatelyDataLoadEventListener _listener;
-
-    public CHIColumnFinderTests()
-    {
-        _chiFinder = new();
-        _listener = new() { ThrowOnWarning = true, WriteToConsole = false };
-    }
+    private readonly CHIColumnFinder _chiFinder=new();
+    private readonly ThrowImmediatelyDataLoadEventListener _listener=ThrowImmediatelyDataLoadEventListener.QuietPicky;
 
     [Test]
     [TestCase("1111111111", true)] //valid CHI
@@ -39,7 +33,7 @@ public class CHIColumnFinderTests
     [TestCase("hello1111111111   1111111111theend", true)] //valid 10 digit CHIs with text/whitespace directly before and after
     [TestCase("hello111111110   111111110theend", true)] //valid 9 digit CHIs with text/whitespace directly before and after
 
-    [TestCase("111111 1111", true)] //valid 10 digit CHI with whitespace between dob and remaining digits 
+    [TestCase("111111 1111", true)] //valid 10 digit CHI with whitespace between dob and remaining digits
     [TestCase("here's some text then!111111 1111 full one 111111110", true)] //valid 10 digit CHI with whitespace between dob and remaining digits surrounded by text and another 10 digit CHI
     [TestCase("10101 0109", true)] //valid 9 digit CHI with whitespce between dob and remaining digits
     [TestCase("111111r1111", false)] //valid 10 digit CHI with char between dob and remaining digits

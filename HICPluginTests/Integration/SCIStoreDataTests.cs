@@ -1,9 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
-using Moq;
+using HICPluginTests;
 using NUnit.Framework;
-using Rdmp.Core.Validation.Constraints.Secondary;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 
@@ -25,17 +24,14 @@ public class SCIStoreDataTests
             data = (CombinedReportData) xmlSerialiser.Deserialize(fs);
         }
 
-        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
-        readCodeConstraint.Setup(
-                c => c.Validate(It.IsAny<object>(), It.IsAny<object[]>(), It.IsAny<string[]>()))
-            .Returns(value:null);
+        var readCodeConstraint = new MockReferentialIntegrityConstraint();
 
-        var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
+        var reportFactory = new SciStoreReportFactory(readCodeConstraint);
+        var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.AreEqual(7, report.Samples.Count);
 
-        var totalNumResults = report.Samples.Aggregate(0, (s, n) => s + n.Results.Count);
+        var totalNumResults = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
         Assert.AreEqual(21, totalNumResults);
 
     }
@@ -55,17 +51,13 @@ public class SCIStoreDataTests
             data = (CombinedReportData)xmlSerialiser.Deserialize(fs);
         }
 
-        var readCodeConstraint = new Mock<ReferentialIntegrityConstraint>();
-        readCodeConstraint.Setup(
-                c => c.Validate(It.IsAny<object>(), It.IsAny<object[]>(), It.IsAny<string[]>()))
-            .Returns(value:null);
-
-        var reportFactory = new SciStoreReportFactory(readCodeConstraint.Object);
-        var report = reportFactory.Create(data, new ThrowImmediatelyDataLoadEventListener());
+        var readCodeConstraint = new MockReferentialIntegrityConstraint();
+        var reportFactory = new SciStoreReportFactory(readCodeConstraint);
+        var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.AreEqual(7, report.Samples.Count);
 
-        var totalNumResults = report.Samples.Aggregate(0, (s, n) => s + n.Results.Count);
+        var totalNumResults = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
         Assert.AreEqual(21, totalNumResults);
 
         //artificially introduce duplication
@@ -76,12 +68,12 @@ public class SCIStoreDataTests
             {
                 sciStoreResult.ClinicalCircumstanceDescription = "Test for fish presence";
                 sciStoreResult.TestResultOrder = 0;
-                    
+
             }
             sciStoreSample.ResolveTestResultOrderDuplication();
         }
             
-        var totalNumResultsAfterResolvingArtificiallyCreatedDuplication = report.Samples.Aggregate(0, (s, n) => s + n.Results.Count);
+        var totalNumResultsAfterResolvingArtificiallyCreatedDuplication = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
         Assert.AreEqual(7, totalNumResultsAfterResolvingArtificiallyCreatedDuplication);
 
 

@@ -64,7 +64,7 @@ public class SciStoreHelper
 
     public static string FaultToVerboseData(FaultException faultException)
     {
-        string toReturn = "";
+        var toReturn = "";
 
         toReturn += $"Action:{faultException.Action}{Environment.NewLine}";
             
@@ -97,7 +97,7 @@ public class SciStoreHelper
             toReturn += $"\t\tCreateMessageFault().Code.Namespace:{messageFault.Code.Namespace}{Environment.NewLine}";
             toReturn += $"\t\tCreateMessageFault().Code.SubCode:{messageFault.Code.SubCode}{Environment.NewLine}";
 
-                
+
             toReturn += $"\tCreateMessageFault().HasDetail:{messageFault.HasDetail}{Environment.NewLine}";
             toReturn += $"\tCreateMessageFault().Node:{messageFault.Node}{Environment.NewLine}";
             toReturn += $"\tCreateMessageFault().Reason:{messageFault.Reason}{Environment.NewLine}";

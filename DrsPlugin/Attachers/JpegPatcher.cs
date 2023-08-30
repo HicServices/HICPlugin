@@ -1,4 +1,4 @@
-/**
+/*
  * From http://www.techmikael.com/2009/07/removing-exif-data-continued.html
  * */
 
@@ -13,30 +13,21 @@ public interface IImagePatcher
     byte[] ReadPixelData(Stream stream);
 }
 
-public class CachedPatcherFactory
+internal static class CachedPatcherFactory
 {
-    private readonly JpegPatcher _jpegPatcher;
-    private readonly PngPatcher _pngPatcher;
+    private static readonly JpegPatcher JpegPatcher = new();
+    private static readonly PngPatcher PngPatcher = new();
 
-    public CachedPatcherFactory()
+    internal static IImagePatcher Create(string extension)
     {
-        _jpegPatcher = new JpegPatcher();
-        _pngPatcher = new PngPatcher();
-    }
-
-    public IImagePatcher Create(string extension)
-    {
-        switch (extension)
+        return extension switch
         {
-            case ".jpg":
-            case ".jpeg":
-                return _jpegPatcher;
-            case ".png":
-                return _pngPatcher;
-            default:
-                throw new InvalidOperationException(
-                    $"Can't create a patcher for images with extension type: {extension}");
-        }
+            ".jpg" => JpegPatcher,
+            ".jpeg" => JpegPatcher,
+            ".png" => PngPatcher,
+            _ => throw new InvalidOperationException(
+                $"Can't create a patcher for images with extension type: {extension}")
+        };
     }
 }
 
@@ -44,28 +35,15 @@ public class PngPatcher : IImagePatcher
 {
     public Stream PatchAwayExif(Stream inStream, Stream outStream)
     {
-        int readCount;
-        byte[] readBuffer = new byte[4096];
-        while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
-            outStream.Write(readBuffer, 0, readCount);
-
+        inStream.CopyTo(outStream);
         return outStream;
     }
 
     public byte[] ReadPixelData(Stream stream)
     {
-        using (var ms = new MemoryStream())
-        {
-            var buffer = new byte[4096];
-            while (true)
-            {
-                var numBytesRead = stream.Read(buffer, 0, buffer.Length);
-                if (numBytesRead <= 0)
-                    return ms.ToArray();
-
-                ms.Write(buffer, 0, numBytesRead);
-            }
-        }
+        using var ms = new MemoryStream();
+        stream.CopyTo(ms);
+        return ms.ToArray();
     }
 }
 
@@ -78,21 +56,12 @@ public class JpegPatcher : IImagePatcher
 
         SkipAppHeaderSection(stream);
 
-        using (var ms = new MemoryStream())
-        {
-            var buffer = new byte[4096];
-            while (true)
-            {
-                var numBytesRead = stream.Read(buffer, 0, buffer.Length);
-                if (numBytesRead <= 0)
-                    return ms.ToArray();
-
-                ms.Write(buffer, 0, numBytesRead);
-            }
-        }
+        using var ms = new MemoryStream();
+        stream.CopyTo(ms);
+        return ms.ToArray();
     }
 
-    private bool CheckIsJpegFile(Stream stream)
+    private static bool CheckIsJpegFile(Stream stream)
     {
         var jpegHeader = new byte[2];
         jpegHeader[0] = (byte)stream.ReadByte();
@@ -109,27 +78,23 @@ public class JpegPatcher : IImagePatcher
         outStream.WriteByte(0xff);
         outStream.WriteByte(0xd8);
 
-        int readCount;
-        byte[] readBuffer = new byte[4096];
-        while ((readCount = inStream.Read(readBuffer, 0, readBuffer.Length)) > 0)
-            outStream.Write(readBuffer, 0, readCount);
-
+        inStream.CopyTo(outStream);
         return outStream;
     }
 
-    private void SkipAppHeaderSection(Stream inStream)
+    private static void SkipAppHeaderSection(Stream inStream)
     {
-        byte[] header = new byte[2];
+        var header = new byte[2];
         header[0] = (byte)inStream.ReadByte();
         header[1] = (byte)inStream.ReadByte();
 
-        while (header[0] == 0xff && (header[1] >= 0xe0 && header[1] <= 0xef))
+        while (header[0] == 0xff && header[1] >= 0xe0 && header[1] <= 0xef)
         {
-            int exifLength = inStream.ReadByte();
-            exifLength = exifLength << 8;
+            var exifLength = inStream.ReadByte();
+            exifLength <<= 8;
             exifLength |= inStream.ReadByte();
 
-            for (int i = 0; i < exifLength - 2; i++)
+            for (var i = 0; i < exifLength - 2; i++)
             {
                 inStream.ReadByte();
             }

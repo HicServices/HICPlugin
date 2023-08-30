@@ -8,15 +8,15 @@ namespace HIC.Demography;
 
 public class CHIJobValidationResult
 {
-    public CHIJobValidationResult(ValidationCategory result) => this.Result = result;
+    public CHIJobValidationResult(ValidationCategory result) => Result = result;
 
     public CHIJobValidationResult(ValidationCategory result, string reason)
     {
-        this.Result = result;
-        this.Reason = reason;
+        Result = result;
+        Reason = reason;
     }
 
-    public string Reason { get; set; }
+    public string? Reason { get; set; }
 
     public ValidationCategory Result { get; set; }
 }

@@ -24,25 +24,20 @@ public class TestSetFactory
 
         foreach (var clinicalCircumstanceType in testSetDetails.TestName)
         {
-            var asClinicalInformationType = clinicalCircumstanceType.Item as CLINICAL_INFORMATION_TYPE;
-            if (asClinicalInformationType != null)
+            switch (clinicalCircumstanceType.Item)
             {
-                clinicalInformationList.Add(new ClinicalCodeInfo(asClinicalInformationType));
-                continue;
-            }
-
-            var asString = clinicalCircumstanceType.Item as string;
-            if (asString != null)
-            {
-                if (testSet.ClinicalCircumstanceDescription != null)
+                case CLINICAL_INFORMATION_TYPE asClinicalInformationType:
+                    clinicalInformationList.Add(new ClinicalCodeInfo(asClinicalInformationType));
+                    continue;
+                case string asString when testSet.ClinicalCircumstanceDescription != null:
                     throw new Exception(
                         $"Multiple <ClinicalCircumstanceDescription>. Encountered: {asString}, but have already seen: {testSet.ClinicalCircumstanceDescription}");
-
-                testSet.ClinicalCircumstanceDescription = asString;
-                continue;
+                case string asString:
+                    testSet.ClinicalCircumstanceDescription = asString;
+                    continue;
+                default:
+                    throw new Exception("Could not interpret the <TestName> as either a CLINICAL_INFORMATION_TYPE or string");
             }
-
-            throw new Exception("Could not interpret the <TestName> as either a CLINICAL_INFORMATION_TYPE or string");
         }
 
         var numClinicalInfos = clinicalInformationList.Count;
@@ -166,14 +161,14 @@ public class TestSetFactory
         return _readCodeConstraint.Validate(info.Value, null, null) == null;
     }
 
-    private readonly Dictionary<string, string> KnownWrongTranscriptions = new Dictionary<string, string>
+    private readonly Dictionary<string, string> KnownWrongTranscriptions = new()
     {
         {"441D.", "44lD."} // As of 9/1/15, 441D. is not a valid read code
     };
 
     // This lookup is used if we have detected more than one read code
     // 5/1/15 GM: A specific problem with GP has been fixed, but I'm leaving this here until we have performed a longer-term load of all labs data in case other cases are detected
-    private readonly List<KeyValuePair<string, string>> _highlySuspectSupposedReadCodes = new List<KeyValuePair<string, string>>
+    private readonly List<KeyValuePair<string, string>> _highlySuspectSupposedReadCodes = new()
     {
     };
     #endregion

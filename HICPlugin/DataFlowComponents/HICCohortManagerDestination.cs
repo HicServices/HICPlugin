@@ -23,7 +23,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
         set => NewCohortsStoredProcedure = value;
     }
 
-    [DemandsInitialization("The name of the stored procedure which will commit entirely new cohorts")] 
+    [DemandsInitialization("The name of the stored procedure which will commit entirely new cohorts")]
     public string NewCohortsStoredProcedure { get; set; }
 
     [Obsolete("This was misspelled in old versions of this plugin")]
@@ -36,7 +36,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
 
     [DemandsInitialization("The name of the stored procedure which will augment existing cohorts with new versions")]
     public string ExistingCohortsStoredProcedure { get; set; }
-        
+
     public ICohortCreationRequest Request { get; set; }
     public bool CreateExternalCohort { get; set; }
 
@@ -73,9 +73,6 @@ public class HICCohortManagerDestination : IPluginCohortDestination
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
     {
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "About to send all the buffered data up to the server"));
-
-        var sw = Stopwatch.StartNew();
-
         var target = Request.NewCohortDefinition.LocationOfCohort;
         var cohortDatabase = target.Discover();
 
@@ -103,7 +100,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             using var con = (SqlConnection) cohortDatabase.Server.GetConnection();
             con.Open();
             SqlCommand cmd;
-            var transaction = con.BeginTransaction("Committing cohort");
+            using var transaction = con.BeginTransaction("Committing cohort");
 
             if (Request.NewCohortDefinition.Version == 1)
             {
@@ -114,12 +111,13 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             }
             else
             {
-                //get the existing cohort number 
-                var cmdGetCohortNumber =
-                    new SqlCommand(
-                        $"(SELECT MAX(cohortNumber) FROM {target.DefinitionTableName} where description = '{Request.NewCohortDefinition.Description}')",
-                        con, transaction);
-                var cohortNumber = Convert.ToInt32(cmdGetCohortNumber.ExecuteScalar());
+                //get the existing cohort number
+                int cohortNumber;
+                using (var cmdGetCohortNumber =
+                       new SqlCommand(
+                           $"(SELECT MAX(cohortNumber) FROM {target.DefinitionTableName} where description = '{Request.NewCohortDefinition.Description}')",
+                           con, transaction))
+                    cohortNumber = Convert.ToInt32(cmdGetCohortNumber.ExecuteScalar());
 
                 //call the commit
                 cmd = new SqlCommand(ExistingCohortsStoredProcedure, con, transaction);
@@ -133,13 +131,13 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             cmd.CommandTimeout = 100000;
 
             var cohortId = Convert.ToInt32(cmd.ExecuteScalar());
-                    
+
             listener.OnNotify(this,
                 new NotifyEventArgs(ProgressEventType.Information, $"Called stored procedure {cmd.CommandText}"));
 
             if (cohortId == 0)
                 throw new Exception("Stored procedure returned null or 0");
-                    
+
             transaction.Commit();
             listener.OnNotify(this,
                 new NotifyEventArgs(ProgressEventType.Information,
@@ -194,7 +192,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
         else
         if (spsFound.Contains(NewCohortsStoredProcedure))//it exists!
             notifier.OnCheckPerformed(new CheckEventArgs(
-                $"Found stored procedure {NewCohortsStoredProcedure} in cohort database {location}", CheckResult.Success)); 
+                $"Found stored procedure {NewCohortsStoredProcedure} in cohort database {location}", CheckResult.Success));
         else //it doesn't exist!
             notifier.OnCheckPerformed(new CheckEventArgs(
                 $"Could not find stored procedure {NewCohortsStoredProcedure} in cohort database {location}", CheckResult.Fail));

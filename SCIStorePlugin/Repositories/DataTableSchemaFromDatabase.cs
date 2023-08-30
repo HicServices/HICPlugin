@@ -24,12 +24,8 @@ public class DataTableSchemaFromDatabase : IDataTableSchemaSource
         var server = _destinationDatabase.Server;
         server.ChangeDatabase(_destinationDatabase.GetRuntimeName());
 
-        using (var con = server.GetConnection())
-        {
-            using (var sqlAdapter = new SqlDataAdapter(cmdText, (SqlConnection)con))
-            {
-                sqlAdapter.Fill(dataTable);
-            }
-        }
+        using var con = server.GetConnection();
+        using var sqlAdapter = new SqlDataAdapter(cmdText, (SqlConnection)con);
+        sqlAdapter.Fill(dataTable);
     }
 }

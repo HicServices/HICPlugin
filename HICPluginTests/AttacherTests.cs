@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 using DrsPlugin.Attachers;
 using FAnsi;
 using FAnsi.Discovery;
+using HICPluginTests;
 using ICSharpCode.SharpZipLib.Tar;
-using Moq;
 using NUnit.Framework;
 using Rdmp.Core.Curation;
 using Rdmp.Core.DataFlowPipeline;
@@ -24,7 +25,7 @@ namespace DrsPluginTests;
 public class AttacherTests : DatabaseTests
 {
     private string _databaseName;
-    private readonly IDataLoadJob job = Mock.Of<IDataLoadJob>(j => j.JobID == 1);
+    private readonly IDataLoadJob _job = new MockDataLoadJob(1);
 
 
     [OneTimeSetUp]
@@ -92,7 +93,7 @@ public class AttacherTests : DatabaseTests
 
         // Try to make sure we have the correct database (shouldn't need to do this, it's named with a GUID after all, but let's be safe)
         var tables = database.DiscoverTables(true).ToList();
-        if (tables.Count > 1 || tables.Count == 0)
+        if (tables.Count != 1)
             throw new Exception($"{_databaseName} should have 1 table in it (GoDARTSv2_TEST) but has {tables.Count}");
 
         if (tables[0].GetRuntimeName() != "GoDARTSv2_TEST")
@@ -110,15 +111,13 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
             var attacher = new DrsMultiVolumeRarAttacher();
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
 
-            Assert.AreEqual($"No files found in ForLoading: {testDir.FullName}", ex?.Message);
+            Assert.AreEqual($"No files found in ForLoading: {loadDirectory.ForLoading}", ex?.Message);
         }
         finally
         {
@@ -133,19 +132,17 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading);
 
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
-
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
-            Assert.DoesNotThrow(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            Assert.DoesNotThrow(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
         }
         finally
         {
@@ -162,21 +159,19 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading);
 
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
-
-            var attacher = new DrsFileAttacher()
+            var attacher = new DrsFileAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename",
                 SecureLocalScratchArea = scratchDir
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
-            Assert.AreEqual(ex.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
+            Assert.AreEqual(ex?.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
         }
         finally
         {
@@ -192,19 +187,17 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
 
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
-
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex?.Message);
         }
         finally
@@ -220,19 +213,17 @@ public class AttacherTests : DatabaseTests
         var db = GetCleanedServer(DatabaseType.MicrosoftSQLServer);
         try
         {
-            ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
+            var loadDirectory = LoadDirectory.CreateDirectoryStructure(testDir, "test");
+            ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_MISSING_ENTRY);
 
-            var LoadDirectory = new Mock<ILoadDirectory>();
-            LoadDirectory.Setup(d => d.ForLoading).Returns(testDir);
-
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 ManifestFileName = "GoDARTSv2.csv",
                 FilenameColumnName = "Image_Filename"
             };
-            attacher.Initialize(LoadDirectory.Object, db);
+            attacher.Initialize(loadDirectory, db);
 
-            var ex = Assert.Throws<Exception>(() => attacher.Check(new ThrowImmediatelyCheckNotifier()));
+            var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
             Assert.AreEqual("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex?.Message);
         }
         finally
@@ -253,7 +244,7 @@ public class AttacherTests : DatabaseTests
             // put the test data in ForLoading
             ProvisionTestData(loadDirectory.ForLoading);
 
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 TableName = "GoDARTSv2_TEST",
                 ManifestFileName = "GoDARTSv2.csv",
@@ -264,8 +255,8 @@ public class AttacherTests : DatabaseTests
             };
 
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
-            attacher.Attach(job,new GracefulCancellationToken());
-            attacher.LoadCompletedSoDispose(ExitCodeType.Success, new ThrowImmediatelyDataLoadEventListener());
+            attacher.Attach(_job,new GracefulCancellationToken());
+            attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
             Assert.IsTrue(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)));
@@ -291,8 +282,7 @@ public class AttacherTests : DatabaseTests
 
     private DiscoveredTable GetPhenotypeTable()
     {
-        var database = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName);
-        return database.DiscoverTables(false).Single(t => t.GetRuntimeName() == "GoDARTSv2_TEST");
+        return DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName).ExpectTable("GoDARTSv2_TEST");
     }
 
     private void TruncatePhenotypeTable()
@@ -319,11 +309,10 @@ public class AttacherTests : DatabaseTests
             ProvisionTestData(loadDirectory.ForLoading);
 
             // Pre-extract the archive
-            var rarHelper = new RarHelper();
             var extractionDir = loadDirectory.ForLoading.CreateSubdirectory("Images");
-            rarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading.FullName, extractionDir.FullName);
+            RarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading.FullName, extractionDir.FullName);
 
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 TableName = "GoDARTSv2_TEST",
                 ManifestFileName = "GoDARTSv2.csv",
@@ -334,8 +323,8 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
 
-            attacher.Attach(job,new GracefulCancellationToken());
-            attacher.LoadCompletedSoDispose(ExitCodeType.Success, new ThrowImmediatelyDataLoadEventListener());
+            attacher.Attach(_job,new GracefulCancellationToken());
+            attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
             Assert.IsTrue(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)));
@@ -371,7 +360,7 @@ public class AttacherTests : DatabaseTests
             // put the test data in ForLoading
             ProvisionTestData(loadDirectory.ForLoading);
 
-            var attacher = new DrsMultiVolumeRarAttacher()
+            var attacher = new DrsMultiVolumeRarAttacher
             {
                 TableName = "GoDARTSv2_TEST",
                 ManifestFileName = "GoDARTSv2.csv",
@@ -382,13 +371,13 @@ public class AttacherTests : DatabaseTests
             };
 
             attacher.Initialize(loadDirectory, DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName));
-            attacher.Attach(job, new GracefulCancellationToken());
-            attacher.LoadCompletedSoDispose(ExitCodeType.Success, new ThrowImmediatelyDataLoadEventListener());
+            attacher.Attach(_job, new GracefulCancellationToken());
+            attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // The stripped files will now be in the archive so unzip them
             foreach (var archive in archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).ToList())
             {
-                using var tar = TarArchive.CreateInputTarArchive(File.OpenRead(archive.FullName));
+                using var tar = TarArchive.CreateInputTarArchive(File.OpenRead(archive.FullName),Encoding.UTF8);
                 tar.ExtractContents(archiveDir.FullName);
             }
 
@@ -396,8 +385,8 @@ public class AttacherTests : DatabaseTests
             ProvisionTestData(loadDirectory.ForLoading);
 
             var integrityChecker = new ImageIntegrityChecker();
-            using var archiveProvider = new ExtractedMultiVolumeRarProvider(loadDirectory.ForLoading.FullName, new ThrowImmediatelyDataLoadEventListener());
-            Assert.DoesNotThrow(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, archiveDir.FullName, new ThrowImmediatelyDataLoadEventListener()));
+            using var archiveProvider = new ExtractedMultiVolumeRarProvider(loadDirectory.ForLoading.FullName, ThrowImmediatelyDataLoadEventListener.Quiet);
+            Assert.DoesNotThrow(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, archiveDir.FullName, ThrowImmediatelyDataLoadEventListener.Quiet));
         }
         finally
         {
@@ -409,7 +398,7 @@ public class AttacherTests : DatabaseTests
     private void ProvisionTestData(DirectoryInfo dataDirectory, string manifestFileData = null)
     {
         const string mainFilename = "DRS_Retinal_Test";
-        manifestFileData = manifestFileData ?? TestData.TestData.DRS_RETINAL_TEST_MANIFEST;
+        manifestFileData ??= TestData.TestData.DRS_RETINAL_TEST_MANIFEST;
 
         // Copy the split RAR archive into testDir
         var resourcesToCopy = new[]
@@ -449,8 +438,8 @@ public class AttacherTests : DatabaseTests
             });
 
             var integrityChecker = new ImageIntegrityChecker();
-            using var archiveProvider = new ExtractedMultiVolumeRarProvider(loadDirectory.ForLoading.FullName, new ThrowImmediatelyDataLoadEventListener());
-            var ex = Assert.Throws<InvalidOperationException>(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, imageDir.FullName, new ThrowImmediatelyDataLoadEventListener()), 
+            using var archiveProvider = new ExtractedMultiVolumeRarProvider(loadDirectory.ForLoading.FullName, ThrowImmediatelyDataLoadEventListener.Quiet);
+            var ex = Assert.Throws<InvalidOperationException>(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, imageDir.FullName, ThrowImmediatelyDataLoadEventListener.Quiet),
                 "The image pixel data does not match so this method should throw. Otherwise it is reporting that there is no integrity problem when there is one.");
 
             Assert.IsTrue(ex?.Message.Contains("The pixel byte array lengths are different"));
@@ -472,8 +461,7 @@ public class AttacherTests : DatabaseTests
         {
             ProvisionTestData(testDir);
 
-            var rarHelper = new RarHelper();
-            rarHelper.ExtractMultiVolumeArchive(testDir);
+            RarHelper.ExtractMultiVolumeArchive(testDir);
 
             // Now check we have the correct files
             Assert.AreEqual(2, testDir.EnumerateFiles("*.jpeg").Count());
@@ -494,21 +482,20 @@ public class AttacherTests : DatabaseTests
         try
         {
             ProvisionTestData(testDir, TestData.TestData.DRS_RETINAL_TEST_MANIFEST_ADDITIONAL_ENTRY);
-            var helper = new RarHelper();
-            helper.ExtractMultiVolumeArchive(testDir);
+            RarHelper.ExtractMultiVolumeArchive(testDir);
 
             var files = testDir.EnumerateFiles().ToList();
 
             // Remove any test data that isn't an image file
             foreach (var imgFile in files.Except(files.Where(f => f.Extension == ".jpeg" || f.Extension == ".png")))
             {
-                imgFile.Delete();   
+                imgFile.Delete();
             }
 
             Assert.AreEqual(4, testDir.EnumerateFiles().Count());
 
             var processor = new ImageArchiveProcessor(testDir, testDir, 1);
-            processor.ArchiveImagesForStorage(new ThrowImmediatelyDataLoadEventListener(), 1024 * 1024);
+            processor.ArchiveImagesForStorage(ThrowImmediatelyDataLoadEventListener.Quiet, 1024 * 1024);
 
             var imageDirPath = Path.Combine(testDir.FullName, "1");
             Assert.IsTrue(Directory.Exists(imageDirPath));
@@ -535,10 +522,9 @@ public class AttacherTests : DatabaseTests
         try
         {
             ProvisionTestData(loadDirectory.ForLoading, TestData.TestData.DRS_RETINAL_TEST_MANIFEST);
-            var helper = new RarHelper();
-            helper.ExtractMultiVolumeArchive(loadDirectory.ForLoading);
+            RarHelper.ExtractMultiVolumeArchive(loadDirectory.ForLoading);
 
-            // Create directory structure analagous to that received in the full extract
+            // Create directory structure analogous to that received in the full extract
             var dir1 = loadDirectory.ForLoading.CreateSubdirectory("GoDARTS01-02");
             var dir2 = loadDirectory.ForLoading.CreateSubdirectory("GoDARTS03-04");
             foreach (var jpeg in loadDirectory.ForLoading.EnumerateFiles("*.jpeg"))
@@ -551,7 +537,7 @@ public class AttacherTests : DatabaseTests
             }
 
             var database = DiscoveredServerICanCreateRandomDatabasesAndTablesOn.ExpectDatabase(_databaseName);
-            var csvAttacher = new AnySeparatorFileAttacher()
+            var csvAttacher = new AnySeparatorFileAttacher
             {
                 Separator = ",",
                 FilePattern = "GoDARTSv2.csv",
@@ -560,9 +546,9 @@ public class AttacherTests : DatabaseTests
             };
             csvAttacher.Initialize(loadDirectory, database);
 
-            csvAttacher.Attach(job, new GracefulCancellationToken());
+            csvAttacher.Attach(_job, new GracefulCancellationToken());
 
-            var attacher = new DrsFileAttacher()
+            var attacher = new DrsFileAttacher
             {
                 TableName = "GoDARTSv2_TEST",
                 ManifestFileName = "GoDARTSv2.csv",
@@ -574,10 +560,10 @@ public class AttacherTests : DatabaseTests
             };
             attacher.Initialize(loadDirectory, database);
 
-            attacher.Attach(job, new GracefulCancellationToken());
-            attacher.LoadCompletedSoDispose(ExitCodeType.Success, new ThrowImmediatelyDataLoadEventListener());
+            attacher.Attach(_job, new GracefulCancellationToken());
+            attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-            Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(), 
+            Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(),
                 "There should be 3 zip files in the archive directory.");
 
             // Check that the ImageArchiveUriColumn has been updated in the database

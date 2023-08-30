@@ -8,12 +8,11 @@ public class DatabaseHelper
     public string Database { get; set; }
 
     public string Server { get; private set; }
-        
-    public string Username{get { return _username; }}
-    public string Password { get { return _password; } }
 
-    private readonly string _username;
-    private readonly string _password;
+    public string Username { get; }
+
+    public string Password { get; }
+
     private readonly int _timeout;
     private readonly bool _integratedSecurity;
     private readonly SqlConnectionStringBuilder _builder;
@@ -34,8 +33,8 @@ public class DatabaseHelper
         Database = database;
         _timeout = timeout;
         _integratedSecurity = false;
-        _username = username;
-        _password = password;
+        Username = username;
+        Password = password;
     }
 
     public DatabaseHelper(SqlConnectionStringBuilder builder)
@@ -58,8 +57,8 @@ public class DatabaseHelper
 
         if (!_integratedSecurity)
         {
-            sb.UserID = _username;
-            sb.Password = _password;
+            sb.UserID = Username;
+            sb.Password = Password;
         }
 
         return sb.ConnectionString;

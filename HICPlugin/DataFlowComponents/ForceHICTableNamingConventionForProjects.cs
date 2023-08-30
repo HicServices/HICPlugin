@@ -11,9 +11,9 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 namespace HICPlugin.DataFlowComponents;
 
 [Description("Forces tables being loaded to match the hic regex ")]
-public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>
+public partial class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<TableInfo>
 {
-    private static readonly Regex NamingConvention = new Regex("tt_\\d*",RegexOptions.Compiled);
+    private static readonly Regex NamingConvention = TtPrefix();
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener job, GracefulCancellationToken cancellationToken)
     {
@@ -37,9 +37,12 @@ public class ForceHICTableNamingConventionForProjects : IPluginDataFlowComponent
                 $"TableInfo {target} does not match hic regex for naming conventions of project/group data ({NamingConvention})"));
     }
 
-        
+
     public void Check(ICheckNotifier notifier)
     {
             
     }
+
+    [GeneratedRegex("tt_\\d*", RegexOptions.Compiled)]
+    private static partial Regex TtPrefix();
 }

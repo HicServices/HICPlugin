@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
@@ -14,12 +14,13 @@
     <None Remove="TestData\report-with-multiple-descriptions.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin.Test" Version="8.1.0-rc2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="3.1.15" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RDMP\Tests.Common\Tests.Common.csproj" />
     <ProjectReference Include="..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\HICPluginInteractive\HICPluginInteractive.csproj" />

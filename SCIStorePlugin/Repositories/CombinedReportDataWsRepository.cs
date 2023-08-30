@@ -23,10 +23,10 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     private const bool VERBOSE = false;
 
     public IPermissionWindow PermissionWindow { get; set; }
-        
+
     public int ResultsFetchedSoFar { get; private set; }
     public int NumReportsForInterval { get; private set; }
-        
+
     private readonly SCIStoreServicesClient _client;
     private readonly Discipline _discipline;
     private readonly HealthBoard _healthBoard;
@@ -36,8 +36,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     public override event WsNotifyHandler Notify;
     protected virtual void OnNotify(string message)
     {
-        var handler = Notify;
-        if (handler != null) handler(this, message);
+        Notify?.Invoke(this, message);
     }
 
     public override event AfterReadAllHandler AfterReadAll;
@@ -45,8 +44,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     public override event AfterReadSingleHandler AfterReadSingle;
     protected virtual void OnAfterReadSingle(CombinedReportData report)
     {
-        var handler = AfterReadSingle;
-        if (handler != null) handler(this, report);
+        AfterReadSingle?.Invoke(this, report);
     }
 
     #endregion
@@ -55,10 +53,8 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     {
         if(string.IsNullOrWhiteSpace(wsConfig.Endpoint))
             throw new ArgumentException("The web service Endpoint is missing from the Configuration and must be specified");
-        if(client == null)
-            throw new ArgumentNullException("Client was null");
 
-        _client = client;
+        _client = client ?? throw new ArgumentNullException(nameof(client),"Client was null");
         _discipline = discipline;
         _healthBoard = healthBoard;
         _cred = null;
@@ -97,7 +93,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
             // retry once then fail
             OnNotify($"Initial login attempt failed: {e.Message}");
             OnNotify("Retrying...");
-                
+
             // Don't bother to catch the exception this time as we will let someone further up the chain decide what to do
             Login(_client, WsConfig);
         }
@@ -136,7 +132,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
         try
         {
             var items = _client.FindResult(_cred, criteria).Results.ToList();
-            reports = CreateCombinedReportDataFromResultObjects(items, listener, token);
+            reports = CreateCombinedReportDataFromResultObjects(items, token);
             NumReportsForInterval = reports.Count;
             OnNotify(
                 $"Found {NumReportsForInterval} results between {criteria.EventDateTime.DateFrom} - {criteria.EventDateTime.DateTo}");
@@ -181,11 +177,10 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     /// 
     /// </summary>
     /// <param name="results"></param>
-    /// <param name="listener"></param>
     /// <param name="token"></param>
     /// <returns></returns>
     /// <exception cref="OperationCanceledException"></exception>
-    private List<CombinedReportData> CreateCombinedReportDataFromResultObjects(List<FindResultItem> results, IDataLoadEventListener listener, GracefulCancellationToken token)
+    private List<CombinedReportData> CreateCombinedReportDataFromResultObjects(List<FindResultItem> results, GracefulCancellationToken token)
     {
         var reports = new List<CombinedReportData>();
         var headers = new HashSet<SciStoreRecord>();
@@ -239,7 +234,7 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
                 return null;
 
             token.ThrowIfAbortRequested();
-                
+
             // todo: we may want to catch the LabReportRetrievalFailureException here and initiate a retry
             report.InvestigationReport = RetrieveInvestigationReportForResult(report.SciStoreRecord);
 
@@ -281,28 +276,31 @@ public class CombinedReportDataWsRepository : WsRepository<CombinedReportData>, 
     /// <exception cref="WebServiceLoginFailureException"></exception>
     private void Login(SCIStoreServicesClient client, WebServiceConfiguration wsConfig)
     {
-        var binding = client.Endpoint.Binding as BasicHttpsBinding;
-        if (binding == null)
+        if (client.Endpoint.Binding is not BasicHttpsBinding)
             throw new WebServiceLoginFailureException(
                 $"Could not get endpoint binding for endpoint '{wsConfig.Endpoint}' (check the expected type of the binding, e.g. http or https)");
 
         if (VERBOSE)
+#pragma warning disable CS0162
             OnNotify("Logging in to web service");
-            
+#pragma warning restore CS0162
+
         //todo add timeout here and anywhere else you do Login
         var response = client.Login(new Login
         {
             Username = wsConfig.Username,
             Password = wsConfig.GetDecryptedPassword()
         });
-            
+
         if (string.IsNullOrEmpty(response.Token))
             throw new WebServiceLoginFailureException(
                 $"Can't login to SCIStore endpoint '{wsConfig.Endpoint}' with user={wsConfig.Username} (check caching pipeline configuration for password)");
 
         if(VERBOSE)
+#pragma warning disable CS0162
             OnNotify("Creating credentials");
-            
+#pragma warning restore CS0162
+
         _cred = new Credentials
         {
             Token = response.Token,
@@ -328,7 +326,7 @@ public class WebServiceRetrievalFailure : Exception
 {
     public DateTime Day { get; private set; }
     public TimeSpan TimeSpan { get; private set; }
-    
+
     public WebServiceRetrievalFailure(DateTime day, TimeSpan timeSpan, Exception innerException = null) : base ("Failed to retrieve data from the web service", innerException)
     {
         Day = day;

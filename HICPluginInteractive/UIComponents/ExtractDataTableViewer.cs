@@ -17,7 +17,7 @@ public partial class ExtractDataTableViewer : UserControl
         _rowIndex = rowIndex;
         InitializeComponent();
             
-        this.Text = caption;
+        Text = caption;
         dataGridView1.DataSource = source;
     }
 

@@ -59,16 +59,10 @@ public class RootHistoryDirectory : IDictionary<HealthBoard, HealthboardHistoryD
     public DateTime? GetMostRecentDateLoaded(HealthBoard healthBoard, Discipline discipline)
     {
         CreateIfNotExists(healthBoard, discipline);
-
-
-
         if (!HealthBoardDirectories[healthBoard][discipline].EnumerateFiles().Any())
             return null;
-        var mostRecentZipFile = HealthBoardDirectories[healthBoard][discipline].EnumerateFiles("*.zip").MaxBy(info => info.Name);
-        if (mostRecentZipFile == null)
-            throw new Exception(
+        var mostRecentZipFile = HealthBoardDirectories[healthBoard][discipline].EnumerateFiles("*.zip").MaxBy(info => info.Name) ?? throw new Exception(
                 $"Directory contains dirty stuff ({HealthBoardDirectories[healthBoard][discipline].FullName})");
-
         return DateTime.ParseExact(mostRecentZipFile.Name[.."yyyy-MM-dd".Length], "yyyy-MM-dd", null);
     }
 
@@ -115,8 +109,9 @@ public class RootHistoryDirectory : IDictionary<HealthBoard, HealthboardHistoryD
         throw new NotSupportedException();
     }
 
-    public int Count { get { return HealthBoardDirectories.Count; } }
-    public bool IsReadOnly { get { return true; } }
+    public int Count => HealthBoardDirectories.Count;
+    public bool IsReadOnly => true;
+
     public bool ContainsKey(HealthBoard key)
     {
         return HealthBoardDirectories.ContainsKey(key);

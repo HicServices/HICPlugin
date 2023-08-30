@@ -33,7 +33,7 @@ public class ImageArchiveProcessor
 
         var filesToArchive = _sourceDir.EnumerateFiles().ToList();
         var archiveStub = Path.Combine(_jobId.ToString(), $"{_jobId}_");
-            
+
         var i = 0;
         var sw = new Stopwatch();
         sw.Start();
@@ -44,10 +44,7 @@ public class ImageArchiveProcessor
             var relativeArchivePath = $"{archiveStub}{_numArchives}.tar";
             var archiveFilepath = Path.Combine(_destinationDir.FullName, relativeArchivePath);
 
-            var dirName = Path.GetDirectoryName(archiveFilepath);
-            if (dirName == null)
-                throw new InvalidOperationException($"Something wrong with the path for {archiveFilepath}");
-
+            var dirName = Path.GetDirectoryName(archiveFilepath) ?? throw new InvalidOperationException($"Something wrong with the path for {archiveFilepath}");
             if (!Directory.Exists(dirName))
                 Directory.CreateDirectory(dirName);
 
@@ -57,26 +54,25 @@ public class ImageArchiveProcessor
             // Create a new archive
             using (var fs = new FileStream(archiveFilepath, FileMode.CreateNew, FileAccess.Write))
             {
-                using (var archive = TarArchive.CreateOutputTarArchive(fs))
+                using var archive = TarArchive.CreateOutputTarArchive(fs);
+                long totalSize = 0;
+
+                // Add files to it while there are still files left and where the size is within the max uncompressed size
+                // If maxUncompressedSize is zero then we only create one archive
+                while ((maxUncompressedSize == 0 || totalSize < maxUncompressedSize) && i < filesToArchive.Count)
                 {
-                    long totalSize = 0;
+                    var tarEntry = TarEntry.CreateEntryFromFile(filesToArchive[i].FullName);
+                    tarEntry.Name = filesToArchive[i].Name;
+                    archive.WriteEntry(tarEntry, false);
 
-                    // Add files to it while there are still files left and where the size is within the max uncompressed size
-                    // If maxUncompressedSize is zero then we only create one archive
-                    while ((maxUncompressedSize == 0 || totalSize < maxUncompressedSize) && i < filesToArchive.Count)
-                    {
-                        var tarEntry = TarEntry.CreateEntryFromFile(filesToArchive[i].FullName);
-                        tarEntry.Name = filesToArchive[i].Name;
-                        archive.WriteEntry(tarEntry, false);
+                    archiveMappings[relativeArchivePath].Add(filesToArchive[i].Name);
 
-                        archiveMappings[relativeArchivePath].Add(filesToArchive[i].Name);
-
-                        File.Delete(filesToArchive[i].FullName);
-                        totalSize += filesToArchive[i].Length;
-                        i++;
-                        listener.OnProgress(this, new ProgressEventArgs($"Archiving {filesToArchive.Count} images", new ProgressMeasurement(i, ProgressType.Records), sw.Elapsed));
-                    }
+                    File.Delete(filesToArchive[i].FullName);
+                    totalSize += filesToArchive[i].Length;
+                    i++;
+                    listener.OnProgress(this, new ProgressEventArgs($"Archiving {filesToArchive.Count} images", new ProgressMeasurement(i, ProgressType.Records), sw.Elapsed));
                 }
+
                 // todo: refactor this so archive type is selectable
                 /*
                 using (var archive = new ZipArchive(fs, ZipArchiveMode.Create))

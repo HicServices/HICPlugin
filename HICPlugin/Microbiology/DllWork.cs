@@ -9,7 +9,7 @@ namespace HICPlugin.Microbiology;
 
 public interface IMicrobiologyResultRecord
 {
-        
+
 }
 
 internal class MicrobiologyHelper
@@ -33,16 +33,16 @@ public class MB_Tests : IMicrobiologyResultRecord
 
     public MB_Tests(MB_Lab parent, string fromLine)
     {
-        string[] data = MicrobiologyHelper.SplitByWhitespace(fromLine);
+        var data = MicrobiologyHelper.SplitByWhitespace(fromLine);
 
 
-        //line should look something like 
+        //line should look something like
         //BCOM                    P
         //but could equally be
         //NBC                     GPC ( ? STAPH )
         //notice the spam of spaces in NBC result, that is why we have to aggregate
-            
-            
+
+
         SpecimenNo = parent.SpecimenNo;
         TestCode = data[0];//first array element enters as the Test Code
 
@@ -92,11 +92,11 @@ public class MB_IsolationsCollection
 {
 
     //basic facts -- will be the same for all Isolations spawned by this collection:
-    private string _specimenNo;
-    private string _organismCode;
-    private string _weightGrowth_cd;
-    private string _intCode1;
-    private string _intCode2;
+    private readonly string _specimenNo;
+    private readonly string _organismCode;
+    private readonly string _weightGrowth_cd;
+    private readonly string _intCode1;
+    private readonly string _intCode2;
 
     /// <summary>
     /// Create one of these every time you see a field like SMAR|P|Y|Y then remember that you created it because you need to update it with data
@@ -113,8 +113,8 @@ public class MB_IsolationsCollection
             throw new Exception("Line must start with $CULT to be a new IsolationCollection");
 
         //basic facts
-        string resultData = MicrobiologyHelper.GetValueFromWhitespaceSeperatedLine(initialLine, 1);
-        string[] fields = resultData.Split(new[] {'|'}).ToArray();
+        var resultData = MicrobiologyHelper.GetValueFromWhitespaceSeperatedLine(initialLine, 1);
+        var fields = resultData.Split(new[] {'|'}).ToArray();
 
         if(fields.Length != 4)
             throw new Exception(
@@ -127,12 +127,12 @@ public class MB_IsolationsCollection
         _intCode2 = fields[3];
     }
 
-        
-    List<string> BlockAStrings = new List<string>();
+
+    readonly List<string> BlockAStrings = new();
     private int spawnCounter = 0;
 
     /// <summary>
-    /// Input file comes in as 
+    /// Input file comes in as
     /// 
     ///$CULT                   SMAR|P|Y|Y
     ///$CULT                   PAER|P|Y|Y
@@ -148,7 +148,7 @@ public class MB_IsolationsCollection
     public void AddBlockAString(string currentLine)
     {
         if (currentLine.StartsWith("$SENS"))
-            currentLine = currentLine.Substring("$SENS".Length);
+            currentLine = currentLine[5..];
 
         BlockAStrings.Add(currentLine.Trim());
     }
@@ -162,12 +162,12 @@ public class MB_IsolationsCollection
                 throw new Exception("Cannot spawn results because not enough BlockA strings were passed to collection (is there a difference between the number of SENS results in Block A and the number of SENS results in Block B?");
 
         if (currentLine.StartsWith("$SENS"))
-            currentLine = currentLine.Substring("$SENS".Length);
+            currentLine = currentLine[5..];
             
         currentLine = currentLine.Trim();
         try
         {
-            return new MB_IsolationResult()
+            return new MB_IsolationResult
             {
                 SpecimenNo = _specimenNo,
                 organismCode = _organismCode,
@@ -183,7 +183,7 @@ public class MB_IsolationsCollection
 
     public IMicrobiologyResultRecord SpawnIsolation()
     {
-        return new MB_Isolation()
+        return new MB_Isolation
         {
             SpecimenNo = _specimenNo,
             organismCode = _organismCode,
@@ -211,12 +211,12 @@ public class MB_IsolationResult : IMicrobiologyResultRecord
     public string AB_result { get; set; }
 }
 
-public class MicroBiologyFileReader
+public partial class MicroBiologyFileReader
 {
 
-    private TextReader _textReader = null;
-       
-       
+    private readonly TextReader _textReader;
+
+
     /// <summary>
     /// file name being currently loaded, can be accessed during enumeration of ProcessFile to find out more about the error location
     /// </summary>
@@ -226,7 +226,7 @@ public class MicroBiologyFileReader
     /// </summary>
     public int LineNumber { get; private set; }
 
-    string specimen;
+    private string specimen;
     public event WarningHandler Warning;
 
     public MicroBiologyFileReader(string fileName)
@@ -251,46 +251,46 @@ public class MicroBiologyFileReader
 
         for (; ; )
         {
-            MB_Lab lab = new MB_Lab();
+            var lab = new MB_Lab();
             end_of_tests = false;
             lab.SpecimenNo = specimen; // specimen no. is read at end of previous record
 
             lab.CHI = TrimOrNullify(ReadLine());
             lab.surname = TrimOrNullify(ReadLine());
 
-            string date = ReadLine();
+            var date = ReadLine();
             lab.DoB = DateOrNull(date);
             lab.Sex = TrimOrNullify(ReadLine());
 
             // tests coming up now
-            List<MB_IsolationsCollection> isolationCollections = new List<MB_IsolationsCollection>();
+            var isolationCollections = new List<MB_IsolationsCollection>();
 
 
-            string testComments = "";
+            var testComments = "";
 
-            string currentLine = ReadLine();
-            bool got_cult = false;
+            var currentLine = ReadLine();
+            var got_cult = false;
             while (!end_of_tests)
             {
                 if (string.IsNullOrWhiteSpace(currentLine))
                     break;
-                if (is_date(currentLine))
+                if (Is_date(currentLine))
                     break;
                 if (currentLine[0] != '$' && got_cult)
                     break;
 
-                //its not got spaces in it so it is either a comment or a test code which has no result (since ones with results appear like 'GWBC                    FW')
+                //it's not got spaces in it so it is either a comment or a test code which has no result (since ones with results appear like 'GWBC                    FW')
                 if (!currentLine.Contains("            "))
                 {
-                    //its something like BLAN or 'bob is fine and happy and dandy'
-                    string randomCrud = currentLine.Trim();
+                    //it's something like BLAN or 'bob is fine and happy and dandy'
+                    var randomCrud = currentLine.Trim();
 
                     //if it is short it's probably a test code (with no result)
                     if (randomCrud.Length <= 5)
                         yield return new MB_Tests(lab, randomCrud);
                     else
                         testComments += $"{randomCrud} "; //otherwise it's probably a comment <- scientific!
-                      
+
                 }
                 else
                     //anything that doesn't start with a $ is a specimen
@@ -313,7 +313,7 @@ public class MicroBiologyFileReader
                     //$CULT                   NHEC                            --NoIsolation
                     //or
                     //$CULT                   MANA|P|Y|Y                      --Isolation which means a culture with known sens blocks, which will appear further down file
-                    //or 
+                    //or
                     //$SENS                   NYS                             --Sens Block A --matches the MANA above (you can tell it matches the MANA because it has pipes in it... yes that's how wacky this file is)
                     //                        MET
                     //$SENS                   r                               --Sens Block B1
@@ -351,7 +351,7 @@ public class MicroBiologyFileReader
                         }
                         else
                         {
-                            MB_IsolationsCollection collection = new MB_IsolationsCollection(lab, currentLine);
+                            var collection = new MB_IsolationsCollection(lab, currentLine);
                             isolationCollections.Add(collection);
                             yield return collection.SpawnIsolation();//yield the header e.g. MANA|P|Y|Y - but remember the collection for when it comes time to spew out all the results
                         }
@@ -361,16 +361,16 @@ public class MicroBiologyFileReader
                         if(!currentLine.StartsWith("$SENS"))
                             throw new Exception("Expected $SENS to follow after results");
 
-                        bool areInBlockA = true;
-                        int blockCounter = 0;
-                        bool haveComplainedAboutBufferOverflow = false;
-                        bool haveComplainedAboutSpawning = false;
+                        var areInBlockA = true;
+                        var blockCounter = 0;
+                        var haveComplainedAboutBufferOverflow = false;
+                        var haveComplainedAboutSpawning = false;
 
                         //while we are still reading blocks -- terminates with a blank line or a date (part of lab record)
                         while (
                             !string.IsNullOrWhiteSpace(currentLine) //stop if we reach end of file
                             &&
-                            !is_date(currentLine)//stop if we reach date
+                            !Is_date(currentLine)//stop if we reach date
                             &&
                             currentLine.Contains("            ")//stop if we reach a comment (-something that doesn't contain a fistfull of spaces)
                             &&
@@ -406,7 +406,7 @@ public class MicroBiologyFileReader
                                         haveComplainedAboutSpawning = true;
 
                                     }
-                                      
+
                                 }
                                 else
                                 {
@@ -414,7 +414,7 @@ public class MicroBiologyFileReader
 
                                     try
                                     {
-                                          
+
                                         spawn = isolationCollections[blockCounter].SpawnResultWithBlockBString(currentLine);
                                     }
                                     catch (Exception e)
@@ -440,7 +440,7 @@ public class MicroBiologyFileReader
 
                             //read next line
                             currentLine = ReadLine();
-                              
+
                             //deal with what is on the new line - decide if we have transitioned ino BlockB and if we are missing data -- expected a block but transitioned into something else
                             if(currentLine.StartsWith("$SENS"))
                                 if (areInBlockA)
@@ -452,19 +452,19 @@ public class MicroBiologyFileReader
                                 }
                         }
 
-                                     
+
                         end_of_tests = true;
                     }
                 }
 
-                if (!end_of_tests) 
+                if (!end_of_tests)
                     currentLine = ReadLine();
             }
 
             //these will go into the Comment field
-            string nwc = "";
+            var nwc = "";
 
-            while (currentLine != null &&!is_date(currentLine))
+            while (currentLine != null &&!Is_date(currentLine))
             {
                 nwc += $"{currentLine} ";
                 currentLine = ReadLine();
@@ -478,18 +478,18 @@ public class MicroBiologyFileReader
 
             lab.RcvDate = DateOrNull(currentLine);
 
-            string[] lines = ReadLines();
+            var lines = ReadLines();
 
             lab.SpecimenType = lines[0];
             lab.RcvTime = lines[1];
-            int len = lines.Length;
+            var len = lines.Length;
             if (lines[len - 1] == "") len--;
             lab.Source = lines[len - 5];
             lab.Dept = lines[len - 4];
             lab.SampleDate = DateOrNull(lines[len - 3]);
             lab.SampleTime = lines[len - 2];
             lab.Clinician = lines[len - 1];
-            string comment = "";
+            var comment = "";
             if (len - 7 > 0)
                 comment = string.Join(" ", lines, 2, len - 7);
             nwc += comment;
@@ -502,13 +502,13 @@ public class MicroBiologyFileReader
 
             lab.Comments = lab.Comments.Trim();
 
-            //dont put in hundreds of empty spaces
+            //don't put in hundreds of empty spaces
             if (string.IsNullOrWhiteSpace(lab.Comments))
                 lab.Comments = null;
 
             //yield result
             yield return lab;
-              
+
             //if there are no more to come in file, stop
             if (specimen == null)
                 break;
@@ -516,36 +516,32 @@ public class MicroBiologyFileReader
          
     }
 
-       
+
     private string ReadLine()
     {
         LineNumber++;
         return _textReader.ReadLine();
     }
 
-    private DateTime? DateOrNull(string readLine)
+    private static DateTime? DateOrNull(string readLine)
     {
-        string toReturn = TrimOrNullify(readLine);
-
-        DateTime dateTime;
+        var toReturn = TrimOrNullify(readLine);
 
         if (toReturn == null)
             return null;
 
-        if (DateTime.TryParse(toReturn, out dateTime))
+        if (DateTime.TryParse(toReturn, out var dateTime))
             return dateTime;
            
         return null;
     }
 
-    private string TrimOrNullify(string readLine)
+    private static string TrimOrNullify(string readLine)
     {
-        if (string.IsNullOrWhiteSpace(readLine))
-            return null;
-        return readLine.Trim();
+        return string.IsNullOrWhiteSpace(readLine) ? null : readLine.Trim();
     }
 
-       
+
     /// <summary>
     /// This reads lines at the end of the record until the start of the next record is detected
     /// When this happens the specimen number at the start of the next record is saved
@@ -554,12 +550,12 @@ public class MicroBiologyFileReader
     /// <returns>Array of strings, last line may be blank</returns>
     private string[] ReadLines()
     {
-        bool last_line_blank = false;
-        List<string> lines = new List<string>();
+        var last_line_blank = false;
+        var lines = new List<string>();
         specimen = null;
         for (; ; )
         {
-            string st = ReadLine();
+            var st = ReadLine();
             if (st == null) break;
             st = st.Trim();
 
@@ -572,10 +568,10 @@ public class MicroBiologyFileReader
                 continue;
             }
             //if it is a statement about the number of records listed by the lab machine who cares
-            if (Regex.IsMatch(st, @"^\d+ records listed"))
+            if (RecordsListed().IsMatch(st))
                 continue;
 
-            if(IsSpecimenNumber_AKAStartsWith2DigitsThenALetterLawl(st))
+            if(IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(st))
                 if(last_line_blank)
                 {
                     specimen = st;
@@ -584,7 +580,7 @@ public class MicroBiologyFileReader
             //if last line was blank and this line is blank too then stop adding blanks to the damn list!
             if (last_line_blank && st == "")
                 continue;
-             
+
             //add line to array of lines to return
             lines.Add(st);
             last_line_blank = st == "";
@@ -592,42 +588,36 @@ public class MicroBiologyFileReader
         return lines.ToArray();
     }
 
-    /*
-    bool is_date(string st)
+    private static bool Is_date(string st)
     {
-       if (st.Length == 0) return false;
-       return st.IndexOf('/') != -1 && char.IsDigit(st[0]);
-    }
-     */
-
-    bool is_date(string st)
-    {
-        DateTime whoCares;
-        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.CurrentCulture, DateTimeStyles.None, out whoCares);
+        return DateTime.TryParseExact(st, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out _);
     }
 
 
 
-    private const string specimenRegexPattern = @"^\s*\d{2}[A-Za-z]";
-       
-    bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetterLawl(string st)
+    private static readonly Regex SpecimenRegex = SpecimenRe();
+
+    private static bool IsSpecimenNumber_AKAStartsWith2DigitsThenALetter(string st)
     {
-        return st != null && Regex.IsMatch(st.Trim(), specimenRegexPattern);
+        return st != null && SpecimenRegex.IsMatch(st.Trim());
     }
-    public string GetSpecimenNo(TextReader tr)
+    public static string GetSpecimenNo(TextReader tr)
     {
-        string currentLine = null;
-           
         //while there are more lines to read
-        while ((currentLine = tr.ReadLine()) != null)
+        while (tr.ReadLine() is { } currentLine)
         {
             //if line starts with optional whitespace followed by 2 digits and then a character
-            if (Regex.IsMatch(currentLine,specimenRegexPattern))
+            if (SpecimenRegex.IsMatch(currentLine))
                 return currentLine.Trim();
         }
 
         return null;
     }
+
+    [GeneratedRegex("^\\s*\\d{2}[A-Za-z]", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    private static partial Regex SpecimenRe();
+    [GeneratedRegex("^\\d+ records listed",RegexOptions.Compiled)]
+    private static partial Regex RecordsListed();
 }
 
 public delegate void WarningHandler(object sender, string message);

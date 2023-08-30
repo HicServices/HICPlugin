@@ -22,8 +22,7 @@ public class ClinicalCodeInfo
         Value = string.Join(", ", clinicalInformation.ClinicalCode.ClinicalCodeValue);
         Scheme = clinicalInformation.ClinicalCode.ClinicalCodeScheme.ClinicalCodeSchemeVersion;
 
-        ClinicalCodeScheme schemeId;
-        if (!Enum.TryParse(clinicalInformation.ClinicalCode.ClinicalCodeScheme.ClinicalCodeSchemeId, out schemeId))
+        if (!Enum.TryParse(clinicalInformation.ClinicalCode.ClinicalCodeScheme.ClinicalCodeSchemeId, out ClinicalCodeScheme schemeId))
             throw new Exception(
                 $"Unrecognised <ClinicalCodeSchemeId>: {clinicalInformation.ClinicalCode.ClinicalCodeScheme.ClinicalCodeSchemeId}");
 

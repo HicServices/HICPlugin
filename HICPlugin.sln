@@ -18,8 +18,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCIStorePlugin", "SCIStoreP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DrsPlugin", "DrsPlugin\DrsPlugin.csproj", "{526DE3FA-2C7D-42C8-A0B1-537214566F17}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoDartsPlugin", "GoDartsPlugin\GoDartsPlugin.csproj", "{DF0C13F5-37FA-4372-B617-0F987978D32C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoDartsPluginUI", "GoDartsPluginUI\GoDartsPluginUI.csproj", "{052B4CE6-709B-405E-98C2-81A421232B2C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiraPlugin", "JiraPlugin\JiraPlugin.csproj", "{3AFE83DD-5C7C-4CA9-8A7F-E6EF93D09800}"
@@ -38,7 +36,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "main", "Plugin\main\main.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "windows", "Plugin\windows\windows.csproj", "{07F9F874-1306-4FE6-A03F-A483592BBC7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIC.Demography", "HIC.Demography\HIC.Demography.csproj", "{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HIC.Demography", "HIC.Demography\HIC.Demography.csproj", "{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.Core", "RDMP\Rdmp.Core\Rdmp.Core.csproj", "{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rdmp.UI", "RDMP\Rdmp.UI\Rdmp.UI.csproj", "{60721BCE-E328-45CF-B6D2-B627364FBBFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Common", "RDMP\Tests.Common\Tests.Common.csproj", "{CB282875-B9CE-4E31-8B52-0356855501E9}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "InterfaceToJira", "InterfaceToJira\InterfaceToJira.shproj", "{63CD3E00-4745-481C-B31E-E432B7812BE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,14 +94,6 @@ Global
 		{526DE3FA-2C7D-42C8-A0B1-537214566F17}.Release|Any CPU.Build.0 = Release|Any CPU
 		{526DE3FA-2C7D-42C8-A0B1-537214566F17}.Release|x86.ActiveCfg = Release|Any CPU
 		{526DE3FA-2C7D-42C8-A0B1-537214566F17}.Release|x86.Build.0 = Release|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Debug|x86.Build.0 = Debug|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Release|x86.ActiveCfg = Release|Any CPU
-		{DF0C13F5-37FA-4372-B617-0F987978D32C}.Release|x86.Build.0 = Release|Any CPU
 		{052B4CE6-709B-405E-98C2-81A421232B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{052B4CE6-709B-405E-98C2-81A421232B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{052B4CE6-709B-405E-98C2-81A421232B2C}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -136,6 +134,30 @@ Global
 		{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}.Release|x86.ActiveCfg = Release|Any CPU
 		{DC0EDB20-420B-4EF7-8A25-1F5A0F153C40}.Release|x86.Build.0 = Release|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D94A9E3-51E0-4AC6-94CC-4FB14C72F1BB}.Release|x86.Build.0 = Release|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Debug|x86.Build.0 = Debug|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Release|x86.ActiveCfg = Release|Any CPU
+		{60721BCE-E328-45CF-B6D2-B627364FBBFA}.Release|x86.Build.0 = Release|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB282875-B9CE-4E31-8B52-0356855501E9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,5 +168,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1D791B6-09E0-471B-8363-AFD16F3880BE}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		InterfaceToJira\InterfaceToJira.projitems*{3afe83dd-5c7c-4ca9-8a7f-e6ef93d09800}*SharedItemsImports = 5
+		InterfaceToJira\InterfaceToJira.projitems*{63cd3e00-4745-481c-b31e-e432b7812be9}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

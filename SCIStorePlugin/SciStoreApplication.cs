@@ -4,13 +4,7 @@ namespace SciStoreApplication.Properties
     {
         private static readonly Settings defaultInstance = ((Settings)Synchronized(new Settings()));
 
-        public static Settings Default
-        {
-            get
-            {
-                return defaultInstance;
-            }
-        }
+        public static Settings Default => defaultInstance;
 
         public string FriendlyName { get; set; }
         public string SystemCode { get; set; }
@@ -41,172 +35,172 @@ namespace SciStoreApplication.Properties
             // CODEGEN: Generating message contract since the operation Login is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:loginIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.LoginResponse Login(SciStoreApplication.scistore.v71.LoginRequest request);
+            LoginResponse Login(LoginRequest request);
 
             // CODEGEN: Generating message contract since the operation Logout is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:logoutIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.LogoutResponse Logout(SciStoreApplication.scistore.v71.LogoutRequest request);
+            LogoutResponse Logout(LogoutRequest request);
 
             // CODEGEN: Generating message contract since the operation GetNotifications is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getNotificationsIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetNotificationsResponse1 GetNotifications(SciStoreApplication.scistore.v71.GetNotificationsRequest request);
+            GetNotificationsResponse1 GetNotifications(GetNotificationsRequest request);
 
             // CODEGEN: Generating message contract since the operation DeleteSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:deleteSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.DeleteSubscriptionResponse DeleteSubscription(SciStoreApplication.scistore.v71.DeleteSubscriptionRequest request);
+            DeleteSubscriptionResponse DeleteSubscription(DeleteSubscriptionRequest request);
 
             // CODEGEN: Generating message contract since the operation UnSubscribeToStore is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unSubscribeToStoreIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse UnSubscribeToStore(SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest request);
+            UnSubscribeToStoreResponse UnSubscribeToStore(UnSubscribeToStoreRequest request);
 
             // CODEGEN: Generating message contract since the operation BreakGlass is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:breakGlassIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.BreakGlassResponse1 BreakGlass(SciStoreApplication.scistore.v71.BreakGlassRequest request);
+            BreakGlassResponse1 BreakGlass(BreakGlassRequest request);
 
             // CODEGEN: Generating message contract since the operation GetBreakGlassTypes is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getBreakGlassTypesIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 GetBreakGlassTypes(SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest request);
+            GetBreakGlassTypesResponse1 GetBreakGlassTypes(GetBreakGlassTypesRequest request);
 
             // CODEGEN: Generating message contract since the operation FindADT is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findADTIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindADTResponse1 FindADT(SciStoreApplication.scistore.v71.FindADTRequest request);
+            FindADTResponse1 FindADT(FindADTRequest request);
 
             // CODEGEN: Generating message contract since the operation GetADT is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getADTIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetADTResponse1 GetADT(SciStoreApplication.scistore.v71.GetADTRequest request);
+            GetADTResponse1 GetADT(GetADTRequest request);
 
             // CODEGEN: Generating message contract since the operation FindPatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindPatientResponse1 FindPatient(SciStoreApplication.scistore.v71.FindPatientRequest request);
+            FindPatientResponse1 FindPatient(FindPatientRequest request);
 
             // CODEGEN: Generating message contract since the operation GetPatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getPatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetPatientResponse1 GetPatient(SciStoreApplication.scistore.v71.GetPatientRequest request);
+            GetPatientResponse1 GetPatient(GetPatientRequest request);
 
             // CODEGEN: Generating message contract since the operation FindResult is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findResultIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindResultResponse1 FindResult(SciStoreApplication.scistore.v71.FindResultRequest request);
+            FindResultResponse1 FindResult(FindResultRequest request);
 
             // CODEGEN: Generating message contract since the operation GetResult is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getResultIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetResultResponse1 GetResult(SciStoreApplication.scistore.v71.GetResultRequest request);
+            GetResultResponse1 GetResult(GetResultRequest request);
 
             // CODEGEN: Generating message contract since the operation FindDocument is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findDocumentIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindDocumentResponse1 FindDocument(SciStoreApplication.scistore.v71.FindDocumentRequest request);
+            FindDocumentResponse1 FindDocument(FindDocumentRequest request);
 
             // CODEGEN: Generating message contract since the operation GetDocument is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetDocumentResponse1 GetDocument(SciStoreApplication.scistore.v71.GetDocumentRequest request);
+            GetDocumentResponse1 GetDocument(GetDocumentRequest request);
 
             // CODEGEN: Generating message contract since the operation GetDocumentStylesheet is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getDocumentStylesheetIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 GetDocumentStylesheet(SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest request);
+            GetDocumentStylesheetResponse1 GetDocumentStylesheet(GetDocumentStylesheetRequest request);
 
             // CODEGEN: Generating message contract since the operation FindTreatmentLog is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findTreatmentLogIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 FindTreatmentLog(SciStoreApplication.scistore.v71.FindTreatmentLogRequest request);
+            FindTreatmentLogResponse1 FindTreatmentLog(FindTreatmentLogRequest request);
 
             // CODEGEN: Generating message contract since the operation GetTreatmentLog is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getTreatmentLogIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 GetTreatmentLog(SciStoreApplication.scistore.v71.GetTreatmentLogRequest request);
+            GetTreatmentLogResponse1 GetTreatmentLog(GetTreatmentLogRequest request);
 
             // CODEGEN: Generating message contract since the operation FindMerge is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findMergeIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindMergeResponse1 FindMerge(SciStoreApplication.scistore.v71.FindMergeRequest request);
+            FindMergeResponse1 FindMerge(FindMergeRequest request);
 
             // CODEGEN: Generating message contract since the operation MergePatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:mergePatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MergePatientResponse MergePatient(SciStoreApplication.scistore.v71.MergePatientRequest request);
+            MergePatientResponse MergePatient(MergePatientRequest request);
 
             // CODEGEN: Generating message contract since the operation UnMergePatient is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:unMergePatientIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.UnMergePatientResponse UnMergePatient(SciStoreApplication.scistore.v71.UnMergePatientRequest request);
+            UnMergePatientResponse UnMergePatient(UnMergePatientRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueueCount is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueCountIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueueCountResponse1 MessageQueueCount(SciStoreApplication.scistore.v71.MessageQueueCountRequest request);
+            MessageQueueCountResponse1 MessageQueueCount(MessageQueueCountRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueueDelete is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueueDeleteIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 MessageQueueDelete(SciStoreApplication.scistore.v71.MessageQueueDeleteRequest request);
+            MessageQueueDeleteResponse1 MessageQueueDelete(MessageQueueDeleteRequest request);
 
             // CODEGEN: Generating message contract since the operation MessageQueuePeek is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:messageQueuePeekIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 MessageQueuePeek(SciStoreApplication.scistore.v71.MessageQueuePeekRequest request);
+            MessageQueuePeekResponse1 MessageQueuePeek(MessageQueuePeekRequest request);
 
             // CODEGEN: Generating message contract since the operation FindHCP is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findHCPIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindHCPResponse1 FindHCP(SciStoreApplication.scistore.v71.FindHCPRequest request);
+            FindHCPResponse1 FindHCP(FindHCPRequest request);
 
             // CODEGEN: Generating message contract since the operation FindOrganisation is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findOrganisationIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindOrganisationResponse1 FindOrganisation(SciStoreApplication.scistore.v71.FindOrganisationRequest request);
+            FindOrganisationResponse1 FindOrganisation(FindOrganisationRequest request);
 
             // CODEGEN: Generating message contract since the operation GetWebTimeout is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getWebTimeoutIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 GetWebTimeout(SciStoreApplication.scistore.v71.GetWebTimeoutRequest request);
+            GetWebTimeoutResponse1 GetWebTimeout(GetWebTimeoutRequest request);
 
             // CODEGEN: Generating message contract since the operation GetInterfaceStatus is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getInterfaceStatusIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 GetInterfaceStatus(SciStoreApplication.scistore.v71.GetInterfaceStatusRequest request);
+            GetInterfaceStatusResponse1 GetInterfaceStatus(GetInterfaceStatusRequest request);
 
             // CODEGEN: Generating message contract since the operation FindBreakGlassAudit is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findBreakGlassAuditIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 FindBreakGlassAudit(SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest request);
+            FindBreakGlassAuditResponse1 FindBreakGlassAudit(FindBreakGlassAuditRequest request);
 
             // CODEGEN: Generating message contract since the operation FindPatientConsentAudit is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findPatientConsentAuditIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 FindPatientConsentAudit(SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest request);
+            FindPatientConsentAuditResponse1 FindPatientConsentAudit(FindPatientConsentAuditRequest request);
 
             // CODEGEN: Generating message contract since the operation GetCumulativeReport is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:getCumulativeReportIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 GetCumulativeReport(SciStoreApplication.scistore.v71.GetCumulativeReportRequest request);
+            GetCumulativeReportResponse1 GetCumulativeReport(GetCumulativeReportRequest request);
 
             // CODEGEN: Generating message contract since the operation FindSubscriptions is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:findSubscriptionsIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 FindSubscriptions(SciStoreApplication.scistore.v71.FindSubscriptionsRequest request);
+            FindSubscriptionsResponse1 FindSubscriptions(FindSubscriptionsRequest request);
 
             // CODEGEN: Generating message contract since the operation AddSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:addSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.AddSubscriptionResponse1 AddSubscription(SciStoreApplication.scistore.v71.AddSubscriptionRequest request);
+            AddSubscriptionResponse1 AddSubscription(AddSubscriptionRequest request);
 
             // CODEGEN: Generating message contract since the operation AmendSubscription is neither RPC nor document wrapped.
             [System.ServiceModel.OperationContractAttribute(Action = "http://www.show.scot.nhs.uk/isd/SCIStore/Webservices:amendSubscriptionIn", ReplyAction = "*")]
             [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults = true)]
-            SciStoreApplication.scistore.v71.AmendSubscriptionResponse AmendSubscription(SciStoreApplication.scistore.v71.AmendSubscriptionRequest request);
+            AmendSubscriptionResponse AmendSubscription(AmendSubscriptionRequest request);
         }
 
         /// <remarks/>
@@ -228,14 +222,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Username
             {
-                get
-                {
-                    return this.usernameField;
-                }
+                get => usernameField;
                 set
                 {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("Username");
+                    usernameField = value;
+                    RaisePropertyChanged("Username");
                 }
             }
 
@@ -243,14 +234,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Password
             {
-                get
-                {
-                    return this.passwordField;
-                }
+                get => passwordField;
                 set
                 {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("Password");
+                    passwordField = value;
+                    RaisePropertyChanged("Password");
                 }
             }
 
@@ -258,14 +246,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -273,7 +258,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -300,14 +285,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionField
             {
-                get
-                {
-                    return this.subscriptionFieldField;
-                }
+                get => subscriptionFieldField;
                 set
                 {
-                    this.subscriptionFieldField = value;
-                    this.RaisePropertyChanged("SubscriptionField");
+                    subscriptionFieldField = value;
+                    RaisePropertyChanged("SubscriptionField");
                 }
             }
 
@@ -315,14 +297,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SubscriptionValue
             {
-                get
-                {
-                    return this.subscriptionValueField;
-                }
+                get => subscriptionValueField;
                 set
                 {
-                    this.subscriptionValueField = value;
-                    this.RaisePropertyChanged("SubscriptionValue");
+                    subscriptionValueField = value;
+                    RaisePropertyChanged("SubscriptionValue");
                 }
             }
 
@@ -330,14 +309,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -345,7 +321,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -374,14 +350,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return this.subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -389,14 +362,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SubscriptionType
             {
-                get
-                {
-                    return this.subscriptionTypeField;
-                }
+                get => subscriptionTypeField;
                 set
                 {
-                    this.subscriptionTypeField = value;
-                    this.RaisePropertyChanged("SubscriptionType");
+                    subscriptionTypeField = value;
+                    RaisePropertyChanged("SubscriptionType");
                 }
             }
 
@@ -405,14 +375,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public SubscriptionFieldInfo[] SubscriptionFieldList
             {
-                get
-                {
-                    return this.subscriptionFieldListField;
-                }
+                get => subscriptionFieldListField;
                 set
                 {
-                    this.subscriptionFieldListField = value;
-                    this.RaisePropertyChanged("SubscriptionFieldList");
+                    subscriptionFieldListField = value;
+                    RaisePropertyChanged("SubscriptionFieldList");
                 }
             }
 
@@ -420,14 +387,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -435,7 +399,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -468,14 +432,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultSetID
             {
-                get
-                {
-                    return this.resultSetIDField;
-                }
+                get => resultSetIDField;
                 set
                 {
-                    this.resultSetIDField = value;
-                    this.RaisePropertyChanged("ResultSetID");
+                    resultSetIDField = value;
+                    RaisePropertyChanged("ResultSetID");
                 }
             }
 
@@ -483,14 +444,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return this.reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -498,14 +456,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public QUANTIFIABLE_RESULT_TYPE TestResult
             {
-                get
-                {
-                    return this.testResultField;
-                }
+                get => testResultField;
                 set
                 {
-                    this.testResultField = value;
-                    this.RaisePropertyChanged("TestResult");
+                    testResultField = value;
+                    RaisePropertyChanged("TestResult");
                 }
             }
 
@@ -513,14 +468,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool HasComments
             {
-                get
-                {
-                    return this.hasCommentsField;
-                }
+                get => hasCommentsField;
                 set
                 {
-                    this.hasCommentsField = value;
-                    this.RaisePropertyChanged("HasComments");
+                    hasCommentsField = value;
+                    RaisePropertyChanged("HasComments");
                 }
             }
 
@@ -528,14 +480,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public bool ResultAbnormal
             {
-                get
-                {
-                    return this.resultAbnormalField;
-                }
+                get => resultAbnormalField;
                 set
                 {
-                    this.resultAbnormalField = value;
-                    this.RaisePropertyChanged("ResultAbnormal");
+                    resultAbnormalField = value;
+                    RaisePropertyChanged("ResultAbnormal");
                 }
             }
 
@@ -543,14 +492,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -558,7 +504,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -593,14 +539,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MeasurementRange", typeof(RANGE_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -608,14 +551,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public INTERVAL_TYPE MeasurementInterval
             {
-                get
-                {
-                    return this.measurementIntervalField;
-                }
+                get => measurementIntervalField;
                 set
                 {
-                    this.measurementIntervalField = value;
-                    this.RaisePropertyChanged("MeasurementInterval");
+                    measurementIntervalField = value;
+                    RaisePropertyChanged("MeasurementInterval");
                 }
             }
 
@@ -623,14 +563,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public REFERENCE_LIMIT_TYPE ReferenceLimit
             {
-                get
-                {
-                    return this.referenceLimitField;
-                }
+                get => referenceLimitField;
                 set
                 {
-                    this.referenceLimitField = value;
-                    this.RaisePropertyChanged("ReferenceLimit");
+                    referenceLimitField = value;
+                    RaisePropertyChanged("ReferenceLimit");
                 }
             }
 
@@ -638,14 +575,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DeviatingResultQuantitativeFlag
             {
-                get
-                {
-                    return this.deviatingResultQuantitativeFlagField;
-                }
+                get => deviatingResultQuantitativeFlagField;
                 set
                 {
-                    this.deviatingResultQuantitativeFlagField = value;
-                    this.RaisePropertyChanged("DeviatingResultQuantitativeFlag");
+                    deviatingResultQuantitativeFlagField = value;
+                    RaisePropertyChanged("DeviatingResultQuantitativeFlag");
                 }
             }
 
@@ -653,14 +587,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -668,7 +599,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -695,14 +626,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalCodeValue", Order = 0)]
             public string[] ClinicalCodeValue
             {
-                get
-                {
-                    return this.clinicalCodeValueField;
-                }
+                get => clinicalCodeValueField;
                 set
                 {
-                    this.clinicalCodeValueField = value;
-                    this.RaisePropertyChanged("ClinicalCodeValue");
+                    clinicalCodeValueField = value;
+                    RaisePropertyChanged("ClinicalCodeValue");
                 }
             }
 
@@ -710,14 +638,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public CLINICAL_CODE_SCHEME_TYPE ClinicalCodeScheme
             {
-                get
-                {
-                    return this.clinicalCodeSchemeField;
-                }
+                get => clinicalCodeSchemeField;
                 set
                 {
-                    this.clinicalCodeSchemeField = value;
-                    this.RaisePropertyChanged("ClinicalCodeScheme");
+                    clinicalCodeSchemeField = value;
+                    RaisePropertyChanged("ClinicalCodeScheme");
                 }
             }
 
@@ -725,14 +650,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ClinicalCodeSelectedTerm
             {
-                get
-                {
-                    return this.clinicalCodeSelectedTermField;
-                }
+                get => clinicalCodeSelectedTermField;
                 set
                 {
-                    this.clinicalCodeSelectedTermField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSelectedTerm");
+                    clinicalCodeSelectedTermField = value;
+                    RaisePropertyChanged("ClinicalCodeSelectedTerm");
                 }
             }
 
@@ -740,7 +662,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -765,14 +687,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ClinicalCodeSchemeVersion
             {
-                get
-                {
-                    return this.clinicalCodeSchemeVersionField;
-                }
+                get => clinicalCodeSchemeVersionField;
                 set
                 {
-                    this.clinicalCodeSchemeVersionField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSchemeVersion");
+                    clinicalCodeSchemeVersionField = value;
+                    RaisePropertyChanged("ClinicalCodeSchemeVersion");
                 }
             }
 
@@ -780,14 +699,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ClinicalCodeSchemeId
             {
-                get
-                {
-                    return this.clinicalCodeSchemeIdField;
-                }
+                get => clinicalCodeSchemeIdField;
                 set
                 {
-                    this.clinicalCodeSchemeIdField = value;
-                    this.RaisePropertyChanged("ClinicalCodeSchemeId");
+                    clinicalCodeSchemeIdField = value;
+                    RaisePropertyChanged("ClinicalCodeSchemeId");
                 }
             }
 
@@ -795,7 +711,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -820,14 +736,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public QUANTITY_TYPE Result
             {
-                get
-                {
-                    return this.resultField;
-                }
+                get => resultField;
                 set
                 {
-                    this.resultField = value;
-                    this.RaisePropertyChanged("Result");
+                    resultField = value;
+                    RaisePropertyChanged("Result");
                 }
             }
 
@@ -835,14 +748,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ArithmeticComparator
             {
-                get
-                {
-                    return this.arithmeticComparatorField;
-                }
+                get => arithmeticComparatorField;
                 set
                 {
-                    this.arithmeticComparatorField = value;
-                    this.RaisePropertyChanged("ArithmeticComparator");
+                    arithmeticComparatorField = value;
+                    RaisePropertyChanged("ArithmeticComparator");
                 }
             }
 
@@ -850,7 +760,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -875,14 +785,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public decimal QuantityValue
             {
-                get
-                {
-                    return this.quantityValueField;
-                }
+                get => quantityValueField;
                 set
                 {
-                    this.quantityValueField = value;
-                    this.RaisePropertyChanged("QuantityValue");
+                    quantityValueField = value;
+                    RaisePropertyChanged("QuantityValue");
                 }
             }
 
@@ -890,14 +797,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string QuantityUnit
             {
-                get
-                {
-                    return this.quantityUnitField;
-                }
+                get => quantityUnitField;
                 set
                 {
-                    this.quantityUnitField = value;
-                    this.RaisePropertyChanged("QuantityUnit");
+                    quantityUnitField = value;
+                    RaisePropertyChanged("QuantityUnit");
                 }
             }
 
@@ -905,7 +809,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -932,14 +836,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RangeHighValue
             {
-                get
-                {
-                    return this.rangeHighValueField;
-                }
+                get => rangeHighValueField;
                 set
                 {
-                    this.rangeHighValueField = value;
-                    this.RaisePropertyChanged("RangeHighValue");
+                    rangeHighValueField = value;
+                    RaisePropertyChanged("RangeHighValue");
                 }
             }
 
@@ -947,14 +848,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string RangeLowValue
             {
-                get
-                {
-                    return this.rangeLowValueField;
-                }
+                get => rangeLowValueField;
                 set
                 {
-                    this.rangeLowValueField = value;
-                    this.RaisePropertyChanged("RangeLowValue");
+                    rangeLowValueField = value;
+                    RaisePropertyChanged("RangeLowValue");
                 }
             }
 
@@ -962,14 +860,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RangeUnit
             {
-                get
-                {
-                    return this.rangeUnitField;
-                }
+                get => rangeUnitField;
                 set
                 {
-                    this.rangeUnitField = value;
-                    this.RaisePropertyChanged("RangeUnit");
+                    rangeUnitField = value;
+                    RaisePropertyChanged("RangeUnit");
                 }
             }
 
@@ -977,7 +872,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1002,14 +897,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public decimal TimeValue
             {
-                get
-                {
-                    return this.timeValueField;
-                }
+                get => timeValueField;
                 set
                 {
-                    this.timeValueField = value;
-                    this.RaisePropertyChanged("TimeValue");
+                    timeValueField = value;
+                    RaisePropertyChanged("TimeValue");
                 }
             }
 
@@ -1017,14 +909,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TimeUnit
             {
-                get
-                {
-                    return this.timeUnitField;
-                }
+                get => timeUnitField;
                 set
                 {
-                    this.timeUnitField = value;
-                    this.RaisePropertyChanged("TimeUnit");
+                    timeUnitField = value;
+                    RaisePropertyChanged("TimeUnit");
                 }
             }
 
@@ -1032,7 +921,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1064,14 +953,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ReferenceLimitText", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1079,14 +965,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public REFERENCE_LIMIT_TYPEAbnormalReferenceLimit AbnormalReferenceLimit
             {
-                get
-                {
-                    return this.abnormalReferenceLimitField;
-                }
+                get => abnormalReferenceLimitField;
                 set
                 {
-                    this.abnormalReferenceLimitField = value;
-                    this.RaisePropertyChanged("AbnormalReferenceLimit");
+                    abnormalReferenceLimitField = value;
+                    RaisePropertyChanged("AbnormalReferenceLimit");
                 }
             }
 
@@ -1094,14 +977,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ReferenceLimitPopulation
             {
-                get
-                {
-                    return this.referenceLimitPopulationField;
-                }
+                get => referenceLimitPopulationField;
                 set
                 {
-                    this.referenceLimitPopulationField = value;
-                    this.RaisePropertyChanged("ReferenceLimitPopulation");
+                    referenceLimitPopulationField = value;
+                    RaisePropertyChanged("ReferenceLimitPopulation");
                 }
             }
 
@@ -1109,14 +989,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Comment
             {
-                get
-                {
-                    return this.commentField;
-                }
+                get => commentField;
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -1124,14 +1001,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1139,7 +1013,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1163,14 +1037,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("AbnormalReferenceLimitText", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1178,7 +1049,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1213,14 +1084,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE TestName
             {
-                get
-                {
-                    return this.testNameField;
-                }
+                get => testNameField;
                 set
                 {
-                    this.testNameField = value;
-                    this.RaisePropertyChanged("TestName");
+                    testNameField = value;
+                    RaisePropertyChanged("TestName");
                 }
             }
 
@@ -1228,14 +1096,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string TestOrder
             {
-                get
-                {
-                    return this.testOrderField;
-                }
+                get => testOrderField;
                 set
                 {
-                    this.testOrderField = value;
-                    this.RaisePropertyChanged("TestOrder");
+                    testOrderField = value;
+                    RaisePropertyChanged("TestOrder");
                 }
             }
 
@@ -1243,14 +1108,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public RANGE_TYPE Range
             {
-                get
-                {
-                    return this.rangeField;
-                }
+                get => rangeField;
                 set
                 {
-                    this.rangeField = value;
-                    this.RaisePropertyChanged("Range");
+                    rangeField = value;
+                    RaisePropertyChanged("Range");
                 }
             }
 
@@ -1258,14 +1120,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string RangeText
             {
-                get
-                {
-                    return this.rangeTextField;
-                }
+                get => rangeTextField;
                 set
                 {
-                    this.rangeTextField = value;
-                    this.RaisePropertyChanged("RangeText");
+                    rangeTextField = value;
+                    RaisePropertyChanged("RangeText");
                 }
             }
 
@@ -1273,14 +1132,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ArithmeticComparator
             {
-                get
-                {
-                    return this.arithmeticComparatorField;
-                }
+                get => arithmeticComparatorField;
                 set
                 {
-                    this.arithmeticComparatorField = value;
-                    this.RaisePropertyChanged("ArithmeticComparator");
+                    arithmeticComparatorField = value;
+                    RaisePropertyChanged("ArithmeticComparator");
                 }
             }
 
@@ -1289,14 +1145,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResultValue", IsNullable = false)]
             public CumulativeTestResultValue[] TestResultValues
             {
-                get
-                {
-                    return this.testResultValuesField;
-                }
+                get => testResultValuesField;
                 set
                 {
-                    this.testResultValuesField = value;
-                    this.RaisePropertyChanged("TestResultValues");
+                    testResultValuesField = value;
+                    RaisePropertyChanged("TestResultValues");
                 }
             }
 
@@ -1304,14 +1157,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1319,7 +1169,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1343,14 +1193,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalInformation", typeof(CLINICAL_INFORMATION_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -1358,7 +1205,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1383,14 +1230,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CODE_TYPE ClinicalCode
             {
-                get
-                {
-                    return this.clinicalCodeField;
-                }
+                get => clinicalCodeField;
                 set
                 {
-                    this.clinicalCodeField = value;
-                    this.RaisePropertyChanged("ClinicalCode");
+                    clinicalCodeField = value;
+                    RaisePropertyChanged("ClinicalCode");
                 }
             }
 
@@ -1398,14 +1242,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ClinicalCodeDescription
             {
-                get
-                {
-                    return this.clinicalCodeDescriptionField;
-                }
+                get => clinicalCodeDescriptionField;
                 set
                 {
-                    this.clinicalCodeDescriptionField = value;
-                    this.RaisePropertyChanged("ClinicalCodeDescription");
+                    clinicalCodeDescriptionField = value;
+                    RaisePropertyChanged("ClinicalCodeDescription");
                 }
             }
 
@@ -1413,7 +1254,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1456,14 +1297,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultSetID
             {
-                get
-                {
-                    return this.resultSetIDField;
-                }
+                get => resultSetIDField;
                 set
                 {
-                    this.resultSetIDField = value;
-                    this.RaisePropertyChanged("ResultSetID");
+                    resultSetIDField = value;
+                    RaisePropertyChanged("ResultSetID");
                 }
             }
 
@@ -1471,14 +1309,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string TestReportID
             {
-                get
-                {
-                    return this.testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -1486,14 +1321,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string SampleID
             {
-                get
-                {
-                    return this.sampleIDField;
-                }
+                get => sampleIDField;
                 set
                 {
-                    this.sampleIDField = value;
-                    this.RaisePropertyChanged("SampleID");
+                    sampleIDField = value;
+                    RaisePropertyChanged("SampleID");
                 }
             }
 
@@ -1501,14 +1333,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return this.reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -1516,14 +1345,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return this.reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -1531,14 +1357,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 5)]
             public System.DateTime SampleDate
             {
-                get
-                {
-                    return this.sampleDateField;
-                }
+                get => sampleDateField;
                 set
                 {
-                    this.sampleDateField = value;
-                    this.RaisePropertyChanged("SampleDate");
+                    sampleDateField = value;
+                    RaisePropertyChanged("SampleDate");
                 }
             }
 
@@ -1546,14 +1369,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SampleDateSpecified
             {
-                get
-                {
-                    return this.sampleDateFieldSpecified;
-                }
+                get => sampleDateFieldSpecified;
                 set
                 {
-                    this.sampleDateFieldSpecified = value;
-                    this.RaisePropertyChanged("SampleDateSpecified");
+                    sampleDateFieldSpecified = value;
+                    RaisePropertyChanged("SampleDateSpecified");
                 }
             }
 
@@ -1561,14 +1381,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public CLINICAL_CIRCUMSTANCE_TYPE SetName
             {
-                get
-                {
-                    return this.setNameField;
-                }
+                get => setNameField;
                 set
                 {
-                    this.setNameField = value;
-                    this.RaisePropertyChanged("SetName");
+                    setNameField = value;
+                    RaisePropertyChanged("SetName");
                 }
             }
 
@@ -1576,14 +1393,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool HasComments
             {
-                get
-                {
-                    return this.hasCommentsField;
-                }
+                get => hasCommentsField;
                 set
                 {
-                    this.hasCommentsField = value;
-                    this.RaisePropertyChanged("HasComments");
+                    hasCommentsField = value;
+                    RaisePropertyChanged("HasComments");
                 }
             }
 
@@ -1591,14 +1405,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public TEST_STATUS_TYPE Status
             {
-                get
-                {
-                    return this.statusField;
-                }
+                get => statusField;
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -1606,14 +1417,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1621,7 +1429,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1648,14 +1456,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public RESULT_STATUS_TYPE StatusType
             {
-                get
-                {
-                    return this.statusTypeField;
-                }
+                get => statusTypeField;
                 set
                 {
-                    this.statusTypeField = value;
-                    this.RaisePropertyChanged("StatusType");
+                    statusTypeField = value;
+                    RaisePropertyChanged("StatusType");
                 }
             }
 
@@ -1663,14 +1468,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string StatusDescription
             {
-                get
-                {
-                    return this.statusDescriptionField;
-                }
+                get => statusDescriptionField;
                 set
                 {
-                    this.statusDescriptionField = value;
-                    this.RaisePropertyChanged("StatusDescription");
+                    statusDescriptionField = value;
+                    RaisePropertyChanged("StatusDescription");
                 }
             }
 
@@ -1678,14 +1480,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1693,7 +1492,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1754,14 +1553,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -1769,14 +1565,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SelectedSetCode
             {
-                get
-                {
-                    return this.selectedSetCodeField;
-                }
+                get => selectedSetCodeField;
                 set
                 {
-                    this.selectedSetCodeField = value;
-                    this.RaisePropertyChanged("SelectedSetCode");
+                    selectedSetCodeField = value;
+                    RaisePropertyChanged("SelectedSetCode");
                 }
             }
 
@@ -1785,14 +1578,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ResultSet", IsNullable = false)]
             public CumulativeResultSet[] ResultSets
             {
-                get
-                {
-                    return this.resultSetsField;
-                }
+                get => resultSetsField;
                 set
                 {
-                    this.resultSetsField = value;
-                    this.RaisePropertyChanged("ResultSets");
+                    resultSetsField = value;
+                    RaisePropertyChanged("ResultSets");
                 }
             }
 
@@ -1801,14 +1591,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResult", IsNullable = false)]
             public CumulativeTestResult[] TestResults
             {
-                get
-                {
-                    return this.testResultsField;
-                }
+                get => testResultsField;
                 set
                 {
-                    this.testResultsField = value;
-                    this.RaisePropertyChanged("TestResults");
+                    testResultsField = value;
+                    RaisePropertyChanged("TestResults");
                 }
             }
 
@@ -1816,14 +1603,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1831,7 +1615,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1864,14 +1648,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -1879,14 +1660,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SelectedSetCode
             {
-                get
-                {
-                    return this.selectedSetCodeField;
-                }
+                get => selectedSetCodeField;
                 set
                 {
-                    this.selectedSetCodeField = value;
-                    this.RaisePropertyChanged("SelectedSetCode");
+                    selectedSetCodeField = value;
+                    RaisePropertyChanged("SelectedSetCode");
                 }
             }
 
@@ -1894,14 +1672,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindDateRange ReportDate
             {
-                get
-                {
-                    return this.reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -1909,14 +1684,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
             public string DataPoints
             {
-                get
-                {
-                    return this.dataPointsField;
-                }
+                get => dataPointsField;
                 set
                 {
-                    this.dataPointsField = value;
-                    this.RaisePropertyChanged("DataPoints");
+                    dataPointsField = value;
+                    RaisePropertyChanged("DataPoints");
                 }
             }
 
@@ -1925,14 +1697,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -1940,14 +1709,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -1955,7 +1721,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1980,14 +1746,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return this.dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -1995,14 +1758,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return this.dateToField;
-                }
+                get => dateToField;
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -2010,7 +1770,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2041,14 +1801,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2056,14 +1813,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassToken
             {
-                get
-                {
-                    return this.breakGlassTokenField;
-                }
+                get => breakGlassTokenField;
                 set
                 {
-                    this.breakGlassTokenField = value;
-                    this.RaisePropertyChanged("BreakGlassToken");
+                    breakGlassTokenField = value;
+                    RaisePropertyChanged("BreakGlassToken");
                 }
             }
 
@@ -2071,14 +1825,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public System.DateTime BreakGlassExpires
             {
-                get
-                {
-                    return this.breakGlassExpiresField;
-                }
+                get => breakGlassExpiresField;
                 set
                 {
-                    this.breakGlassExpiresField = value;
-                    this.RaisePropertyChanged("BreakGlassExpires");
+                    breakGlassExpiresField = value;
+                    RaisePropertyChanged("BreakGlassExpires");
                 }
             }
 
@@ -2086,14 +1837,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BreakGlassExpiresSpecified
             {
-                get
-                {
-                    return this.breakGlassExpiresFieldSpecified;
-                }
+                get => breakGlassExpiresFieldSpecified;
                 set
                 {
-                    this.breakGlassExpiresFieldSpecified = value;
-                    this.RaisePropertyChanged("BreakGlassExpiresSpecified");
+                    breakGlassExpiresFieldSpecified = value;
+                    RaisePropertyChanged("BreakGlassExpiresSpecified");
                 }
             }
 
@@ -2101,14 +1849,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2116,7 +1861,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2145,14 +1890,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientConsentAuditItemPatientDetails PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -2160,14 +1902,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientConsentAuditItemConsentDetails ConsentDetails
             {
-                get
-                {
-                    return this.consentDetailsField;
-                }
+                get => consentDetailsField;
                 set
                 {
-                    this.consentDetailsField = value;
-                    this.RaisePropertyChanged("ConsentDetails");
+                    consentDetailsField = value;
+                    RaisePropertyChanged("ConsentDetails");
                 }
             }
 
@@ -2175,14 +1914,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public UserInfo UserDetails
             {
-                get
-                {
-                    return this.userDetailsField;
-                }
+                get => userDetailsField;
                 set
                 {
-                    this.userDetailsField = value;
-                    this.RaisePropertyChanged("UserDetails");
+                    userDetailsField = value;
+                    RaisePropertyChanged("UserDetails");
                 }
             }
 
@@ -2190,14 +1926,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2205,7 +1938,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2228,14 +1961,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2243,7 +1973,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2270,14 +2000,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Reason
             {
-                get
-                {
-                    return this.reasonField;
-                }
+                get => reasonField;
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -2285,14 +2012,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime UpdatedDateTime
             {
-                get
-                {
-                    return this.updatedDateTimeField;
-                }
+                get => updatedDateTimeField;
                 set
                 {
-                    this.updatedDateTimeField = value;
-                    this.RaisePropertyChanged("UpdatedDateTime");
+                    updatedDateTimeField = value;
+                    RaisePropertyChanged("UpdatedDateTime");
                 }
             }
 
@@ -2300,14 +2024,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string NewValue
             {
-                get
-                {
-                    return this.newValueField;
-                }
+                get => newValueField;
                 set
                 {
-                    this.newValueField = value;
-                    this.RaisePropertyChanged("NewValue");
+                    newValueField = value;
+                    RaisePropertyChanged("NewValue");
                 }
             }
 
@@ -2315,7 +2036,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2344,14 +2065,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return this.userNameField;
-                }
+                get => userNameField;
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -2359,14 +2077,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string FriendlyName
             {
-                get
-                {
-                    return this.friendlyNameField;
-                }
+                get => friendlyNameField;
                 set
                 {
-                    this.friendlyNameField = value;
-                    this.RaisePropertyChanged("FriendlyName");
+                    friendlyNameField = value;
+                    RaisePropertyChanged("FriendlyName");
                 }
             }
 
@@ -2374,14 +2089,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemCode
             {
-                get
-                {
-                    return this.systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -2389,14 +2101,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SystemLocation
             {
-                get
-                {
-                    return this.systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -2404,7 +2113,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2433,14 +2142,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2448,14 +2154,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DateRangeSelection DateRange
             {
-                get
-                {
-                    return this.dateRangeField;
-                }
+                get => dateRangeField;
                 set
                 {
-                    this.dateRangeField = value;
-                    this.RaisePropertyChanged("DateRange");
+                    dateRangeField = value;
+                    RaisePropertyChanged("DateRange");
                 }
             }
 
@@ -2463,14 +2166,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindUserCriteria User
             {
-                get
-                {
-                    return this.userField;
-                }
+                get => userField;
                 set
                 {
-                    this.userField = value;
-                    this.RaisePropertyChanged("User");
+                    userField = value;
+                    RaisePropertyChanged("User");
                 }
             }
 
@@ -2478,14 +2178,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2493,7 +2190,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2522,14 +2219,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return this.dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -2537,14 +2231,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateFromSpecified
             {
-                get
-                {
-                    return this.dateFromFieldSpecified;
-                }
+                get => dateFromFieldSpecified;
                 set
                 {
-                    this.dateFromFieldSpecified = value;
-                    this.RaisePropertyChanged("DateFromSpecified");
+                    dateFromFieldSpecified = value;
+                    RaisePropertyChanged("DateFromSpecified");
                 }
             }
 
@@ -2552,14 +2243,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return this.dateToField;
-                }
+                get => dateToField;
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -2567,14 +2255,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateToSpecified
             {
-                get
-                {
-                    return this.dateToFieldSpecified;
-                }
+                get => dateToFieldSpecified;
                 set
                 {
-                    this.dateToFieldSpecified = value;
-                    this.RaisePropertyChanged("DateToSpecified");
+                    dateToFieldSpecified = value;
+                    RaisePropertyChanged("DateToSpecified");
                 }
             }
 
@@ -2582,7 +2267,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2609,14 +2294,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return this.userNameField;
-                }
+                get => userNameField;
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -2624,14 +2306,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SystemCode
             {
-                get
-                {
-                    return this.systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -2639,14 +2318,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemLocation
             {
-                get
-                {
-                    return this.systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -2654,7 +2330,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2685,14 +2361,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public BreakGlassAuditItemPatientDetails PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -2700,14 +2373,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public BreakGlassAuditItemBreakGlassDetails BreakGlassDetails
             {
-                get
-                {
-                    return this.breakGlassDetailsField;
-                }
+                get => breakGlassDetailsField;
                 set
                 {
-                    this.breakGlassDetailsField = value;
-                    this.RaisePropertyChanged("BreakGlassDetails");
+                    breakGlassDetailsField = value;
+                    RaisePropertyChanged("BreakGlassDetails");
                 }
             }
 
@@ -2715,14 +2385,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public BreakGlassTypeItem BreakGlassType
             {
-                get
-                {
-                    return this.breakGlassTypeField;
-                }
+                get => breakGlassTypeField;
                 set
                 {
-                    this.breakGlassTypeField = value;
-                    this.RaisePropertyChanged("BreakGlassType");
+                    breakGlassTypeField = value;
+                    RaisePropertyChanged("BreakGlassType");
                 }
             }
 
@@ -2730,14 +2397,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public UserInfo UserDetails
             {
-                get
-                {
-                    return this.userDetailsField;
-                }
+                get => userDetailsField;
                 set
                 {
-                    this.userDetailsField = value;
-                    this.RaisePropertyChanged("UserDetails");
+                    userDetailsField = value;
+                    RaisePropertyChanged("UserDetails");
                 }
             }
 
@@ -2745,14 +2409,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2760,7 +2421,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2789,14 +2450,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -2804,14 +2462,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CHI
             {
-                get
-                {
-                    return this.cHIField;
-                }
+                get => cHIField;
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -2819,14 +2474,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -2834,14 +2486,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -2849,7 +2498,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2874,14 +2523,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Reason
             {
-                get
-                {
-                    return this.reasonField;
-                }
+                get => reasonField;
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -2889,14 +2535,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime BreakGlassDateTime
             {
-                get
-                {
-                    return this.breakGlassDateTimeField;
-                }
+                get => breakGlassDateTimeField;
                 set
                 {
-                    this.breakGlassDateTimeField = value;
-                    this.RaisePropertyChanged("BreakGlassDateTime");
+                    breakGlassDateTimeField = value;
+                    RaisePropertyChanged("BreakGlassDateTime");
                 }
             }
 
@@ -2904,7 +2547,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -2933,14 +2576,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string BreakGlassTypeID
             {
-                get
-                {
-                    return this.breakGlassTypeIDField;
-                }
+                get => breakGlassTypeIDField;
                 set
                 {
-                    this.breakGlassTypeIDField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeID");
+                    breakGlassTypeIDField = value;
+                    RaisePropertyChanged("BreakGlassTypeID");
                 }
             }
 
@@ -2948,14 +2588,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassTypeCode
             {
-                get
-                {
-                    return this.breakGlassTypeCodeField;
-                }
+                get => breakGlassTypeCodeField;
                 set
                 {
-                    this.breakGlassTypeCodeField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeCode");
+                    breakGlassTypeCodeField = value;
+                    RaisePropertyChanged("BreakGlassTypeCode");
                 }
             }
 
@@ -2963,14 +2600,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string BreakGlassTypeDescription
             {
-                get
-                {
-                    return this.breakGlassTypeDescriptionField;
-                }
+                get => breakGlassTypeDescriptionField;
                 set
                 {
-                    this.breakGlassTypeDescriptionField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeDescription");
+                    breakGlassTypeDescriptionField = value;
+                    RaisePropertyChanged("BreakGlassTypeDescription");
                 }
             }
 
@@ -2978,14 +2612,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -2993,7 +2624,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3024,14 +2655,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -3039,14 +2667,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DateRangeSelection DateRange
             {
-                get
-                {
-                    return this.dateRangeField;
-                }
+                get => dateRangeField;
                 set
                 {
-                    this.dateRangeField = value;
-                    this.RaisePropertyChanged("DateRange");
+                    dateRangeField = value;
+                    RaisePropertyChanged("DateRange");
                 }
             }
 
@@ -3054,14 +2679,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindUserCriteria User
             {
-                get
-                {
-                    return this.userField;
-                }
+                get => userField;
                 set
                 {
-                    this.userField = value;
-                    this.RaisePropertyChanged("User");
+                    userField = value;
+                    RaisePropertyChanged("User");
                 }
             }
 
@@ -3069,14 +2691,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TypeCode
             {
-                get
-                {
-                    return this.typeCodeField;
-                }
+                get => typeCodeField;
                 set
                 {
-                    this.typeCodeField = value;
-                    this.RaisePropertyChanged("TypeCode");
+                    typeCodeField = value;
+                    RaisePropertyChanged("TypeCode");
                 }
             }
 
@@ -3084,14 +2703,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3099,7 +2715,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3132,14 +2748,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ServiceID
             {
-                get
-                {
-                    return this.serviceIDField;
-                }
+                get => serviceIDField;
                 set
                 {
-                    this.serviceIDField = value;
-                    this.RaisePropertyChanged("ServiceID");
+                    serviceIDField = value;
+                    RaisePropertyChanged("ServiceID");
                 }
             }
 
@@ -3147,14 +2760,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ServiceName
             {
-                get
-                {
-                    return this.serviceNameField;
-                }
+                get => serviceNameField;
                 set
                 {
-                    this.serviceNameField = value;
-                    this.RaisePropertyChanged("ServiceName");
+                    serviceNameField = value;
+                    RaisePropertyChanged("ServiceName");
                 }
             }
 
@@ -3162,14 +2772,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string MessagesReceived
             {
-                get
-                {
-                    return this.messagesReceivedField;
-                }
+                get => messagesReceivedField;
                 set
                 {
-                    this.messagesReceivedField = value;
-                    this.RaisePropertyChanged("MessagesReceived");
+                    messagesReceivedField = value;
+                    RaisePropertyChanged("MessagesReceived");
                 }
             }
 
@@ -3177,14 +2784,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Minutes
             {
-                get
-                {
-                    return this.minutesField;
-                }
+                get => minutesField;
                 set
                 {
-                    this.minutesField = value;
-                    this.RaisePropertyChanged("Minutes");
+                    minutesField = value;
+                    RaisePropertyChanged("Minutes");
                 }
             }
 
@@ -3192,14 +2796,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Status
             {
-                get
-                {
-                    return this.statusField;
-                }
+                get => statusField;
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -3207,14 +2808,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3222,7 +2820,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3249,14 +2847,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string RedLimit
             {
-                get
-                {
-                    return this.redLimitField;
-                }
+                get => redLimitField;
                 set
                 {
-                    this.redLimitField = value;
-                    this.RaisePropertyChanged("RedLimit");
+                    redLimitField = value;
+                    RaisePropertyChanged("RedLimit");
                 }
             }
 
@@ -3264,14 +2859,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 1)]
             public string AmberLimit
             {
-                get
-                {
-                    return this.amberLimitField;
-                }
+                get => amberLimitField;
                 set
                 {
-                    this.amberLimitField = value;
-                    this.RaisePropertyChanged("AmberLimit");
+                    amberLimitField = value;
+                    RaisePropertyChanged("AmberLimit");
                 }
             }
 
@@ -3279,14 +2871,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3294,7 +2883,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3319,14 +2908,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string OrganisationID
             {
-                get
-                {
-                    return this.organisationIDField;
-                }
+                get => organisationIDField;
                 set
                 {
-                    this.organisationIDField = value;
-                    this.RaisePropertyChanged("OrganisationID");
+                    organisationIDField = value;
+                    RaisePropertyChanged("OrganisationID");
                 }
             }
 
@@ -3334,14 +2920,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE OrganisationDetails
             {
-                get
-                {
-                    return this.organisationDetailsField;
-                }
+                get => organisationDetailsField;
                 set
                 {
-                    this.organisationDetailsField = value;
-                    this.RaisePropertyChanged("OrganisationDetails");
+                    organisationDetailsField = value;
+                    RaisePropertyChanged("OrganisationDetails");
                 }
             }
 
@@ -3349,7 +2932,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3382,14 +2965,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE OrganisationId
             {
-                get
-                {
-                    return this.organisationIdField;
-                }
+                get => organisationIdField;
                 set
                 {
-                    this.organisationIdField = value;
-                    this.RaisePropertyChanged("OrganisationId");
+                    organisationIdField = value;
+                    RaisePropertyChanged("OrganisationId");
                 }
             }
 
@@ -3397,14 +2977,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OrganisationName
             {
-                get
-                {
-                    return this.organisationNameField;
-                }
+                get => organisationNameField;
                 set
                 {
-                    this.organisationNameField = value;
-                    this.RaisePropertyChanged("OrganisationName");
+                    organisationNameField = value;
+                    RaisePropertyChanged("OrganisationName");
                 }
             }
 
@@ -3412,14 +2989,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrganisationType
             {
-                get
-                {
-                    return this.organisationTypeField;
-                }
+                get => organisationTypeField;
                 set
                 {
-                    this.organisationTypeField = value;
-                    this.RaisePropertyChanged("OrganisationType");
+                    organisationTypeField = value;
+                    RaisePropertyChanged("OrganisationType");
                 }
             }
 
@@ -3427,14 +3001,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("OrganisationAddress", Order = 3)]
             public ADDRESS_TYPE[] OrganisationAddress
             {
-                get
-                {
-                    return this.organisationAddressField;
-                }
+                get => organisationAddressField;
                 set
                 {
-                    this.organisationAddressField = value;
-                    this.RaisePropertyChanged("OrganisationAddress");
+                    organisationAddressField = value;
+                    RaisePropertyChanged("OrganisationAddress");
                 }
             }
 
@@ -3442,14 +3013,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("OrganisationTelecom", Order = 4)]
             public TELECOM_TYPE[] OrganisationTelecom
             {
-                get
-                {
-                    return this.organisationTelecomField;
-                }
+                get => organisationTelecomField;
                 set
                 {
-                    this.organisationTelecomField = value;
-                    this.RaisePropertyChanged("OrganisationTelecom");
+                    organisationTelecomField = value;
+                    RaisePropertyChanged("OrganisationTelecom");
                 }
             }
 
@@ -3457,14 +3025,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3472,7 +3037,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3501,14 +3066,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string IdValue
             {
-                get
-                {
-                    return this.idValueField;
-                }
+                get => idValueField;
                 set
                 {
-                    this.idValueField = value;
-                    this.RaisePropertyChanged("IdValue");
+                    idValueField = value;
+                    RaisePropertyChanged("IdValue");
                 }
             }
 
@@ -3516,14 +3078,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string IdScheme
             {
-                get
-                {
-                    return this.idSchemeField;
-                }
+                get => idSchemeField;
                 set
                 {
-                    this.idSchemeField = value;
-                    this.RaisePropertyChanged("IdScheme");
+                    idSchemeField = value;
+                    RaisePropertyChanged("IdScheme");
                 }
             }
 
@@ -3531,14 +3090,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string IdType
             {
-                get
-                {
-                    return this.idTypeField;
-                }
+                get => idTypeField;
                 set
                 {
-                    this.idTypeField = value;
-                    this.RaisePropertyChanged("IdType");
+                    idTypeField = value;
+                    RaisePropertyChanged("IdType");
                 }
             }
 
@@ -3546,14 +3102,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string IdSource
             {
-                get
-                {
-                    return this.idSourceField;
-                }
+                get => idSourceField;
                 set
                 {
-                    this.idSourceField = value;
-                    this.RaisePropertyChanged("IdSource");
+                    idSourceField = value;
+                    RaisePropertyChanged("IdSource");
                 }
             }
 
@@ -3561,7 +3114,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3595,14 +3148,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredAddress", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -3610,14 +3160,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PostCode
             {
-                get
-                {
-                    return this.postCodeField;
-                }
+                get => postCodeField;
                 set
                 {
-                    this.postCodeField = value;
-                    this.RaisePropertyChanged("PostCode");
+                    postCodeField = value;
+                    RaisePropertyChanged("PostCode");
                 }
             }
 
@@ -3625,14 +3172,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string NonValidatedPostCode
             {
-                get
-                {
-                    return this.nonValidatedPostCodeField;
-                }
+                get => nonValidatedPostCodeField;
                 set
                 {
-                    this.nonValidatedPostCodeField = value;
-                    this.RaisePropertyChanged("NonValidatedPostCode");
+                    nonValidatedPostCodeField = value;
+                    RaisePropertyChanged("NonValidatedPostCode");
                 }
             }
 
@@ -3640,14 +3184,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string AddressType
             {
-                get
-                {
-                    return this.addressTypeField;
-                }
+                get => addressTypeField;
                 set
                 {
-                    this.addressTypeField = value;
-                    this.RaisePropertyChanged("AddressType");
+                    addressTypeField = value;
+                    RaisePropertyChanged("AddressType");
                 }
             }
 
@@ -3655,14 +3196,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "duration", Order = 4)]
             public string AddressValidPeriod
             {
-                get
-                {
-                    return this.addressValidPeriodField;
-                }
+                get => addressValidPeriodField;
                 set
                 {
-                    this.addressValidPeriodField = value;
-                    this.RaisePropertyChanged("AddressValidPeriod");
+                    addressValidPeriodField = value;
+                    RaisePropertyChanged("AddressValidPeriod");
                 }
             }
 
@@ -3670,14 +3208,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3685,7 +3220,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3712,14 +3247,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PropertyNumber
             {
-                get
-                {
-                    return this.propertyNumberField;
-                }
+                get => propertyNumberField;
                 set
                 {
-                    this.propertyNumberField = value;
-                    this.RaisePropertyChanged("PropertyNumber");
+                    propertyNumberField = value;
+                    RaisePropertyChanged("PropertyNumber");
                 }
             }
 
@@ -3727,14 +3259,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("AddressLine", Order = 1)]
             public string[] AddressLine
             {
-                get
-                {
-                    return this.addressLineField;
-                }
+                get => addressLineField;
                 set
                 {
-                    this.addressLineField = value;
-                    this.RaisePropertyChanged("AddressLine");
+                    addressLineField = value;
+                    RaisePropertyChanged("AddressLine");
                 }
             }
 
@@ -3742,14 +3271,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3757,7 +3283,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3787,14 +3313,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredTelecom", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -3802,14 +3325,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TelecomType
             {
-                get
-                {
-                    return this.telecomTypeField;
-                }
+                get => telecomTypeField;
                 set
                 {
-                    this.telecomTypeField = value;
-                    this.RaisePropertyChanged("TelecomType");
+                    telecomTypeField = value;
+                    RaisePropertyChanged("TelecomType");
                 }
             }
 
@@ -3817,14 +3337,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TelecomMode
             {
-                get
-                {
-                    return this.telecomModeField;
-                }
+                get => telecomModeField;
                 set
                 {
-                    this.telecomModeField = value;
-                    this.RaisePropertyChanged("TelecomMode");
+                    telecomModeField = value;
+                    RaisePropertyChanged("TelecomMode");
                 }
             }
 
@@ -3832,14 +3349,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3847,7 +3361,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3878,14 +3392,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string TelecomCountry
             {
-                get
-                {
-                    return this.telecomCountryField;
-                }
+                get => telecomCountryField;
                 set
                 {
-                    this.telecomCountryField = value;
-                    this.RaisePropertyChanged("TelecomCountry");
+                    telecomCountryField = value;
+                    RaisePropertyChanged("TelecomCountry");
                 }
             }
 
@@ -3893,14 +3404,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TelecomArea
             {
-                get
-                {
-                    return this.telecomAreaField;
-                }
+                get => telecomAreaField;
                 set
                 {
-                    this.telecomAreaField = value;
-                    this.RaisePropertyChanged("TelecomArea");
+                    telecomAreaField = value;
+                    RaisePropertyChanged("TelecomArea");
                 }
             }
 
@@ -3908,14 +3416,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TelecomNo
             {
-                get
-                {
-                    return this.telecomNoField;
-                }
+                get => telecomNoField;
                 set
                 {
-                    this.telecomNoField = value;
-                    this.RaisePropertyChanged("TelecomNo");
+                    telecomNoField = value;
+                    RaisePropertyChanged("TelecomNo");
                 }
             }
 
@@ -3923,14 +3428,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TelecomExt
             {
-                get
-                {
-                    return this.telecomExtField;
-                }
+                get => telecomExtField;
                 set
                 {
-                    this.telecomExtField = value;
-                    this.RaisePropertyChanged("TelecomExt");
+                    telecomExtField = value;
+                    RaisePropertyChanged("TelecomExt");
                 }
             }
 
@@ -3938,14 +3440,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -3953,7 +3452,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -3984,14 +3483,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string OrganisationCode
             {
-                get
-                {
-                    return this.organisationCodeField;
-                }
+                get => organisationCodeField;
                 set
                 {
-                    this.organisationCodeField = value;
-                    this.RaisePropertyChanged("OrganisationCode");
+                    organisationCodeField = value;
+                    RaisePropertyChanged("OrganisationCode");
                 }
             }
 
@@ -3999,14 +3495,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string OrganisationID
             {
-                get
-                {
-                    return this.organisationIDField;
-                }
+                get => organisationIDField;
                 set
                 {
-                    this.organisationIDField = value;
-                    this.RaisePropertyChanged("OrganisationID");
+                    organisationIDField = value;
+                    RaisePropertyChanged("OrganisationID");
                 }
             }
 
@@ -4014,14 +3507,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrganisationName
             {
-                get
-                {
-                    return this.organisationNameField;
-                }
+                get => organisationNameField;
                 set
                 {
-                    this.organisationNameField = value;
-                    this.RaisePropertyChanged("OrganisationName");
+                    organisationNameField = value;
+                    RaisePropertyChanged("OrganisationName");
                 }
             }
 
@@ -4029,14 +3519,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string OrganisationType
             {
-                get
-                {
-                    return this.organisationTypeField;
-                }
+                get => organisationTypeField;
                 set
                 {
-                    this.organisationTypeField = value;
-                    this.RaisePropertyChanged("OrganisationType");
+                    organisationTypeField = value;
+                    RaisePropertyChanged("OrganisationType");
                 }
             }
 
@@ -4044,14 +3531,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4059,7 +3543,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4084,14 +3568,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string HCPid
             {
-                get
-                {
-                    return this.hCPidField;
-                }
+                get => hCPidField;
                 set
                 {
-                    this.hCPidField = value;
-                    this.RaisePropertyChanged("HCPid");
+                    hCPidField = value;
+                    RaisePropertyChanged("HCPid");
                 }
             }
 
@@ -4099,14 +3580,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public HCP_DETAIL_TYPE HCPdetails
             {
-                get
-                {
-                    return this.hCPdetailsField;
-                }
+                get => hCPdetailsField;
                 set
                 {
-                    this.hCPdetailsField = value;
-                    this.RaisePropertyChanged("HCPdetails");
+                    hCPdetailsField = value;
+                    RaisePropertyChanged("HCPdetails");
                 }
             }
 
@@ -4114,7 +3592,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4149,14 +3627,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HcpId", Order = 0)]
             public ID_TYPE[] HcpId
             {
-                get
-                {
-                    return this.hcpIdField;
-                }
+                get => hcpIdField;
                 set
                 {
-                    this.hcpIdField = value;
-                    this.RaisePropertyChanged("HcpId");
+                    hcpIdField = value;
+                    RaisePropertyChanged("HcpId");
                 }
             }
 
@@ -4164,14 +3639,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PERSONAL_NAME_TYPE HcpName
             {
-                get
-                {
-                    return this.hcpNameField;
-                }
+                get => hcpNameField;
                 set
                 {
-                    this.hcpNameField = value;
-                    this.RaisePropertyChanged("HcpName");
+                    hcpNameField = value;
+                    RaisePropertyChanged("HcpName");
                 }
             }
 
@@ -4179,14 +3651,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ORGANISATION_TYPE EmployingOrganisation
             {
-                get
-                {
-                    return this.employingOrganisationField;
-                }
+                get => employingOrganisationField;
                 set
                 {
-                    this.employingOrganisationField = value;
-                    this.RaisePropertyChanged("EmployingOrganisation");
+                    employingOrganisationField = value;
+                    RaisePropertyChanged("EmployingOrganisation");
                 }
             }
 
@@ -4194,14 +3663,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HcpTelecom", Order = 3)]
             public TELECOM_TYPE[] HcpTelecom
             {
-                get
-                {
-                    return this.hcpTelecomField;
-                }
+                get => hcpTelecomField;
                 set
                 {
-                    this.hcpTelecomField = value;
-                    this.RaisePropertyChanged("HcpTelecom");
+                    hcpTelecomField = value;
+                    RaisePropertyChanged("HcpTelecom");
                 }
             }
 
@@ -4209,14 +3675,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public SPECIALTY_TYPE HcpSpecialty
             {
-                get
-                {
-                    return this.hcpSpecialtyField;
-                }
+                get => hcpSpecialtyField;
                 set
                 {
-                    this.hcpSpecialtyField = value;
-                    this.RaisePropertyChanged("HcpSpecialty");
+                    hcpSpecialtyField = value;
+                    RaisePropertyChanged("HcpSpecialty");
                 }
             }
 
@@ -4224,14 +3687,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Position
             {
-                get
-                {
-                    return this.positionField;
-                }
+                get => positionField;
                 set
                 {
-                    this.positionField = value;
-                    this.RaisePropertyChanged("Position");
+                    positionField = value;
+                    RaisePropertyChanged("Position");
                 }
             }
 
@@ -4239,14 +3699,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4254,7 +3711,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4284,14 +3741,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredName", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -4299,14 +3753,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string NameType
             {
-                get
-                {
-                    return this.nameTypeField;
-                }
+                get => nameTypeField;
                 set
                 {
-                    this.nameTypeField = value;
-                    this.RaisePropertyChanged("NameType");
+                    nameTypeField = value;
+                    RaisePropertyChanged("NameType");
                 }
             }
 
@@ -4314,14 +3765,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "duration", Order = 2)]
             public string NameValidPeriod
             {
-                get
-                {
-                    return this.nameValidPeriodField;
-                }
+                get => nameValidPeriodField;
                 set
                 {
-                    this.nameValidPeriodField = value;
-                    this.RaisePropertyChanged("NameValidPeriod");
+                    nameValidPeriodField = value;
+                    RaisePropertyChanged("NameValidPeriod");
                 }
             }
 
@@ -4329,14 +3777,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4344,7 +3789,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4375,14 +3820,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Title
             {
-                get
-                {
-                    return this.titleField;
-                }
+                get => titleField;
                 set
                 {
-                    this.titleField = value;
-                    this.RaisePropertyChanged("Title");
+                    titleField = value;
+                    RaisePropertyChanged("Title");
                 }
             }
 
@@ -4390,14 +3832,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string GivenName
             {
-                get
-                {
-                    return this.givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -4405,14 +3844,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MiddleName", Order = 2)]
             public string[] MiddleName
             {
-                get
-                {
-                    return this.middleNameField;
-                }
+                get => middleNameField;
                 set
                 {
-                    this.middleNameField = value;
-                    this.RaisePropertyChanged("MiddleName");
+                    middleNameField = value;
+                    RaisePropertyChanged("MiddleName");
                 }
             }
 
@@ -4420,14 +3856,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string FamilyName
             {
-                get
-                {
-                    return this.familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -4435,14 +3868,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4450,7 +3880,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4475,14 +3905,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SpecialtyName
             {
-                get
-                {
-                    return this.specialtyNameField;
-                }
+                get => specialtyNameField;
                 set
                 {
-                    this.specialtyNameField = value;
-                    this.RaisePropertyChanged("SpecialtyName");
+                    specialtyNameField = value;
+                    RaisePropertyChanged("SpecialtyName");
                 }
             }
 
@@ -4490,14 +3917,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SpecialtyCode
             {
-                get
-                {
-                    return this.specialtyCodeField;
-                }
+                get => specialtyCodeField;
                 set
                 {
-                    this.specialtyCodeField = value;
-                    this.RaisePropertyChanged("SpecialtyCode");
+                    specialtyCodeField = value;
+                    RaisePropertyChanged("SpecialtyCode");
                 }
             }
 
@@ -4505,7 +3929,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4536,14 +3960,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string HCPcode
             {
-                get
-                {
-                    return this.hCPcodeField;
-                }
+                get => hCPcodeField;
                 set
                 {
-                    this.hCPcodeField = value;
-                    this.RaisePropertyChanged("HCPcode");
+                    hCPcodeField = value;
+                    RaisePropertyChanged("HCPcode");
                 }
             }
 
@@ -4551,14 +3972,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string HCPid
             {
-                get
-                {
-                    return this.hCPidField;
-                }
+                get => hCPidField;
                 set
                 {
-                    this.hCPidField = value;
-                    this.RaisePropertyChanged("HCPid");
+                    hCPidField = value;
+                    RaisePropertyChanged("HCPid");
                 }
             }
 
@@ -4566,14 +3984,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -4581,14 +3996,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Position
             {
-                get
-                {
-                    return this.positionField;
-                }
+                get => positionField;
                 set
                 {
-                    this.positionField = value;
-                    this.RaisePropertyChanged("Position");
+                    positionField = value;
+                    RaisePropertyChanged("Position");
                 }
             }
 
@@ -4596,14 +4008,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4611,7 +4020,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4636,14 +4045,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -4651,14 +4057,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4666,7 +4069,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4707,14 +4110,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return this.primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -4722,14 +4122,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return this.secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -4737,14 +4134,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string CHI
             {
-                get
-                {
-                    return this.cHIField;
-                }
+                get => cHIField;
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -4752,14 +4146,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string FamilyName
             {
-                get
-                {
-                    return this.familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -4767,14 +4158,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string GivenName
             {
-                get
-                {
-                    return this.givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -4782,14 +4170,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Sex
             {
-                get
-                {
-                    return this.sexField;
-                }
+                get => sexField;
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -4797,14 +4182,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 6)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -4812,14 +4194,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -4827,14 +4206,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public FindMergeItemUnmerge Unmerge
             {
-                get
-                {
-                    return this.unmergeField;
-                }
+                get => unmergeField;
                 set
                 {
-                    this.unmergeField = value;
-                    this.RaisePropertyChanged("Unmerge");
+                    unmergeField = value;
+                    RaisePropertyChanged("Unmerge");
                 }
             }
 
@@ -4842,14 +4218,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4857,7 +4230,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4896,14 +4269,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentRequestDeliveryScheduleTypeReferralToTreatClock ReferralToTreatClock
             {
-                get
-                {
-                    return this.referralToTreatClockField;
-                }
+                get => referralToTreatClockField;
                 set
                 {
-                    this.referralToTreatClockField = value;
-                    this.RaisePropertyChanged("ReferralToTreatClock");
+                    referralToTreatClockField = value;
+                    RaisePropertyChanged("ReferralToTreatClock");
                 }
             }
 
@@ -4911,14 +4281,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -4926,7 +4293,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -4955,14 +4322,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime StartDate
             {
-                get
-                {
-                    return this.startDateField;
-                }
+                get => startDateField;
                 set
                 {
-                    this.startDateField = value;
-                    this.RaisePropertyChanged("StartDate");
+                    startDateField = value;
+                    RaisePropertyChanged("StartDate");
                 }
             }
 
@@ -4970,14 +4334,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime TargetDate
             {
-                get
-                {
-                    return this.targetDateField;
-                }
+                get => targetDateField;
                 set
                 {
-                    this.targetDateField = value;
-                    this.RaisePropertyChanged("TargetDate");
+                    targetDateField = value;
+                    RaisePropertyChanged("TargetDate");
                 }
             }
 
@@ -4985,14 +4346,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public GENERAL_CODE_TYPE Status
             {
-                get
-                {
-                    return this.statusField;
-                }
+                get => statusField;
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -5000,14 +4358,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5015,7 +4370,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5040,14 +4395,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string CodeDescription
             {
-                get
-                {
-                    return this.codeDescriptionField;
-                }
+                get => codeDescriptionField;
                 set
                 {
-                    this.codeDescriptionField = value;
-                    this.RaisePropertyChanged("CodeDescription");
+                    codeDescriptionField = value;
+                    RaisePropertyChanged("CodeDescription");
                 }
             }
 
@@ -5055,14 +4407,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CodeValue
             {
-                get
-                {
-                    return this.codeValueField;
-                }
+                get => codeValueField;
                 set
                 {
-                    this.codeValueField = value;
-                    this.RaisePropertyChanged("CodeValue");
+                    codeValueField = value;
+                    RaisePropertyChanged("CodeValue");
                 }
             }
 
@@ -5070,7 +4419,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5103,14 +4452,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateClosed
             {
-                get
-                {
-                    return this.dateClosedField;
-                }
+                get => dateClosedField;
                 set
                 {
-                    this.dateClosedField = value;
-                    this.RaisePropertyChanged("DateClosed");
+                    dateClosedField = value;
+                    RaisePropertyChanged("DateClosed");
                 }
             }
 
@@ -5118,14 +4464,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateClosedSpecified
             {
-                get
-                {
-                    return this.dateClosedFieldSpecified;
-                }
+                get => dateClosedFieldSpecified;
                 set
                 {
-                    this.dateClosedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateClosedSpecified");
+                    dateClosedFieldSpecified = value;
+                    RaisePropertyChanged("DateClosedSpecified");
                 }
             }
 
@@ -5133,14 +4476,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string AttendanceStatus
             {
-                get
-                {
-                    return this.attendanceStatusField;
-                }
+                get => attendanceStatusField;
                 set
                 {
-                    this.attendanceStatusField = value;
-                    this.RaisePropertyChanged("AttendanceStatus");
+                    attendanceStatusField = value;
+                    RaisePropertyChanged("AttendanceStatus");
                 }
             }
 
@@ -5148,14 +4488,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TreatmentRequestOutcomeTypeActualAttendanceDetails ActualAttendanceDetails
             {
-                get
-                {
-                    return this.actualAttendanceDetailsField;
-                }
+                get => actualAttendanceDetailsField;
                 set
                 {
-                    this.actualAttendanceDetailsField = value;
-                    this.RaisePropertyChanged("ActualAttendanceDetails");
+                    actualAttendanceDetailsField = value;
+                    RaisePropertyChanged("ActualAttendanceDetails");
                 }
             }
 
@@ -5163,14 +4500,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TreatmentReceived", Order = 3)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] TreatmentReceived
             {
-                get
-                {
-                    return this.treatmentReceivedField;
-                }
+                get => treatmentReceivedField;
                 set
                 {
-                    this.treatmentReceivedField = value;
-                    this.RaisePropertyChanged("TreatmentReceived");
+                    treatmentReceivedField = value;
+                    RaisePropertyChanged("TreatmentReceived");
                 }
             }
 
@@ -5178,14 +4512,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5193,7 +4524,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5240,14 +4571,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime ArrivalDate
             {
-                get
-                {
-                    return this.arrivalDateField;
-                }
+                get => arrivalDateField;
                 set
                 {
-                    this.arrivalDateField = value;
-                    this.RaisePropertyChanged("ArrivalDate");
+                    arrivalDateField = value;
+                    RaisePropertyChanged("ArrivalDate");
                 }
             }
 
@@ -5255,14 +4583,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ArrivalDateSpecified
             {
-                get
-                {
-                    return this.arrivalDateFieldSpecified;
-                }
+                get => arrivalDateFieldSpecified;
                 set
                 {
-                    this.arrivalDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ArrivalDateSpecified");
+                    arrivalDateFieldSpecified = value;
+                    RaisePropertyChanged("ArrivalDateSpecified");
                 }
             }
 
@@ -5270,14 +4595,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 1)]
             public System.DateTime ArrivalTime
             {
-                get
-                {
-                    return this.arrivalTimeField;
-                }
+                get => arrivalTimeField;
                 set
                 {
-                    this.arrivalTimeField = value;
-                    this.RaisePropertyChanged("ArrivalTime");
+                    arrivalTimeField = value;
+                    RaisePropertyChanged("ArrivalTime");
                 }
             }
 
@@ -5285,14 +4607,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ArrivalTimeSpecified
             {
-                get
-                {
-                    return this.arrivalTimeFieldSpecified;
-                }
+                get => arrivalTimeFieldSpecified;
                 set
                 {
-                    this.arrivalTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ArrivalTimeSpecified");
+                    arrivalTimeFieldSpecified = value;
+                    RaisePropertyChanged("ArrivalTimeSpecified");
                 }
             }
 
@@ -5300,14 +4619,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DepartureDate
             {
-                get
-                {
-                    return this.departureDateField;
-                }
+                get => departureDateField;
                 set
                 {
-                    this.departureDateField = value;
-                    this.RaisePropertyChanged("DepartureDate");
+                    departureDateField = value;
+                    RaisePropertyChanged("DepartureDate");
                 }
             }
 
@@ -5315,14 +4631,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DepartureDateSpecified
             {
-                get
-                {
-                    return this.departureDateFieldSpecified;
-                }
+                get => departureDateFieldSpecified;
                 set
                 {
-                    this.departureDateFieldSpecified = value;
-                    this.RaisePropertyChanged("DepartureDateSpecified");
+                    departureDateFieldSpecified = value;
+                    RaisePropertyChanged("DepartureDateSpecified");
                 }
             }
 
@@ -5330,14 +4643,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime DepartureTime
             {
-                get
-                {
-                    return this.departureTimeField;
-                }
+                get => departureTimeField;
                 set
                 {
-                    this.departureTimeField = value;
-                    this.RaisePropertyChanged("DepartureTime");
+                    departureTimeField = value;
+                    RaisePropertyChanged("DepartureTime");
                 }
             }
 
@@ -5345,14 +4655,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DepartureTimeSpecified
             {
-                get
-                {
-                    return this.departureTimeFieldSpecified;
-                }
+                get => departureTimeFieldSpecified;
                 set
                 {
-                    this.departureTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DepartureTimeSpecified");
+                    departureTimeFieldSpecified = value;
+                    RaisePropertyChanged("DepartureTimeSpecified");
                 }
             }
 
@@ -5360,14 +4667,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime TreatmentDate
             {
-                get
-                {
-                    return this.treatmentDateField;
-                }
+                get => treatmentDateField;
                 set
                 {
-                    this.treatmentDateField = value;
-                    this.RaisePropertyChanged("TreatmentDate");
+                    treatmentDateField = value;
+                    RaisePropertyChanged("TreatmentDate");
                 }
             }
 
@@ -5375,14 +4679,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentDateSpecified
             {
-                get
-                {
-                    return this.treatmentDateFieldSpecified;
-                }
+                get => treatmentDateFieldSpecified;
                 set
                 {
-                    this.treatmentDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentDateSpecified");
+                    treatmentDateFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentDateSpecified");
                 }
             }
 
@@ -5390,14 +4691,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 5)]
             public System.DateTime TreatmentTime
             {
-                get
-                {
-                    return this.treatmentTimeField;
-                }
+                get => treatmentTimeField;
                 set
                 {
-                    this.treatmentTimeField = value;
-                    this.RaisePropertyChanged("TreatmentTime");
+                    treatmentTimeField = value;
+                    RaisePropertyChanged("TreatmentTime");
                 }
             }
 
@@ -5405,14 +4703,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentTimeSpecified
             {
-                get
-                {
-                    return this.treatmentTimeFieldSpecified;
-                }
+                get => treatmentTimeFieldSpecified;
                 set
                 {
-                    this.treatmentTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentTimeSpecified");
+                    treatmentTimeFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentTimeSpecified");
                 }
             }
 
@@ -5420,14 +4715,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5435,7 +4727,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5470,14 +4762,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Site
             {
-                get
-                {
-                    return this.siteField;
-                }
+                get => siteField;
                 set
                 {
-                    this.siteField = value;
-                    this.RaisePropertyChanged("Site");
+                    siteField = value;
+                    RaisePropertyChanged("Site");
                 }
             }
 
@@ -5485,14 +4774,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE Location
             {
-                get
-                {
-                    return this.locationField;
-                }
+                get => locationField;
                 set
                 {
-                    this.locationField = value;
-                    this.RaisePropertyChanged("Location");
+                    locationField = value;
+                    RaisePropertyChanged("Location");
                 }
             }
 
@@ -5500,14 +4786,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public HCP_DETAIL_TYPE ResponsibleHCP
             {
-                get
-                {
-                    return this.responsibleHCPField;
-                }
+                get => responsibleHCPField;
                 set
                 {
-                    this.responsibleHCPField = value;
-                    this.RaisePropertyChanged("ResponsibleHCP");
+                    responsibleHCPField = value;
+                    RaisePropertyChanged("ResponsibleHCP");
                 }
             }
 
@@ -5515,14 +4798,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Clinic
             {
-                get
-                {
-                    return this.clinicField;
-                }
+                get => clinicField;
                 set
                 {
-                    this.clinicField = value;
-                    this.RaisePropertyChanged("Clinic");
+                    clinicField = value;
+                    RaisePropertyChanged("Clinic");
                 }
             }
 
@@ -5530,14 +4810,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public SPECIALTY_TYPE Specialty
             {
-                get
-                {
-                    return this.specialtyField;
-                }
+                get => specialtyField;
                 set
                 {
-                    this.specialtyField = value;
-                    this.RaisePropertyChanged("Specialty");
+                    specialtyField = value;
+                    RaisePropertyChanged("Specialty");
                 }
             }
 
@@ -5545,14 +4822,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public GENERAL_CODE_TYPE Facility
             {
-                get
-                {
-                    return this.facilityField;
-                }
+                get => facilityField;
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -5560,14 +4834,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5575,7 +4846,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5610,14 +4881,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientCarePoint TreatmentCarePoint
             {
-                get
-                {
-                    return this.treatmentCarePointField;
-                }
+                get => treatmentCarePointField;
                 set
                 {
-                    this.treatmentCarePointField = value;
-                    this.RaisePropertyChanged("TreatmentCarePoint");
+                    treatmentCarePointField = value;
+                    RaisePropertyChanged("TreatmentCarePoint");
                 }
             }
 
@@ -5625,14 +4893,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ToComeInTargetDate
             {
-                get
-                {
-                    return this.toComeInTargetDateField;
-                }
+                get => toComeInTargetDateField;
                 set
                 {
-                    this.toComeInTargetDateField = value;
-                    this.RaisePropertyChanged("ToComeInTargetDate");
+                    toComeInTargetDateField = value;
+                    RaisePropertyChanged("ToComeInTargetDate");
                 }
             }
 
@@ -5640,14 +4905,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetDateSpecified
             {
-                get
-                {
-                    return this.toComeInTargetDateFieldSpecified;
-                }
+                get => toComeInTargetDateFieldSpecified;
                 set
                 {
-                    this.toComeInTargetDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateSpecified");
+                    toComeInTargetDateFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetDateSpecified");
                 }
             }
 
@@ -5655,14 +4917,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 2)]
             public System.DateTime ToComeInTargetTime
             {
-                get
-                {
-                    return this.toComeInTargetTimeField;
-                }
+                get => toComeInTargetTimeField;
                 set
                 {
-                    this.toComeInTargetTimeField = value;
-                    this.RaisePropertyChanged("ToComeInTargetTime");
+                    toComeInTargetTimeField = value;
+                    RaisePropertyChanged("ToComeInTargetTime");
                 }
             }
 
@@ -5670,14 +4929,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetTimeSpecified
             {
-                get
-                {
-                    return this.toComeInTargetTimeFieldSpecified;
-                }
+                get => toComeInTargetTimeFieldSpecified;
                 set
                 {
-                    this.toComeInTargetTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetTimeSpecified");
+                    toComeInTargetTimeFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetTimeSpecified");
                 }
             }
 
@@ -5685,14 +4941,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
             public System.DateTime TreatmentBreachDate
             {
-                get
-                {
-                    return this.treatmentBreachDateField;
-                }
+                get => treatmentBreachDateField;
                 set
                 {
-                    this.treatmentBreachDateField = value;
-                    this.RaisePropertyChanged("TreatmentBreachDate");
+                    treatmentBreachDateField = value;
+                    RaisePropertyChanged("TreatmentBreachDate");
                 }
             }
 
@@ -5700,14 +4953,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TreatmentBreachDateSpecified
             {
-                get
-                {
-                    return this.treatmentBreachDateFieldSpecified;
-                }
+                get => treatmentBreachDateFieldSpecified;
                 set
                 {
-                    this.treatmentBreachDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TreatmentBreachDateSpecified");
+                    treatmentBreachDateFieldSpecified = value;
+                    RaisePropertyChanged("TreatmentBreachDateSpecified");
                 }
             }
 
@@ -5715,7 +4965,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5748,14 +4998,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return this.requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -5763,14 +5010,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return this.requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -5778,14 +5022,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return this.requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -5793,14 +5034,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return this.requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -5808,14 +5046,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RequestStatusComment
             {
-                get
-                {
-                    return this.requestStatusCommentField;
-                }
+                get => requestStatusCommentField;
                 set
                 {
-                    this.requestStatusCommentField = value;
-                    this.RaisePropertyChanged("RequestStatusComment");
+                    requestStatusCommentField = value;
+                    RaisePropertyChanged("RequestStatusComment");
                 }
             }
 
@@ -5823,14 +5058,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -5838,7 +5070,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -5908,14 +5140,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public bool PatientAvailableAtShortNotice
             {
-                get
-                {
-                    return this.patientAvailableAtShortNoticeField;
-                }
+                get => patientAvailableAtShortNoticeField;
                 set
                 {
-                    this.patientAvailableAtShortNoticeField = value;
-                    this.RaisePropertyChanged("PatientAvailableAtShortNotice");
+                    patientAvailableAtShortNoticeField = value;
+                    RaisePropertyChanged("PatientAvailableAtShortNotice");
                 }
             }
 
@@ -5923,14 +5152,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientAvailableAtShortNoticeSpecified
             {
-                get
-                {
-                    return this.patientAvailableAtShortNoticeFieldSpecified;
-                }
+                get => patientAvailableAtShortNoticeFieldSpecified;
                 set
                 {
-                    this.patientAvailableAtShortNoticeFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientAvailableAtShortNoticeSpecified");
+                    patientAvailableAtShortNoticeFieldSpecified = value;
+                    RaisePropertyChanged("PatientAvailableAtShortNoticeSpecified");
                 }
             }
 
@@ -5938,14 +5164,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool PatientSuitableForPooledList
             {
-                get
-                {
-                    return this.patientSuitableForPooledListField;
-                }
+                get => patientSuitableForPooledListField;
                 set
                 {
-                    this.patientSuitableForPooledListField = value;
-                    this.RaisePropertyChanged("PatientSuitableForPooledList");
+                    patientSuitableForPooledListField = value;
+                    RaisePropertyChanged("PatientSuitableForPooledList");
                 }
             }
 
@@ -5953,14 +5176,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientSuitableForPooledListSpecified
             {
-                get
-                {
-                    return this.patientSuitableForPooledListFieldSpecified;
-                }
+                get => patientSuitableForPooledListFieldSpecified;
                 set
                 {
-                    this.patientSuitableForPooledListFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientSuitableForPooledListSpecified");
+                    patientSuitableForPooledListFieldSpecified = value;
+                    RaisePropertyChanged("PatientSuitableForPooledListSpecified");
                 }
             }
 
@@ -5968,14 +5188,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool PatientWillingToChangeClinician
             {
-                get
-                {
-                    return this.patientWillingToChangeClinicianField;
-                }
+                get => patientWillingToChangeClinicianField;
                 set
                 {
-                    this.patientWillingToChangeClinicianField = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeClinician");
+                    patientWillingToChangeClinicianField = value;
+                    RaisePropertyChanged("PatientWillingToChangeClinician");
                 }
             }
 
@@ -5983,14 +5200,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientWillingToChangeClinicianSpecified
             {
-                get
-                {
-                    return this.patientWillingToChangeClinicianFieldSpecified;
-                }
+                get => patientWillingToChangeClinicianFieldSpecified;
                 set
                 {
-                    this.patientWillingToChangeClinicianFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeClinicianSpecified");
+                    patientWillingToChangeClinicianFieldSpecified = value;
+                    RaisePropertyChanged("PatientWillingToChangeClinicianSpecified");
                 }
             }
 
@@ -5998,14 +5212,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool PatientWillingToChangeHealthBoard
             {
-                get
-                {
-                    return this.patientWillingToChangeHealthBoardField;
-                }
+                get => patientWillingToChangeHealthBoardField;
                 set
                 {
-                    this.patientWillingToChangeHealthBoardField = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeHealthBoard");
+                    patientWillingToChangeHealthBoardField = value;
+                    RaisePropertyChanged("PatientWillingToChangeHealthBoard");
                 }
             }
 
@@ -6013,14 +5224,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PatientWillingToChangeHealthBoardSpecified
             {
-                get
-                {
-                    return this.patientWillingToChangeHealthBoardFieldSpecified;
-                }
+                get => patientWillingToChangeHealthBoardFieldSpecified;
                 set
                 {
-                    this.patientWillingToChangeHealthBoardFieldSpecified = value;
-                    this.RaisePropertyChanged("PatientWillingToChangeHealthBoardSpecified");
+                    patientWillingToChangeHealthBoardFieldSpecified = value;
+                    RaisePropertyChanged("PatientWillingToChangeHealthBoardSpecified");
                 }
             }
 
@@ -6028,14 +5236,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6043,7 +5248,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6070,14 +5275,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string CareTypeRequested
             {
-                get
-                {
-                    return this.careTypeRequestedField;
-                }
+                get => careTypeRequestedField;
                 set
                 {
-                    this.careTypeRequestedField = value;
-                    this.RaisePropertyChanged("CareTypeRequested");
+                    careTypeRequestedField = value;
+                    RaisePropertyChanged("CareTypeRequested");
                 }
             }
 
@@ -6085,14 +5287,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ExpectedOutcome
             {
-                get
-                {
-                    return this.expectedOutcomeField;
-                }
+                get => expectedOutcomeField;
                 set
                 {
-                    this.expectedOutcomeField = value;
-                    this.RaisePropertyChanged("ExpectedOutcome");
+                    expectedOutcomeField = value;
+                    RaisePropertyChanged("ExpectedOutcome");
                 }
             }
 
@@ -6100,14 +5299,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6115,7 +5311,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6143,14 +5339,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredReferralReason", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -6158,14 +5351,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "normalizedString", Order = 1)]
             public string Comment
             {
-                get
-                {
-                    return this.commentField;
-                }
+                get => commentField;
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -6173,14 +5363,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6188,7 +5375,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6217,14 +5404,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ComponentID ComponentID
             {
-                get
-                {
-                    return this.componentIDField;
-                }
+                get => componentIDField;
                 set
                 {
-                    this.componentIDField = value;
-                    this.RaisePropertyChanged("ComponentID");
+                    componentIDField = value;
+                    RaisePropertyChanged("ComponentID");
                 }
             }
 
@@ -6232,14 +5416,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CRN
             {
-                get
-                {
-                    return this.cRNField;
-                }
+                get => cRNField;
                 set
                 {
-                    this.cRNField = value;
-                    this.RaisePropertyChanged("CRN");
+                    cRNField = value;
+                    RaisePropertyChanged("CRN");
                 }
             }
 
@@ -6247,14 +5428,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -6262,14 +5440,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6277,7 +5452,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6306,14 +5481,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SpellOfCareID
             {
-                get
-                {
-                    return this.spellOfCareIDField;
-                }
+                get => spellOfCareIDField;
                 set
                 {
-                    this.spellOfCareIDField = value;
-                    this.RaisePropertyChanged("SpellOfCareID");
+                    spellOfCareIDField = value;
+                    RaisePropertyChanged("SpellOfCareID");
                 }
             }
 
@@ -6321,14 +5493,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string EpisodeID
             {
-                get
-                {
-                    return this.episodeIDField;
-                }
+                get => episodeIDField;
                 set
                 {
-                    this.episodeIDField = value;
-                    this.RaisePropertyChanged("EpisodeID");
+                    episodeIDField = value;
+                    RaisePropertyChanged("EpisodeID");
                 }
             }
 
@@ -6336,14 +5505,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EventID
             {
-                get
-                {
-                    return this.eventIDField;
-                }
+                get => eventIDField;
                 set
                 {
-                    this.eventIDField = value;
-                    this.RaisePropertyChanged("EventID");
+                    eventIDField = value;
+                    RaisePropertyChanged("EventID");
                 }
             }
 
@@ -6351,14 +5517,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6366,7 +5529,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6391,14 +5554,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Description
             {
-                get
-                {
-                    return this.descriptionField;
-                }
+                get => descriptionField;
                 set
                 {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                    descriptionField = value;
+                    RaisePropertyChanged("Description");
                 }
             }
 
@@ -6406,14 +5566,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Code
             {
-                get
-                {
-                    return this.codeField;
-                }
+                get => codeField;
                 set
                 {
-                    this.codeField = value;
-                    this.RaisePropertyChanged("Code");
+                    codeField = value;
+                    RaisePropertyChanged("Code");
                 }
             }
 
@@ -6421,7 +5578,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6468,14 +5625,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PATIENT_CARE_TYPE PatientCareType
             {
-                get
-                {
-                    return this.patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -6483,14 +5637,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public GENERAL_CODE_TYPE PatientCategory
             {
-                get
-                {
-                    return this.patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -6498,14 +5649,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime RequestDate
             {
-                get
-                {
-                    return this.requestDateField;
-                }
+                get => requestDateField;
                 set
                 {
-                    this.requestDateField = value;
-                    this.RaisePropertyChanged("RequestDate");
+                    requestDateField = value;
+                    RaisePropertyChanged("RequestDate");
                 }
             }
 
@@ -6513,14 +5661,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime RequestTime
             {
-                get
-                {
-                    return this.requestTimeField;
-                }
+                get => requestTimeField;
                 set
                 {
-                    this.requestTimeField = value;
-                    this.RaisePropertyChanged("RequestTime");
+                    requestTimeField = value;
+                    RaisePropertyChanged("RequestTime");
                 }
             }
 
@@ -6528,14 +5673,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestTimeSpecified
             {
-                get
-                {
-                    return this.requestTimeFieldSpecified;
-                }
+                get => requestTimeFieldSpecified;
                 set
                 {
-                    this.requestTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestTimeSpecified");
+                    requestTimeFieldSpecified = value;
+                    RaisePropertyChanged("RequestTimeSpecified");
                 }
             }
 
@@ -6543,14 +5685,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public TreatmentRequestIdentifiers TreatmentIdentifiers
             {
-                get
-                {
-                    return this.treatmentIdentifiersField;
-                }
+                get => treatmentIdentifiersField;
                 set
                 {
-                    this.treatmentIdentifiersField = value;
-                    this.RaisePropertyChanged("TreatmentIdentifiers");
+                    treatmentIdentifiersField = value;
+                    RaisePropertyChanged("TreatmentIdentifiers");
                 }
             }
 
@@ -6558,14 +5697,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CLINICAL_CIRCUMSTANCE_TYPE TreatmentRequested
             {
-                get
-                {
-                    return this.treatmentRequestedField;
-                }
+                get => treatmentRequestedField;
                 set
                 {
-                    this.treatmentRequestedField = value;
-                    this.RaisePropertyChanged("TreatmentRequested");
+                    treatmentRequestedField = value;
+                    RaisePropertyChanged("TreatmentRequested");
                 }
             }
 
@@ -6573,14 +5709,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return this.assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -6588,14 +5721,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string AssessedUrgencyReason
             {
-                get
-                {
-                    return this.assessedUrgencyReasonField;
-                }
+                get => assessedUrgencyReasonField;
                 set
                 {
-                    this.assessedUrgencyReasonField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyReason");
+                    assessedUrgencyReasonField = value;
+                    RaisePropertyChanged("AssessedUrgencyReason");
                 }
             }
 
@@ -6603,14 +5733,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Comment
             {
-                get
-                {
-                    return this.commentField;
-                }
+                get => commentField;
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -6618,14 +5745,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public TreatmentRequestInfoReferralDetails ReferralDetails
             {
-                get
-                {
-                    return this.referralDetailsField;
-                }
+                get => referralDetailsField;
                 set
                 {
-                    this.referralDetailsField = value;
-                    this.RaisePropertyChanged("ReferralDetails");
+                    referralDetailsField = value;
+                    RaisePropertyChanged("ReferralDetails");
                 }
             }
 
@@ -6633,14 +5757,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public WAITING_TIMES_DATA_TYPE WaitingTimesData
             {
-                get
-                {
-                    return this.waitingTimesDataField;
-                }
+                get => waitingTimesDataField;
                 set
                 {
-                    this.waitingTimesDataField = value;
-                    this.RaisePropertyChanged("WaitingTimesData");
+                    waitingTimesDataField = value;
+                    RaisePropertyChanged("WaitingTimesData");
                 }
             }
 
@@ -6648,14 +5769,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 11)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6663,7 +5781,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6694,14 +5812,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE ReferralIdentifier
             {
-                get
-                {
-                    return this.referralIdentifierField;
-                }
+                get => referralIdentifierField;
                 set
                 {
-                    this.referralIdentifierField = value;
-                    this.RaisePropertyChanged("ReferralIdentifier");
+                    referralIdentifierField = value;
+                    RaisePropertyChanged("ReferralIdentifier");
                 }
             }
 
@@ -6709,14 +5824,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public REFERRAL_REASON_TYPE ReferralReason
             {
-                get
-                {
-                    return this.referralReasonField;
-                }
+                get => referralReasonField;
                 set
                 {
-                    this.referralReasonField = value;
-                    this.RaisePropertyChanged("ReferralReason");
+                    referralReasonField = value;
+                    RaisePropertyChanged("ReferralReason");
                 }
             }
 
@@ -6724,14 +5836,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ReferralUrgencyValue
             {
-                get
-                {
-                    return this.referralUrgencyValueField;
-                }
+                get => referralUrgencyValueField;
                 set
                 {
-                    this.referralUrgencyValueField = value;
-                    this.RaisePropertyChanged("ReferralUrgencyValue");
+                    referralUrgencyValueField = value;
+                    RaisePropertyChanged("ReferralUrgencyValue");
                 }
             }
 
@@ -6739,14 +5848,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string ReferralUrgencyReason
             {
-                get
-                {
-                    return this.referralUrgencyReasonField;
-                }
+                get => referralUrgencyReasonField;
                 set
                 {
-                    this.referralUrgencyReasonField = value;
-                    this.RaisePropertyChanged("ReferralUrgencyReason");
+                    referralUrgencyReasonField = value;
+                    RaisePropertyChanged("ReferralUrgencyReason");
                 }
             }
 
@@ -6754,14 +5860,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6769,7 +5872,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6806,14 +5909,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return this.recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -6821,14 +5921,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return this.patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -6836,14 +5933,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TreatmentRequestInfo TreatmentRequestPrf
             {
-                get
-                {
-                    return this.treatmentRequestPrfField;
-                }
+                get => treatmentRequestPrfField;
                 set
                 {
-                    this.treatmentRequestPrfField = value;
-                    this.RaisePropertyChanged("TreatmentRequestPrf");
+                    treatmentRequestPrfField = value;
+                    RaisePropertyChanged("TreatmentRequestPrf");
                 }
             }
 
@@ -6851,14 +5945,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TreatmentRequestStatusType RequestStatusPrf
             {
-                get
-                {
-                    return this.requestStatusPrfField;
-                }
+                get => requestStatusPrfField;
                 set
                 {
-                    this.requestStatusPrfField = value;
-                    this.RaisePropertyChanged("RequestStatusPrf");
+                    requestStatusPrfField = value;
+                    RaisePropertyChanged("RequestStatusPrf");
                 }
             }
 
@@ -6866,14 +5957,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public AttendanceRequestedType AttendanceRequestedPrf
             {
-                get
-                {
-                    return this.attendanceRequestedPrfField;
-                }
+                get => attendanceRequestedPrfField;
                 set
                 {
-                    this.attendanceRequestedPrfField = value;
-                    this.RaisePropertyChanged("AttendanceRequestedPrf");
+                    attendanceRequestedPrfField = value;
+                    RaisePropertyChanged("AttendanceRequestedPrf");
                 }
             }
 
@@ -6881,14 +5969,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public TreatmentRequestOutcomeType RequestOutcomePrf
             {
-                get
-                {
-                    return this.requestOutcomePrfField;
-                }
+                get => requestOutcomePrfField;
                 set
                 {
-                    this.requestOutcomePrfField = value;
-                    this.RaisePropertyChanged("RequestOutcomePrf");
+                    requestOutcomePrfField = value;
+                    RaisePropertyChanged("RequestOutcomePrf");
                 }
             }
 
@@ -6896,14 +5981,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public TreatmentRequestDeliveryScheduleType DeliveryStatusPrf
             {
-                get
-                {
-                    return this.deliveryStatusPrfField;
-                }
+                get => deliveryStatusPrfField;
                 set
                 {
-                    this.deliveryStatusPrfField = value;
-                    this.RaisePropertyChanged("DeliveryStatusPrf");
+                    deliveryStatusPrfField = value;
+                    RaisePropertyChanged("DeliveryStatusPrf");
                 }
             }
 
@@ -6911,14 +5993,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -6926,7 +6005,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -6955,14 +6034,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PATIENT_DEMOGRAPHICS_TYPE BasicDemographics
             {
-                get
-                {
-                    return this.basicDemographicsField;
-                }
+                get => basicDemographicsField;
                 set
                 {
-                    this.basicDemographicsField = value;
-                    this.RaisePropertyChanged("BasicDemographics");
+                    basicDemographicsField = value;
+                    RaisePropertyChanged("BasicDemographics");
                 }
             }
 
@@ -6970,14 +6046,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SOCIAL_CIRCUMSTANCES_TYPE SocialCircumstances
             {
-                get
-                {
-                    return this.socialCircumstancesField;
-                }
+                get => socialCircumstancesField;
                 set
                 {
-                    this.socialCircumstancesField = value;
-                    this.RaisePropertyChanged("SocialCircumstances");
+                    socialCircumstancesField = value;
+                    RaisePropertyChanged("SocialCircumstances");
                 }
             }
 
@@ -6985,14 +6058,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public PatientExtendedInformation ExtendedDemographics
             {
-                get
-                {
-                    return this.extendedDemographicsField;
-                }
+                get => extendedDemographicsField;
                 set
                 {
-                    this.extendedDemographicsField = value;
-                    this.RaisePropertyChanged("ExtendedDemographics");
+                    extendedDemographicsField = value;
+                    RaisePropertyChanged("ExtendedDemographics");
                 }
             }
 
@@ -7000,14 +6070,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7015,7 +6082,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7064,14 +6131,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientId", Order = 0)]
             public ID_TYPE[] PatientId
             {
-                get
-                {
-                    return this.patientIdField;
-                }
+                get => patientIdField;
                 set
                 {
-                    this.patientIdField = value;
-                    this.RaisePropertyChanged("PatientId");
+                    patientIdField = value;
+                    RaisePropertyChanged("PatientId");
                 }
             }
 
@@ -7079,14 +6143,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientName", Order = 1)]
             public PERSONAL_NAME_TYPE[] PatientName
             {
-                get
-                {
-                    return this.patientNameField;
-                }
+                get => patientNameField;
                 set
                 {
-                    this.patientNameField = value;
-                    this.RaisePropertyChanged("PatientName");
+                    patientNameField = value;
+                    RaisePropertyChanged("PatientName");
                 }
             }
 
@@ -7094,14 +6155,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientAddress", Order = 2)]
             public ADDRESS_TYPE[] PatientAddress
             {
-                get
-                {
-                    return this.patientAddressField;
-                }
+                get => patientAddressField;
                 set
                 {
-                    this.patientAddressField = value;
-                    this.RaisePropertyChanged("PatientAddress");
+                    patientAddressField = value;
+                    RaisePropertyChanged("PatientAddress");
                 }
             }
 
@@ -7109,14 +6167,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientTelecom", Order = 3)]
             public TELECOM_TYPE[] PatientTelecom
             {
-                get
-                {
-                    return this.patientTelecomField;
-                }
+                get => patientTelecomField;
                 set
                 {
-                    this.patientTelecomField = value;
-                    this.RaisePropertyChanged("PatientTelecom");
+                    patientTelecomField = value;
+                    RaisePropertyChanged("PatientTelecom");
                 }
             }
 
@@ -7124,14 +6179,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 4)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -7139,14 +6191,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -7154,14 +6203,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public decimal Age
             {
-                get
-                {
-                    return this.ageField;
-                }
+                get => ageField;
                 set
                 {
-                    this.ageField = value;
-                    this.RaisePropertyChanged("Age");
+                    ageField = value;
+                    RaisePropertyChanged("Age");
                 }
             }
 
@@ -7169,14 +6215,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AgeSpecified
             {
-                get
-                {
-                    return this.ageFieldSpecified;
-                }
+                get => ageFieldSpecified;
                 set
                 {
-                    this.ageFieldSpecified = value;
-                    this.RaisePropertyChanged("AgeSpecified");
+                    ageFieldSpecified = value;
+                    RaisePropertyChanged("AgeSpecified");
                 }
             }
 
@@ -7184,14 +6227,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string SexAtBirth
             {
-                get
-                {
-                    return this.sexAtBirthField;
-                }
+                get => sexAtBirthField;
                 set
                 {
-                    this.sexAtBirthField = value;
-                    this.RaisePropertyChanged("SexAtBirth");
+                    sexAtBirthField = value;
+                    RaisePropertyChanged("SexAtBirth");
                 }
             }
 
@@ -7199,14 +6239,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string Sex
             {
-                get
-                {
-                    return this.sexField;
-                }
+                get => sexField;
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -7214,14 +6251,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string MaritalStatus
             {
-                get
-                {
-                    return this.maritalStatusField;
-                }
+                get => maritalStatusField;
                 set
                 {
-                    this.maritalStatusField = value;
-                    this.RaisePropertyChanged("MaritalStatus");
+                    maritalStatusField = value;
+                    RaisePropertyChanged("MaritalStatus");
                 }
             }
 
@@ -7229,14 +6263,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public HCP_DETAIL_TYPE RegisteredGp
             {
-                get
-                {
-                    return this.registeredGpField;
-                }
+                get => registeredGpField;
                 set
                 {
-                    this.registeredGpField = value;
-                    this.RaisePropertyChanged("RegisteredGp");
+                    registeredGpField = value;
+                    RaisePropertyChanged("RegisteredGp");
                 }
             }
 
@@ -7244,14 +6275,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public HEALTH_BOARD_TYPE HealthBoardOfResidence
             {
-                get
-                {
-                    return this.healthBoardOfResidenceField;
-                }
+                get => healthBoardOfResidenceField;
                 set
                 {
-                    this.healthBoardOfResidenceField = value;
-                    this.RaisePropertyChanged("HealthBoardOfResidence");
+                    healthBoardOfResidenceField = value;
+                    RaisePropertyChanged("HealthBoardOfResidence");
                 }
             }
 
@@ -7259,14 +6287,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 11)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7274,7 +6299,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7299,14 +6324,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string HealthBoardCipher
             {
-                get
-                {
-                    return this.healthBoardCipherField;
-                }
+                get => healthBoardCipherField;
                 set
                 {
-                    this.healthBoardCipherField = value;
-                    this.RaisePropertyChanged("HealthBoardCipher");
+                    healthBoardCipherField = value;
+                    RaisePropertyChanged("HealthBoardCipher");
                 }
             }
 
@@ -7314,14 +6336,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE HealthBoardDetails
             {
-                get
-                {
-                    return this.healthBoardDetailsField;
-                }
+                get => healthBoardDetailsField;
                 set
                 {
-                    this.healthBoardDetailsField = value;
-                    this.RaisePropertyChanged("HealthBoardDetails");
+                    healthBoardDetailsField = value;
+                    RaisePropertyChanged("HealthBoardDetails");
                 }
             }
 
@@ -7329,7 +6348,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7367,14 +6386,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("HousingDetail", typeof(HOUSING_DETAIL_TYPE), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -7382,14 +6398,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Employment
             {
-                get
-                {
-                    return this.employmentField;
-                }
+                get => employmentField;
                 set
                 {
-                    this.employmentField = value;
-                    this.RaisePropertyChanged("Employment");
+                    employmentField = value;
+                    RaisePropertyChanged("Employment");
                 }
             }
 
@@ -7397,14 +6410,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Religion
             {
-                get
-                {
-                    return this.religionField;
-                }
+                get => religionField;
                 set
                 {
-                    this.religionField = value;
-                    this.RaisePropertyChanged("Religion");
+                    religionField = value;
+                    RaisePropertyChanged("Religion");
                 }
             }
 
@@ -7412,14 +6422,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string EthnicOrigin
             {
-                get
-                {
-                    return this.ethnicOriginField;
-                }
+                get => ethnicOriginField;
                 set
                 {
-                    this.ethnicOriginField = value;
-                    this.RaisePropertyChanged("EthnicOrigin");
+                    ethnicOriginField = value;
+                    RaisePropertyChanged("EthnicOrigin");
                 }
             }
 
@@ -7428,14 +6435,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("LanguageDetail", typeof(LANGUAGE_DETAIL_TYPE), Order = 4)]
             public object Item1
             {
-                get
-                {
-                    return this.item1Field;
-                }
+                get => item1Field;
                 set
                 {
-                    this.item1Field = value;
-                    this.RaisePropertyChanged("Item1");
+                    item1Field = value;
+                    RaisePropertyChanged("Item1");
                 }
             }
 
@@ -7443,14 +6447,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Pets
             {
-                get
-                {
-                    return this.petsField;
-                }
+                get => petsField;
                 set
                 {
-                    this.petsField = value;
-                    this.RaisePropertyChanged("Pets");
+                    petsField = value;
+                    RaisePropertyChanged("Pets");
                 }
             }
 
@@ -7458,14 +6459,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public PERSONAL_FINANCES_TYPE PersonalFinances
             {
-                get
-                {
-                    return this.personalFinancesField;
-                }
+                get => personalFinancesField;
                 set
                 {
-                    this.personalFinancesField = value;
-                    this.RaisePropertyChanged("PersonalFinances");
+                    personalFinancesField = value;
+                    RaisePropertyChanged("PersonalFinances");
                 }
             }
 
@@ -7473,14 +6471,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7488,7 +6483,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7529,21 +6524,18 @@ namespace SciStoreApplication.Properties
 
             public HOUSING_DETAIL_TYPE()
             {
-                this.communityAlarmField = false;
+                communityAlarmField = false;
             }
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Accomodation
             {
-                get
-                {
-                    return this.accomodationField;
-                }
+                get => accomodationField;
                 set
                 {
-                    this.accomodationField = value;
-                    this.RaisePropertyChanged("Accomodation");
+                    accomodationField = value;
+                    RaisePropertyChanged("Accomodation");
                 }
             }
 
@@ -7551,14 +6543,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool CommunalControlledDoor
             {
-                get
-                {
-                    return this.communalControlledDoorField;
-                }
+                get => communalControlledDoorField;
                 set
                 {
-                    this.communalControlledDoorField = value;
-                    this.RaisePropertyChanged("CommunalControlledDoor");
+                    communalControlledDoorField = value;
+                    RaisePropertyChanged("CommunalControlledDoor");
                 }
             }
 
@@ -7566,14 +6555,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool CommunalControlledDoorSpecified
             {
-                get
-                {
-                    return this.communalControlledDoorFieldSpecified;
-                }
+                get => communalControlledDoorFieldSpecified;
                 set
                 {
-                    this.communalControlledDoorFieldSpecified = value;
-                    this.RaisePropertyChanged("CommunalControlledDoorSpecified");
+                    communalControlledDoorFieldSpecified = value;
+                    RaisePropertyChanged("CommunalControlledDoorSpecified");
                 }
             }
 
@@ -7581,14 +6567,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool IndividualControlledDoor
             {
-                get
-                {
-                    return this.individualControlledDoorField;
-                }
+                get => individualControlledDoorField;
                 set
                 {
-                    this.individualControlledDoorField = value;
-                    this.RaisePropertyChanged("IndividualControlledDoor");
+                    individualControlledDoorField = value;
+                    RaisePropertyChanged("IndividualControlledDoor");
                 }
             }
 
@@ -7596,14 +6579,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IndividualControlledDoorSpecified
             {
-                get
-                {
-                    return this.individualControlledDoorFieldSpecified;
-                }
+                get => individualControlledDoorFieldSpecified;
                 set
                 {
-                    this.individualControlledDoorFieldSpecified = value;
-                    this.RaisePropertyChanged("IndividualControlledDoorSpecified");
+                    individualControlledDoorFieldSpecified = value;
+                    RaisePropertyChanged("IndividualControlledDoorSpecified");
                 }
             }
 
@@ -7611,14 +6591,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string KeyPadNumber
             {
-                get
-                {
-                    return this.keyPadNumberField;
-                }
+                get => keyPadNumberField;
                 set
                 {
-                    this.keyPadNumberField = value;
-                    this.RaisePropertyChanged("KeyPadNumber");
+                    keyPadNumberField = value;
+                    RaisePropertyChanged("KeyPadNumber");
                 }
             }
 
@@ -7627,14 +6604,11 @@ namespace SciStoreApplication.Properties
             [System.ComponentModel.DefaultValueAttribute(false)]
             public bool CommunityAlarm
             {
-                get
-                {
-                    return this.communityAlarmField;
-                }
+                get => communityAlarmField;
                 set
                 {
-                    this.communityAlarmField = value;
-                    this.RaisePropertyChanged("CommunityAlarm");
+                    communityAlarmField = value;
+                    RaisePropertyChanged("CommunityAlarm");
                 }
             }
 
@@ -7642,14 +6616,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public bool SmokeAlarm
             {
-                get
-                {
-                    return this.smokeAlarmField;
-                }
+                get => smokeAlarmField;
                 set
                 {
-                    this.smokeAlarmField = value;
-                    this.RaisePropertyChanged("SmokeAlarm");
+                    smokeAlarmField = value;
+                    RaisePropertyChanged("SmokeAlarm");
                 }
             }
 
@@ -7657,14 +6628,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SmokeAlarmSpecified
             {
-                get
-                {
-                    return this.smokeAlarmFieldSpecified;
-                }
+                get => smokeAlarmFieldSpecified;
                 set
                 {
-                    this.smokeAlarmFieldSpecified = value;
-                    this.RaisePropertyChanged("SmokeAlarmSpecified");
+                    smokeAlarmFieldSpecified = value;
+                    RaisePropertyChanged("SmokeAlarmSpecified");
                 }
             }
 
@@ -7672,14 +6640,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string Tenure
             {
-                get
-                {
-                    return this.tenureField;
-                }
+                get => tenureField;
                 set
                 {
-                    this.tenureField = value;
-                    this.RaisePropertyChanged("Tenure");
+                    tenureField = value;
+                    RaisePropertyChanged("Tenure");
                 }
             }
 
@@ -7687,14 +6652,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string HouseholdComposition
             {
-                get
-                {
-                    return this.householdCompositionField;
-                }
+                get => householdCompositionField;
                 set
                 {
-                    this.householdCompositionField = value;
-                    this.RaisePropertyChanged("HouseholdComposition");
+                    householdCompositionField = value;
+                    RaisePropertyChanged("HouseholdComposition");
                 }
             }
 
@@ -7702,7 +6664,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7729,14 +6691,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PreferredLanguage
             {
-                get
-                {
-                    return this.preferredLanguageField;
-                }
+                get => preferredLanguageField;
                 set
                 {
-                    this.preferredLanguageField = value;
-                    this.RaisePropertyChanged("PreferredLanguage");
+                    preferredLanguageField = value;
+                    RaisePropertyChanged("PreferredLanguage");
                 }
             }
 
@@ -7744,14 +6703,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public bool InterpreterRequired
             {
-                get
-                {
-                    return this.interpreterRequiredField;
-                }
+                get => interpreterRequiredField;
                 set
                 {
-                    this.interpreterRequiredField = value;
-                    this.RaisePropertyChanged("InterpreterRequired");
+                    interpreterRequiredField = value;
+                    RaisePropertyChanged("InterpreterRequired");
                 }
             }
 
@@ -7759,14 +6715,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UsualInterpreter", Order = 2)]
             public CARER_TYPE[] UsualInterpreter
             {
-                get
-                {
-                    return this.usualInterpreterField;
-                }
+                get => usualInterpreterField;
                 set
                 {
-                    this.usualInterpreterField = value;
-                    this.RaisePropertyChanged("UsualInterpreter");
+                    usualInterpreterField = value;
+                    RaisePropertyChanged("UsualInterpreter");
                 }
             }
 
@@ -7774,7 +6727,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7803,21 +6756,18 @@ namespace SciStoreApplication.Properties
 
             public CARER_TYPE()
             {
-                this.keyHolderField = false;
+                keyHolderField = false;
             }
 
             /// <remarks/>
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSON_DEMOGRAPHICS_TYPE ContactDetails
             {
-                get
-                {
-                    return this.contactDetailsField;
-                }
+                get => contactDetailsField;
                 set
                 {
-                    this.contactDetailsField = value;
-                    this.RaisePropertyChanged("ContactDetails");
+                    contactDetailsField = value;
+                    RaisePropertyChanged("ContactDetails");
                 }
             }
 
@@ -7826,14 +6776,11 @@ namespace SciStoreApplication.Properties
             [System.ComponentModel.DefaultValueAttribute(false)]
             public bool KeyHolder
             {
-                get
-                {
-                    return this.keyHolderField;
-                }
+                get => keyHolderField;
                 set
                 {
-                    this.keyHolderField = value;
-                    this.RaisePropertyChanged("KeyHolder");
+                    keyHolderField = value;
+                    RaisePropertyChanged("KeyHolder");
                 }
             }
 
@@ -7841,14 +6788,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Relationship
             {
-                get
-                {
-                    return this.relationshipField;
-                }
+                get => relationshipField;
                 set
                 {
-                    this.relationshipField = value;
-                    this.RaisePropertyChanged("Relationship");
+                    relationshipField = value;
+                    RaisePropertyChanged("Relationship");
                 }
             }
 
@@ -7856,14 +6800,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Comments
             {
-                get
-                {
-                    return this.commentsField;
-                }
+                get => commentsField;
                 set
                 {
-                    this.commentsField = value;
-                    this.RaisePropertyChanged("Comments");
+                    commentsField = value;
+                    RaisePropertyChanged("Comments");
                 }
             }
 
@@ -7871,14 +6812,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7886,7 +6824,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -7915,14 +6853,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Name", Order = 0)]
             public PERSONAL_NAME_TYPE[] Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -7930,14 +6865,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Address", Order = 1)]
             public ADDRESS_TYPE[] Address
             {
-                get
-                {
-                    return this.addressField;
-                }
+                get => addressField;
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -7945,14 +6877,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Telecom", Order = 2)]
             public TELECOM_TYPE[] Telecom
             {
-                get
-                {
-                    return this.telecomField;
-                }
+                get => telecomField;
                 set
                 {
-                    this.telecomField = value;
-                    this.RaisePropertyChanged("Telecom");
+                    telecomField = value;
+                    RaisePropertyChanged("Telecom");
                 }
             }
 
@@ -7960,14 +6889,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -7975,7 +6901,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8010,14 +6936,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSONAL_FINANCES_TYPEBenefitsCheckRequired BenefitsCheckRequired
             {
-                get
-                {
-                    return this.benefitsCheckRequiredField;
-                }
+                get => benefitsCheckRequiredField;
                 set
                 {
-                    this.benefitsCheckRequiredField = value;
-                    this.RaisePropertyChanged("BenefitsCheckRequired");
+                    benefitsCheckRequiredField = value;
+                    RaisePropertyChanged("BenefitsCheckRequired");
                 }
             }
 
@@ -8025,14 +6948,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BenefitsCheckRequiredSpecified
             {
-                get
-                {
-                    return this.benefitsCheckRequiredFieldSpecified;
-                }
+                get => benefitsCheckRequiredFieldSpecified;
                 set
                 {
-                    this.benefitsCheckRequiredFieldSpecified = value;
-                    this.RaisePropertyChanged("BenefitsCheckRequiredSpecified");
+                    benefitsCheckRequiredFieldSpecified = value;
+                    RaisePropertyChanged("BenefitsCheckRequiredSpecified");
                 }
             }
 
@@ -8040,14 +6960,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("BenefitsReceived", Order = 1)]
             public PERSONAL_FINANCES_TYPEBenefitsReceived[] BenefitsReceived
             {
-                get
-                {
-                    return this.benefitsReceivedField;
-                }
+                get => benefitsReceivedField;
                 set
                 {
-                    this.benefitsReceivedField = value;
-                    this.RaisePropertyChanged("BenefitsReceived");
+                    benefitsReceivedField = value;
+                    RaisePropertyChanged("BenefitsReceived");
                 }
             }
 
@@ -8055,14 +6972,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string PensionDay
             {
-                get
-                {
-                    return this.pensionDayField;
-                }
+                get => pensionDayField;
                 set
                 {
-                    this.pensionDayField = value;
-                    this.RaisePropertyChanged("PensionDay");
+                    pensionDayField = value;
+                    RaisePropertyChanged("PensionDay");
                 }
             }
 
@@ -8070,14 +6984,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string NINumber
             {
-                get
-                {
-                    return this.nINumberField;
-                }
+                get => nINumberField;
                 set
                 {
-                    this.nINumberField = value;
-                    this.RaisePropertyChanged("NINumber");
+                    nINumberField = value;
+                    RaisePropertyChanged("NINumber");
                 }
             }
 
@@ -8085,14 +6996,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public bool SelfManaged
             {
-                get
-                {
-                    return this.selfManagedField;
-                }
+                get => selfManagedField;
                 set
                 {
-                    this.selfManagedField = value;
-                    this.RaisePropertyChanged("SelfManaged");
+                    selfManagedField = value;
+                    RaisePropertyChanged("SelfManaged");
                 }
             }
 
@@ -8100,14 +7008,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CARER_TYPE FinancialManager
             {
-                get
-                {
-                    return this.financialManagerField;
-                }
+                get => financialManagerField;
                 set
                 {
-                    this.financialManagerField = value;
-                    this.RaisePropertyChanged("FinancialManager");
+                    financialManagerField = value;
+                    RaisePropertyChanged("FinancialManager");
                 }
             }
 
@@ -8115,7 +7020,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8162,14 +7067,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string BenefitName
             {
-                get
-                {
-                    return this.benefitNameField;
-                }
+                get => benefitNameField;
                 set
                 {
-                    this.benefitNameField = value;
-                    this.RaisePropertyChanged("BenefitName");
+                    benefitNameField = value;
+                    RaisePropertyChanged("BenefitName");
                 }
             }
 
@@ -8177,14 +7079,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public decimal Amount
             {
-                get
-                {
-                    return this.amountField;
-                }
+                get => amountField;
                 set
                 {
-                    this.amountField = value;
-                    this.RaisePropertyChanged("Amount");
+                    amountField = value;
+                    RaisePropertyChanged("Amount");
                 }
             }
 
@@ -8192,14 +7091,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AmountSpecified
             {
-                get
-                {
-                    return this.amountFieldSpecified;
-                }
+                get => amountFieldSpecified;
                 set
                 {
-                    this.amountFieldSpecified = value;
-                    this.RaisePropertyChanged("AmountSpecified");
+                    amountFieldSpecified = value;
+                    RaisePropertyChanged("AmountSpecified");
                 }
             }
 
@@ -8207,7 +7103,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8276,14 +7172,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE CurrentUID
             {
-                get
-                {
-                    return this.currentUIDField;
-                }
+                get => currentUIDField;
                 set
                 {
-                    this.currentUIDField = value;
-                    this.RaisePropertyChanged("CurrentUID");
+                    currentUIDField = value;
+                    RaisePropertyChanged("CurrentUID");
                 }
             }
 
@@ -8291,14 +7184,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientUCPN", Order = 1)]
             public UniqueCarePathwayNumberDataType[] PatientUCPN
             {
-                get
-                {
-                    return this.patientUCPNField;
-                }
+                get => patientUCPNField;
                 set
                 {
-                    this.patientUCPNField = value;
-                    this.RaisePropertyChanged("PatientUCPN");
+                    patientUCPNField = value;
+                    RaisePropertyChanged("PatientUCPN");
                 }
             }
 
@@ -8306,14 +7196,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool Consent
             {
-                get
-                {
-                    return this.consentField;
-                }
+                get => consentField;
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -8321,14 +7208,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ConsentSpecified
             {
-                get
-                {
-                    return this.consentFieldSpecified;
-                }
+                get => consentFieldSpecified;
                 set
                 {
-                    this.consentFieldSpecified = value;
-                    this.RaisePropertyChanged("ConsentSpecified");
+                    consentFieldSpecified = value;
+                    RaisePropertyChanged("ConsentSpecified");
                 }
             }
 
@@ -8336,14 +7220,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public HCP_DETAIL_TYPE Consultant
             {
-                get
-                {
-                    return this.consultantField;
-                }
+                get => consultantField;
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -8351,14 +7232,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ORGANISATION_TYPE Hospital
             {
-                get
-                {
-                    return this.hospitalField;
-                }
+                get => hospitalField;
                 set
                 {
-                    this.hospitalField = value;
-                    this.RaisePropertyChanged("Hospital");
+                    hospitalField = value;
+                    RaisePropertyChanged("Hospital");
                 }
             }
 
@@ -8366,14 +7244,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public ORGANISATION_TYPE Ward
             {
-                get
-                {
-                    return this.wardField;
-                }
+                get => wardField;
                 set
                 {
-                    this.wardField = value;
-                    this.RaisePropertyChanged("Ward");
+                    wardField = value;
+                    RaisePropertyChanged("Ward");
                 }
             }
 
@@ -8381,14 +7256,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public ORGANISATION_TYPE GPpractice
             {
-                get
-                {
-                    return this.gPpracticeField;
-                }
+                get => gPpracticeField;
                 set
                 {
-                    this.gPpracticeField = value;
-                    this.RaisePropertyChanged("GPpractice");
+                    gPpracticeField = value;
+                    RaisePropertyChanged("GPpractice");
                 }
             }
 
@@ -8396,14 +7268,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool IsDead
             {
-                get
-                {
-                    return this.isDeadField;
-                }
+                get => isDeadField;
                 set
                 {
-                    this.isDeadField = value;
-                    this.RaisePropertyChanged("IsDead");
+                    isDeadField = value;
+                    RaisePropertyChanged("IsDead");
                 }
             }
 
@@ -8411,14 +7280,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IsDeadSpecified
             {
-                get
-                {
-                    return this.isDeadFieldSpecified;
-                }
+                get => isDeadFieldSpecified;
                 set
                 {
-                    this.isDeadFieldSpecified = value;
-                    this.RaisePropertyChanged("IsDeadSpecified");
+                    isDeadFieldSpecified = value;
+                    RaisePropertyChanged("IsDeadSpecified");
                 }
             }
 
@@ -8426,14 +7292,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", IsNullable = true, Order = 8)]
             public System.Nullable<System.DateTime> DateOfDeath
             {
-                get
-                {
-                    return this.dateOfDeathField;
-                }
+                get => dateOfDeathField;
                 set
                 {
-                    this.dateOfDeathField = value;
-                    this.RaisePropertyChanged("DateOfDeath");
+                    dateOfDeathField = value;
+                    RaisePropertyChanged("DateOfDeath");
                 }
             }
 
@@ -8441,14 +7304,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfDeathSpecified
             {
-                get
-                {
-                    return this.dateOfDeathFieldSpecified;
-                }
+                get => dateOfDeathFieldSpecified;
                 set
                 {
-                    this.dateOfDeathFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfDeathSpecified");
+                    dateOfDeathFieldSpecified = value;
+                    RaisePropertyChanged("DateOfDeathSpecified");
                 }
             }
 
@@ -8456,14 +7316,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", IsNullable = true, Order = 9)]
             public System.Nullable<System.DateTime> TimeofDeath
             {
-                get
-                {
-                    return this.timeofDeathField;
-                }
+                get => timeofDeathField;
                 set
                 {
-                    this.timeofDeathField = value;
-                    this.RaisePropertyChanged("TimeofDeath");
+                    timeofDeathField = value;
+                    RaisePropertyChanged("TimeofDeath");
                 }
             }
 
@@ -8471,14 +7328,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TimeofDeathSpecified
             {
-                get
-                {
-                    return this.timeofDeathFieldSpecified;
-                }
+                get => timeofDeathFieldSpecified;
                 set
                 {
-                    this.timeofDeathFieldSpecified = value;
-                    this.RaisePropertyChanged("TimeofDeathSpecified");
+                    timeofDeathFieldSpecified = value;
+                    RaisePropertyChanged("TimeofDeathSpecified");
                 }
             }
 
@@ -8486,14 +7340,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string LocationOfDeath
             {
-                get
-                {
-                    return this.locationOfDeathField;
-                }
+                get => locationOfDeathField;
                 set
                 {
-                    this.locationOfDeathField = value;
-                    this.RaisePropertyChanged("LocationOfDeath");
+                    locationOfDeathField = value;
+                    RaisePropertyChanged("LocationOfDeath");
                 }
             }
 
@@ -8502,14 +7353,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("PreviousName", IsNullable = false)]
             public PERSONAL_NAME_TYPE[] PreviousNames
             {
-                get
-                {
-                    return this.previousNamesField;
-                }
+                get => previousNamesField;
                 set
                 {
-                    this.previousNamesField = value;
-                    this.RaisePropertyChanged("PreviousNames");
+                    previousNamesField = value;
+                    RaisePropertyChanged("PreviousNames");
                 }
             }
 
@@ -8517,14 +7365,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 12)]
             public string CurrentPatientStatus
             {
-                get
-                {
-                    return this.currentPatientStatusField;
-                }
+                get => currentPatientStatusField;
                 set
                 {
-                    this.currentPatientStatusField = value;
-                    this.RaisePropertyChanged("CurrentPatientStatus");
+                    currentPatientStatusField = value;
+                    RaisePropertyChanged("CurrentPatientStatus");
                 }
             }
 
@@ -8532,14 +7377,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 13)]
             public string PatientNationality
             {
-                get
-                {
-                    return this.patientNationalityField;
-                }
+                get => patientNationalityField;
                 set
                 {
-                    this.patientNationalityField = value;
-                    this.RaisePropertyChanged("PatientNationality");
+                    patientNationalityField = value;
+                    RaisePropertyChanged("PatientNationality");
                 }
             }
 
@@ -8547,14 +7389,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 14)]
             public string OverseasStatus
             {
-                get
-                {
-                    return this.overseasStatusField;
-                }
+                get => overseasStatusField;
                 set
                 {
-                    this.overseasStatusField = value;
-                    this.RaisePropertyChanged("OverseasStatus");
+                    overseasStatusField = value;
+                    RaisePropertyChanged("OverseasStatus");
                 }
             }
 
@@ -8562,14 +7401,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public bool IsAnomymous
             {
-                get
-                {
-                    return this.isAnomymousField;
-                }
+                get => isAnomymousField;
                 set
                 {
-                    this.isAnomymousField = value;
-                    this.RaisePropertyChanged("IsAnomymous");
+                    isAnomymousField = value;
+                    RaisePropertyChanged("IsAnomymous");
                 }
             }
 
@@ -8577,14 +7413,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IsAnomymousSpecified
             {
-                get
-                {
-                    return this.isAnomymousFieldSpecified;
-                }
+                get => isAnomymousFieldSpecified;
                 set
                 {
-                    this.isAnomymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IsAnomymousSpecified");
+                    isAnomymousFieldSpecified = value;
+                    RaisePropertyChanged("IsAnomymousSpecified");
                 }
             }
 
@@ -8592,14 +7425,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public NextOfKinInfo NextOfKin
             {
-                get
-                {
-                    return this.nextOfKinField;
-                }
+                get => nextOfKinField;
                 set
                 {
-                    this.nextOfKinField = value;
-                    this.RaisePropertyChanged("NextOfKin");
+                    nextOfKinField = value;
+                    RaisePropertyChanged("NextOfKin");
                 }
             }
 
@@ -8607,14 +7437,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -8622,14 +7449,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8637,7 +7461,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8662,14 +7486,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -8677,14 +7498,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DataType", Order = 1)]
             public string[] DataType
             {
-                get
-                {
-                    return this.dataTypeField;
-                }
+                get => dataTypeField;
                 set
                 {
-                    this.dataTypeField = value;
-                    this.RaisePropertyChanged("DataType");
+                    dataTypeField = value;
+                    RaisePropertyChanged("DataType");
                 }
             }
 
@@ -8692,7 +7510,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8721,14 +7539,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PERSONAL_NAME_TYPE KinName
             {
-                get
-                {
-                    return this.kinNameField;
-                }
+                get => kinNameField;
                 set
                 {
-                    this.kinNameField = value;
-                    this.RaisePropertyChanged("KinName");
+                    kinNameField = value;
+                    RaisePropertyChanged("KinName");
                 }
             }
 
@@ -8736,14 +7551,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADDRESS_TYPE KinAddress
             {
-                get
-                {
-                    return this.kinAddressField;
-                }
+                get => kinAddressField;
                 set
                 {
-                    this.kinAddressField = value;
-                    this.RaisePropertyChanged("KinAddress");
+                    kinAddressField = value;
+                    RaisePropertyChanged("KinAddress");
                 }
             }
 
@@ -8751,14 +7563,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("KinTelecom", Order = 2)]
             public TELECOM_TYPE[] KinTelecom
             {
-                get
-                {
-                    return this.kinTelecomField;
-                }
+                get => kinTelecomField;
                 set
                 {
-                    this.kinTelecomField = value;
-                    this.RaisePropertyChanged("KinTelecom");
+                    kinTelecomField = value;
+                    RaisePropertyChanged("KinTelecom");
                 }
             }
 
@@ -8766,14 +7575,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 3)]
             public string KinRelationship
             {
-                get
-                {
-                    return this.kinRelationshipField;
-                }
+                get => kinRelationshipField;
                 set
                 {
-                    this.kinRelationshipField = value;
-                    this.RaisePropertyChanged("KinRelationship");
+                    kinRelationshipField = value;
+                    RaisePropertyChanged("KinRelationship");
                 }
             }
 
@@ -8781,7 +7587,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8806,14 +7612,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ProviderIdentifier
             {
-                get
-                {
-                    return this.providerIdentifierField;
-                }
+                get => providerIdentifierField;
                 set
                 {
-                    this.providerIdentifierField = value;
-                    this.RaisePropertyChanged("ProviderIdentifier");
+                    providerIdentifierField = value;
+                    RaisePropertyChanged("ProviderIdentifier");
                 }
             }
 
@@ -8821,14 +7624,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8836,7 +7636,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8865,14 +7665,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -8880,14 +7677,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return this.treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -8895,14 +7689,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -8910,14 +7701,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8925,7 +7713,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -8952,14 +7740,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentLogSystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -8967,14 +7752,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TreatmentLog TreatmentLogDetails
             {
-                get
-                {
-                    return this.treatmentLogDetailsField;
-                }
+                get => treatmentLogDetailsField;
                 set
                 {
-                    this.treatmentLogDetailsField = value;
-                    this.RaisePropertyChanged("TreatmentLogDetails");
+                    treatmentLogDetailsField = value;
+                    RaisePropertyChanged("TreatmentLogDetails");
                 }
             }
 
@@ -8982,14 +7764,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -8997,7 +7776,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9024,14 +7803,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindTreatmentLogItemTreatmentLog TreatmentLog
             {
-                get
-                {
-                    return this.treatmentLogField;
-                }
+                get => treatmentLogField;
                 set
                 {
-                    this.treatmentLogField = value;
-                    this.RaisePropertyChanged("TreatmentLog");
+                    treatmentLogField = value;
+                    RaisePropertyChanged("TreatmentLog");
                 }
             }
 
@@ -9039,14 +7815,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -9054,14 +7827,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -9069,7 +7839,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9138,14 +7908,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return this.treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -9153,14 +7920,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -9168,14 +7932,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string PatientCareType
             {
-                get
-                {
-                    return this.patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -9183,14 +7944,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return this.requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -9198,14 +7956,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return this.requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -9213,14 +7968,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return this.requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -9228,14 +7980,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return this.requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -9243,14 +7992,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return this.recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -9258,14 +8004,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return this.assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -9273,14 +8016,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public System.DateTime RequestDateTime
             {
-                get
-                {
-                    return this.requestDateTimeField;
-                }
+                get => requestDateTimeField;
                 set
                 {
-                    this.requestDateTimeField = value;
-                    this.RaisePropertyChanged("RequestDateTime");
+                    requestDateTimeField = value;
+                    RaisePropertyChanged("RequestDateTime");
                 }
             }
 
@@ -9288,14 +8028,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestDateTimeSpecified
             {
-                get
-                {
-                    return this.requestDateTimeFieldSpecified;
-                }
+                get => requestDateTimeFieldSpecified;
                 set
                 {
-                    this.requestDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestDateTimeSpecified");
+                    requestDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("RequestDateTimeSpecified");
                 }
             }
 
@@ -9303,14 +8040,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public System.DateTime ToComeInTargetDateTime
             {
-                get
-                {
-                    return this.toComeInTargetDateTimeField;
-                }
+                get => toComeInTargetDateTimeField;
                 set
                 {
-                    this.toComeInTargetDateTimeField = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateTime");
+                    toComeInTargetDateTimeField = value;
+                    RaisePropertyChanged("ToComeInTargetDateTime");
                 }
             }
 
@@ -9318,14 +8052,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ToComeInTargetDateTimeSpecified
             {
-                get
-                {
-                    return this.toComeInTargetDateTimeFieldSpecified;
-                }
+                get => toComeInTargetDateTimeFieldSpecified;
                 set
                 {
-                    this.toComeInTargetDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ToComeInTargetDateTimeSpecified");
+                    toComeInTargetDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ToComeInTargetDateTimeSpecified");
                 }
             }
 
@@ -9333,14 +8064,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string PatientCarePointSiteId
             {
-                get
-                {
-                    return this.patientCarePointSiteIdField;
-                }
+                get => patientCarePointSiteIdField;
                 set
                 {
-                    this.patientCarePointSiteIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointSiteId");
+                    patientCarePointSiteIdField = value;
+                    RaisePropertyChanged("PatientCarePointSiteId");
                 }
             }
 
@@ -9348,14 +8076,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string PatientCarePointLocationId
             {
-                get
-                {
-                    return this.patientCarePointLocationIdField;
-                }
+                get => patientCarePointLocationIdField;
                 set
                 {
-                    this.patientCarePointLocationIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointLocationId");
+                    patientCarePointLocationIdField = value;
+                    RaisePropertyChanged("PatientCarePointLocationId");
                 }
             }
 
@@ -9363,14 +8088,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string PatientCarePointResponsibleHcpId
             {
-                get
-                {
-                    return this.patientCarePointResponsibleHcpIdField;
-                }
+                get => patientCarePointResponsibleHcpIdField;
                 set
                 {
-                    this.patientCarePointResponsibleHcpIdField = value;
-                    this.RaisePropertyChanged("PatientCarePointResponsibleHcpId");
+                    patientCarePointResponsibleHcpIdField = value;
+                    RaisePropertyChanged("PatientCarePointResponsibleHcpId");
                 }
             }
 
@@ -9378,14 +8100,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string PatientCarePointClinic
             {
-                get
-                {
-                    return this.patientCarePointClinicField;
-                }
+                get => patientCarePointClinicField;
                 set
                 {
-                    this.patientCarePointClinicField = value;
-                    this.RaisePropertyChanged("PatientCarePointClinic");
+                    patientCarePointClinicField = value;
+                    RaisePropertyChanged("PatientCarePointClinic");
                 }
             }
 
@@ -9393,14 +8112,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PatientCarePointSpecialtyName
             {
-                get
-                {
-                    return this.patientCarePointSpecialtyNameField;
-                }
+                get => patientCarePointSpecialtyNameField;
                 set
                 {
-                    this.patientCarePointSpecialtyNameField = value;
-                    this.RaisePropertyChanged("PatientCarePointSpecialtyName");
+                    patientCarePointSpecialtyNameField = value;
+                    RaisePropertyChanged("PatientCarePointSpecialtyName");
                 }
             }
 
@@ -9408,14 +8124,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string PatientCarePointFacilityName
             {
-                get
-                {
-                    return this.patientCarePointFacilityNameField;
-                }
+                get => patientCarePointFacilityNameField;
                 set
                 {
-                    this.patientCarePointFacilityNameField = value;
-                    this.RaisePropertyChanged("PatientCarePointFacilityName");
+                    patientCarePointFacilityNameField = value;
+                    RaisePropertyChanged("PatientCarePointFacilityName");
                 }
             }
 
@@ -9423,14 +8136,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -9438,14 +8148,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 16)]
             public System.DateTime DateClosed
             {
-                get
-                {
-                    return this.dateClosedField;
-                }
+                get => dateClosedField;
                 set
                 {
-                    this.dateClosedField = value;
-                    this.RaisePropertyChanged("DateClosed");
+                    dateClosedField = value;
+                    RaisePropertyChanged("DateClosed");
                 }
             }
 
@@ -9453,14 +8160,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateClosedSpecified
             {
-                get
-                {
-                    return this.dateClosedFieldSpecified;
-                }
+                get => dateClosedFieldSpecified;
                 set
                 {
-                    this.dateClosedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateClosedSpecified");
+                    dateClosedFieldSpecified = value;
+                    RaisePropertyChanged("DateClosedSpecified");
                 }
             }
 
@@ -9468,14 +8172,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -9483,14 +8184,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -9498,7 +8196,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -9589,14 +8287,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -9604,14 +8299,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string OrderCol
             {
-                get
-                {
-                    return this.orderColField;
-                }
+                get => orderColField;
                 set
                 {
-                    this.orderColField = value;
-                    this.RaisePropertyChanged("OrderCol");
+                    orderColField = value;
+                    RaisePropertyChanged("OrderCol");
                 }
             }
 
@@ -9619,14 +8311,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string GivenName
             {
-                get
-                {
-                    return this.givenNameField;
-                }
+                get => givenNameField;
                 set
                 {
-                    this.givenNameField = value;
-                    this.RaisePropertyChanged("GivenName");
+                    givenNameField = value;
+                    RaisePropertyChanged("GivenName");
                 }
             }
 
@@ -9634,14 +8323,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string MiddleName
             {
-                get
-                {
-                    return this.middleNameField;
-                }
+                get => middleNameField;
                 set
                 {
-                    this.middleNameField = value;
-                    this.RaisePropertyChanged("MiddleName");
+                    middleNameField = value;
+                    RaisePropertyChanged("MiddleName");
                 }
             }
 
@@ -9649,14 +8335,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string FamilyName
             {
-                get
-                {
-                    return this.familyNameField;
-                }
+                get => familyNameField;
                 set
                 {
-                    this.familyNameField = value;
-                    this.RaisePropertyChanged("FamilyName");
+                    familyNameField = value;
+                    RaisePropertyChanged("FamilyName");
                 }
             }
 
@@ -9664,14 +8347,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string Sex
             {
-                get
-                {
-                    return this.sexField;
-                }
+                get => sexField;
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -9679,14 +8359,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 6)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -9694,14 +8371,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -9709,14 +8383,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string CHI
             {
-                get
-                {
-                    return this.cHIField;
-                }
+                get => cHIField;
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -9724,14 +8395,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Address
             {
-                get
-                {
-                    return this.addressField;
-                }
+                get => addressField;
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -9739,14 +8407,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string PostCode
             {
-                get
-                {
-                    return this.postCodeField;
-                }
+                get => postCodeField;
                 set
                 {
-                    this.postCodeField = value;
-                    this.RaisePropertyChanged("PostCode");
+                    postCodeField = value;
+                    RaisePropertyChanged("PostCode");
                 }
             }
 
@@ -9754,14 +8419,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string GP
             {
-                get
-                {
-                    return this.gpField;
-                }
+                get => gpField;
                 set
                 {
-                    this.gpField = value;
-                    this.RaisePropertyChanged("GP");
+                    gpField = value;
+                    RaisePropertyChanged("GP");
                 }
             }
 
@@ -9769,14 +8431,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string GPPractice
             {
-                get
-                {
-                    return this.gPPracticeField;
-                }
+                get => gPPracticeField;
                 set
                 {
-                    this.gPPracticeField = value;
-                    this.RaisePropertyChanged("GPPractice");
+                    gPPracticeField = value;
+                    RaisePropertyChanged("GPPractice");
                 }
             }
 
@@ -9784,14 +8443,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 12)]
             public string Consultant
             {
-                get
-                {
-                    return this.consultantField;
-                }
+                get => consultantField;
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -9799,14 +8455,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 13)]
             public string Ward
             {
-                get
-                {
-                    return this.wardField;
-                }
+                get => wardField;
                 set
                 {
-                    this.wardField = value;
-                    this.RaisePropertyChanged("Ward");
+                    wardField = value;
+                    RaisePropertyChanged("Ward");
                 }
             }
 
@@ -9814,14 +8467,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 14)]
             public string Hospital
             {
-                get
-                {
-                    return this.hospitalField;
-                }
+                get => hospitalField;
                 set
                 {
-                    this.hospitalField = value;
-                    this.RaisePropertyChanged("Hospital");
+                    hospitalField = value;
+                    RaisePropertyChanged("Hospital");
                 }
             }
 
@@ -9829,14 +8479,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string Soundex
             {
-                get
-                {
-                    return this.soundexField;
-                }
+                get => soundexField;
                 set
                 {
-                    this.soundexField = value;
-                    this.RaisePropertyChanged("Soundex");
+                    soundexField = value;
+                    RaisePropertyChanged("Soundex");
                 }
             }
 
@@ -9844,14 +8491,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 16)]
             public string ServiceID
             {
-                get
-                {
-                    return this.serviceIDField;
-                }
+                get => serviceIDField;
                 set
                 {
-                    this.serviceIDField = value;
-                    this.RaisePropertyChanged("ServiceID");
+                    serviceIDField = value;
+                    RaisePropertyChanged("ServiceID");
                 }
             }
 
@@ -9859,14 +8503,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string EventUser
             {
-                get
-                {
-                    return this.eventUserField;
-                }
+                get => eventUserField;
                 set
                 {
-                    this.eventUserField = value;
-                    this.RaisePropertyChanged("EventUser");
+                    eventUserField = value;
+                    RaisePropertyChanged("EventUser");
                 }
             }
 
@@ -9874,14 +8515,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public System.DateTime EventDateTime
             {
-                get
-                {
-                    return this.eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -9889,14 +8527,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool EventDateTimeSpecified
             {
-                get
-                {
-                    return this.eventDateTimeFieldSpecified;
-                }
+                get => eventDateTimeFieldSpecified;
                 set
                 {
-                    this.eventDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("EventDateTimeSpecified");
+                    eventDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("EventDateTimeSpecified");
                 }
             }
 
@@ -9904,14 +8539,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public System.DateTime DateTimeCreated
             {
-                get
-                {
-                    return this.dateTimeCreatedField;
-                }
+                get => dateTimeCreatedField;
                 set
                 {
-                    this.dateTimeCreatedField = value;
-                    this.RaisePropertyChanged("DateTimeCreated");
+                    dateTimeCreatedField = value;
+                    RaisePropertyChanged("DateTimeCreated");
                 }
             }
 
@@ -9919,14 +8551,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeCreatedSpecified
             {
-                get
-                {
-                    return this.dateTimeCreatedFieldSpecified;
-                }
+                get => dateTimeCreatedFieldSpecified;
                 set
                 {
-                    this.dateTimeCreatedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeCreatedSpecified");
+                    dateTimeCreatedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeCreatedSpecified");
                 }
             }
 
@@ -9934,14 +8563,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -9949,14 +8575,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public FindPatientItemException Exception
             {
-                get
-                {
-                    return this.exceptionField;
-                }
+                get => exceptionField;
                 set
                 {
-                    this.exceptionField = value;
-                    this.RaisePropertyChanged("Exception");
+                    exceptionField = value;
+                    RaisePropertyChanged("Exception");
                 }
             }
 
@@ -9964,14 +8587,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ExceptionSpecified
             {
-                get
-                {
-                    return this.exceptionFieldSpecified;
-                }
+                get => exceptionFieldSpecified;
                 set
                 {
-                    this.exceptionFieldSpecified = value;
-                    this.RaisePropertyChanged("ExceptionSpecified");
+                    exceptionFieldSpecified = value;
+                    RaisePropertyChanged("ExceptionSpecified");
                 }
             }
 
@@ -9979,14 +8599,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public FindPatientItemSeededRecord SeededRecord
             {
-                get
-                {
-                    return this.seededRecordField;
-                }
+                get => seededRecordField;
                 set
                 {
-                    this.seededRecordField = value;
-                    this.RaisePropertyChanged("SeededRecord");
+                    seededRecordField = value;
+                    RaisePropertyChanged("SeededRecord");
                 }
             }
 
@@ -9994,14 +8611,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SeededRecordSpecified
             {
-                get
-                {
-                    return this.seededRecordFieldSpecified;
-                }
+                get => seededRecordFieldSpecified;
                 set
                 {
-                    this.seededRecordFieldSpecified = value;
-                    this.RaisePropertyChanged("SeededRecordSpecified");
+                    seededRecordFieldSpecified = value;
+                    RaisePropertyChanged("SeededRecordSpecified");
                 }
             }
 
@@ -10009,14 +8623,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public bool Merged
             {
-                get
-                {
-                    return this.mergedField;
-                }
+                get => mergedField;
                 set
                 {
-                    this.mergedField = value;
-                    this.RaisePropertyChanged("Merged");
+                    mergedField = value;
+                    RaisePropertyChanged("Merged");
                 }
             }
 
@@ -10024,14 +8635,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool MergedSpecified
             {
-                get
-                {
-                    return this.mergedFieldSpecified;
-                }
+                get => mergedFieldSpecified;
                 set
                 {
-                    this.mergedFieldSpecified = value;
-                    this.RaisePropertyChanged("MergedSpecified");
+                    mergedFieldSpecified = value;
+                    RaisePropertyChanged("MergedSpecified");
                 }
             }
 
@@ -10039,14 +8647,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 24)]
             public bool Anonymous
             {
-                get
-                {
-                    return this.anonymousField;
-                }
+                get => anonymousField;
                 set
                 {
-                    this.anonymousField = value;
-                    this.RaisePropertyChanged("Anonymous");
+                    anonymousField = value;
+                    RaisePropertyChanged("Anonymous");
                 }
             }
 
@@ -10054,14 +8659,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AnonymousSpecified
             {
-                get
-                {
-                    return this.anonymousFieldSpecified;
-                }
+                get => anonymousFieldSpecified;
                 set
                 {
-                    this.anonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("AnonymousSpecified");
+                    anonymousFieldSpecified = value;
+                    RaisePropertyChanged("AnonymousSpecified");
                 }
             }
 
@@ -10069,14 +8671,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 25)]
             public string Consent
             {
-                get
-                {
-                    return this.consentField;
-                }
+                get => consentField;
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -10084,14 +8683,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 26)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -10099,14 +8695,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 27)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10114,7 +8707,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10205,14 +8798,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return this.treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -10220,14 +8810,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -10235,14 +8822,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return this.recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -10250,14 +8834,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public OpenClosedStatus RequestState
             {
-                get
-                {
-                    return this.requestStateField;
-                }
+                get => requestStateField;
                 set
                 {
-                    this.requestStateField = value;
-                    this.RaisePropertyChanged("RequestState");
+                    requestStateField = value;
+                    RaisePropertyChanged("RequestState");
                 }
             }
 
@@ -10265,14 +8846,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStateSpecified
             {
-                get
-                {
-                    return this.requestStateFieldSpecified;
-                }
+                get => requestStateFieldSpecified;
                 set
                 {
-                    this.requestStateFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStateSpecified");
+                    requestStateFieldSpecified = value;
+                    RaisePropertyChanged("RequestStateSpecified");
                 }
             }
 
@@ -10280,14 +8858,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public RequestStatus RequestStatus
             {
-                get
-                {
-                    return this.requestStatusField;
-                }
+                get => requestStatusField;
                 set
                 {
-                    this.requestStatusField = value;
-                    this.RaisePropertyChanged("RequestStatus");
+                    requestStatusField = value;
+                    RaisePropertyChanged("RequestStatus");
                 }
             }
 
@@ -10295,14 +8870,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool RequestStatusSpecified
             {
-                get
-                {
-                    return this.requestStatusFieldSpecified;
-                }
+                get => requestStatusFieldSpecified;
                 set
                 {
-                    this.requestStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("RequestStatusSpecified");
+                    requestStatusFieldSpecified = value;
+                    RaisePropertyChanged("RequestStatusSpecified");
                 }
             }
 
@@ -10310,14 +8882,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string AssessedUrgencyValue
             {
-                get
-                {
-                    return this.assessedUrgencyValueField;
-                }
+                get => assessedUrgencyValueField;
                 set
                 {
-                    this.assessedUrgencyValueField = value;
-                    this.RaisePropertyChanged("AssessedUrgencyValue");
+                    assessedUrgencyValueField = value;
+                    RaisePropertyChanged("AssessedUrgencyValue");
                 }
             }
 
@@ -10325,14 +8894,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientCareType
             {
-                get
-                {
-                    return this.patientCareTypeField;
-                }
+                get => patientCareTypeField;
                 set
                 {
-                    this.patientCareTypeField = value;
-                    this.RaisePropertyChanged("PatientCareType");
+                    patientCareTypeField = value;
+                    RaisePropertyChanged("PatientCareType");
                 }
             }
 
@@ -10340,14 +8906,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public DateRangeSelection RequestDate
             {
-                get
-                {
-                    return this.requestDateField;
-                }
+                get => requestDateField;
                 set
                 {
-                    this.requestDateField = value;
-                    this.RaisePropertyChanged("RequestDate");
+                    requestDateField = value;
+                    RaisePropertyChanged("RequestDate");
                 }
             }
 
@@ -10355,14 +8918,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public DateRangeSelection TreatmentToComeInDate
             {
-                get
-                {
-                    return this.treatmentToComeInDateField;
-                }
+                get => treatmentToComeInDateField;
                 set
                 {
-                    this.treatmentToComeInDateField = value;
-                    this.RaisePropertyChanged("TreatmentToComeInDate");
+                    treatmentToComeInDateField = value;
+                    RaisePropertyChanged("TreatmentToComeInDate");
                 }
             }
 
@@ -10370,14 +8930,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string TreatmentRequestProcedureCode
             {
-                get
-                {
-                    return this.treatmentRequestProcedureCodeField;
-                }
+                get => treatmentRequestProcedureCodeField;
                 set
                 {
-                    this.treatmentRequestProcedureCodeField = value;
-                    this.RaisePropertyChanged("TreatmentRequestProcedureCode");
+                    treatmentRequestProcedureCodeField = value;
+                    RaisePropertyChanged("TreatmentRequestProcedureCode");
                 }
             }
 
@@ -10385,14 +8942,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 10)]
             public string PatientCarepointSiteID
             {
-                get
-                {
-                    return this.patientCarepointSiteIDField;
-                }
+                get => patientCarepointSiteIDField;
                 set
                 {
-                    this.patientCarepointSiteIDField = value;
-                    this.RaisePropertyChanged("PatientCarepointSiteID");
+                    patientCarepointSiteIDField = value;
+                    RaisePropertyChanged("PatientCarepointSiteID");
                 }
             }
 
@@ -10400,14 +8954,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 11)]
             public string PatientCarepointLocationID
             {
-                get
-                {
-                    return this.patientCarepointLocationIDField;
-                }
+                get => patientCarepointLocationIDField;
                 set
                 {
-                    this.patientCarepointLocationIDField = value;
-                    this.RaisePropertyChanged("PatientCarepointLocationID");
+                    patientCarepointLocationIDField = value;
+                    RaisePropertyChanged("PatientCarepointLocationID");
                 }
             }
 
@@ -10415,14 +8966,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string SpecialtyName
             {
-                get
-                {
-                    return this.specialtyNameField;
-                }
+                get => specialtyNameField;
                 set
                 {
-                    this.specialtyNameField = value;
-                    this.RaisePropertyChanged("SpecialtyName");
+                    specialtyNameField = value;
+                    RaisePropertyChanged("SpecialtyName");
                 }
             }
 
@@ -10430,14 +8978,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Facility
             {
-                get
-                {
-                    return this.facilityField;
-                }
+                get => facilityField;
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -10445,14 +8990,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -10460,14 +9002,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -10475,14 +9014,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return this.providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -10491,14 +9027,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -10506,14 +9039,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 18)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10521,7 +9051,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10556,14 +9086,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindPatientNameCriteria Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -10571,14 +9098,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientIDCriteria Ids
             {
-                get
-                {
-                    return this.idsField;
-                }
+                get => idsField;
                 set
                 {
-                    this.idsField = value;
-                    this.RaisePropertyChanged("Ids");
+                    idsField = value;
+                    RaisePropertyChanged("Ids");
                 }
             }
 
@@ -10586,14 +9110,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -10601,14 +9122,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -10616,14 +9134,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool IncludeAnonymous
             {
-                get
-                {
-                    return this.includeAnonymousField;
-                }
+                get => includeAnonymousField;
                 set
                 {
-                    this.includeAnonymousField = value;
-                    this.RaisePropertyChanged("IncludeAnonymous");
+                    includeAnonymousField = value;
+                    RaisePropertyChanged("IncludeAnonymous");
                 }
             }
 
@@ -10631,14 +9146,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAnonymousSpecified
             {
-                get
-                {
-                    return this.includeAnonymousFieldSpecified;
-                }
+                get => includeAnonymousFieldSpecified;
                 set
                 {
-                    this.includeAnonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAnonymousSpecified");
+                    includeAnonymousFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAnonymousSpecified");
                 }
             }
 
@@ -10646,14 +9158,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10661,7 +9170,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10694,14 +9203,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Forename
             {
-                get
-                {
-                    return this.forenameField;
-                }
+                get => forenameField;
                 set
                 {
-                    this.forenameField = value;
-                    this.RaisePropertyChanged("Forename");
+                    forenameField = value;
+                    RaisePropertyChanged("Forename");
                 }
             }
 
@@ -10709,14 +9215,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator ForenameComparator
             {
-                get
-                {
-                    return this.forenameComparatorField;
-                }
+                get => forenameComparatorField;
                 set
                 {
-                    this.forenameComparatorField = value;
-                    this.RaisePropertyChanged("ForenameComparator");
+                    forenameComparatorField = value;
+                    RaisePropertyChanged("ForenameComparator");
                 }
             }
 
@@ -10724,14 +9227,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ForenameComparatorSpecified
             {
-                get
-                {
-                    return this.forenameComparatorFieldSpecified;
-                }
+                get => forenameComparatorFieldSpecified;
                 set
                 {
-                    this.forenameComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("ForenameComparatorSpecified");
+                    forenameComparatorFieldSpecified = value;
+                    RaisePropertyChanged("ForenameComparatorSpecified");
                 }
             }
 
@@ -10739,14 +9239,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Surname
             {
-                get
-                {
-                    return this.surnameField;
-                }
+                get => surnameField;
                 set
                 {
-                    this.surnameField = value;
-                    this.RaisePropertyChanged("Surname");
+                    surnameField = value;
+                    RaisePropertyChanged("Surname");
                 }
             }
 
@@ -10754,14 +9251,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public SearchComparator SurnameComparator
             {
-                get
-                {
-                    return this.surnameComparatorField;
-                }
+                get => surnameComparatorField;
                 set
                 {
-                    this.surnameComparatorField = value;
-                    this.RaisePropertyChanged("SurnameComparator");
+                    surnameComparatorField = value;
+                    RaisePropertyChanged("SurnameComparator");
                 }
             }
 
@@ -10769,14 +9263,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SurnameComparatorSpecified
             {
-                get
-                {
-                    return this.surnameComparatorFieldSpecified;
-                }
+                get => surnameComparatorFieldSpecified;
                 set
                 {
-                    this.surnameComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("SurnameComparatorSpecified");
+                    surnameComparatorFieldSpecified = value;
+                    RaisePropertyChanged("SurnameComparatorSpecified");
                 }
             }
 
@@ -10784,7 +9275,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10839,14 +9330,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ID
             {
-                get
-                {
-                    return this.idField;
-                }
+                get => idField;
                 set
                 {
-                    this.idField = value;
-                    this.RaisePropertyChanged("ID");
+                    idField = value;
+                    RaisePropertyChanged("ID");
                 }
             }
 
@@ -10854,14 +9342,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator IDcomparator
             {
-                get
-                {
-                    return this.iDcomparatorField;
-                }
+                get => iDcomparatorField;
                 set
                 {
-                    this.iDcomparatorField = value;
-                    this.RaisePropertyChanged("IDcomparator");
+                    iDcomparatorField = value;
+                    RaisePropertyChanged("IDcomparator");
                 }
             }
 
@@ -10869,14 +9354,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IDcomparatorSpecified
             {
-                get
-                {
-                    return this.iDcomparatorFieldSpecified;
-                }
+                get => iDcomparatorFieldSpecified;
                 set
                 {
-                    this.iDcomparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("IDcomparatorSpecified");
+                    iDcomparatorFieldSpecified = value;
+                    RaisePropertyChanged("IDcomparatorSpecified");
                 }
             }
 
@@ -10884,7 +9366,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -10915,14 +9397,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ProviderSearchType SearchType
             {
-                get
-                {
-                    return this.searchTypeField;
-                }
+                get => searchTypeField;
                 set
                 {
-                    this.searchTypeField = value;
-                    this.RaisePropertyChanged("SearchType");
+                    searchTypeField = value;
+                    RaisePropertyChanged("SearchType");
                 }
             }
 
@@ -10931,14 +9410,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Provider", IsNullable = false)]
             public ProviderItem[] Providers
             {
-                get
-                {
-                    return this.providersField;
-                }
+                get => providersField;
                 set
                 {
-                    this.providersField = value;
-                    this.RaisePropertyChanged("Providers");
+                    providersField = value;
+                    RaisePropertyChanged("Providers");
                 }
             }
 
@@ -10946,14 +9422,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool IncludeAll
             {
-                get
-                {
-                    return this.includeAllField;
-                }
+                get => includeAllField;
                 set
                 {
-                    this.includeAllField = value;
-                    this.RaisePropertyChanged("IncludeAll");
+                    includeAllField = value;
+                    RaisePropertyChanged("IncludeAll");
                 }
             }
 
@@ -10961,14 +9434,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAllSpecified
             {
-                get
-                {
-                    return this.includeAllFieldSpecified;
-                }
+                get => includeAllFieldSpecified;
                 set
                 {
-                    this.includeAllFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAllSpecified");
+                    includeAllFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAllSpecified");
                 }
             }
 
@@ -10976,14 +9446,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -10991,7 +9458,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11032,14 +9499,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string StylesheetID
             {
-                get
-                {
-                    return this.stylesheetIDField;
-                }
+                get => stylesheetIDField;
                 set
                 {
-                    this.stylesheetIDField = value;
-                    this.RaisePropertyChanged("StylesheetID");
+                    stylesheetIDField = value;
+                    RaisePropertyChanged("StylesheetID");
                 }
             }
 
@@ -11047,14 +9511,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 1)]
             public byte[] StylesheetData
             {
-                get
-                {
-                    return this.stylesheetDataField;
-                }
+                get => stylesheetDataField;
                 set
                 {
-                    this.stylesheetDataField = value;
-                    this.RaisePropertyChanged("StylesheetData");
+                    stylesheetDataField = value;
+                    RaisePropertyChanged("StylesheetData");
                 }
             }
 
@@ -11062,14 +9523,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -11077,7 +9535,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11110,14 +9568,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentSystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -11125,14 +9580,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DocumentMetadata DocumentDetails
             {
-                get
-                {
-                    return this.documentDetailsField;
-                }
+                get => documentDetailsField;
                 set
                 {
-                    this.documentDetailsField = value;
-                    this.RaisePropertyChanged("DocumentDetails");
+                    documentDetailsField = value;
+                    RaisePropertyChanged("DocumentDetails");
                 }
             }
 
@@ -11140,14 +9592,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public DocumentStylesheetType DocumentStylesheet
             {
-                get
-                {
-                    return this.documentStylesheetField;
-                }
+                get => documentStylesheetField;
                 set
                 {
-                    this.documentStylesheetField = value;
-                    this.RaisePropertyChanged("DocumentStylesheet");
+                    documentStylesheetField = value;
+                    RaisePropertyChanged("DocumentStylesheet");
                 }
             }
 
@@ -11155,14 +9604,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return this.patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -11170,14 +9616,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 4)]
             public byte[] DocumentData
             {
-                get
-                {
-                    return this.documentDataField;
-                }
+                get => documentDataField;
                 set
                 {
-                    this.documentDataField = value;
-                    this.RaisePropertyChanged("DocumentData");
+                    documentDataField = value;
+                    RaisePropertyChanged("DocumentData");
                 }
             }
 
@@ -11185,14 +9628,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11200,7 +9640,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11241,14 +9681,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -11256,14 +9693,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string PatientDocumentSearchID
             {
-                get
-                {
-                    return this.patientDocumentSearchIDField;
-                }
+                get => patientDocumentSearchIDField;
                 set
                 {
-                    this.patientDocumentSearchIDField = value;
-                    this.RaisePropertyChanged("PatientDocumentSearchID");
+                    patientDocumentSearchIDField = value;
+                    RaisePropertyChanged("PatientDocumentSearchID");
                 }
             }
 
@@ -11271,14 +9705,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -11286,14 +9717,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", IsNullable = true, Order = 3)]
             public string DocumentSourceID
             {
-                get
-                {
-                    return this.documentSourceIDField;
-                }
+                get => documentSourceIDField;
                 set
                 {
-                    this.documentSourceIDField = value;
-                    this.RaisePropertyChanged("DocumentSourceID");
+                    documentSourceIDField = value;
+                    RaisePropertyChanged("DocumentSourceID");
                 }
             }
 
@@ -11301,14 +9729,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 4)]
             public string PatientDocumentID
             {
-                get
-                {
-                    return this.patientDocumentIDField;
-                }
+                get => patientDocumentIDField;
                 set
                 {
-                    this.patientDocumentIDField = value;
-                    this.RaisePropertyChanged("PatientDocumentID");
+                    patientDocumentIDField = value;
+                    RaisePropertyChanged("PatientDocumentID");
                 }
             }
 
@@ -11316,14 +9741,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string DocumentToDatabaseID
             {
-                get
-                {
-                    return this.documentToDatabaseIDField;
-                }
+                get => documentToDatabaseIDField;
                 set
                 {
-                    this.documentToDatabaseIDField = value;
-                    this.RaisePropertyChanged("DocumentToDatabaseID");
+                    documentToDatabaseIDField = value;
+                    RaisePropertyChanged("DocumentToDatabaseID");
                 }
             }
 
@@ -11331,14 +9753,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 6)]
             public string DocumentStatusID
             {
-                get
-                {
-                    return this.documentStatusIDField;
-                }
+                get => documentStatusIDField;
                 set
                 {
-                    this.documentStatusIDField = value;
-                    this.RaisePropertyChanged("DocumentStatusID");
+                    documentStatusIDField = value;
+                    RaisePropertyChanged("DocumentStatusID");
                 }
             }
 
@@ -11346,14 +9765,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool DocumentIsLinked
             {
-                get
-                {
-                    return this.documentIsLinkedField;
-                }
+                get => documentIsLinkedField;
                 set
                 {
-                    this.documentIsLinkedField = value;
-                    this.RaisePropertyChanged("DocumentIsLinked");
+                    documentIsLinkedField = value;
+                    RaisePropertyChanged("DocumentIsLinked");
                 }
             }
 
@@ -11361,14 +9777,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public bool DocumentHasHistory
             {
-                get
-                {
-                    return this.documentHasHistoryField;
-                }
+                get => documentHasHistoryField;
                 set
                 {
-                    this.documentHasHistoryField = value;
-                    this.RaisePropertyChanged("DocumentHasHistory");
+                    documentHasHistoryField = value;
+                    RaisePropertyChanged("DocumentHasHistory");
                 }
             }
 
@@ -11376,14 +9789,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11391,7 +9801,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11462,14 +9872,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_INDEX_TYPE DocumentCategory
             {
-                get
-                {
-                    return this.documentCategoryField;
-                }
+                get => documentCategoryField;
                 set
                 {
-                    this.documentCategoryField = value;
-                    this.RaisePropertyChanged("DocumentCategory");
+                    documentCategoryField = value;
+                    RaisePropertyChanged("DocumentCategory");
                 }
             }
 
@@ -11477,14 +9884,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DocumentIdentifier
             {
-                get
-                {
-                    return this.documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -11492,14 +9896,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -11507,14 +9908,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DocumentTitle
             {
-                get
-                {
-                    return this.documentTitleField;
-                }
+                get => documentTitleField;
                 set
                 {
-                    this.documentTitleField = value;
-                    this.RaisePropertyChanged("DocumentTitle");
+                    documentTitleField = value;
+                    RaisePropertyChanged("DocumentTitle");
                 }
             }
 
@@ -11522,14 +9920,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DocumentRevision
             {
-                get
-                {
-                    return this.documentRevisionField;
-                }
+                get => documentRevisionField;
                 set
                 {
-                    this.documentRevisionField = value;
-                    this.RaisePropertyChanged("DocumentRevision");
+                    documentRevisionField = value;
+                    RaisePropertyChanged("DocumentRevision");
                 }
             }
 
@@ -11537,14 +9932,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public SPECIALTY_TYPE DocumentSpecialty
             {
-                get
-                {
-                    return this.documentSpecialtyField;
-                }
+                get => documentSpecialtyField;
                 set
                 {
-                    this.documentSpecialtyField = value;
-                    this.RaisePropertyChanged("DocumentSpecialty");
+                    documentSpecialtyField = value;
+                    RaisePropertyChanged("DocumentSpecialty");
                 }
             }
 
@@ -11552,14 +9944,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string DocumentOrganisationName
             {
-                get
-                {
-                    return this.documentOrganisationNameField;
-                }
+                get => documentOrganisationNameField;
                 set
                 {
-                    this.documentOrganisationNameField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationName");
+                    documentOrganisationNameField = value;
+                    RaisePropertyChanged("DocumentOrganisationName");
                 }
             }
 
@@ -11567,14 +9956,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string DocumentOrganisationType
             {
-                get
-                {
-                    return this.documentOrganisationTypeField;
-                }
+                get => documentOrganisationTypeField;
                 set
                 {
-                    this.documentOrganisationTypeField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationType");
+                    documentOrganisationTypeField = value;
+                    RaisePropertyChanged("DocumentOrganisationType");
                 }
             }
 
@@ -11582,14 +9968,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string Stylesheet
             {
-                get
-                {
-                    return this.stylesheetField;
-                }
+                get => stylesheetField;
                 set
                 {
-                    this.stylesheetField = value;
-                    this.RaisePropertyChanged("Stylesheet");
+                    stylesheetField = value;
+                    RaisePropertyChanged("Stylesheet");
                 }
             }
 
@@ -11597,14 +9980,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string AdditionalText
             {
-                get
-                {
-                    return this.additionalTextField;
-                }
+                get => additionalTextField;
                 set
                 {
-                    this.additionalTextField = value;
-                    this.RaisePropertyChanged("AdditionalText");
+                    additionalTextField = value;
+                    RaisePropertyChanged("AdditionalText");
                 }
             }
 
@@ -11612,14 +9992,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public System.DateTime DocumentAttestationDateTime
             {
-                get
-                {
-                    return this.documentAttestationDateTimeField;
-                }
+                get => documentAttestationDateTimeField;
                 set
                 {
-                    this.documentAttestationDateTimeField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDateTime");
+                    documentAttestationDateTimeField = value;
+                    RaisePropertyChanged("DocumentAttestationDateTime");
                 }
             }
 
@@ -11627,14 +10004,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 11)]
             public string OriginatingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return this.originatingHcp_HealthcareProfessionalIDField;
-                }
+                get => originatingHcp_HealthcareProfessionalIDField;
                 set
                 {
-                    this.originatingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("OriginatingHcp_HealthcareProfessionalID");
+                    originatingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("OriginatingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11642,14 +10016,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 12)]
             public string AttestingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return this.attestingHcp_HealthcareProfessionalIDField;
-                }
+                get => attestingHcp_HealthcareProfessionalIDField;
                 set
                 {
-                    this.attestingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("AttestingHcp_HealthcareProfessionalID");
+                    attestingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("AttestingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11657,14 +10028,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 13)]
             public string ReceivingHcp_HealthcareProfessionalID
             {
-                get
-                {
-                    return this.receivingHcp_HealthcareProfessionalIDField;
-                }
+                get => receivingHcp_HealthcareProfessionalIDField;
                 set
                 {
-                    this.receivingHcp_HealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("ReceivingHcp_HealthcareProfessionalID");
+                    receivingHcp_HealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("ReceivingHcp_HealthcareProfessionalID");
                 }
             }
 
@@ -11673,14 +10041,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("CopiedHcp_HealthcareProfessionalID", DataType = "integer", IsNullable = false)]
             public string[] CopiedHcp_HealthcareProfessionalIDs
             {
-                get
-                {
-                    return this.copiedHcp_HealthcareProfessionalIDsField;
-                }
+                get => copiedHcp_HealthcareProfessionalIDsField;
                 set
                 {
-                    this.copiedHcp_HealthcareProfessionalIDsField = value;
-                    this.RaisePropertyChanged("CopiedHcp_HealthcareProfessionalIDs");
+                    copiedHcp_HealthcareProfessionalIDsField = value;
+                    RaisePropertyChanged("CopiedHcp_HealthcareProfessionalIDs");
                 }
             }
 
@@ -11688,14 +10053,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string ConsentToShare
             {
-                get
-                {
-                    return this.consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -11703,14 +10065,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public string Sensitivity
             {
-                get
-                {
-                    return this.sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -11718,14 +10077,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string PackageIdentifier
             {
-                get
-                {
-                    return this.packageIdentifierField;
-                }
+                get => packageIdentifierField;
                 set
                 {
-                    this.packageIdentifierField = value;
-                    this.RaisePropertyChanged("PackageIdentifier");
+                    packageIdentifierField = value;
+                    RaisePropertyChanged("PackageIdentifier");
                 }
             }
 
@@ -11734,14 +10090,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Note", IsNullable = false)]
             public DocumentNote[] UserNotes
             {
-                get
-                {
-                    return this.userNotesField;
-                }
+                get => userNotesField;
                 set
                 {
-                    this.userNotesField = value;
-                    this.RaisePropertyChanged("UserNotes");
+                    userNotesField = value;
+                    RaisePropertyChanged("UserNotes");
                 }
             }
 
@@ -11750,14 +10103,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Stylesheet", IsNullable = false)]
             public string[] Stylesheets
             {
-                get
-                {
-                    return this.stylesheetsField;
-                }
+                get => stylesheetsField;
                 set
                 {
-                    this.stylesheetsField = value;
-                    this.RaisePropertyChanged("Stylesheets");
+                    stylesheetsField = value;
+                    RaisePropertyChanged("Stylesheets");
                 }
             }
 
@@ -11765,14 +10115,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string Keywords
             {
-                get
-                {
-                    return this.keywordsField;
-                }
+                get => keywordsField;
                 set
                 {
-                    this.keywordsField = value;
-                    this.RaisePropertyChanged("Keywords");
+                    keywordsField = value;
+                    RaisePropertyChanged("Keywords");
                 }
             }
 
@@ -11780,14 +10127,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public bool UserNotesAvailable
             {
-                get
-                {
-                    return this.userNotesAvailableField;
-                }
+                get => userNotesAvailableField;
                 set
                 {
-                    this.userNotesAvailableField = value;
-                    this.RaisePropertyChanged("UserNotesAvailable");
+                    userNotesAvailableField = value;
+                    RaisePropertyChanged("UserNotesAvailable");
                 }
             }
 
@@ -11795,14 +10139,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public bool AdditionalStylesheetsAvailable
             {
-                get
-                {
-                    return this.additionalStylesheetsAvailableField;
-                }
+                get => additionalStylesheetsAvailableField;
                 set
                 {
-                    this.additionalStylesheetsAvailableField = value;
-                    this.RaisePropertyChanged("AdditionalStylesheetsAvailable");
+                    additionalStylesheetsAvailableField = value;
+                    RaisePropertyChanged("AdditionalStylesheetsAvailable");
                 }
             }
 
@@ -11810,14 +10151,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public bool IsRetired
             {
-                get
-                {
-                    return this.isRetiredField;
-                }
+                get => isRetiredField;
                 set
                 {
-                    this.isRetiredField = value;
-                    this.RaisePropertyChanged("IsRetired");
+                    isRetiredField = value;
+                    RaisePropertyChanged("IsRetired");
                 }
             }
 
@@ -11825,14 +10163,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 24)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -11840,7 +10175,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11867,14 +10202,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DocumentType
             {
-                get
-                {
-                    return this.documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -11882,14 +10214,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Separator
             {
-                get
-                {
-                    return this.separatorField;
-                }
+                get => separatorField;
                 set
                 {
-                    this.separatorField = value;
-                    this.RaisePropertyChanged("Separator");
+                    separatorField = value;
+                    RaisePropertyChanged("Separator");
                 }
             }
 
@@ -11897,14 +10226,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentSubType
             {
-                get
-                {
-                    return this.documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -11912,7 +10238,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -11939,14 +10265,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NoteText
             {
-                get
-                {
-                    return this.noteTextField;
-                }
+                get => noteTextField;
                 set
                 {
-                    this.noteTextField = value;
-                    this.RaisePropertyChanged("NoteText");
+                    noteTextField = value;
+                    RaisePropertyChanged("NoteText");
                 }
             }
 
@@ -11954,14 +10277,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime NoteDate
             {
-                get
-                {
-                    return this.noteDateField;
-                }
+                get => noteDateField;
                 set
                 {
-                    this.noteDateField = value;
-                    this.RaisePropertyChanged("NoteDate");
+                    noteDateField = value;
+                    RaisePropertyChanged("NoteDate");
                 }
             }
 
@@ -11969,14 +10289,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public UserInfo NoteUser
             {
-                get
-                {
-                    return this.noteUserField;
-                }
+                get => noteUserField;
                 set
                 {
-                    this.noteUserField = value;
-                    this.RaisePropertyChanged("NoteUser");
+                    noteUserField = value;
+                    RaisePropertyChanged("NoteUser");
                 }
             }
 
@@ -11984,7 +10301,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12013,14 +10330,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentSystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -12028,14 +10342,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DocumentMetadata DocumentDetails
             {
-                get
-                {
-                    return this.documentDetailsField;
-                }
+                get => documentDetailsField;
                 set
                 {
-                    this.documentDetailsField = value;
-                    this.RaisePropertyChanged("DocumentDetails");
+                    documentDetailsField = value;
+                    RaisePropertyChanged("DocumentDetails");
                 }
             }
 
@@ -12043,14 +10354,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -12058,14 +10366,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12073,7 +10378,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12100,14 +10405,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Identifier
             {
-                get
-                {
-                    return this.identifierField;
-                }
+                get => identifierField;
                 set
                 {
-                    this.identifierField = value;
-                    this.RaisePropertyChanged("Identifier");
+                    identifierField = value;
+                    RaisePropertyChanged("Identifier");
                 }
             }
 
@@ -12115,14 +10417,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator Comparator
             {
-                get
-                {
-                    return this.comparatorField;
-                }
+                get => comparatorField;
                 set
                 {
-                    this.comparatorField = value;
-                    this.RaisePropertyChanged("Comparator");
+                    comparatorField = value;
+                    RaisePropertyChanged("Comparator");
                 }
             }
 
@@ -12130,14 +10429,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ComparatorSpecified
             {
-                get
-                {
-                    return this.comparatorFieldSpecified;
-                }
+                get => comparatorFieldSpecified;
                 set
                 {
-                    this.comparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("ComparatorSpecified");
+                    comparatorFieldSpecified = value;
+                    RaisePropertyChanged("ComparatorSpecified");
                 }
             }
 
@@ -12145,7 +10441,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12214,14 +10510,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -12229,14 +10522,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 1)]
             public string DocumentToDatabaseID
             {
-                get
-                {
-                    return this.documentToDatabaseIDField;
-                }
+                get => documentToDatabaseIDField;
                 set
                 {
-                    this.documentToDatabaseIDField = value;
-                    this.RaisePropertyChanged("DocumentToDatabaseID");
+                    documentToDatabaseIDField = value;
+                    RaisePropertyChanged("DocumentToDatabaseID");
                 }
             }
 
@@ -12244,14 +10534,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public DateRangeSelection DocumentAttestationDate
             {
-                get
-                {
-                    return this.documentAttestationDateField;
-                }
+                get => documentAttestationDateField;
                 set
                 {
-                    this.documentAttestationDateField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDate");
+                    documentAttestationDateField = value;
+                    RaisePropertyChanged("DocumentAttestationDate");
                 }
             }
 
@@ -12259,14 +10546,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDocumentIdentifierCriteria DocumentIdentifier
             {
-                get
-                {
-                    return this.documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -12274,14 +10558,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DocumentType
             {
-                get
-                {
-                    return this.documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -12289,14 +10570,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string DocumentSubType
             {
-                get
-                {
-                    return this.documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -12304,14 +10582,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string DocumentTitle
             {
-                get
-                {
-                    return this.documentTitleField;
-                }
+                get => documentTitleField;
                 set
                 {
-                    this.documentTitleField = value;
-                    this.RaisePropertyChanged("DocumentTitle");
+                    documentTitleField = value;
+                    RaisePropertyChanged("DocumentTitle");
                 }
             }
 
@@ -12319,14 +10594,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string AdditionalText
             {
-                get
-                {
-                    return this.additionalTextField;
-                }
+                get => additionalTextField;
                 set
                 {
-                    this.additionalTextField = value;
-                    this.RaisePropertyChanged("AdditionalText");
+                    additionalTextField = value;
+                    RaisePropertyChanged("AdditionalText");
                 }
             }
 
@@ -12334,14 +10606,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string DocumentSpecialty
             {
-                get
-                {
-                    return this.documentSpecialtyField;
-                }
+                get => documentSpecialtyField;
                 set
                 {
-                    this.documentSpecialtyField = value;
-                    this.RaisePropertyChanged("DocumentSpecialty");
+                    documentSpecialtyField = value;
+                    RaisePropertyChanged("DocumentSpecialty");
                 }
             }
 
@@ -12349,14 +10618,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string DocumentOrganisationName
             {
-                get
-                {
-                    return this.documentOrganisationNameField;
-                }
+                get => documentOrganisationNameField;
                 set
                 {
-                    this.documentOrganisationNameField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationName");
+                    documentOrganisationNameField = value;
+                    RaisePropertyChanged("DocumentOrganisationName");
                 }
             }
 
@@ -12364,14 +10630,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string DocumentOrganisationType
             {
-                get
-                {
-                    return this.documentOrganisationTypeField;
-                }
+                get => documentOrganisationTypeField;
                 set
                 {
-                    this.documentOrganisationTypeField = value;
-                    this.RaisePropertyChanged("DocumentOrganisationType");
+                    documentOrganisationTypeField = value;
+                    RaisePropertyChanged("DocumentOrganisationType");
                 }
             }
 
@@ -12379,14 +10642,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string ConsentToShare
             {
-                get
-                {
-                    return this.consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -12394,14 +10654,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string Sensitivity
             {
-                get
-                {
-                    return this.sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -12409,14 +10666,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PackageIdentifier
             {
-                get
-                {
-                    return this.packageIdentifierField;
-                }
+                get => packageIdentifierField;
                 set
                 {
-                    this.packageIdentifierField = value;
-                    this.RaisePropertyChanged("PackageIdentifier");
+                    packageIdentifierField = value;
+                    RaisePropertyChanged("PackageIdentifier");
                 }
             }
 
@@ -12424,14 +10678,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string OriginatingHCP
             {
-                get
-                {
-                    return this.originatingHCPField;
-                }
+                get => originatingHCPField;
                 set
                 {
-                    this.originatingHCPField = value;
-                    this.RaisePropertyChanged("OriginatingHCP");
+                    originatingHCPField = value;
+                    RaisePropertyChanged("OriginatingHCP");
                 }
             }
 
@@ -12439,14 +10690,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string AttestingHCP
             {
-                get
-                {
-                    return this.attestingHCPField;
-                }
+                get => attestingHCPField;
                 set
                 {
-                    this.attestingHCPField = value;
-                    this.RaisePropertyChanged("AttestingHCP");
+                    attestingHCPField = value;
+                    RaisePropertyChanged("AttestingHCP");
                 }
             }
 
@@ -12454,14 +10702,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public string ReceivingHCP
             {
-                get
-                {
-                    return this.receivingHCPField;
-                }
+                get => receivingHCPField;
                 set
                 {
-                    this.receivingHCPField = value;
-                    this.RaisePropertyChanged("ReceivingHCP");
+                    receivingHCPField = value;
+                    RaisePropertyChanged("ReceivingHCP");
                 }
             }
 
@@ -12469,14 +10714,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string CopiedHCP
             {
-                get
-                {
-                    return this.copiedHCPField;
-                }
+                get => copiedHCPField;
                 set
                 {
-                    this.copiedHCPField = value;
-                    this.RaisePropertyChanged("CopiedHCP");
+                    copiedHCPField = value;
+                    RaisePropertyChanged("CopiedHCP");
                 }
             }
 
@@ -12484,14 +10726,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public string Keywords
             {
-                get
-                {
-                    return this.keywordsField;
-                }
+                get => keywordsField;
                 set
                 {
-                    this.keywordsField = value;
-                    this.RaisePropertyChanged("Keywords");
+                    keywordsField = value;
+                    RaisePropertyChanged("Keywords");
                 }
             }
 
@@ -12499,14 +10738,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -12514,14 +10750,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -12529,14 +10762,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return this.providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -12545,14 +10775,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -12560,14 +10787,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 23)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12575,7 +10799,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12602,14 +10826,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DocumentType
             {
-                get
-                {
-                    return this.documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -12617,14 +10838,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Separator
             {
-                get
-                {
-                    return this.separatorField;
-                }
+                get => separatorField;
                 set
                 {
-                    this.separatorField = value;
-                    this.RaisePropertyChanged("Separator");
+                    separatorField = value;
+                    RaisePropertyChanged("Separator");
                 }
             }
 
@@ -12632,14 +10850,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentSubType
             {
-                get
-                {
-                    return this.documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -12647,7 +10862,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -12706,14 +10921,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DOCUMENT_CATEGORY_TYPE DocumentCategory
             {
-                get
-                {
-                    return this.documentCategoryField;
-                }
+                get => documentCategoryField;
                 set
                 {
-                    this.documentCategoryField = value;
-                    this.RaisePropertyChanged("DocumentCategory");
+                    documentCategoryField = value;
+                    RaisePropertyChanged("DocumentCategory");
                 }
             }
 
@@ -12721,14 +10933,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DocumentIdentifier", Order = 1)]
             public ID_TYPE[] DocumentIdentifier
             {
-                get
-                {
-                    return this.documentIdentifierField;
-                }
+                get => documentIdentifierField;
                 set
                 {
-                    this.documentIdentifierField = value;
-                    this.RaisePropertyChanged("DocumentIdentifier");
+                    documentIdentifierField = value;
+                    RaisePropertyChanged("DocumentIdentifier");
                 }
             }
 
@@ -12736,14 +10945,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DocumentRevision
             {
-                get
-                {
-                    return this.documentRevisionField;
-                }
+                get => documentRevisionField;
                 set
                 {
-                    this.documentRevisionField = value;
-                    this.RaisePropertyChanged("DocumentRevision");
+                    documentRevisionField = value;
+                    RaisePropertyChanged("DocumentRevision");
                 }
             }
 
@@ -12751,14 +10957,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string DocumentStatus
             {
-                get
-                {
-                    return this.documentStatusField;
-                }
+                get => documentStatusField;
                 set
                 {
-                    this.documentStatusField = value;
-                    this.RaisePropertyChanged("DocumentStatus");
+                    documentStatusField = value;
+                    RaisePropertyChanged("DocumentStatus");
                 }
             }
 
@@ -12766,14 +10969,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -12781,14 +10981,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public HCP_DETAIL_TYPE OriginatingHcp
             {
-                get
-                {
-                    return this.originatingHcpField;
-                }
+                get => originatingHcpField;
                 set
                 {
-                    this.originatingHcpField = value;
-                    this.RaisePropertyChanged("OriginatingHcp");
+                    originatingHcpField = value;
+                    RaisePropertyChanged("OriginatingHcp");
                 }
             }
 
@@ -12796,14 +10993,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public HCP_DETAIL_TYPE Attesting_Hcp
             {
-                get
-                {
-                    return this.attesting_HcpField;
-                }
+                get => attesting_HcpField;
                 set
                 {
-                    this.attesting_HcpField = value;
-                    this.RaisePropertyChanged("Attesting_Hcp");
+                    attesting_HcpField = value;
+                    RaisePropertyChanged("Attesting_Hcp");
                 }
             }
 
@@ -12811,14 +11005,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 7)]
             public System.DateTime DocumentAttestationDate
             {
-                get
-                {
-                    return this.documentAttestationDateField;
-                }
+                get => documentAttestationDateField;
                 set
                 {
-                    this.documentAttestationDateField = value;
-                    this.RaisePropertyChanged("DocumentAttestationDate");
+                    documentAttestationDateField = value;
+                    RaisePropertyChanged("DocumentAttestationDate");
                 }
             }
 
@@ -12826,14 +11017,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DocumentAttestationDateSpecified
             {
-                get
-                {
-                    return this.documentAttestationDateFieldSpecified;
-                }
+                get => documentAttestationDateFieldSpecified;
                 set
                 {
-                    this.documentAttestationDateFieldSpecified = value;
-                    this.RaisePropertyChanged("DocumentAttestationDateSpecified");
+                    documentAttestationDateFieldSpecified = value;
+                    RaisePropertyChanged("DocumentAttestationDateSpecified");
                 }
             }
 
@@ -12841,14 +11029,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 8)]
             public System.DateTime DocumentAttestationTime
             {
-                get
-                {
-                    return this.documentAttestationTimeField;
-                }
+                get => documentAttestationTimeField;
                 set
                 {
-                    this.documentAttestationTimeField = value;
-                    this.RaisePropertyChanged("DocumentAttestationTime");
+                    documentAttestationTimeField = value;
+                    RaisePropertyChanged("DocumentAttestationTime");
                 }
             }
 
@@ -12856,14 +11041,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DocumentAttestationTimeSpecified
             {
-                get
-                {
-                    return this.documentAttestationTimeFieldSpecified;
-                }
+                get => documentAttestationTimeFieldSpecified;
                 set
                 {
-                    this.documentAttestationTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DocumentAttestationTimeSpecified");
+                    documentAttestationTimeFieldSpecified = value;
+                    RaisePropertyChanged("DocumentAttestationTimeSpecified");
                 }
             }
 
@@ -12871,14 +11053,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public HCP_DETAIL_TYPE ReceivingHcp
             {
-                get
-                {
-                    return this.receivingHcpField;
-                }
+                get => receivingHcpField;
                 set
                 {
-                    this.receivingHcpField = value;
-                    this.RaisePropertyChanged("ReceivingHcp");
+                    receivingHcpField = value;
+                    RaisePropertyChanged("ReceivingHcp");
                 }
             }
 
@@ -12886,14 +11065,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("CopiedHcp", Order = 10)]
             public HCP_DETAIL_TYPE[] CopiedHcp
             {
-                get
-                {
-                    return this.copiedHcpField;
-                }
+                get => copiedHcpField;
                 set
                 {
-                    this.copiedHcpField = value;
-                    this.RaisePropertyChanged("CopiedHcp");
+                    copiedHcpField = value;
+                    RaisePropertyChanged("CopiedHcp");
                 }
             }
 
@@ -12901,14 +11077,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("PatientId", Order = 11)]
             public ID_TYPE[] PatientId
             {
-                get
-                {
-                    return this.patientIdField;
-                }
+                get => patientIdField;
                 set
                 {
-                    this.patientIdField = value;
-                    this.RaisePropertyChanged("PatientId");
+                    patientIdField = value;
+                    RaisePropertyChanged("PatientId");
                 }
             }
 
@@ -12916,14 +11089,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string ConsentToShare
             {
-                get
-                {
-                    return this.consentToShareField;
-                }
+                get => consentToShareField;
                 set
                 {
-                    this.consentToShareField = value;
-                    this.RaisePropertyChanged("ConsentToShare");
+                    consentToShareField = value;
+                    RaisePropertyChanged("ConsentToShare");
                 }
             }
 
@@ -12931,14 +11101,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Sensitivity
             {
-                get
-                {
-                    return this.sensitivityField;
-                }
+                get => sensitivityField;
                 set
                 {
-                    this.sensitivityField = value;
-                    this.RaisePropertyChanged("Sensitivity");
+                    sensitivityField = value;
+                    RaisePropertyChanged("Sensitivity");
                 }
             }
 
@@ -12946,14 +11113,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 14)]
             public System.DateTime DocumentCreationDate
             {
-                get
-                {
-                    return this.documentCreationDateField;
-                }
+                get => documentCreationDateField;
                 set
                 {
-                    this.documentCreationDateField = value;
-                    this.RaisePropertyChanged("DocumentCreationDate");
+                    documentCreationDateField = value;
+                    RaisePropertyChanged("DocumentCreationDate");
                 }
             }
 
@@ -12961,14 +11125,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 15)]
             public System.DateTime DocumentCreationTime
             {
-                get
-                {
-                    return this.documentCreationTimeField;
-                }
+                get => documentCreationTimeField;
                 set
                 {
-                    this.documentCreationTimeField = value;
-                    this.RaisePropertyChanged("DocumentCreationTime");
+                    documentCreationTimeField = value;
+                    RaisePropertyChanged("DocumentCreationTime");
                 }
             }
 
@@ -12976,14 +11137,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 16)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -12991,7 +11149,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13026,14 +11184,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DisplayName
             {
-                get
-                {
-                    return this.displayNameField;
-                }
+                get => displayNameField;
                 set
                 {
-                    this.displayNameField = value;
-                    this.RaisePropertyChanged("DisplayName");
+                    displayNameField = value;
+                    RaisePropertyChanged("DisplayName");
                 }
             }
 
@@ -13041,14 +11196,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OriginalFileName
             {
-                get
-                {
-                    return this.originalFileNameField;
-                }
+                get => originalFileNameField;
                 set
                 {
-                    this.originalFileNameField = value;
-                    this.RaisePropertyChanged("OriginalFileName");
+                    originalFileNameField = value;
+                    RaisePropertyChanged("OriginalFileName");
                 }
             }
 
@@ -13056,14 +11208,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string FileType
             {
-                get
-                {
-                    return this.fileTypeField;
-                }
+                get => fileTypeField;
                 set
                 {
-                    this.fileTypeField = value;
-                    this.RaisePropertyChanged("FileType");
+                    fileTypeField = value;
+                    RaisePropertyChanged("FileType");
                 }
             }
 
@@ -13071,14 +11220,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 3)]
             public string FileSizeInBytes
             {
-                get
-                {
-                    return this.fileSizeInBytesField;
-                }
+                get => fileSizeInBytesField;
                 set
                 {
-                    this.fileSizeInBytesField = value;
-                    this.RaisePropertyChanged("FileSizeInBytes");
+                    fileSizeInBytesField = value;
+                    RaisePropertyChanged("FileSizeInBytes");
                 }
             }
 
@@ -13086,14 +11232,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string CompressionMethod
             {
-                get
-                {
-                    return this.compressionMethodField;
-                }
+                get => compressionMethodField;
                 set
                 {
-                    this.compressionMethodField = value;
-                    this.RaisePropertyChanged("CompressionMethod");
+                    compressionMethodField = value;
+                    RaisePropertyChanged("CompressionMethod");
                 }
             }
 
@@ -13101,14 +11244,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 5)]
             public string CompressedSizeInBytes
             {
-                get
-                {
-                    return this.compressedSizeInBytesField;
-                }
+                get => compressedSizeInBytesField;
                 set
                 {
-                    this.compressedSizeInBytesField = value;
-                    this.RaisePropertyChanged("CompressedSizeInBytes");
+                    compressedSizeInBytesField = value;
+                    RaisePropertyChanged("CompressedSizeInBytes");
                 }
             }
 
@@ -13116,14 +11256,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "base64Binary", Order = 6)]
             public byte[] AttachmentData
             {
-                get
-                {
-                    return this.attachmentDataField;
-                }
+                get => attachmentDataField;
                 set
                 {
-                    this.attachmentDataField = value;
-                    this.RaisePropertyChanged("AttachmentData");
+                    attachmentDataField = value;
+                    RaisePropertyChanged("AttachmentData");
                 }
             }
 
@@ -13131,7 +11268,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13164,14 +11301,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TEST_REPORTING_TYPEExaminationDetails ExaminationDetails
             {
-                get
-                {
-                    return this.examinationDetailsField;
-                }
+                get => examinationDetailsField;
                 set
                 {
-                    this.examinationDetailsField = value;
-                    this.RaisePropertyChanged("ExaminationDetails");
+                    examinationDetailsField = value;
+                    RaisePropertyChanged("ExaminationDetails");
                 }
             }
 
@@ -13179,14 +11313,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TEST_REPORTING_TYPEAuthorisingDetails AuthorisingDetails
             {
-                get
-                {
-                    return this.authorisingDetailsField;
-                }
+                get => authorisingDetailsField;
                 set
                 {
-                    this.authorisingDetailsField = value;
-                    this.RaisePropertyChanged("AuthorisingDetails");
+                    authorisingDetailsField = value;
+                    RaisePropertyChanged("AuthorisingDetails");
                 }
             }
 
@@ -13194,14 +11325,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public TEST_REPORTING_TYPEReportingDetails ReportingDetails
             {
-                get
-                {
-                    return this.reportingDetailsField;
-                }
+                get => reportingDetailsField;
                 set
                 {
-                    this.reportingDetailsField = value;
-                    this.RaisePropertyChanged("ReportingDetails");
+                    reportingDetailsField = value;
+                    RaisePropertyChanged("ReportingDetails");
                 }
             }
 
@@ -13209,14 +11337,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TEST_REPORTING_TYPEVerifyingDetails VerifyingDetails
             {
-                get
-                {
-                    return this.verifyingDetailsField;
-                }
+                get => verifyingDetailsField;
                 set
                 {
-                    this.verifyingDetailsField = value;
-                    this.RaisePropertyChanged("VerifyingDetails");
+                    verifyingDetailsField = value;
+                    RaisePropertyChanged("VerifyingDetails");
                 }
             }
 
@@ -13224,14 +11349,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public TEST_REPORTING_TYPEDataEntryDetails DataEntryDetails
             {
-                get
-                {
-                    return this.dataEntryDetailsField;
-                }
+                get => dataEntryDetailsField;
                 set
                 {
-                    this.dataEntryDetailsField = value;
-                    this.RaisePropertyChanged("DataEntryDetails");
+                    dataEntryDetailsField = value;
+                    RaisePropertyChanged("DataEntryDetails");
                 }
             }
 
@@ -13239,14 +11361,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -13254,7 +11373,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13281,14 +11400,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE ExaminationParty
             {
-                get
-                {
-                    return this.examinationPartyField;
-                }
+                get => examinationPartyField;
                 set
                 {
-                    this.examinationPartyField = value;
-                    this.RaisePropertyChanged("ExaminationParty");
+                    examinationPartyField = value;
+                    RaisePropertyChanged("ExaminationParty");
                 }
             }
 
@@ -13296,14 +11412,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime ExaminationDate
             {
-                get
-                {
-                    return this.examinationDateField;
-                }
+                get => examinationDateField;
                 set
                 {
-                    this.examinationDateField = value;
-                    this.RaisePropertyChanged("ExaminationDate");
+                    examinationDateField = value;
+                    RaisePropertyChanged("ExaminationDate");
                 }
             }
 
@@ -13311,14 +11424,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ExaminationDateSpecified
             {
-                get
-                {
-                    return this.examinationDateFieldSpecified;
-                }
+                get => examinationDateFieldSpecified;
                 set
                 {
-                    this.examinationDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ExaminationDateSpecified");
+                    examinationDateFieldSpecified = value;
+                    RaisePropertyChanged("ExaminationDateSpecified");
                 }
             }
 
@@ -13326,7 +11436,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13353,14 +11463,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE AuthorisingParty
             {
-                get
-                {
-                    return this.authorisingPartyField;
-                }
+                get => authorisingPartyField;
                 set
                 {
-                    this.authorisingPartyField = value;
-                    this.RaisePropertyChanged("AuthorisingParty");
+                    authorisingPartyField = value;
+                    RaisePropertyChanged("AuthorisingParty");
                 }
             }
 
@@ -13368,14 +11475,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime AuthorisingDate
             {
-                get
-                {
-                    return this.authorisingDateField;
-                }
+                get => authorisingDateField;
                 set
                 {
-                    this.authorisingDateField = value;
-                    this.RaisePropertyChanged("AuthorisingDate");
+                    authorisingDateField = value;
+                    RaisePropertyChanged("AuthorisingDate");
                 }
             }
 
@@ -13383,14 +11487,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AuthorisingDateSpecified
             {
-                get
-                {
-                    return this.authorisingDateFieldSpecified;
-                }
+                get => authorisingDateFieldSpecified;
                 set
                 {
-                    this.authorisingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("AuthorisingDateSpecified");
+                    authorisingDateFieldSpecified = value;
+                    RaisePropertyChanged("AuthorisingDateSpecified");
                 }
             }
 
@@ -13398,7 +11499,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13425,14 +11526,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE ReportingParty
             {
-                get
-                {
-                    return this.reportingPartyField;
-                }
+                get => reportingPartyField;
                 set
                 {
-                    this.reportingPartyField = value;
-                    this.RaisePropertyChanged("ReportingParty");
+                    reportingPartyField = value;
+                    RaisePropertyChanged("ReportingParty");
                 }
             }
 
@@ -13440,14 +11538,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime ReportingDate
             {
-                get
-                {
-                    return this.reportingDateField;
-                }
+                get => reportingDateField;
                 set
                 {
-                    this.reportingDateField = value;
-                    this.RaisePropertyChanged("ReportingDate");
+                    reportingDateField = value;
+                    RaisePropertyChanged("ReportingDate");
                 }
             }
 
@@ -13455,14 +11550,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportingDateSpecified
             {
-                get
-                {
-                    return this.reportingDateFieldSpecified;
-                }
+                get => reportingDateFieldSpecified;
                 set
                 {
-                    this.reportingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportingDateSpecified");
+                    reportingDateFieldSpecified = value;
+                    RaisePropertyChanged("ReportingDateSpecified");
                 }
             }
 
@@ -13470,7 +11562,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13497,14 +11589,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE VerifyingParty
             {
-                get
-                {
-                    return this.verifyingPartyField;
-                }
+                get => verifyingPartyField;
                 set
                 {
-                    this.verifyingPartyField = value;
-                    this.RaisePropertyChanged("VerifyingParty");
+                    verifyingPartyField = value;
+                    RaisePropertyChanged("VerifyingParty");
                 }
             }
 
@@ -13512,14 +11601,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime VerifyingDate
             {
-                get
-                {
-                    return this.verifyingDateField;
-                }
+                get => verifyingDateField;
                 set
                 {
-                    this.verifyingDateField = value;
-                    this.RaisePropertyChanged("VerifyingDate");
+                    verifyingDateField = value;
+                    RaisePropertyChanged("VerifyingDate");
                 }
             }
 
@@ -13527,14 +11613,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool VerifyingDateSpecified
             {
-                get
-                {
-                    return this.verifyingDateFieldSpecified;
-                }
+                get => verifyingDateFieldSpecified;
                 set
                 {
-                    this.verifyingDateFieldSpecified = value;
-                    this.RaisePropertyChanged("VerifyingDateSpecified");
+                    verifyingDateFieldSpecified = value;
+                    RaisePropertyChanged("VerifyingDateSpecified");
                 }
             }
 
@@ -13542,7 +11625,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13569,14 +11652,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public HCP_DETAIL_TYPE Typist
             {
-                get
-                {
-                    return this.typistField;
-                }
+                get => typistField;
                 set
                 {
-                    this.typistField = value;
-                    this.RaisePropertyChanged("Typist");
+                    typistField = value;
+                    RaisePropertyChanged("Typist");
                 }
             }
 
@@ -13584,14 +11664,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime DateTyped
             {
-                get
-                {
-                    return this.dateTypedField;
-                }
+                get => dateTypedField;
                 set
                 {
-                    this.dateTypedField = value;
-                    this.RaisePropertyChanged("DateTyped");
+                    dateTypedField = value;
+                    RaisePropertyChanged("DateTyped");
                 }
             }
 
@@ -13599,14 +11676,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTypedSpecified
             {
-                get
-                {
-                    return this.dateTypedFieldSpecified;
-                }
+                get => dateTypedFieldSpecified;
                 set
                 {
-                    this.dateTypedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTypedSpecified");
+                    dateTypedFieldSpecified = value;
+                    RaisePropertyChanged("DateTypedSpecified");
                 }
             }
 
@@ -13614,7 +11688,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13643,14 +11717,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("EvidenceLocator", Order = 0)]
             public string[] EvidenceLocator
             {
-                get
-                {
-                    return this.evidenceLocatorField;
-                }
+                get => evidenceLocatorField;
                 set
                 {
-                    this.evidenceLocatorField = value;
-                    this.RaisePropertyChanged("EvidenceLocator");
+                    evidenceLocatorField = value;
+                    RaisePropertyChanged("EvidenceLocator");
                 }
             }
 
@@ -13658,14 +11729,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("EvidenceItem", Order = 1)]
             public string[] EvidenceItem
             {
-                get
-                {
-                    return this.evidenceItemField;
-                }
+                get => evidenceItemField;
                 set
                 {
-                    this.evidenceItemField = value;
-                    this.RaisePropertyChanged("EvidenceItem");
+                    evidenceItemField = value;
+                    RaisePropertyChanged("EvidenceItem");
                 }
             }
 
@@ -13673,14 +11741,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EvidenceFormat
             {
-                get
-                {
-                    return this.evidenceFormatField;
-                }
+                get => evidenceFormatField;
                 set
                 {
-                    this.evidenceFormatField = value;
-                    this.RaisePropertyChanged("EvidenceFormat");
+                    evidenceFormatField = value;
+                    RaisePropertyChanged("EvidenceFormat");
                 }
             }
 
@@ -13688,14 +11753,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -13703,7 +11765,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13728,14 +11790,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Interpretation
             {
-                get
-                {
-                    return this.interpretationField;
-                }
+                get => interpretationField;
                 set
                 {
-                    this.interpretationField = value;
-                    this.RaisePropertyChanged("Interpretation");
+                    interpretationField = value;
+                    RaisePropertyChanged("Interpretation");
                 }
             }
 
@@ -13743,14 +11802,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DeviatingResultQualitativeFlag
             {
-                get
-                {
-                    return this.deviatingResultQualitativeFlagField;
-                }
+                get => deviatingResultQualitativeFlagField;
                 set
                 {
-                    this.deviatingResultQualitativeFlagField = value;
-                    this.RaisePropertyChanged("DeviatingResultQualitativeFlag");
+                    deviatingResultQualitativeFlagField = value;
+                    RaisePropertyChanged("DeviatingResultQualitativeFlag");
                 }
             }
 
@@ -13758,7 +11814,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -13813,14 +11869,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Department
             {
-                get
-                {
-                    return this.departmentField;
-                }
+                get => departmentField;
                 set
                 {
-                    this.departmentField = value;
-                    this.RaisePropertyChanged("Department");
+                    departmentField = value;
+                    RaisePropertyChanged("Department");
                 }
             }
 
@@ -13828,14 +11881,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TEST_TYPE TestPerformed
             {
-                get
-                {
-                    return this.testPerformedField;
-                }
+                get => testPerformedField;
                 set
                 {
-                    this.testPerformedField = value;
-                    this.RaisePropertyChanged("TestPerformed");
+                    testPerformedField = value;
+                    RaisePropertyChanged("TestPerformed");
                 }
             }
 
@@ -13843,14 +11893,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime TestDate
             {
-                get
-                {
-                    return this.testDateField;
-                }
+                get => testDateField;
                 set
                 {
-                    this.testDateField = value;
-                    this.RaisePropertyChanged("TestDate");
+                    testDateField = value;
+                    RaisePropertyChanged("TestDate");
                 }
             }
 
@@ -13858,14 +11905,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TestDateSpecified
             {
-                get
-                {
-                    return this.testDateFieldSpecified;
-                }
+                get => testDateFieldSpecified;
                 set
                 {
-                    this.testDateFieldSpecified = value;
-                    this.RaisePropertyChanged("TestDateSpecified");
+                    testDateFieldSpecified = value;
+                    RaisePropertyChanged("TestDateSpecified");
                 }
             }
 
@@ -13873,14 +11917,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestSampleDetails", Order = 3)]
             public SAMPLE_TYPE[] TestSampleDetails
             {
-                get
-                {
-                    return this.testSampleDetailsField;
-                }
+                get => testSampleDetailsField;
                 set
                 {
-                    this.testSampleDetailsField = value;
-                    this.RaisePropertyChanged("TestSampleDetails");
+                    testSampleDetailsField = value;
+                    RaisePropertyChanged("TestSampleDetails");
                 }
             }
 
@@ -13888,14 +11929,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestMeasurement", Order = 4)]
             public QUANTIFIABLE_RESULT_TYPE[] TestMeasurement
             {
-                get
-                {
-                    return this.testMeasurementField;
-                }
+                get => testMeasurementField;
                 set
                 {
-                    this.testMeasurementField = value;
-                    this.RaisePropertyChanged("TestMeasurement");
+                    testMeasurementField = value;
+                    RaisePropertyChanged("TestMeasurement");
                 }
             }
 
@@ -13903,14 +11941,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public INTERPRETATION_TYPE TestInterpretation
             {
-                get
-                {
-                    return this.testInterpretationField;
-                }
+                get => testInterpretationField;
                 set
                 {
-                    this.testInterpretationField = value;
-                    this.RaisePropertyChanged("TestInterpretation");
+                    testInterpretationField = value;
+                    RaisePropertyChanged("TestInterpretation");
                 }
             }
 
@@ -13918,14 +11953,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public System.DateTime DateTimeReported
             {
-                get
-                {
-                    return this.dateTimeReportedField;
-                }
+                get => dateTimeReportedField;
                 set
                 {
-                    this.dateTimeReportedField = value;
-                    this.RaisePropertyChanged("DateTimeReported");
+                    dateTimeReportedField = value;
+                    RaisePropertyChanged("DateTimeReported");
                 }
             }
 
@@ -13933,14 +11965,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReportedSpecified
             {
-                get
-                {
-                    return this.dateTimeReportedFieldSpecified;
-                }
+                get => dateTimeReportedFieldSpecified;
                 set
                 {
-                    this.dateTimeReportedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReportedSpecified");
+                    dateTimeReportedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReportedSpecified");
                 }
             }
 
@@ -13948,14 +11977,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Evidence", Order = 7)]
             public EVIDENCE_TYPE[] Evidence
             {
-                get
-                {
-                    return this.evidenceField;
-                }
+                get => evidenceField;
                 set
                 {
-                    this.evidenceField = value;
-                    this.RaisePropertyChanged("Evidence");
+                    evidenceField = value;
+                    RaisePropertyChanged("Evidence");
                 }
             }
 
@@ -13963,14 +11989,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Comment", Order = 8)]
             public string[] Comment
             {
-                get
-                {
-                    return this.commentField;
-                }
+                get => commentField;
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -13978,14 +12001,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public string DisciplineSpecificValues
             {
-                get
-                {
-                    return this.disciplineSpecificValuesField;
-                }
+                get => disciplineSpecificValuesField;
                 set
                 {
-                    this.disciplineSpecificValuesField = value;
-                    this.RaisePropertyChanged("DisciplineSpecificValues");
+                    disciplineSpecificValuesField = value;
+                    RaisePropertyChanged("DisciplineSpecificValues");
                 }
             }
 
@@ -13993,14 +12013,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public TEST_STATUS_TYPE ResultStatus
             {
-                get
-                {
-                    return this.resultStatusField;
-                }
+                get => resultStatusField;
                 set
                 {
-                    this.resultStatusField = value;
-                    this.RaisePropertyChanged("ResultStatus");
+                    resultStatusField = value;
+                    RaisePropertyChanged("ResultStatus");
                 }
             }
 
@@ -14008,14 +12025,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string ResultDataType
             {
-                get
-                {
-                    return this.resultDataTypeField;
-                }
+                get => resultDataTypeField;
                 set
                 {
-                    this.resultDataTypeField = value;
-                    this.RaisePropertyChanged("ResultDataType");
+                    resultDataTypeField = value;
+                    RaisePropertyChanged("ResultDataType");
                 }
             }
 
@@ -14023,14 +12037,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public TEST_REPORTING_TYPE ReportDetails
             {
-                get
-                {
-                    return this.reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -14039,14 +12050,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ResultAttachment", IsNullable = false)]
             public ATTACHMENT_TYPE[] ResultAttachments
             {
-                get
-                {
-                    return this.resultAttachmentsField;
-                }
+                get => resultAttachmentsField;
                 set
                 {
-                    this.resultAttachmentsField = value;
-                    this.RaisePropertyChanged("ResultAttachments");
+                    resultAttachmentsField = value;
+                    RaisePropertyChanged("ResultAttachments");
                 }
             }
 
@@ -14054,14 +12062,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 14)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14069,7 +12074,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14102,14 +12107,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestName", Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] TestName
             {
-                get
-                {
-                    return this.testNameField;
-                }
+                get => testNameField;
                 set
                 {
-                    this.testNameField = value;
-                    this.RaisePropertyChanged("TestName");
+                    testNameField = value;
+                    RaisePropertyChanged("TestName");
                 }
             }
 
@@ -14117,14 +12119,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TestSpecification
             {
-                get
-                {
-                    return this.testSpecificationField;
-                }
+                get => testSpecificationField;
                 set
                 {
-                    this.testSpecificationField = value;
-                    this.RaisePropertyChanged("TestSpecification");
+                    testSpecificationField = value;
+                    RaisePropertyChanged("TestSpecification");
                 }
             }
 
@@ -14132,14 +12131,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OrderNumber
             {
-                get
-                {
-                    return this.orderNumberField;
-                }
+                get => orderNumberField;
                 set
                 {
-                    this.orderNumberField = value;
-                    this.RaisePropertyChanged("OrderNumber");
+                    orderNumberField = value;
+                    RaisePropertyChanged("OrderNumber");
                 }
             }
 
@@ -14147,14 +12143,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SubOrderNumber
             {
-                get
-                {
-                    return this.subOrderNumberField;
-                }
+                get => subOrderNumberField;
                 set
                 {
-                    this.subOrderNumberField = value;
-                    this.RaisePropertyChanged("SubOrderNumber");
+                    subOrderNumberField = value;
+                    RaisePropertyChanged("SubOrderNumber");
                 }
             }
 
@@ -14162,14 +12155,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ID_TYPE TestIdentifier
             {
-                get
-                {
-                    return this.testIdentifierField;
-                }
+                get => testIdentifierField;
                 set
                 {
-                    this.testIdentifierField = value;
-                    this.RaisePropertyChanged("TestIdentifier");
+                    testIdentifierField = value;
+                    RaisePropertyChanged("TestIdentifier");
                 }
             }
 
@@ -14177,14 +12167,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14192,7 +12179,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14247,14 +12234,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("SampleName", Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE[] SampleName
             {
-                get
-                {
-                    return this.sampleNameField;
-                }
+                get => sampleNameField;
                 set
                 {
-                    this.sampleNameField = value;
-                    this.RaisePropertyChanged("SampleName");
+                    sampleNameField = value;
+                    RaisePropertyChanged("SampleName");
                 }
             }
 
@@ -14262,14 +12246,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TissueType
             {
-                get
-                {
-                    return this.tissueTypeField;
-                }
+                get => tissueTypeField;
                 set
                 {
-                    this.tissueTypeField = value;
-                    this.RaisePropertyChanged("TissueType");
+                    tissueTypeField = value;
+                    RaisePropertyChanged("TissueType");
                 }
             }
 
@@ -14277,14 +12258,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SampleRequesterId
             {
-                get
-                {
-                    return this.sampleRequesterIdField;
-                }
+                get => sampleRequesterIdField;
                 set
                 {
-                    this.sampleRequesterIdField = value;
-                    this.RaisePropertyChanged("SampleRequesterId");
+                    sampleRequesterIdField = value;
+                    RaisePropertyChanged("SampleRequesterId");
                 }
             }
 
@@ -14292,14 +12270,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SampleLaboratoryId
             {
-                get
-                {
-                    return this.sampleLaboratoryIdField;
-                }
+                get => sampleLaboratoryIdField;
                 set
                 {
-                    this.sampleLaboratoryIdField = value;
-                    this.RaisePropertyChanged("SampleLaboratoryId");
+                    sampleLaboratoryIdField = value;
+                    RaisePropertyChanged("SampleLaboratoryId");
                 }
             }
 
@@ -14307,14 +12282,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public System.DateTime DateTimeSampled
             {
-                get
-                {
-                    return this.dateTimeSampledField;
-                }
+                get => dateTimeSampledField;
                 set
                 {
-                    this.dateTimeSampledField = value;
-                    this.RaisePropertyChanged("DateTimeSampled");
+                    dateTimeSampledField = value;
+                    RaisePropertyChanged("DateTimeSampled");
                 }
             }
 
@@ -14322,14 +12294,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeSampledSpecified
             {
-                get
-                {
-                    return this.dateTimeSampledFieldSpecified;
-                }
+                get => dateTimeSampledFieldSpecified;
                 set
                 {
-                    this.dateTimeSampledFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeSampledSpecified");
+                    dateTimeSampledFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeSampledSpecified");
                 }
             }
 
@@ -14337,14 +12306,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public QUANTITY_TYPE SampleAmount
             {
-                get
-                {
-                    return this.sampleAmountField;
-                }
+                get => sampleAmountField;
                 set
                 {
-                    this.sampleAmountField = value;
-                    this.RaisePropertyChanged("SampleAmount");
+                    sampleAmountField = value;
+                    RaisePropertyChanged("SampleAmount");
                 }
             }
 
@@ -14352,14 +12318,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public System.DateTime DateTimeReceived
             {
-                get
-                {
-                    return this.dateTimeReceivedField;
-                }
+                get => dateTimeReceivedField;
                 set
                 {
-                    this.dateTimeReceivedField = value;
-                    this.RaisePropertyChanged("DateTimeReceived");
+                    dateTimeReceivedField = value;
+                    RaisePropertyChanged("DateTimeReceived");
                 }
             }
 
@@ -14367,14 +12330,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReceivedSpecified
             {
-                get
-                {
-                    return this.dateTimeReceivedFieldSpecified;
-                }
+                get => dateTimeReceivedFieldSpecified;
                 set
                 {
-                    this.dateTimeReceivedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReceivedSpecified");
+                    dateTimeReceivedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReceivedSpecified");
                 }
             }
 
@@ -14382,14 +12342,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public System.DateTime DateTimeTested
             {
-                get
-                {
-                    return this.dateTimeTestedField;
-                }
+                get => dateTimeTestedField;
                 set
                 {
-                    this.dateTimeTestedField = value;
-                    this.RaisePropertyChanged("DateTimeTested");
+                    dateTimeTestedField = value;
+                    RaisePropertyChanged("DateTimeTested");
                 }
             }
 
@@ -14397,14 +12354,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeTestedSpecified
             {
-                get
-                {
-                    return this.dateTimeTestedFieldSpecified;
-                }
+                get => dateTimeTestedFieldSpecified;
                 set
                 {
-                    this.dateTimeTestedFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeTestedSpecified");
+                    dateTimeTestedFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeTestedSpecified");
                 }
             }
 
@@ -14412,14 +12366,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public ANATOMICAL_SITE_TYPE AnatomicalSite
             {
-                get
-                {
-                    return this.anatomicalSiteField;
-                }
+                get => anatomicalSiteField;
                 set
                 {
-                    this.anatomicalSiteField = value;
-                    this.RaisePropertyChanged("AnatomicalSite");
+                    anatomicalSiteField = value;
+                    RaisePropertyChanged("AnatomicalSite");
                 }
             }
 
@@ -14427,14 +12378,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public bool BiohazardAlert
             {
-                get
-                {
-                    return this.biohazardAlertField;
-                }
+                get => biohazardAlertField;
                 set
                 {
-                    this.biohazardAlertField = value;
-                    this.RaisePropertyChanged("BiohazardAlert");
+                    biohazardAlertField = value;
+                    RaisePropertyChanged("BiohazardAlert");
                 }
             }
 
@@ -14442,14 +12390,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool BiohazardAlertSpecified
             {
-                get
-                {
-                    return this.biohazardAlertFieldSpecified;
-                }
+                get => biohazardAlertFieldSpecified;
                 set
                 {
-                    this.biohazardAlertFieldSpecified = value;
-                    this.RaisePropertyChanged("BiohazardAlertSpecified");
+                    biohazardAlertFieldSpecified = value;
+                    RaisePropertyChanged("BiohazardAlertSpecified");
                 }
             }
 
@@ -14457,14 +12402,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("SampleRequesterComment", Order = 10)]
             public string[] SampleRequesterComment
             {
-                get
-                {
-                    return this.sampleRequesterCommentField;
-                }
+                get => sampleRequesterCommentField;
                 set
                 {
-                    this.sampleRequesterCommentField = value;
-                    this.RaisePropertyChanged("SampleRequesterComment");
+                    sampleRequesterCommentField = value;
+                    RaisePropertyChanged("SampleRequesterComment");
                 }
             }
 
@@ -14472,14 +12414,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ServiceProviderComment", Order = 11)]
             public string[] ServiceProviderComment
             {
-                get
-                {
-                    return this.serviceProviderCommentField;
-                }
+                get => serviceProviderCommentField;
                 set
                 {
-                    this.serviceProviderCommentField = value;
-                    this.RaisePropertyChanged("ServiceProviderComment");
+                    serviceProviderCommentField = value;
+                    RaisePropertyChanged("ServiceProviderComment");
                 }
             }
 
@@ -14487,14 +12426,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 12)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14502,7 +12438,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14527,14 +12463,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CLINICAL_CIRCUMSTANCE_TYPE BodyPart
             {
-                get
-                {
-                    return this.bodyPartField;
-                }
+                get => bodyPartField;
                 set
                 {
-                    this.bodyPartField = value;
-                    this.RaisePropertyChanged("BodyPart");
+                    bodyPartField = value;
+                    RaisePropertyChanged("BodyPart");
                 }
             }
 
@@ -14542,14 +12475,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Laterality
             {
-                get
-                {
-                    return this.lateralityField;
-                }
+                get => lateralityField;
                 set
                 {
-                    this.lateralityField = value;
-                    this.RaisePropertyChanged("Laterality");
+                    lateralityField = value;
+                    RaisePropertyChanged("Laterality");
                 }
             }
 
@@ -14557,7 +12487,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14592,14 +12522,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TEST_TYPE TestSetDetails
             {
-                get
-                {
-                    return this.testSetDetailsField;
-                }
+                get => testSetDetailsField;
                 set
                 {
-                    this.testSetDetailsField = value;
-                    this.RaisePropertyChanged("TestSetDetails");
+                    testSetDetailsField = value;
+                    RaisePropertyChanged("TestSetDetails");
                 }
             }
 
@@ -14608,14 +12535,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResult", IsNullable = false)]
             public TEST_RESULT_TYPE[] TestResults
             {
-                get
-                {
-                    return this.testResultsField;
-                }
+                get => testResultsField;
                 set
                 {
-                    this.testResultsField = value;
-                    this.RaisePropertyChanged("TestResults");
+                    testResultsField = value;
+                    RaisePropertyChanged("TestResults");
                 }
             }
 
@@ -14623,14 +12547,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Comment", Order = 2)]
             public string[] Comment
             {
-                get
-                {
-                    return this.commentField;
-                }
+                get => commentField;
                 set
                 {
-                    this.commentField = value;
-                    this.RaisePropertyChanged("Comment");
+                    commentField = value;
+                    RaisePropertyChanged("Comment");
                 }
             }
 
@@ -14638,14 +12559,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public TEST_STATUS_TYPE ResultStatus
             {
-                get
-                {
-                    return this.resultStatusField;
-                }
+                get => resultStatusField;
                 set
                 {
-                    this.resultStatusField = value;
-                    this.RaisePropertyChanged("ResultStatus");
+                    resultStatusField = value;
+                    RaisePropertyChanged("ResultStatus");
                 }
             }
 
@@ -14653,14 +12571,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ResultDataType
             {
-                get
-                {
-                    return this.resultDataTypeField;
-                }
+                get => resultDataTypeField;
                 set
                 {
-                    this.resultDataTypeField = value;
-                    this.RaisePropertyChanged("ResultDataType");
+                    resultDataTypeField = value;
+                    RaisePropertyChanged("ResultDataType");
                 }
             }
 
@@ -14668,14 +12583,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public TEST_REPORTING_TYPE ReportDetails
             {
-                get
-                {
-                    return this.reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -14683,14 +12595,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14698,7 +12607,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14725,14 +12634,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SAMPLE_TYPE SampleDetails
             {
-                get
-                {
-                    return this.sampleDetailsField;
-                }
+                get => sampleDetailsField;
                 set
                 {
-                    this.sampleDetailsField = value;
-                    this.RaisePropertyChanged("SampleDetails");
+                    sampleDetailsField = value;
+                    RaisePropertyChanged("SampleDetails");
                 }
             }
 
@@ -14741,14 +12647,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TestResultSet", IsNullable = false)]
             public TEST_SET_RESULT_TYPE[] TestResultSets
             {
-                get
-                {
-                    return this.testResultSetsField;
-                }
+                get => testResultSetsField;
                 set
                 {
-                    this.testResultSetsField = value;
-                    this.RaisePropertyChanged("TestResultSets");
+                    testResultSetsField = value;
+                    RaisePropertyChanged("TestResultSets");
                 }
             }
 
@@ -14756,14 +12659,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14771,7 +12671,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14810,14 +12710,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -14826,14 +12723,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemChoiceType ItemElementName
             {
-                get
-                {
-                    return this.itemElementNameField;
-                }
+                get => itemElementNameField;
                 set
                 {
-                    this.itemElementNameField = value;
-                    this.RaisePropertyChanged("ItemElementName");
+                    itemElementNameField = value;
+                    RaisePropertyChanged("ItemElementName");
                 }
             }
 
@@ -14841,14 +12735,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public bool DrugReviewRequired
             {
-                get
-                {
-                    return this.drugReviewRequiredField;
-                }
+                get => drugReviewRequiredField;
                 set
                 {
-                    this.drugReviewRequiredField = value;
-                    this.RaisePropertyChanged("DrugReviewRequired");
+                    drugReviewRequiredField = value;
+                    RaisePropertyChanged("DrugReviewRequired");
                 }
             }
 
@@ -14856,14 +12747,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DrugReviewRequiredSpecified
             {
-                get
-                {
-                    return this.drugReviewRequiredFieldSpecified;
-                }
+                get => drugReviewRequiredFieldSpecified;
                 set
                 {
-                    this.drugReviewRequiredFieldSpecified = value;
-                    this.RaisePropertyChanged("DrugReviewRequiredSpecified");
+                    drugReviewRequiredFieldSpecified = value;
+                    RaisePropertyChanged("DrugReviewRequiredSpecified");
                 }
             }
 
@@ -14871,14 +12759,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 3)]
             public System.DateTime MedicationStopDate
             {
-                get
-                {
-                    return this.medicationStopDateField;
-                }
+                get => medicationStopDateField;
                 set
                 {
-                    this.medicationStopDateField = value;
-                    this.RaisePropertyChanged("MedicationStopDate");
+                    medicationStopDateField = value;
+                    RaisePropertyChanged("MedicationStopDate");
                 }
             }
 
@@ -14886,14 +12771,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool MedicationStopDateSpecified
             {
-                get
-                {
-                    return this.medicationStopDateFieldSpecified;
-                }
+                get => medicationStopDateFieldSpecified;
                 set
                 {
-                    this.medicationStopDateFieldSpecified = value;
-                    this.RaisePropertyChanged("MedicationStopDateSpecified");
+                    medicationStopDateFieldSpecified = value;
+                    RaisePropertyChanged("MedicationStopDateSpecified");
                 }
             }
 
@@ -14901,14 +12783,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -14916,7 +12795,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -14978,14 +12857,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("DoseDescription", typeof(string), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -14993,14 +12869,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Frequency
             {
-                get
-                {
-                    return this.frequencyField;
-                }
+                get => frequencyField;
                 set
                 {
-                    this.frequencyField = value;
-                    this.RaisePropertyChanged("Frequency");
+                    frequencyField = value;
+                    RaisePropertyChanged("Frequency");
                 }
             }
 
@@ -15008,14 +12881,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string TimeOfAdministration
             {
-                get
-                {
-                    return this.timeOfAdministrationField;
-                }
+                get => timeOfAdministrationField;
                 set
                 {
-                    this.timeOfAdministrationField = value;
-                    this.RaisePropertyChanged("TimeOfAdministration");
+                    timeOfAdministrationField = value;
+                    RaisePropertyChanged("TimeOfAdministration");
                 }
             }
 
@@ -15023,14 +12893,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Route
             {
-                get
-                {
-                    return this.routeField;
-                }
+                get => routeField;
                 set
                 {
-                    this.routeField = value;
-                    this.RaisePropertyChanged("Route");
+                    routeField = value;
+                    RaisePropertyChanged("Route");
                 }
             }
 
@@ -15038,14 +12905,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public QUANTITY_TYPE MaximumDailyDose
             {
-                get
-                {
-                    return this.maximumDailyDoseField;
-                }
+                get => maximumDailyDoseField;
                 set
                 {
-                    this.maximumDailyDoseField = value;
-                    this.RaisePropertyChanged("MaximumDailyDose");
+                    maximumDailyDoseField = value;
+                    RaisePropertyChanged("MaximumDailyDose");
                 }
             }
 
@@ -15054,14 +12918,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TriggerForAdministration", typeof(string), Order = 5)]
             public object[] Items
             {
-                get
-                {
-                    return this.itemsField;
-                }
+                get => itemsField;
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15069,14 +12930,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public DRUG_DURATION_TYPE DrugDuration
             {
-                get
-                {
-                    return this.drugDurationField;
-                }
+                get => drugDurationField;
                 set
                 {
-                    this.drugDurationField = value;
-                    this.RaisePropertyChanged("DrugDuration");
+                    drugDurationField = value;
+                    RaisePropertyChanged("DrugDuration");
                 }
             }
 
@@ -15084,14 +12942,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 7)]
             public System.DateTime LastPrescribedDate
             {
-                get
-                {
-                    return this.lastPrescribedDateField;
-                }
+                get => lastPrescribedDateField;
                 set
                 {
-                    this.lastPrescribedDateField = value;
-                    this.RaisePropertyChanged("LastPrescribedDate");
+                    lastPrescribedDateField = value;
+                    RaisePropertyChanged("LastPrescribedDate");
                 }
             }
 
@@ -15099,14 +12954,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool LastPrescribedDateSpecified
             {
-                get
-                {
-                    return this.lastPrescribedDateFieldSpecified;
-                }
+                get => lastPrescribedDateFieldSpecified;
                 set
                 {
-                    this.lastPrescribedDateFieldSpecified = value;
-                    this.RaisePropertyChanged("LastPrescribedDateSpecified");
+                    lastPrescribedDateFieldSpecified = value;
+                    RaisePropertyChanged("LastPrescribedDateSpecified");
                 }
             }
 
@@ -15114,14 +12966,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15129,7 +12978,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15164,14 +13013,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string DrugCodeValue
             {
-                get
-                {
-                    return this.drugCodeValueField;
-                }
+                get => drugCodeValueField;
                 set
                 {
-                    this.drugCodeValueField = value;
-                    this.RaisePropertyChanged("DrugCodeValue");
+                    drugCodeValueField = value;
+                    RaisePropertyChanged("DrugCodeValue");
                 }
             }
 
@@ -15179,14 +13025,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string DrugIdentifier
             {
-                get
-                {
-                    return this.drugIdentifierField;
-                }
+                get => drugIdentifierField;
                 set
                 {
-                    this.drugIdentifierField = value;
-                    this.RaisePropertyChanged("DrugIdentifier");
+                    drugIdentifierField = value;
+                    RaisePropertyChanged("DrugIdentifier");
                 }
             }
 
@@ -15194,14 +13037,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Formulation
             {
-                get
-                {
-                    return this.formulationField;
-                }
+                get => formulationField;
                 set
                 {
-                    this.formulationField = value;
-                    this.RaisePropertyChanged("Formulation");
+                    formulationField = value;
+                    RaisePropertyChanged("Formulation");
                 }
             }
 
@@ -15209,14 +13049,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public QUANTITY_TYPE DrugStrength
             {
-                get
-                {
-                    return this.drugStrengthField;
-                }
+                get => drugStrengthField;
                 set
                 {
-                    this.drugStrengthField = value;
-                    this.RaisePropertyChanged("DrugStrength");
+                    drugStrengthField = value;
+                    RaisePropertyChanged("DrugStrength");
                 }
             }
 
@@ -15224,14 +13061,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string DrugType
             {
-                get
-                {
-                    return this.drugTypeField;
-                }
+                get => drugTypeField;
                 set
                 {
-                    this.drugTypeField = value;
-                    this.RaisePropertyChanged("DrugType");
+                    drugTypeField = value;
+                    RaisePropertyChanged("DrugType");
                 }
             }
 
@@ -15239,14 +13073,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public CLINICAL_CODE_SCHEME_TYPE DrugDictionary
             {
-                get
-                {
-                    return this.drugDictionaryField;
-                }
+                get => drugDictionaryField;
                 set
                 {
-                    this.drugDictionaryField = value;
-                    this.RaisePropertyChanged("DrugDictionary");
+                    drugDictionaryField = value;
+                    RaisePropertyChanged("DrugDictionary");
                 }
             }
 
@@ -15254,14 +13085,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15269,7 +13097,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15298,14 +13126,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
             public object[] Items
             {
-                get
-                {
-                    return this.itemsField;
-                }
+                get => itemsField;
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15314,14 +13139,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemsChoiceType1[] ItemsElementName
             {
-                get
-                {
-                    return this.itemsElementNameField;
-                }
+                get => itemsElementNameField;
                 set
                 {
-                    this.itemsElementNameField = value;
-                    this.RaisePropertyChanged("ItemsElementName");
+                    itemsElementNameField = value;
+                    RaisePropertyChanged("ItemsElementName");
                 }
             }
 
@@ -15329,7 +13151,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15377,14 +13199,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DRUG_IDENTIFICATION_TYPE DrugName
             {
-                get
-                {
-                    return this.drugNameField;
-                }
+                get => drugNameField;
                 set
                 {
-                    this.drugNameField = value;
-                    this.RaisePropertyChanged("DrugName");
+                    drugNameField = value;
+                    RaisePropertyChanged("DrugName");
                 }
             }
 
@@ -15393,14 +13212,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("UnstructuredDosage", typeof(string), Order = 1)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -15408,14 +13224,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15423,7 +13236,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15460,14 +13273,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public bool TransportRequired
             {
-                get
-                {
-                    return this.transportRequiredField;
-                }
+                get => transportRequiredField;
                 set
                 {
-                    this.transportRequiredField = value;
-                    this.RaisePropertyChanged("TransportRequired");
+                    transportRequiredField = value;
+                    RaisePropertyChanged("TransportRequired");
                 }
             }
 
@@ -15475,14 +13285,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TransportType
             {
-                get
-                {
-                    return this.transportTypeField;
-                }
+                get => transportTypeField;
                 set
                 {
-                    this.transportTypeField = value;
-                    this.RaisePropertyChanged("TransportType");
+                    transportTypeField = value;
+                    RaisePropertyChanged("TransportType");
                 }
             }
 
@@ -15493,14 +13300,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
             public object[] Items
             {
-                get
-                {
-                    return this.itemsField;
-                }
+                get => itemsField;
                 set
                 {
-                    this.itemsField = value;
-                    this.RaisePropertyChanged("Items");
+                    itemsField = value;
+                    RaisePropertyChanged("Items");
                 }
             }
 
@@ -15509,14 +13313,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public ItemsChoiceType[] ItemsElementName
             {
-                get
-                {
-                    return this.itemsElementNameField;
-                }
+                get => itemsElementNameField;
                 set
                 {
-                    this.itemsElementNameField = value;
-                    this.RaisePropertyChanged("ItemsElementName");
+                    itemsElementNameField = value;
+                    RaisePropertyChanged("ItemsElementName");
                 }
             }
 
@@ -15524,14 +13325,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string TransportPickup
             {
-                get
-                {
-                    return this.transportPickupField;
-                }
+                get => transportPickupField;
                 set
                 {
-                    this.transportPickupField = value;
-                    this.RaisePropertyChanged("TransportPickup");
+                    transportPickupField = value;
+                    RaisePropertyChanged("TransportPickup");
                 }
             }
 
@@ -15539,14 +13337,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string TransportDestination
             {
-                get
-                {
-                    return this.transportDestinationField;
-                }
+                get => transportDestinationField;
                 set
                 {
-                    this.transportDestinationField = value;
-                    this.RaisePropertyChanged("TransportDestination");
+                    transportDestinationField = value;
+                    RaisePropertyChanged("TransportDestination");
                 }
             }
 
@@ -15554,14 +13349,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string TransportInstructions
             {
-                get
-                {
-                    return this.transportInstructionsField;
-                }
+                get => transportInstructionsField;
                 set
                 {
-                    this.transportInstructionsField = value;
-                    this.RaisePropertyChanged("TransportInstructions");
+                    transportInstructionsField = value;
+                    RaisePropertyChanged("TransportInstructions");
                 }
             }
 
@@ -15569,14 +13361,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15584,7 +13373,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15634,14 +13423,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE ClinicHealthcareOrganisation
             {
-                get
-                {
-                    return this.clinicHealthcareOrganisationField;
-                }
+                get => clinicHealthcareOrganisationField;
                 set
                 {
-                    this.clinicHealthcareOrganisationField = value;
-                    this.RaisePropertyChanged("ClinicHealthcareOrganisation");
+                    clinicHealthcareOrganisationField = value;
+                    RaisePropertyChanged("ClinicHealthcareOrganisation");
                 }
             }
 
@@ -15649,14 +13435,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Clinic
             {
-                get
-                {
-                    return this.clinicField;
-                }
+                get => clinicField;
                 set
                 {
-                    this.clinicField = value;
-                    this.RaisePropertyChanged("Clinic");
+                    clinicField = value;
+                    RaisePropertyChanged("Clinic");
                 }
             }
 
@@ -15664,14 +13447,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime AppointmentDate
             {
-                get
-                {
-                    return this.appointmentDateField;
-                }
+                get => appointmentDateField;
                 set
                 {
-                    this.appointmentDateField = value;
-                    this.RaisePropertyChanged("AppointmentDate");
+                    appointmentDateField = value;
+                    RaisePropertyChanged("AppointmentDate");
                 }
             }
 
@@ -15679,14 +13459,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime AppointmentTime
             {
-                get
-                {
-                    return this.appointmentTimeField;
-                }
+                get => appointmentTimeField;
                 set
                 {
-                    this.appointmentTimeField = value;
-                    this.RaisePropertyChanged("AppointmentTime");
+                    appointmentTimeField = value;
+                    RaisePropertyChanged("AppointmentTime");
                 }
             }
 
@@ -15694,14 +13471,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public INTERVAL_TYPE SlotLength
             {
-                get
-                {
-                    return this.slotLengthField;
-                }
+                get => slotLengthField;
                 set
                 {
-                    this.slotLengthField = value;
-                    this.RaisePropertyChanged("SlotLength");
+                    slotLengthField = value;
+                    RaisePropertyChanged("SlotLength");
                 }
             }
 
@@ -15709,14 +13483,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15724,7 +13495,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15751,14 +13522,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("Slot", Order = 0)]
             public SLOT_TYPE[] Slot
             {
-                get
-                {
-                    return this.slotField;
-                }
+                get => slotField;
                 set
                 {
-                    this.slotField = value;
-                    this.RaisePropertyChanged("Slot");
+                    slotField = value;
+                    RaisePropertyChanged("Slot");
                 }
             }
 
@@ -15766,14 +13534,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public TRANSPORT_DETAILS_TYPE TransportDetails
             {
-                get
-                {
-                    return this.transportDetailsField;
-                }
+                get => transportDetailsField;
                 set
                 {
-                    this.transportDetailsField = value;
-                    this.RaisePropertyChanged("TransportDetails");
+                    transportDetailsField = value;
+                    RaisePropertyChanged("TransportDetails");
                 }
             }
 
@@ -15781,14 +13546,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15796,7 +13558,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -15833,14 +13595,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE Department
             {
-                get
-                {
-                    return this.departmentField;
-                }
+                get => departmentField;
                 set
                 {
-                    this.departmentField = value;
-                    this.RaisePropertyChanged("Department");
+                    departmentField = value;
+                    RaisePropertyChanged("Department");
                 }
             }
 
@@ -15848,14 +13607,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestRequested", Order = 1)]
             public TEST_TYPE[] TestRequested
             {
-                get
-                {
-                    return this.testRequestedField;
-                }
+                get => testRequestedField;
                 set
                 {
-                    this.testRequestedField = value;
-                    this.RaisePropertyChanged("TestRequested");
+                    testRequestedField = value;
+                    RaisePropertyChanged("TestRequested");
                 }
             }
 
@@ -15863,14 +13619,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TestSampleDetails", Order = 2)]
             public SAMPLE_TYPE[] TestSampleDetails
             {
-                get
-                {
-                    return this.testSampleDetailsField;
-                }
+                get => testSampleDetailsField;
                 set
                 {
-                    this.testSampleDetailsField = value;
-                    this.RaisePropertyChanged("TestSampleDetails");
+                    testSampleDetailsField = value;
+                    RaisePropertyChanged("TestSampleDetails");
                 }
             }
 
@@ -15878,14 +13631,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public PATIENT_TEST_ADMINISTRATION_TYPE PatientTestAdministration
             {
-                get
-                {
-                    return this.patientTestAdministrationField;
-                }
+                get => patientTestAdministrationField;
                 set
                 {
-                    this.patientTestAdministrationField = value;
-                    this.RaisePropertyChanged("PatientTestAdministration");
+                    patientTestAdministrationField = value;
+                    RaisePropertyChanged("PatientTestAdministration");
                 }
             }
 
@@ -15893,14 +13643,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string RequestUrgencyValue
             {
-                get
-                {
-                    return this.requestUrgencyValueField;
-                }
+                get => requestUrgencyValueField;
                 set
                 {
-                    this.requestUrgencyValueField = value;
-                    this.RaisePropertyChanged("RequestUrgencyValue");
+                    requestUrgencyValueField = value;
+                    RaisePropertyChanged("RequestUrgencyValue");
                 }
             }
 
@@ -15908,14 +13655,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ClinicalDataRequired", Order = 5)]
             public string[] ClinicalDataRequired
             {
-                get
-                {
-                    return this.clinicalDataRequiredField;
-                }
+                get => clinicalDataRequiredField;
                 set
                 {
-                    this.clinicalDataRequiredField = value;
-                    this.RaisePropertyChanged("ClinicalDataRequired");
+                    clinicalDataRequiredField = value;
+                    RaisePropertyChanged("ClinicalDataRequired");
                 }
             }
 
@@ -15923,14 +13667,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("CurrentMedication", Order = 6)]
             public MEDICATION_TYPE[] CurrentMedication
             {
-                get
-                {
-                    return this.currentMedicationField;
-                }
+                get => currentMedicationField;
                 set
                 {
-                    this.currentMedicationField = value;
-                    this.RaisePropertyChanged("CurrentMedication");
+                    currentMedicationField = value;
+                    RaisePropertyChanged("CurrentMedication");
                 }
             }
 
@@ -15938,14 +13679,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 7)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -15953,7 +13691,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16004,14 +13742,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return this.reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -16019,14 +13754,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 1)]
             public System.DateTime ReportDate
             {
-                get
-                {
-                    return this.reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -16034,14 +13766,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 2)]
             public System.DateTime ReportTime
             {
-                get
-                {
-                    return this.reportTimeField;
-                }
+                get => reportTimeField;
                 set
                 {
-                    this.reportTimeField = value;
-                    this.RaisePropertyChanged("ReportTime");
+                    reportTimeField = value;
+                    RaisePropertyChanged("ReportTime");
                 }
             }
 
@@ -16049,14 +13778,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportTimeSpecified
             {
-                get
-                {
-                    return this.reportTimeFieldSpecified;
-                }
+                get => reportTimeFieldSpecified;
                 set
                 {
-                    this.reportTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportTimeSpecified");
+                    reportTimeFieldSpecified = value;
+                    RaisePropertyChanged("ReportTimeSpecified");
                 }
             }
 
@@ -16064,14 +13790,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Discipline
             {
-                get
-                {
-                    return this.disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -16079,14 +13802,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string SectionName
             {
-                get
-                {
-                    return this.sectionNameField;
-                }
+                get => sectionNameField;
                 set
                 {
-                    this.sectionNameField = value;
-                    this.RaisePropertyChanged("SectionName");
+                    sectionNameField = value;
+                    RaisePropertyChanged("SectionName");
                 }
             }
 
@@ -16094,14 +13814,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public InvestigationReportMessageTypeServiceProvider ServiceProvider
             {
-                get
-                {
-                    return this.serviceProviderField;
-                }
+                get => serviceProviderField;
                 set
                 {
-                    this.serviceProviderField = value;
-                    this.RaisePropertyChanged("ServiceProvider");
+                    serviceProviderField = value;
+                    RaisePropertyChanged("ServiceProvider");
                 }
             }
 
@@ -16109,14 +13826,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public HCP_DETAIL_TYPE RequestingParty
             {
-                get
-                {
-                    return this.requestingPartyField;
-                }
+                get => requestingPartyField;
                 set
                 {
-                    this.requestingPartyField = value;
-                    this.RaisePropertyChanged("RequestingParty");
+                    requestingPartyField = value;
+                    RaisePropertyChanged("RequestingParty");
                 }
             }
 
@@ -16124,14 +13838,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public bool ConfidentialityStatus
             {
-                get
-                {
-                    return this.confidentialityStatusField;
-                }
+                get => confidentialityStatusField;
                 set
                 {
-                    this.confidentialityStatusField = value;
-                    this.RaisePropertyChanged("ConfidentialityStatus");
+                    confidentialityStatusField = value;
+                    RaisePropertyChanged("ConfidentialityStatus");
                 }
             }
 
@@ -16139,14 +13850,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ConfidentialityStatusSpecified
             {
-                get
-                {
-                    return this.confidentialityStatusFieldSpecified;
-                }
+                get => confidentialityStatusFieldSpecified;
                 set
                 {
-                    this.confidentialityStatusFieldSpecified = value;
-                    this.RaisePropertyChanged("ConfidentialityStatusSpecified");
+                    confidentialityStatusFieldSpecified = value;
+                    RaisePropertyChanged("ConfidentialityStatusSpecified");
                 }
             }
 
@@ -16154,14 +13862,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public SERVICE_REQUEST_TYPE ServiceRequest
             {
-                get
-                {
-                    return this.serviceRequestField;
-                }
+                get => serviceRequestField;
                 set
                 {
-                    this.serviceRequestField = value;
-                    this.RaisePropertyChanged("ServiceRequest");
+                    serviceRequestField = value;
+                    RaisePropertyChanged("ServiceRequest");
                 }
             }
 
@@ -16169,14 +13874,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("ServiceResult", Order = 9)]
             public ResultSuite[] ServiceResult
             {
-                get
-                {
-                    return this.serviceResultField;
-                }
+                get => serviceResultField;
                 set
                 {
-                    this.serviceResultField = value;
-                    this.RaisePropertyChanged("ServiceResult");
+                    serviceResultField = value;
+                    RaisePropertyChanged("ServiceResult");
                 }
             }
 
@@ -16184,14 +13886,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return this.patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -16199,14 +13898,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string PatientClass
             {
-                get
-                {
-                    return this.patientClassField;
-                }
+                get => patientClassField;
                 set
                 {
-                    this.patientClassField = value;
-                    this.RaisePropertyChanged("PatientClass");
+                    patientClassField = value;
+                    RaisePropertyChanged("PatientClass");
                 }
             }
 
@@ -16214,14 +13910,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 12)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16229,7 +13922,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16254,14 +13947,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ORGANISATION_TYPE ProvidingSite
             {
-                get
-                {
-                    return this.providingSiteField;
-                }
+                get => providingSiteField;
                 set
                 {
-                    this.providingSiteField = value;
-                    this.RaisePropertyChanged("ProvidingSite");
+                    providingSiteField = value;
+                    RaisePropertyChanged("ProvidingSite");
                 }
             }
 
@@ -16269,14 +13959,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ORGANISATION_TYPE ProvidingLocation
             {
-                get
-                {
-                    return this.providingLocationField;
-                }
+                get => providingLocationField;
                 set
                 {
-                    this.providingLocationField = value;
-                    this.RaisePropertyChanged("ProvidingLocation");
+                    providingLocationField = value;
+                    RaisePropertyChanged("ProvidingLocation");
                 }
             }
 
@@ -16284,7 +13971,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16311,14 +13998,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public InvestigationReportMessageType ReportData
             {
-                get
-                {
-                    return this.reportDataField;
-                }
+                get => reportDataField;
                 set
                 {
-                    this.reportDataField = value;
-                    this.RaisePropertyChanged("ReportData");
+                    reportDataField = value;
+                    RaisePropertyChanged("ReportData");
                 }
             }
 
@@ -16326,14 +14010,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public DOCUMENT_DATA_TYPE DocumentData
             {
-                get
-                {
-                    return this.documentDataField;
-                }
+                get => documentDataField;
                 set
                 {
-                    this.documentDataField = value;
-                    this.RaisePropertyChanged("DocumentData");
+                    documentDataField = value;
+                    RaisePropertyChanged("DocumentData");
                 }
             }
 
@@ -16341,14 +14022,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16356,7 +14034,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16387,14 +14065,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string TestReportID
             {
-                get
-                {
-                    return this.testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -16402,14 +14077,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -16417,14 +14089,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public System.Nullable<bool> ReportHasHistory
             {
-                get
-                {
-                    return this.reportHasHistoryField;
-                }
+                get => reportHasHistoryField;
                 set
                 {
-                    this.reportHasHistoryField = value;
-                    this.RaisePropertyChanged("ReportHasHistory");
+                    reportHasHistoryField = value;
+                    RaisePropertyChanged("ReportHasHistory");
                 }
             }
 
@@ -16432,14 +14101,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 3)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -16447,14 +14113,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16462,7 +14125,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16489,14 +14152,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindResultItemReportDetails ReportDetails
             {
-                get
-                {
-                    return this.reportDetailsField;
-                }
+                get => reportDetailsField;
                 set
                 {
-                    this.reportDetailsField = value;
-                    this.RaisePropertyChanged("ReportDetails");
+                    reportDetailsField = value;
+                    RaisePropertyChanged("ReportDetails");
                 }
             }
 
@@ -16504,14 +14164,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -16519,14 +14176,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -16534,7 +14188,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -16619,14 +14273,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string TestReportID
             {
-                get
-                {
-                    return this.testReportIDField;
-                }
+                get => testReportIDField;
                 set
                 {
-                    this.testReportIDField = value;
-                    this.RaisePropertyChanged("TestReportID");
+                    testReportIDField = value;
+                    RaisePropertyChanged("TestReportID");
                 }
             }
 
@@ -16634,14 +14285,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -16649,14 +14297,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string RequestingPartyHealthcareProfessionalID
             {
-                get
-                {
-                    return this.requestingPartyHealthcareProfessionalIDField;
-                }
+                get => requestingPartyHealthcareProfessionalIDField;
                 set
                 {
-                    this.requestingPartyHealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
+                    requestingPartyHealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
                 }
             }
 
@@ -16664,14 +14309,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 3)]
             public string RequestingOrganisationID
             {
-                get
-                {
-                    return this.requestingOrganisationIDField;
-                }
+                get => requestingOrganisationIDField;
                 set
                 {
-                    this.requestingOrganisationIDField = value;
-                    this.RaisePropertyChanged("RequestingOrganisationID");
+                    requestingOrganisationIDField = value;
+                    RaisePropertyChanged("RequestingOrganisationID");
                 }
             }
 
@@ -16679,14 +14321,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ConfidentialityStatus
             {
-                get
-                {
-                    return this.confidentialityStatusField;
-                }
+                get => confidentialityStatusField;
                 set
                 {
-                    this.confidentialityStatusField = value;
-                    this.RaisePropertyChanged("ConfidentialityStatus");
+                    confidentialityStatusField = value;
+                    RaisePropertyChanged("ConfidentialityStatus");
                 }
             }
 
@@ -16694,14 +14333,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string PatientDemographicsID
             {
-                get
-                {
-                    return this.patientDemographicsIDField;
-                }
+                get => patientDemographicsIDField;
                 set
                 {
-                    this.patientDemographicsIDField = value;
-                    this.RaisePropertyChanged("PatientDemographicsID");
+                    patientDemographicsIDField = value;
+                    RaisePropertyChanged("PatientDemographicsID");
                 }
             }
 
@@ -16709,14 +14345,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string Discipline
             {
-                get
-                {
-                    return this.disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -16724,14 +14357,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string SectionName
             {
-                get
-                {
-                    return this.sectionNameField;
-                }
+                get => sectionNameField;
                 set
                 {
-                    this.sectionNameField = value;
-                    this.RaisePropertyChanged("SectionName");
+                    sectionNameField = value;
+                    RaisePropertyChanged("SectionName");
                 }
             }
 
@@ -16739,14 +14369,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return this.reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -16754,14 +14381,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
             public System.DateTime ReportDateTime
             {
-                get
-                {
-                    return this.reportDateTimeField;
-                }
+                get => reportDateTimeField;
                 set
                 {
-                    this.reportDateTimeField = value;
-                    this.RaisePropertyChanged("ReportDateTime");
+                    reportDateTimeField = value;
+                    RaisePropertyChanged("ReportDateTime");
                 }
             }
 
@@ -16769,14 +14393,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportDateTimeSpecified
             {
-                get
-                {
-                    return this.reportDateTimeFieldSpecified;
-                }
+                get => reportDateTimeFieldSpecified;
                 set
                 {
-                    this.reportDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportDateTimeSpecified");
+                    reportDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ReportDateTimeSpecified");
                 }
             }
 
@@ -16784,14 +14405,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public System.DateTime EventDateTime
             {
-                get
-                {
-                    return this.eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -16799,14 +14417,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool EventDateTimeSpecified
             {
-                get
-                {
-                    return this.eventDateTimeFieldSpecified;
-                }
+                get => eventDateTimeFieldSpecified;
                 set
                 {
-                    this.eventDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("EventDateTimeSpecified");
+                    eventDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("EventDateTimeSpecified");
                 }
             }
 
@@ -16814,14 +14429,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string EventUser
             {
-                get
-                {
-                    return this.eventUserField;
-                }
+                get => eventUserField;
                 set
                 {
-                    this.eventUserField = value;
-                    this.RaisePropertyChanged("EventUser");
+                    eventUserField = value;
+                    RaisePropertyChanged("EventUser");
                 }
             }
 
@@ -16829,14 +14441,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 12)]
             public string RecipientOrganisationID
             {
-                get
-                {
-                    return this.recipientOrganisationIDField;
-                }
+                get => recipientOrganisationIDField;
                 set
                 {
-                    this.recipientOrganisationIDField = value;
-                    this.RaisePropertyChanged("RecipientOrganisationID");
+                    recipientOrganisationIDField = value;
+                    RaisePropertyChanged("RecipientOrganisationID");
                 }
             }
 
@@ -16844,14 +14453,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 13)]
             public string SampleID
             {
-                get
-                {
-                    return this.sampleIDField;
-                }
+                get => sampleIDField;
                 set
                 {
-                    this.sampleIDField = value;
-                    this.RaisePropertyChanged("SampleID");
+                    sampleIDField = value;
+                    RaisePropertyChanged("SampleID");
                 }
             }
 
@@ -16859,14 +14465,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string SampleCode
             {
-                get
-                {
-                    return this.sampleCodeField;
-                }
+                get => sampleCodeField;
                 set
                 {
-                    this.sampleCodeField = value;
-                    this.RaisePropertyChanged("SampleCode");
+                    sampleCodeField = value;
+                    RaisePropertyChanged("SampleCode");
                 }
             }
 
@@ -16874,14 +14477,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string SampleDescription
             {
-                get
-                {
-                    return this.sampleDescriptionField;
-                }
+                get => sampleDescriptionField;
                 set
                 {
-                    this.sampleDescriptionField = value;
-                    this.RaisePropertyChanged("SampleDescription");
+                    sampleDescriptionField = value;
+                    RaisePropertyChanged("SampleDescription");
                 }
             }
 
@@ -16889,14 +14489,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public System.DateTime DateTimeSampled
             {
-                get
-                {
-                    return this.dateTimeSampledField;
-                }
+                get => dateTimeSampledField;
                 set
                 {
-                    this.dateTimeSampledField = value;
-                    this.RaisePropertyChanged("DateTimeSampled");
+                    dateTimeSampledField = value;
+                    RaisePropertyChanged("DateTimeSampled");
                 }
             }
 
@@ -16904,14 +14501,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeSampledSpecified
             {
-                get
-                {
-                    return this.dateTimeSampledFieldSpecified;
-                }
+                get => dateTimeSampledFieldSpecified;
                 set
                 {
-                    this.dateTimeSampledFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeSampledSpecified");
+                    dateTimeSampledFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeSampledSpecified");
                 }
             }
 
@@ -16919,14 +14513,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 17)]
             public string TestID
             {
-                get
-                {
-                    return this.testIDField;
-                }
+                get => testIDField;
                 set
                 {
-                    this.testIDField = value;
-                    this.RaisePropertyChanged("TestID");
+                    testIDField = value;
+                    RaisePropertyChanged("TestID");
                 }
             }
 
@@ -16934,14 +14525,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public string SetDescription
             {
-                get
-                {
-                    return this.setDescriptionField;
-                }
+                get => setDescriptionField;
                 set
                 {
-                    this.setDescriptionField = value;
-                    this.RaisePropertyChanged("SetDescription");
+                    setDescriptionField = value;
+                    RaisePropertyChanged("SetDescription");
                 }
             }
 
@@ -16949,14 +14537,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public string DocumentType
             {
-                get
-                {
-                    return this.documentTypeField;
-                }
+                get => documentTypeField;
                 set
                 {
-                    this.documentTypeField = value;
-                    this.RaisePropertyChanged("DocumentType");
+                    documentTypeField = value;
+                    RaisePropertyChanged("DocumentType");
                 }
             }
 
@@ -16964,14 +14549,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public string DocumentSubType
             {
-                get
-                {
-                    return this.documentSubTypeField;
-                }
+                get => documentSubTypeField;
                 set
                 {
-                    this.documentSubTypeField = value;
-                    this.RaisePropertyChanged("DocumentSubType");
+                    documentSubTypeField = value;
+                    RaisePropertyChanged("DocumentSubType");
                 }
             }
 
@@ -16979,14 +14561,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 21)]
             public TEST_STATUS_TYPE ResultSetStatus
             {
-                get
-                {
-                    return this.resultSetStatusField;
-                }
+                get => resultSetStatusField;
                 set
                 {
-                    this.resultSetStatusField = value;
-                    this.RaisePropertyChanged("ResultSetStatus");
+                    resultSetStatusField = value;
+                    RaisePropertyChanged("ResultSetStatus");
                 }
             }
 
@@ -16994,14 +14573,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 22)]
             public FindResultItemReportDetailsReportAbnormal ReportAbnormal
             {
-                get
-                {
-                    return this.reportAbnormalField;
-                }
+                get => reportAbnormalField;
                 set
                 {
-                    this.reportAbnormalField = value;
-                    this.RaisePropertyChanged("ReportAbnormal");
+                    reportAbnormalField = value;
+                    RaisePropertyChanged("ReportAbnormal");
                 }
             }
 
@@ -17009,14 +14585,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ReportAbnormalSpecified
             {
-                get
-                {
-                    return this.reportAbnormalFieldSpecified;
-                }
+                get => reportAbnormalFieldSpecified;
                 set
                 {
-                    this.reportAbnormalFieldSpecified = value;
-                    this.RaisePropertyChanged("ReportAbnormalSpecified");
+                    reportAbnormalFieldSpecified = value;
+                    RaisePropertyChanged("ReportAbnormalSpecified");
                 }
             }
 
@@ -17024,14 +14597,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 23)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -17039,14 +14609,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 24)]
             public string NumComments
             {
-                get
-                {
-                    return this.numCommentsField;
-                }
+                get => numCommentsField;
                 set
                 {
-                    this.numCommentsField = value;
-                    this.RaisePropertyChanged("NumComments");
+                    numCommentsField = value;
+                    RaisePropertyChanged("NumComments");
                 }
             }
 
@@ -17054,14 +14621,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 25)]
             public System.DateTime DateTimeCreated
             {
-                get
-                {
-                    return this.dateTimeCreatedField;
-                }
+                get => dateTimeCreatedField;
                 set
                 {
-                    this.dateTimeCreatedField = value;
-                    this.RaisePropertyChanged("DateTimeCreated");
+                    dateTimeCreatedField = value;
+                    RaisePropertyChanged("DateTimeCreated");
                 }
             }
 
@@ -17069,14 +14633,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 26)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -17084,14 +14645,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 27)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17099,7 +14657,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17140,14 +14698,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public System.DateTime DateFrom
             {
-                get
-                {
-                    return this.dateFromField;
-                }
+                get => dateFromField;
                 set
                 {
-                    this.dateFromField = value;
-                    this.RaisePropertyChanged("DateFrom");
+                    dateFromField = value;
+                    RaisePropertyChanged("DateFrom");
                 }
             }
 
@@ -17155,14 +14710,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime DateTo
             {
-                get
-                {
-                    return this.dateToField;
-                }
+                get => dateToField;
                 set
                 {
-                    this.dateToField = value;
-                    this.RaisePropertyChanged("DateTo");
+                    dateToField = value;
+                    RaisePropertyChanged("DateTo");
                 }
             }
 
@@ -17170,7 +14722,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17239,14 +14791,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -17254,14 +14803,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ReportIdentifier
             {
-                get
-                {
-                    return this.reportIdentifierField;
-                }
+                get => reportIdentifierField;
                 set
                 {
-                    this.reportIdentifierField = value;
-                    this.RaisePropertyChanged("ReportIdentifier");
+                    reportIdentifierField = value;
+                    RaisePropertyChanged("ReportIdentifier");
                 }
             }
 
@@ -17269,14 +14815,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindDateRange ReportDate
             {
-                get
-                {
-                    return this.reportDateField;
-                }
+                get => reportDateField;
                 set
                 {
-                    this.reportDateField = value;
-                    this.RaisePropertyChanged("ReportDate");
+                    reportDateField = value;
+                    RaisePropertyChanged("ReportDate");
                 }
             }
 
@@ -17284,14 +14827,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDateTimeRange EventDateTime
             {
-                get
-                {
-                    return this.eventDateTimeField;
-                }
+                get => eventDateTimeField;
                 set
                 {
-                    this.eventDateTimeField = value;
-                    this.RaisePropertyChanged("EventDateTime");
+                    eventDateTimeField = value;
+                    RaisePropertyChanged("EventDateTime");
                 }
             }
 
@@ -17299,14 +14839,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public FindDateRange DateSampled
             {
-                get
-                {
-                    return this.dateSampledField;
-                }
+                get => dateSampledField;
                 set
                 {
-                    this.dateSampledField = value;
-                    this.RaisePropertyChanged("DateSampled");
+                    dateSampledField = value;
+                    RaisePropertyChanged("DateSampled");
                 }
             }
 
@@ -17314,14 +14851,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public FindDateRange SampleDateReceived
             {
-                get
-                {
-                    return this.sampleDateReceivedField;
-                }
+                get => sampleDateReceivedField;
                 set
                 {
-                    this.sampleDateReceivedField = value;
-                    this.RaisePropertyChanged("SampleDateReceived");
+                    sampleDateReceivedField = value;
+                    RaisePropertyChanged("SampleDateReceived");
                 }
             }
 
@@ -17329,14 +14863,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public FindDateRange SampleDateTested
             {
-                get
-                {
-                    return this.sampleDateTestedField;
-                }
+                get => sampleDateTestedField;
                 set
                 {
-                    this.sampleDateTestedField = value;
-                    this.RaisePropertyChanged("SampleDateTested");
+                    sampleDateTestedField = value;
+                    RaisePropertyChanged("SampleDateTested");
                 }
             }
 
@@ -17344,14 +14875,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string TestResultSet
             {
-                get
-                {
-                    return this.testResultSetField;
-                }
+                get => testResultSetField;
                 set
                 {
-                    this.testResultSetField = value;
-                    this.RaisePropertyChanged("TestResultSet");
+                    testResultSetField = value;
+                    RaisePropertyChanged("TestResultSet");
                 }
             }
 
@@ -17359,14 +14887,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string RequestingPartyHealthcareProfessionalID
             {
-                get
-                {
-                    return this.requestingPartyHealthcareProfessionalIDField;
-                }
+                get => requestingPartyHealthcareProfessionalIDField;
                 set
                 {
-                    this.requestingPartyHealthcareProfessionalIDField = value;
-                    this.RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
+                    requestingPartyHealthcareProfessionalIDField = value;
+                    RaisePropertyChanged("RequestingPartyHealthcareProfessionalID");
                 }
             }
 
@@ -17374,14 +14899,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string RequestingOrganisationID
             {
-                get
-                {
-                    return this.requestingOrganisationIDField;
-                }
+                get => requestingOrganisationIDField;
                 set
                 {
-                    this.requestingOrganisationIDField = value;
-                    this.RaisePropertyChanged("RequestingOrganisationID");
+                    requestingOrganisationIDField = value;
+                    RaisePropertyChanged("RequestingOrganisationID");
                 }
             }
 
@@ -17389,14 +14911,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string SampleDescription
             {
-                get
-                {
-                    return this.sampleDescriptionField;
-                }
+                get => sampleDescriptionField;
                 set
                 {
-                    this.sampleDescriptionField = value;
-                    this.RaisePropertyChanged("SampleDescription");
+                    sampleDescriptionField = value;
+                    RaisePropertyChanged("SampleDescription");
                 }
             }
 
@@ -17404,14 +14923,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string SearchNotes
             {
-                get
-                {
-                    return this.searchNotesField;
-                }
+                get => searchNotesField;
                 set
                 {
-                    this.searchNotesField = value;
-                    this.RaisePropertyChanged("SearchNotes");
+                    searchNotesField = value;
+                    RaisePropertyChanged("SearchNotes");
                 }
             }
 
@@ -17419,14 +14935,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public string TestPerformed
             {
-                get
-                {
-                    return this.testPerformedField;
-                }
+                get => testPerformedField;
                 set
                 {
-                    this.testPerformedField = value;
-                    this.RaisePropertyChanged("TestPerformed");
+                    testPerformedField = value;
+                    RaisePropertyChanged("TestPerformed");
                 }
             }
 
@@ -17434,14 +14947,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string Discipline
             {
-                get
-                {
-                    return this.disciplineField;
-                }
+                get => disciplineField;
                 set
                 {
-                    this.disciplineField = value;
-                    this.RaisePropertyChanged("Discipline");
+                    disciplineField = value;
+                    RaisePropertyChanged("Discipline");
                 }
             }
 
@@ -17449,14 +14959,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 14)]
             public string GPid
             {
-                get
-                {
-                    return this.gPidField;
-                }
+                get => gPidField;
                 set
                 {
-                    this.gPidField = value;
-                    this.RaisePropertyChanged("GPid");
+                    gPidField = value;
+                    RaisePropertyChanged("GPid");
                 }
             }
 
@@ -17464,14 +14971,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 15)]
             public string PracticeID
             {
-                get
-                {
-                    return this.practiceIDField;
-                }
+                get => practiceIDField;
                 set
                 {
-                    this.practiceIDField = value;
-                    this.RaisePropertyChanged("PracticeID");
+                    practiceIDField = value;
+                    RaisePropertyChanged("PracticeID");
                 }
             }
 
@@ -17479,14 +14983,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 16)]
             public string ConsultantID
             {
-                get
-                {
-                    return this.consultantIDField;
-                }
+                get => consultantIDField;
                 set
                 {
-                    this.consultantIDField = value;
-                    this.RaisePropertyChanged("ConsultantID");
+                    consultantIDField = value;
+                    RaisePropertyChanged("ConsultantID");
                 }
             }
 
@@ -17494,14 +14995,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -17509,14 +15007,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 18)]
             public RESULT_STATUS_TYPE ResultStatusType
             {
-                get
-                {
-                    return this.resultStatusTypeField;
-                }
+                get => resultStatusTypeField;
                 set
                 {
-                    this.resultStatusTypeField = value;
-                    this.RaisePropertyChanged("ResultStatusType");
+                    resultStatusTypeField = value;
+                    RaisePropertyChanged("ResultStatusType");
                 }
             }
 
@@ -17524,14 +15019,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ResultStatusTypeSpecified
             {
-                get
-                {
-                    return this.resultStatusTypeFieldSpecified;
-                }
+                get => resultStatusTypeFieldSpecified;
                 set
                 {
-                    this.resultStatusTypeFieldSpecified = value;
-                    this.RaisePropertyChanged("ResultStatusTypeSpecified");
+                    resultStatusTypeFieldSpecified = value;
+                    RaisePropertyChanged("ResultStatusTypeSpecified");
                 }
             }
 
@@ -17539,14 +15031,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 19)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -17554,14 +15043,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 20)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return this.providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -17570,14 +15056,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -17585,14 +15068,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 22)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17600,7 +15080,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17633,14 +15113,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return this.originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -17648,14 +15125,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 1)]
             public string OriginatingUser
             {
-                get
-                {
-                    return this.originatingUserField;
-                }
+                get => originatingUserField;
                 set
                 {
-                    this.originatingUserField = value;
-                    this.RaisePropertyChanged("OriginatingUser");
+                    originatingUserField = value;
+                    RaisePropertyChanged("OriginatingUser");
                 }
             }
 
@@ -17663,14 +15137,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public string EffectiveDate
             {
-                get
-                {
-                    return this.effectiveDateField;
-                }
+                get => effectiveDateField;
                 set
                 {
-                    this.effectiveDateField = value;
-                    this.RaisePropertyChanged("EffectiveDate");
+                    effectiveDateField = value;
+                    RaisePropertyChanged("EffectiveDate");
                 }
             }
 
@@ -17678,14 +15149,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -17693,14 +15161,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -17708,14 +15173,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -17723,7 +15185,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17750,14 +15212,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Postcode
             {
-                get
-                {
-                    return this.postcodeField;
-                }
+                get => postcodeField;
                 set
                 {
-                    this.postcodeField = value;
-                    this.RaisePropertyChanged("Postcode");
+                    postcodeField = value;
+                    RaisePropertyChanged("Postcode");
                 }
             }
 
@@ -17765,14 +15224,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public SearchComparator PostCodeComparator
             {
-                get
-                {
-                    return this.postCodeComparatorField;
-                }
+                get => postCodeComparatorField;
                 set
                 {
-                    this.postCodeComparatorField = value;
-                    this.RaisePropertyChanged("PostCodeComparator");
+                    postCodeComparatorField = value;
+                    RaisePropertyChanged("PostCodeComparator");
                 }
             }
 
@@ -17780,14 +15236,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool PostCodeComparatorSpecified
             {
-                get
-                {
-                    return this.postCodeComparatorFieldSpecified;
-                }
+                get => postCodeComparatorFieldSpecified;
                 set
                 {
-                    this.postCodeComparatorFieldSpecified = value;
-                    this.RaisePropertyChanged("PostCodeComparatorSpecified");
+                    postCodeComparatorFieldSpecified = value;
+                    RaisePropertyChanged("PostCodeComparatorSpecified");
                 }
             }
 
@@ -17795,7 +15248,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -17848,14 +15301,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindPatientNameCriteria Name
             {
-                get
-                {
-                    return this.nameField;
-                }
+                get => nameField;
                 set
                 {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("Name");
+                    nameField = value;
+                    RaisePropertyChanged("Name");
                 }
             }
 
@@ -17863,14 +15313,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientAddressCriteria Address
             {
-                get
-                {
-                    return this.addressField;
-                }
+                get => addressField;
                 set
                 {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("Address");
+                    addressField = value;
+                    RaisePropertyChanged("Address");
                 }
             }
 
@@ -17878,14 +15325,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public FindPatientIDCriteria Ids
             {
-                get
-                {
-                    return this.idsField;
-                }
+                get => idsField;
                 set
                 {
-                    this.idsField = value;
-                    this.RaisePropertyChanged("Ids");
+                    idsField = value;
+                    RaisePropertyChanged("Ids");
                 }
             }
 
@@ -17893,14 +15337,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindPatientCriteriaDate Date
             {
-                get
-                {
-                    return this.dateField;
-                }
+                get => dateField;
                 set
                 {
-                    this.dateField = value;
-                    this.RaisePropertyChanged("Date");
+                    dateField = value;
+                    RaisePropertyChanged("Date");
                 }
             }
 
@@ -17908,14 +15349,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Sex
             {
-                get
-                {
-                    return this.sexField;
-                }
+                get => sexField;
                 set
                 {
-                    this.sexField = value;
-                    this.RaisePropertyChanged("Sex");
+                    sexField = value;
+                    RaisePropertyChanged("Sex");
                 }
             }
 
@@ -17923,14 +15361,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 5)]
             public string GPid
             {
-                get
-                {
-                    return this.gPidField;
-                }
+                get => gPidField;
                 set
                 {
-                    this.gPidField = value;
-                    this.RaisePropertyChanged("GPid");
+                    gPidField = value;
+                    RaisePropertyChanged("GPid");
                 }
             }
 
@@ -17938,14 +15373,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 6)]
             public string PracticeID
             {
-                get
-                {
-                    return this.practiceIDField;
-                }
+                get => practiceIDField;
                 set
                 {
-                    this.practiceIDField = value;
-                    this.RaisePropertyChanged("PracticeID");
+                    practiceIDField = value;
+                    RaisePropertyChanged("PracticeID");
                 }
             }
 
@@ -17953,14 +15385,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 7)]
             public string ConsultantID
             {
-                get
-                {
-                    return this.consultantIDField;
-                }
+                get => consultantIDField;
                 set
                 {
-                    this.consultantIDField = value;
-                    this.RaisePropertyChanged("ConsultantID");
+                    consultantIDField = value;
+                    RaisePropertyChanged("ConsultantID");
                 }
             }
 
@@ -17968,14 +15397,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 8)]
             public string HospitalID
             {
-                get
-                {
-                    return this.hospitalIDField;
-                }
+                get => hospitalIDField;
                 set
                 {
-                    this.hospitalIDField = value;
-                    this.RaisePropertyChanged("HospitalID");
+                    hospitalIDField = value;
+                    RaisePropertyChanged("HospitalID");
                 }
             }
 
@@ -17983,14 +15409,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 9)]
             public string WardID
             {
-                get
-                {
-                    return this.wardIDField;
-                }
+                get => wardIDField;
                 set
                 {
-                    this.wardIDField = value;
-                    this.RaisePropertyChanged("WardID");
+                    wardIDField = value;
+                    RaisePropertyChanged("WardID");
                 }
             }
 
@@ -17998,14 +15421,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -18013,14 +15433,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public bool IncludeAnonymous
             {
-                get
-                {
-                    return this.includeAnonymousField;
-                }
+                get => includeAnonymousField;
                 set
                 {
-                    this.includeAnonymousField = value;
-                    this.RaisePropertyChanged("IncludeAnonymous");
+                    includeAnonymousField = value;
+                    RaisePropertyChanged("IncludeAnonymous");
                 }
             }
 
@@ -18028,14 +15445,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool IncludeAnonymousSpecified
             {
-                get
-                {
-                    return this.includeAnonymousFieldSpecified;
-                }
+                get => includeAnonymousFieldSpecified;
                 set
                 {
-                    this.includeAnonymousFieldSpecified = value;
-                    this.RaisePropertyChanged("IncludeAnonymousSpecified");
+                    includeAnonymousFieldSpecified = value;
+                    RaisePropertyChanged("IncludeAnonymousSpecified");
                 }
             }
 
@@ -18043,14 +15457,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return this.providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -18059,14 +15470,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -18074,14 +15482,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 14)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18089,7 +15494,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18114,14 +15519,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 0)]
             public System.DateTime DateOfBirth
             {
-                get
-                {
-                    return this.dateOfBirthField;
-                }
+                get => dateOfBirthField;
                 set
                 {
-                    this.dateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
+                    dateOfBirthField = value;
+                    RaisePropertyChanged("DateOfBirth");
                 }
             }
 
@@ -18129,14 +15531,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateOfBirthSpecified
             {
-                get
-                {
-                    return this.dateOfBirthFieldSpecified;
-                }
+                get => dateOfBirthFieldSpecified;
                 set
                 {
-                    this.dateOfBirthFieldSpecified = value;
-                    this.RaisePropertyChanged("DateOfBirthSpecified");
+                    dateOfBirthFieldSpecified = value;
+                    RaisePropertyChanged("DateOfBirthSpecified");
                 }
             }
 
@@ -18144,7 +15543,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18175,14 +15574,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("MessageIdentifier", Order = 0)]
             public ID_TYPE[] MessageIdentifier
             {
-                get
-                {
-                    return this.messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -18190,14 +15586,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return this.originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -18205,14 +15598,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "date", Order = 2)]
             public System.DateTime MessageCreationDate
             {
-                get
-                {
-                    return this.messageCreationDateField;
-                }
+                get => messageCreationDateField;
                 set
                 {
-                    this.messageCreationDateField = value;
-                    this.RaisePropertyChanged("MessageCreationDate");
+                    messageCreationDateField = value;
+                    RaisePropertyChanged("MessageCreationDate");
                 }
             }
 
@@ -18220,14 +15610,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "time", Order = 3)]
             public System.DateTime MessageCreationTime
             {
-                get
-                {
-                    return this.messageCreationTimeField;
-                }
+                get => messageCreationTimeField;
                 set
                 {
-                    this.messageCreationTimeField = value;
-                    this.RaisePropertyChanged("MessageCreationTime");
+                    messageCreationTimeField = value;
+                    RaisePropertyChanged("MessageCreationTime");
                 }
             }
 
@@ -18235,14 +15622,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18250,7 +15634,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18289,14 +15673,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 0)]
             public System.Nullable<System.DateTime> AdmissionDateTime
             {
-                get
-                {
-                    return this.admissionDateTimeField;
-                }
+                get => admissionDateTimeField;
                 set
                 {
-                    this.admissionDateTimeField = value;
-                    this.RaisePropertyChanged("AdmissionDateTime");
+                    admissionDateTimeField = value;
+                    RaisePropertyChanged("AdmissionDateTime");
                 }
             }
 
@@ -18304,14 +15685,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Status
             {
-                get
-                {
-                    return this.statusField;
-                }
+                get => statusField;
                 set
                 {
-                    this.statusField = value;
-                    this.RaisePropertyChanged("Status");
+                    statusField = value;
+                    RaisePropertyChanged("Status");
                 }
             }
 
@@ -18319,14 +15697,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string AdmissionFromCode
             {
-                get
-                {
-                    return this.admissionFromCodeField;
-                }
+                get => admissionFromCodeField;
                 set
                 {
-                    this.admissionFromCodeField = value;
-                    this.RaisePropertyChanged("AdmissionFromCode");
+                    admissionFromCodeField = value;
+                    RaisePropertyChanged("AdmissionFromCode");
                 }
             }
 
@@ -18334,14 +15709,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 3)]
             public string AdmittedCode
             {
-                get
-                {
-                    return this.admittedCodeField;
-                }
+                get => admittedCodeField;
                 set
                 {
-                    this.admittedCodeField = value;
-                    this.RaisePropertyChanged("AdmittedCode");
+                    admittedCodeField = value;
+                    RaisePropertyChanged("AdmittedCode");
                 }
             }
 
@@ -18349,14 +15721,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string AdmissionReason
             {
-                get
-                {
-                    return this.admissionReasonField;
-                }
+                get => admissionReasonField;
                 set
                 {
-                    this.admissionReasonField = value;
-                    this.RaisePropertyChanged("AdmissionReason");
+                    admissionReasonField = value;
+                    RaisePropertyChanged("AdmissionReason");
                 }
             }
 
@@ -18364,14 +15733,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 5)]
             public string PatientCategory
             {
-                get
-                {
-                    return this.patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18379,14 +15745,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientType
             {
-                get
-                {
-                    return this.patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18394,14 +15757,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public ADTpatientCarePoint AdmissionCarePoint
             {
-                get
-                {
-                    return this.admissionCarePointField;
-                }
+                get => admissionCarePointField;
                 set
                 {
-                    this.admissionCarePointField = value;
-                    this.RaisePropertyChanged("AdmissionCarePoint");
+                    admissionCarePointField = value;
+                    RaisePropertyChanged("AdmissionCarePoint");
                 }
             }
 
@@ -18409,14 +15769,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18424,7 +15781,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18457,14 +15814,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ID_TYPE Site
             {
-                get
-                {
-                    return this.siteField;
-                }
+                get => siteField;
                 set
                 {
-                    this.siteField = value;
-                    this.RaisePropertyChanged("Site");
+                    siteField = value;
+                    RaisePropertyChanged("Site");
                 }
             }
 
@@ -18472,14 +15826,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MedicalFacility Location
             {
-                get
-                {
-                    return this.locationField;
-                }
+                get => locationField;
                 set
                 {
-                    this.locationField = value;
-                    this.RaisePropertyChanged("Location");
+                    locationField = value;
+                    RaisePropertyChanged("Location");
                 }
             }
 
@@ -18487,14 +15838,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ID_TYPE Consultant
             {
-                get
-                {
-                    return this.consultantField;
-                }
+                get => consultantField;
                 set
                 {
-                    this.consultantField = value;
-                    this.RaisePropertyChanged("Consultant");
+                    consultantField = value;
+                    RaisePropertyChanged("Consultant");
                 }
             }
 
@@ -18502,14 +15850,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Specialty
             {
-                get
-                {
-                    return this.specialtyField;
-                }
+                get => specialtyField;
                 set
                 {
-                    this.specialtyField = value;
-                    this.RaisePropertyChanged("Specialty");
+                    specialtyField = value;
+                    RaisePropertyChanged("Specialty");
                 }
             }
 
@@ -18517,14 +15862,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string Facility
             {
-                get
-                {
-                    return this.facilityField;
-                }
+                get => facilityField;
                 set
                 {
-                    this.facilityField = value;
-                    this.RaisePropertyChanged("Facility");
+                    facilityField = value;
+                    RaisePropertyChanged("Facility");
                 }
             }
 
@@ -18532,14 +15874,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18547,7 +15886,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18574,14 +15913,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Code
             {
-                get
-                {
-                    return this.codeField;
-                }
+                get => codeField;
                 set
                 {
-                    this.codeField = value;
-                    this.RaisePropertyChanged("Code");
+                    codeField = value;
+                    RaisePropertyChanged("Code");
                 }
             }
 
@@ -18589,14 +15925,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Description
             {
-                get
-                {
-                    return this.descriptionField;
-                }
+                get => descriptionField;
                 set
                 {
-                    this.descriptionField = value;
-                    this.RaisePropertyChanged("Description");
+                    descriptionField = value;
+                    RaisePropertyChanged("Description");
                 }
             }
 
@@ -18604,14 +15937,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18619,7 +15949,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18654,14 +15984,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public System.DateTime TransferDateTime
             {
-                get
-                {
-                    return this.transferDateTimeField;
-                }
+                get => transferDateTimeField;
                 set
                 {
-                    this.transferDateTimeField = value;
-                    this.RaisePropertyChanged("TransferDateTime");
+                    transferDateTimeField = value;
+                    RaisePropertyChanged("TransferDateTime");
                 }
             }
 
@@ -18669,14 +15996,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string TransferCode
             {
-                get
-                {
-                    return this.transferCodeField;
-                }
+                get => transferCodeField;
                 set
                 {
-                    this.transferCodeField = value;
-                    this.RaisePropertyChanged("TransferCode");
+                    transferCodeField = value;
+                    RaisePropertyChanged("TransferCode");
                 }
             }
 
@@ -18684,14 +16008,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 2)]
             public string PatientCategory
             {
-                get
-                {
-                    return this.patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18699,14 +16020,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string PatientType
             {
-                get
-                {
-                    return this.patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18714,14 +16032,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public ADTpatientCarePoint PreCarePoint
             {
-                get
-                {
-                    return this.preCarePointField;
-                }
+                get => preCarePointField;
                 set
                 {
-                    this.preCarePointField = value;
-                    this.RaisePropertyChanged("PreCarePoint");
+                    preCarePointField = value;
+                    RaisePropertyChanged("PreCarePoint");
                 }
             }
 
@@ -18729,14 +16044,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public ADTpatientCarePoint PostCarePoint
             {
-                get
-                {
-                    return this.postCarePointField;
-                }
+                get => postCarePointField;
                 set
                 {
-                    this.postCarePointField = value;
-                    this.RaisePropertyChanged("PostCarePoint");
+                    postCarePointField = value;
+                    RaisePropertyChanged("PostCarePoint");
                 }
             }
 
@@ -18744,14 +16056,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18759,7 +16068,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18800,14 +16109,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 0)]
             public System.Nullable<System.DateTime> DischargeDateTime
             {
-                get
-                {
-                    return this.dischargeDateTimeField;
-                }
+                get => dischargeDateTimeField;
                 set
                 {
-                    this.dischargeDateTimeField = value;
-                    this.RaisePropertyChanged("DischargeDateTime");
+                    dischargeDateTimeField = value;
+                    RaisePropertyChanged("DischargeDateTime");
                 }
             }
 
@@ -18815,14 +16121,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 1)]
             public string DischargeCode
             {
-                get
-                {
-                    return this.dischargeCodeField;
-                }
+                get => dischargeCodeField;
                 set
                 {
-                    this.dischargeCodeField = value;
-                    this.RaisePropertyChanged("DischargeCode");
+                    dischargeCodeField = value;
+                    RaisePropertyChanged("DischargeCode");
                 }
             }
 
@@ -18830,14 +16133,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string DischargeDescription
             {
-                get
-                {
-                    return this.dischargeDescriptionField;
-                }
+                get => dischargeDescriptionField;
                 set
                 {
-                    this.dischargeDescriptionField = value;
-                    this.RaisePropertyChanged("DischargeDescription");
+                    dischargeDescriptionField = value;
+                    RaisePropertyChanged("DischargeDescription");
                 }
             }
 
@@ -18845,14 +16145,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 3)]
             public System.Nullable<System.DateTime> DateReadyForDischarge
             {
-                get
-                {
-                    return this.dateReadyForDischargeField;
-                }
+                get => dateReadyForDischargeField;
                 set
                 {
-                    this.dateReadyForDischargeField = value;
-                    this.RaisePropertyChanged("DateReadyForDischarge");
+                    dateReadyForDischargeField = value;
+                    RaisePropertyChanged("DateReadyForDischarge");
                 }
             }
 
@@ -18860,14 +16157,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateReadyForDischargeSpecified
             {
-                get
-                {
-                    return this.dateReadyForDischargeFieldSpecified;
-                }
+                get => dateReadyForDischargeFieldSpecified;
                 set
                 {
-                    this.dateReadyForDischargeFieldSpecified = value;
-                    this.RaisePropertyChanged("DateReadyForDischargeSpecified");
+                    dateReadyForDischargeFieldSpecified = value;
+                    RaisePropertyChanged("DateReadyForDischargeSpecified");
                 }
             }
 
@@ -18875,14 +16169,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 4)]
             public string DischargeDestination
             {
-                get
-                {
-                    return this.dischargeDestinationField;
-                }
+                get => dischargeDestinationField;
                 set
                 {
-                    this.dischargeDestinationField = value;
-                    this.RaisePropertyChanged("DischargeDestination");
+                    dischargeDestinationField = value;
+                    RaisePropertyChanged("DischargeDestination");
                 }
             }
 
@@ -18890,14 +16181,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 5)]
             public string PatientCategory
             {
-                get
-                {
-                    return this.patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -18905,14 +16193,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string PatientType
             {
-                get
-                {
-                    return this.patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -18920,14 +16205,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public ADTpatientCarePoint DischargeCarePoint
             {
-                get
-                {
-                    return this.dischargeCarePointField;
-                }
+                get => dischargeCarePointField;
                 set
                 {
-                    this.dischargeCarePointField = value;
-                    this.RaisePropertyChanged("DischargeCarePoint");
+                    dischargeCarePointField = value;
+                    RaisePropertyChanged("DischargeCarePoint");
                 }
             }
 
@@ -18935,14 +16217,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -18950,7 +16229,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -18981,14 +16260,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string RecordIdentifier
             {
-                get
-                {
-                    return this.recordIdentifierField;
-                }
+                get => recordIdentifierField;
                 set
                 {
-                    this.recordIdentifierField = value;
-                    this.RaisePropertyChanged("RecordIdentifier");
+                    recordIdentifierField = value;
+                    RaisePropertyChanged("RecordIdentifier");
                 }
             }
 
@@ -18996,14 +16272,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ComponentID ADTComponentID
             {
-                get
-                {
-                    return this.aDTComponentIDField;
-                }
+                get => aDTComponentIDField;
                 set
                 {
-                    this.aDTComponentIDField = value;
-                    this.RaisePropertyChanged("ADTComponentID");
+                    aDTComponentIDField = value;
+                    RaisePropertyChanged("ADTComponentID");
                 }
             }
 
@@ -19011,14 +16284,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string IncidenceID
             {
-                get
-                {
-                    return this.incidenceIDField;
-                }
+                get => incidenceIDField;
                 set
                 {
-                    this.incidenceIDField = value;
-                    this.RaisePropertyChanged("IncidenceID");
+                    incidenceIDField = value;
+                    RaisePropertyChanged("IncidenceID");
                 }
             }
 
@@ -19026,14 +16296,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -19041,14 +16308,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19056,7 +16320,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19085,14 +16349,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTtransactionID ADTid
             {
-                get
-                {
-                    return this.aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19100,14 +16361,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADTinfoDetailedADTmessageContent ADTmessageContent
             {
-                get
-                {
-                    return this.aDTmessageContentField;
-                }
+                get => aDTmessageContentField;
                 set
                 {
-                    this.aDTmessageContentField = value;
-                    this.RaisePropertyChanged("ADTmessageContent");
+                    aDTmessageContentField = value;
+                    RaisePropertyChanged("ADTmessageContent");
                 }
             }
 
@@ -19115,14 +16373,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 2)]
             public System.Nullable<System.DateTime> TransactionDateTime
             {
-                get
-                {
-                    return this.transactionDateTimeField;
-                }
+                get => transactionDateTimeField;
                 set
                 {
-                    this.transactionDateTimeField = value;
-                    this.RaisePropertyChanged("TransactionDateTime");
+                    transactionDateTimeField = value;
+                    RaisePropertyChanged("TransactionDateTime");
                 }
             }
 
@@ -19130,14 +16385,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19145,7 +16397,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19170,14 +16422,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("TransferContent", typeof(ADTtransferType), Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -19185,7 +16434,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19216,14 +16465,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTinfoDetailed ADTInformation
             {
-                get
-                {
-                    return this.aDTInformationField;
-                }
+                get => aDTInformationField;
                 set
                 {
-                    this.aDTInformationField = value;
-                    this.RaisePropertyChanged("ADTInformation");
+                    aDTInformationField = value;
+                    RaisePropertyChanged("ADTInformation");
                 }
             }
 
@@ -19231,14 +16477,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return this.patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -19246,14 +16489,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string OriginatingSystem
             {
-                get
-                {
-                    return this.originatingSystemField;
-                }
+                get => originatingSystemField;
                 set
                 {
-                    this.originatingSystemField = value;
-                    this.RaisePropertyChanged("OriginatingSystem");
+                    originatingSystemField = value;
+                    RaisePropertyChanged("OriginatingSystem");
                 }
             }
 
@@ -19261,14 +16501,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string TransactionType
             {
-                get
-                {
-                    return this.transactionTypeField;
-                }
+                get => transactionTypeField;
                 set
                 {
-                    this.transactionTypeField = value;
-                    this.RaisePropertyChanged("TransactionType");
+                    transactionTypeField = value;
+                    RaisePropertyChanged("TransactionType");
                 }
             }
 
@@ -19276,14 +16513,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 4)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19291,7 +16525,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19318,14 +16552,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTinterface MessageData
             {
-                get
-                {
-                    return this.messageDataField;
-                }
+                get => messageDataField;
                 set
                 {
-                    this.messageDataField = value;
-                    this.RaisePropertyChanged("MessageData");
+                    messageDataField = value;
+                    RaisePropertyChanged("MessageData");
                 }
             }
 
@@ -19333,14 +16564,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MESSAGE_HEADER_TYPE MessageHeaderPrf
             {
-                get
-                {
-                    return this.messageHeaderPrfField;
-                }
+                get => messageHeaderPrfField;
                 set
                 {
-                    this.messageHeaderPrfField = value;
-                    this.RaisePropertyChanged("MessageHeaderPrf");
+                    messageHeaderPrfField = value;
+                    RaisePropertyChanged("MessageHeaderPrf");
                 }
             }
 
@@ -19348,14 +16576,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19363,7 +16588,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19392,14 +16617,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string ADTid
             {
-                get
-                {
-                    return this.aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19407,14 +16629,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -19422,14 +16641,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -19437,14 +16653,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19452,7 +16665,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19487,14 +16700,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Identifier
             {
-                get
-                {
-                    return this.identifierField;
-                }
+                get => identifierField;
                 set
                 {
-                    this.identifierField = value;
-                    this.RaisePropertyChanged("Identifier");
+                    identifierField = value;
+                    RaisePropertyChanged("Identifier");
                 }
             }
 
@@ -19502,14 +16712,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 1)]
             public string ResultCount
             {
-                get
-                {
-                    return this.resultCountField;
-                }
+                get => resultCountField;
                 set
                 {
-                    this.resultCountField = value;
-                    this.RaisePropertyChanged("ResultCount");
+                    resultCountField = value;
+                    RaisePropertyChanged("ResultCount");
                 }
             }
 
@@ -19517,14 +16724,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string InfoMessage
             {
-                get
-                {
-                    return this.infoMessageField;
-                }
+                get => infoMessageField;
                 set
                 {
-                    this.infoMessageField = value;
-                    this.RaisePropertyChanged("InfoMessage");
+                    infoMessageField = value;
+                    RaisePropertyChanged("InfoMessage");
                 }
             }
 
@@ -19532,14 +16736,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string WarningMessage
             {
-                get
-                {
-                    return this.warningMessageField;
-                }
+                get => warningMessageField;
                 set
                 {
-                    this.warningMessageField = value;
-                    this.RaisePropertyChanged("WarningMessage");
+                    warningMessageField = value;
+                    RaisePropertyChanged("WarningMessage");
                 }
             }
 
@@ -19547,14 +16748,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string ErrorMessage
             {
-                get
-                {
-                    return this.errorMessageField;
-                }
+                get => errorMessageField;
                 set
                 {
-                    this.errorMessageField = value;
-                    this.RaisePropertyChanged("ErrorMessage");
+                    errorMessageField = value;
+                    RaisePropertyChanged("ErrorMessage");
                 }
             }
 
@@ -19562,14 +16760,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string SearchTime
             {
-                get
-                {
-                    return this.searchTimeField;
-                }
+                get => searchTimeField;
                 set
                 {
-                    this.searchTimeField = value;
-                    this.RaisePropertyChanged("SearchTime");
+                    searchTimeField = value;
+                    RaisePropertyChanged("SearchTime");
                 }
             }
 
@@ -19577,14 +16772,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 6)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19592,7 +16784,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19619,14 +16811,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public FindADTItemADTDetails ADTDetails
             {
-                get
-                {
-                    return this.aDTDetailsField;
-                }
+                get => aDTDetailsField;
                 set
                 {
-                    this.aDTDetailsField = value;
-                    this.RaisePropertyChanged("ADTDetails");
+                    aDTDetailsField = value;
+                    RaisePropertyChanged("ADTDetails");
                 }
             }
 
@@ -19634,14 +16823,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public FindPatientItem PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -19649,14 +16835,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -19664,7 +16847,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -19733,14 +16916,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", Order = 0)]
             public string ADTid
             {
-                get
-                {
-                    return this.aDTidField;
-                }
+                get => aDTidField;
                 set
                 {
-                    this.aDTidField = value;
-                    this.RaisePropertyChanged("ADTid");
+                    aDTidField = value;
+                    RaisePropertyChanged("ADTid");
                 }
             }
 
@@ -19748,14 +16928,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string ActionType
             {
-                get
-                {
-                    return this.actionTypeField;
-                }
+                get => actionTypeField;
                 set
                 {
-                    this.actionTypeField = value;
-                    this.RaisePropertyChanged("ActionType");
+                    actionTypeField = value;
+                    RaisePropertyChanged("ActionType");
                 }
             }
 
@@ -19763,14 +16940,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 2)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -19778,14 +16952,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public System.DateTime ActionDateTime
             {
-                get
-                {
-                    return this.actionDateTimeField;
-                }
+                get => actionDateTimeField;
                 set
                 {
-                    this.actionDateTimeField = value;
-                    this.RaisePropertyChanged("ActionDateTime");
+                    actionDateTimeField = value;
+                    RaisePropertyChanged("ActionDateTime");
                 }
             }
 
@@ -19793,14 +16964,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool ActionDateTimeSpecified
             {
-                get
-                {
-                    return this.actionDateTimeFieldSpecified;
-                }
+                get => actionDateTimeFieldSpecified;
                 set
                 {
-                    this.actionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("ActionDateTimeSpecified");
+                    actionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("ActionDateTimeSpecified");
                 }
             }
 
@@ -19808,14 +16976,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public System.DateTime TransactionDateTime
             {
-                get
-                {
-                    return this.transactionDateTimeField;
-                }
+                get => transactionDateTimeField;
                 set
                 {
-                    this.transactionDateTimeField = value;
-                    this.RaisePropertyChanged("TransactionDateTime");
+                    transactionDateTimeField = value;
+                    RaisePropertyChanged("TransactionDateTime");
                 }
             }
 
@@ -19823,14 +16988,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TransactionDateTimeSpecified
             {
-                get
-                {
-                    return this.transactionDateTimeFieldSpecified;
-                }
+                get => transactionDateTimeFieldSpecified;
                 set
                 {
-                    this.transactionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TransactionDateTimeSpecified");
+                    transactionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("TransactionDateTimeSpecified");
                 }
             }
 
@@ -19838,14 +17000,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 5)]
             public System.Nullable<System.DateTime> AdmissionDateTime
             {
-                get
-                {
-                    return this.admissionDateTimeField;
-                }
+                get => admissionDateTimeField;
                 set
                 {
-                    this.admissionDateTimeField = value;
-                    this.RaisePropertyChanged("AdmissionDateTime");
+                    admissionDateTimeField = value;
+                    RaisePropertyChanged("AdmissionDateTime");
                 }
             }
 
@@ -19853,14 +17012,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool AdmissionDateTimeSpecified
             {
-                get
-                {
-                    return this.admissionDateTimeFieldSpecified;
-                }
+                get => admissionDateTimeFieldSpecified;
                 set
                 {
-                    this.admissionDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("AdmissionDateTimeSpecified");
+                    admissionDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("AdmissionDateTimeSpecified");
                 }
             }
 
@@ -19868,14 +17024,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 6)]
             public System.Nullable<System.DateTime> DischargeDateTime
             {
-                get
-                {
-                    return this.dischargeDateTimeField;
-                }
+                get => dischargeDateTimeField;
                 set
                 {
-                    this.dischargeDateTimeField = value;
-                    this.RaisePropertyChanged("DischargeDateTime");
+                    dischargeDateTimeField = value;
+                    RaisePropertyChanged("DischargeDateTime");
                 }
             }
 
@@ -19883,14 +17036,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DischargeDateTimeSpecified
             {
-                get
-                {
-                    return this.dischargeDateTimeFieldSpecified;
-                }
+                get => dischargeDateTimeFieldSpecified;
                 set
                 {
-                    this.dischargeDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("DischargeDateTimeSpecified");
+                    dischargeDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("DischargeDateTimeSpecified");
                 }
             }
 
@@ -19898,14 +17048,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 7)]
             public System.Nullable<System.DateTime> TransferDateTime
             {
-                get
-                {
-                    return this.transferDateTimeField;
-                }
+                get => transferDateTimeField;
                 set
                 {
-                    this.transferDateTimeField = value;
-                    this.RaisePropertyChanged("TransferDateTime");
+                    transferDateTimeField = value;
+                    RaisePropertyChanged("TransferDateTime");
                 }
             }
 
@@ -19913,14 +17060,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TransferDateTimeSpecified
             {
-                get
-                {
-                    return this.transferDateTimeFieldSpecified;
-                }
+                get => transferDateTimeFieldSpecified;
                 set
                 {
-                    this.transferDateTimeFieldSpecified = value;
-                    this.RaisePropertyChanged("TransferDateTimeSpecified");
+                    transferDateTimeFieldSpecified = value;
+                    RaisePropertyChanged("TransferDateTimeSpecified");
                 }
             }
 
@@ -19928,14 +17072,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string HospitalCode
             {
-                get
-                {
-                    return this.hospitalCodeField;
-                }
+                get => hospitalCodeField;
                 set
                 {
-                    this.hospitalCodeField = value;
-                    this.RaisePropertyChanged("HospitalCode");
+                    hospitalCodeField = value;
+                    RaisePropertyChanged("HospitalCode");
                 }
             }
 
@@ -19943,14 +17084,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(IsNullable = true, Order = 9)]
             public System.Nullable<System.DateTime> DateTimeReadyForDischarge
             {
-                get
-                {
-                    return this.dateTimeReadyForDischargeField;
-                }
+                get => dateTimeReadyForDischargeField;
                 set
                 {
-                    this.dateTimeReadyForDischargeField = value;
-                    this.RaisePropertyChanged("DateTimeReadyForDischarge");
+                    dateTimeReadyForDischargeField = value;
+                    RaisePropertyChanged("DateTimeReadyForDischarge");
                 }
             }
 
@@ -19958,14 +17096,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool DateTimeReadyForDischargeSpecified
             {
-                get
-                {
-                    return this.dateTimeReadyForDischargeFieldSpecified;
-                }
+                get => dateTimeReadyForDischargeFieldSpecified;
                 set
                 {
-                    this.dateTimeReadyForDischargeFieldSpecified = value;
-                    this.RaisePropertyChanged("DateTimeReadyForDischargeSpecified");
+                    dateTimeReadyForDischargeFieldSpecified = value;
+                    RaisePropertyChanged("DateTimeReadyForDischargeSpecified");
                 }
             }
 
@@ -19973,14 +17108,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", IsNullable = true, Order = 10)]
             public string AdmittedCode
             {
-                get
-                {
-                    return this.admittedCodeField;
-                }
+                get => admittedCodeField;
                 set
                 {
-                    this.admittedCodeField = value;
-                    this.RaisePropertyChanged("AdmittedCode");
+                    admittedCodeField = value;
+                    RaisePropertyChanged("AdmittedCode");
                 }
             }
 
@@ -19988,14 +17120,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
             public string AdmittedFromCode
             {
-                get
-                {
-                    return this.admittedFromCodeField;
-                }
+                get => admittedFromCodeField;
                 set
                 {
-                    this.admittedFromCodeField = value;
-                    this.RaisePropertyChanged("AdmittedFromCode");
+                    admittedFromCodeField = value;
+                    RaisePropertyChanged("AdmittedFromCode");
                 }
             }
 
@@ -20003,14 +17132,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "integer", IsNullable = true, Order = 12)]
             public string DischargeCode
             {
-                get
-                {
-                    return this.dischargeCodeField;
-                }
+                get => dischargeCodeField;
                 set
                 {
-                    this.dischargeCodeField = value;
-                    this.RaisePropertyChanged("DischargeCode");
+                    dischargeCodeField = value;
+                    RaisePropertyChanged("DischargeCode");
                 }
             }
 
@@ -20018,14 +17144,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 13)]
             public string PatientCategory
             {
-                get
-                {
-                    return this.patientCategoryField;
-                }
+                get => patientCategoryField;
                 set
                 {
-                    this.patientCategoryField = value;
-                    this.RaisePropertyChanged("PatientCategory");
+                    patientCategoryField = value;
+                    RaisePropertyChanged("PatientCategory");
                 }
             }
 
@@ -20033,14 +17156,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 14)]
             public string PatientType
             {
-                get
-                {
-                    return this.patientTypeField;
-                }
+                get => patientTypeField;
                 set
                 {
-                    this.patientTypeField = value;
-                    this.RaisePropertyChanged("PatientType");
+                    patientTypeField = value;
+                    RaisePropertyChanged("PatientType");
                 }
             }
 
@@ -20048,14 +17168,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 15)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -20063,14 +17180,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 16)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -20078,14 +17192,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 17)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20093,7 +17204,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20132,14 +17243,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20147,14 +17255,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string CHI
             {
-                get
-                {
-                    return this.cHIField;
-                }
+                get => cHIField;
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -20162,14 +17267,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string ActionCode
             {
-                get
-                {
-                    return this.actionCodeField;
-                }
+                get => actionCodeField;
                 set
                 {
-                    this.actionCodeField = value;
-                    this.RaisePropertyChanged("ActionCode");
+                    actionCodeField = value;
+                    RaisePropertyChanged("ActionCode");
                 }
             }
 
@@ -20177,14 +17279,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public FindDateRange ActionDateRange
             {
-                get
-                {
-                    return this.actionDateRangeField;
-                }
+                get => actionDateRangeField;
                 set
                 {
-                    this.actionDateRangeField = value;
-                    this.RaisePropertyChanged("ActionDateRange");
+                    actionDateRangeField = value;
+                    RaisePropertyChanged("ActionDateRange");
                 }
             }
 
@@ -20192,14 +17291,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string UniqueCarePathwayNumber
             {
-                get
-                {
-                    return this.uniqueCarePathwayNumberField;
-                }
+                get => uniqueCarePathwayNumberField;
                 set
                 {
-                    this.uniqueCarePathwayNumberField = value;
-                    this.RaisePropertyChanged("UniqueCarePathwayNumber");
+                    uniqueCarePathwayNumberField = value;
+                    RaisePropertyChanged("UniqueCarePathwayNumber");
                 }
             }
 
@@ -20207,14 +17303,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public FindPatientBasicCriteria PatientDetails
             {
-                get
-                {
-                    return this.patientDetailsField;
-                }
+                get => patientDetailsField;
                 set
                 {
-                    this.patientDetailsField = value;
-                    this.RaisePropertyChanged("PatientDetails");
+                    patientDetailsField = value;
+                    RaisePropertyChanged("PatientDetails");
                 }
             }
 
@@ -20222,14 +17315,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public ProviderSearchCriteria ProviderSearch
             {
-                get
-                {
-                    return this.providerSearchField;
-                }
+                get => providerSearchField;
                 set
                 {
-                    this.providerSearchField = value;
-                    this.RaisePropertyChanged("ProviderSearch");
+                    providerSearchField = value;
+                    RaisePropertyChanged("ProviderSearch");
                 }
             }
 
@@ -20238,14 +17328,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -20253,14 +17340,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 8)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20268,7 +17352,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20297,14 +17381,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20312,14 +17393,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string BreakGlassTypeCode
             {
-                get
-                {
-                    return this.breakGlassTypeCodeField;
-                }
+                get => breakGlassTypeCodeField;
                 set
                 {
-                    this.breakGlassTypeCodeField = value;
-                    this.RaisePropertyChanged("BreakGlassTypeCode");
+                    breakGlassTypeCodeField = value;
+                    RaisePropertyChanged("BreakGlassTypeCode");
                 }
             }
 
@@ -20327,14 +17405,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string Reason
             {
-                get
-                {
-                    return this.reasonField;
-                }
+                get => reasonField;
                 set
                 {
-                    this.reasonField = value;
-                    this.RaisePropertyChanged("Reason");
+                    reasonField = value;
+                    RaisePropertyChanged("Reason");
                 }
             }
 
@@ -20342,14 +17417,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20357,7 +17429,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20398,14 +17470,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -20413,14 +17482,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MergeID
             {
-                get
-                {
-                    return this.mergeIDField;
-                }
+                get => mergeIDField;
                 set
                 {
-                    this.mergeIDField = value;
-                    this.RaisePropertyChanged("MergeID");
+                    mergeIDField = value;
+                    RaisePropertyChanged("MergeID");
                 }
             }
 
@@ -20428,14 +17494,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string EventType
             {
-                get
-                {
-                    return this.eventTypeField;
-                }
+                get => eventTypeField;
                 set
                 {
-                    this.eventTypeField = value;
-                    this.RaisePropertyChanged("EventType");
+                    eventTypeField = value;
+                    RaisePropertyChanged("EventType");
                 }
             }
 
@@ -20443,14 +17506,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string Consent
             {
-                get
-                {
-                    return this.consentField;
-                }
+                get => consentField;
                 set
                 {
-                    this.consentField = value;
-                    this.RaisePropertyChanged("Consent");
+                    consentField = value;
+                    RaisePropertyChanged("Consent");
                 }
             }
 
@@ -20458,14 +17518,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 4)]
             public string TransactionType
             {
-                get
-                {
-                    return this.transactionTypeField;
-                }
+                get => transactionTypeField;
                 set
                 {
-                    this.transactionTypeField = value;
-                    this.RaisePropertyChanged("TransactionType");
+                    transactionTypeField = value;
+                    RaisePropertyChanged("TransactionType");
                 }
             }
 
@@ -20473,14 +17530,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
             public string CHI
             {
-                get
-                {
-                    return this.cHIField;
-                }
+                get => cHIField;
                 set
                 {
-                    this.cHIField = value;
-                    this.RaisePropertyChanged("CHI");
+                    cHIField = value;
+                    RaisePropertyChanged("CHI");
                 }
             }
 
@@ -20488,14 +17542,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
             public string RecordType
             {
-                get
-                {
-                    return this.recordTypeField;
-                }
+                get => recordTypeField;
                 set
                 {
-                    this.recordTypeField = value;
-                    this.RaisePropertyChanged("RecordType");
+                    recordTypeField = value;
+                    RaisePropertyChanged("RecordType");
                 }
             }
 
@@ -20503,14 +17554,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
             public string RecordKey
             {
-                get
-                {
-                    return this.recordKeyField;
-                }
+                get => recordKeyField;
                 set
                 {
-                    this.recordKeyField = value;
-                    this.RaisePropertyChanged("RecordKey");
+                    recordKeyField = value;
+                    RaisePropertyChanged("RecordKey");
                 }
             }
 
@@ -20518,14 +17566,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
             public string ProcessEvents
             {
-                get
-                {
-                    return this.processEventsField;
-                }
+                get => processEventsField;
                 set
                 {
-                    this.processEventsField = value;
-                    this.RaisePropertyChanged("ProcessEvents");
+                    processEventsField = value;
+                    RaisePropertyChanged("ProcessEvents");
                 }
             }
 
@@ -20533,14 +17578,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 9)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20548,7 +17590,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20577,14 +17619,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NotificationID
             {
-                get
-                {
-                    return this.notificationIDField;
-                }
+                get => notificationIDField;
                 set
                 {
-                    this.notificationIDField = value;
-                    this.RaisePropertyChanged("NotificationID");
+                    notificationIDField = value;
+                    RaisePropertyChanged("NotificationID");
                 }
             }
 
@@ -20592,14 +17631,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string NotificationType
             {
-                get
-                {
-                    return this.notificationTypeField;
-                }
+                get => notificationTypeField;
                 set
                 {
-                    this.notificationTypeField = value;
-                    this.RaisePropertyChanged("NotificationType");
+                    notificationTypeField = value;
+                    RaisePropertyChanged("NotificationType");
                 }
             }
 
@@ -20607,14 +17643,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public NotificationInfoNotificationDetail NotificationDetail
             {
-                get
-                {
-                    return this.notificationDetailField;
-                }
+                get => notificationDetailField;
                 set
                 {
-                    this.notificationDetailField = value;
-                    this.RaisePropertyChanged("NotificationDetail");
+                    notificationDetailField = value;
+                    RaisePropertyChanged("NotificationDetail");
                 }
             }
 
@@ -20622,14 +17655,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20637,7 +17667,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20661,14 +17691,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute("StoreIdentifier", typeof(string), DataType = "nonNegativeInteger", Order = 0)]
             public object Item
             {
-                get
-                {
-                    return this.itemField;
-                }
+                get => itemField;
                 set
                 {
-                    this.itemField = value;
-                    this.RaisePropertyChanged("Item");
+                    itemField = value;
+                    RaisePropertyChanged("Item");
                 }
             }
 
@@ -20676,7 +17703,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20703,14 +17730,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Token
             {
-                get
-                {
-                    return this.tokenField;
-                }
+                get => tokenField;
                 set
                 {
-                    this.tokenField = value;
-                    this.RaisePropertyChanged("Token");
+                    tokenField = value;
+                    RaisePropertyChanged("Token");
                 }
             }
 
@@ -20718,14 +17742,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public CredentialsUserInfo UserInfo
             {
-                get
-                {
-                    return this.userInfoField;
-                }
+                get => userInfoField;
                 set
                 {
-                    this.userInfoField = value;
-                    this.RaisePropertyChanged("UserInfo");
+                    userInfoField = value;
+                    RaisePropertyChanged("UserInfo");
                 }
             }
 
@@ -20733,14 +17754,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyAttributeAttribute()]
             public System.Xml.XmlAttribute[] AnyAttr
             {
-                get
-                {
-                    return this.anyAttrField;
-                }
+                get => anyAttrField;
                 set
                 {
-                    this.anyAttrField = value;
-                    this.RaisePropertyChanged("AnyAttr");
+                    anyAttrField = value;
+                    RaisePropertyChanged("AnyAttr");
                 }
             }
 
@@ -20748,7 +17766,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20777,14 +17795,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string UserName
             {
-                get
-                {
-                    return this.userNameField;
-                }
+                get => userNameField;
                 set
                 {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("UserName");
+                    userNameField = value;
+                    RaisePropertyChanged("UserName");
                 }
             }
 
@@ -20792,14 +17807,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string FriendlyName
             {
-                get
-                {
-                    return this.friendlyNameField;
-                }
+                get => friendlyNameField;
                 set
                 {
-                    this.friendlyNameField = value;
-                    this.RaisePropertyChanged("FriendlyName");
+                    friendlyNameField = value;
+                    RaisePropertyChanged("FriendlyName");
                 }
             }
 
@@ -20807,14 +17819,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string SystemCode
             {
-                get
-                {
-                    return this.systemCodeField;
-                }
+                get => systemCodeField;
                 set
                 {
-                    this.systemCodeField = value;
-                    this.RaisePropertyChanged("SystemCode");
+                    systemCodeField = value;
+                    RaisePropertyChanged("SystemCode");
                 }
             }
 
@@ -20822,14 +17831,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public string SystemLocation
             {
-                get
-                {
-                    return this.systemLocationField;
-                }
+                get => systemLocationField;
                 set
                 {
-                    this.systemLocationField = value;
-                    this.RaisePropertyChanged("SystemLocation");
+                    systemLocationField = value;
+                    RaisePropertyChanged("SystemLocation");
                 }
             }
 
@@ -20837,7 +17843,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20864,14 +17870,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Token
             {
-                get
-                {
-                    return this.tokenField;
-                }
+                get => tokenField;
                 set
                 {
-                    this.tokenField = value;
-                    this.RaisePropertyChanged("Token");
+                    tokenField = value;
+                    RaisePropertyChanged("Token");
                 }
             }
 
@@ -20879,14 +17882,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public LoginTokenResponseApplication Application
             {
-                get
-                {
-                    return this.applicationField;
-                }
+                get => applicationField;
                 set
                 {
-                    this.applicationField = value;
-                    this.RaisePropertyChanged("Application");
+                    applicationField = value;
+                    RaisePropertyChanged("Application");
                 }
             }
 
@@ -20894,14 +17894,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -20909,7 +17906,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20934,14 +17931,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Version
             {
-                get
-                {
-                    return this.versionField;
-                }
+                get => versionField;
                 set
                 {
-                    this.versionField = value;
-                    this.RaisePropertyChanged("Version");
+                    versionField = value;
+                    RaisePropertyChanged("Version");
                 }
             }
 
@@ -20949,14 +17943,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public System.DateTime BuiltDateTime
             {
-                get
-                {
-                    return this.builtDateTimeField;
-                }
+                get => builtDateTimeField;
                 set
                 {
-                    this.builtDateTimeField = value;
-                    this.RaisePropertyChanged("BuiltDateTime");
+                    builtDateTimeField = value;
+                    RaisePropertyChanged("BuiltDateTime");
                 }
             }
 
@@ -20964,7 +17955,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -20980,13 +17971,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.Login Login;
+            public Login Login;
 
             public LoginRequest()
             {
             }
 
-            public LoginRequest(SciStoreApplication.scistore.v71.Login Login)
+            public LoginRequest(Login Login)
             {
                 this.Login = Login;
             }
@@ -21000,13 +17991,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Name = "LoginResponse", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.LoginTokenResponse LoginResponse1;
+            public LoginTokenResponse LoginResponse1;
 
             public LoginResponse()
             {
             }
 
-            public LoginResponse(SciStoreApplication.scistore.v71.LoginTokenResponse LoginResponse1)
+            public LoginResponse(LoginTokenResponse LoginResponse1)
             {
                 this.LoginResponse1 = LoginResponse1;
             }
@@ -21029,14 +18020,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string Message
             {
-                get
-                {
-                    return this.messageField;
-                }
+                get => messageField;
                 set
                 {
-                    this.messageField = value;
-                    this.RaisePropertyChanged("Message");
+                    messageField = value;
+                    RaisePropertyChanged("Message");
                 }
             }
 
@@ -21044,14 +18032,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21059,7 +18044,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21075,16 +18060,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.Logout Logout;
+            public Logout Logout;
 
             public LogoutRequest()
             {
             }
 
-            public LogoutRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.Logout Logout)
+            public LogoutRequest(Credentials UserCredentials, Logout Logout)
             {
                 this.UserCredentials = UserCredentials;
                 this.Logout = Logout;
@@ -21132,14 +18117,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string NotificationType
             {
-                get
-                {
-                    return this.notificationTypeField;
-                }
+                get => notificationTypeField;
                 set
                 {
-                    this.notificationTypeField = value;
-                    this.RaisePropertyChanged("NotificationType");
+                    notificationTypeField = value;
+                    RaisePropertyChanged("NotificationType");
                 }
             }
 
@@ -21147,14 +18129,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public int TotalNotificationsToReturn
             {
-                get
-                {
-                    return this.totalNotificationsToReturnField;
-                }
+                get => totalNotificationsToReturnField;
                 set
                 {
-                    this.totalNotificationsToReturnField = value;
-                    this.RaisePropertyChanged("TotalNotificationsToReturn");
+                    totalNotificationsToReturnField = value;
+                    RaisePropertyChanged("TotalNotificationsToReturn");
                 }
             }
 
@@ -21162,14 +18141,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool TotalNotificationsToReturnSpecified
             {
-                get
-                {
-                    return this.totalNotificationsToReturnFieldSpecified;
-                }
+                get => totalNotificationsToReturnFieldSpecified;
                 set
                 {
-                    this.totalNotificationsToReturnFieldSpecified = value;
-                    this.RaisePropertyChanged("TotalNotificationsToReturnSpecified");
+                    totalNotificationsToReturnFieldSpecified = value;
+                    RaisePropertyChanged("TotalNotificationsToReturnSpecified");
                 }
             }
 
@@ -21177,14 +18153,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21192,7 +18165,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21218,14 +18191,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Notification", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public NotificationInfo[] NotificationList
             {
-                get
-                {
-                    return this.notificationListField;
-                }
+                get => notificationListField;
                 set
                 {
-                    this.notificationListField = value;
-                    this.RaisePropertyChanged("NotificationList");
+                    notificationListField = value;
+                    RaisePropertyChanged("NotificationList");
                 }
             }
 
@@ -21233,14 +18203,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21248,7 +18215,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21264,16 +18231,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetNotifications GetNotifications;
+            public GetNotifications GetNotifications;
 
             public GetNotificationsRequest()
             {
             }
 
-            public GetNotificationsRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetNotifications GetNotifications)
+            public GetNotificationsRequest(Credentials UserCredentials, GetNotifications GetNotifications)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetNotifications = GetNotifications;
@@ -21288,13 +18255,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotificationsResponse;
+            public GetNotificationsResponse GetNotificationsResponse;
 
             public GetNotificationsResponse1()
             {
             }
 
-            public GetNotificationsResponse1(SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotificationsResponse)
+            public GetNotificationsResponse1(GetNotificationsResponse GetNotificationsResponse)
             {
                 this.GetNotificationsResponse = GetNotificationsResponse;
             }
@@ -21317,14 +18284,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return this.subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -21332,14 +18296,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21347,7 +18308,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21363,16 +18324,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription;
+            public DeleteSubscription DeleteSubscription;
 
             public DeleteSubscriptionRequest()
             {
             }
 
-            public DeleteSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription)
+            public DeleteSubscriptionRequest(Credentials UserCredentials, DeleteSubscription DeleteSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.DeleteSubscription = DeleteSubscription;
@@ -21407,7 +18368,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement UnSubscribeToStore;
@@ -21416,7 +18377,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public UnSubscribeToStoreRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore)
+            public UnSubscribeToStoreRequest(Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore)
             {
                 this.UserCredentials = UserCredentials;
                 this.UnSubscribeToStore = UnSubscribeToStore;
@@ -21458,14 +18419,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public BreakGlassItem BreakGlassItem
             {
-                get
-                {
-                    return this.breakGlassItemField;
-                }
+                get => breakGlassItemField;
                 set
                 {
-                    this.breakGlassItemField = value;
-                    this.RaisePropertyChanged("BreakGlassItem");
+                    breakGlassItemField = value;
+                    RaisePropertyChanged("BreakGlassItem");
                 }
             }
 
@@ -21473,7 +18431,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21489,16 +18447,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass;
+            public BreakGlassInfo BreakGlass;
 
             public BreakGlassRequest()
             {
             }
 
-            public BreakGlassRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass)
+            public BreakGlassRequest(Credentials UserCredentials, BreakGlassInfo BreakGlass)
             {
                 this.UserCredentials = UserCredentials;
                 this.BreakGlass = BreakGlass;
@@ -21513,13 +18471,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlassResponse;
+            public BreakGlassResponse BreakGlassResponse;
 
             public BreakGlassResponse1()
             {
             }
 
-            public BreakGlassResponse1(SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlassResponse)
+            public BreakGlassResponse1(BreakGlassResponse BreakGlassResponse)
             {
                 this.BreakGlassResponse = BreakGlassResponse;
             }
@@ -21541,14 +18499,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("BreakGlassType", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassTypeItem[] BreakGlassTypes
             {
-                get
-                {
-                    return this.breakGlassTypesField;
-                }
+                get => breakGlassTypesField;
                 set
                 {
-                    this.breakGlassTypesField = value;
-                    this.RaisePropertyChanged("BreakGlassTypes");
+                    breakGlassTypesField = value;
+                    RaisePropertyChanged("BreakGlassTypes");
                 }
             }
 
@@ -21556,7 +18511,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21572,7 +18527,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement GetBreakGlassTypes;
@@ -21581,7 +18536,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public GetBreakGlassTypesRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes)
+            public GetBreakGlassTypesRequest(Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetBreakGlassTypes = GetBreakGlassTypes;
@@ -21596,13 +18551,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypesResponse;
+            public GetBreakGlassTypesResponse GetBreakGlassTypesResponse;
 
             public GetBreakGlassTypesResponse1()
             {
             }
 
-            public GetBreakGlassTypesResponse1(SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypesResponse)
+            public GetBreakGlassTypesResponse1(GetBreakGlassTypesResponse GetBreakGlassTypesResponse)
             {
                 this.GetBreakGlassTypesResponse = GetBreakGlassTypesResponse;
             }
@@ -21628,14 +18583,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("ADTmessage", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindADTItem[] ADTMessages
             {
-                get
-                {
-                    return this.aDTMessagesField;
-                }
+                get => aDTMessagesField;
                 set
                 {
-                    this.aDTMessagesField = value;
-                    this.RaisePropertyChanged("ADTMessages");
+                    aDTMessagesField = value;
+                    RaisePropertyChanged("ADTMessages");
                 }
             }
 
@@ -21644,14 +18596,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -21659,14 +18608,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21674,7 +18620,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21690,16 +18636,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindADTcriteria FindADT;
+            public FindADTcriteria FindADT;
 
             public FindADTRequest()
             {
             }
 
-            public FindADTRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindADTcriteria FindADT)
+            public FindADTRequest(Credentials UserCredentials, FindADTcriteria FindADT)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindADT = FindADT;
@@ -21714,13 +18660,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindADTresponse FindADTresponse;
+            public FindADTresponse FindADTresponse;
 
             public FindADTResponse1()
             {
             }
 
-            public FindADTResponse1(SciStoreApplication.scistore.v71.FindADTresponse FindADTresponse)
+            public FindADTResponse1(FindADTresponse FindADTresponse)
             {
                 this.FindADTresponse = FindADTresponse;
             }
@@ -21747,14 +18693,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string ADTId
             {
-                get
-                {
-                    return this.aDTIdField;
-                }
+                get => aDTIdField;
                 set
                 {
-                    this.aDTIdField = value;
-                    this.RaisePropertyChanged("ADTId");
+                    aDTIdField = value;
+                    RaisePropertyChanged("ADTId");
                 }
             }
 
@@ -21762,14 +18705,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -21778,14 +18718,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -21793,14 +18730,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21808,7 +18742,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21833,14 +18767,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ADTsystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -21848,14 +18779,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ADTmessageType ADTinformation
             {
-                get
-                {
-                    return this.aDTinformationField;
-                }
+                get => aDTinformationField;
                 set
                 {
-                    this.aDTinformationField = value;
-                    this.RaisePropertyChanged("ADTinformation");
+                    aDTinformationField = value;
+                    RaisePropertyChanged("ADTinformation");
                 }
             }
 
@@ -21863,7 +18791,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21879,16 +18807,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetADT GetADT;
+            public GetADT GetADT;
 
             public GetADTRequest()
             {
             }
 
-            public GetADTRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetADT GetADT)
+            public GetADTRequest(Credentials UserCredentials, GetADT GetADT)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetADT = GetADT;
@@ -21903,13 +18831,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetADTResponse GetADTResponse;
+            public GetADTResponse GetADTResponse;
 
             public GetADTResponse1()
             {
             }
 
-            public GetADTResponse1(SciStoreApplication.scistore.v71.GetADTResponse GetADTResponse)
+            public GetADTResponse1(GetADTResponse GetADTResponse)
             {
                 this.GetADTResponse = GetADTResponse;
             }
@@ -21935,14 +18863,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Patient", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindPatientItem[] Patients
             {
-                get
-                {
-                    return this.patientsField;
-                }
+                get => patientsField;
                 set
                 {
-                    this.patientsField = value;
-                    this.RaisePropertyChanged("Patients");
+                    patientsField = value;
+                    RaisePropertyChanged("Patients");
                 }
             }
 
@@ -21951,14 +18876,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -21966,14 +18888,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -21981,7 +18900,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -21997,16 +18916,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient;
+            public FindPatientCriteria FindPatient;
 
             public FindPatientRequest()
             {
             }
 
-            public FindPatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient)
+            public FindPatientRequest(Credentials UserCredentials, FindPatientCriteria FindPatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindPatient = FindPatient;
@@ -22021,13 +18940,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientResponse FindPatientResponse;
+            public FindPatientResponse FindPatientResponse;
 
             public FindPatientResponse1()
             {
             }
 
-            public FindPatientResponse1(SciStoreApplication.scistore.v71.FindPatientResponse FindPatientResponse)
+            public FindPatientResponse1(FindPatientResponse FindPatientResponse)
             {
                 this.FindPatientResponse = FindPatientResponse;
             }
@@ -22060,14 +18979,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PatientID
             {
-                get
-                {
-                    return this.patientIDField;
-                }
+                get => patientIDField;
                 set
                 {
-                    this.patientIDField = value;
-                    this.RaisePropertyChanged("PatientID");
+                    patientIDField = value;
+                    RaisePropertyChanged("PatientID");
                 }
             }
 
@@ -22075,14 +18991,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string IDformat
             {
-                get
-                {
-                    return this.iDformatField;
-                }
+                get => iDformatField;
                 set
                 {
-                    this.iDformatField = value;
-                    this.RaisePropertyChanged("IDformat");
+                    iDformatField = value;
+                    RaisePropertyChanged("IDformat");
                 }
             }
 
@@ -22090,14 +19003,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22105,14 +19015,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
             public bool SaveInStore
             {
-                get
-                {
-                    return this.saveInStoreField;
-                }
+                get => saveInStoreField;
                 set
                 {
-                    this.saveInStoreField = value;
-                    this.RaisePropertyChanged("SaveInStore");
+                    saveInStoreField = value;
+                    RaisePropertyChanged("SaveInStore");
                 }
             }
 
@@ -22120,14 +19027,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlIgnoreAttribute()]
             public bool SaveInStoreSpecified
             {
-                get
-                {
-                    return this.saveInStoreFieldSpecified;
-                }
+                get => saveInStoreFieldSpecified;
                 set
                 {
-                    this.saveInStoreFieldSpecified = value;
-                    this.RaisePropertyChanged("SaveInStoreSpecified");
+                    saveInStoreFieldSpecified = value;
+                    RaisePropertyChanged("SaveInStoreSpecified");
                 }
             }
 
@@ -22136,14 +19040,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22151,14 +19052,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 5)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22166,7 +19064,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22195,14 +19093,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public PatientSystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -22210,14 +19105,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public PatientInformation PatientInformation
             {
-                get
-                {
-                    return this.patientInformationField;
-                }
+                get => patientInformationField;
                 set
                 {
-                    this.patientInformationField = value;
-                    this.RaisePropertyChanged("PatientInformation");
+                    patientInformationField = value;
+                    RaisePropertyChanged("PatientInformation");
                 }
             }
 
@@ -22225,14 +19117,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public SearchSummaryItem SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22240,14 +19129,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22255,7 +19141,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22271,16 +19157,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetPatient GetPatient;
+            public GetPatient GetPatient;
 
             public GetPatientRequest()
             {
             }
 
-            public GetPatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetPatient GetPatient)
+            public GetPatientRequest(Credentials UserCredentials, GetPatient GetPatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetPatient = GetPatient;
@@ -22295,13 +19181,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetPatientResponse GetPatientResponse;
+            public GetPatientResponse GetPatientResponse;
 
             public GetPatientResponse1()
             {
             }
 
-            public GetPatientResponse1(SciStoreApplication.scistore.v71.GetPatientResponse GetPatientResponse)
+            public GetPatientResponse1(GetPatientResponse GetPatientResponse)
             {
                 this.GetPatientResponse = GetPatientResponse;
             }
@@ -22327,14 +19213,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Result", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindResultItem[] Results
             {
-                get
-                {
-                    return this.resultsField;
-                }
+                get => resultsField;
                 set
                 {
-                    this.resultsField = value;
-                    this.RaisePropertyChanged("Results");
+                    resultsField = value;
+                    RaisePropertyChanged("Results");
                 }
             }
 
@@ -22343,14 +19226,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22358,14 +19238,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22373,7 +19250,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22389,16 +19266,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindResultCriteria FindResult;
+            public FindResultCriteria FindResult;
 
             public FindResultRequest()
             {
             }
 
-            public FindResultRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindResultCriteria FindResult)
+            public FindResultRequest(Credentials UserCredentials, FindResultCriteria FindResult)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindResult = FindResult;
@@ -22413,13 +19290,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindResultResponse FindResultResponse;
+            public FindResultResponse FindResultResponse;
 
             public FindResultResponse1()
             {
             }
 
-            public FindResultResponse1(SciStoreApplication.scistore.v71.FindResultResponse FindResultResponse)
+            public FindResultResponse1(FindResultResponse FindResultResponse)
             {
                 this.FindResultResponse = FindResultResponse;
             }
@@ -22446,14 +19323,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string ResultID
             {
-                get
-                {
-                    return this.resultIDField;
-                }
+                get => resultIDField;
                 set
                 {
-                    this.resultIDField = value;
-                    this.RaisePropertyChanged("ResultID");
+                    resultIDField = value;
+                    RaisePropertyChanged("ResultID");
                 }
             }
 
@@ -22461,14 +19335,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22477,14 +19348,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22492,14 +19360,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22507,7 +19372,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22534,14 +19399,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public ReportSystemInformation SystemInformation
             {
-                get
-                {
-                    return this.systemInformationField;
-                }
+                get => systemInformationField;
                 set
                 {
-                    this.systemInformationField = value;
-                    this.RaisePropertyChanged("SystemInformation");
+                    systemInformationField = value;
+                    RaisePropertyChanged("SystemInformation");
                 }
             }
 
@@ -22549,14 +19411,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public InvestigationReport InvestigationReport
             {
-                get
-                {
-                    return this.investigationReportField;
-                }
+                get => investigationReportField;
                 set
                 {
-                    this.investigationReportField = value;
-                    this.RaisePropertyChanged("InvestigationReport");
+                    investigationReportField = value;
+                    RaisePropertyChanged("InvestigationReport");
                 }
             }
 
@@ -22564,14 +19423,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22579,7 +19435,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22595,16 +19451,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetResult GetResult;
+            public GetResult GetResult;
 
             public GetResultRequest()
             {
             }
 
-            public GetResultRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetResult GetResult)
+            public GetResultRequest(Credentials UserCredentials, GetResult GetResult)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetResult = GetResult;
@@ -22619,13 +19475,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetResultResponse GetResultResponse;
+            public GetResultResponse GetResultResponse;
 
             public GetResultResponse1()
             {
             }
 
-            public GetResultResponse1(SciStoreApplication.scistore.v71.GetResultResponse GetResultResponse)
+            public GetResultResponse1(GetResultResponse GetResultResponse)
             {
                 this.GetResultResponse = GetResultResponse;
             }
@@ -22651,14 +19507,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Document", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindDocumentItem[] Documents
             {
-                get
-                {
-                    return this.documentsField;
-                }
+                get => documentsField;
                 set
                 {
-                    this.documentsField = value;
-                    this.RaisePropertyChanged("Documents");
+                    documentsField = value;
+                    RaisePropertyChanged("Documents");
                 }
             }
 
@@ -22667,14 +19520,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -22682,14 +19532,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22697,7 +19544,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22713,16 +19560,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument;
+            public FindDocumentCriteria FindDocument;
 
             public FindDocumentRequest()
             {
             }
 
-            public FindDocumentRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument)
+            public FindDocumentRequest(Credentials UserCredentials, FindDocumentCriteria FindDocument)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindDocument = FindDocument;
@@ -22737,13 +19584,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindDocumentResponse FindDocumentResponse;
+            public FindDocumentResponse FindDocumentResponse;
 
             public FindDocumentResponse1()
             {
             }
 
-            public FindDocumentResponse1(SciStoreApplication.scistore.v71.FindDocumentResponse FindDocumentResponse)
+            public FindDocumentResponse1(FindDocumentResponse FindDocumentResponse)
             {
                 this.FindDocumentResponse = FindDocumentResponse;
             }
@@ -22770,14 +19617,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string DocumentID
             {
-                get
-                {
-                    return this.documentIDField;
-                }
+                get => documentIDField;
                 set
                 {
-                    this.documentIDField = value;
-                    this.RaisePropertyChanged("DocumentID");
+                    documentIDField = value;
+                    RaisePropertyChanged("DocumentID");
                 }
             }
 
@@ -22785,14 +19629,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -22801,14 +19642,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassItem[] BreakGlassItems
             {
-                get
-                {
-                    return this.breakGlassItemsField;
-                }
+                get => breakGlassItemsField;
                 set
                 {
-                    this.breakGlassItemsField = value;
-                    this.RaisePropertyChanged("BreakGlassItems");
+                    breakGlassItemsField = value;
+                    RaisePropertyChanged("BreakGlassItems");
                 }
             }
 
@@ -22816,14 +19654,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22831,7 +19666,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22856,14 +19691,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentInfo Document
             {
-                get
-                {
-                    return this.documentField;
-                }
+                get => documentField;
                 set
                 {
-                    this.documentField = value;
-                    this.RaisePropertyChanged("Document");
+                    documentField = value;
+                    RaisePropertyChanged("Document");
                 }
             }
 
@@ -22871,14 +19703,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -22886,7 +19715,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -22902,16 +19731,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocument GetDocument;
+            public GetDocument GetDocument;
 
             public GetDocumentRequest()
             {
             }
 
-            public GetDocumentRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocument GetDocument)
+            public GetDocumentRequest(Credentials UserCredentials, GetDocument GetDocument)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetDocument = GetDocument;
@@ -22926,13 +19755,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentResponse GetDocumentResponse;
+            public GetDocumentResponse GetDocumentResponse;
 
             public GetDocumentResponse1()
             {
             }
 
-            public GetDocumentResponse1(SciStoreApplication.scistore.v71.GetDocumentResponse GetDocumentResponse)
+            public GetDocumentResponse1(GetDocumentResponse GetDocumentResponse)
             {
                 this.GetDocumentResponse = GetDocumentResponse;
             }
@@ -22959,14 +19788,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string DocumentID
             {
-                get
-                {
-                    return this.documentIDField;
-                }
+                get => documentIDField;
                 set
                 {
-                    this.documentIDField = value;
-                    this.RaisePropertyChanged("DocumentID");
+                    documentIDField = value;
+                    RaisePropertyChanged("DocumentID");
                 }
             }
 
@@ -22974,14 +19800,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string Stylesheet
             {
-                get
-                {
-                    return this.stylesheetField;
-                }
+                get => stylesheetField;
                 set
                 {
-                    this.stylesheetField = value;
-                    this.RaisePropertyChanged("Stylesheet");
+                    stylesheetField = value;
+                    RaisePropertyChanged("Stylesheet");
                 }
             }
 
@@ -22989,14 +19812,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -23004,14 +19824,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23019,7 +19836,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23042,14 +19859,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public DocumentStylesheetType StyleSheetDetails
             {
-                get
-                {
-                    return this.styleSheetDetailsField;
-                }
+                get => styleSheetDetailsField;
                 set
                 {
-                    this.styleSheetDetailsField = value;
-                    this.RaisePropertyChanged("StyleSheetDetails");
+                    styleSheetDetailsField = value;
+                    RaisePropertyChanged("StyleSheetDetails");
                 }
             }
 
@@ -23057,7 +19871,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23073,16 +19887,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet;
+            public GetDocumentStylesheet GetDocumentStylesheet;
 
             public GetDocumentStylesheetRequest()
             {
             }
 
-            public GetDocumentStylesheetRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet)
+            public GetDocumentStylesheetRequest(Credentials UserCredentials, GetDocumentStylesheet GetDocumentStylesheet)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetDocumentStylesheet = GetDocumentStylesheet;
@@ -23097,13 +19911,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheetResponse;
+            public GetDocumentStylesheetResponse GetDocumentStylesheetResponse;
 
             public GetDocumentStylesheetResponse1()
             {
             }
 
-            public GetDocumentStylesheetResponse1(SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheetResponse)
+            public GetDocumentStylesheetResponse1(GetDocumentStylesheetResponse GetDocumentStylesheetResponse)
             {
                 this.GetDocumentStylesheetResponse = GetDocumentStylesheetResponse;
             }
@@ -23129,14 +19943,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("TreatmentLog", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindTreatmentLogItem[] TreatmentLogList
             {
-                get
-                {
-                    return this.treatmentLogListField;
-                }
+                get => treatmentLogListField;
                 set
                 {
-                    this.treatmentLogListField = value;
-                    this.RaisePropertyChanged("TreatmentLogList");
+                    treatmentLogListField = value;
+                    RaisePropertyChanged("TreatmentLogList");
                 }
             }
 
@@ -23145,14 +19956,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SearchSummaryItem[] SearchSummary
             {
-                get
-                {
-                    return this.searchSummaryField;
-                }
+                get => searchSummaryField;
                 set
                 {
-                    this.searchSummaryField = value;
-                    this.RaisePropertyChanged("SearchSummary");
+                    searchSummaryField = value;
+                    RaisePropertyChanged("SearchSummary");
                 }
             }
 
@@ -23160,14 +19968,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23175,7 +19980,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23191,16 +19996,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog;
+            public FindTreatmentLogCriteria FindTreatmentLog;
 
             public FindTreatmentLogRequest()
             {
             }
 
-            public FindTreatmentLogRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog)
+            public FindTreatmentLogRequest(Credentials UserCredentials, FindTreatmentLogCriteria FindTreatmentLog)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindTreatmentLog = FindTreatmentLog;
@@ -23215,13 +20020,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLogResponse;
+            public FindTreatmentLogResponse FindTreatmentLogResponse;
 
             public FindTreatmentLogResponse1()
             {
             }
 
-            public FindTreatmentLogResponse1(SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLogResponse)
+            public FindTreatmentLogResponse1(FindTreatmentLogResponse FindTreatmentLogResponse)
             {
                 this.FindTreatmentLogResponse = FindTreatmentLogResponse;
             }
@@ -23246,14 +20051,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "nonNegativeInteger", Order = 0)]
             public string TreatmentLogID
             {
-                get
-                {
-                    return this.treatmentLogIDField;
-                }
+                get => treatmentLogIDField;
                 set
                 {
-                    this.treatmentLogIDField = value;
-                    this.RaisePropertyChanged("TreatmentLogID");
+                    treatmentLogIDField = value;
+                    RaisePropertyChanged("TreatmentLogID");
                 }
             }
 
@@ -23261,14 +20063,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public ProviderItem Provider
             {
-                get
-                {
-                    return this.providerField;
-                }
+                get => providerField;
                 set
                 {
-                    this.providerField = value;
-                    this.RaisePropertyChanged("Provider");
+                    providerField = value;
+                    RaisePropertyChanged("Provider");
                 }
             }
 
@@ -23276,14 +20075,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23291,7 +20087,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23316,14 +20112,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public TreatmentLogInfo TreatmentLog
             {
-                get
-                {
-                    return this.treatmentLogField;
-                }
+                get => treatmentLogField;
                 set
                 {
-                    this.treatmentLogField = value;
-                    this.RaisePropertyChanged("TreatmentLog");
+                    treatmentLogField = value;
+                    RaisePropertyChanged("TreatmentLog");
                 }
             }
 
@@ -23331,14 +20124,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23346,7 +20136,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23362,16 +20152,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog;
+            public GetTreatmentLog GetTreatmentLog;
 
             public GetTreatmentLogRequest()
             {
             }
 
-            public GetTreatmentLogRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog)
+            public GetTreatmentLogRequest(Credentials UserCredentials, GetTreatmentLog GetTreatmentLog)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetTreatmentLog = GetTreatmentLog;
@@ -23386,13 +20176,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLogResponse;
+            public GetTreatmentLogResponse GetTreatmentLogResponse;
 
             public GetTreatmentLogResponse1()
             {
             }
 
-            public GetTreatmentLogResponse1(SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLogResponse)
+            public GetTreatmentLogResponse1(GetTreatmentLogResponse GetTreatmentLogResponse)
             {
                 this.GetTreatmentLogResponse = GetTreatmentLogResponse;
             }
@@ -23415,14 +20205,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientId
             {
-                get
-                {
-                    return this.primaryPatientIdField;
-                }
+                get => primaryPatientIdField;
                 set
                 {
-                    this.primaryPatientIdField = value;
-                    this.RaisePropertyChanged("PrimaryPatientId");
+                    primaryPatientIdField = value;
+                    RaisePropertyChanged("PrimaryPatientId");
                 }
             }
 
@@ -23430,14 +20217,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23445,7 +20229,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23471,14 +20255,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Patient", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public FindMergeItem[] Patients
             {
-                get
-                {
-                    return this.patientsField;
-                }
+                get => patientsField;
                 set
                 {
-                    this.patientsField = value;
-                    this.RaisePropertyChanged("Patients");
+                    patientsField = value;
+                    RaisePropertyChanged("Patients");
                 }
             }
 
@@ -23486,14 +20267,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23501,7 +20279,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23517,16 +20295,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindMerge FindMerge;
+            public FindMerge FindMerge;
 
             public FindMergeRequest()
             {
             }
 
-            public FindMergeRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindMerge FindMerge)
+            public FindMergeRequest(Credentials UserCredentials, FindMerge FindMerge)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindMerge = FindMerge;
@@ -23541,13 +20319,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindMergeResponse FindMergeResponse;
+            public FindMergeResponse FindMergeResponse;
 
             public FindMergeResponse1()
             {
             }
 
-            public FindMergeResponse1(SciStoreApplication.scistore.v71.FindMergeResponse FindMergeResponse)
+            public FindMergeResponse1(FindMergeResponse FindMergeResponse)
             {
                 this.FindMergeResponse = FindMergeResponse;
             }
@@ -23572,14 +20350,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return this.primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -23587,14 +20362,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return this.secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -23602,14 +20374,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23617,7 +20386,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23633,16 +20402,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MergePatient MergePatient;
+            public MergePatient MergePatient;
 
             public MergePatientRequest()
             {
             }
 
-            public MergePatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MergePatient MergePatient)
+            public MergePatientRequest(Credentials UserCredentials, MergePatient MergePatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.MergePatient = MergePatient;
@@ -23688,14 +20457,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string PrimaryPatientID
             {
-                get
-                {
-                    return this.primaryPatientIDField;
-                }
+                get => primaryPatientIDField;
                 set
                 {
-                    this.primaryPatientIDField = value;
-                    this.RaisePropertyChanged("PrimaryPatientID");
+                    primaryPatientIDField = value;
+                    RaisePropertyChanged("PrimaryPatientID");
                 }
             }
 
@@ -23703,14 +20469,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string SecondaryPatientID
             {
-                get
-                {
-                    return this.secondaryPatientIDField;
-                }
+                get => secondaryPatientIDField;
                 set
                 {
-                    this.secondaryPatientIDField = value;
-                    this.RaisePropertyChanged("SecondaryPatientID");
+                    secondaryPatientIDField = value;
+                    RaisePropertyChanged("SecondaryPatientID");
                 }
             }
 
@@ -23718,14 +20481,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23733,7 +20493,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23749,16 +20509,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient;
+            public UnMergePatient UnMergePatient;
 
             public UnMergePatientRequest()
             {
             }
 
-            public UnMergePatientRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient)
+            public UnMergePatientRequest(Credentials UserCredentials, UnMergePatient UnMergePatient)
             {
                 this.UserCredentials = UserCredentials;
                 this.UnMergePatient = UnMergePatient;
@@ -23802,14 +20562,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23817,14 +20574,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23832,7 +20586,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23859,14 +20613,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string Count
             {
-                get
-                {
-                    return this.countField;
-                }
+                get => countField;
                 set
                 {
-                    this.countField = value;
-                    this.RaisePropertyChanged("Count");
+                    countField = value;
+                    RaisePropertyChanged("Count");
                 }
             }
 
@@ -23874,14 +20625,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23889,14 +20637,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -23904,7 +20649,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -23920,16 +20665,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount;
+            public MessageQueueCount MessageQueueCount;
 
             public MessageQueueCountRequest()
             {
             }
 
-            public MessageQueueCountRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount)
+            public MessageQueueCountRequest(Credentials UserCredentials, MessageQueueCount MessageQueueCount)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueueCount = MessageQueueCount;
@@ -23944,13 +20689,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCountResponse;
+            public MessageQueueCountResponse MessageQueueCountResponse;
 
             public MessageQueueCountResponse1()
             {
             }
 
-            public MessageQueueCountResponse1(SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCountResponse)
+            public MessageQueueCountResponse1(MessageQueueCountResponse MessageQueueCountResponse)
             {
                 this.MessageQueueCountResponse = MessageQueueCountResponse;
             }
@@ -23975,14 +20720,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -23990,14 +20732,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return this.messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24005,14 +20744,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24020,7 +20756,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24047,14 +20783,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24062,14 +20795,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return this.messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24077,14 +20807,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 2)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24092,7 +20819,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24108,16 +20835,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete;
+            public MessageQueueDelete MessageQueueDelete;
 
             public MessageQueueDeleteRequest()
             {
             }
 
-            public MessageQueueDeleteRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete)
+            public MessageQueueDeleteRequest(Credentials UserCredentials, MessageQueueDelete MessageQueueDelete)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueueDelete = MessageQueueDelete;
@@ -24132,13 +20859,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDeleteResponse;
+            public MessageQueueDeleteResponse MessageQueueDeleteResponse;
 
             public MessageQueueDeleteResponse1()
             {
             }
 
-            public MessageQueueDeleteResponse1(SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDeleteResponse)
+            public MessageQueueDeleteResponse1(MessageQueueDeleteResponse MessageQueueDeleteResponse)
             {
                 this.MessageQueueDeleteResponse = MessageQueueDeleteResponse;
             }
@@ -24161,14 +20888,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24176,14 +20900,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24191,7 +20912,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24220,14 +20941,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public MessageQueue Queue
             {
-                get
-                {
-                    return this.queueField;
-                }
+                get => queueField;
                 set
                 {
-                    this.queueField = value;
-                    this.RaisePropertyChanged("Queue");
+                    queueField = value;
+                    RaisePropertyChanged("Queue");
                 }
             }
 
@@ -24235,14 +20953,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
             public string MessageIdentifier
             {
-                get
-                {
-                    return this.messageIdentifierField;
-                }
+                get => messageIdentifierField;
                 set
                 {
-                    this.messageIdentifierField = value;
-                    this.RaisePropertyChanged("MessageIdentifier");
+                    messageIdentifierField = value;
+                    RaisePropertyChanged("MessageIdentifier");
                 }
             }
 
@@ -24250,14 +20965,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
             public string MessageBody
             {
-                get
-                {
-                    return this.messageBodyField;
-                }
+                get => messageBodyField;
                 set
                 {
-                    this.messageBodyField = value;
-                    this.RaisePropertyChanged("MessageBody");
+                    messageBodyField = value;
+                    RaisePropertyChanged("MessageBody");
                 }
             }
 
@@ -24265,14 +20977,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 3)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24280,7 +20989,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24296,16 +21005,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek;
+            public MessageQueuePeek MessageQueuePeek;
 
             public MessageQueuePeekRequest()
             {
             }
 
-            public MessageQueuePeekRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek)
+            public MessageQueuePeekRequest(Credentials UserCredentials, MessageQueuePeek MessageQueuePeek)
             {
                 this.UserCredentials = UserCredentials;
                 this.MessageQueuePeek = MessageQueuePeek;
@@ -24320,13 +21029,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeekResponse;
+            public MessageQueuePeekResponse MessageQueuePeekResponse;
 
             public MessageQueuePeekResponse1()
             {
             }
 
-            public MessageQueuePeekResponse1(SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeekResponse)
+            public MessageQueuePeekResponse1(MessageQueuePeekResponse MessageQueuePeekResponse)
             {
                 this.MessageQueuePeekResponse = MessageQueuePeekResponse;
             }
@@ -24350,14 +21059,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("HCP", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public HCPitem[] HCPs
             {
-                get
-                {
-                    return this.hCPsField;
-                }
+                get => hCPsField;
                 set
                 {
-                    this.hCPsField = value;
-                    this.RaisePropertyChanged("HCPs");
+                    hCPsField = value;
+                    RaisePropertyChanged("HCPs");
                 }
             }
 
@@ -24365,14 +21071,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24380,7 +21083,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24396,16 +21099,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP;
+            public FindHCPcriteria FindHCP;
 
             public FindHCPRequest()
             {
             }
 
-            public FindHCPRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP)
+            public FindHCPRequest(Credentials UserCredentials, FindHCPcriteria FindHCP)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindHCP = FindHCP;
@@ -24420,13 +21123,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindHCPResponse FindHCPResponse;
+            public FindHCPResponse FindHCPResponse;
 
             public FindHCPResponse1()
             {
             }
 
-            public FindHCPResponse1(SciStoreApplication.scistore.v71.FindHCPResponse FindHCPResponse)
+            public FindHCPResponse1(FindHCPResponse FindHCPResponse)
             {
                 this.FindHCPResponse = FindHCPResponse;
             }
@@ -24450,14 +21153,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Organisation", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public OrganisationItem[] Organisations
             {
-                get
-                {
-                    return this.organisationsField;
-                }
+                get => organisationsField;
                 set
                 {
-                    this.organisationsField = value;
-                    this.RaisePropertyChanged("Organisations");
+                    organisationsField = value;
+                    RaisePropertyChanged("Organisations");
                 }
             }
 
@@ -24465,14 +21165,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24480,7 +21177,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24496,16 +21193,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation;
+            public FindOrganisationCriteria FindOrganisation;
 
             public FindOrganisationRequest()
             {
             }
 
-            public FindOrganisationRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation)
+            public FindOrganisationRequest(Credentials UserCredentials, FindOrganisationCriteria FindOrganisation)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindOrganisation = FindOrganisation;
@@ -24520,13 +21217,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisationResponse;
+            public FindOrganisationResponse FindOrganisationResponse;
 
             public FindOrganisationResponse1()
             {
             }
 
-            public FindOrganisationResponse1(SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisationResponse)
+            public FindOrganisationResponse1(FindOrganisationResponse FindOrganisationResponse)
             {
                 this.FindOrganisationResponse = FindOrganisationResponse;
             }
@@ -24549,14 +21246,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(DataType = "positiveInteger", Order = 0)]
             public string Minutes
             {
-                get
-                {
-                    return this.minutesField;
-                }
+                get => minutesField;
                 set
                 {
-                    this.minutesField = value;
-                    this.RaisePropertyChanged("Minutes");
+                    minutesField = value;
+                    RaisePropertyChanged("Minutes");
                 }
             }
 
@@ -24564,14 +21258,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24579,7 +21270,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24595,7 +21286,7 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
             public System.Xml.XmlElement GetWebTimeout;
@@ -24604,7 +21295,7 @@ namespace SciStoreApplication.Properties
             {
             }
 
-            public GetWebTimeoutRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout)
+            public GetWebTimeoutRequest(Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetWebTimeout = GetWebTimeout;
@@ -24619,13 +21310,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeoutResponse;
+            public GetWebTimeoutResponse GetWebTimeoutResponse;
 
             public GetWebTimeoutResponse1()
             {
             }
 
-            public GetWebTimeoutResponse1(SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeoutResponse)
+            public GetWebTimeoutResponse1(GetWebTimeoutResponse GetWebTimeoutResponse)
             {
                 this.GetWebTimeoutResponse = GetWebTimeoutResponse;
             }
@@ -24648,14 +21339,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public InterfaceStatusLimits Limits
             {
-                get
-                {
-                    return this.limitsField;
-                }
+                get => limitsField;
                 set
                 {
-                    this.limitsField = value;
-                    this.RaisePropertyChanged("Limits");
+                    limitsField = value;
+                    RaisePropertyChanged("Limits");
                 }
             }
 
@@ -24663,14 +21351,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24678,7 +21363,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24704,14 +21389,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Service", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public ServiceItem[] Services
             {
-                get
-                {
-                    return this.servicesField;
-                }
+                get => servicesField;
                 set
                 {
-                    this.servicesField = value;
-                    this.RaisePropertyChanged("Services");
+                    servicesField = value;
+                    RaisePropertyChanged("Services");
                 }
             }
 
@@ -24719,14 +21401,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24734,7 +21413,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24750,16 +21429,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus;
+            public GetInterfaceStatus GetInterfaceStatus;
 
             public GetInterfaceStatusRequest()
             {
             }
 
-            public GetInterfaceStatusRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus)
+            public GetInterfaceStatusRequest(Credentials UserCredentials, GetInterfaceStatus GetInterfaceStatus)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetInterfaceStatus = GetInterfaceStatus;
@@ -24774,13 +21453,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatusResponse;
+            public GetInterfaceStatusResponse GetInterfaceStatusResponse;
 
             public GetInterfaceStatusResponse1()
             {
             }
 
-            public GetInterfaceStatusResponse1(SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatusResponse)
+            public GetInterfaceStatusResponse1(GetInterfaceStatusResponse GetInterfaceStatusResponse)
             {
                 this.GetInterfaceStatusResponse = GetInterfaceStatusResponse;
             }
@@ -24804,14 +21483,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("BreakGlassAuditInstance", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public BreakGlassAuditItem[] BreakGlassAuditInstances
             {
-                get
-                {
-                    return this.breakGlassAuditInstancesField;
-                }
+                get => breakGlassAuditInstancesField;
                 set
                 {
-                    this.breakGlassAuditInstancesField = value;
-                    this.RaisePropertyChanged("BreakGlassAuditInstances");
+                    breakGlassAuditInstancesField = value;
+                    RaisePropertyChanged("BreakGlassAuditInstances");
                 }
             }
 
@@ -24819,14 +21495,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24834,7 +21507,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24850,16 +21523,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit;
+            public FindBreakGlassAuditCriteria FindBreakGlassAudit;
 
             public FindBreakGlassAuditRequest()
             {
             }
 
-            public FindBreakGlassAuditRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit)
+            public FindBreakGlassAuditRequest(Credentials UserCredentials, FindBreakGlassAuditCriteria FindBreakGlassAudit)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindBreakGlassAudit = FindBreakGlassAudit;
@@ -24874,13 +21547,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAuditResponse;
+            public FindBreakGlassAuditResponse FindBreakGlassAuditResponse;
 
             public FindBreakGlassAuditResponse1()
             {
             }
 
-            public FindBreakGlassAuditResponse1(SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAuditResponse)
+            public FindBreakGlassAuditResponse1(FindBreakGlassAuditResponse FindBreakGlassAuditResponse)
             {
                 this.FindBreakGlassAuditResponse = FindBreakGlassAuditResponse;
             }
@@ -24904,14 +21577,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("PatientConsentAuditInstance", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public PatientConsentAuditItem[] PatientConsentAuditInstances
             {
-                get
-                {
-                    return this.patientConsentAuditInstancesField;
-                }
+                get => patientConsentAuditInstancesField;
                 set
                 {
-                    this.patientConsentAuditInstancesField = value;
-                    this.RaisePropertyChanged("PatientConsentAuditInstances");
+                    patientConsentAuditInstancesField = value;
+                    RaisePropertyChanged("PatientConsentAuditInstances");
                 }
             }
 
@@ -24919,14 +21589,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -24934,7 +21601,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -24950,16 +21617,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit;
+            public PatientConsentAuditCriteria FindPatientConsentAudit;
 
             public FindPatientConsentAuditRequest()
             {
             }
 
-            public FindPatientConsentAuditRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit)
+            public FindPatientConsentAuditRequest(Credentials UserCredentials, PatientConsentAuditCriteria FindPatientConsentAudit)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindPatientConsentAudit = FindPatientConsentAudit;
@@ -24974,13 +21641,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAuditResponse;
+            public FindPatientConsentAuditResponse FindPatientConsentAuditResponse;
 
             public FindPatientConsentAuditResponse1()
             {
             }
 
-            public FindPatientConsentAuditResponse1(SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAuditResponse)
+            public FindPatientConsentAuditResponse1(FindPatientConsentAuditResponse FindPatientConsentAuditResponse)
             {
                 this.FindPatientConsentAuditResponse = FindPatientConsentAuditResponse;
             }
@@ -25003,14 +21670,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public CumulativeReport CumulativeReport
             {
-                get
-                {
-                    return this.cumulativeReportField;
-                }
+                get => cumulativeReportField;
                 set
                 {
-                    this.cumulativeReportField = value;
-                    this.RaisePropertyChanged("CumulativeReport");
+                    cumulativeReportField = value;
+                    RaisePropertyChanged("CumulativeReport");
                 }
             }
 
@@ -25018,14 +21682,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25033,7 +21694,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25049,16 +21710,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport;
+            public CumulativeReportCriteria GetCumulativeReport;
 
             public GetCumulativeReportRequest()
             {
             }
 
-            public GetCumulativeReportRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport)
+            public GetCumulativeReportRequest(Credentials UserCredentials, CumulativeReportCriteria GetCumulativeReport)
             {
                 this.UserCredentials = UserCredentials;
                 this.GetCumulativeReport = GetCumulativeReport;
@@ -25073,13 +21734,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReportResponse;
+            public GetCumulativeReportResponse GetCumulativeReportResponse;
 
             public GetCumulativeReportResponse1()
             {
             }
 
-            public GetCumulativeReportResponse1(SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReportResponse)
+            public GetCumulativeReportResponse1(GetCumulativeReportResponse GetCumulativeReportResponse)
             {
                 this.GetCumulativeReportResponse = GetCumulativeReportResponse;
             }
@@ -25102,14 +21763,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionType
             {
-                get
-                {
-                    return this.subscriptionTypeField;
-                }
+                get => subscriptionTypeField;
                 set
                 {
-                    this.subscriptionTypeField = value;
-                    this.RaisePropertyChanged("SubscriptionType");
+                    subscriptionTypeField = value;
+                    RaisePropertyChanged("SubscriptionType");
                 }
             }
 
@@ -25117,14 +21775,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25132,7 +21787,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25158,14 +21813,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlArrayItemAttribute("Subscription", Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore", IsNullable = false)]
             public SubscriptionInfo[] Subscriptions
             {
-                get
-                {
-                    return this.subscriptionsField;
-                }
+                get => subscriptionsField;
                 set
                 {
-                    this.subscriptionsField = value;
-                    this.RaisePropertyChanged("Subscriptions");
+                    subscriptionsField = value;
+                    RaisePropertyChanged("Subscriptions");
                 }
             }
 
@@ -25173,14 +21825,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25188,7 +21837,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25204,16 +21853,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions;
+            public FindSubscriptions FindSubscriptions;
 
             public FindSubscriptionsRequest()
             {
             }
 
-            public FindSubscriptionsRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions)
+            public FindSubscriptionsRequest(Credentials UserCredentials, FindSubscriptions FindSubscriptions)
             {
                 this.UserCredentials = UserCredentials;
                 this.FindSubscriptions = FindSubscriptions;
@@ -25228,13 +21877,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptionsResponse;
+            public FindSubscriptionsResponse FindSubscriptionsResponse;
 
             public FindSubscriptionsResponse1()
             {
             }
 
-            public FindSubscriptionsResponse1(SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptionsResponse)
+            public FindSubscriptionsResponse1(FindSubscriptionsResponse FindSubscriptionsResponse)
             {
                 this.FindSubscriptionsResponse = FindSubscriptionsResponse;
             }
@@ -25257,14 +21906,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SubscriptionInfo SubscriptionInfo
             {
-                get
-                {
-                    return this.subscriptionInfoField;
-                }
+                get => subscriptionInfoField;
                 set
                 {
-                    this.subscriptionInfoField = value;
-                    this.RaisePropertyChanged("SubscriptionInfo");
+                    subscriptionInfoField = value;
+                    RaisePropertyChanged("SubscriptionInfo");
                 }
             }
 
@@ -25272,14 +21918,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25287,7 +21930,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25312,14 +21955,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public string SubscriptionID
             {
-                get
-                {
-                    return this.subscriptionIDField;
-                }
+                get => subscriptionIDField;
                 set
                 {
-                    this.subscriptionIDField = value;
-                    this.RaisePropertyChanged("SubscriptionID");
+                    subscriptionIDField = value;
+                    RaisePropertyChanged("SubscriptionID");
                 }
             }
 
@@ -25327,14 +21967,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement[] Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25342,7 +21979,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25358,16 +21995,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AddSubscription AddSubscription;
+            public AddSubscription AddSubscription;
 
             public AddSubscriptionRequest()
             {
             }
 
-            public AddSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AddSubscription AddSubscription)
+            public AddSubscriptionRequest(Credentials UserCredentials, AddSubscription AddSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.AddSubscription = AddSubscription;
@@ -25382,13 +22019,13 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscriptionResponse;
+            public AddSubscriptionResponse AddSubscriptionResponse;
 
             public AddSubscriptionResponse1()
             {
             }
 
-            public AddSubscriptionResponse1(SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscriptionResponse)
+            public AddSubscriptionResponse1(AddSubscriptionResponse AddSubscriptionResponse)
             {
                 this.AddSubscriptionResponse = AddSubscriptionResponse;
             }
@@ -25411,14 +22048,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
             public SubscriptionInfo SubscriptionInfo
             {
-                get
-                {
-                    return this.subscriptionInfoField;
-                }
+                get => subscriptionInfoField;
                 set
                 {
-                    this.subscriptionInfoField = value;
-                    this.RaisePropertyChanged("SubscriptionInfo");
+                    subscriptionInfoField = value;
+                    RaisePropertyChanged("SubscriptionInfo");
                 }
             }
 
@@ -25426,14 +22060,11 @@ namespace SciStoreApplication.Properties
             [System.Xml.Serialization.XmlAnyElementAttribute(Order = 1)]
             public System.Xml.XmlElement Any
             {
-                get
-                {
-                    return this.anyField;
-                }
+                get => anyField;
                 set
                 {
-                    this.anyField = value;
-                    this.RaisePropertyChanged("Any");
+                    anyField = value;
+                    RaisePropertyChanged("Any");
                 }
             }
 
@@ -25441,7 +22072,7 @@ namespace SciStoreApplication.Properties
 
             protected void RaisePropertyChanged(string propertyName)
             {
-                System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+                System.ComponentModel.PropertyChangedEventHandler propertyChanged = PropertyChanged;
                 if ((propertyChanged != null))
                 {
                     propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -25457,16 +22088,16 @@ namespace SciStoreApplication.Properties
         {
 
             [System.ServiceModel.MessageHeaderAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Headers")]
-            public SciStoreApplication.scistore.v71.Credentials UserCredentials;
+            public Credentials UserCredentials;
 
             [System.ServiceModel.MessageBodyMemberAttribute(Namespace = "http://www.show.scot.nhs.uk/isd/SCIStore/Messages", Order = 0)]
-            public SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription;
+            public AmendSubscription AmendSubscription;
 
             public AmendSubscriptionRequest()
             {
             }
 
-            public AmendSubscriptionRequest(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription)
+            public AmendSubscriptionRequest(Credentials UserCredentials, AmendSubscription AmendSubscription)
             {
                 this.UserCredentials = UserCredentials;
                 this.AmendSubscription = AmendSubscription;
@@ -25494,13 +22125,13 @@ namespace SciStoreApplication.Properties
         }
 
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-        public interface SCIStoreServicesChannel : SciStoreApplication.scistore.v71.SCIStoreServices, System.ServiceModel.IClientChannel
+        public interface SCIStoreServicesChannel : SCIStoreServices, System.ServiceModel.IClientChannel
         {
         }
 
         [System.Diagnostics.DebuggerStepThroughAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-        public partial class SCIStoreServicesClient : System.ServiceModel.ClientBase<SciStoreApplication.scistore.v71.SCIStoreServices>, SciStoreApplication.scistore.v71.SCIStoreServices
+        public partial class SCIStoreServicesClient : System.ServiceModel.ClientBase<SCIStoreServices>, SCIStoreServices
         {
 
             public SCIStoreServicesClient()
@@ -25528,511 +22159,511 @@ namespace SciStoreApplication.Properties
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.LoginResponse SciStoreApplication.scistore.v71.SCIStoreServices.Login(SciStoreApplication.scistore.v71.LoginRequest request)
+            LoginResponse SCIStoreServices.Login(LoginRequest request)
             {
-                return base.Channel.Login(request);
+                return Channel.Login(request);
             }
 
-            public SciStoreApplication.scistore.v71.LoginTokenResponse Login(SciStoreApplication.scistore.v71.Login Login1)
+            public LoginTokenResponse Login(Login Login1)
             {
-                SciStoreApplication.scistore.v71.LoginRequest inValue = new SciStoreApplication.scistore.v71.LoginRequest();
+                LoginRequest inValue = new LoginRequest();
                 inValue.Login = Login1;
-                SciStoreApplication.scistore.v71.LoginResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).Login(inValue);
+                LoginResponse retVal = ((SCIStoreServices)(this)).Login(inValue);
                 return retVal.LoginResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.LogoutResponse SciStoreApplication.scistore.v71.SCIStoreServices.Logout(SciStoreApplication.scistore.v71.LogoutRequest request)
+            LogoutResponse SCIStoreServices.Logout(LogoutRequest request)
             {
-                return base.Channel.Logout(request);
+                return Channel.Logout(request);
             }
 
-            public System.Xml.XmlElement Logout(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.Logout Logout1)
+            public System.Xml.XmlElement Logout(Credentials UserCredentials, Logout Logout1)
             {
-                SciStoreApplication.scistore.v71.LogoutRequest inValue = new SciStoreApplication.scistore.v71.LogoutRequest();
+                LogoutRequest inValue = new LogoutRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.Logout = Logout1;
-                SciStoreApplication.scistore.v71.LogoutResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).Logout(inValue);
+                LogoutResponse retVal = ((SCIStoreServices)(this)).Logout(inValue);
                 return retVal.LogoutResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetNotificationsResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetNotifications(SciStoreApplication.scistore.v71.GetNotificationsRequest request)
+            GetNotificationsResponse1 SCIStoreServices.GetNotifications(GetNotificationsRequest request)
             {
-                return base.Channel.GetNotifications(request);
+                return Channel.GetNotifications(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetNotificationsResponse GetNotifications(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetNotifications GetNotifications1)
+            public GetNotificationsResponse GetNotifications(Credentials UserCredentials, GetNotifications GetNotifications1)
             {
-                SciStoreApplication.scistore.v71.GetNotificationsRequest inValue = new SciStoreApplication.scistore.v71.GetNotificationsRequest();
+                GetNotificationsRequest inValue = new GetNotificationsRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetNotifications = GetNotifications1;
-                SciStoreApplication.scistore.v71.GetNotificationsResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetNotifications(inValue);
+                GetNotificationsResponse1 retVal = ((SCIStoreServices)(this)).GetNotifications(inValue);
                 return retVal.GetNotificationsResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.DeleteSubscriptionResponse SciStoreApplication.scistore.v71.SCIStoreServices.DeleteSubscription(SciStoreApplication.scistore.v71.DeleteSubscriptionRequest request)
+            DeleteSubscriptionResponse SCIStoreServices.DeleteSubscription(DeleteSubscriptionRequest request)
             {
-                return base.Channel.DeleteSubscription(request);
+                return Channel.DeleteSubscription(request);
             }
 
-            public System.Xml.XmlElement DeleteSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.DeleteSubscription DeleteSubscription1)
+            public System.Xml.XmlElement DeleteSubscription(Credentials UserCredentials, DeleteSubscription DeleteSubscription1)
             {
-                SciStoreApplication.scistore.v71.DeleteSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.DeleteSubscriptionRequest();
+                DeleteSubscriptionRequest inValue = new DeleteSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.DeleteSubscription = DeleteSubscription1;
-                SciStoreApplication.scistore.v71.DeleteSubscriptionResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).DeleteSubscription(inValue);
+                DeleteSubscriptionResponse retVal = ((SCIStoreServices)(this)).DeleteSubscription(inValue);
                 return retVal.DeleteSubscriptionResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse SciStoreApplication.scistore.v71.SCIStoreServices.UnSubscribeToStore(SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest request)
+            UnSubscribeToStoreResponse SCIStoreServices.UnSubscribeToStore(UnSubscribeToStoreRequest request)
             {
-                return base.Channel.UnSubscribeToStore(request);
+                return Channel.UnSubscribeToStore(request);
             }
 
-            public System.Xml.XmlElement UnSubscribeToStore(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore1)
+            public System.Xml.XmlElement UnSubscribeToStore(Credentials UserCredentials, System.Xml.XmlElement UnSubscribeToStore1)
             {
-                SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest inValue = new SciStoreApplication.scistore.v71.UnSubscribeToStoreRequest();
+                UnSubscribeToStoreRequest inValue = new UnSubscribeToStoreRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.UnSubscribeToStore = UnSubscribeToStore1;
-                SciStoreApplication.scistore.v71.UnSubscribeToStoreResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).UnSubscribeToStore(inValue);
+                UnSubscribeToStoreResponse retVal = ((SCIStoreServices)(this)).UnSubscribeToStore(inValue);
                 return retVal.UnSubscribeToStoreResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.BreakGlassResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.BreakGlass(SciStoreApplication.scistore.v71.BreakGlassRequest request)
+            BreakGlassResponse1 SCIStoreServices.BreakGlass(BreakGlassRequest request)
             {
-                return base.Channel.BreakGlass(request);
+                return Channel.BreakGlass(request);
             }
 
-            public SciStoreApplication.scistore.v71.BreakGlassResponse BreakGlass(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.BreakGlassInfo BreakGlass1)
+            public BreakGlassResponse BreakGlass(Credentials UserCredentials, BreakGlassInfo BreakGlass1)
             {
-                SciStoreApplication.scistore.v71.BreakGlassRequest inValue = new SciStoreApplication.scistore.v71.BreakGlassRequest();
+                BreakGlassRequest inValue = new BreakGlassRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.BreakGlass = BreakGlass1;
-                SciStoreApplication.scistore.v71.BreakGlassResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).BreakGlass(inValue);
+                BreakGlassResponse1 retVal = ((SCIStoreServices)(this)).BreakGlass(inValue);
                 return retVal.BreakGlassResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetBreakGlassTypes(SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest request)
+            GetBreakGlassTypesResponse1 SCIStoreServices.GetBreakGlassTypes(GetBreakGlassTypesRequest request)
             {
-                return base.Channel.GetBreakGlassTypes(request);
+                return Channel.GetBreakGlassTypes(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse GetBreakGlassTypes(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes1)
+            public GetBreakGlassTypesResponse GetBreakGlassTypes(Credentials UserCredentials, System.Xml.XmlElement GetBreakGlassTypes1)
             {
-                SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest inValue = new SciStoreApplication.scistore.v71.GetBreakGlassTypesRequest();
+                GetBreakGlassTypesRequest inValue = new GetBreakGlassTypesRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetBreakGlassTypes = GetBreakGlassTypes1;
-                SciStoreApplication.scistore.v71.GetBreakGlassTypesResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetBreakGlassTypes(inValue);
+                GetBreakGlassTypesResponse1 retVal = ((SCIStoreServices)(this)).GetBreakGlassTypes(inValue);
                 return retVal.GetBreakGlassTypesResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindADTResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindADT(SciStoreApplication.scistore.v71.FindADTRequest request)
+            FindADTResponse1 SCIStoreServices.FindADT(FindADTRequest request)
             {
-                return base.Channel.FindADT(request);
+                return Channel.FindADT(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindADTresponse FindADT(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindADTcriteria FindADT1)
+            public FindADTresponse FindADT(Credentials UserCredentials, FindADTcriteria FindADT1)
             {
-                SciStoreApplication.scistore.v71.FindADTRequest inValue = new SciStoreApplication.scistore.v71.FindADTRequest();
+                FindADTRequest inValue = new FindADTRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindADT = FindADT1;
-                SciStoreApplication.scistore.v71.FindADTResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindADT(inValue);
+                FindADTResponse1 retVal = ((SCIStoreServices)(this)).FindADT(inValue);
                 return retVal.FindADTresponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetADTResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetADT(SciStoreApplication.scistore.v71.GetADTRequest request)
+            GetADTResponse1 SCIStoreServices.GetADT(GetADTRequest request)
             {
-                return base.Channel.GetADT(request);
+                return Channel.GetADT(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetADTResponse GetADT(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetADT GetADT1)
+            public GetADTResponse GetADT(Credentials UserCredentials, GetADT GetADT1)
             {
-                SciStoreApplication.scistore.v71.GetADTRequest inValue = new SciStoreApplication.scistore.v71.GetADTRequest();
+                GetADTRequest inValue = new GetADTRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetADT = GetADT1;
-                SciStoreApplication.scistore.v71.GetADTResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetADT(inValue);
+                GetADTResponse1 retVal = ((SCIStoreServices)(this)).GetADT(inValue);
                 return retVal.GetADTResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindPatientResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindPatient(SciStoreApplication.scistore.v71.FindPatientRequest request)
+            FindPatientResponse1 SCIStoreServices.FindPatient(FindPatientRequest request)
             {
-                return base.Channel.FindPatient(request);
+                return Channel.FindPatient(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindPatientResponse FindPatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindPatientCriteria FindPatient1)
+            public FindPatientResponse FindPatient(Credentials UserCredentials, FindPatientCriteria FindPatient1)
             {
-                SciStoreApplication.scistore.v71.FindPatientRequest inValue = new SciStoreApplication.scistore.v71.FindPatientRequest();
+                FindPatientRequest inValue = new FindPatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindPatient = FindPatient1;
-                SciStoreApplication.scistore.v71.FindPatientResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindPatient(inValue);
+                FindPatientResponse1 retVal = ((SCIStoreServices)(this)).FindPatient(inValue);
                 return retVal.FindPatientResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetPatientResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetPatient(SciStoreApplication.scistore.v71.GetPatientRequest request)
+            GetPatientResponse1 SCIStoreServices.GetPatient(GetPatientRequest request)
             {
-                return base.Channel.GetPatient(request);
+                return Channel.GetPatient(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetPatientResponse GetPatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetPatient GetPatient1)
+            public GetPatientResponse GetPatient(Credentials UserCredentials, GetPatient GetPatient1)
             {
-                SciStoreApplication.scistore.v71.GetPatientRequest inValue = new SciStoreApplication.scistore.v71.GetPatientRequest();
+                GetPatientRequest inValue = new GetPatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetPatient = GetPatient1;
-                SciStoreApplication.scistore.v71.GetPatientResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetPatient(inValue);
+                GetPatientResponse1 retVal = ((SCIStoreServices)(this)).GetPatient(inValue);
                 return retVal.GetPatientResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindResultResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindResult(SciStoreApplication.scistore.v71.FindResultRequest request)
+            FindResultResponse1 SCIStoreServices.FindResult(FindResultRequest request)
             {
-                return base.Channel.FindResult(request);
+                return Channel.FindResult(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindResultResponse FindResult(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindResultCriteria FindResult1)
+            public FindResultResponse FindResult(Credentials UserCredentials, FindResultCriteria FindResult1)
             {
-                SciStoreApplication.scistore.v71.FindResultRequest inValue = new SciStoreApplication.scistore.v71.FindResultRequest();
+                FindResultRequest inValue = new FindResultRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindResult = FindResult1;
-                SciStoreApplication.scistore.v71.FindResultResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindResult(inValue);
+                FindResultResponse1 retVal = ((SCIStoreServices)(this)).FindResult(inValue);
                 return retVal.FindResultResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetResultResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetResult(SciStoreApplication.scistore.v71.GetResultRequest request)
+            GetResultResponse1 SCIStoreServices.GetResult(GetResultRequest request)
             {
-                return base.Channel.GetResult(request);
+                return Channel.GetResult(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetResultResponse GetResult(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetResult GetResult1)
+            public GetResultResponse GetResult(Credentials UserCredentials, GetResult GetResult1)
             {
-                SciStoreApplication.scistore.v71.GetResultRequest inValue = new SciStoreApplication.scistore.v71.GetResultRequest();
+                GetResultRequest inValue = new GetResultRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetResult = GetResult1;
-                SciStoreApplication.scistore.v71.GetResultResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetResult(inValue);
+                GetResultResponse1 retVal = ((SCIStoreServices)(this)).GetResult(inValue);
                 return retVal.GetResultResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindDocumentResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindDocument(SciStoreApplication.scistore.v71.FindDocumentRequest request)
+            FindDocumentResponse1 SCIStoreServices.FindDocument(FindDocumentRequest request)
             {
-                return base.Channel.FindDocument(request);
+                return Channel.FindDocument(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindDocumentResponse FindDocument(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindDocumentCriteria FindDocument1)
+            public FindDocumentResponse FindDocument(Credentials UserCredentials, FindDocumentCriteria FindDocument1)
             {
-                SciStoreApplication.scistore.v71.FindDocumentRequest inValue = new SciStoreApplication.scistore.v71.FindDocumentRequest();
+                FindDocumentRequest inValue = new FindDocumentRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindDocument = FindDocument1;
-                SciStoreApplication.scistore.v71.FindDocumentResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindDocument(inValue);
+                FindDocumentResponse1 retVal = ((SCIStoreServices)(this)).FindDocument(inValue);
                 return retVal.FindDocumentResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetDocumentResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetDocument(SciStoreApplication.scistore.v71.GetDocumentRequest request)
+            GetDocumentResponse1 SCIStoreServices.GetDocument(GetDocumentRequest request)
             {
-                return base.Channel.GetDocument(request);
+                return Channel.GetDocument(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetDocumentResponse GetDocument(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocument GetDocument1)
+            public GetDocumentResponse GetDocument(Credentials UserCredentials, GetDocument GetDocument1)
             {
-                SciStoreApplication.scistore.v71.GetDocumentRequest inValue = new SciStoreApplication.scistore.v71.GetDocumentRequest();
+                GetDocumentRequest inValue = new GetDocumentRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetDocument = GetDocument1;
-                SciStoreApplication.scistore.v71.GetDocumentResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetDocument(inValue);
+                GetDocumentResponse1 retVal = ((SCIStoreServices)(this)).GetDocument(inValue);
                 return retVal.GetDocumentResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetDocumentStylesheet(SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest request)
+            GetDocumentStylesheetResponse1 SCIStoreServices.GetDocumentStylesheet(GetDocumentStylesheetRequest request)
             {
-                return base.Channel.GetDocumentStylesheet(request);
+                return Channel.GetDocumentStylesheet(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse GetDocumentStylesheet(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetDocumentStylesheet GetDocumentStylesheet1)
+            public GetDocumentStylesheetResponse GetDocumentStylesheet(Credentials UserCredentials, GetDocumentStylesheet GetDocumentStylesheet1)
             {
-                SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest inValue = new SciStoreApplication.scistore.v71.GetDocumentStylesheetRequest();
+                GetDocumentStylesheetRequest inValue = new GetDocumentStylesheetRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetDocumentStylesheet = GetDocumentStylesheet1;
-                SciStoreApplication.scistore.v71.GetDocumentStylesheetResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetDocumentStylesheet(inValue);
+                GetDocumentStylesheetResponse1 retVal = ((SCIStoreServices)(this)).GetDocumentStylesheet(inValue);
                 return retVal.GetDocumentStylesheetResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindTreatmentLog(SciStoreApplication.scistore.v71.FindTreatmentLogRequest request)
+            FindTreatmentLogResponse1 SCIStoreServices.FindTreatmentLog(FindTreatmentLogRequest request)
             {
-                return base.Channel.FindTreatmentLog(request);
+                return Channel.FindTreatmentLog(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindTreatmentLogResponse FindTreatmentLog(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindTreatmentLogCriteria FindTreatmentLog1)
+            public FindTreatmentLogResponse FindTreatmentLog(Credentials UserCredentials, FindTreatmentLogCriteria FindTreatmentLog1)
             {
-                SciStoreApplication.scistore.v71.FindTreatmentLogRequest inValue = new SciStoreApplication.scistore.v71.FindTreatmentLogRequest();
+                FindTreatmentLogRequest inValue = new FindTreatmentLogRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindTreatmentLog = FindTreatmentLog1;
-                SciStoreApplication.scistore.v71.FindTreatmentLogResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindTreatmentLog(inValue);
+                FindTreatmentLogResponse1 retVal = ((SCIStoreServices)(this)).FindTreatmentLog(inValue);
                 return retVal.FindTreatmentLogResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetTreatmentLog(SciStoreApplication.scistore.v71.GetTreatmentLogRequest request)
+            GetTreatmentLogResponse1 SCIStoreServices.GetTreatmentLog(GetTreatmentLogRequest request)
             {
-                return base.Channel.GetTreatmentLog(request);
+                return Channel.GetTreatmentLog(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetTreatmentLogResponse GetTreatmentLog(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetTreatmentLog GetTreatmentLog1)
+            public GetTreatmentLogResponse GetTreatmentLog(Credentials UserCredentials, GetTreatmentLog GetTreatmentLog1)
             {
-                SciStoreApplication.scistore.v71.GetTreatmentLogRequest inValue = new SciStoreApplication.scistore.v71.GetTreatmentLogRequest();
+                GetTreatmentLogRequest inValue = new GetTreatmentLogRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetTreatmentLog = GetTreatmentLog1;
-                SciStoreApplication.scistore.v71.GetTreatmentLogResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetTreatmentLog(inValue);
+                GetTreatmentLogResponse1 retVal = ((SCIStoreServices)(this)).GetTreatmentLog(inValue);
                 return retVal.GetTreatmentLogResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindMergeResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindMerge(SciStoreApplication.scistore.v71.FindMergeRequest request)
+            FindMergeResponse1 SCIStoreServices.FindMerge(FindMergeRequest request)
             {
-                return base.Channel.FindMerge(request);
+                return Channel.FindMerge(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindMergeResponse FindMerge(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindMerge FindMerge1)
+            public FindMergeResponse FindMerge(Credentials UserCredentials, FindMerge FindMerge1)
             {
-                SciStoreApplication.scistore.v71.FindMergeRequest inValue = new SciStoreApplication.scistore.v71.FindMergeRequest();
+                FindMergeRequest inValue = new FindMergeRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindMerge = FindMerge1;
-                SciStoreApplication.scistore.v71.FindMergeResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindMerge(inValue);
+                FindMergeResponse1 retVal = ((SCIStoreServices)(this)).FindMerge(inValue);
                 return retVal.FindMergeResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MergePatientResponse SciStoreApplication.scistore.v71.SCIStoreServices.MergePatient(SciStoreApplication.scistore.v71.MergePatientRequest request)
+            MergePatientResponse SCIStoreServices.MergePatient(MergePatientRequest request)
             {
-                return base.Channel.MergePatient(request);
+                return Channel.MergePatient(request);
             }
 
-            public System.Xml.XmlElement MergePatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MergePatient MergePatient1)
+            public System.Xml.XmlElement MergePatient(Credentials UserCredentials, MergePatient MergePatient1)
             {
-                SciStoreApplication.scistore.v71.MergePatientRequest inValue = new SciStoreApplication.scistore.v71.MergePatientRequest();
+                MergePatientRequest inValue = new MergePatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MergePatient = MergePatient1;
-                SciStoreApplication.scistore.v71.MergePatientResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MergePatient(inValue);
+                MergePatientResponse retVal = ((SCIStoreServices)(this)).MergePatient(inValue);
                 return retVal.MergePatientResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.UnMergePatientResponse SciStoreApplication.scistore.v71.SCIStoreServices.UnMergePatient(SciStoreApplication.scistore.v71.UnMergePatientRequest request)
+            UnMergePatientResponse SCIStoreServices.UnMergePatient(UnMergePatientRequest request)
             {
-                return base.Channel.UnMergePatient(request);
+                return Channel.UnMergePatient(request);
             }
 
-            public System.Xml.XmlElement UnMergePatient(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.UnMergePatient UnMergePatient1)
+            public System.Xml.XmlElement UnMergePatient(Credentials UserCredentials, UnMergePatient UnMergePatient1)
             {
-                SciStoreApplication.scistore.v71.UnMergePatientRequest inValue = new SciStoreApplication.scistore.v71.UnMergePatientRequest();
+                UnMergePatientRequest inValue = new UnMergePatientRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.UnMergePatient = UnMergePatient1;
-                SciStoreApplication.scistore.v71.UnMergePatientResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).UnMergePatient(inValue);
+                UnMergePatientResponse retVal = ((SCIStoreServices)(this)).UnMergePatient(inValue);
                 return retVal.UnMergePatientResponse1;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueueCountResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueueCount(SciStoreApplication.scistore.v71.MessageQueueCountRequest request)
+            MessageQueueCountResponse1 SCIStoreServices.MessageQueueCount(MessageQueueCountRequest request)
             {
-                return base.Channel.MessageQueueCount(request);
+                return Channel.MessageQueueCount(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueueCountResponse MessageQueueCount(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueCount MessageQueueCount1)
+            public MessageQueueCountResponse MessageQueueCount(Credentials UserCredentials, MessageQueueCount MessageQueueCount1)
             {
-                SciStoreApplication.scistore.v71.MessageQueueCountRequest inValue = new SciStoreApplication.scistore.v71.MessageQueueCountRequest();
+                MessageQueueCountRequest inValue = new MessageQueueCountRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueueCount = MessageQueueCount1;
-                SciStoreApplication.scistore.v71.MessageQueueCountResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueueCount(inValue);
+                MessageQueueCountResponse1 retVal = ((SCIStoreServices)(this)).MessageQueueCount(inValue);
                 return retVal.MessageQueueCountResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueueDelete(SciStoreApplication.scistore.v71.MessageQueueDeleteRequest request)
+            MessageQueueDeleteResponse1 SCIStoreServices.MessageQueueDelete(MessageQueueDeleteRequest request)
             {
-                return base.Channel.MessageQueueDelete(request);
+                return Channel.MessageQueueDelete(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueueDeleteResponse MessageQueueDelete(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueueDelete MessageQueueDelete1)
+            public MessageQueueDeleteResponse MessageQueueDelete(Credentials UserCredentials, MessageQueueDelete MessageQueueDelete1)
             {
-                SciStoreApplication.scistore.v71.MessageQueueDeleteRequest inValue = new SciStoreApplication.scistore.v71.MessageQueueDeleteRequest();
+                MessageQueueDeleteRequest inValue = new MessageQueueDeleteRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueueDelete = MessageQueueDelete1;
-                SciStoreApplication.scistore.v71.MessageQueueDeleteResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueueDelete(inValue);
+                MessageQueueDeleteResponse1 retVal = ((SCIStoreServices)(this)).MessageQueueDelete(inValue);
                 return retVal.MessageQueueDeleteResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.MessageQueuePeek(SciStoreApplication.scistore.v71.MessageQueuePeekRequest request)
+            MessageQueuePeekResponse1 SCIStoreServices.MessageQueuePeek(MessageQueuePeekRequest request)
             {
-                return base.Channel.MessageQueuePeek(request);
+                return Channel.MessageQueuePeek(request);
             }
 
-            public SciStoreApplication.scistore.v71.MessageQueuePeekResponse MessageQueuePeek(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.MessageQueuePeek MessageQueuePeek1)
+            public MessageQueuePeekResponse MessageQueuePeek(Credentials UserCredentials, MessageQueuePeek MessageQueuePeek1)
             {
-                SciStoreApplication.scistore.v71.MessageQueuePeekRequest inValue = new SciStoreApplication.scistore.v71.MessageQueuePeekRequest();
+                MessageQueuePeekRequest inValue = new MessageQueuePeekRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.MessageQueuePeek = MessageQueuePeek1;
-                SciStoreApplication.scistore.v71.MessageQueuePeekResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).MessageQueuePeek(inValue);
+                MessageQueuePeekResponse1 retVal = ((SCIStoreServices)(this)).MessageQueuePeek(inValue);
                 return retVal.MessageQueuePeekResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindHCPResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindHCP(SciStoreApplication.scistore.v71.FindHCPRequest request)
+            FindHCPResponse1 SCIStoreServices.FindHCP(FindHCPRequest request)
             {
-                return base.Channel.FindHCP(request);
+                return Channel.FindHCP(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindHCPResponse FindHCP(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindHCPcriteria FindHCP1)
+            public FindHCPResponse FindHCP(Credentials UserCredentials, FindHCPcriteria FindHCP1)
             {
-                SciStoreApplication.scistore.v71.FindHCPRequest inValue = new SciStoreApplication.scistore.v71.FindHCPRequest();
+                FindHCPRequest inValue = new FindHCPRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindHCP = FindHCP1;
-                SciStoreApplication.scistore.v71.FindHCPResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindHCP(inValue);
+                FindHCPResponse1 retVal = ((SCIStoreServices)(this)).FindHCP(inValue);
                 return retVal.FindHCPResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindOrganisationResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindOrganisation(SciStoreApplication.scistore.v71.FindOrganisationRequest request)
+            FindOrganisationResponse1 SCIStoreServices.FindOrganisation(FindOrganisationRequest request)
             {
-                return base.Channel.FindOrganisation(request);
+                return Channel.FindOrganisation(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindOrganisationResponse FindOrganisation(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindOrganisationCriteria FindOrganisation1)
+            public FindOrganisationResponse FindOrganisation(Credentials UserCredentials, FindOrganisationCriteria FindOrganisation1)
             {
-                SciStoreApplication.scistore.v71.FindOrganisationRequest inValue = new SciStoreApplication.scistore.v71.FindOrganisationRequest();
+                FindOrganisationRequest inValue = new FindOrganisationRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindOrganisation = FindOrganisation1;
-                SciStoreApplication.scistore.v71.FindOrganisationResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindOrganisation(inValue);
+                FindOrganisationResponse1 retVal = ((SCIStoreServices)(this)).FindOrganisation(inValue);
                 return retVal.FindOrganisationResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetWebTimeout(SciStoreApplication.scistore.v71.GetWebTimeoutRequest request)
+            GetWebTimeoutResponse1 SCIStoreServices.GetWebTimeout(GetWebTimeoutRequest request)
             {
-                return base.Channel.GetWebTimeout(request);
+                return Channel.GetWebTimeout(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetWebTimeoutResponse GetWebTimeout(SciStoreApplication.scistore.v71.Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout1)
+            public GetWebTimeoutResponse GetWebTimeout(Credentials UserCredentials, System.Xml.XmlElement GetWebTimeout1)
             {
-                SciStoreApplication.scistore.v71.GetWebTimeoutRequest inValue = new SciStoreApplication.scistore.v71.GetWebTimeoutRequest();
+                GetWebTimeoutRequest inValue = new GetWebTimeoutRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetWebTimeout = GetWebTimeout1;
-                SciStoreApplication.scistore.v71.GetWebTimeoutResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetWebTimeout(inValue);
+                GetWebTimeoutResponse1 retVal = ((SCIStoreServices)(this)).GetWebTimeout(inValue);
                 return retVal.GetWebTimeoutResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetInterfaceStatus(SciStoreApplication.scistore.v71.GetInterfaceStatusRequest request)
+            GetInterfaceStatusResponse1 SCIStoreServices.GetInterfaceStatus(GetInterfaceStatusRequest request)
             {
-                return base.Channel.GetInterfaceStatus(request);
+                return Channel.GetInterfaceStatus(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetInterfaceStatusResponse GetInterfaceStatus(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.GetInterfaceStatus GetInterfaceStatus1)
+            public GetInterfaceStatusResponse GetInterfaceStatus(Credentials UserCredentials, GetInterfaceStatus GetInterfaceStatus1)
             {
-                SciStoreApplication.scistore.v71.GetInterfaceStatusRequest inValue = new SciStoreApplication.scistore.v71.GetInterfaceStatusRequest();
+                GetInterfaceStatusRequest inValue = new GetInterfaceStatusRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetInterfaceStatus = GetInterfaceStatus1;
-                SciStoreApplication.scistore.v71.GetInterfaceStatusResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetInterfaceStatus(inValue);
+                GetInterfaceStatusResponse1 retVal = ((SCIStoreServices)(this)).GetInterfaceStatus(inValue);
                 return retVal.GetInterfaceStatusResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindBreakGlassAudit(SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest request)
+            FindBreakGlassAuditResponse1 SCIStoreServices.FindBreakGlassAudit(FindBreakGlassAuditRequest request)
             {
-                return base.Channel.FindBreakGlassAudit(request);
+                return Channel.FindBreakGlassAudit(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse FindBreakGlassAudit(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindBreakGlassAuditCriteria FindBreakGlassAudit1)
+            public FindBreakGlassAuditResponse FindBreakGlassAudit(Credentials UserCredentials, FindBreakGlassAuditCriteria FindBreakGlassAudit1)
             {
-                SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest inValue = new SciStoreApplication.scistore.v71.FindBreakGlassAuditRequest();
+                FindBreakGlassAuditRequest inValue = new FindBreakGlassAuditRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindBreakGlassAudit = FindBreakGlassAudit1;
-                SciStoreApplication.scistore.v71.FindBreakGlassAuditResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindBreakGlassAudit(inValue);
+                FindBreakGlassAuditResponse1 retVal = ((SCIStoreServices)(this)).FindBreakGlassAudit(inValue);
                 return retVal.FindBreakGlassAuditResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindPatientConsentAudit(SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest request)
+            FindPatientConsentAuditResponse1 SCIStoreServices.FindPatientConsentAudit(FindPatientConsentAuditRequest request)
             {
-                return base.Channel.FindPatientConsentAudit(request);
+                return Channel.FindPatientConsentAudit(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse FindPatientConsentAudit(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.PatientConsentAuditCriteria FindPatientConsentAudit1)
+            public FindPatientConsentAuditResponse FindPatientConsentAudit(Credentials UserCredentials, PatientConsentAuditCriteria FindPatientConsentAudit1)
             {
-                SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest inValue = new SciStoreApplication.scistore.v71.FindPatientConsentAuditRequest();
+                FindPatientConsentAuditRequest inValue = new FindPatientConsentAuditRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindPatientConsentAudit = FindPatientConsentAudit1;
-                SciStoreApplication.scistore.v71.FindPatientConsentAuditResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindPatientConsentAudit(inValue);
+                FindPatientConsentAuditResponse1 retVal = ((SCIStoreServices)(this)).FindPatientConsentAudit(inValue);
                 return retVal.FindPatientConsentAuditResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.GetCumulativeReport(SciStoreApplication.scistore.v71.GetCumulativeReportRequest request)
+            GetCumulativeReportResponse1 SCIStoreServices.GetCumulativeReport(GetCumulativeReportRequest request)
             {
-                return base.Channel.GetCumulativeReport(request);
+                return Channel.GetCumulativeReport(request);
             }
 
-            public SciStoreApplication.scistore.v71.GetCumulativeReportResponse GetCumulativeReport(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.CumulativeReportCriteria GetCumulativeReport1)
+            public GetCumulativeReportResponse GetCumulativeReport(Credentials UserCredentials, CumulativeReportCriteria GetCumulativeReport1)
             {
-                SciStoreApplication.scistore.v71.GetCumulativeReportRequest inValue = new SciStoreApplication.scistore.v71.GetCumulativeReportRequest();
+                GetCumulativeReportRequest inValue = new GetCumulativeReportRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.GetCumulativeReport = GetCumulativeReport1;
-                SciStoreApplication.scistore.v71.GetCumulativeReportResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).GetCumulativeReport(inValue);
+                GetCumulativeReportResponse1 retVal = ((SCIStoreServices)(this)).GetCumulativeReport(inValue);
                 return retVal.GetCumulativeReportResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.FindSubscriptions(SciStoreApplication.scistore.v71.FindSubscriptionsRequest request)
+            FindSubscriptionsResponse1 SCIStoreServices.FindSubscriptions(FindSubscriptionsRequest request)
             {
-                return base.Channel.FindSubscriptions(request);
+                return Channel.FindSubscriptions(request);
             }
 
-            public SciStoreApplication.scistore.v71.FindSubscriptionsResponse FindSubscriptions(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.FindSubscriptions FindSubscriptions1)
+            public FindSubscriptionsResponse FindSubscriptions(Credentials UserCredentials, FindSubscriptions FindSubscriptions1)
             {
-                SciStoreApplication.scistore.v71.FindSubscriptionsRequest inValue = new SciStoreApplication.scistore.v71.FindSubscriptionsRequest();
+                FindSubscriptionsRequest inValue = new FindSubscriptionsRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.FindSubscriptions = FindSubscriptions1;
-                SciStoreApplication.scistore.v71.FindSubscriptionsResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).FindSubscriptions(inValue);
+                FindSubscriptionsResponse1 retVal = ((SCIStoreServices)(this)).FindSubscriptions(inValue);
                 return retVal.FindSubscriptionsResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.AddSubscriptionResponse1 SciStoreApplication.scistore.v71.SCIStoreServices.AddSubscription(SciStoreApplication.scistore.v71.AddSubscriptionRequest request)
+            AddSubscriptionResponse1 SCIStoreServices.AddSubscription(AddSubscriptionRequest request)
             {
-                return base.Channel.AddSubscription(request);
+                return Channel.AddSubscription(request);
             }
 
-            public SciStoreApplication.scistore.v71.AddSubscriptionResponse AddSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AddSubscription AddSubscription1)
+            public AddSubscriptionResponse AddSubscription(Credentials UserCredentials, AddSubscription AddSubscription1)
             {
-                SciStoreApplication.scistore.v71.AddSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.AddSubscriptionRequest();
+                AddSubscriptionRequest inValue = new AddSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.AddSubscription = AddSubscription1;
-                SciStoreApplication.scistore.v71.AddSubscriptionResponse1 retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).AddSubscription(inValue);
+                AddSubscriptionResponse1 retVal = ((SCIStoreServices)(this)).AddSubscription(inValue);
                 return retVal.AddSubscriptionResponse;
             }
 
             [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-            SciStoreApplication.scistore.v71.AmendSubscriptionResponse SciStoreApplication.scistore.v71.SCIStoreServices.AmendSubscription(SciStoreApplication.scistore.v71.AmendSubscriptionRequest request)
+            AmendSubscriptionResponse SCIStoreServices.AmendSubscription(AmendSubscriptionRequest request)
             {
-                return base.Channel.AmendSubscription(request);
+                return Channel.AmendSubscription(request);
             }
 
-            public System.Xml.XmlElement AmendSubscription(SciStoreApplication.scistore.v71.Credentials UserCredentials, SciStoreApplication.scistore.v71.AmendSubscription AmendSubscription1)
+            public System.Xml.XmlElement AmendSubscription(Credentials UserCredentials, AmendSubscription AmendSubscription1)
             {
-                SciStoreApplication.scistore.v71.AmendSubscriptionRequest inValue = new SciStoreApplication.scistore.v71.AmendSubscriptionRequest();
+                AmendSubscriptionRequest inValue = new AmendSubscriptionRequest();
                 inValue.UserCredentials = UserCredentials;
                 inValue.AmendSubscription = AmendSubscription1;
-                SciStoreApplication.scistore.v71.AmendSubscriptionResponse retVal = ((SciStoreApplication.scistore.v71.SCIStoreServices)(this)).AmendSubscription(inValue);
+                AmendSubscriptionResponse retVal = ((SCIStoreServices)(this)).AmendSubscription(inValue);
                 return retVal.AmendSubscriptionResponse1;
             }
         }

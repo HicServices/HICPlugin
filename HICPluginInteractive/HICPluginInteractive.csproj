@@ -1,18 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <AssemblyTitle>HICPluginInteractive</AssemblyTitle>
     <Product>HICPluginInteractive</Product>
     <Copyright>Copyright ©  2018</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
-    <PackageReference Include="HIC.RDMP.Plugin.UI" Version="8.1.0-rc1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="UIComponents\ExtractDataTableViewer.cs" />

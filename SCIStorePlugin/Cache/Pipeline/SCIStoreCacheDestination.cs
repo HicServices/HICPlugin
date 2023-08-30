@@ -24,7 +24,7 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
     [DemandsInitialization("The type of lab to be retrieved")]
     public Discipline Discipline { get; set; }
 
-    Dictionary<string,int> _xmlFileCountWrittenToEachZipFile = new Dictionary<string, int>();
+    readonly Dictionary<string,int> _xmlFileCountWrittenToEachZipFile = new();
     private SCIStoreCacheLayout _layout;
 
     public override ICacheLayout CreateCacheLayout()
@@ -34,8 +34,7 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
 
     public virtual SCIStoreCacheChunk ProcessPipelineData(SCIStoreCacheChunk toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
-        if(_layout == null)
-            _layout = (SCIStoreCacheLayout) CreateCacheLayout();
+        _layout ??= (SCIStoreCacheLayout)CreateCacheLayout();
 
         if (toProcess.Request == null)
             throw new InvalidOperationException("The current FetchRequest is null, meaning we have lost track of which cache fetch this chunk belongs to.");
@@ -78,17 +77,16 @@ public class SCIStoreCacheDestination : CacheFilesystemDestination
 
         var zipArchivePath = _layout.GetArchiveFileInfoForDate(archiveDate,listener).FullName;
             
-        if(!_xmlFileCountWrittenToEachZipFile.ContainsKey(zipArchivePath))
-            _xmlFileCountWrittenToEachZipFile.Add(zipArchivePath,0);
+        _xmlFileCountWrittenToEachZipFile.TryAdd(zipArchivePath, 0);
             
-        Stopwatch sw = new Stopwatch();
+        var sw = new Stopwatch();
         sw.Start();
 
         //Get where the cache will be creating zip files
         var downloadDir = _layout.GetLoadCacheDirectory(listener);
 
         //get the list of files its about to cache (because sadly CreateArchive actually does the cleanup itself and doesnt tell us how many files it processed
-        int xmlFileCount = downloadDir.EnumerateFiles("*.xml").Count();
+        var xmlFileCount = downloadDir.EnumerateFiles("*.xml").Count();
 
         _layout.CreateArchive(archiveDate);
 

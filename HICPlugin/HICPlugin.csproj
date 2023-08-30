@@ -1,22 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AssemblyTitle>HICPlugin</AssemblyTitle>
     <Product>HICPlugin</Product>
     <Copyright>Copyright ©  2016</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PostBuildEvent />
-    <PostBuildEvent />
-    <PostBuildEvent />
+    <DebugType>embedded</DebugType>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="HIC.RDMP.Plugin" Version="8.1.0-rc1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Images.Designer.cs">
@@ -40,9 +35,7 @@
     <None Include="Resources\MTo1.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
     <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
 </Project>

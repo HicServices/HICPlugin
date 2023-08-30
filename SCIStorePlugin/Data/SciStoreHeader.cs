@@ -17,14 +17,14 @@ public class SciStoreHeader
 
     public string LabNumber
     {
-        get { return _labNumber; }
-        set { _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _labNumber;
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
-        get { return _testReportId; }
-        set { _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _testReportId;
+        set => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string PatientID { get; set; }
@@ -50,10 +50,10 @@ public class SciStoreHeader
     public string Discipline { get; set; }
     public string hb_extract { get; set; }
 }
-    
-public class SciStoreHeaderFactory 
+
+public static class SciStoreHeaderFactory
 {
-    public SciStoreHeader Create(CombinedReportData combinedReport)
+    public static SciStoreHeader Create(CombinedReportData combinedReport)
     {
         var combinedReportHeader = combinedReport.SciStoreRecord;
 
@@ -72,7 +72,7 @@ public class SciStoreHeaderFactory
             Discipline = reportData.Discipline,
             CHI = CleanCHI(combinedReportHeader.CHI),
             hb_extract = combinedReport.HbExtract,
-                
+
             //ClinicalDataRequired is ok to be null? TN
             ClinicalDataRequired = reportData.ServiceRequest.ClinicalDataRequired == null ? null : string.Join(" ", reportData.ServiceRequest.ClinicalDataRequired)
         };
@@ -104,11 +104,11 @@ public class SciStoreHeaderFactory
         return header;
     }
 
-    private string CleanCHI(string chi)
+    private static string CleanCHI(string chi)
     {
         // encountered in Fife Haematology load
         if (!string.IsNullOrWhiteSpace(chi) && chi.Equals("Temp Residen"))
-            return chi.Substring(0, 10);
+            return chi[..10];
 
         return chi;
     }
@@ -119,7 +119,7 @@ public class SciStoreHeaderFactory
         var report = combinedReport.InvestigationReport;
         var reportData = report.ReportData;
 
-        if (reportData.Discipline.Equals("Biochemistry") 
+        if (reportData.Discipline.Equals("Biochemistry")
             && !combinedReportHeader.LabNumber.StartsWith("C")
             && !combinedReportHeader.LabNumber.StartsWith("POC"))
             throw new Exception($"Malformed (or otherwise unexpected) LabNumber: {combinedReportHeader.LabNumber}");
@@ -139,7 +139,7 @@ public class SciStoreHeaderFactory
         return labNumber;
     }
 
-    private void PopulateConsultantInfo(SciStoreHeader header, HCP_DETAIL_TYPE requestingParty)
+    private static void PopulateConsultantInfo(SciStoreHeader header, HCP_DETAIL_TYPE requestingParty)
     {
         ID_TYPE consultant = null;
 
@@ -149,11 +149,11 @@ public class SciStoreHeaderFactory
         if (!requestingParty.HcpId.Any(id => id.IdScheme.Equals("Requestor")))
             throw new SciStoreDodgyXmlException("Missing HcpId of Scheme Requestor", header.LabNumber);
 
-        ID_TYPE dodgyIDScheme = requestingParty.HcpId.FirstOrDefault(id => !id.IdScheme.Equals("Requestor") && !id.IdScheme.Equals("SCISTOREINPUT"));
+        var dodgyIDScheme = requestingParty.HcpId.FirstOrDefault(id => !id.IdScheme.Equals("Requestor") && !id.IdScheme.Equals("SCISTOREINPUT"));
         if (dodgyIDScheme != null)
             throw new SciStoreDodgyXmlException($"Unexpected HcpId=>IdScheme {dodgyIDScheme.IdScheme}", header.LabNumber);
 
-        foreach (ID_TYPE requestor in requestingParty.HcpId)
+        foreach (var requestor in requestingParty.HcpId)
         {
             if (requestor.IdScheme.Equals("SCISTOREINPUT"))
                 continue;
@@ -176,16 +176,14 @@ public class SciStoreHeaderFactory
         var personalName = requestingParty.HcpName;
         if (personalName != null)
         {
-            var structuredName = personalName.Item as STRUCTURED_NAME_TYPE;
-            if (structuredName != null)
+            if (personalName.Item is STRUCTURED_NAME_TYPE structuredName)
             {
                 header.RequestingPartyName =
                     $"{structuredName.Title} {structuredName.GivenName} {structuredName.MiddleName} {structuredName.FamilyName}";
                 return;
             }
 
-            var unstructuredName = personalName.Item as string;
-            if (unstructuredName != null)
+            if (personalName.Item is string unstructuredName)
             {
                 header.RequestingPartyName = unstructuredName;
                 return;

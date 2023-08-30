@@ -13,24 +13,24 @@ namespace JiraPlugin;
 
 public class JIRATicketingSystem : PluginTicketingSystem
 {
-    public static readonly Regex RegexForTickets = new Regex(@"((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)",RegexOptions.IgnoreCase|RegexOptions.Compiled);
+    public static readonly Regex RegexForTickets = new(@"((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)",RegexOptions.IgnoreCase|RegexOptions.Compiled);
 
-    private const string RegexForUrlsPattern = @"https://.*";
-    private static readonly Regex RegexForUrls = new Regex(RegexForUrlsPattern,RegexOptions.Compiled);
+    private const string RegexForUrlsPattern = @"^https://.*";
+    private static readonly Regex RegexForUrls = new(RegexForUrlsPattern,RegexOptions.Compiled);
 
     private JiraClient _client;
 
     //releaseability
     public List<Attachment> JIRAProjectAttachements { get; private set; }
     public string JIRAReleaseTicketStatus { get; private set; }
-    private static string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
+    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
 
 
     public JIRATicketingSystem(TicketingSystemConstructorParameters parameters) : base(parameters)
     {
            
     }
-        
+
     public override void Check(ICheckNotifier notifier)
     {
         if (Credentials == null)
@@ -58,7 +58,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
         try
         {
             var projects = _client.GetProjectNames();
-                
+
             notifier.OnCheckPerformed(new CheckEventArgs($"Found {projects.Count} projects",
                 projects.Count == 0 ? CheckResult.Warning : CheckResult.Success));
         }
@@ -80,7 +80,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             return;
         try
         {
-            Check(new ThrowImmediatelyCheckNotifier());
+            Check(ThrowImmediatelyCheckNotifier.Quiet);
         }
         catch (Exception e)
         {
@@ -151,7 +151,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             reason = "Problem occurred getting the status of the release ticket or the attachemnts stored under the request ticket";
             exception = e;
             return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
-                
+
         }
 
         //if it isn't at required status
@@ -189,10 +189,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
     private void SetupIfRequired()
     {
-        if (_client != null)
-            return;
-            
-        _client = new JiraClient(new JiraAccount(new JiraApiConfiguration()
+        _client ??= new JiraClient(new JiraAccount(new JiraApiConfiguration
         {
             ServerUrl = Url,
             User = Credentials.Username,
@@ -202,22 +199,14 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
     private string GetStatusOfJIRATicket(string ticket)
     {
-        var issue = GetIssue(ticket);
-
-        if (issue == null)
-            throw new Exception($"Non existent ticket: {ticket}");
-
+        var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
         return issue.fields.status.name;
     }
 
 
     private void GetAttachementsOfJIRATicket(string ticket)
     {
-        var issue = GetIssue(ticket);
-           
-        if (issue == null)
-            throw new Exception($"Non existent ticket: {ticket}");
-
+        var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
         JIRAProjectAttachements = issue.fields.attachment;
     }
 

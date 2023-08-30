@@ -1,6 +1,5 @@
 ﻿using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
-using Rdmp.Core.QueryBuilding;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using System;
@@ -27,7 +26,6 @@ public class DRSImageExtraction : ImageExtraction
             throw new InvalidOperationException(
                 $"The DataTable does not contain the image filename column '{FilenameColumnName}'. The filename is required for the researcher to link between images on disk and entries in the dataset extract.");
 
-        var archiveRepository = new ImageArchiveRepository(PathToImageArchive);
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Using image archive at {PathToImageArchive}"));
 
@@ -35,22 +33,16 @@ public class DRSImageExtraction : ImageExtraction
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Images will be saved to {imageExtractionPath.FullName}"));
 
-        var columnsToExtract = Request.QueryBuilder.SelectColumns.ToList();
-        if (columnsToExtract == null)
-            throw new InvalidOperationException("The request does not contain a list of extractable columns.");
-
+        var columnsToExtract = Request.QueryBuilder.SelectColumns?.ToList() ?? throw new InvalidOperationException("The request does not contain a list of extractable columns.");
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"{columnsToExtract.Count} extractable columns found"));
 
-        var extractionIdentifier = columnsToExtract.SingleOrDefault(c => c.IColumn.IsExtractionIdentifier);
-        if (extractionIdentifier == null)
-            throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
-
+        var extractionIdentifier = columnsToExtract.SingleOrDefault(static c => c.IColumn.IsExtractionIdentifier) ?? throw new InvalidOperationException("The request does not contain a column marked as IsExtractionIdentifier.");
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
             $"Extraction identifier column = {extractionIdentifier.IColumn.GetRuntimeName()}"));
 
         var replacer = new DRSFilenameReplacer(extractionIdentifier.IColumn, FilenameColumnName);
-            
+
         var progress = 0;
         var extractionMap = new Dictionary<string, Dictionary<string, string>>();
 
@@ -70,14 +62,27 @@ public class DRSImageExtraction : ImageExtraction
             }
 
             listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            var newFilename = replacer.GetCorrectFilename(row, listener);
+            var newFilename = replacer.GetCorrectFilename(row);
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
+            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
+
+            // Skip existing - JS 2023-08-15
+            if (File.Exists(newFilename)) 
+                continue;
 
             // Build the extraction map
-            var uri = row[ImageUriColumnName].ToString();
-            var parts = uri.Split('!');
+            var sourceFileName = row[ImageUriColumnName].ToString();
+
+            // Fast path for pre-extracted files - JS 2023-07-10
+            if (!sourceFileName.Contains('!'))
+            {
+                File.Copy(Path.Combine(PathToImageArchive,sourceFileName),newFilename);
+                continue;
+            }
+
+            var parts = sourceFileName.Split('!');
             var archiveName = parts[0];
             var archivePath = Path.Combine(PathToImageArchive, archiveName);
             var entry = parts[1];
@@ -87,7 +92,7 @@ public class DRSImageExtraction : ImageExtraction
                 extractionMap.Add(archivePath, new Dictionary<string, string>());
             }
 
-            extractionMap[archivePath].Add(entry, Path.Combine(imageExtractionPath.FullName, newFilename));
+            extractionMap[archivePath].Add(entry, newFilename);
         }
 
         // Now extract the images from the archives
@@ -96,22 +101,7 @@ public class DRSImageExtraction : ImageExtraction
         foreach (var entry in extractionMap)
         {
             listener.OnProgress(this, new ProgressEventArgs("Extracting images from archives...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-
-            var archiveType = Path.GetExtension(entry.Key);
-                
-            switch (archiveType)
-            {
-                case ".tar":
-                    archiveRepository.ExtractImageSetFromTar(entry.Key, entry.Value);
-                    break;
-                case ".zip":
-                    archiveRepository.ExtractImageSetFromZip(entry.Key, entry.Value);
-                    break;
-                default:
-                    throw new InvalidOperationException(
-                        $"Unsupported image archive type: {archiveType} (only tar and zip files are supported)");
-            }
-
+            ImageArchiveRepository.ExtractImageSetFromArchive(entry.Key, entry.Value);
             progress += entry.Value.Count;
         }
 
@@ -133,15 +123,15 @@ public class DRSImageExtraction : ImageExtraction
 
     public override void Check(ICheckNotifier notifier)
     {
-        List<IColumn> columns = Request.ColumnsToExtract;
+        var columns = Request.ColumnsToExtract;
 
-        if (!columns.Any(c => c.GetRuntimeName() == ImageUriColumnName))
+        if (columns.All(c => c.GetRuntimeName() != ImageUriColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
                 $"Expected column {ImageUriColumnName} (points to the image in the archive) but it has not been configured for extraction.", CheckResult.Fail));
         else
             notifier.OnCheckPerformed(new CheckEventArgs($"Found expected column {ImageUriColumnName}", CheckResult.Success));
 
-        if (!columns.Any(c => c.GetRuntimeName() == FilenameColumnName))
+        if (columns.All(c => c.GetRuntimeName() != FilenameColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
                 $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Fail));
         else

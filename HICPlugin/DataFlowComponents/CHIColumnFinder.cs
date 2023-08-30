@@ -17,16 +17,16 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 namespace HICPluginInteractive.DataFlowComponents;
 
 /// <summary>
-/// Pipeline component designed to prevent DataTable columns containing CHIs passing through the pipeline. The component will crash the entire pipeline 
+/// Pipeline component designed to prevent DataTable columns containing CHIs passing through the pipeline. The component will crash the entire pipeline
 /// if it finds columns which contain valid CHIs.
 /// </summary>
 [Description("Crashes the pipeline if any columns are suspected of containing CHIs")]
-public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
+public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
 {
     [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
     public DateTime? OverrideUntil { get; set; }
 
-    [DemandsInitialization("Will show errors in messageboxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
+    [DemandsInitialization("Will show errors in message boxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
     public bool ShowUIComponents { get; set; }
 
     [DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
@@ -38,8 +38,8 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
     private bool _firstTime = true;
 
-    private List<string> _columnWhitelist = new List<string>();
-    private List<string> _foundChiList = new List<string>();
+    private List<string> _columnWhitelist = new();
+    private readonly List<string> _foundChiList = new();
     private bool _isTableAlreadyNamed;
     private IBasicActivateItems _activator;
 
@@ -70,14 +70,18 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
         }
 
         var batchRowCount = 0;
-        var dtRows = toProcess.Rows.Cast<DataRow>().ToArray();
-        foreach (var row in dtRows)
+        var columns= toProcess.Columns.Cast<DataColumn>().Where(c=>!_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
+        foreach (var row in toProcess.Rows.Cast<DataRow>())
         {
-            foreach (var col in toProcess.Columns.Cast<DataColumn>())
+            foreach (var col in columns)
             {
-                if (_columnWhitelist.Contains(col.ColumnName.Trim()) || !ContainsValidChi(row[col])) continue;
+                if (!ContainsValidChi(row[col])) continue;
                 if (_activator?.IsInteractive == true && ShowUIComponents)
-                    DoTheMessageBoxDance(toProcess, listener, col, row, batchRowCount);
+                {
+                    DoTheMessageBoxDance(toProcess, listener, col, row);
+                    if (_columnWhitelist.Contains(col.ColumnName.Trim())) // Update column list if the whitelist changed
+                        columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
+                }
                 else
                 {
                     var message =
@@ -95,15 +99,15 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
         return toProcess;
     }
-        
 
-    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row, int batchRowCount) 
+
+    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row)
     {
         if (_activator.IsInteractive && _activator.YesNo(
                 $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))
         {
 
-            var txt = UsefulStuff.GetInstance().DataTableToCsv(toProcess);
+            var txt = UsefulStuff.DataTableToCsv(toProcess);
             _activator.Show("Data", txt);
         }
 
@@ -135,34 +139,14 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
 
     }
 
-    private bool ContainsValidChi(object toCheck)
+    private static readonly Regex ChiRegex = ChiRegexM();
+    private static bool ContainsValidChi(object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
             return false;
 
         var toCheckStr = toCheck.ToString();
-        if (string.IsNullOrWhiteSpace(toCheckStr))
-            return false;
-
-        var candidates = Regex.Matches(toCheckStr, @"(?<!\d)\d{10}(?!\d)|(?<!\d)\d{9}(?!\d)").Cast<Match>().Select(m => m.Value).ToList();
-
-        var regexSplitCandidates = Regex.Matches(toCheckStr, @"(?<!\d)(\d{6})(?!\d)\s(?<!\d)(\d{4})(?!\d)|(?<!\d)(\d{5})(?!\d)\s(?<!\d)(\d{4})(?!\d)").Cast<Match>().ToList();
-        var tenDigitSplit = regexSplitCandidates.Select(m => m.Groups[1].Value + m.Groups[2].Value);
-        candidates.AddRange(tenDigitSplit);
-        var nineDigitSplit = regexSplitCandidates.Select(m => m.Groups[3].Value + m.Groups[4].Value);
-        candidates.AddRange(nineDigitSplit);
-
-        foreach (var candidate in candidates.ToArray())
-        {
-            var prefix = "";
-            if (candidate.Length == 9)
-                prefix = "0";
-
-            if (Chi.IsValidChi(prefix + candidate, out var outString))
-                return true;
-        }
-
-        return false;
+        return !string.IsNullOrWhiteSpace(toCheckStr) && ChiRegex.Matches(toCheckStr).Select(candidate => candidate.Groups[0].Value[^5]==' '?candidate.Groups[0].Value.Replace(" ", ""): candidate.Groups[0].Value).Any(fixedCandidate => Chi.IsValidChi(fixedCandidate.Length == 9?$"0{fixedCandidate}":fixedCandidate, out _));
     }
 
     public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)
@@ -188,4 +172,7 @@ public class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineReq
     {
         _activator = value;
     }
+
+    [GeneratedRegex("(?<!\\d)(\\d{9,10}|\\d{5,6}(?!\\d)\\s(?<!\\d)\\d{4})(?!\\d)", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    private static partial Regex ChiRegexM();
 }

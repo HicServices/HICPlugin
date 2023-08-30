@@ -9,21 +9,21 @@ using SCIStore.SciStoreServices81;
 
 namespace SCIStorePlugin.Data;
 
-public class SciStoreSample
+public sealed class SciStoreSample
 {
     private string _labNumber;
     private string _testReportId;
 
     public string LabNumber
     {
-        get { return _labNumber; }
-        set { _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _labNumber;
+        set => _labNumber = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string TestReportID
     {
-        get { return _testReportId; }
-        set { _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value); }
+        get => _testReportId;
+        set => _testReportId = UsefulStuff.RemoveIllegalFilenameCharacters(value);
     }
 
     public string SampleName { get; set; }
@@ -32,7 +32,7 @@ public class SciStoreSample
     public string SampleRequesterComment { get; set; }
     public string ServiceProviderComment { get; set; }
     public string TestIdentifier { get; set; }
-        
+
     // Denormalised from TestSetDetails
     public string TestSet_ClinicalCircumstanceDescription { get; set; }
     public string TestSet_ReadCodeValue { get; set; }
@@ -43,16 +43,16 @@ public class SciStoreSample
     public string TestSet_LocalClinicalCodeScheme { get; set; }
     public string TestSet_LocalClinicalCodeSchemeId { get; set; }
     public string TestSet_LocalClinicalCodeDescription { get; set; }
-        
+
     [NoMappingToDatabase]
     public TestSet TestSetDetails { get; set; }
     [NoMappingToDatabase]
     public ICollection<SciStoreResult> Results { get; set; }
-        
+
     public void PopulateDenormalisedTestSetDetailsFields()
     {
         TestSet_ClinicalCircumstanceDescription = TestSetDetails.ClinicalCircumstanceDescription;
-            
+
         if (TestSetDetails.ReadCode != null)
         {
             var code = TestSetDetails.ReadCode;
@@ -71,20 +71,18 @@ public class SciStoreSample
             TestSet_LocalClinicalCodeDescription = code.Description;
         }
     }
-        
+
     public int ResolveTestResultOrderDuplication()
     {
-        int resolutions = 0;
+        var resolutions = 0;
 
         //todo potentially change this to .AddResult method and make Results private
-        if(Results is List<SciStoreResult>)
+        if(Results is List<SciStoreResult> toWorkOn)
         {
-
-            List<SciStoreResult> toWorkOn = (List<SciStoreResult>) Results;
             toWorkOn.Sort();
-            
 
-            for (int index = Results.Count-2; index >= 0; index--)
+
+            for (var index = Results.Count-2; index >= 0; index--)
             {
                 var previous = toWorkOn[index];
                 var result = toWorkOn[index + 1];
@@ -102,7 +100,7 @@ public class SciStoreSample
         else
         {
             throw new Exception(
-                $"Results is an {Results.GetType()} excpected it to be a List, possibly you have called this method multiple times or something");
+                $"Results is an {Results.GetType()} expected it to be a List, possibly you have called this method multiple times or something");
         }
 
         return resolutions;
@@ -110,30 +108,24 @@ public class SciStoreSample
 
     public override bool Equals(object obj)
     {
-        if (ReferenceEquals(null, obj)) return false;
+        if (obj is null) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
+        if (obj.GetType() != GetType()) return false;
         return Equals((SciStoreSample) obj);
     }
 
-    protected bool Equals(SciStoreSample other)
+    private bool Equals(SciStoreSample other)
     {
         return string.Equals(LabNumber, other.LabNumber) && string.Equals(TestIdentifier, other.TestIdentifier) && string.Equals(TestReportID, other.TestReportID);
     }
 
     public override int GetHashCode()
     {
-        unchecked
-        {
-            int hashCode = LabNumber.GetHashCode();
-            hashCode = (hashCode * 397) ^ TestIdentifier.GetHashCode();
-            hashCode = (hashCode * 397) ^ TestReportID.GetHashCode();
-            return hashCode;
-        }
+        return HashCode.Combine(LabNumber, TestIdentifier, TestReportID);
     }
 }
 
-public class SciStoreSampleFactory 
+public class SciStoreSampleFactory
 {
     private readonly ReferentialIntegrityConstraint _readCodeConstraint;
 
@@ -147,7 +139,7 @@ public class SciStoreSampleFactory
         var testSetDetailsFactory = new TestSetFactory(_readCodeConstraint);
         var resultFactory = new SciStoreResultFactory(_readCodeConstraint);
 
-        var sample = new SciStoreSample()
+        var sample = new SciStoreSample
         {
             LabNumber = header.LabNumber,
             TestReportID = header.TestReportID,
@@ -222,8 +214,7 @@ public class SciStoreSampleFactory
             if (sampleNames.Length > 1)
                 throw new Exception($"Not expecting multiple sample names (found {sampleNames.Length})");
 
-            var sampleNameItem = sampleNames[0].Item as string;
-            if (sampleNameItem == null)
+            if (sampleNames[0].Item is not string sampleNameItem)
                 throw new Exception(
                     $"Could not interpret the sample name as a string in Lab {sample.LabNumber}. Will likely be a 'CLINICAL_INFORMATION_TYPE' but this hasn't been encountered during build, please investigate.");
 
@@ -236,7 +227,7 @@ public class SciStoreSampleFactory
         if (sampleDetails.ServiceProviderComment != null)
             sample.ServiceProviderComment = string.Join(",", sampleDetails.ServiceProviderComment);
 
-        sample.DateTimeSampled = (sampleDetails.DateTimeSampled == DateTime.MinValue) ? (DateTime?) null : sampleDetails.DateTimeSampled;
-        sample.DateTimeReceived = (sampleDetails.DateTimeReceived == DateTime.MinValue ) ? (DateTime?) null : sampleDetails.DateTimeReceived;
+        sample.DateTimeSampled = sampleDetails.DateTimeSampled == DateTime.MinValue ? null : sampleDetails.DateTimeSampled;
+        sample.DateTimeReceived = sampleDetails.DateTimeReceived == DateTime.MinValue ? null : sampleDetails.DateTimeReceived;
     }
 }
