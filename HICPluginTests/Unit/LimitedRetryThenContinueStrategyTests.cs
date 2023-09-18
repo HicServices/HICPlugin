@@ -5,6 +5,7 @@ using Rdmp.Core.ReusableLibraryCode.Progress;
 using SCIStorePlugin.Data;
 using SCIStorePlugin.DataProvider.RetryStrategies;
 using SCIStorePlugin.Repositories;
+using NSubstitute;
 
 namespace SCIStorePluginTests.Unit;
 
@@ -13,7 +14,7 @@ public class LimitedRetryThenContinueStrategyTests
     [Test]
     public void Test()
     {
-        var mockServer = new Moq.Mock<IRepositorySupportsDateRangeQueries<CombinedReportData>>().Object;
+        var mockServer = Substitute.For<IRepositorySupportsDateRangeQueries<CombinedReportData>>();
 
         var strategy = new LimitedRetryThenContinueStrategy(5,new List<int>(new int[]{3,1}), mockServer);
 

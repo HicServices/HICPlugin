@@ -10,6 +10,7 @@ using SCIStorePlugin;
 using SCIStorePlugin.Cache.Pipeline;
 using SCIStorePlugin.Data;
 using Tests.Common;
+using NSubstitute;
 
 namespace SCIStorePluginTests.Integration;
 
@@ -71,7 +72,7 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
         var deleteMe = LoadDirectory.CreateDirectoryStructure(new DirectoryInfo(TestContext.CurrentContext.WorkDirectory),"DeleteMe", true);
         try
         {
-            var fetchRequest = new Moq.Mock<ICacheFetchRequest>().Object;
+            var fetchRequest = Substitute.For<ICacheFetchRequest>();
 
             var cacheChunk = new SCIStoreCacheChunk(new[] { report }, fetchDate, fetchRequest)
             {
