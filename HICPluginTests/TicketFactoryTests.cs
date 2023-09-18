@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Rdmp.Core.Ticketing;
 using Rdmp.Core.ReusableLibraryCode.DataAccess;
 using Tests.Common;
+using NSubstitute;
 
 namespace JiraPluginTests;
 
@@ -19,7 +20,7 @@ public class TicketFactoryTests : DatabaseTests
     [Test]
     public void FactoryCreateAJIRA()
     {
-        var credentials = new Moq.Mock<IDataAccessCredentials>().Object;
+        var credentials = Substitute.For<IDataAccessCredentials>();
         Assert.DoesNotThrow(() => TicketingSystemFactory.Create(typeof(JIRATicketingSystem).FullName, "Bob", credentials));
     }
 
