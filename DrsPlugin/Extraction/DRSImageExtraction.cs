@@ -79,7 +79,15 @@ public class DRSImageExtraction : ImageExtraction
             // Fast path for pre-extracted files - JS 2023-07-10
             if (!sourceFileName.Contains('!'))
             {
-                File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
+                try
+                {
+                    File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
+                }
+                catch (Exception e)
+                {
+
+                }
+
                 continue;
             }
 
@@ -124,6 +132,10 @@ public class DRSImageExtraction : ImageExtraction
 
     public override void Check(ICheckNotifier notifier)
     {
+        if (Request is null)
+        {
+            return;
+        }
         var columns = Request.ColumnsToExtract;
 
         if (columns.All(c => c.GetRuntimeName() != ImageUriColumnName))
