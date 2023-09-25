@@ -62,6 +62,7 @@ public class DRSImageExtraction : ImageExtraction
             }
 
             listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
+            //do we want to move this before the continue? suspect that will prevent the skip
             var newFilename = replacer.GetCorrectFilename(row);
 
             // Replace the filename column in the dataset, so it no longer contains CHI
