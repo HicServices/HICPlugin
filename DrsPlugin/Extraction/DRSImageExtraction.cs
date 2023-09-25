@@ -82,10 +82,10 @@ public class DRSImageExtraction : ImageExtraction
                 {
                     File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
                 }
-                catch (Exception e) //todo this should handle the exceptions better
+                catch (Exception _) //todo this should handle the exceptions better
                 {
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                               $"Failed to copy file (${sourceFileName})."));
+                               $"Failed to copy file ({sourceFileName}) to it's new redacted filename."));
                 }
 
                 continue;
