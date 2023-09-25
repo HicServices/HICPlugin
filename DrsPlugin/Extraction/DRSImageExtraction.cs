@@ -56,6 +56,7 @@ public class DRSImageExtraction : ImageExtraction
 
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
+                //here is a skip
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                     $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty."));
                 continue;
@@ -69,7 +70,7 @@ public class DRSImageExtraction : ImageExtraction
             newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
 
             // Skip existing - JS 2023-08-15
-            if (File.Exists(newFilename)) 
+            if (File.Exists(newFilename))
                 continue;
 
             // Build the extraction map
@@ -78,7 +79,7 @@ public class DRSImageExtraction : ImageExtraction
             // Fast path for pre-extracted files - JS 2023-07-10
             if (!sourceFileName.Contains('!'))
             {
-                File.Copy(Path.Combine(PathToImageArchive,sourceFileName),newFilename);
+                File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
                 continue;
             }
 
@@ -151,5 +152,7 @@ public class DRSImageExtraction : ImageExtraction
                 $"The image archive was found (configured in PathToImageArchive) but is empty: {PathToImageArchive}", CheckResult.Fail));
         else
             notifier.OnCheckPerformed(new CheckEventArgs("Image archive is not empty (that's the best check we can do at the moment)", CheckResult.Success));
+
     }
+
 }
