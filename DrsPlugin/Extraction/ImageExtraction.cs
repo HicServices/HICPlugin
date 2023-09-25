@@ -55,16 +55,19 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         if (Request == null)
             return;
 
-        if(Request.Directory == null)
+        if(Request.Directory is null)
             throw new InvalidOperationException("The Extraction Directory must be set.");
 
-        if(Request.Catalogue == null)
+        if(Request.Catalogue is null)
             throw new InvalidOperationException("The request must have a Catalogue reference.");
 
-        if(Request.ColumnsToExtract == null)
+        if(Request.ColumnsToExtract is null)
             throw new InvalidOperationException("The request must contain a list of ColumnsToExtract (even if empty)");
 
         var loadMetadata = Request.Catalogue.LoadMetadata;
+        if( loadMetadata is null){
+            throw new InvalidOperationException("The request must contain a related metadata file");
+        }
         LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
     }
 
