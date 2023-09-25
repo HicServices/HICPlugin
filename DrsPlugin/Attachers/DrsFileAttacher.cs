@@ -181,7 +181,6 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
             if (!entry.Any())
                 throw new InvalidOperationException($"There are no file mappings for archive: {archive}");
 
-            //here?
             var query =
                 $"UPDATE [{TableName}] SET {ImageArchiveUriColumnName} = CONCAT('{archive}!', {FilenameColumnName}) WHERE {FilenameColumnName} IN ('{string.Join("','", entry)}')";
 

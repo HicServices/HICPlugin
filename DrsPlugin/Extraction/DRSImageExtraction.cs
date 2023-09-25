@@ -56,7 +56,6 @@ public class DRSImageExtraction : ImageExtraction
 
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
-                //here is a skip
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                     $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty."));
                 continue;
@@ -83,9 +82,10 @@ public class DRSImageExtraction : ImageExtraction
                 {
                     File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
                 }
-                catch (Exception e)
+                catch (Exception e) //todo this should handle the exceptions better
                 {
-
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                               $"Failed to copy file (${sourceFileName})."));
                 }
 
                 continue;
