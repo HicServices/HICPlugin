@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -62,29 +61,31 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        Parallel.ForEach(
-            toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())), col =>
+        foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+        {
+            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
             {
-                foreach (var row in toProcess.Rows.Cast<DataRow>())
+                if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
-                    if (!ContainsValidChi(row[col])) continue;
-
-                    if (_activator?.IsInteractive == true && ShowUIComponents)
-                    {
-                        if (DoTheMessageBoxDance(toProcess, listener, col, row))
-                            break;
-                    }
-                    else
-                    {
-                        var message =
-                            $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({row[col]})";
-                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-                        if (!_isTableAlreadyNamed)
-                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                                "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
-                    }
+                    if (DoTheMessageBoxDance(toProcess, listener, col, val))
+                        break; // End processing of this whole column
                 }
-            });
+                else
+                {
+                    var message =
+                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                    if (!_isTableAlreadyNamed)
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+                }
+            }
+
+            continue;
+
+            [NotNull]
+            string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
+        }
 
         return toProcess;
     }
@@ -96,13 +97,14 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     /// <param name="toProcess"></param>
     /// <param name="listener"></param>
     /// <param name="col"></param>
-    /// <param name="row"></param>
+    /// <param name="val"></param>
     /// <returns></returns>
     private bool DoTheMessageBoxDance(DataTable toProcess, [NotNull] IDataLoadEventListener listener,
-        [NotNull] DataColumn col, DataRow row)
+        [NotNull] DataColumn col,string val)
     {
         if (_activator.IsInteractive && _activator.YesNo(
-                $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))
+                $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({val})\n\nWould you like to view the current batch of data?",
+                "Suspected CHI Column"))
         {
 
             var txt = UsefulStuff.DataTableToCsv(toProcess);
@@ -138,11 +140,10 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     }
 
     // True if date exists and checksum matches
-    private static bool ValidBits(int d,int m,int y,int c,int given)
+    private static bool ValidBits(int d,int m,int y,int c)
     {
-        c = 11 - (c%11);
         c %= 11;
-        if (c != given) return false;
+        if (c != 0) return false;
 
         return m switch
         {
@@ -172,7 +173,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (toCheckStr is null || toCheckStr.Length < 9) return false;
 
         var state = State.End; // Start of potential CHI
-        int day=0, month=0,year=0, check=0, givenCheck = 0;
+        int day=0, month=0,year=0, check=0;
         for (var i = toCheckStr.Length-1; i >= 0; i--)
         {
             var c = toCheckStr[i];
@@ -189,7 +190,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     case State.Day1: // Might be a 9 digit "CHI" with leading zero removed
                     case State.Complete:
                         state = State.End;
-                        if (ValidBits(day, month, year, check, givenCheck))
+                        if (ValidBits(day, month, year, check))
                             return true;
 
                         break;
@@ -205,12 +206,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             switch(state)
             {
                 case State.End:
-                    givenCheck = digit;
+                    check = digit;
                     state = State.Rest3;
                     break;
 
                 case State.Rest3:
-                    check = digit * 2;
+                    check += digit * 2;
                     state = State.Rest2;
                     break;
 
@@ -267,7 +268,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     break;
             }
         }
-        return ValidBits(day, month, year, check, givenCheck);
+        return ValidBits(day, month, year, check);
     }
 
     public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)

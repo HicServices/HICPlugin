@@ -53,7 +53,7 @@ public class CHIColumnFinderTests
         toProcess.Rows.Add(new object[] { 145, toCheck });
 
         if (expectedToBeChi)
-            Assert.Throws<AggregateException>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+            Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }
@@ -70,7 +70,7 @@ public class CHIColumnFinderTests
         toProcess.Columns.Add("NothingToSeeHere");
         toProcess.Rows.Add(new object[] { 145, "1111111111" });
 
-        Assert.Throws<AggregateException>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+        Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
         _chiFinder.IgnoreColumns = "NothingToSeeHere";
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
