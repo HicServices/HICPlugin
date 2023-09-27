@@ -64,11 +64,11 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         if(Request.ColumnsToExtract is null)
             throw new InvalidOperationException("The request must contain a list of ColumnsToExtract (even if empty)");
 
-        var loadMetadata = Request.Catalogue.LoadMetadata;
-        if( loadMetadata is null){
-            throw new InvalidOperationException("The request must contain a related metadata file");
-        }
-        LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
+        // var loadMetadata = Request.Catalogue.LoadMetadata;
+        // if( loadMetadata is null){
+        //     throw new InvalidOperationException("The request must contain a related metadata file");
+        // }
+        // LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
     }
 
     public abstract void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny);
