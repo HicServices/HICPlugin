@@ -54,21 +54,20 @@ public class DRSImageExtraction : ImageExtraction
         {
             progress++;
 
+
+
+            listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
+            var newFilename = replacer.GetCorrectFilename(row);
+
+            // Replace the filename column in the dataset, so it no longer contains CHI
+            row[FilenameColumnName] = newFilename;
+            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                     $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty."));
                 continue;
             }
-
-            listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            //do we want to move this before the continue? suspect that will prevent the skip
-            var newFilename = replacer.GetCorrectFilename(row);
-
-            // Replace the filename column in the dataset, so it no longer contains CHI
-            row[FilenameColumnName] = newFilename;
-            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
-
             // Skip existing - JS 2023-08-15
             if (File.Exists(newFilename))
                 continue;
