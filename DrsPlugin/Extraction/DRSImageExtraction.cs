@@ -57,16 +57,21 @@ public class DRSImageExtraction : ImageExtraction
 
 
             listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            var newFilename = replacer.GetCorrectFilename(row);
-
-            // Replace the filename column in the dataset, so it no longer contains CHI
-            row[FilenameColumnName] = newFilename;
-            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
+            var newFilename = "";
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                    $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty."));
+                    $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty. Will strip out the file name."));
+                row[FilenameColumnName] = "";
                 continue;
+            }
+            else
+            {
+                newFilename = replacer.GetCorrectFilename(row);
+
+                // Replace the filename column in the dataset, so it no longer contains CHI
+                row[FilenameColumnName] = newFilename;
+                newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
             }
             // Skip existing - JS 2023-08-15
             if (File.Exists(newFilename))
