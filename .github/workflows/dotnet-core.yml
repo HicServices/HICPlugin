@@ -64,4 +64,4 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          file: '["HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg"]'
+          file: 'HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg'
