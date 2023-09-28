@@ -55,20 +55,25 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         if (Request == null)
             return;
 
-        if(Request.Directory is null)
+        if (Request.Directory is null)
             throw new InvalidOperationException("The Extraction Directory must be set.");
 
-        if(Request.Catalogue is null)
+        if (Request.Catalogue is null)
             throw new InvalidOperationException("The request must have a Catalogue reference.");
 
-        if(Request.ColumnsToExtract is null)
+        if (Request.ColumnsToExtract is null)
             throw new InvalidOperationException("The request must contain a list of ColumnsToExtract (even if empty)");
 
-        // var loadMetadata = Request.Catalogue.LoadMetadata;
-        // if( loadMetadata is null){
-        //     throw new InvalidOperationException("The request must contain a related metadata file");
-        // }
-        // LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
+        var loadMetadata = Request.Catalogue.LoadMetadata;
+        if (loadMetadata is null)
+        {
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                $"The request has no assocciated metadata file. You may need to add a Data Load Configuration if you intend to extract the image files.")); //May be able to get rid of this warning entirely 
+        }
+        else
+        {
+            LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
+        }
     }
 
     public abstract void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny);

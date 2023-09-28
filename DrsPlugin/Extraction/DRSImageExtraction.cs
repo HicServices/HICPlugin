@@ -82,7 +82,7 @@ public class DRSImageExtraction : ImageExtraction
                 {
                     File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
                 }
-                catch (Exception _) //todo this should handle the exceptions better
+                catch (Exception)
                 {
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                                $"Failed to copy file ({sourceFileName}) to it's new redacted filename."));
@@ -146,7 +146,7 @@ public class DRSImageExtraction : ImageExtraction
 
         if (columns.All(c => c.GetRuntimeName() != FilenameColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
-                $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Fail));
+                $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Warning));
         else
             notifier.OnCheckPerformed(new CheckEventArgs($"Found expected column {FilenameColumnName}", CheckResult.Success));
 
