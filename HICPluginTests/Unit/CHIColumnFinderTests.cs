@@ -48,7 +48,7 @@ public class CHIColumnFinderTests
         toProcess.Rows.Add(new object[] {195});
 
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-            
+
         toProcess.Columns.Add("NothingToSeeHere");
         toProcess.Rows.Add(new object[] { 145, toCheck });
 

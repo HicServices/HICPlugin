@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
-using Rdmp.Core.Validation.Constraints.Primary;
 using Rdmp.Core.ReusableLibraryCode;
+using Rdmp.Core.ReusableLibraryCode.Annotations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 
@@ -21,7 +20,7 @@ namespace HICPluginInteractive.DataFlowComponents;
 /// if it finds columns which contain valid CHIs.
 /// </summary>
 [Description("Crashes the pipeline if any columns are suspected of containing CHIs")]
-public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
+public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>, IPipelineRequirement<IBasicActivateItems>
 {
     [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
     public DateTime? OverrideUntil { get; set; }
@@ -30,16 +29,16 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
     public bool ShowUIComponents { get; set; }
 
     [DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
+    [NotNull]
     public string IgnoreColumns
     {
-        get => string.Join(',',_columnWhitelist);
-        set => _columnWhitelist=(value ?? "").Split(',').Select(s=>s.Trim()).ToList();
+        get => string.Join(',',_columnGreenList);
+        set => _columnGreenList=(value ?? "").Split(',').Select(static s=>s.Trim()).ToList();
     }
 
     private bool _firstTime = true;
 
-    private List<string> _columnWhitelist = new();
-    private readonly List<string> _foundChiList = new();
+    private List<string> _columnGreenList = new();
     private bool _isTableAlreadyNamed;
     private IBasicActivateItems _activator;
 
@@ -48,45 +47,33 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
         {
             if (_firstTime)
-            {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                    $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
-                _firstTime = false;
-            }
+                $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
+            _firstTime = false;
             return toProcess;
         }
 
         //give the data table the correct name
-        if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"].Equals(true))
+        if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true)==true)
             _isTableAlreadyNamed = true;
 
-        if (!string.IsNullOrEmpty(IgnoreColumns))
-        {
-            var ignoreColumnsArray = IgnoreColumns.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
-
+        if (_columnGreenList.Count!=0)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"You have chosen the following columns to be ignored: {string.Join(", ", ignoreColumnsArray)}"));
-            _columnWhitelist.AddRange(ignoreColumnsArray);
-        }
+                $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        var batchRowCount = 0;
-        var columns= toProcess.Columns.Cast<DataColumn>().Where(c=>!_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
-        foreach (var row in toProcess.Rows.Cast<DataRow>())
+        foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         {
-            foreach (var col in columns)
+            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
             {
-                if (!ContainsValidChi(row[col])) continue;
                 if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
-                    DoTheMessageBoxDance(toProcess, listener, col, row);
-                    if (_columnWhitelist.Contains(col.ColumnName.Trim())) // Update column list if the whitelist changed
-                        columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnWhitelist.Contains(c.ColumnName.Trim())).ToArray();
+                    if (DoTheMessageBoxDance(toProcess, listener, col, val))
+                        break; // End processing of this whole column
                 }
                 else
                 {
                     var message =
-                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({row[col]})";
-                    _foundChiList.Add(message);
+                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
                     if (!_isTableAlreadyNamed)
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
@@ -94,17 +81,30 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
                 }
             }
 
-            batchRowCount++;
+            continue;
+
+            [NotNull]
+            string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
         }
 
         return toProcess;
     }
 
 
-    private void DoTheMessageBoxDance(DataTable toProcess, IDataLoadEventListener listener, DataColumn col, DataRow row)
+    /// <summary>
+    /// Return true if user elected to skip the rest of this column
+    /// </summary>
+    /// <param name="toProcess"></param>
+    /// <param name="listener"></param>
+    /// <param name="col"></param>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    private bool DoTheMessageBoxDance(DataTable toProcess, [NotNull] IDataLoadEventListener listener,
+        [NotNull] DataColumn col,string val)
     {
         if (_activator.IsInteractive && _activator.YesNo(
-                $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({row[col]})\n\nWould you like to view the current batch of data?", "Suspected CHI Column"))
+                $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({val})\n\nWould you like to view the current batch of data?",
+                "Suspected CHI Column"))
         {
 
             var txt = UsefulStuff.DataTableToCsv(toProcess);
@@ -113,15 +113,15 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
 
         if (_activator.YesNo($"Would you like to suppress CHI checking on column {col.ColumnName}?", "Continue extract?"))
         {
-            _columnWhitelist.Add(col.ColumnName);
+            _columnGreenList.Add(col.ColumnName);
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Column {col.ColumnName} will no longer be checked for CHI during the rest of the extract"));
+            return true;
         }
-        else
-        {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"Column {col.ColumnName} will continue to be CHI-checked"));
-        }
+
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+            $"Column {col.ColumnName} will continue to be CHI-checked"));
+        return false;
     }
 
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
@@ -139,27 +139,152 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
 
     }
 
-    private static readonly Regex ChiRegex = ChiRegexM();
-    private static bool ContainsValidChi(object toCheck)
+    // True if date exists and checksum matches
+    private static bool ValidBits(int d,int m,int y,int c)
+    {
+        c %= 11;
+        if (c != 0) return false;
+
+        return m switch
+        {
+            1 or 3 or 5 or 7 or 8 or 10 or 12 => d is > 0 and < 32,
+            4 or 6 or 9 or 11 => d is > 0 and < 31,
+            2 => d is > 0 and < 29 || (d == 29 && y % 4 == 0),
+            _ => false,
+        };
+    }
+
+    private enum State
+    {
+        End,
+        Rest1,Rest2,Rest3,
+        Year1,Year2,
+        Month1,Month2,
+        Day1,Day2,
+        MaybeSpace,
+        Complete
+    }
+    private static bool ContainsValidChi([CanBeNull] object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
             return false;
 
         var toCheckStr = toCheck.ToString();
-        return !string.IsNullOrWhiteSpace(toCheckStr) && ChiRegex.Matches(toCheckStr).Select(candidate => candidate.Groups[0].Value[^5]==' '?candidate.Groups[0].Value.Replace(" ", ""): candidate.Groups[0].Value).Any(fixedCandidate => Chi.IsValidChi(fixedCandidate.Length == 9?$"0{fixedCandidate}":fixedCandidate, out _));
+        if (toCheckStr is null || toCheckStr.Length < 9) return false;
+
+        var state = State.End; // Start of potential CHI
+        int day=0, month=0,year=0, check=0;
+        for (var i = toCheckStr.Length-1; i >= 0; i--)
+        {
+            var c = toCheckStr[i];
+            var digit = c - '0';
+            if (digit is < 0 or > 9)
+            {
+                // Non-whitespace: if we're anywhere other than maybe-space, bail.
+                switch (state)
+                {
+                    case State.MaybeSpace:
+                        state = char.IsWhiteSpace(c) ? State.Year2 : State.End;
+                        break;
+
+                    case State.Day1: // Might be a 9 digit "CHI" with leading zero removed
+                    case State.Complete:
+                        state = State.End;
+                        if (ValidBits(day, month, year, check))
+                            return true;
+
+                        break;
+
+                    default:
+                        state = State.End;
+                        break;
+                }
+                continue;
+            }
+
+            // OK, we got a digit. What does it mean in the current state?
+            switch(state)
+            {
+                case State.End:
+                    check = digit;
+                    state = State.Rest3;
+                    break;
+
+                case State.Rest3:
+                    check += digit * 2;
+                    state = State.Rest2;
+                    break;
+
+                case State.Rest2:
+                    check += digit * 3;
+                    state = State.Rest1;
+                    break;
+
+                case State.Rest1:
+                    check += digit * 4;
+                    state = State.MaybeSpace;
+                    break;
+
+                case State.MaybeSpace:
+                case State.Year2:
+                    check += digit * 5;
+                    year = digit;
+                    state = State.Year1;
+                    break;
+
+                case State.Year1:
+                    check += digit * 6;
+                    year += digit * 10;
+                    state = State.Month2;
+                    break;
+
+                case State.Month2:
+                    check += digit * 7;
+                    month = digit;
+                    state = State.Month1;
+                    break;
+
+                case State.Month1:
+                    check += digit * 8;
+                    month += digit * 10;
+                    state = State.Day2;
+                    break;
+
+                case State.Day2:
+                    check += digit * 9;
+                    day = digit;
+                    state = State.Day1;
+                    break;
+
+                case State.Day1:
+                    check += digit * 10;
+                    day += 10 * digit;
+                    state = State.Complete;
+                    break;
+
+                case State.Complete:
+                    // More than 10 digits - just keep consuming, cannot possibly be valid now.
+                    day = 32;
+                    break;
+            }
+        }
+        return ValidBits(day, month, year, check);
     }
 
     public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)
     {
         if (value is not ExtractDatasetCommand edcs) return;
+
         try
         {
-            var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(ci => ci.ExtractionInformation).Where(ei => ei != null && ei.HashOnDataRelease).Select(ei => ei.GetRuntimeName()).ToArray();
+            var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
+                .Where(static ei => ei?.HashOnDataRelease == true).Select(static ei => ei.GetRuntimeName()).ToArray();
 
             if (!hashOnReleaseColumns.Any()) return;
+
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
-            _columnWhitelist.AddRange(hashOnReleaseColumns);
+            _columnGreenList.AddRange(hashOnReleaseColumns);
         }
         catch (Exception e)
         {
@@ -173,6 +298,4 @@ public partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable>, IPip
         _activator = value;
     }
 
-    [GeneratedRegex("(?<!\\d)(\\d{9,10}|\\d{5,6}(?!\\d)\\s(?<!\\d)\\d{4})(?!\\d)", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
-    private static partial Regex ChiRegexM();
 }
