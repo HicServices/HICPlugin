@@ -54,14 +54,15 @@ public class DRSImageExtraction : ImageExtraction
         {
             progress++;
 
+            listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                    $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty."));
+                    $"Row {progress} does not have a corresponding image, [{ImageUriColumnName}] is empty. Will strip out the file name."));
+                row[FilenameColumnName] = "";
                 continue;
             }
 
-            listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
             var newFilename = replacer.GetCorrectFilename(row);
 
             // Replace the filename column in the dataset, so it no longer contains CHI
@@ -69,7 +70,7 @@ public class DRSImageExtraction : ImageExtraction
             newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
 
             // Skip existing - JS 2023-08-15
-            if (File.Exists(newFilename)) 
+            if (File.Exists(newFilename))
                 continue;
 
             // Build the extraction map
@@ -78,7 +79,16 @@ public class DRSImageExtraction : ImageExtraction
             // Fast path for pre-extracted files - JS 2023-07-10
             if (!sourceFileName.Contains('!'))
             {
-                File.Copy(Path.Combine(PathToImageArchive,sourceFileName),newFilename);
+                try
+                {
+                    File.Copy(Path.Combine(PathToImageArchive, sourceFileName), newFilename);
+                }
+                catch (Exception)
+                {
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                               $"Failed to copy file ({sourceFileName}) to its new redacted filename."));
+                }
+
                 continue;
             }
 
@@ -123,6 +133,10 @@ public class DRSImageExtraction : ImageExtraction
 
     public override void Check(ICheckNotifier notifier)
     {
+        if (Request is null)
+        {
+            return;
+        }
         var columns = Request.ColumnsToExtract;
 
         if (columns.All(c => c.GetRuntimeName() != ImageUriColumnName))
@@ -133,7 +147,7 @@ public class DRSImageExtraction : ImageExtraction
 
         if (columns.All(c => c.GetRuntimeName() != FilenameColumnName))
             notifier.OnCheckPerformed(new CheckEventArgs(
-                $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Fail));
+                $"Expected column {FilenameColumnName} (contains the original filename of the DRS image) but it has not been configured for extraction.", CheckResult.Warning));
         else
             notifier.OnCheckPerformed(new CheckEventArgs($"Found expected column {FilenameColumnName}", CheckResult.Success));
 
@@ -151,5 +165,7 @@ public class DRSImageExtraction : ImageExtraction
                 $"The image archive was found (configured in PathToImageArchive) but is empty: {PathToImageArchive}", CheckResult.Fail));
         else
             notifier.OnCheckPerformed(new CheckEventArgs("Image archive is not empty (that's the best check we can do at the moment)", CheckResult.Success));
+
     }
+
 }
