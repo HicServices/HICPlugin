@@ -54,10 +54,7 @@ public class DRSImageExtraction : ImageExtraction
         {
             progress++;
 
-
-
             listener.OnProgress(this, new ProgressEventArgs("Replacing filenames...", new ProgressMeasurement(progress, ProgressType.Records), sw.Elapsed));
-            var newFilename = "";
             if (string.IsNullOrWhiteSpace(row[ImageUriColumnName].ToString()))
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
@@ -65,14 +62,13 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
-            else
-            {
-                newFilename = replacer.GetCorrectFilename(row);
 
-                // Replace the filename column in the dataset, so it no longer contains CHI
-                row[FilenameColumnName] = newFilename;
-                newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
-            }
+            var newFilename = replacer.GetCorrectFilename(row);
+
+            // Replace the filename column in the dataset, so it no longer contains CHI
+            row[FilenameColumnName] = newFilename;
+            newFilename = Path.Combine(imageExtractionPath.FullName, newFilename);
+
             // Skip existing - JS 2023-08-15
             if (File.Exists(newFilename))
                 continue;
@@ -90,7 +86,7 @@ public class DRSImageExtraction : ImageExtraction
                 catch (Exception)
                 {
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                               $"Failed to copy file ({sourceFileName}) to it's new redacted filename."));
+                               $"Failed to copy file ({sourceFileName}) to its new redacted filename."));
                 }
 
                 continue;
