@@ -16,6 +16,9 @@ public class DRSImageExtraction : ImageExtraction
     [DemandsInitialization("The name of the column in the dataset which contains the names of the image files (NOT THE FILENAME IN THE IMAGE ARCHIVE)")]
     public string FilenameColumnName { get; set; }
 
+    [DemandsInitialization("A comma separrated list of columns to use to de-identify the image files. The order if this list will set the order of replacemnt within the extraction. RDMP will prepend the ReleaseID and append a number to prevent file name clashes.")]
+    public string FileNameReplacementColumns { get; set; }
+
     public override DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
         if (!PreProcessingCheck(listener))
@@ -62,11 +65,12 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
-            var test = new List<Tuple<string,bool>>();
-            test.Add(Tuple.Create("examination_date",true));
-            test.Add(Tuple.Create("filename",false));   
-            
-            var newFilename = replacer.GetCorrectFilename(row,test,progress); //progress used to prevent duplicate file names
+            string[] fileNameReplacementColumns = FileNameReplacementColumns?FileNameReplacementColumns.Split(','):{};
+            if(fileNameReplacementColumns){
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,"No filename replacment columns are specified. This is a good way to leak PII"))
+            }
+
+            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, progress); //progress used to prevent duplicate file names
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
@@ -94,6 +98,8 @@ public class DRSImageExtraction : ImageExtraction
 
                 continue;
             }
+
+            //do we want to be able to munge on things that are not extracted? ... probably not
 
             var parts = sourceFileName.Split('!');
             var archiveName = parts[0];

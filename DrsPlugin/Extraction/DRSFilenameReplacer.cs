@@ -19,27 +19,45 @@ public sealed class DRSFilenameReplacer
         _filenameColumnName = filenameColumnName;
     }
 
-    public string GetCorrectFilename(DataRow originalRow,List<Tuple<string,bool>> columns, int index)
+    private Nullable<DateTime> isDate(string cellValue)
+    {
+        DateTime dateTime;
+        string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
+                   "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss",
+                   "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
+                   "M/d/yyyy h:mm", "M/d/yyyy h:mm",
+                   "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm"};//todo use a better list, this was yanked from the internet
+        if (DateTime.TryParseExact(cellValue, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
+        {
+            return dateTime;
+        }
+        return null;
+    }
+
+    public string GetCorrectFilename(DataRow originalRow, string[] columns, int index)
     {
         //DRS files are always in uk format?
-        if(_extractionIdentifier is null){
+        if (_extractionIdentifier is null)
+        {
             throw new Exception("No Extraction Identifier configured");
         }
         string correctFileName = (string)originalRow[_extractionIdentifier.GetRuntimeName()];
         var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
         //Loops over the list of passed in columns
-        foreach (var column in columns){
-            String columnName = column.Item1;
-            bool isDateTimeColumn = column.Item2;
-            if (isDateTimeColumn)
+        foreach (var column in columns)
+        {
+            // if(!originalRow.IsNull(column)){
+            //     throw new Exception($"Column {column} doesn't exist!");
+            // }
+            string cellValue = originalRow[column].ToString();
+            var dateTimeConversion = isDate(cellValue);
+            if (dateTimeConversion is not null)
             {
-                var date = (DateTime)dt.Parse(originalRow[columnName].ToString());
-                correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
+                correctFileName = $"{correctFileName}_{dateTimeConversion:yyyy-MM-dd}";
                 continue;
             }
-            var columnValue = originalRow[columnName].ToString();
-            correctFileName = $"{correctFileName}_{columnValue}";
+            correctFileName = $"{correctFileName}_{cellValue}";
         }
         //var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
         //var id = originalRow[_extractionIdentifier.GetRuntimeName()];
