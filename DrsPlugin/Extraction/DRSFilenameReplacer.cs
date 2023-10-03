@@ -59,14 +59,10 @@ public sealed class DRSFilenameReplacer
             }
             correctFileName = $"{correctFileName}_{cellValue}";
         }
-        //var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
-        //var id = originalRow[_extractionIdentifier.GetRuntimeName()];
-        //var date = (DateTime)dt.Parse(originalRow["Examination_Date"].ToString());
-        //var num = originalRow["Image_Num"];
         var ext = Path.GetExtension(originalRow[_filenameColumnName].ToString());
         correctFileName = $"{correctFileName}_{index}{ext}";
 
 
-        return correctFileName;//$"{id}_{date:yyyy-MM-dd}_{num}{ext}";
+        return correctFileName;
     }
 }
