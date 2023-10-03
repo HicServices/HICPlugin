@@ -62,8 +62,11 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
-
-            var newFilename = replacer.GetCorrectFilename(row);
+            var test = new List<Tuple<string,bool>>();
+            test.Add(Tuple.Create("examination_date",true));
+            test.Add(Tuple.Create("filename",false));   
+            
+            var newFilename = replacer.GetCorrectFilename(row,test,progress); //progress used to prevent duplicate file names
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
