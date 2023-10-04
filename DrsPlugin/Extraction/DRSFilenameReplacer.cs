@@ -26,7 +26,7 @@ public sealed class DRSFilenameReplacer
                    "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss",
                    "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
                    "M/d/yyyy h:mm", "M/d/yyyy h:mm",
-                   "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm"};//todo use a better list, this was yanked from the internet
+                   "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm", ""};//todo use a better list, this was yanked from the internet
         if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
         {
             return dateTime;
@@ -41,7 +41,7 @@ public sealed class DRSFilenameReplacer
             throw new Exception("No Extraction Identifier configured");
         }
         string correctFileName = (string)originalRow[_extractionIdentifier.GetRuntimeName()];
-        var dt = new DateTimeTypeDecider(CultureInfo.InvariantCulture);
+        var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
         //Loops over the list of passed in columns
         foreach (var column in columns)
