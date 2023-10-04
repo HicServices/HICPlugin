@@ -65,9 +65,9 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
-            string[] fileNameReplacementColumns = FileNameReplacementColumns?FileNameReplacementColumns.Split(','):{};
-            if(fileNameReplacementColumns){
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,"No filename replacment columns are specified. This is a good way to leak PII"))
+            string[] fileNameReplacementColumns = FileNameReplacementColumns is not null?FileNameReplacementColumns.Split(','):new string[]{};
+            if(fileNameReplacementColumns.Length ==0){
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,"No filename replacment columns are specified. This is a good way to leak PII"));
             }
 
             var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, progress); //progress used to prevent duplicate file names
