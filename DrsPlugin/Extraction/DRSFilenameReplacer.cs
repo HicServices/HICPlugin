@@ -21,17 +21,21 @@ public sealed class DRSFilenameReplacer
 
     private bool isDate(string cellValue)
     {
-        DateTime dateTime;
-        string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
-                   "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss",
-                   "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
-                   "M/d/yyyy h:mm", "M/d/yyyy h:mm","dd/MM/yyyy",
-                   "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm", ""};//todo use a better list, this was yanked from the internet
-        if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
-        {
-            return true;//dateTime;
-        }
-        return false;//null;
+        Datetime dateTime;
+        bool check = DateTime.TryParse(cellValue, out dateTime)
+        return check
+
+        // Datetime dateTime;
+        // string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
+        //            "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss",
+        //            "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
+        //            "M/d/yyyy h:mm", "M/d/yyyy h:mm","dd/MM/yyyy",
+        //            "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm", ""};//todo use a better list, this was yanked from the internet
+        // if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
+        // {
+        //     return true;
+        // }
+        // return false;
     }
 
     public string GetCorrectFilename(DataRow originalRow, string[] columns, Nullable<int> index)
@@ -43,7 +47,6 @@ public sealed class DRSFilenameReplacer
         string correctFileName = (string)originalRow[_extractionIdentifier.GetRuntimeName()];
         var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
 
-        //Loops over the list of passed in columns
         foreach (var column in columns)
         {
             // if(!originalRow.IsNull(column)){
