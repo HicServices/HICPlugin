@@ -74,7 +74,7 @@ public class DRSImageExtraction : ImageExtraction
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "No filename replacment columns are specified. This is a good way to leak PII"));
             }
 
-            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, AppendIndexCountToFileName ? progress : null); //progress used to prevent duplicate file names
+            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, AppendIndexCountToFileName is true ? progress : null); //progress used to prevent duplicate file names
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;

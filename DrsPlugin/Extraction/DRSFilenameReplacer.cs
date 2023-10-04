@@ -34,7 +34,7 @@ public sealed class DRSFilenameReplacer
         return null;
     }
 
-    public string GetCorrectFilename(DataRow originalRow, string[] columns, int index)
+    public string GetCorrectFilename(DataRow originalRow, string[] columns, Nullable<int> index)
     {
         if (_extractionIdentifier is null)
         {
@@ -60,7 +60,15 @@ public sealed class DRSFilenameReplacer
         }
         var ext = Path.GetExtension(originalRow[_filenameColumnName].ToString());
 
-        correctFileName = $"{correctFileName}_{index??""}{ext}";
+        if (index is not null)
+        {
+            correctFileName = $"{correctFileName}_{index}{ext}";
+        }
+        else
+        {
+            correctFileName = $"{correctFileName}_{ext}";
+
+        }
         //filename will be in the format {ReleaseId}_{ _ seperated column list values}_{index}.{extention}
         //this was traditionally {ReleaseId}_{examination_date}_{image_num}.{ext}
 
