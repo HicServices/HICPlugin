@@ -19,7 +19,7 @@ public sealed class DRSFilenameReplacer
         _filenameColumnName = filenameColumnName;
     }
 
-    private Nullable<DateTime> isDate(string cellValue)
+    private bool isDate(string cellValue)
     {
         DateTime dateTime;
         string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
@@ -30,9 +30,9 @@ public sealed class DRSFilenameReplacer
         // if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
         if (DateTime.TryParse(cellValue, out dateTime))
         {
-            return dateTime;
+            return true;//dateTime;
         }
-        return null;
+        return false;//null;
     }
 
     public string GetCorrectFilename(DataRow originalRow, string[] columns, Nullable<int> index)
@@ -51,11 +51,10 @@ public sealed class DRSFilenameReplacer
             //     throw new Exception($"Column {column} doesn't exist!");
             // }
             string cellValue = originalRow[column].ToString();
-            var dateTimeConversion = isDate(cellValue);
-            if (dateTimeConversion is not null)
+            if (isDate(cellValue))
             {
-                // var date = (DateTime)dt.Parse(cellValue.ToString());
-                correctFileName = $"{correctFileName}_{dateTimeConversion:yyyy-MM-dd}";
+                var date = (DateTime)dt.Parse(cellValue.ToString());
+                correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
                 continue;
             }
             correctFileName = $"{correctFileName}_{cellValue}";
