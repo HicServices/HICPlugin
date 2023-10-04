@@ -36,13 +36,12 @@ public sealed class DRSFilenameReplacer
 
     public string GetCorrectFilename(DataRow originalRow, string[] columns, int index)
     {
-        //DRS files are always in uk format?
         if (_extractionIdentifier is null)
         {
             throw new Exception("No Extraction Identifier configured");
         }
         string correctFileName = (string)originalRow[_extractionIdentifier.GetRuntimeName()];
-        var dt = new DateTimeTypeDecider(new CultureInfo("en-GB"));
+        var dt = new DateTimeTypeDecider(CultureInfo.InvariantCulture);
 
         //Loops over the list of passed in columns
         foreach (var column in columns)
@@ -60,8 +59,10 @@ public sealed class DRSFilenameReplacer
             correctFileName = $"{correctFileName}_{cellValue}";
         }
         var ext = Path.GetExtension(originalRow[_filenameColumnName].ToString());
-        correctFileName = $"{correctFileName}_{index}{ext}";
 
+        correctFileName = $"{correctFileName}_{index??""}{ext}";
+        //filename will be in the format {ReleaseId}_{ _ seperated column list values}_{index}.{extention}
+        //this was traditionally {ReleaseId}_{examination_date}_{image_num}.{ext}
 
         return correctFileName;
     }
