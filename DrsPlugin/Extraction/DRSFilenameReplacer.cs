@@ -53,7 +53,7 @@ public sealed class DRSFilenameReplacer
             var dateTimeConversion = isDate(cellValue);
             if (dateTimeConversion is not null)
             {
-                correctFileName = $"{correctFileName}_{dateTimeConversion:yyyy-MM-dd}";
+                correctFileName = $"{correctFileName}_{(DateTime)dt.Parse(cellValue.ToString()):yyyy-MM-dd}";
                 continue;
             }
             correctFileName = $"{correctFileName}_{cellValue}";
