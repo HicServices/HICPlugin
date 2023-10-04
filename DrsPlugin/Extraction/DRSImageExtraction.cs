@@ -16,10 +16,10 @@ public class DRSImageExtraction : ImageExtraction
     [DemandsInitialization("The name of the column in the dataset which contains the names of the image files (NOT THE FILENAME IN THE IMAGE ARCHIVE)")]
     public string FilenameColumnName { get; set; }
 
-    [DemandsInitialization("A comma separrated list of columns to use to de-identify the image files. The order if this list will set the order of replacemnt within the extraction. RDMP will prepend the ReleaseID and append a number to prevent file name clashes.")]
+    [DemandsInitialization("A comma separated list of columns to use to de-identify the image files. The order if this list will set the order of replacement within the extraction. RDMP will prepend the ReleaseID. Historical Releases will typically want to use 'Examination_Date,Image_Num'")]
     public string FileNameReplacementColumns { get; set; }
 
-    [DemandsInitialization("This will add a number to the end of each file name to prevent duplicate file names. Remove this if your dataset as it's own unique identifiers")]
+    [DemandsInitialization("This will add a number to the end of each file name to prevent duplicate file names. Remove this if your data source has it's own unique identifiers")]
     public bool AppendIndexCountToFileName { get; set; } = true;
 
     public override DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
