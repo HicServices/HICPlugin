@@ -38,7 +38,8 @@ public class ExtractionTests : DatabaseTests
 
         var replacer = new DRSFilenameReplacer(extractionIdentifierColumn, "Image_Filename");
 
-        Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0],["Examination_Date","Image_Num"]));
+        string[] renameParams = {"Examination_Date", "Image_Num"};
+        Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0],renameParams,null));
     }
 
     [Test]
@@ -81,9 +82,9 @@ public class ExtractionTests : DatabaseTests
                 DatasetName = new Regex(".*"),
                 FilenameColumnName = "Image_Filename",
                 ImageUriColumnName = "ImageArchiveUri",
-                FileNameReplacementColumns="Examination_Date,Image_Num",
+                FileNameReplacementColumns = "Examination_Date,Image_Num",
                 PathToImageArchive = archiveDir.FullName,
-                AppendIndexCountToFileName=false
+                AppendIndexCountToFileName = false
             };
 
             extractionComponent.PreInitialize(request, listener);
@@ -159,9 +160,9 @@ public class ExtractionTests : DatabaseTests
                 DatasetName = new Regex(".*"),
                 FilenameColumnName = "Image_Filename",
                 ImageUriColumnName = "ImageArchiveUri",
-                FileNameReplacementColumns="Examination_Date,Image_Num",
+                FileNameReplacementColumns = "Examination_Date,Image_Num",
                 PathToImageArchive = archiveDir.FullName,
-                AppendIndexCountToFileName=false
+                AppendIndexCountToFileName = false
             };
 
             extractionComponent.PreInitialize(request, listener);
@@ -248,9 +249,9 @@ public class ExtractionTests : DatabaseTests
 
         var extractionDirectory = new MockExtractionDirectory(rootDir);
 
-        var extractableColumn = new MockColumn("CHI",true);
+        var extractableColumn = new MockColumn("CHI", true);
         var queryTimeColumn = new QueryTimeColumn(extractableColumn);
         var queryBuilder = new MockSqlQueryBuilder(new List<QueryTimeColumn> { queryTimeColumn });
-        return new MockExtractDatasetCommand(catalogue,extractionDirectory,new List<IColumn> {extractableColumn},queryBuilder);
+        return new MockExtractDatasetCommand(catalogue, extractionDirectory, new List<IColumn> { extractableColumn }, queryBuilder);
     }
 }
