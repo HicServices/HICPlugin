@@ -81,6 +81,7 @@ public class ExtractionTests : DatabaseTests
                 DatasetName = new Regex(".*"),
                 FilenameColumnName = "Image_Filename",
                 ImageUriColumnName = "ImageArchiveUri",
+                FileNameReplacementColumns="Examination_Date,Image_Num",
                 PathToImageArchive = archiveDir.FullName
             };
 
@@ -157,6 +158,7 @@ public class ExtractionTests : DatabaseTests
                 DatasetName = new Regex(".*"),
                 FilenameColumnName = "Image_Filename",
                 ImageUriColumnName = "ImageArchiveUri",
+                FileNameReplacementColumns="Examination_Date,Image_Num",
                 PathToImageArchive = archiveDir.FullName
             };
 
