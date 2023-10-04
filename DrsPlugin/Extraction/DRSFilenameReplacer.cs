@@ -21,9 +21,9 @@ public sealed class DRSFilenameReplacer
 
     private bool isDate(string cellValue)
     {
-        Datetime dateTime;
-        bool check = DateTime.TryParse(cellValue, out dateTime)
-        return check
+        DateTime dateTime;
+        bool check = DateTime.TryParse(cellValue, out dateTime);
+        return check;
 
         // Datetime dateTime;
         // string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
