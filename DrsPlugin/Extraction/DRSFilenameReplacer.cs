@@ -27,7 +27,7 @@ public sealed class DRSFilenameReplacer
                    "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
                    "M/d/yyyy h:mm", "M/d/yyyy h:mm",
                    "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm"};//todo use a better list, this was yanked from the internet
-        if (DateTime.TryParseExact(cellValue, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
+        if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
         {
             return dateTime;
         }
@@ -66,7 +66,7 @@ public sealed class DRSFilenameReplacer
         }
         else
         {
-            correctFileName = $"{correctFileName}_{ext}";
+            correctFileName = $"{correctFileName}{ext}";
 
         }
         //filename will be in the format {ReleaseId}_{ _ seperated column list values}_{index}.{extention}
