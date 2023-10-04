@@ -82,7 +82,8 @@ public class ExtractionTests : DatabaseTests
                 FilenameColumnName = "Image_Filename",
                 ImageUriColumnName = "ImageArchiveUri",
                 FileNameReplacementColumns="Examination_Date,Image_Num",
-                PathToImageArchive = archiveDir.FullName
+                PathToImageArchive = archiveDir.FullName,
+                AppendIndexCountToFileName=false
             };
 
             extractionComponent.PreInitialize(request, listener);
