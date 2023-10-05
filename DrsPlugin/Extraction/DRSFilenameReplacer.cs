@@ -53,13 +53,26 @@ public sealed class DRSFilenameReplacer
             //     throw new Exception($"Column {column} doesn't exist!");
             // }
             string cellValue = originalRow[column].ToString();
-            if (isDate(cellValue))
+            // if (isDate(cellValue))
+            // {
+            //     var date = (DateTime)dt.Parse(cellValue.ToString());
+            //     correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
+            //     continue;
+            // }
+            try
             {
                 var date = (DateTime)dt.Parse(cellValue.ToString());
                 correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
                 continue;
             }
-            correctFileName = $"{correctFileName}_{cellValue}";
+            catch (FormatException fe)
+            {
+                correctFileName = $"{correctFileName}_{cellValue}";
+            }
+            catch (Exception e)
+            {
+                //do nothing as the string must be empty
+            }
         }
         var ext = Path.GetExtension(originalRow[_filenameColumnName].ToString());
 
