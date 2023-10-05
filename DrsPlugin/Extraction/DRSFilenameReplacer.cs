@@ -19,13 +19,6 @@ public sealed class DRSFilenameReplacer
         _filenameColumnName = filenameColumnName;
     }
 
-    private bool isDate(string cellValue)
-    {
-        DateTime dateTime;
-        bool check = DateTime.TryParse(cellValue, out dateTime);
-        return check;
-    }
-
     public string GetCorrectFilename(DataRow originalRow, string[] columns, Nullable<int> index)
     {
         if (_extractionIdentifier is null)
@@ -45,11 +38,11 @@ public sealed class DRSFilenameReplacer
                 correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
                 continue;
             }
-            catch (FormatException fe)
+            catch (FormatException)
             {
                 correctFileName = $"{correctFileName}_{cellValue}";
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //do nothing as the string must be empty
             }
@@ -66,7 +59,7 @@ public sealed class DRSFilenameReplacer
 
         }
         //filename will be in the format {ReleaseId}_{ _ seperated column list values}_{index}.{extention}
-        //this was traditionally {ReleaseId}_{examination_date}_{image_num}.{ext}
+        //this was traditionally {ReleaseId}_{Examination_Date}_{Image_Num}.{ext}
         return correctFileName;
     }
 }
