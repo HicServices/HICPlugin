@@ -24,18 +24,6 @@ public sealed class DRSFilenameReplacer
         DateTime dateTime;
         bool check = DateTime.TryParse(cellValue, out dateTime);
         return check;
-
-        // Datetime dateTime;
-        // string[] formats = {"M/d/yyyy h:mm:ss tt", "M/d/yyyy h:mm tt",
-        //            "MM/dd/yyyy hh:mm:ss", "M/d/yyyy h:mm:ss",
-        //            "M/d/yyyy hh:mm tt", "M/d/yyyy hh tt",
-        //            "M/d/yyyy h:mm", "M/d/yyyy h:mm","dd/MM/yyyy",
-        //            "MM/dd/yyyy hh:mm", "M/dd/yyyy hh:mm", ""};//todo use a better list, this was yanked from the internet
-        // if (DateTime.TryParseExact(cellValue, formats, new CultureInfo("en-GB"), DateTimeStyles.None, out dateTime))
-        // {
-        //     return true;
-        // }
-        // return false;
     }
 
     public string GetCorrectFilename(DataRow originalRow, string[] columns, Nullable<int> index)
@@ -49,18 +37,10 @@ public sealed class DRSFilenameReplacer
 
         foreach (var column in columns)
         {
-            // if(!originalRow.IsNull(column)){
-            //     throw new Exception($"Column {column} doesn't exist!");
-            // }
             string cellValue = originalRow[column].ToString();
-            // if (isDate(cellValue))
-            // {
-            //     var date = (DateTime)dt.Parse(cellValue.ToString());
-            //     correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
-            //     continue;
-            // }
             try
             {
+                //try and parse each value into a date, will fail if there is no valid date found
                 var date = (DateTime)dt.Parse(cellValue.ToString());
                 correctFileName = $"{correctFileName}_{date:yyyy-MM-dd}";
                 continue;
@@ -87,7 +67,6 @@ public sealed class DRSFilenameReplacer
         }
         //filename will be in the format {ReleaseId}_{ _ seperated column list values}_{index}.{extention}
         //this was traditionally {ReleaseId}_{examination_date}_{image_num}.{ext}
-
         return correctFileName;
     }
 }

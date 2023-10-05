@@ -103,8 +103,6 @@ public class DRSImageExtraction : ImageExtraction
                 continue;
             }
 
-            //do we want to be able to munge on things that are not extracted? ... probably not
-
             var parts = sourceFileName.Split('!');
             var archiveName = parts[0];
             var archivePath = Path.Combine(PathToImageArchive, archiveName);
