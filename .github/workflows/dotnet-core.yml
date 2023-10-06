@@ -11,6 +11,16 @@ jobs:
   package:
     runs-on: self-hosted
     steps:
+      - name: 'Setup yq'
+        uses: dcarbone/install-yq-action@v1.1.1
+        with:
+          version: 'v4.35.1'
+          download-compressed: true
+          force: false
+      - name: 'Check yq'
+        run: |
+          Get-Command "yq.exe"
+          yq.exe --version
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
@@ -25,11 +35,7 @@ jobs:
         shell: cmd
         run: |
           getversions >> %GITHUB_OUTPUT%
-      - name: setup yq
-        id: yqSetup
-        uses: mikefarah/yq@master
-        with:
-          cmd: echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
+          echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
       - name: Set up database
         run: |
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install localhost TEST_ -d
