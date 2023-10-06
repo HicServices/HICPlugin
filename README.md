@@ -1,4 +1,27 @@
 # HICPlugin
+A collection of HIC Specific functionality.
+This includes:
+
+* DrsPlugin - Retinal Image functionality
+* GoDartsPlugin & GoDartsUIPlugin - Genetics Of Diabetes Audit and Research
+
+    Allows the setup of GoFusion from within RDMP
+* HIC.Demography - Demography functionality
+
+    Allows for the validation of CHI numbers
+* HICPlugin - Contains a wide selection of functionality
+    * CHI Populator for data tables
+    * RDMP Crash Overwrite
+* HICPluginInteractive - Additional interactive functionality
+    * Extract Data Table Viewer
+* InterfaceToJira - Rest API Client for interfacing with Jira
+    
+    Currently unusable, but it is due to be rectified in Q1 of 2024
+* JiraPlugin - Jira specific extension of RDMPs Ticketing system
+* SCIStorePlugin - Scottish Care Information Store
+    
+    Allows for the ETL of SCI Data into RDMP
+
 
 ## Building
 Before Building, ensure the version number is correct within the hicplugin.nuspec and sharedAssembly.info file
