@@ -43,6 +43,7 @@ jobs:
         run: |
           dotnet test
       - name: Build
+        shell: bash
         run: |
           ./build_plugin.sh
       - name: Store created nupkg files

@@ -6,7 +6,7 @@ rm *.nupkg
 rm -rf build
 
 ./nuspec_generator.sh
-# ./update_plugin_csproj_files.sh
+./update_plugin_csproj_files.sh
 
 dotnet publish -p:DebugType=embedded -p:GenerateDocumentation=false Plugin/windows/windows.csproj -c Release -o build/windows
 dotnet publish -p:DebugType=embedded -p:GenerateDocumentation=false Plugin/main/main.csproj -c Release -o build/main
