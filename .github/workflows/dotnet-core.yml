@@ -20,13 +20,16 @@ jobs:
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-      - uses: mikefarah/yq@v4.35.2
       - name: Get version
         id: version
         shell: cmd
         run: |
           getversions >> %GITHUB_OUTPUT%
-          echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
+      - name: setup yq
+        id: yqSetup
+        uses: mikefarah/yq@master
+        with:
+          cmd: echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
       - name: Set up database
         run: |
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install localhost TEST_ -d
