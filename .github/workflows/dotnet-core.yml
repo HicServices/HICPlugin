@@ -35,6 +35,10 @@ jobs:
         shell: cmd
         run: |
           getversions >> %GITHUB_OUTPUT%
+      - name: Get Plugin Name
+        id: name
+        shell: bash
+        run: | 
           echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
       - name: Set up database
         run: |
