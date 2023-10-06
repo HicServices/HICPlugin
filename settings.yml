@@ -1,0 +1,6 @@
+id: Rdmp.Plugin
+version: 0.0.1
+authors: "Health Informatics Service, University of Dundee"
+description: "This is a sample plugin."
+rdmpVersion: 8.1.0
+nuspecFileName: rdmp.plugin

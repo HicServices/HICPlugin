@@ -25,6 +25,7 @@ jobs:
         shell: cmd
         run: |
           getversions >> %GITHUB_OUTPUT%
+          echo "PLUGIN_NAME=$(cat settings.yml | yq .nuspecFileName)" >> $GITHUB_OUTPUT
       - name: Set up database
         run: |
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install localhost TEST_ -d
@@ -33,26 +34,7 @@ jobs:
           dotnet test
       - name: Build
         run: |
-          @"
-          <?xml version="1.0" encoding="utf-8"?>
-          <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
-              <metadata>
-                  <id>Rdmp.HIC.Plugin</id>
-                  <version>${{ steps.version.outputs.version }}</version>
-                  <authors>Health Informatics Service, University of Dundee</authors>
-                  <description>Imaging plugin for Research Data Management Platform </description>
-                  <dependencies>
-                      <dependency id="HIC.RDMP.Plugin" version="${{ steps.version.outputs.rdmpversion }}" />
-                  </dependencies>
-              </metadata>
-          </package>
-          "@ | Out-File -Encoding ASCII plugin.nuspec
-
-          dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
-          dotnet publish Plugin/main/main.csproj -c Release -o p/main
-          cmd /c 7z a -tzip HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg plugin.nuspec p
-          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
-          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
+          ./build_plugin.sh
       - name: Store created nupkg files
         uses: actions/upload-artifact@v3
         with:
@@ -64,4 +46,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          file: 'HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg'
+          file: '${{steps.version.output.PLUGIN_NAME}}.${{ steps.version.outputs.version }}.nupkg'
+        #   todo this needs the correct name
