@@ -46,5 +46,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          file: '${{steps.version.output.PLUGIN_NAME}}.${{ steps.version.outputs.version }}.nupkg'
+          file: '${{steps.version.outputs.PLUGIN_NAME}}.${{ steps.version.outputs.version }}.nupkg'
         #   todo this needs the correct name
