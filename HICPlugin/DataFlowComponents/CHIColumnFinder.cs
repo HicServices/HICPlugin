@@ -63,7 +63,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
         foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         {
-            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
+            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).Where(ContainsValidChi))
             {
                 if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
