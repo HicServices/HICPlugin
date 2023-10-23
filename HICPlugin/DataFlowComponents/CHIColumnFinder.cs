@@ -15,6 +15,7 @@ using Rdmp.Core.ReusableLibraryCode;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
+using Renci.SshNet.Messages;
 
 namespace HICPluginInteractive.DataFlowComponents;
 
@@ -82,6 +83,8 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
+        var watch = new Stopwatch();
+        watch.Start();
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
         {
             if (_firstTime)
@@ -99,61 +102,34 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim()));//.Select(c => c.ColumnName.ToString());
+        var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim()));
         string[] messages = new string[] {};
-        //Parallel.For(0, toProcess.Rows.Count, i =>
         foreach(var row in toProcess.Rows.Cast<DataRow>())
         {
             foreach (DataColumn col in columns)
             {
-                string val = row[col].ToString(); //row.Field<string>(col).ToString();
+                string val = row[col].ToString();
                 if (ContainsValidChi(val))
                 {
                     var message =
                             $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
                     messages.Append(message);
-                    //listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-                    //if (!_isTableAlreadyNamed)
-                    //    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                    //        "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));      
                 }
             }
         };
-        foreach(string message in messages)
+        watch.Stop();
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Completed the chi finding. It took {watch.ElapsedMilliseconds}"));
+        if (messages.Length > 0 && !_isTableAlreadyNamed)
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"About to log the messages, there are { messages.Length} of them"));
+        foreach (string message in messages)
         {
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
         }
-        
-        //foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
-        //{
-            //    foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
-            //    {
-            //        var val = DeRef(reffedVal);
-            //        if (!ContainsValidChi(val))
-            //        {
-            //            continue;
-            //        }
-            //        if (_activator?.IsInteractive == true && ShowUIComponents)
-            //        {
-            //            if (DoTheMessageBoxDance(toProcess, listener, col, val))
-            //                break; // End processing of this whole column
-            //        }
-            //        else
-            //        {
-            //            var message =
-            //                $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
-            //            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-            //            if (!_isTableAlreadyNamed)
-            //                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-            //                    "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
-            //        }
-            //    }
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Finished logging messages"));
 
-            //    continue;
-
-            //    [NotNull]
-            //    string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
-        //}
 
         return toProcess;
     }
