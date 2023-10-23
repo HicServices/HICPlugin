@@ -101,11 +101,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
         var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())).Select(c => c.ColumnName.ToString());
         string[] messages = new string[] {};
-        Parallel.For(0, toProcess.Rows.Count, i =>
+        //Parallel.For(0, toProcess.Rows.Count, i =>
+        foreach(var row in toProcess.Rows.Cast<DataRow>())
         {
             foreach (string col in columns)
             {
-                string val = toProcess.Rows[i].Field<string>(col).ToString();
+                string val = row.Field<string>(col).ToString();
                 if (ContainsValidChi(val))
                 {
                     var message =
@@ -117,7 +118,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     //        "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));      
                 }
             }
-        });
+        };
         foreach(string message in messages)
         {
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
