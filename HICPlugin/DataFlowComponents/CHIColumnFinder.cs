@@ -61,10 +61,16 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
+
         foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         {
-            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).Where(ContainsValidChi))
+            foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
             {
+                var val = DeRef(reffedVal);
+                if (!ContainsValidChi(val))
+                {
+                    continue;
+                }
                 if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
                     if (DoTheMessageBoxDance(toProcess, listener, col, val))
