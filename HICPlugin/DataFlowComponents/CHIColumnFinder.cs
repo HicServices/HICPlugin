@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -45,39 +46,39 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private IBasicActivateItems _activator;
 
 
-    private void Process(DataTable toProcess, IDataLoadEventListener listener)
-    {
-        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
-        {
-            foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
-            {
-                var val = DeRef(reffedVal);
-                if (!ContainsValidChi(val))
-                {
-                    continue;
-                }
-                if (_activator?.IsInteractive == true && ShowUIComponents)
-                {
-                    if (DoTheMessageBoxDance(toProcess, listener, col, val))
-                        break; // End processing of this whole column
-                }
-                else
-                {
-                    var message =
-                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-                    if (!_isTableAlreadyNamed)
-                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
-                }
-            }
+    //private void Process(DataTable toProcess, IDataLoadEventListener listener)
+    //{
+    //    foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+    //    {
+    //        foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
+    //        {
+    //            var val = DeRef(reffedVal);
+    //            if (!ContainsValidChi(val))
+    //            {
+    //                continue;
+    //            }
+    //            if (_activator?.IsInteractive == true && ShowUIComponents)
+    //            {
+    //                if (DoTheMessageBoxDance(toProcess, listener, col, val))
+    //                    break; // End processing of this whole column
+    //            }
+    //            else
+    //            {
+    //                var message =
+    //                    $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+    //                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+    //                if (!_isTableAlreadyNamed)
+    //                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+    //                        "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+    //            }
+    //        }
 
-            continue;
+    //        continue;
 
-            [NotNull]
-            string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
-        }
-    }
+    //        [NotNull]
+    //        string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
+    //    }
+    //}
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
@@ -98,40 +99,54 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        Thread thread1 = new Thread(delegate ()
+        var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())).Select(c => c.ColumnName.ToString());
+
+        Parallel.For(0, toProcess.Rows.Count, i =>
         {
-            Process(toProcess, listener);
-        });
-        thread1.Start();
+            foreach(string col in columns)
+            {
+                string val = toProcess.Rows[i].Field<string>(col).ToString();
+                if (ContainsValidChi(val))
+                {
+                    var message =
+                            $"Column {col} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                    if (!_isTableAlreadyNamed)
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));      
+                }
+            }
+        }
+        );
         //foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         //{
-        //    foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
-        //    {
-        //        var val = DeRef(reffedVal);
-        //        if (!ContainsValidChi(val))
-        //        {
-        //            continue;
-        //        }
-        //        if (_activator?.IsInteractive == true && ShowUIComponents)
-        //        {
-        //            if (DoTheMessageBoxDance(toProcess, listener, col, val))
-        //                break; // End processing of this whole column
-        //        }
-        //        else
-        //        {
-        //            var message =
-        //                $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
-        //            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-        //            if (!_isTableAlreadyNamed)
-        //                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-        //                    "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
-        //        }
-        //    }
+            //    foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
+            //    {
+            //        var val = DeRef(reffedVal);
+            //        if (!ContainsValidChi(val))
+            //        {
+            //            continue;
+            //        }
+            //        if (_activator?.IsInteractive == true && ShowUIComponents)
+            //        {
+            //            if (DoTheMessageBoxDance(toProcess, listener, col, val))
+            //                break; // End processing of this whole column
+            //        }
+            //        else
+            //        {
+            //            var message =
+            //                $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+            //            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+            //            if (!_isTableAlreadyNamed)
+            //                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+            //                    "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+            //        }
+            //    }
 
-        //    continue;
+            //    continue;
 
-        //    [NotNull]
-        //    string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
+            //    [NotNull]
+            //    string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
         //}
 
         return toProcess;
