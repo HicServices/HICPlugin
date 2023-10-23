@@ -109,8 +109,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         string[] messages = new string[] {};
         foreach (DataRow row in toProcess.Rows)
         {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Row"));
-
             foreach (DataColumn col in columns)
             {
                 string val = row[col].ToString();
