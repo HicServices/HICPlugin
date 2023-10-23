@@ -83,6 +83,9 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
+        if(toProcess.Rows.Count <1) {
+            return toProcess;
+        }
         var watch = new Stopwatch();
         watch.Start();
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
