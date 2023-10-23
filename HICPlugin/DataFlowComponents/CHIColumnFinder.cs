@@ -106,7 +106,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
         var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim()));
-        string[] messages = new string[] {};
+        List<string> messages = new();
         foreach (DataRow row in toProcess.Rows)
         {
             foreach (DataColumn col in columns)
@@ -116,17 +116,17 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 {
                     var message =
                             $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val.ToString()})";
-                    messages.Append(message);
+                    messages.Add(message);
                 }
             }
         };
         watch.Stop();
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Completed the chi finding. It took {watch.ElapsedMilliseconds}"));
-        if (messages.Length > 0 && !_isTableAlreadyNamed)
+        if (messages.Count > 0 && !_isTableAlreadyNamed)
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                             "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
 
-        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"About to log the messages, there are { messages.Length} of them"));
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"About to log the messages, there are { messages.Count} of them"));
         foreach (string message in messages)
         {
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
