@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -42,27 +44,10 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private bool _isTableAlreadyNamed;
     private IBasicActivateItems _activator;
 
-    public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
+
+    private void Process(DataTable toProcess, IDataLoadEventListener listener)
     {
-        if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
-        {
-            if (_firstTime)
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
-            _firstTime = false;
-            return toProcess;
-        }
-
-        //give the data table the correct name
-        if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true)==true)
-            _isTableAlreadyNamed = true;
-
-        if (_columnGreenList.Count!=0)
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
-
-
-        foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         {
             foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
             {
@@ -92,6 +77,62 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             [NotNull]
             string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
         }
+    }
+
+    public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
+    {
+        if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
+        {
+            if (_firstTime)
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
+            _firstTime = false;
+            return toProcess;
+        }
+
+        //give the data table the correct name
+        if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true)==true)
+            _isTableAlreadyNamed = true;
+
+        if (_columnGreenList.Count!=0)
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
+
+        Thread thread1 = new Thread(delegate ()
+        {
+            Process(toProcess, listener);
+        });
+        thread1.Start();
+        //foreach(var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+        //{
+        //    foreach (var reffedVal in toProcess.Rows.Cast<DataRow>())//.Select(DeRef).Where(ContainsValidChi))
+        //    {
+        //        var val = DeRef(reffedVal);
+        //        if (!ContainsValidChi(val))
+        //        {
+        //            continue;
+        //        }
+        //        if (_activator?.IsInteractive == true && ShowUIComponents)
+        //        {
+        //            if (DoTheMessageBoxDance(toProcess, listener, col, val))
+        //                break; // End processing of this whole column
+        //        }
+        //        else
+        //        {
+        //            var message =
+        //                $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+        //            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+        //            if (!_isTableAlreadyNamed)
+        //                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+        //                    "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+        //        }
+        //    }
+
+        //    continue;
+
+        //    [NotNull]
+        //    string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
+        //}
 
         return toProcess;
     }
