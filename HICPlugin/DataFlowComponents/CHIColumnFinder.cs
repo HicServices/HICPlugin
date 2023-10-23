@@ -99,18 +99,18 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())).Select(c => c.ColumnName.ToString());
+        var columns = toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim()));//.Select(c => c.ColumnName.ToString());
         string[] messages = new string[] {};
         //Parallel.For(0, toProcess.Rows.Count, i =>
         foreach(var row in toProcess.Rows.Cast<DataRow>())
         {
-            foreach (string col in columns)
+            foreach (DataColumn col in columns)
             {
-                string val = row.Field<string>(col).ToString();
+                string val = row[col].ToString(); //row.Field<string>(col).ToString();
                 if (ContainsValidChi(val))
                 {
                     var message =
-                            $"Column {col} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+                            $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
                     messages.Append(message);
                     //listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
                     //if (!_isTableAlreadyNamed)
