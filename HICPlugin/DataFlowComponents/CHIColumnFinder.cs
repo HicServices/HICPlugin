@@ -111,11 +111,11 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         {
             foreach (DataColumn col in columns)
             {
-                string val = row[col].ToString();
+                var val = row[col];
                 if (ContainsValidChi(val))
                 {
                     var message =
-                            $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+                            $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val.ToString()})";
                     messages.Append(message);
                 }
             }
