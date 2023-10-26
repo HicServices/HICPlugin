@@ -50,7 +50,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
 
-        string fileLocation = string.IsNullOrWhiteSpace(OutputFileDirectory) ? null : System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + ".csv").ToString();
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
         {
             if (_firstTime)
@@ -59,6 +58,22 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             _firstTime = false;
             return toProcess;
         }
+        string fileLocation = null;
+        if (!string.IsNullOrWhiteSpace(OutputFileDirectory))
+        {
+            fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + ".csv").ToString();
+            if (File.Exists(fileLocation))
+            {
+                var lineCount = File.ReadLines(fileLocation).Count();
+                if(lineCount > 20)
+                {
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have skipped this chunk of Catalogue {toProcess.TableName} as there is already a number of CHIs already found"));
+                    return toProcess;
+                }
+            }
+
+        }
+
 
         //give the data table the correct name
         if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true) == true)
