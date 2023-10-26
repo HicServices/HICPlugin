@@ -75,7 +75,13 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             {
                 if (!string.IsNullOrWhiteSpace(fileLocation))
                 {
-                    ChiLocations.Add($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
+                    try
+                    {
+                        ChiLocations.Add($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
+                    } catch (Exception){
+                        ChiLocations.Add($"{col.ColumnName},Unknown,{val}");
+
+                    }
                 }
                 else if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
