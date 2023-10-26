@@ -41,6 +41,10 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     public string OutputFileDirectory { get; set; }
 
+    [DemandsInitialization("If checked, will stop searching for CHIs after it has found 10 of them in the extraction.", DemandType = DemandType.Unspecified)]
+
+    public bool BailOutEarly { get; set; }
+
     private bool _firstTime = true;
 
     private List<string> _columnGreenList = new();
@@ -60,12 +64,16 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
         string fileLocation = null;
         if (!string.IsNullOrWhiteSpace(OutputFileDirectory))
+            if (!Directory.Exists(OutputFileDirectory))
+            {
+                Directory.CreateDirectory(OutputFileDirectory);
+            }
         {
-            fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + ".csv").ToString();
-            if (File.Exists(fileLocation))
+            fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + "_Potential_CHI_Locations.csv").ToString();
+            if (File.Exists(fileLocation) && BailOutEarly)
             {
                 var lineCount = File.ReadLines(fileLocation).Count();
-                if(lineCount > 20)
+                if (lineCount > 20)
                 {
                     listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have skipped this chunk of Catalogue {toProcess.TableName} as there is already a number of CHIs already found"));
                     return toProcess;
@@ -93,7 +101,9 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     try
                     {
                         ChiLocations.Add($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
-                    } catch (Exception){
+                    }
+                    catch (Exception)
+                    {
                         ChiLocations.Add($"{col.ColumnName},Unknown,{val}");
 
                     }
@@ -229,7 +239,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (string.IsNullOrWhiteSpace(toCheckStr) || toCheckStr.Length < 9) return "";
 
         var state = State.End; // Start of potential CHI
-        int day = 0, month = 0, year = 0, check = 0,indexOfDay=0;
+        int day = 0, month = 0, year = 0, check = 0, indexOfDay = 0;
         for (var i = toCheckStr.Length - 1; i >= 0; i--)
         {
             var c = toCheckStr[i];
@@ -247,7 +257,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     case State.Complete:
                         state = State.End;
                         if (ValidBits(day, month, year, check))
-                            return toCheckStr.Substring(i+1, 9);
+                            return toCheckStr.Substring(i + 1, 9);
 
                         break;
 
