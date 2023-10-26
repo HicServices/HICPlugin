@@ -12,7 +12,6 @@ using Rdmp.Core.ReusableLibraryCode;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
-using Renci.SshNet.Messages;
 
 namespace HICPluginInteractive.DataFlowComponents;
 
@@ -62,41 +61,24 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
 
-        foreach (var col in toProcess.Columns.Cast<DataColumn>().AsParallel().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
         {
-            int foundCHIs = 0;
-            DataRow[] badRows = new DataRow[] { };
-            foreach (var val in toProcess.Rows.Cast<DataRow>())//.Select(DeRef))//.Where(ContainsValidChi))
+            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
             {
-                if (!ContainsValidChi(val)) continue;
-                foundCHIs++;
-                badRows.Append(val);
-                if (foundCHIs >= 10) break;
-                //if (_activator?.IsInteractive == true && ShowUIComponents)
-                //{
-                //    if (DoTheMessageBoxDance(toProcess, listener, col, val))
-                //        break; // End processing of this whole column
-                //}
-                //else
-                //{
-                //}
-            }
-            if (badRows.Length > 0)
-            {
-                string extraInfo = badRows.Length == 10 ? "There may be more, but we stopped searching after 10 were found" : "";
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"{badRows.Length} CHIs were found in {col.ColumnName}. {extraInfo}"));
-                if (!_isTableAlreadyNamed)
+                if (_activator?.IsInteractive == true && ShowUIComponents)
                 {
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                        "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+                    if (DoTheMessageBoxDance(toProcess, listener, col, val))
+                        break; // End processing of this whole column
                 }
-
-            }
-            foreach (var row in badRows)
-            {
-                var message =
-                    $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({DeRef(row)})";
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                else
+                {
+                    var message =
+                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                    if (!_isTableAlreadyNamed)
+                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+                }
             }
 
             continue;
