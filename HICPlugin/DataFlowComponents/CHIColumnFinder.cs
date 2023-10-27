@@ -86,13 +86,14 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
         string fileLocation = null;
         if (!string.IsNullOrWhiteSpace(OutputFileDirectory))
+        {
             if (!Directory.Exists(OutputFileDirectory))
             {
                 Directory.CreateDirectory(OutputFileDirectory);
             }
-        {
+
             fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + "_Potential_CHI_Locations.csv").ToString();
-            if (File.Exists(fileLocation) && BailOutEarly)
+            if (File.Exists(fileLocation) && BailOutEarly is true)
             {
                 var lineCount = File.ReadLines(fileLocation).Count();
                 if (lineCount > 20)
@@ -440,18 +441,18 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
             if (!hashOnReleaseColumns.Any() && String.IsNullOrWhiteSpace(AllowListFile)) return;
 
-            if (hashOnReleaseColumns.Length >0)
+            if (hashOnReleaseColumns.Length > 0)
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                     $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
             }
 
-            if (File.Exists(AllowListFile) && AllowLists.Count ==0)
+            if (File.Exists(AllowListFile) && AllowLists.Count == 0)
             {
                 string allowListFileContent = File.ReadAllText(AllowListFile);
                 var deserializer = new DeserializerBuilder().Build();
-                var yamlObject = deserializer.Deserialize<Dictionary<Object,Object>>(allowListFileContent);
-                foreach ( var kvp in yamlObject )
+                var yamlObject = deserializer.Deserialize<Dictionary<Object, Object>>(allowListFileContent);
+                foreach (var kvp in yamlObject)
                 {
                     string catalogue = kvp.Key.ToString();
                     List<string> columns = new();
@@ -464,15 +465,15 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             }
             if (hashOnReleaseColumns.Any())
             {
-                bool exists = AllowLists.TryGetValue("RDMP_ALL",out var allowAllList);
-                if(exists)
+                bool exists = AllowLists.TryGetValue("RDMP_ALL", out var allowAllList);
+                if (exists)
                 {
                     allowAllList.AddRange(hashOnReleaseColumns);
                     AllowLists["RDMP_ALL"] = allowAllList;
                 }
                 else
                 {
-                    AllowLists.Add("RDMP_ALL",hashOnReleaseColumns.ToList());
+                    AllowLists.Add("RDMP_ALL", hashOnReleaseColumns.ToList());
                 }
             }
         }
