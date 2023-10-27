@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
+using NPOI.SS.Formula.Functions;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -14,7 +16,10 @@ using Rdmp.Core.ReusableLibraryCode;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
+using SharpCompress.Common;
 using SixLabors.ImageSharp.Drawing;
+using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
 
 namespace HICPluginInteractive.DataFlowComponents;
 
@@ -27,16 +32,17 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     [DemandsInitialization("Component will be shut down until this date and time", DemandType = DemandType.Unspecified)]
     public DateTime? OverrideUntil { get; set; }
 
-    [DemandsInitialization("Will show errors in message boxes for analysis. Leave unticked for unattended execution.", DefaultValue = false, DemandType = DemandType.Unspecified)]
-    public bool ShowUIComponents { get; set; }
+    [DemandsInitialization("A Yaml file that outlines which columns in which catalogues can be safely ignored")]
+    public string AllowListFile { get; set; }
 
-    [DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
-    [NotNull]
-    public string IgnoreColumns
-    {
-        get => string.Join(',', _columnGreenList);
-        set => _columnGreenList = (value ?? "").Split(',').Select(static s => s.Trim()).ToList();
-    }
+
+    //[DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
+    //[NotNull]
+    //public string IgnoreColumns
+    //{
+    //    get => string.Join(',', _columnGreenList);
+    //    set => _columnGreenList = (value ?? "").Split(',').Select(static s => s.Trim()).ToList();
+    //}
     [DemandsInitialization("If populated, RDMP will output and potential CHIs to a file in this directory rather than to the progress logs", DemandType = DemandType.Unspecified)]
 
     public string OutputFileDirectory { get; set; }
@@ -47,12 +53,28 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     private bool _firstTime = true;
 
-    private List<string> _columnGreenList = new();
     private bool _isTableAlreadyNamed;
     private IBasicActivateItems _activator;
+    //private Dictionary<string, List<string>> AllowLists = new();
+    private Dictionary<string, List<string>> AllowLists = new();
 
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
+        List<string> _columnGreenList = new();
+        if (AllowLists.Count > 0)
+        {
+            bool found = AllowLists.TryGetValue("RDMP_ALL", out var _extractionSpecificAllowances);
+            if (found)
+            {
+                _columnGreenList.AddRange(_extractionSpecificAllowances);
+            }
+            found = AllowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances);
+            if (found)
+            {
+                _columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
+            }
+        }
+
 
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
         {
@@ -89,7 +111,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
         if (_columnGreenList.Count != 0)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"You have chosen the following columns to be ignored: {IgnoreColumns}"));
+                $"You have chosen the following columns to be ignored: {String.Join(",", _columnGreenList)}"));
 
         var ChiLocations = new List<string>();
         foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
@@ -107,11 +129,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                         ChiLocations.Add($"{col.ColumnName},Unknown,{val}");
 
                     }
-                }
-                else if (_activator?.IsInteractive == true && ShowUIComponents)
-                {
-                    if (DoTheMessageBoxDance(toProcess, listener, col, val))
-                        break; // End processing of this whole column
                 }
                 else
                 {
@@ -157,40 +174,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
 
         return toProcess;
-    }
-
-
-    /// <summary>
-    /// Return true if user elected to skip the rest of this column
-    /// </summary>
-    /// <param name="toProcess"></param>
-    /// <param name="listener"></param>
-    /// <param name="col"></param>
-    /// <param name="val"></param>
-    /// <returns></returns>
-    private bool DoTheMessageBoxDance(DataTable toProcess, [NotNull] IDataLoadEventListener listener,
-        [NotNull] DataColumn col, string val)
-    {
-        if (_activator.IsInteractive && _activator.YesNo(
-                $"Column {col.ColumnName} in Dataset {(_isTableAlreadyNamed ? toProcess.TableName : "UNKNOWN (you need an ExtractCatalogueMetadata in the pipeline to get a proper name)")} appears to contain a CHI ({val})\n\nWould you like to view the current batch of data?",
-                "Suspected CHI Column"))
-        {
-
-            var txt = UsefulStuff.DataTableToCsv(toProcess);
-            _activator.Show("Data", txt);
-        }
-
-        if (_activator.YesNo($"Would you like to suppress CHI checking on column {col.ColumnName}?", "Continue extract?"))
-        {
-            _columnGreenList.Add(col.ColumnName);
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"Column {col.ColumnName} will no longer be checked for CHI during the rest of the extract"));
-            return true;
-        }
-
-        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-            $"Column {col.ColumnName} will continue to be CHI-checked"));
-        return false;
     }
 
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
@@ -455,11 +438,43 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
                 .Where(static ei => ei?.HashOnDataRelease == true).Select(static ei => ei.GetRuntimeName()).ToArray();
 
-            if (!hashOnReleaseColumns.Any()) return;
+            if (!hashOnReleaseColumns.Any() && String.IsNullOrWhiteSpace(AllowListFile)) return;
 
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
-            _columnGreenList.AddRange(hashOnReleaseColumns);
+            if (hashOnReleaseColumns.Length >0)
+            {
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                    $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
+            }
+
+            if (File.Exists(AllowListFile) && AllowLists.Count ==0)
+            {
+                string allowListFileContent = File.ReadAllText(AllowListFile);
+                var deserializer = new DeserializerBuilder().Build();
+                var yamlObject = deserializer.Deserialize<Dictionary<Object,Object>>(allowListFileContent);
+                foreach ( var kvp in yamlObject )
+                {
+                    string catalogue = kvp.Key.ToString();
+                    List<string> columns = new();
+                    foreach (var column in kvp.Value as List<Object>)
+                    {
+                        columns.Add(column.ToString());
+                    }
+                    AllowLists.Add(catalogue, columns);
+                }
+            }
+            if (hashOnReleaseColumns.Any())
+            {
+                bool exists = AllowLists.TryGetValue("RDMP_ALL",out var allowAllList);
+                if(exists)
+                {
+                    allowAllList.AddRange(hashOnReleaseColumns);
+                    AllowLists["RDMP_ALL"] = allowAllList;
+                }
+                else
+                {
+                    AllowLists.Add("RDMP_ALL",hashOnReleaseColumns.ToList());
+                }
+            }
         }
         catch (Exception e)
         {
