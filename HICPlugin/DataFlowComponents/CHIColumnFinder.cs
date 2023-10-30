@@ -183,7 +183,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         {
             if (OutputFileDirectory is not null && OutputFileDirectory.Exists)
             {
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
                 if (_activator is not null)
                 {
                     UIAlert(toProcess.TableName, OutputFileDirectory.FullName);

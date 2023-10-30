@@ -47,7 +47,6 @@ public class CHIColumnFinderTests
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
         toProcess.Rows.Add(new object[] {195});
-        //_chiFinder.VerboseLogging = true;
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
         toProcess.Columns.Add("NothingToSeeHere");
