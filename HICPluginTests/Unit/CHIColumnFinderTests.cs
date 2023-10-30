@@ -2,10 +2,7 @@
 using System.Data;
 using System.IO;
 using HICPluginInteractive.DataFlowComponents;
-using NPOI.HPSF;
 using NUnit.Framework;
-using Rdmp.Core.CommandExecution;
-using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using Tests.Common.Scenarios;
 
