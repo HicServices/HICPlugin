@@ -35,14 +35,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     [DemandsInitialization("A Yaml file that outlines which columns in which catalogues can be safely ignored")]
     public string AllowListFile { get; set; }
 
-
-    //[DemandsInitialization("By default all columns from the source will be checked for valid CHIs. Set this to a list of headers (separated with a comma) to ignore the specified columns.", DemandType = DemandType.Unspecified)]
-    //[NotNull]
-    //public string IgnoreColumns
-    //{
-    //    get => string.Join(',', _columnGreenList);
-    //    set => _columnGreenList = (value ?? "").Split(',').Select(static s => s.Trim()).ToList();
-    //}
     [DemandsInitialization("If populated, RDMP will output and potential CHIs to a file in this directory rather than to the progress logs", DemandType = DemandType.Unspecified)]
 
     public string OutputFileDirectory { get; set; }
@@ -54,16 +46,18 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private bool _firstTime = true;
 
     private bool _isTableAlreadyNamed;
-    private IBasicActivateItems _activator;
-    //private Dictionary<string, List<string>> AllowLists = new();
     private Dictionary<string, List<string>> AllowLists = new();
 
+    private readonly string _RDMPALL = "RDMP_ALL";
+    private readonly string _potentialChiLocationFileDescriptor = "_Potential_CHI_Locations.csv";
+    private readonly string _csvColumns = "Column,Potential CHI,Value"
+;
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
         List<string> _columnGreenList = new();
         if (AllowLists.Count > 0)
         {
-            bool found = AllowLists.TryGetValue("RDMP_ALL", out var _extractionSpecificAllowances);
+            bool found = AllowLists.TryGetValue(_RDMPALL, out var _extractionSpecificAllowances);
             if (found)
             {
                 _columnGreenList.AddRange(_extractionSpecificAllowances);
@@ -92,7 +86,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 Directory.CreateDirectory(OutputFileDirectory);
             }
 
-            fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + "_Potential_CHI_Locations.csv").ToString();
+            fileLocation = System.IO.Path.Combine(OutputFileDirectory, toProcess.TableName.ToString() + _potentialChiLocationFileDescriptor).ToString();
             if (File.Exists(fileLocation) && BailOutEarly is true)
             {
                 var lineCount = File.ReadLines(fileLocation).Count();
@@ -151,7 +145,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     {
                         using (StreamWriter sw = File.CreateText(fileLocation))
                         {
-                            sw.WriteLine("Column,Potential CHI,Value");
+                            sw.WriteLine(_csvColumns);
                         }
                     }
                     File.AppendAllLines(fileLocation, ChiLocations);
@@ -486,7 +480,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     public void PreInitialize(IBasicActivateItems value, IDataLoadEventListener listener)
     {
-        _activator = value;
     }
 
 }
