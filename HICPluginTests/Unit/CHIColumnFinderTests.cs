@@ -8,7 +8,7 @@ using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Unit;
 
-public class CHIColumnFinderTests// : TestsRequiringAnExtractionConfiguration
+public class CHIColumnFinderTests
 {
     private readonly CHIColumnFinder _chiFinder=new();
     private readonly ThrowImmediatelyDataLoadEventListener _listener=ThrowImmediatelyDataLoadEventListener.QuietPicky;
@@ -81,7 +81,8 @@ public class CHIColumnFinderTests// : TestsRequiringAnExtractionConfiguration
     //    streamWriter.Flush();
     //    streamWriter.Close();
     //    _chiFinder.AllowListFile = fileInfo.FullName;
-    //    _chiFinder.PreInitialize(_request, ThrowImmediatelyDataLoadEventListener.Quiet );
+
+    //    _chiFinder.PreInitialize(_request, ThrowImmediatelyDataLoadEventListener.Quiet);
     //    Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     //}
 }
