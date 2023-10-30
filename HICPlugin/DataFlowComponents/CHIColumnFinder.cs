@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using NPOI.SS.Formula.Eval;
 using NPOI.SS.Formula.Functions;
 using NPOI.Util;
 using Rdmp.Core.CommandExecution;
@@ -135,7 +136,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
                     }
                 }
-                else if (VerboseLogging)
+                if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
                 {
                     var message =
                         $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
@@ -180,11 +181,25 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
         if (foundCHIs)
         {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
-            if (_activator is not null)
+            if (OutputFileDirectory is not null && OutputFileDirectory.Exists)
             {
-                UIAlert(toProcess.TableName, OutputFileDirectory.FullName);
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+                if (_activator is not null)
+                {
+                    UIAlert(toProcess.TableName, OutputFileDirectory.FullName);
+                }
             }
+            //else
+            //{
+            //    //listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Some CHIs have been found in your extraction"));
+            //    var message =
+            //           $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
+            //    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+            //    if (_activator is not null && _activator.IsInteractive)
+            //    {
+            //        UIAlert(toProcess.TableName);
+            //    }
+            //}
         }
         return toProcess;
     }
@@ -197,7 +212,19 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             Thread.CurrentThread.IsBackground = true;
             Thread.CurrentThread.Name = CHIThreadIdentifier;
             // run as a seperate thread to not hault the UI
-            _activator.Show($"Some CHIs have been found in your extraction for the catalogue {tableName}. Find them in {extractionDir}");
+            _activator.Show($"Some CHIs have been found in your extraction for the catalogue {tableName}. Find them in {extractionDir}.");
+
+        }).Start();
+    }
+
+    private void UIAlert(string tableName)
+    {
+        new Thread(() =>
+        {
+            Thread.CurrentThread.IsBackground = true;
+            Thread.CurrentThread.Name = CHIThreadIdentifier;
+            // run as a seperate thread to not hault the UI
+            _activator.Show($"Some CHIs have been found in your extraction for the catalogue {tableName}.");
 
         }).Start();
     }

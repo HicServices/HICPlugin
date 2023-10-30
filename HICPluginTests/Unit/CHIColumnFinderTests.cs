@@ -47,42 +47,15 @@ public class CHIColumnFinderTests
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
         toProcess.Rows.Add(new object[] {195});
-
+        //_chiFinder.VerboseLogging = true;
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
         toProcess.Columns.Add("NothingToSeeHere");
         toProcess.Rows.Add(new object[] { 145, toCheck });
-
         if (expectedToBeChi)
             Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }
 
-    //[Test]
-    //public void IgnoreColumnsAvoidsCHIChecking()
-    //{
-    //    using var toProcess = new DataTable();
-    //    toProcess.Columns.Add("Height");
-    //    toProcess.Rows.Add(new object[] { 195 });
-
-    //    Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-
-    //    toProcess.Columns.Add("NothingToSeeHere");
-    //    toProcess.Rows.Add(new object[] { 145, "1111111111" });
-
-    //    Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-    //    var fileName = Path.GetTempFileName();
-    //    var fileInfo = new FileInfo(fileName);
-    //    fileInfo.Attributes = FileAttributes.Temporary;
-    //    StreamWriter streamWriter = File.AppendText(fileName);
-    //    streamWriter.WriteLine("RDMP_ALL:");
-    //    streamWriter.WriteLine("    - NothingToSeeHere");
-    //    streamWriter.Flush();
-    //    streamWriter.Close();
-    //    _chiFinder.AllowListFile = fileInfo.FullName;
-
-    //    _chiFinder.PreInitialize(_request, ThrowImmediatelyDataLoadEventListener.Quiet);
-    //    Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-    //}
 }
