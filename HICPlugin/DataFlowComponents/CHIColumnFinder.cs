@@ -186,20 +186,11 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
                 if (_activator is not null)
                 {
-                    UIAlert(toProcess.TableName, OutputFileDirectory.FullName);
+                    toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
+                    //UIAlert(toProcess.TableName, OutputFileDirectory.FullName);
                 }
             }
-            //else
-            //{
-            //    //listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, $"Some CHIs have been found in your extraction"));
-            //    var message =
-            //           $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
-            //    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
-            //    if (_activator is not null && _activator.IsInteractive)
-            //    {
-            //        UIAlert(toProcess.TableName);
-            //    }
-            //}
+            
         }
         return toProcess;
     }
@@ -217,17 +208,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }).Start();
     }
 
-    private void UIAlert(string tableName)
-    {
-        new Thread(() =>
-        {
-            Thread.CurrentThread.IsBackground = true;
-            Thread.CurrentThread.Name = CHIThreadIdentifier;
-            // run as a seperate thread to not hault the UI
-            _activator.Show($"Some CHIs have been found in your extraction for the catalogue {tableName}.");
-
-        }).Start();
-    }
 
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
     {
