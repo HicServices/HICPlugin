@@ -2,26 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using NPOI.SS.Formula.Eval;
-using NPOI.SS.Formula.Functions;
-using NPOI.Util;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
-using Rdmp.Core.ReusableLibraryCode;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
-using SharpCompress.Common;
-using SixLabors.ImageSharp.Drawing;
-using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
 
 namespace HICPluginInteractive.DataFlowComponents;
@@ -187,27 +178,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 if (_activator is not null)
                 {
                     toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
-                    //UIAlert(toProcess.TableName, OutputFileDirectory.FullName);
                 }
             }
             
         }
         return toProcess;
     }
-
-
-    private void UIAlert(string tableName,string extractionDir)
-    {
-        new Thread(() =>
-        {
-            Thread.CurrentThread.IsBackground = true;
-            Thread.CurrentThread.Name = CHIThreadIdentifier;
-            // run as a seperate thread to not hault the UI
-            _activator.Show($"Some CHIs have been found in your extraction for the catalogue {tableName}. Find them in {extractionDir}.");
-
-        }).Start();
-    }
-
 
     public void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny)
     {
