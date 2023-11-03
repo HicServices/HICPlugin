@@ -11,7 +11,7 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
     [Test]
     public void TestUse()
     {
-        var source = new ChrisHallSpecialExplicitSource
+        var source = new DataExtractionSpecialExplicitSource
         {
             DatabaseToUse = "master",
             Collation = "Latin1_General_Bin"
