@@ -48,8 +48,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private readonly string _potentialChiLocationFileDescriptor = "_Potential_CHI_Locations.csv";
     private readonly string _csvColumns = "Column,Potential CHI,Value";
     private IBasicActivateItems _activator;
-    private string CHIThreadIdentifier = "RDMP_CHI_ALERT_NOTIFICATION";
-
 
     private bool foundCHIs = false;
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
