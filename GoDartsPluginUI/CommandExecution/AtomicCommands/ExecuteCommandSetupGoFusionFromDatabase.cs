@@ -188,8 +188,7 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
         {
             Name = "Import Metadata files",
             ProcessTaskType = ProcessTaskType.DataProvider,
-            // HACK: Fix this when the class becomes public!
-            Path = "LoadModules.Generic.DataProvider.ShareDefinitionImporter"
+            Path = typeof(ShareDefinitionImporter).FullName
         };
         metadataImporter.SaveToDatabase();
 
