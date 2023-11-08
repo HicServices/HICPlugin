@@ -1,5 +1,4 @@
-﻿using Rdmp.Core.Curation;
-using Rdmp.Core.Curation.Data;
+﻿using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
@@ -13,8 +12,6 @@ namespace DrsPlugin.Extraction;
 
 public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPipelineRequirement<IExtractCommand>
 {
-    protected LoadDirectory LoadDirectory;
-
     [DemandsInitialization("The path to the root of the identifiable image archive")]
     public string PathToImageArchive { get; set; }
 
@@ -24,7 +21,7 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
     [DemandsInitialization("A pattern for the name of any dataset bundle that references images (bundles not matching this pattern will be ignored by this plugin)")]
     public Regex DatasetName { get; set; }
 
-    public IExtractDatasetCommand Request { get; private set; }
+    protected IExtractDatasetCommand Request { get; private set; }
 
     public abstract DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken);
 
@@ -64,16 +61,9 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         if (Request.ColumnsToExtract is null)
             throw new InvalidOperationException("The request must contain a list of ColumnsToExtract (even if empty)");
 
-        var loadMetadata = Request.Catalogue.LoadMetadata;
-        if (loadMetadata is null)
-        {
+        if (Request.Catalogue.LoadMetadata is null)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                $"The request has no assocciated metadata file. You may need to add a Data Load Configuration if you intend to extract the image files.")); //May be able to get rid of this warning entirely 
-        }
-        else
-        {
-            LoadDirectory = new LoadDirectory(loadMetadata.LocationOfFlatFiles);
-        }
+                "The request has no associated metadata file. You may need to add a Data Load Configuration if you intend to extract the image files.")); //May be able to get rid of this warning entirely
     }
 
     public abstract void Dispose(IDataLoadEventListener listener, Exception pipelineFailureExceptionIfAny);

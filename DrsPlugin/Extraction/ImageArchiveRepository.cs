@@ -1,20 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Rdmp.Core.ReusableLibraryCode.Annotations;
 
 namespace DrsPlugin.Extraction;
 
 /// <summary>
 /// This class wraps functionality for interacting with the image archive used across loading and extraction
 /// </summary>
-public static class ImageArchiveRepository
+internal static class ImageArchiveRepository
 {
     /// <summary>
     /// Extracts a set of images from one archive. Looks for entries named after the keys in extractionMap and saves them to the path given in the map's corresponding value.
     /// </summary>
     /// <param name="archiveFilePath">Path to the file from which to extract the images</param>
     /// <param name="extractionMap">Map of entry names in the archive to full output path</param>
-    public static void ExtractImageSetFromArchive(string archiveFilePath, Dictionary<string, string> extractionMap)
+    internal static void ExtractImageSetFromArchive([NotNull] string archiveFilePath, [NotNull] Dictionary<string, string> extractionMap)
     {
         using var archive = new LibArchive.Net.LibArchiveReader(archiveFilePath);
         foreach(var entry in archive.Entries())
