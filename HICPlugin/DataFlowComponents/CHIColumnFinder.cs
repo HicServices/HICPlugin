@@ -31,20 +31,20 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     private DirectoryInfo OutputFileDirectory;
 
-    [DemandsInitialization("If checked, will stop searching for CHIs after it has found 10 of them in the extraction.", DemandType = DemandType.Unspecified)]
+    [DemandsInitialization("If non-zero, will stop searching for CHIs after it has found that many of them in the extraction.", DefaultValue = 0)]
 
-    public bool BailOutEarly { get; set; }
+    public int BailOutAfter { get; set; }
 
-    [DemandsInitialization("If checked, will log a lot more information about the CHI finding process.", DemandType = DemandType.Unspecified)]
+    [DemandsInitialization("If checked, will log a lot more information about the CHI finding process.")]
 
     public bool VerboseLogging { get; set; } = false;
 
     private bool _firstTime = true;
 
     private bool _isTableAlreadyNamed;
-    private Dictionary<string, List<string>> AllowLists = new();
+    private readonly Dictionary<string, List<string>> _allowLists = new();
 
-    private readonly string _RDMPALL = "RDMP_ALL";
+    private const string RdmpAll = "RDMP_ALL";
     private readonly string _potentialChiLocationFileDescriptor = "_Potential_CHI_Locations.csv";
     private readonly string _csvColumns = "Column,Potential CHI,Value";
     private IBasicActivateItems _activator;
@@ -52,32 +52,26 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private bool foundCHIs = false;
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
-        List<string> _columnGreenList = new();
-        if (AllowLists.Count > 0)
-        {
-            bool found = AllowLists.TryGetValue(_RDMPALL, out var _extractionSpecificAllowances);
-            if (found)
-            {
-                _columnGreenList.AddRange(_extractionSpecificAllowances);
-            }
-            found = AllowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances);
-            if (found)
-            {
-                _columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
-            }
-        }
-
-
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
         {
             if (_firstTime)
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
+                    $"This component is still currently being overridden until the specified date: {OverrideUntil.Value:g}"));
             _firstTime = false;
             return toProcess;
         }
+
+        List<string> columnGreenList = new();
+        if (_allowLists.Count > 0)
+        {
+            if (_allowLists.TryGetValue(RdmpAll, out var _extractionSpecificAllowances))
+                columnGreenList.AddRange(_extractionSpecificAllowances);
+            if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
+                columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
+        }
+
         string fileLocation = null;
-        if (OutputFileDirectory is not null && OutputFileDirectory.Exists)
+        if (OutputFileDirectory?.Exists == true)
         {
             var CHIDir = System.IO.Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
             if (!Directory.Exists(CHIDir))
@@ -85,15 +79,15 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 Directory.CreateDirectory(CHIDir);
             }
             fileLocation = System.IO.Path.Combine(CHIDir, toProcess.TableName.ToString() + _potentialChiLocationFileDescriptor).ToString();
-            if (File.Exists(fileLocation) && BailOutEarly is true)
+            if (File.Exists(fileLocation) && BailOutAfter>0)
             {
                 var lineCount = File.ReadLines(fileLocation).Count();
                 if (lineCount > 20)
                 {
                     if (VerboseLogging)
-                    {
-                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have skipped this chunk of Catalogue {toProcess.TableName} as there is already a number of CHIs already found"));
-                    }
+                        listener.OnNotify(this,
+                            new NotifyEventArgs(ProgressEventType.Information,
+                                $"Have skipped this chunk of Catalogue {toProcess.TableName} as there is already a number of CHIs already found"));
                     return toProcess;
                 }
             }
@@ -103,12 +97,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true) == true)
             _isTableAlreadyNamed = true;
 
-        if (_columnGreenList.Count != 0 && VerboseLogging)
+        if (columnGreenList.Count != 0 && VerboseLogging)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"You have chosen the following columns to be ignored: {String.Join(",", _columnGreenList)}"));
+                $"You have chosen the following columns to be ignored: {String.Join(",", columnGreenList)}"));
 
         var ChiLocations = new List<string>();
-        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !_columnGreenList.Contains(c.ColumnName.Trim())))
+        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !columnGreenList.Contains(c.ColumnName.Trim())))
         {
             foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
             {
@@ -178,7 +172,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
                 }
             }
-            
+
         }
         return toProcess;
     }
@@ -453,7 +447,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
             }
 
-            if (File.Exists(AllowListFile) && AllowLists.Count == 0)
+            if (File.Exists(AllowListFile) && _allowLists.Count == 0)
             {
                 string allowListFileContent = File.ReadAllText(AllowListFile);
                 var deserializer = new DeserializerBuilder().Build();
@@ -466,20 +460,20 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     {
                         columns.Add(column.ToString());
                     }
-                    AllowLists.Add(catalogue, columns);
+                    _allowLists.Add(catalogue, columns);
                 }
             }
             if (hashOnReleaseColumns.Any())
             {
-                bool exists = AllowLists.TryGetValue("RDMP_ALL", out var allowAllList);
+                bool exists = _allowLists.TryGetValue("RDMP_ALL", out var allowAllList);
                 if (exists)
                 {
                     allowAllList.AddRange(hashOnReleaseColumns);
-                    AllowLists["RDMP_ALL"] = allowAllList;
+                    _allowLists["RDMP_ALL"] = allowAllList;
                 }
                 else
                 {
-                    AllowLists.Add("RDMP_ALL", hashOnReleaseColumns.ToList());
+                    _allowLists.Add("RDMP_ALL", hashOnReleaseColumns.ToList());
                 }
             }
         }
