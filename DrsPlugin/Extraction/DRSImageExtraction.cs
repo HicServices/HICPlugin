@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace DrsPlugin.Extraction;
 
-public class DRSImageExtraction : ImageExtraction
+public sealed class DRSImageExtraction : ImageExtraction
 {
     [DemandsInitialization("The name of the column in the dataset which contains the names of the image files (NOT THE FILENAME IN THE IMAGE ARCHIVE)")]
     public string FilenameColumnName { get; set; }
@@ -52,8 +52,7 @@ public class DRSImageExtraction : ImageExtraction
         var progress = 0;
         var extractionMap = new Dictionary<string, Dictionary<string, string>>();
 
-        var sw = new Stopwatch();
-        sw.Start();
+        var sw = Stopwatch.StartNew();
 
         // Process data table, replacing FilenameColumnName, and build the extraction map
         foreach (DataRow row in toProcess.Rows)
@@ -68,13 +67,10 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
-            string[] fileNameReplacementColumns = FileNameReplacementColumns is not null ? FileNameReplacementColumns.Split(',') : new string[] { };
-            if (fileNameReplacementColumns.Length == 0)
-            {
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "No filename replacment columns are specified. This is a good way to leak PII"));
-            }
+            var fileNameReplacementColumns = FileNameReplacementColumns is not null ? FileNameReplacementColumns.Split(',') : Array.Empty<string>();
+            if (fileNameReplacementColumns.Length == 0) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "No filename replacement columns are specified. This is a good way to leak PII"));
 
-            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, AppendIndexCountToFileName is true ? progress : null); //progress used to prevent duplicate file names
+            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, AppendIndexCountToFileName ? progress : null); //progress used to prevent duplicate file names
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
