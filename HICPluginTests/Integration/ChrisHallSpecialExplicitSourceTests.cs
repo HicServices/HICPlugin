@@ -11,6 +11,8 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
     [Test]
     public void TestUse()
     {
+
+        //DataExtractionSpecialExplicitSource
         var source = new ChrisHallSpecialExplicitSource
         {
             DatabaseToUse = "master",

@@ -72,27 +72,6 @@ public class ImageArchiveProcessor
                     i++;
                     listener.OnProgress(this, new ProgressEventArgs($"Archiving {filesToArchive.Count} images", new ProgressMeasurement(i, ProgressType.Records), sw.Elapsed));
                 }
-
-                // todo: refactor this so archive type is selectable
-                /*
-                using (var archive = new ZipArchive(fs, ZipArchiveMode.Create))
-                {
-                    long totalSize = 0;
-
-                    // Add files to it while there are still files left and where the size is within the max uncompressed size
-                    // If maxUncompressedSize is zero then we only create one archive
-                    while ((maxUncompressedSize == 0 || totalSize < maxUncompressedSize) && i < filesToArchive.Count)
-                    {
-                        archive.CreateEntryFromFile(filesToArchive[i].FullName, filesToArchive[i].Name);
-                        archiveMappings[relativeArchivePath].Add(filesToArchive[i].Name);
-                        
-                        File.Delete(filesToArchive[i].FullName);
-                        totalSize += filesToArchive[i].Length;
-                        i++;
-                        listener.OnProgress(this, new ProgressEventArgs("Archiving " + filesToArchive.Count + " images", new ProgressMeasurement(i, ProgressType.Records), sw.Elapsed));
-                    }
-                }
-                 * */
             }
 
             _numArchives++;

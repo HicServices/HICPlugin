@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using Rdmp.Core.Icons.IconProvision;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
+using Rdmp.Core.DataLoad.Modules.DataProvider;
 
 namespace GoDartsPluginUI.CommandExecution.AtomicCommands;
 
@@ -184,12 +185,11 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
         attacher.SaveToDatabase();
 
         var metadataImporter = new ProcessTask(Activator.RepositoryLocator.CatalogueRepository, lmd, LoadStage.PostLoad)
-            {
-                Name = "Import Metadata files",
-                ProcessTaskType = ProcessTaskType.DataProvider,
-                // HACK: Fix this when the class becomes public!
-                Path = "LoadModules.Generic.DataProvider.ShareDefinitionImporter"
-            };
+        {
+            Name = "Import Metadata files",
+            ProcessTaskType = ProcessTaskType.DataProvider,
+            Path = typeof(ShareDefinitionImporter).FullName
+        };
         metadataImporter.SaveToDatabase();
 
         return lmd;

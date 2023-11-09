@@ -211,14 +211,6 @@ public class DrsFileAttacher : Attacher, IPluginAttacher
         }
         notifier.OnCheckPerformed(new CheckEventArgs($"Manifest file found: {ManifestFileName}", CheckResult.Success));
 
-        // Now check that the directories contains the correct files
-        /*
-        using (var archiveProvider = new FilesystemArchiveProvider(LoadDirectory.ForLoading.FullName, _permittedImageExtensions))
-        {
-            CheckImageArchive(archiveProvider, notifier);
-        }
-         * */
-
         // Check we can access the directory at SecureLocalScratchArea
         if (!SecureLocalScratchArea.Exists)
         {
