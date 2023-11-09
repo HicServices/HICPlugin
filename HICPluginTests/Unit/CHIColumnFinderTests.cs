@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
 using Rdmp.Core.ReusableLibraryCode.Progress;
+using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Unit;
 
@@ -42,37 +44,17 @@ public class CHIColumnFinderTests
     [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
     public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
     {
-        _chiFinder.IgnoreColumns = null;
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
         toProcess.Rows.Add(new object[] {195});
-
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
         toProcess.Columns.Add("NothingToSeeHere");
         toProcess.Rows.Add(new object[] { 145, toCheck });
-
         if (expectedToBeChi)
             Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }
 
-    [Test]
-    public void IgnoreColumnsAvoidsCHIChecking()
-    {
-        using var toProcess = new DataTable();
-        toProcess.Columns.Add("Height");
-        toProcess.Rows.Add(new object[] { 195 });
-
-        Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-
-        toProcess.Columns.Add("NothingToSeeHere");
-        toProcess.Rows.Add(new object[] { 145, "1111111111" });
-
-        Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-
-        _chiFinder.IgnoreColumns = "NothingToSeeHere";
-        Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-    }
 }

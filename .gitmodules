@@ -1,4 +1,5 @@
 [submodule "RDMP"]
 	path = RDMP
 	url = https://github.com/HicServices/RDMP.git
-	branch = feature/rc4
+	branch = develop
+
