@@ -49,7 +49,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     private readonly string _csvColumns = "Column,Potential CHI,Value";
     private IBasicActivateItems _activator;
 
-    private bool foundCHIs = false;
     public DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
         if (OverrideUntil.HasValue && OverrideUntil.Value > DateTime.Now)
@@ -62,27 +61,22 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
 
         List<string> columnGreenList = new();
-        if (_allowLists.Count > 0)
-        {
-            if (_allowLists.TryGetValue(RdmpAll, out var _extractionSpecificAllowances))
+        if (_allowLists.TryGetValue(RdmpAll, out var _extractionSpecificAllowances))
                 columnGreenList.AddRange(_extractionSpecificAllowances);
-            if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
+        if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
                 columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
-        }
 
+        var count=0;
         string fileLocation = null;
         if (OutputFileDirectory?.Exists == true)
         {
             var CHIDir = System.IO.Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
-            if (!Directory.Exists(CHIDir))
-            {
-                Directory.CreateDirectory(CHIDir);
-            }
-            fileLocation = System.IO.Path.Combine(CHIDir, toProcess.TableName.ToString() + _potentialChiLocationFileDescriptor).ToString();
+            if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
+            fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
             if (File.Exists(fileLocation) && BailOutAfter>0)
             {
-                var lineCount = File.ReadLines(fileLocation).Count();
-                if (lineCount > 20)
+                count = File.ReadLines(fileLocation).Count()-1;
+                if (count > BailOutAfter)
                 {
                     if (VerboseLogging)
                         listener.OnNotify(this,
@@ -93,86 +87,54 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             }
         }
 
+        var listFile = new Lazy<StreamWriter>(() =>
+            {
+                var stream = fileLocation is not null ? File.AppendText(fileLocation) : null;
+                if (stream?.BaseStream.Length == 0)
+                    stream.WriteLine(_csvColumns);
+                return stream;
+            },
+            LazyThreadSafetyMode.ExecutionAndPublication);
+
         //give the data table the correct name
         if (toProcess.ExtendedProperties.ContainsKey("ProperlyNamed") && toProcess.ExtendedProperties["ProperlyNamed"]?.Equals(true) == true)
             _isTableAlreadyNamed = true;
 
         if (columnGreenList.Count != 0 && VerboseLogging)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                $"You have chosen the following columns to be ignored: {String.Join(",", columnGreenList)}"));
+                $"You have chosen the following columns to be ignored: {string.Join(",", columnGreenList)}"));
 
-        var ChiLocations = new List<string>();
         foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !columnGreenList.Contains(c.ColumnName.Trim())))
         {
             foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
             {
-                foundCHIs = true;
-                if (!string.IsNullOrWhiteSpace(fileLocation))
-                {
-                    try
-                    {
-                        ChiLocations.Add($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
-                    }
-                    catch (Exception)
-                    {
-                        ChiLocations.Add($"{col.ColumnName},Unknown,{val}");
+                Interlocked.Increment(ref count);
+                if (BailOutAfter > 0 && count >= BailOutAfter) break;
 
-                    }
-                }
+                listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
                 if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
                 {
-                    var message =
-                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})";
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, message));
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})"));
                     if (!_isTableAlreadyNamed)
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                             "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
                 }
             }
-            if (ChiLocations.Count != 0)
-            {
-                ReaderWriterLock locker = new ReaderWriterLock();
-                try
-                {
-                    locker.AcquireWriterLock(int.MaxValue);
-                    if (!File.Exists(fileLocation))
-                    {
-                        using (StreamWriter sw = File.CreateText(fileLocation))
-                        {
-                            sw.WriteLine(_csvColumns);
-                        }
-                    }
-                    File.AppendAllLines(fileLocation, ChiLocations);
-                }
-                catch (Exception e)
-                {
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, e.Message));
-                }
-                finally
-                {
-                    locker.ReleaseWriterLock();
-                    if (VerboseLogging)
-                        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {ChiLocations.Count} Potential CHIs to {fileLocation}"));
-
-                }
-            }
+            if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {ChiLocations.Count} Potential CHIs to {fileLocation}"));
 
             continue;
 
             [NotNull]
             string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
         }
-        if (foundCHIs)
+        if (count>0 && OutputFileDirectory?.Exists == true)
         {
-            if (OutputFileDirectory is not null && OutputFileDirectory.Exists)
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{count} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+            if (_activator is not null)
             {
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Some CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
-                if (_activator is not null)
-                {
-                    toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
-                }
+                toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
             }
-
         }
         return toProcess;
     }
