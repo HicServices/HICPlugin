@@ -121,7 +121,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                             "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
                 }
             }
-            if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {ChiLocations.Count} Potential CHIs to {fileLocation}"));
+            if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {count} Potential CHIs to {fileLocation}"));
 
             continue;
 
