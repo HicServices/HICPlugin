@@ -11,10 +11,16 @@ using System.Linq;
 
 namespace DrsPlugin.Extraction;
 
-public class DRSImageExtraction : ImageExtraction
+public sealed class DRSImageExtraction : ImageExtraction
 {
     [DemandsInitialization("The name of the column in the dataset which contains the names of the image files (NOT THE FILENAME IN THE IMAGE ARCHIVE)")]
     public string FilenameColumnName { get; set; }
+
+    [DemandsInitialization("A comma separated list of columns to use to de-identify the image files. The order if this list will set the order of replacement within the extraction. RDMP will prepend the ReleaseID. Historical Releases will typically want to use 'Examination_Date,Image_Num'")]
+    public string FileNameReplacementColumns { get; set; }
+
+    [DemandsInitialization("This will add a number to the end of each file name to prevent duplicate file names. Remove this if your data source has it's own unique identifiers")]
+    public bool AppendIndexCountToFileName { get; set; } = true;
 
     public override DataTable ProcessPipelineData(DataTable toProcess, IDataLoadEventListener listener, GracefulCancellationToken cancellationToken)
     {
@@ -46,8 +52,7 @@ public class DRSImageExtraction : ImageExtraction
         var progress = 0;
         var extractionMap = new Dictionary<string, Dictionary<string, string>>();
 
-        var sw = new Stopwatch();
-        sw.Start();
+        var sw = Stopwatch.StartNew();
 
         // Process data table, replacing FilenameColumnName, and build the extraction map
         foreach (DataRow row in toProcess.Rows)
@@ -62,8 +67,10 @@ public class DRSImageExtraction : ImageExtraction
                 row[FilenameColumnName] = "";
                 continue;
             }
+            var fileNameReplacementColumns = FileNameReplacementColumns is not null ? FileNameReplacementColumns.Split(',') : Array.Empty<string>();
+            if (fileNameReplacementColumns.Length == 0) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning, "No filename replacement columns are specified. This is a good way to leak PII"));
 
-            var newFilename = replacer.GetCorrectFilename(row);
+            var newFilename = replacer.GetCorrectFilename(row, fileNameReplacementColumns, AppendIndexCountToFileName ? progress : null); //progress used to prevent duplicate file names
 
             // Replace the filename column in the dataset, so it no longer contains CHI
             row[FilenameColumnName] = newFilename;
