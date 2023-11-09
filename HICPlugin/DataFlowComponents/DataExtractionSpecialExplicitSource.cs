@@ -21,16 +21,6 @@ public class DataExtractionSpecialExplicitSource : ExecuteDatasetExtractionSourc
     [DemandsInitialization("The collation you want injected into join SQL")]
     public string Collation { get; set; }
 
-    /*
-     * [DemandsInitialization(@"Stored Procedure to call before applying the ANOWrapFunction, use--")]
-     * public string HackStoredProc { get; set; }
-
-    
-     * {x} Project Number
-     * {x} cohort ID
-     * Dataset ID / Name / Table list
-     */
-
     [DemandsInitialization(@"Sql to wrap columns that have an ANOTable_ID transform configured on them (or match AlsoANORegex) , use
 {0} - ColumnSql e.g. UPPER([mytable]..[gp_code])
 {1} - UnderlyingColumnRuntimeName e.g. gp_code
