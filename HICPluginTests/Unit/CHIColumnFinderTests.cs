@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.IO;
+using System.Linq;
 using HICPluginInteractive.DataFlowComponents;
 using NUnit.Framework;
+using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataExport.Data;
+using Rdmp.Core.DataExport.DataExtraction.Commands;
+using Rdmp.Core.DataExport.DataExtraction.UserPicks;
+using Rdmp.Core.MapsDirectlyToDatabaseTable;
+using Rdmp.Core.Repositories;
 using Rdmp.Core.ReusableLibraryCode.Progress;
 using Tests.Common.Scenarios;
 
@@ -57,4 +64,34 @@ public class CHIColumnFinderTests
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }
 
+    [Test]
+    public void TestFile()
+    {
+        var memRepo = new MemoryCatalogueRepository();
+        var dataRepo = new MemoryDataExportRepository();
+        var ds = new ExtractableDataSet(dataRepo, new Catalogue(dataRepo, "cat"));
+        var project = new Project(dataRepo, "test")
+        {
+            ExtractionDirectory = TestContext.CurrentContext.WorkDirectory
+        };
+        var ec = new ExtractionConfiguration(dataRepo, project,"testConfig");
+        ec.AddDatasetToConfiguration(ds);
+        foreach (var ecSelectedDataSet in ec.SelectedDataSets)
+        {
+            ecSelectedDataSet.SaveToDatabase();
+        }
+        var cf = new CHIColumnFinder();
+        var bundle = new ExtractableDatasetBundle(ds)
+        {
+        };
+        var cmd = new ExtractDatasetCommand(ec,bundle);
+        cf.PreInitialize( cmd,ThrowImmediatelyDataLoadEventListener.NoisyPicky);
+        using var toProcess = new DataTable();
+        toProcess.Columns.Add("CHI");
+        toProcess.Rows.Add(new object[] { 1111111111 });
+        Assert.DoesNotThrow(() => cf.ProcessPipelineData(toProcess, _listener, null));
+        var result = Directory.GetFiles(TestContext.CurrentContext.WorkDirectory, "*.csv", SearchOption.AllDirectories)
+            .First(static name => name.EndsWith("_Potential_CHI_Locations.csv", StringComparison.Ordinal));
+        Assert.Contains("CHI,1111111111,1111111111",File.ReadLines(result).ToList());
+    }
 }

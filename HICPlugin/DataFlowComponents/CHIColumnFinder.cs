@@ -70,7 +70,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         string fileLocation = null;
         if (OutputFileDirectory?.Exists == true)
         {
-            var CHIDir = System.IO.Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
+            var CHIDir = Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
             if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
             fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
             if (File.Exists(fileLocation) && BailOutAfter>0)
@@ -104,33 +104,47 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                 $"You have chosen the following columns to be ignored: {string.Join(",", columnGreenList)}"));
 
-        foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !columnGreenList.Contains(c.ColumnName.Trim())))
+        try
         {
-            foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
+            foreach (var col in toProcess.Columns.Cast<DataColumn>().Where(c => !columnGreenList.Contains(c.ColumnName.Trim())))
             {
-                Interlocked.Increment(ref count);
-                if (BailOutAfter > 0 && count >= BailOutAfter) break;
-
-                listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
-                if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
+                foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
                 {
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                        $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})"));
-                    if (!_isTableAlreadyNamed)
+                    Interlocked.Increment(ref count);
+                    if (BailOutAfter > 0 && count > BailOutAfter) break;
+
+                    listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
+                    if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
+                    {
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-                            "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+                            $"Column {col.ColumnName} in Dataset {toProcess.TableName} appears to contain a CHI ({val})"));
+                        if (!_isTableAlreadyNamed)
+                            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+                                "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
+                    }
                 }
+                var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
+                if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {countWritten} Potential CHIs to {fileLocation}"));
+
+                continue;
+
+                [NotNull]
+                string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
             }
-            if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {count} Potential CHIs to {fileLocation}"));
-
-            continue;
-
-            [NotNull]
-            string DeRef([NotNull] DataRow row) => row[col].ToString() ?? "";
         }
+        finally
+        {
+            if (listFile.IsValueCreated && listFile.Value is not null)
+            {
+                listFile.Value?.Flush();
+                listFile.Value?.Dispose();
+            }
+        }
+
         if (count>0 && OutputFileDirectory?.Exists == true)
         {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{count} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+            var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
             if (_activator is not null)
             {
                 toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
@@ -282,7 +296,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     break;
             }
         }
-        return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, 10) : "";
+        return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";
     }
 
     private static bool ContainsValidChi([CanBeNull] object toCheck)
@@ -395,13 +409,14 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     public void PreInitialize(IExtractCommand value, IDataLoadEventListener listener)
     {
         if (value is not ExtractDatasetCommand edcs) return;
+
         OutputFileDirectory = value.GetExtractionDirectory();
         try
         {
             var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
                 .Where(static ei => ei?.HashOnDataRelease == true).Select(static ei => ei.GetRuntimeName()).ToArray();
 
-            if (!hashOnReleaseColumns.Any() && String.IsNullOrWhiteSpace(AllowListFile)) return;
+            if (!hashOnReleaseColumns.Any() && string.IsNullOrWhiteSpace(AllowListFile)) return;
 
             if (hashOnReleaseColumns.Length > 0)
             {
@@ -411,32 +426,25 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
             if (File.Exists(AllowListFile) && _allowLists.Count == 0)
             {
-                string allowListFileContent = File.ReadAllText(AllowListFile);
+                var allowListFileContent = File.ReadAllText(AllowListFile);
                 var deserializer = new DeserializerBuilder().Build();
-                var yamlObject = deserializer.Deserialize<Dictionary<Object, Object>>(allowListFileContent);
-                foreach (var kvp in yamlObject)
+                var yamlObject = deserializer.Deserialize<Dictionary<string, List<string>>>(allowListFileContent);
+                foreach (var (catalogue, columns) in yamlObject)
                 {
-                    string catalogue = kvp.Key.ToString();
-                    List<string> columns = new();
-                    foreach (var column in kvp.Value as List<Object>)
-                    {
-                        columns.Add(column.ToString());
-                    }
                     _allowLists.Add(catalogue, columns);
                 }
             }
-            if (hashOnReleaseColumns.Any())
+
+            if (!hashOnReleaseColumns.Any()) return;
+
+            if (_allowLists.TryGetValue("RDMP_ALL", out var allowAllList))
             {
-                bool exists = _allowLists.TryGetValue("RDMP_ALL", out var allowAllList);
-                if (exists)
-                {
-                    allowAllList.AddRange(hashOnReleaseColumns);
-                    _allowLists["RDMP_ALL"] = allowAllList;
-                }
-                else
-                {
-                    _allowLists.Add("RDMP_ALL", hashOnReleaseColumns.ToList());
-                }
+                allowAllList.AddRange(hashOnReleaseColumns);
+                _allowLists["RDMP_ALL"] = allowAllList;
+            }
+            else
+            {
+                _allowLists.Add("RDMP_ALL", hashOnReleaseColumns.ToList());
             }
         }
         catch (Exception e)
