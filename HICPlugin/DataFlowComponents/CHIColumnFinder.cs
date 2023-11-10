@@ -111,7 +111,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 foreach (var val in toProcess.Rows.Cast<DataRow>().Select(DeRef).AsParallel().Where(ContainsValidChi))
                 {
                     Interlocked.Increment(ref count);
-                    if (BailOutAfter > 0 && count >= BailOutAfter) break;
+                    if (BailOutAfter > 0 && count > BailOutAfter) break;
 
                     listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
                     if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
@@ -123,7 +123,8 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                                 "DataTable has not been named. If you want to know the dataset that the error refers to please add an ExtractCatalogueMetadata to the extraction pipeline."));
                     }
                 }
-                if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {count} Potential CHIs to {fileLocation}"));
+                var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
+                if (count != 0 && VerboseLogging) listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Have Written {countWritten} Potential CHIs to {fileLocation}"));
 
                 continue;
 
@@ -142,7 +143,8 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
         if (count>0 && OutputFileDirectory?.Exists == true)
         {
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{count} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+            var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
             if (_activator is not null)
             {
                 toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
@@ -294,7 +296,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     break;
             }
         }
-        return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, 10) : "";
+        return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";
     }
 
     private static bool ContainsValidChi([CanBeNull] object toCheck)
