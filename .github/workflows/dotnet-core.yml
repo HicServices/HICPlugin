@@ -29,6 +29,10 @@ jobs:
         uses: crazy-max/ghaction-chocolatey@v3
         with:
           args: install -r sqllocaldb --no-progress
+      - name: Populate Databases.yaml 
+        shell: bash
+        run: |
+            find ./RDMP/Tools/rdmp/Databases.yaml -type f -exec sed -i 's/RDMP_/TEST_/g' {} \;
       - name: Initialise LocalDB
         shell: bash
         run: |
@@ -40,10 +44,7 @@ jobs:
           mysql-version: '8.0'
           root-password: 'YourStrong!Passw0rd'
           auto-start: true
-      - name: Populate Databases.yaml 
-        shell: bash
-        run: |
-            find ./RDMP/Tools/rdmp/Databases.yaml -type f -exec sed -i 's/RDMP_/TEST_/g' {} \;
+    
       - name: Set up database
         run: |
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install localhost TEST_ -d
