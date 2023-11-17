@@ -40,7 +40,7 @@ jobs:
           mysql-version: '8.0'
           root-password: 'YourStrong!Passw0rd'
           auto-start: true
-       - name: Populate Databases.yaml 
+      - name: Populate Databases.yaml 
         shell: bash
         run: |
             find ./RDMP/Tools/rdmp/Databases.yaml -type f -exec sed -i 's/RDMP_/TEST_/g' {} \;
