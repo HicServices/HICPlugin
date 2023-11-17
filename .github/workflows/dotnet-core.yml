@@ -17,6 +17,7 @@ jobs:
           repository: HicServices/RDMP
           ref: develop
           path: RDMP
+           submodules: 'recursive'
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 7.0.x
@@ -47,7 +48,7 @@ jobs:
     
       - name: Set up database
         run: |
-          dotnet run -c Release --no-build --project RDMP/Tools/rdmp/rdmp.csproj -- install --createdatabasetimeout 180 "(localdb)\MSSQLLocalDB" TEST_ -e
+          dotnet run -c Release --no-build --project ./RDMP/Tools/rdmp/rdmp.csproj -- install --createdatabasetimeout 180 "(localdb)\MSSQLLocalDB" TEST_ -e
       - name: Test
         run: |
           dotnet test
