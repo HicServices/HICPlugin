@@ -48,7 +48,7 @@ jobs:
     
       - name: Set up database
         run: |
-          dotnet run -c Release --no-build --project ./RDMP/Tools/rdmp/rdmp.csproj -- install --createdatabasetimeout 180 "(localdb)\MSSQLLocalDB" TEST_ -e
+          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install  "(localdb)\MSSQLLocalDB" TEST_ -d
       - name: Test
         run: |
           dotnet test
