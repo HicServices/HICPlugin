@@ -6,9 +6,6 @@
     <Product>JIRATicketing</Product>
     <Copyright>Copyright © Hewlett-Packard Company 2015</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <RestoreAdditionalProjectSources>
-      https://hic.dundee.ac.uk/nuget/nuget;
-    </RestoreAdditionalProjectSources>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
   <ItemGroup>

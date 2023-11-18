@@ -9,7 +9,7 @@ env:
   
 jobs:
   package:
-    runs-on: self-hosted
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -19,15 +19,35 @@ jobs:
           path: RDMP
       - uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 7.0.x
       - name: Get version
         id: version
         shell: cmd
         run: |
           getversions >> %GITHUB_OUTPUT%
+      - name: Install MS SQL 2019 Express LocalDB
+        uses: crazy-max/ghaction-chocolatey@v3
+        with:
+          args: install -r sqllocaldb --no-progress
+      - name: Populate Databases.yaml 
+        shell: bash
+        run: |
+            find ./RDMP/Tools/rdmp/Databases.yaml -type f -exec sed -i 's/RDMP_/TEST_/g' {} \;
+      - name: Initialise LocalDB
+        shell: bash
+        run: |
+          SqlLocalDB.exe create MSSQLLocalDB -s
+          sqlcmd -l 180 -S '(localdb)\MSSQLLocalDB' -Q "SELECT @@VERSION;"
+          sed -i'' -e 's/localhost/\(localdb\)\\MSSQLLocalDB/' RDMP/Tests.Common/TestDatabases.txt
+      - uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: '8.0'
+          root-password: 'YourStrong!Passw0rd'
+          auto-start: true
+    
       - name: Set up database
         run: |
-          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install localhost TEST_ -d
+          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- install --createdatabasetimeout 1800 "(localdb)\MSSQLLocalDB" TEST_ -e
       - name: Test
         run: |
           dotnet test
@@ -50,8 +70,8 @@ jobs:
 
           dotnet publish Plugin/windows/windows.csproj -c Release -o p/windows
           dotnet publish Plugin/main/main.csproj -c Release -o p/main
-          cmd /c 7z a -tzip HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg plugin.nuspec p
-          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
+          cmd /c 7z a -tzip HIC.Rdmp.HicPlugin.Plugin.${{ steps.version.outputs.version }}.nupkg plugin.nuspec p
+          dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file HIC.Rdmp.HicPlugin.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
         uses: actions/upload-artifact@v3
@@ -64,4 +84,4 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          file: 'HIC.Rdmp.Extensions.Plugin.${{ steps.version.outputs.version }}.nupkg'
+          file: 'HIC.Rdmp.HicPlugin.Plugin.${{ steps.version.outputs.version }}.nupkg'

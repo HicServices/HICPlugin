@@ -5,9 +5,6 @@
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <RestoreAdditionalProjectSources>
-      https://hic.dundee.ac.uk/nuget/nuget;
-    </RestoreAdditionalProjectSources>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="TestData\report-with-float-values.xml" />
