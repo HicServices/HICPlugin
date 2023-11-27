@@ -194,7 +194,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         Complete
     }
 
-    private static string GetPotentialCHI(string toCheckStr)
+    public static string GetPotentialCHI(string toCheckStr)
     {
         if (string.IsNullOrWhiteSpace(toCheckStr) || toCheckStr.Length < 9) return "";
 
