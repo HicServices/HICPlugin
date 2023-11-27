@@ -12,6 +12,10 @@ using HICPluginInteractive.DataFlowComponents;
 using Rdmp.Core.ReusableLibraryCode.DataAccess;
 using System.Data;
 using static NPOI.HSSF.Util.HSSFColor;
+using Rdmp.Core.Curation.Data.Defaults;
+using TB.ComponentModel;
+using FAnsi.Discovery.TableCreation;
+using HICPlugin.Curation.Data;
 
 namespace HICPlugin.CommandExecution.AtomicCommands;
 
@@ -39,11 +43,32 @@ public class ExecuteCommandRedactCHIsFromCatalogue : BasicCommandExecution, IAto
             }
         }
     }
+
+    //private DataTable GetRedactionDataTable()
+    //{
+        //var c = _activator.RepositoryLocator.CatalogueRepository.
+            //var dqe = _activator.ServerDefaults.GetDefaultFor(PermissableDefaults.DQE);
+        //var discoveredDQE = dqe.Discover(DataAccessContext.InternalDataProcessing);
+        //var table = discoveredDQE.DiscoverTables(false).Where(t => t.GetRuntimeName() == "dbo.RedactedCHIs");
+        //if (table != null)
+        //{
+        //    return table.ToDataTable();
+        //}
+        //var args = new CreateTableArgs(discoveredDQE, "dbo.RedactedCHIs","");
+        //table = (IEnumerable<FAnsi.Discovery.DiscoveredTable>)discoveredDQE.CreateTable(args);
+        //Console.WriteLine(table);
+        //Console.WriteLine(table.ToString());
+        //return table.ToDataTable();
+
+    //}
+
     private void handleFoundCHI(string foundChi, string table, string column, string columnValue)
     {
+        Console.WriteLine("Found CHI!");
+        //var rc = new RedactedCHI() { PotentialCHI = foundChi, CHIContext="testing" };
+        //rc.SaveToDatabase();
         var redactedValue = columnValue.Replace(foundChi, "REDACTED");//TODO save to db and get ID back
         var sql = $"UPDATE {table} SET {column}='{redactedValue}' where {column}='{columnValue}'";
-        Console.WriteLine(sql);
         var server = _catalouge.GetDistinctLiveDatabaseServer(DataAccessContext.InternalDataProcessing, false);
         var conn = server.GetConnection();
         conn.Open();
