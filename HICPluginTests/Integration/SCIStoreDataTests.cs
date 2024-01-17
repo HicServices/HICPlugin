@@ -29,10 +29,10 @@ public class SCIStoreDataTests
         var reportFactory = new SciStoreReportFactory(readCodeConstraint);
         var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-       // Assert.Equals(7, report.Samples.Count);
+       Assert.That(7, Is.EqualTo(report.Samples.Count));
 
         var totalNumResults = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
-       // Assert.Equals(21, totalNumResults);
+       Assert.That(21, Is.EqualTo(totalNumResults));
 
     }
 
@@ -55,10 +55,10 @@ public class SCIStoreDataTests
         var reportFactory = new SciStoreReportFactory(readCodeConstraint);
         var report = reportFactory.Create(data, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-       // Assert.Equals(7, report.Samples.Count);
+       Assert.That(7, Is.EqualTo(report.Samples.Count));
 
         var totalNumResults = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
-       // Assert.Equals(21, totalNumResults);
+       Assert.That(21, Is.EqualTo(totalNumResults));
 
         //artificially introduce duplication
         foreach (var sciStoreSample in report.Samples)
@@ -74,7 +74,7 @@ public class SCIStoreDataTests
         }
             
         var totalNumResultsAfterResolvingArtificiallyCreatedDuplication = report.Samples.Aggregate(0, static (s, n) => s + n.Results.Count);
-       // Assert.Equals(7, totalNumResultsAfterResolvingArtificiallyCreatedDuplication);
+       Assert.That(7, Is.EqualTo(totalNumResultsAfterResolvingArtificiallyCreatedDuplication));
 
 
     }

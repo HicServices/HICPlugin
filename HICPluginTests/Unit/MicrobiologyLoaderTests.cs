@@ -222,11 +222,11 @@ GORA1H
         var results = CreateReaderFromString(testString, true);
 
 
-       // Assert.Equals(5, results.Count(r => r is MB_Lab));
-       // Assert.Equals(5, results.Where(r => r is MB_Tests).Cast<MB_Tests>().Count(t=>t.TestCode.Equals("VTK")));
+       Assert.That(5, Is.EqualTo(results.Count(r => r is MB_Lab)));
+       Assert.That(5, Is.EqualTo(results.Where(r => r is MB_Tests).Cast<MB_Tests>().Count(t=>t.TestCode.Equals("VTK"))));
 
-       // Assert.Equals(35, results.Count(r => r is MB_IsolationResult));
-       // Assert.Equals(2, results.Count(r => r is MB_Isolation));
+       Assert.That(35, Is.EqualTo(results.Count(r => r is MB_IsolationResult)));
+       Assert.That(2, Is.EqualTo(results.Count(r => r is MB_Isolation)));
 
 
     }
@@ -287,23 +287,23 @@ MB
 THOK1H
 ";
         var results = CreateReaderFromString(testString, true);
-       // Assert.Equals(6,results.Count);
+       Assert.That(6,Is.EqualTo(results.Count));
 
         var isolations = results.Where(r => r is MB_Isolation).Cast<MB_Isolation>().ToArray();
-       // Assert.Equals(2, isolations.Length);
+       Assert.That(2, Is.EqualTo(isolations.Length));
 
 
-       // Assert.Equals(0, results.Count(r => r is MB_IsolationResult));//should be no results because there are no "$SENS             S" etc bits
+       Assert.That(0, Is.EqualTo(results.Count(r => r is MB_IsolationResult)));//should be no results because there are no "$SENS             S" etc bits
 
-       // Assert.Equals("SAUR",isolations[0].organismCode );
-       // Assert.Equals("P", isolations[0].WeightGrowth_cd);
-       // Assert.Equals("Y",isolations[0].IntCode1);
-       // Assert.Equals("Y",isolations[0].IntCode2);
+       Assert.That("SAUR",Is.EqualTo(isolations[0].organismCode ));
+       Assert.That("P", Is.EqualTo(isolations[0].WeightGrowth_cd));
+       Assert.That("Y",Is.EqualTo(isolations[0].IntCode1));
+       Assert.That("Y",Is.EqualTo(isolations[0].IntCode2));
 
-       // Assert.Equals("BOBY",isolations[1].organismCode);
-       // Assert.Equals("Z",isolations[1].WeightGrowth_cd);
-       // Assert.Equals("N",isolations[1].IntCode1);
-       // Assert.Equals("N",isolations[1].IntCode2);
+       Assert.That("BOBY",Is.EqualTo(isolations[1].organismCode));
+       Assert.That("Z",Is.EqualTo(isolations[1].WeightGrowth_cd));
+       Assert.That("N",Is.EqualTo(isolations[1].IntCode1));
+       Assert.That("N",Is.EqualTo(isolations[1].IntCode2));
 
 
 
@@ -332,8 +332,8 @@ MB
 NG
 ";
         var results = CreateReaderFromString(testString, true);
-       // Assert.Equals(3, results.Count);
-       // Assert.Equals("LIKELY APPENDICITIS|PERSISTENT FEVER & SIRS|ON AMOX- GENT- METRO|###SENT IN WITHOUT FORM OR ICE REQUEST. DETAILS ON A HISTORY/CONTINUATION SHEET NP 11/11/11", ((MB_Lab)results.Single(r => r is MB_Lab)).Comments);
+       Assert.That(3, Is.EqualTo(results.Count));
+       Assert.That("LIKELY APPENDICITIS|PERSISTENT FEVER & SIRS|ON AMOX- GENT- METRO|###SENT IN WITHOUT FORM OR ICE REQUEST. DETAILS ON A HISTORY/CONTINUATION SHEET NP 11/11/11", Is.EqualTo(((MB_Lab)results.Single(r => r is MB_Lab)).Comments));
 
     }
 
@@ -377,7 +377,7 @@ MB
 LOVG1H
 ";
         var results = CreateReaderFromString(testString, true);
-       // Assert.Equals(11, results.Count);
+        Assert.That(11, Is.EqualTo(results.Count));
     }
 
     [Test]
@@ -425,9 +425,9 @@ The following record ids do not exist:
 
 ";
         var results = CreateReaderFromString(testString, true);
-       // Assert.Equals(11, results.Count);
-       // Assert.Equals("11:11",((MB_Lab)results.Single(r=>r is MB_Lab)).RcvTime);
-       // Assert.Equals("11:11", ((MB_Lab)results.Single(r => r is MB_Lab)).SampleTime);
+       Assert.That(11, Is.EqualTo(results.Count));
+       Assert.That("11:11",Is.EqualTo(((MB_Lab)results.Single(r=>r is MB_Lab)).RcvTime));
+       Assert.That("11:11", Is.EqualTo(((MB_Lab)results.Single(r => r is MB_Lab)).SampleTime));
     }
 
     [Test]
@@ -472,7 +472,7 @@ MB
 DYMT1G
 ";
         var results = CreateReaderFromString(testString, false);
-       // Assert.Equals(4,results.Count);
+       Assert.That(4,Is.EqualTo(results.Count));
     }
 
     [Test]
@@ -614,7 +614,7 @@ MB
 JOSJ1H
 ";
         var results = CreateReaderFromString(testString, false);
-       // Assert.Equals(90, results.Count);
+       Assert.That(90, Is.EqualTo(results.Count));
 
     }
 
@@ -689,12 +689,12 @@ MP
 SHEA1H";
         var results = CreateReaderFromString(testString, true);
 
-       // Assert.Equals(12,results.Count(r => r is MB_IsolationResult));
+       Assert.That(12,Is.EqualTo(results.Count(r => r is MB_IsolationResult)));
 
         var t = ((MB_Tests) results.FirstOrDefault(r => r is MB_Tests));
 
         Assert.That(t, Is.Not.Null);
-       // Assert.Equals("BLAN", t.TestCode);
+       Assert.That("BLAN", Is.EqualTo(t.TestCode));
 
     }
 }

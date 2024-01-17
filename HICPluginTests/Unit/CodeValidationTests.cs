@@ -48,7 +48,7 @@ public class CodeValidationTests : DatabaseTests
         var testSetFactory = new TestSetFactory(readCodeConstraint);
         var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-       // Assert.Equals("NOT_A_READ_CODE", testDetails.LocalCode.Value);
+       Assert.That("NOT_A_READ_CODE", Is.EqualTo(testDetails.LocalCode.Value));
         Assert.That(testDetails.ReadCode, Is.Null);
     }
 
@@ -84,7 +84,7 @@ public class CodeValidationTests : DatabaseTests
         var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
         Assert.That(testDetails.ReadCode, Is.Not.Null);// "The value has not been picked up as a read code");
-       // Assert.Equals(".0766", testDetails.ReadCode.Value);
+       Assert.That(".0766", Is.EqualTo(testDetails.ReadCode.Value));
         Assert.That(testDetails.LocalCode, Is.Null);
     }
 
@@ -137,7 +137,7 @@ public class CodeValidationTests : DatabaseTests
         Assert.That(testDetails.ReadCode,Is.Not.Null);
         Assert.That(testDetails.LocalCode,Is.Not.Null);
 
-       // Assert.Equals("4Q24.", testDetails.ReadCode.Value);
-       // Assert.Equals("GGOC", testDetails.LocalCode.Value);
+       Assert.That("4Q24.", Is.EqualTo(testDetails.ReadCode.Value));
+       Assert.That("GGOC",Is.EqualTo( testDetails.LocalCode.Value));
     }
 }

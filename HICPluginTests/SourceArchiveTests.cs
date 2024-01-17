@@ -35,7 +35,7 @@ public class SourceArchiveTests
 
             using var file1 = archiveProvider.EntryStreams.Single(kvp => kvp.Key == "file1.txt").Value;
             using var reader = new StreamReader(file1);
-           // Assert.Equals("test", reader.ReadLine());
+           Assert.That("test", Is.EqualTo(reader.ReadLine()));
         }
         finally
         {

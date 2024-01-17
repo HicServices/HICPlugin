@@ -18,6 +18,6 @@ class CHIMutilatorTests:UnitTests
 
         //property defaults to true
         var addZero = pt.ProcessTaskArguments.Single(static a => a.Name.Equals("TryAddingZeroToFront"));
-       // Assert.Equals(true,addZero.GetValueAsSystemType());
+        Assert.That(true,Is.EqualTo(addZero.GetValueAsSystemType()));
     }
 }
