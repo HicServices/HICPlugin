@@ -120,6 +120,6 @@ public class ContextTests : DatabaseTests
         if (_setupException != null)
             throw new Exception("Crashed during setup",_setupException);
 
-        Assert.IsNotNull(_pipelineDatabaseHelper.Pipe);
+        Assert.That(_pipelineDatabaseHelper.Pipe,Is.Not.Null);
     }
 }

@@ -117,7 +117,7 @@ public class AttacherTests : DatabaseTests
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
 
-            Assert.AreEqual($"No files found in ForLoading: {loadDirectory.ForLoading}", ex?.Message);
+            Assert.Equals($"No files found in ForLoading: {loadDirectory.ForLoading}", ex?.Message);
         }
         finally
         {
@@ -171,7 +171,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.AreEqual(ex?.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
+            Assert.Equals(ex?.Message, "SecureLocalScratchArea is not empty, please ensure it is empty before attempting to attach.");
         }
         finally
         {
@@ -198,7 +198,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.AreEqual("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex?.Message);
+            Assert.Equals("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", ex?.Message);
         }
         finally
         {
@@ -224,7 +224,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.AreEqual("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex?.Message);
+            Assert.Equals("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", ex?.Message);
         }
         finally
         {
@@ -259,10 +259,10 @@ public class AttacherTests : DatabaseTests
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
-            Assert.IsTrue(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)));
+            Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)), Is.True);
 
             // Should be three zip files in the archive
-            Assert.AreEqual(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
+            Assert.Equals(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
                 archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
                     .Select(f => f.Name).ToArray());
         }
@@ -327,10 +327,10 @@ public class AttacherTests : DatabaseTests
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
             // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
-            Assert.IsTrue(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)));
+            Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)),Is.True);
 
             // Should be three zip files in the archive
-            Assert.AreEqual(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
+            Assert.Equals(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
                 archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
                     .Select(f => f.Name).ToArray());
         }
@@ -442,7 +442,7 @@ public class AttacherTests : DatabaseTests
             var ex = Assert.Throws<InvalidOperationException>(() => integrityChecker.VerifyIntegrityOfStrippedImages(archiveProvider, imageDir.FullName, ThrowImmediatelyDataLoadEventListener.Quiet),
                 "The image pixel data does not match so this method should throw. Otherwise it is reporting that there is no integrity problem when there is one.");
 
-            Assert.IsTrue(ex?.Message.Contains("The pixel byte array lengths are different"));
+            Assert.That(ex?.Message.Contains("The pixel byte array lengths are different"), Is.True);
             Console.WriteLine(ex?.Message);
         }
         finally
@@ -464,8 +464,8 @@ public class AttacherTests : DatabaseTests
             RarHelper.ExtractMultiVolumeArchive(testDir);
 
             // Now check we have the correct files
-            Assert.AreEqual(2, testDir.EnumerateFiles("*.jpeg").Count());
-            Assert.AreEqual(2, testDir.EnumerateFiles("*.png").Count());
+            Assert.Equals(2, testDir.EnumerateFiles("*.jpeg").Count());
+            Assert.Equals(2, testDir.EnumerateFiles("*.png").Count());
 
         }
         finally
@@ -492,18 +492,18 @@ public class AttacherTests : DatabaseTests
                 imgFile.Delete();
             }
 
-            Assert.AreEqual(4, testDir.EnumerateFiles().Count());
+            Assert.Equals(4, testDir.EnumerateFiles().Count());
 
             var processor = new ImageArchiveProcessor(testDir, testDir, 1);
             processor.ArchiveImagesForStorage(ThrowImmediatelyDataLoadEventListener.Quiet, 1024 * 1024);
 
             var imageDirPath = Path.Combine(testDir.FullName, "1");
-            Assert.IsTrue(Directory.Exists(imageDirPath));
+            Assert.That(Directory.Exists(imageDirPath), Is.True);
 
             var remainingFiles = Directory.EnumerateFiles(imageDirPath).ToList();
-            Assert.AreEqual(3, remainingFiles.Count);
-            Assert.AreEqual(3, remainingFiles.Count(f => Path.GetExtension(f) == ".tar"));
-            Assert.AreEqual(new[] { "1_1.tar", "1_2.tar", "1_3.tar" }, remainingFiles.Select(Path.GetFileName).ToArray());
+            Assert.Equals(3, remainingFiles.Count);
+            Assert.Equals(3, remainingFiles.Count(f => Path.GetExtension(f) == ".tar"));
+            Assert.Equals(new[] { "1_1.tar", "1_2.tar", "1_3.tar" }, remainingFiles.Select(Path.GetFileName).ToArray());
         }
         finally
         {
@@ -563,8 +563,8 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(_job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-            Assert.AreEqual(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(),
-                "There should be 3 zip files in the archive directory.");
+            Assert.Equals(3, archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count());//,
+                // "There should be 3 zip files in the archive directory.");
 
             // Check that the ImageArchiveUriColumn has been updated in the database
             var uriListFromDatabase = new List<string>();
@@ -586,7 +586,7 @@ public class AttacherTests : DatabaseTests
                 @"1\1_2.tar!2_2345678901_2016-05-18_LM_2_PW1024_PH768.png"
             };
 
-            Assert.IsTrue(!expectedUriList.Except(uriListFromDatabase).Any());
+            Assert.That(!expectedUriList.Except(uriListFromDatabase).Any(), Is.True);
         }
         finally
         {

@@ -86,10 +86,10 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
 
             var downloadDir = Path.Combine(rootDirectory.FullName, "T", "Biochemistry");
             var expectedArchiveFilepath = Path.Combine(downloadDir, "2015-01-01.zip");
-            Assert.IsTrue(File.Exists(expectedArchiveFilepath));
+            Assert.That(File.Exists(expectedArchiveFilepath),Is.True);
 
             // make sure that the archiver has cleaned up after itself
-            Assert.IsEmpty(Directory.EnumerateFiles(downloadDir, "*.xml"));
+            Assert.That(Directory.EnumerateFiles(downloadDir, "*.xml"), Is.Empty);
         }
         finally
         {

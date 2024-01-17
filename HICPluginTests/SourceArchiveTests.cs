@@ -28,14 +28,14 @@ public class SourceArchiveTests
             var archiveProvider = new FilesystemArchiveProvider(rootDirPath, new[] {".txt"}, ThrowImmediatelyDataLoadEventListener.Quiet);
             var entryNames = archiveProvider.EntryNames.ToList();
 
-            Assert.IsTrue(entryNames.Contains("file1.txt"));
-            Assert.IsTrue(entryNames.Contains("file2.txt"));
-            Assert.IsTrue(entryNames.Contains("file3.txt"));
-            Assert.IsFalse(entryNames.Contains("not-part-of-archive.foo"));
+            Assert.That(entryNames.Contains("file1.txt"), Is.True);
+            Assert.That(entryNames.Contains("file2.txt"), Is.True);
+            Assert.That(entryNames.Contains("file3.txt"), Is.True);
+            Assert.That(entryNames.Contains("not-part-of-archive.foo"), Is.False);
 
             using var file1 = archiveProvider.EntryStreams.Single(kvp => kvp.Key == "file1.txt").Value;
             using var reader = new StreamReader(file1);
-            Assert.AreEqual("test", reader.ReadLine());
+            Assert.Equals("test", reader.ReadLine());
         }
         finally
         {

@@ -33,6 +33,6 @@ public class ContextTests : DatabaseTests
         var cacheContext = (DataFlowPipelineContext<ICacheChunk>)useCase.GetContext();
 
         //we shouldn't be able to have data export sources in this context
-        Assert.IsTrue(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)));
+        Assert.That(cacheContext.IsAllowable(typeof(SCIStoreWebServiceSource)), Is.True);
     }
 }

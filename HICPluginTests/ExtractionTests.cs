@@ -39,7 +39,7 @@ public class ExtractionTests : DatabaseTests
         var replacer = new DRSFilenameReplacer(extractionIdentifierColumn, "Image_Filename");
 
         string[] renameParams = {"Examination_Date", "Image_Num"};
-        Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0],renameParams,null));
+        Assert.Equals("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0],renameParams,null));
     }
 
     [Test]
@@ -93,13 +93,13 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.NotNull(imageDir, "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);// "Extraction directory to hold images has not been created");
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
-            Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
+            Assert.Equals(1, imageFiles.Count);
+            Assert.Equals("R00001_2016-05-17_1.png", imageFiles[0].Name);
 
-            Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
+            Assert.That(dt.Columns.Contains("ImageArchiveUri"), Is.False);
         }
         catch (Exception)
         {
@@ -171,13 +171,13 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.NotNull(imageDir, "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);// "Extraction directory to hold images has not been created");
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
-            Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
+            Assert.Equals(1, imageFiles.Count);
+            Assert.Equals("R00001_2016-05-17_1.png", imageFiles[0].Name);
 
-            Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
+            Assert.That(dt.Columns.Contains("ImageArchiveUri"), Is.False);
         }
         catch (Exception)
         {

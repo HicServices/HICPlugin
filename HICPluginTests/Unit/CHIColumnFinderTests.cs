@@ -92,6 +92,6 @@ public class CHIColumnFinderTests
         Assert.DoesNotThrow(() => cf.ProcessPipelineData(toProcess, _listener, null));
         var result = Directory.GetFiles(TestContext.CurrentContext.WorkDirectory, "*.csv", SearchOption.AllDirectories)
             .First(static name => name.EndsWith("_Potential_CHI_Locations.csv", StringComparison.Ordinal));
-        Assert.Contains("CHI,1111111111,1111111111",File.ReadLines(result).ToList());
+        Assert.Equals(File.ReadLines(result).ToList().Contains("CHI,1111111111,1111111111"),true);
     }
 }

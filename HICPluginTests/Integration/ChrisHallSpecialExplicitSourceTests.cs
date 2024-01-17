@@ -22,6 +22,6 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
         source.PreInitialize(_request,ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
-        Assert.NotNull(chunk);
+        Assert.That(chunk, Is.Not.Null);
     }
 }

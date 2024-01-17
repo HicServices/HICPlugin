@@ -111,15 +111,15 @@ public class SCIStoreWebServiceSourceTests : DatabaseTests
                 return;
             }
 
-            Assert.IsNotNull(chunk);
-            Assert.AreEqual(downloadException, chunk.DownloadRequestFailedException);
+            Assert.That(chunk,Is.Not.Null);
+            Assert.Equals(downloadException, chunk.DownloadRequestFailedException);
 
             var failures = CatalogueRepository.GetAllObjects<CacheFetchFailure>();
             var numFailures = failures.Length;
-            Assert.AreEqual(1, numFailures, "The cache fetch failure was not recorded correctly.");
+            Assert.Equals(1, numFailures);//, "The cache fetch failure was not recorded correctly.");
 
             var failure = failures[0];
-            Assert.AreEqual(cacheFetchRequest.Start, failure.FetchRequestStart);
+            Assert.Equals(cacheFetchRequest.Start, failure.FetchRequestStart);
         }
         catch (Exception e)
         {

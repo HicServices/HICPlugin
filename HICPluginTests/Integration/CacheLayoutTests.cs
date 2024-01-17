@@ -43,7 +43,7 @@ class CacheLayoutTests : DatabaseTests
         var downloadDirectory = cacheLayout.GetLoadCacheDirectory(ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var expectedDownloadPath = Path.Combine(rootDirectory.FullName, "T", "Biochemistry");
-        Assert.AreEqual(expectedDownloadPath, downloadDirectory.FullName);
+        Assert.Equals(expectedDownloadPath, downloadDirectory.FullName);
     }
 
     [Test]
@@ -58,16 +58,16 @@ class CacheLayoutTests : DatabaseTests
         cacheLayout.CreateIfNotExists(ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var expectedDownloadDirectory = new DirectoryInfo(Path.Combine(cacheDirectory.FullName, "T", "Biochemistry"));
-        Assert.IsTrue(expectedDownloadDirectory.Exists, "The cache has not created directory into which the individual report files will be copied");
+        Assert.That(expectedDownloadDirectory.Exists, Is.True);//"The cache has not created directory into which the individual report files will be copied");
 
         // stick some dummy files in the directory and check if archiving works
         File.WriteAllText(Path.Combine(expectedDownloadDirectory.FullName, "12345.xml"), "Test");
 
         cacheLayout.CreateArchive(fetchDate);
         var archiveFile = cacheLayout.GetArchiveFileInfoForDate(fetchDate, ThrowImmediatelyDataLoadEventListener.Quiet);
-        Assert.IsTrue(archiveFile.Exists);
+        Assert.That(archiveFile.Exists,Is.True);
 
         const string expectedArchiveFilename = "2005-01-01.zip";
-        Assert.AreEqual(expectedArchiveFilename, archiveFile.Name);
+        Assert.Equals(expectedArchiveFilename, archiveFile.Name);
     }
 }
