@@ -198,7 +198,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.Equals("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", Is.EqualTo(ex?.Message));
+            Assert.That("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", Is.EqualTo(ex?.Message));
         }
         finally
         {
@@ -224,7 +224,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-           Assert.That("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", Is.EqualTo(ex?.Message)_;
+           Assert.That("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", Is.EqualTo(ex?.Message));
         }
         finally
         {
