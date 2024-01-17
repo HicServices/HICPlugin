@@ -296,10 +296,21 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     break;
             }
         }
-        return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";
-    }
+        if (ValidBits(day, month, year, check))
+        {
+            try
+            {
+                return toCheckStr.Substring(indexOfDay, Math.Min(10, toCheckStr.Length));
+            }
+            catch (Exception)
+            {
+                return "Was unable to correctly fetch this CHI";
+            }
+        }
+        return "";
+        //return /*ValidBits*/(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";    }
 
-    private static bool ContainsValidChi([CanBeNull] object toCheck)
+        private static bool ContainsValidChi([CanBeNull] object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
             return false;
