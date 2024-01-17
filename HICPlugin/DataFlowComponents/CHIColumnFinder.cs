@@ -113,7 +113,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     Interlocked.Increment(ref count);
                     if (BailOutAfter > 0 && count > BailOutAfter) break;
 
-                    listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val)},{val}");
+                    listFile.Value?.WriteLine($"{col.ColumnName},{GetPotentialCHI(val, listener)},{val}");
                     if (VerboseLogging || string.IsNullOrWhiteSpace(fileLocation))
                     {
                         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
