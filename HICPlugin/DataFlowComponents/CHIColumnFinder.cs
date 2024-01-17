@@ -305,7 +305,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             catch (Exception)
             {
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                                  $"We think there is a CHI in the string {toCheckStr} at index {indexOfDay}, but were inable to find it"));
+                                  $"We think there is a CHI in the string {toCheckStr} at index {indexOfDay}, but were unable to find it"));
                 return "Unable to find CHI";
             }
         }
