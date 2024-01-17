@@ -62,20 +62,20 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
         List<string> columnGreenList = new();
         if (_allowLists.TryGetValue(RdmpAll, out var _extractionSpecificAllowances))
-                columnGreenList.AddRange(_extractionSpecificAllowances);
+            columnGreenList.AddRange(_extractionSpecificAllowances);
         if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
-                columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
+            columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
 
-        var count=0;
+        var count = 0;
         string fileLocation = null;
         if (OutputFileDirectory?.Exists == true)
         {
             var CHIDir = Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
             if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
             fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
-            if (File.Exists(fileLocation) && BailOutAfter>0)
+            if (File.Exists(fileLocation) && BailOutAfter > 0)
             {
-                count = File.ReadLines(fileLocation).Count()-1;
+                count = File.ReadLines(fileLocation).Count() - 1;
                 if (count > BailOutAfter)
                 {
                     if (VerboseLogging)
@@ -141,13 +141,13 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             }
         }
 
-        if (count>0 && OutputFileDirectory?.Exists == true)
+        if (count > 0 && OutputFileDirectory?.Exists == true)
         {
             var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
             if (_activator is not null)
             {
-                toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string,IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.",_activator));
+                toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string, IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.", _activator));
             }
         }
         return toProcess;
@@ -308,9 +308,10 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             }
         }
         return "";
-        //return /*ValidBits*/(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";    }
+        //return /*ValidBits*/(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10,toCheckStr.Length)) : "";
+    }
 
-        private static bool ContainsValidChi([CanBeNull] object toCheck)
+    private static bool ContainsValidChi([CanBeNull] object toCheck)
     {
         if (toCheck == null || toCheck == DBNull.Value)
             return false;
