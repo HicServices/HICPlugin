@@ -15,7 +15,7 @@ using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Unit;
 
-public class CHIColumnFinderTests
+public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
 {
     private readonly CHIColumnFinder _chiFinder=new();
     private readonly ThrowImmediatelyDataLoadEventListener _listener=ThrowImmediatelyDataLoadEventListener.QuietPicky;
@@ -49,17 +49,24 @@ public class CHIColumnFinderTests
 
     [TestCase("1111111111 101010109", true)] //valid 10 digit and valid 9 digit with whitespace between
     [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
+    [TestCase("", false)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
     public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
     {
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
         toProcess.Rows.Add(new object[] {195});
+        _chiFinder.PreInitialize(_request, _listener);
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
         toProcess.Columns.Add("NothingToSeeHere");
         toProcess.Rows.Add(new object[] { 145, toCheck });
         if (expectedToBeChi)
-            Assert.Throws<Exception>(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+        {
+            Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+            var lines = File.ReadAllLines(_request.GetExtractionDirectory().FullName + "/FoundCHIs/_potential_CHI_Locations.csv");
+            Assert.That(lines.Length, Is.EqualTo(2));
+            //Assert.That(lines[1].Contains($",{toCheck}"), Is.True);
+        }
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }

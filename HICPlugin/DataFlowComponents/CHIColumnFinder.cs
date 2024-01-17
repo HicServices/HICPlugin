@@ -194,7 +194,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         Complete
     }
 
-    private static string GetPotentialCHI(string toCheckStr)
+    private string GetPotentialCHI(string toCheckStr, IDataLoadEventListener listener )
     {
         if (string.IsNullOrWhiteSpace(toCheckStr) || toCheckStr.Length < 9) return "";
 
@@ -304,6 +304,8 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             }
             catch (Exception)
             {
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
+                                  $"We think there is a CHI in the string {toCheckStr} at index {indexOfDay}, but were inable to find it"));
                 return "Unable to find CHI";
             }
         }
