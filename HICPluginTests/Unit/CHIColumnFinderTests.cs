@@ -15,10 +15,10 @@ using Tests.Common.Scenarios;
 
 namespace HICPluginTests.Unit;
 
-public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
+public class CHIColumnFinderTests : TestsRequiringAnExtractionConfiguration
 {
-    private readonly CHIColumnFinder _chiFinder=new();
-    private readonly ThrowImmediatelyDataLoadEventListener _listener=ThrowImmediatelyDataLoadEventListener.QuietPicky;
+    private readonly CHIColumnFinder _chiFinder = new();
+    private readonly ThrowImmediatelyDataLoadEventListener _listener = ThrowImmediatelyDataLoadEventListener.QuietPicky;
 
     [Test]
     [TestCase("1111111111", true)] //valid CHI
@@ -54,7 +54,7 @@ public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
     {
         using var toProcess = new DataTable();
         toProcess.Columns.Add("Height");
-        toProcess.Rows.Add(new object[] {195});
+        toProcess.Rows.Add(new object[] { 195 });
         _chiFinder.PreInitialize(_request, _listener);
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
 
@@ -72,6 +72,30 @@ public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
     }
 
     [Test]
+    [TestCaseSource("CHIS")]
+    public void TestForBadString(string toCheck)
+    {
+        using var toProcess = new DataTable();
+        toProcess.Columns.Add("Height");
+        toProcess.Rows.Add(new object[] { 195 });
+        _chiFinder.PreInitialize(_request, _listener);
+        Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+
+        toProcess.Columns.Add("NothingToSeeHere");
+        toProcess.Rows.Add(new object[] { 145, toCheck });
+        Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+    }
+
+    static object[] CHIS = {
+        "e4401697-4561-494f-9b37-e1753686558b",
+        "c93c9758-79b2-4d08-95ea-f1e210774568",
+        "43b50060-2279-49c6-9ef2-7d404864195e",
+        "930d4608-009c-4d73-9292-a201825501a2",
+        "cb17401d-8c92-4483-854f-ecb704026279",
+        "1896911d-7148-4bc2-8dc2-ddb371240550"
+    };
+
+    [Test]
     public void TestFile()
     {
         var memRepo = new MemoryCatalogueRepository();
@@ -81,7 +105,7 @@ public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
         {
             ExtractionDirectory = TestContext.CurrentContext.WorkDirectory
         };
-        var ec = new ExtractionConfiguration(dataRepo, project,"testConfig");
+        var ec = new ExtractionConfiguration(dataRepo, project, "testConfig");
         ec.AddDatasetToConfiguration(ds);
         foreach (var ecSelectedDataSet in ec.SelectedDataSets)
         {
@@ -91,14 +115,14 @@ public class CHIColumnFinderTests :TestsRequiringAnExtractionConfiguration
         var bundle = new ExtractableDatasetBundle(ds)
         {
         };
-        var cmd = new ExtractDatasetCommand(ec,bundle);
-        cf.PreInitialize( cmd,ThrowImmediatelyDataLoadEventListener.NoisyPicky);
+        var cmd = new ExtractDatasetCommand(ec, bundle);
+        cf.PreInitialize(cmd, ThrowImmediatelyDataLoadEventListener.NoisyPicky);
         using var toProcess = new DataTable();
         toProcess.Columns.Add("CHI");
         toProcess.Rows.Add(new object[] { 1111111111 });
         Assert.DoesNotThrow(() => cf.ProcessPipelineData(toProcess, _listener, null));
         var result = Directory.GetFiles(TestContext.CurrentContext.WorkDirectory, "*.csv", SearchOption.AllDirectories)
             .First(static name => name.EndsWith("_Potential_CHI_Locations.csv", StringComparison.Ordinal));
-       Assert.That(File.ReadLines(result).ToList().Contains("CHI,1111111111,1111111111"),Is.EqualTo(true));
+        Assert.That(File.ReadLines(result).ToList().Contains("CHI,1111111111,1111111111"), Is.EqualTo(true));
     }
 }

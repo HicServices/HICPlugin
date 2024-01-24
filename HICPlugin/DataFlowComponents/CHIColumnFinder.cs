@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using NPOI.OpenXmlFormats.Dml;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
@@ -194,6 +195,11 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         Complete
     }
 
+    private static string WithMaxLength(string value, int startIndex,int maxLength)
+    {
+        return value?.Substring(startIndex, Math.Min(maxLength, value.Length - startIndex));
+    }
+
     private string GetPotentialCHI(string toCheckStr, IDataLoadEventListener listener)
     {
         if (string.IsNullOrWhiteSpace(toCheckStr) || toCheckStr.Length < 9) return "";
@@ -216,9 +222,8 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     case State.Day1: // Might be a 9 digit "CHI" with leading zero removed
                     case State.Complete:
                         state = State.End;
-                        if (ValidBits(day, month, year, check) && i+1 <= toCheckStr.Length)
-                            return toCheckStr.Substring(i + 1, Math.Min(9,toCheckStr.Length));
-
+                        if (ValidBits(day, month, year, check) && i + 1 <= toCheckStr.Length && i != toCheckStr.Length)
+                            return WithMaxLength(toCheckStr, i + 1, 9);
                         break;
 
                     default:
@@ -298,19 +303,10 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
         if (ValidBits(day, month, year, check))
         {
-            try
-            {
-                return toCheckStr.Substring(indexOfDay, Math.Min(10, toCheckStr.Length));
-            }
-            catch (Exception)
-            {
-                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                                  $"We think there is a CHI in the string {toCheckStr} at index {indexOfDay}, but were unable to find it"));
-                return "Unable to find CHI";
-            }
+            Console.WriteLine(WithMaxLength(toCheckStr, indexOfDay, 10));
+            return WithMaxLength(toCheckStr, indexOfDay, 10);
         }
         return "";
-        //return ValidBits(day, month, year, check) ? toCheckStr.Substring(indexOfDay, Math.Min(10, toCheckStr.Length)) : "";
     }
 
     private static bool ContainsValidChi([CanBeNull] object toCheck)
