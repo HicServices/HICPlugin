@@ -303,7 +303,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         }
         if (ValidBits(day, month, year, check))
         {
-            Console.WriteLine(WithMaxLength(toCheckStr, indexOfDay, 10));
             return WithMaxLength(toCheckStr, indexOfDay, 10);
         }
         return "";
