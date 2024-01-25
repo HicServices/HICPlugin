@@ -93,7 +93,7 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.That(imageDir, Is.Not.Null);// "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
            Assert.That(1, Is.EqualTo(imageFiles.Count));
@@ -171,7 +171,7 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.That(imageDir, Is.Not.Null);// "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
            Assert.That(1, Is.EqualTo(imageFiles.Count));

@@ -58,7 +58,7 @@ class CacheLayoutTests : DatabaseTests
         cacheLayout.CreateIfNotExists(ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var expectedDownloadDirectory = new DirectoryInfo(Path.Combine(cacheDirectory.FullName, "T", "Biochemistry"));
-        Assert.That(expectedDownloadDirectory.Exists, Is.True);//"The cache has not created directory into which the individual report files will be copied");
+        Assert.That(expectedDownloadDirectory.Exists, Is.True);
 
         // stick some dummy files in the directory and check if archiving works
         File.WriteAllText(Path.Combine(expectedDownloadDirectory.FullName, "12345.xml"), "Test");

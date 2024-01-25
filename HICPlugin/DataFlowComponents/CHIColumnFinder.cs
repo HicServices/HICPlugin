@@ -195,7 +195,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         Complete
     }
 
-    private static string WithMaxLength(string value, int startIndex,int maxLength)
+    private static string WithMaxLength(string value, int startIndex, int maxLength)
     {
         return value?.Substring(startIndex, Math.Min(maxLength, value.Length - startIndex));
     }
@@ -301,10 +301,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                     break;
             }
         }
-        if (ValidBits(day, month, year, check))
-        {
-            return WithMaxLength(toCheckStr, indexOfDay, 10);
-        }
+        if (ValidBits(day, month, year, check)) return WithMaxLength(toCheckStr, indexOfDay, 10);
         return "";
     }
 

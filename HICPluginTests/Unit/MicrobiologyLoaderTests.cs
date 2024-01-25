@@ -293,8 +293,7 @@ THOK1H
        Assert.That(2, Is.EqualTo(isolations.Length));
 
 
-       Assert.That(0, Is.EqualTo(results.Count(r => r is MB_IsolationResult)));//should be no results because there are no "$SENS             S" etc bits
-
+       Assert.That(0, Is.EqualTo(results.Count(r => r is MB_IsolationResult)));
        Assert.That("SAUR",Is.EqualTo(isolations[0].organismCode ));
        Assert.That("P", Is.EqualTo(isolations[0].WeightGrowth_cd));
        Assert.That("Y",Is.EqualTo(isolations[0].IntCode1));

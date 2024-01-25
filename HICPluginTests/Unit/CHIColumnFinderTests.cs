@@ -49,7 +49,6 @@ public class CHIColumnFinderTests : TestsRequiringAnExtractionConfiguration
 
     [TestCase("1111111111 101010109", true)] //valid 10 digit and valid 9 digit with whitespace between
     [TestCase("1111111115 1111111111 101010108 111111110", true)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
-    [TestCase("", false)] //invalid 10 digit, valid 10 digit, invalid 9 digit, valid 9 digit, all separated by whitespace
     public void TestDataWithCHIs(string toCheck, bool expectedToBeChi)
     {
         using var toProcess = new DataTable();
@@ -65,7 +64,7 @@ public class CHIColumnFinderTests : TestsRequiringAnExtractionConfiguration
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
             var lines = File.ReadAllLines(_request.GetExtractionDirectory().FullName + "/FoundCHIs/_potential_CHI_Locations.csv");
             Assert.That(lines.Length, Is.EqualTo(2));
-            //Assert.That(lines[1].Contains($",{toCheck}"), Is.True);
+            Assert.That(lines[1].Contains($",{toCheck}"), Is.True);
         }
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));

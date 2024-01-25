@@ -83,7 +83,7 @@ public class CodeValidationTests : DatabaseTests
         var testSetFactory = new TestSetFactory(readCodeConstraint);
         var testDetails = testSetFactory.CreateFromTestType(testType, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-        Assert.That(testDetails.ReadCode, Is.Not.Null);// "The value has not been picked up as a read code");
+        Assert.That(testDetails.ReadCode, Is.Not.Null);
        Assert.That(".0766", Is.EqualTo(testDetails.ReadCode.Value));
         Assert.That(testDetails.LocalCode, Is.Null);
     }

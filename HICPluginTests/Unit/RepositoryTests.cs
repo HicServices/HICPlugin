@@ -82,14 +82,14 @@ class RepositoryTests
             
         repo.Create(reports, listener);
 
-       Assert.That(1, Is.EqualTo(repo.HeadersTable.Rows.Count));//, "HeadersTable doesn't have the correct number of rows");
-       Assert.That(1, Is.EqualTo(repo.SampleDetailsTable.Rows.Count));//, "SampleDetailsTable doesn't have the correct number of rows");
-       Assert.That(2, Is.EqualTo(repo.ResultsTable.Rows.Count));//, "ResultsTable doesn't have the correct number of rows");
+       Assert.That(1, Is.EqualTo(repo.HeadersTable.Rows.Count));
+       Assert.That(1, Is.EqualTo(repo.SampleDetailsTable.Rows.Count));
+       Assert.That(2, Is.EqualTo(repo.ResultsTable.Rows.Count));
 
        Assert.That("TESTID", Is.EqualTo(repo.ResultsTable.Rows[0]["TestIdentifier"]));
        Assert.That("ANOTHERTEST_LOCAL", Is.EqualTo(repo.ResultsTable.Rows[1]["LocalClinicalCodeValue"]));
 
-        Assert.That(repo.ResultsTable.Rows[0]["QuantityValue"].ToString().Length == 4,Is.True);// "The float value has not been correctly inserted into the data table. Original value was 2.1 (float), value in datatable is " + repo.ResultsTable.Rows[0]["QuantityValue"]);
+        Assert.That(repo.ResultsTable.Rows[0]["QuantityValue"].ToString().Length == 4, Is.True);
     }
 
     [Test]

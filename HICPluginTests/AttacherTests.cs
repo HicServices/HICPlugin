@@ -563,8 +563,7 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(_job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-           Assert.That(3, Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count()));//,
-                // "There should be 3 zip files in the archive directory.");
+           Assert.That(3, Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count()));
 
             // Check that the ImageArchiveUriColumn has been updated in the database
             var uriListFromDatabase = new List<string>();
