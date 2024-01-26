@@ -40,6 +40,9 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     public bool VerboseLogging { get; set; } = false;
 
+    [DemandsInitialization("The directory location to write the Found CHIs data to. Defaults to the extraction directory")]
+    public string LocationToWriteFoundCHIS { get; set; }
+
     private bool _firstTime = true;
 
     private bool _isTableAlreadyNamed;
@@ -71,9 +74,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         string fileLocation = null;
         if (OutputFileDirectory?.Exists == true)
         {
-            var CHIDir = Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
+
+            var CHIDir = Path.Combine(string.IsNullOrWhiteSpace(LocationToWriteFoundCHIS) ? OutputFileDirectory.FullName : LocationToWriteFoundCHIS, "FoundCHIs");
             if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
             fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
+
+
             if (File.Exists(fileLocation) && BailOutAfter > 0)
             {
                 count = File.ReadLines(fileLocation).Count() - 1;
