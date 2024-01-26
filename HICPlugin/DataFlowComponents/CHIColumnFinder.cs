@@ -151,10 +151,11 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (count > 0 && OutputFileDirectory?.Exists == true)
         {
             var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
-            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {OutputFileDirectory.FullName}"));
+            var location = (string.IsNullOrWhiteSpace(LocationToWriteFoundCHIS) ? OutputFileDirectory.FullName : LocationToWriteFoundCHIS;
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {location}"));
             if (_activator is not null)
             {
-                toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string, IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {OutputFileDirectory.FullName}.", _activator));
+                toProcess.ExtendedProperties.Add("AlertUIAtEndOfProcess", new Tuple<string, IBasicActivateItems>($"Some CHIs have been found in your extraction for the catalogue {toProcess.TableName}. Find them in {location}.", _activator));
             }
         }
         return toProcess;
