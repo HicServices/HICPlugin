@@ -48,6 +48,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
     private const string RdmpAll = "RDMP_ALL";
     private readonly string _potentialChiLocationFileDescriptor = "_Potential_CHI_Locations.csv";
+    private string ExtractionIdentifier;
     private readonly string _csvColumns = "Column,Potential CHI,Value";
     private IBasicActivateItems _activator;
 
@@ -75,7 +76,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
 
             var CHIDir = Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
             if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
-            fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
+            fileLocation = Path.Combine(CHIDir, $"{ExtractionIdentifier}_{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
 
 
             if (File.Exists(fileLocation) && BailOutAfter > 0)
@@ -422,6 +423,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (value is not ExtractDatasetCommand edcs) return;
 
         OutputFileDirectory = edcs.GetExtractionDirectory()?.Parent?.Parent;
+        ExtractionIdentifier = edcs.GetExtractionDirectory()?.Parent.Name;
         try
         {
             var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
