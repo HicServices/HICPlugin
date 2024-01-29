@@ -62,13 +62,13 @@ public class CHIColumnFinderTests : TestsRequiringAnExtractionConfiguration
         if (expectedToBeChi)
         {
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-            var lines = File.ReadAllLines(_request.GetExtractionDirectory().Parent.Parent.FullName + "/FoundCHIs/_potential_CHI_Locations.csv");
+            var lines = File.ReadAllLines(_request.GetExtractionDirectory().Parent.Parent.FullName + $"/FoundCHIs/{_request.GetExtractionDirectory().Parent.Name}__potential_CHI_Locations.csv");
             Assert.That(lines.Length, Is.EqualTo(2));
             Assert.That(lines[1].Contains($",{toCheck}"), Is.True);
+            File.Delete(_request.GetExtractionDirectory().Parent.Parent.FullName + $"/FoundCHIs/{_request.GetExtractionDirectory().Parent.Name}__potential_CHI_Locations.csv");
         }
         else
             Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
-        File.Delete(_request.GetExtractionDirectory().Parent.Parent.FullName + "/FoundCHIs/_potential_CHI_Locations.csv");
 
     }
 
