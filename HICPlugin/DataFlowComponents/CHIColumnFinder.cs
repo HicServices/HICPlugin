@@ -421,13 +421,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     {
         if (value is not ExtractDatasetCommand edcs) return;
 
-        //OutputFileDirectory = ((ExtractionDirectory)edcs.Directory).ExtractionDirectoryInfo; //todo this isn't the root dir
-        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "starting"));
-        var x = (ExtractionDirectory)edcs.Directory;
-        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, x.ToString()));
-
-        OutputFileDirectory = edcs.Directory.GetGlobalsDirectory().Parent.Parent;
-        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "end"));
+        OutputFileDirectory = edcs.GetExtractionDirectory()?.Parent?.Parent;
         try
         {
             var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
