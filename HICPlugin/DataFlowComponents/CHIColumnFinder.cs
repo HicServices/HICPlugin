@@ -8,6 +8,7 @@ using System.Threading;
 using NPOI.OpenXmlFormats.Dml;
 using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
+using Rdmp.Core.DataExport.DataExtraction;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
@@ -39,9 +40,6 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     [DemandsInitialization("If checked, will log a lot more information about the CHI finding process.")]
 
     public bool VerboseLogging { get; set; } = false;
-
-    [DemandsInitialization("The directory location to write the Found CHIs data to. Defaults to the extraction directory")]
-    public string LocationToWriteFoundCHIS { get; set; }
 
     private bool _firstTime = true;
 
@@ -75,7 +73,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (OutputFileDirectory?.Exists == true)
         {
 
-            var CHIDir = Path.Combine(string.IsNullOrWhiteSpace(LocationToWriteFoundCHIS) ? OutputFileDirectory.FullName : LocationToWriteFoundCHIS, "FoundCHIs");
+            var CHIDir = Path.Combine(OutputFileDirectory.FullName, "FoundCHIs");
             if (!Directory.Exists(CHIDir)) Directory.CreateDirectory(CHIDir);
             fileLocation = Path.Combine(CHIDir, $"{toProcess.TableName}{_potentialChiLocationFileDescriptor}");
 
@@ -151,7 +149,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (count > 0 && OutputFileDirectory?.Exists == true)
         {
             var countWritten = BailOutAfter > 0 ? Math.Min(count, BailOutAfter) : count;
-            var location = (string.IsNullOrWhiteSpace(LocationToWriteFoundCHIS) ? OutputFileDirectory.FullName : LocationToWriteFoundCHIS);
+            var location = (OutputFileDirectory.FullName );
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"{countWritten} CHIs have been found in your extraction. Find them in {location}"));
             if (_activator is not null)
             {
@@ -423,7 +421,13 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     {
         if (value is not ExtractDatasetCommand edcs) return;
 
-        OutputFileDirectory = value.GetExtractionDirectory();
+        //OutputFileDirectory = ((ExtractionDirectory)edcs.Directory).ExtractionDirectoryInfo; //todo this isn't the root dir
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "starting"));
+        var x = (ExtractionDirectory)edcs.Directory;
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, x.ToString()));
+
+        OutputFileDirectory = ((ExtractionDirectory)edcs.Directory).GetRootExtractionDirectory();
+        listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "end"));
         try
         {
             var hashOnReleaseColumns = edcs.Catalogue.CatalogueItems.Select(static ci => ci.ExtractionInformation)
