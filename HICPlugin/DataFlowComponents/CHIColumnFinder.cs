@@ -426,7 +426,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         var x = (ExtractionDirectory)edcs.Directory;
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, x.ToString()));
 
-        OutputFileDirectory = ((ExtractionDirectory)edcs.Directory).GetRootExtractionDirectory();
+        OutputFileDirectory = edcs.Directory.GetGlobalsDirectory().Parent.Parent;
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "end"));
         try
         {
