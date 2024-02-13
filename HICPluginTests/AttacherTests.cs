@@ -198,7 +198,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-            Assert.That("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png", Is.EqualTo(ex?.Message));
+            Assert.That(ex?.Message, Is.EqualTo("These files are specified in the manifest but are not present in the archive: 2_2345678901_2016-05-19_RM_1_PW1024_PH768.png"));
         }
         finally
         {
@@ -224,7 +224,7 @@ public class AttacherTests : DatabaseTests
             attacher.Initialize(loadDirectory, db);
 
             var ex = Assert.Throws<Exception>(() => attacher.Check(ThrowImmediatelyCheckNotifier.Quiet));
-           Assert.That("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png", Is.EqualTo(ex?.Message));
+            Assert.That(ex?.Message, Is.EqualTo("These files are present in the archive but are not specified in the manifest: 2_2345678901_2016-05-18_LM_2_PW1024_PH768.png"));
         }
         finally
         {
@@ -258,13 +258,16 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(_job,new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-            // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
-            Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)), Is.True);
+            Assert.Multiple(() =>
+            {
+                // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
+                Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)), Is.True);
 
-            // Should be three zip files in the archive
-           Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
-                Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
-                    .Select(f => f.Name).ToArray()));
+                // Should be three zip files in the archive
+                Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
+                    Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
+                        .Select(static f => f.Name).ToArray()));
+            });
         }
         finally
         {
@@ -326,13 +329,16 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(_job,new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-            // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
-            Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)),Is.True);
+            Assert.Multiple(() =>
+            {
+                // Should now only be the CSV file in ForLoading (which would be archived during the real load process)
+                Assert.That(File.Exists(Path.Combine(loadDirectory.ForLoading.FullName, attacher.ManifestFileName)), Is.True);
 
-            // Should be three zip files in the archive
-            Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
-                Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
-                    .Select(f => f.Name).ToArray()));
+                // Should be three zip files in the archive
+                Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" },
+                    Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories)
+                        .Select(static f => f.Name).ToArray()));
+            });
         }
         finally
         {
@@ -463,10 +469,12 @@ public class AttacherTests : DatabaseTests
 
             RarHelper.ExtractMultiVolumeArchive(testDir);
 
-            // Now check we have the correct files
-           Assert.That(2, Is.EqualTo(testDir.EnumerateFiles("*.jpeg").Count()));
-           Assert.That(2, Is.EqualTo(testDir.EnumerateFiles("*.png").Count()));
-
+            Assert.Multiple(() =>
+            {
+                // Now check we have the correct files
+                Assert.That(testDir.EnumerateFiles("*.jpeg").Count(), Is.EqualTo(2));
+                Assert.That(testDir.EnumerateFiles("*.png").Count(), Is.EqualTo(2));
+            });
         }
         finally
         {
@@ -492,7 +500,7 @@ public class AttacherTests : DatabaseTests
                 imgFile.Delete();
             }
 
-            Assert.That(4, Is.EqualTo(testDir.EnumerateFiles().Count()));
+            Assert.That(testDir.EnumerateFiles().Count(), Is.EqualTo(4));
 
             var processor = new ImageArchiveProcessor(testDir, testDir, 1);
             processor.ArchiveImagesForStorage(ThrowImmediatelyDataLoadEventListener.Quiet, 1024 * 1024);
@@ -501,9 +509,12 @@ public class AttacherTests : DatabaseTests
             Assert.That(Directory.Exists(imageDirPath), Is.True);
 
             var remainingFiles = Directory.EnumerateFiles(imageDirPath).ToList();
-            Assert.That(3, Is.EqualTo(remainingFiles.Count));
-            Assert.That(3, Is.EqualTo(remainingFiles.Count(f => Path.GetExtension(f) == ".tar")));
-            Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" }, Is.EqualTo(remainingFiles.Select(Path.GetFileName).ToArray()));
+            Assert.Multiple(() =>
+            {
+                Assert.That(remainingFiles, Has.Count.EqualTo(3));
+                Assert.That(remainingFiles.Count(static f => Path.GetExtension(f) == ".tar"), Is.EqualTo(3));
+                Assert.That(new[] { "1_1.tar", "1_2.tar", "1_3.tar" }, Is.EqualTo(remainingFiles.Select(Path.GetFileName).ToArray()));
+            });
         }
         finally
         {
@@ -563,7 +574,7 @@ public class AttacherTests : DatabaseTests
             attacher.Attach(_job, new GracefulCancellationToken());
             attacher.LoadCompletedSoDispose(ExitCodeType.Success, ThrowImmediatelyDataLoadEventListener.Quiet);
 
-           Assert.That(3, Is.EqualTo(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count()));
+            Assert.That(archiveDir.EnumerateFiles("*.tar", SearchOption.AllDirectories).Count(), Is.EqualTo(3));
 
             // Check that the ImageArchiveUriColumn has been updated in the database
             var uriListFromDatabase = new List<string>();
