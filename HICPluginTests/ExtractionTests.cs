@@ -39,7 +39,7 @@ public class ExtractionTests : DatabaseTests
         var replacer = new DRSFilenameReplacer(extractionIdentifierColumn, "Image_Filename");
 
         string[] renameParams = {"Examination_Date", "Image_Num"};
-        Assert.AreEqual("R00001_2016-05-17_1.png", replacer.GetCorrectFilename(dataset.Rows[0],renameParams,null));
+        Assert.That(replacer.GetCorrectFilename(dataset.Rows[0], renameParams, null), Is.EqualTo("R00001_2016-05-17_1.png"));
     }
 
     [Test]
@@ -93,13 +93,15 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.NotNull(imageDir, "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
-            Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
-
-            Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
+            Assert.Multiple(() =>
+            {
+                Assert.That(imageFiles, Has.Count.EqualTo(1));
+                Assert.That(imageFiles[0].Name, Is.EqualTo("R00001_2016-05-17_1.png"));
+                Assert.That(dt.Columns.Contains("ImageArchiveUri"), Is.False);
+            });
         }
         catch (Exception)
         {
@@ -122,12 +124,10 @@ public class ExtractionTests : DatabaseTests
 
         using (var fs = File.Create(Path.Combine(archiveSubdir.FullName, "1.tar")))
         {
-            using (var archive = TarArchive.CreateOutputTarArchive(fs))
-            {
-                var entry = TarEntry.CreateEntryFromFile(imagePath);
-                entry.Name = Path.GetFileName(imagePath);
-                archive.WriteEntry(entry, false);
-            }
+            using var archive = TarArchive.CreateOutputTarArchive(fs);
+            var entry = TarEntry.CreateEntryFromFile(imagePath);
+            entry.Name = Path.GetFileName(imagePath);
+            archive.WriteEntry(entry, false);
         }
 
         var rootDir = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()));
@@ -171,13 +171,16 @@ public class ExtractionTests : DatabaseTests
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
 
             var imageDir = rootDir.EnumerateDirectories("Images").SingleOrDefault();
-            Assert.NotNull(imageDir, "Extraction directory to hold images has not been created");
+            Assert.That(imageDir, Is.Not.Null);
 
             var imageFiles = imageDir.EnumerateFiles().ToList();
-            Assert.AreEqual(1, imageFiles.Count);
-            Assert.AreEqual("R00001_2016-05-17_1.png", imageFiles[0].Name);
+            Assert.Multiple(() =>
+            {
+                Assert.That(imageFiles, Has.Count.EqualTo(1));
+                Assert.That(imageFiles[0].Name, Is.EqualTo("R00001_2016-05-17_1.png"));
 
-            Assert.IsFalse(dt.Columns.Contains("ImageArchiveUri"));
+                Assert.That(dt.Columns.Contains("ImageArchiveUri"), Is.False);
+            });
         }
         catch (Exception)
         {

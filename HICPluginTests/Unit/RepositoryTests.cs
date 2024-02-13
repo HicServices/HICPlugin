@@ -26,7 +26,7 @@ class RepositoryTests
         var bloodSample = report.Samples.First();
         var result = bloodSample.Results.First(static r => r.ReadCodeValue.Equals("TTTT."));
 
-        Assert.AreEqual(8.9, result.QuantityValue ?? 0.0m);
+       Assert.That(8.9, Is.EqualTo(result.QuantityValue ?? 0.0m));
     }
 
     [Test]
@@ -82,14 +82,14 @@ class RepositoryTests
             
         repo.Create(reports, listener);
 
-        Assert.AreEqual(1, repo.HeadersTable.Rows.Count, "HeadersTable doesn't have the correct number of rows");
-        Assert.AreEqual(1, repo.SampleDetailsTable.Rows.Count, "SampleDetailsTable doesn't have the correct number of rows");
-        Assert.AreEqual(2, repo.ResultsTable.Rows.Count, "ResultsTable doesn't have the correct number of rows");
+       Assert.That(1, Is.EqualTo(repo.HeadersTable.Rows.Count));
+       Assert.That(1, Is.EqualTo(repo.SampleDetailsTable.Rows.Count));
+       Assert.That(2, Is.EqualTo(repo.ResultsTable.Rows.Count));
 
-        Assert.AreEqual("TESTID", repo.ResultsTable.Rows[0]["TestIdentifier"]);
-        Assert.AreEqual("ANOTHERTEST_LOCAL", repo.ResultsTable.Rows[1]["LocalClinicalCodeValue"]);
+       Assert.That("TESTID", Is.EqualTo(repo.ResultsTable.Rows[0]["TestIdentifier"]));
+       Assert.That("ANOTHERTEST_LOCAL", Is.EqualTo(repo.ResultsTable.Rows[1]["LocalClinicalCodeValue"]));
 
-        Assert.IsTrue(repo.ResultsTable.Rows[0]["QuantityValue"].ToString().Length == 4, "The float value has not been correctly inserted into the data table. Original value was 2.1 (float), value in datatable is " + repo.ResultsTable.Rows[0]["QuantityValue"]);
+        Assert.That(repo.ResultsTable.Rows[0]["QuantityValue"].ToString().Length == 4, Is.True);
     }
 
     [Test]
@@ -105,7 +105,7 @@ class RepositoryTests
 
         var stream = new MemoryStream(Encoding.UTF8.GetBytes(badXmlString));
         var actualString = CombinedReportXmlDeserializer.RemoveInvalidCharactersFromStream(stream);
-        Assert.AreEqual(expectedXmlString, actualString);
+       Assert.That(expectedXmlString, Is.EqualTo(actualString));
     }
 }
 

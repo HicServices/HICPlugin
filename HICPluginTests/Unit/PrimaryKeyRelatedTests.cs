@@ -18,7 +18,7 @@ public class PrimaryKeyRelatedTests
         };
 
 
-        Assert.IsTrue(r1.IsIdenticalTo(r2));
+        Assert.That(r1.IsIdenticalTo(r2),Is.True);
     }
     [Test]
     public void TestIdenticallity_NotIdentical()
@@ -35,6 +35,6 @@ public class PrimaryKeyRelatedTests
         };
 
 
-        Assert.IsFalse(r1.IsIdenticalTo(r2));
+        Assert.That(r1.IsIdenticalTo(r2), Is.False);
     }
 }

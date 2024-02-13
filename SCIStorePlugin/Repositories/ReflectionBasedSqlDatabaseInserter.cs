@@ -131,7 +131,7 @@ public static class ReflectionBasedSqlDatabaseInserter
 
                         if (lengthInDatabase < s.Length)
                             problemsDetected +=
-                                $"Column {column} in table {tableName} is defined as length  {lengthInDatabase} in the database but you tried to insert a string value of length {s.Length}{Environment.NewLine}";
+                                $"Column {column} in table {tableName} is defined as length {lengthInDatabase} in the database but you tried to insert a string value of length {s.Length}{Environment.NewLine}";
                     }
                 }
 

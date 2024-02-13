@@ -58,7 +58,7 @@ public class ReflectionToDatabaseTester : DatabaseTests
         try
         {
             var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute<TestObject>(t, con, dbInfo, "TestObject"));
-            Assert.IsTrue(ex?.Message.Contains("Field1 in table TestObject is defined as length  10 in the database but you tried to insert a string value of length 41"));
+            Assert.That(ex?.Message.Contains("Field1 in table TestObject is defined as length 10 in the database but you tried to insert a string value of length 41"),Is.True);
         }
         finally
         {
@@ -94,7 +94,7 @@ public class ReflectionToDatabaseTester : DatabaseTests
         try
         {
             var ex = Assert.Throws<Exception>(() => ReflectionBasedSqlDatabaseInserter.MakeInsertSqlAndExecute(t, con, dbInfo, "TestObject"));
-            Assert.IsTrue(ex?.Message.Contains("Domain object has a property called Field2 which does not exist in table TestObject"));
+            Assert.That(ex?.Message.Contains("Domain object has a property called Field2 which does not exist in table TestObject"),Is.True);
         }
         finally
         {
