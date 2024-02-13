@@ -74,7 +74,7 @@ jobs:
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file HIC.Rdmp.HicPlugin.Plugin.${{ steps.version.outputs.version }}.nupkg --dir yaml
           dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- cmd listsupportedcommands --dir yaml
       - name: Store created nupkg files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: ./*.nupkg
           retention-days: 1
