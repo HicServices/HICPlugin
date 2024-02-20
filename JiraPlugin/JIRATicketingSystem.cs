@@ -10,6 +10,8 @@ using Rdmp.Core.Ticketing;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using RestSharp;
 using RestSharp.Authenticators;
+using System.Security.Principal;
+using Microsoft.Win32;
 
 namespace JiraPlugin;
 
@@ -23,9 +25,9 @@ public class JIRATicketingSystem : PluginTicketingSystem
     private JiraClient _client;
 
     ////releaseability
-    //public List<Attachment> JIRAProjectAttachements { get; private set; }
-    //public string JIRAReleaseTicketStatus { get; private set; }
-    //private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
+    public List<Attachment> JIRAProjectAttachements { get; private set; }
+    public string JIRAReleaseTicketStatus { get; private set; }
+    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
 
 
     //public JIRATicketingSystem(TicketingSystemConstructorParameters parameters) : base(parameters)
@@ -200,23 +202,23 @@ public class JIRATicketingSystem : PluginTicketingSystem
         }));
     }
 
-    //private string GetStatusOfJIRATicket(string ticket)
-    //{
-    //    var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
-    //    return issue.fields.status.name;
-    //}
+    private string GetStatusOfJIRATicket(string ticket)
+    {
+        var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
+        return issue.fields.status.name;
+    }
 
 
-    //private void GetAttachementsOfJIRATicket(string ticket)
-    //{
-    //    var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
-    //    JIRAProjectAttachements = issue.fields.attachment;
-    //}
+    private void GetAttachementsOfJIRATicket(string ticket)
+    {
+        var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
+        JIRAProjectAttachements = issue.fields.attachment;
+    }
 
-    //private Issue GetIssue(string ticket)
-    //{
-    //    return _client.GetIssue(ticket);
-    //}
+    private Issue GetIssue(string ticket)
+    {
+        return _client.GetIssue(ticket);
+    }
     private readonly string _serverUrl;
     private readonly string _apiVersion;
     private readonly string _username;
@@ -278,21 +280,163 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
     public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, out string reason, out Exception exception)
     {
-        throw new NotImplementedException();
+        exception = null;
+        try
+        {
+            SetupIfRequired();
+        }
+        catch (Exception e)
+        {
+            reason = "Failed to setup a connection to the JIRA API";
+            exception = e;
+            return TicketingReleaseabilityEvaluation.TicketingLibraryMissingOrNotConfiguredCorrectly;
+        }
+
+        //make sure JIRA data is configured correctly
+        if (string.IsNullOrWhiteSpace(masterTicket))
+        {
+            reason = "Master JIRA ticket is blank";
+            return TicketingReleaseabilityEvaluation.NotReleaseable;
+        }
+
+        if (string.IsNullOrWhiteSpace(requestTicket))
+        {
+            reason = "Request JIRA ticket is blank";
+            return TicketingReleaseabilityEvaluation.NotReleaseable;
+        }
+
+        if (string.IsNullOrWhiteSpace(releaseTicket))
+        {
+            reason = "Release JIRA ticket is blank";
+            return TicketingReleaseabilityEvaluation.NotReleaseable;
+        }
+
+        //Get status of tickets from JIRA API
+        try
+        {
+            JIRAReleaseTicketStatus = GetStatusOfJIRATicket(releaseTicket);
+            GetAttachementsOfJIRATicket(requestTicket);
+        }
+        catch (Exception e)
+        {
+            reason = "Problem occurred getting the status of the release ticket or the attachemnts stored under the request ticket";
+            exception = e;
+            return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
+
+        }
+
+        //if it isn't at required status
+        if (!PermissableReleaseStatusesForJIRAReleaseTickets.Contains(JIRAReleaseTicketStatus))
+        {
+            reason =
+                $"Status of release ticket ({JIRAReleaseTicketStatus}) was not one of the permissable release ticket statuses: {string.Join(",", PermissableReleaseStatusesForJIRAReleaseTickets)}";
+
+            return TicketingReleaseabilityEvaluation.NotReleaseable; //it cannot be released
+        }
+
+        if (!JIRAProjectAttachements.Any(a => a.filename.EndsWith(".docx") || a.filename.EndsWith(".doc")))
+        {
+            reason =
+                $"Request ticket {requestTicket} must have at least one Attachment with the extension .doc or .docx ";
+
+            if (JIRAProjectAttachements.Any())
+                reason +=
+                    $". Current attachments were: {string.Join(",", JIRAProjectAttachements.Select(a => a.filename).ToArray())}";
+
+            return TicketingReleaseabilityEvaluation.NotReleaseable;
+        }
+
+        reason = null;
+        return TicketingReleaseabilityEvaluation.Releaseable;
     }
 
     public override string GetProjectFolderName(string masterTicket)
     {
-        throw new NotImplementedException();
+        SetupIfRequired();
+        var issue = _client.GetIssue(masterTicket, new[] { "summary", "customfield_13400" });
+
+        return issue.fields.customfield_13400;
     }
 
     public override bool IsValidTicketName(string ticketName)
     {
-        throw new NotImplementedException();
+        //also let user clear tickets :)
+        return string.IsNullOrWhiteSpace(ticketName) || RegexForTickets.IsMatch(ticketName);
     }
 
     public override void NavigateToTicket(string ticketName)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(ticketName))
+            return;
+        try
+        {
+            Check(ThrowImmediatelyCheckNotifier.Quiet);
+        }
+        catch (Exception e)
+        {
+            throw new Exception("JIRATicketingSystem Checks() failed (see inner exception for details)", e);
+        }
+
+        Uri navigationUri = null;
+        Uri baseUri = null;
+        var relativePath = $"/browse/{ticketName}";
+        try
+        {
+            baseUri = new Uri(Url);
+            navigationUri = new Uri(baseUri, relativePath);
+            //Process.Start(navigationUri.AbsoluteUri);
+            string browserPath = GetBrowserPath();
+            if (browserPath == string.Empty)
+                browserPath = "iexplore";
+            Process process = new Process();
+            process.StartInfo = new ProcessStartInfo(browserPath);
+            process.StartInfo.Arguments = "\"" + navigationUri.AbsoluteUri + "\"";
+            process.Start();
+        }
+        catch (Exception e)
+        {
+            if (navigationUri != null)
+                throw new Exception($"Failed to navigate to {navigationUri.AbsoluteUri}", e);
+
+            if (baseUri != null)
+                throw new Exception($"Failed to reach {relativePath} from {baseUri.AbsoluteUri}", e);
+        }
+    }
+
+    private static string GetBrowserPath()
+    {
+        string browser = string.Empty;
+        RegistryKey key = null;
+
+        try
+        {
+            // try location of default browser path in XP
+            key = Registry.ClassesRoot.OpenSubKey(@"HTTP\shell\open\command", false);
+
+            // try location of default browser path in Vista
+            if (key == null)
+            {
+                key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\Shell\Associations\UrlAssociations\http", false); ;
+            }
+
+            if (key != null)
+            {
+                //trim off quotes
+                browser = key.GetValue(null).ToString().ToLower().Replace("\"", "");
+                if (!browser.EndsWith("exe"))
+                {
+                    //get rid of everything after the ".exe"
+                    browser = browser.Substring(0, browser.LastIndexOf(".exe") + 4);
+                }
+
+                key.Close();
+            }
+        }
+        catch
+        {
+            return string.Empty;
+        }
+
+        return browser;
     }
 }
