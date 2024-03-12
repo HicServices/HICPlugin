@@ -93,7 +93,6 @@ public class PackageListIsCorrectTests
     {
         return root.EnumerateFiles("*.csproj", EnumerationOptions).Select(f => f.FullName).Where(f => !f.Contains("tests", StringComparison.InvariantCultureIgnoreCase));
     }
-
     /// <summary>
     /// Find the sole packages.md file wherever in the repo it lives. Error if multiple or none.
     /// </summary>
@@ -101,7 +100,9 @@ public class PackageListIsCorrectTests
     /// <returns></returns>
     private static string[] GetPackagesMarkdown(DirectoryInfo root)
     {
-        var path = root.EnumerateFiles("packages.md", EnumerationOptions).Select(f => f.FullName).ToArray();
+        var path = root.EnumerateFiles("packages.md", EnumerationOptions).Select(f => f.FullName)
+            .Where(f => !f.Contains("RDMP\\Documentation\\CodeTutorials\\Packages.md", StringComparison.InvariantCultureIgnoreCase))
+            .ToArray();
         Assert.That(path.Length==0, Is.False);
         return path;
     }
