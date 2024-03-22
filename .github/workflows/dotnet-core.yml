@@ -76,7 +76,7 @@ jobs:
       - name: Store created nupkg files
         uses: actions/upload-artifact@v4
         with:
-          path: ./*.nupkg
+          path: ./*.rdmp
           retention-days: 1
       - name: Upload release binaries
         if: contains(github.ref,'refs/tags/')
