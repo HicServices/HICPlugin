@@ -29,15 +29,15 @@ You can build this plugin ready for upload to an RDMP instance using:
 ```bash
 dotnet publish -p:DebugType=embedded -p:GenerateDocumentation=false Plugin/windows/windows.csproj -c Release -o p/windows
 dotnet publish -p:DebugType=embedded -p:GenerateDocumentation=false Plugin/main/main.csproj -c Release -o p/main
-7z a -tzip Rdmp.Hic.Plugin.6.1.0.nupkg hicplugin.nuspec p
-dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file Rdmp.Hic.Plugin.6.1.0.nupkg --dir yaml
+7z a -tzip Rdmp.Hic.Plugin.6.1.0.rdmp hicplugin.nuspec p
+dotnet run --project RDMP/Tools/rdmp/rdmp.csproj -c Release -- pack -p --file Rdmp.Hic.Plugin.6.1.0.rdmp --dir yaml
 ```
 
-Once built you will have a file called `Rdmp.Hic.Plugin.6.1.0.nupkg` 
+Once built you will have a file called `Rdmp.Hic.Plugin.6.1.0.rdmp` 
 
 Upload it to RDMP using
 
 ```bash
-./rdmp pack -p -f Z:\Repos\HICPlugin\Rdmp.Hic.Plugin.6.1.0.nupkg
+./rdmp pack -p -f Z:\Repos\HICPlugin\Rdmp.Hic.Plugin.6.1.0.rdmp
 ```
 _Upload into RDMP. Or use the gui client 'Plugins' node under the Tables(Advanced) toolbar button_
