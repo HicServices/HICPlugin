@@ -10,6 +10,6 @@
 [assembly: AssemblyCulture("")]
 
 // These should be overwritten by release builds
-[assembly: AssemblyVersion("6.1.2")]
-[assembly: AssemblyFileVersion("6.1.2")]
-[assembly: AssemblyInformationalVersion("6.1.2")]
+[assembly: AssemblyVersion("6.1.3")]
+[assembly: AssemblyFileVersion("6.1.3")]
+[assembly: AssemblyInformationalVersion("6.1.3")]
