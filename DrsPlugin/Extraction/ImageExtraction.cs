@@ -1,4 +1,5 @@
 ﻿using Rdmp.Core.Curation.Data;
+using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
@@ -61,7 +62,7 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
         if (Request.ColumnsToExtract is null)
             throw new InvalidOperationException("The request must contain a list of ColumnsToExtract (even if empty)");
 
-        if (Request.Catalogue.LoadMetadata is null)
+        if (Request.Catalogue.CatalogueRepository.GetAllObjectsWhere<ILoadMetadataCatalogueLinkage>("CatalogueID",Request.Catalogue.ID).Length == 0)
             listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                 "The request has no associated metadata file. You may need to add a Data Load Configuration if you intend to extract the image files.")); //May be able to get rid of this warning entirely
     }

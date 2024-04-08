@@ -171,7 +171,7 @@ public class ExecuteCommandSetupGoFusionFromDatabase : BasicUICommandExecution
 
         foreach (var catalogue in importedCatalogues)
         {
-            ((Catalogue)catalogue).LoadMetadata_ID = lmd.ID;
+            lmd.LinkToCatalogue(catalogue);
             catalogue.LoggingDataTask = lmd.Name;
             catalogue.SaveToDatabase();
         }
