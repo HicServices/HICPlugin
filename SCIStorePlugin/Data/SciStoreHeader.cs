@@ -119,11 +119,6 @@ public static class SciStoreHeaderFactory
         var report = combinedReport.InvestigationReport;
         var reportData = report.ReportData;
 
-        if (reportData.Discipline.Equals("Biochemistry")
-            && !combinedReportHeader.LabNumber.StartsWith("C")
-            && !combinedReportHeader.LabNumber.StartsWith("POC"))
-            throw new Exception($"Malformed (or otherwise unexpected) LabNumber: {combinedReportHeader.LabNumber}");
-
         var labNumber = combinedReportHeader.LabNumber;
             
         if (labNumber.Length <= 10) return labNumber;
