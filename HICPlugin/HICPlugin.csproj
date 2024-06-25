@@ -1,40 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <AssemblyTitle>HICPlugin</AssemblyTitle>
-    <Product>HICPlugin</Product>
-    <Copyright>Copyright ©  2016</Copyright>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent />
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Images.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Images.resx</DependentUpon>
-    </Compile>
-    <Compile Update="ToolTips.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ToolTips.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1To0.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1ToM.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MTo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<AssemblyTitle>HICPlugin</AssemblyTitle>
+		<Product>HICPlugin</Product>
+		<Copyright>Copyright ©  2016</Copyright>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup>
+		<PostBuildEvent />
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Update="Images.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Images.resx</DependentUpon>
+		</Compile>
+		<Compile Update="ToolTips.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>ToolTips.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Resources\1To0.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Resources\1ToM.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Resources\MTo1.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+		<ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
+	</ItemGroup>
 </Project>
