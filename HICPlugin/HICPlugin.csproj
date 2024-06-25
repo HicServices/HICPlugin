@@ -35,10 +35,6 @@
     <None Include="Resources\MTo1.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="8.0.6" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
     <ProjectReference Include="..\HIC.Demography\HIC.Demography.csproj" />
   </ItemGroup>
 </Project>
