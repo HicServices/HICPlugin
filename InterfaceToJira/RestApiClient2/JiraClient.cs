@@ -203,6 +203,11 @@ public class JiraClient
 
     public List<string> GetProjectNames()
     {
+        var x = Execute<List<Project>>(new RestRequest
+        {
+            Resource = "/rest/api/latest/project",
+            Method = Method.Get
+        }, HttpStatusCode.OK);
         var list = Execute<List<Project>>(new RestRequest
         {
             Resource = "/rest/api/latest/project",
