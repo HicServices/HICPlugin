@@ -27,7 +27,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
     ////releaseability
     public List<Attachment> JIRAProjectAttachements { get; private set; }
     public string JIRAReleaseTicketStatus { get; private set; }
-    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Open" };
+    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
 
     private void SetupIfRequired()
     {
