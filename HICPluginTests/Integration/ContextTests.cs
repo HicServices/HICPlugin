@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using NUnit.Framework;
 using Rdmp.Core.Caching.Pipeline;
@@ -24,21 +25,21 @@ internal class PipelineDatabaseTestHelper
     public void Setup(CatalogueRepository catalogueRepository)
     {
         //cleanup old one
-        foreach(var c in catalogueRepository.GetAllObjects<Pipeline>().Where(p=>p.Name.Equals("Deleteme")))
+        foreach (var c in catalogueRepository.GetAllObjects<Pipeline>().Where(p => p.Name.Equals("Deleteme")))
             c.DeleteInDatabase();
-           
+
         Pipe = new Pipeline(catalogueRepository, "Deleteme");
 
         var component = new PipelineComponent(catalogueRepository, Pipe, typeof(SCIStoreWebServiceSource), -100, "bob");
         var destination = new PipelineComponent(catalogueRepository, Pipe, typeof(SCIStoreCacheDestination), 100, "destination");
-            
+
         //setting the source correctly
         Pipe.SourcePipelineComponent_ID = component.ID;
         Pipe.DestinationPipelineComponent_ID = destination.ID;
         Pipe.SaveToDatabase();
 
         var config = new WebServiceConfiguration(catalogueRepository) { Username = "bob", Password = "fish" };
-            
+
         var arg = component.CreateArgumentsForClassIfNotExists<SCIStoreWebServiceSource>()
             .Single(a => a.Name.Equals("Configuration"));
         arg.SetValue(config);
@@ -46,7 +47,7 @@ internal class PipelineDatabaseTestHelper
 
         var args = destination.CreateArgumentsForClassIfNotExists<SCIStoreCacheDestination>()
             .ToList();
-            
+
         arg = args.Single(a => a.Name.Equals("HealthBoard"));
         arg.SetValue(HealthBoard.T);
         arg.SaveToDatabase();
@@ -54,14 +55,17 @@ internal class PipelineDatabaseTestHelper
         arg = args.Single(a => a.Name.Equals("Discipline"));
         arg.SetValue(Discipline.Biochemistry);
         arg.SaveToDatabase();
-            
+
         var testDirHelper = new TestDirectoryHelper(GetType());
         testDirHelper.SetUp();
-            
+        var root = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true).RootPath.FullName;
         var _lmd = new LoadMetadata(catalogueRepository, "JobDateGenerationStrategyFactoryTestsIntegration")
-            {
-                LocationOfFlatFiles = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test",true).RootPath.FullName
-            };
+        {
+            LocationOfForLoadingDirectory = Path.Join(root, "Data", "ForLoading"),
+            LocationOfForArchivingDirectory = Path.Join(root, "Data", "ForArchiving"),
+            LocationOfCacheDirectory = Path.Join(root, "Cahce"),
+            LocationOfExecutablesDirectory = Path.Join(root, "Executables"),
+        };
         _lmd.SaveToDatabase();
 
         var _lp = new LoadProgress(catalogueRepository, _lmd)
@@ -118,8 +122,8 @@ public class ContextTests : DatabaseTests
     public void GetPipelineWorks()
     {
         if (_setupException != null)
-            throw new Exception("Crashed during setup",_setupException);
+            throw new Exception("Crashed during setup", _setupException);
 
-        Assert.That(_pipelineDatabaseHelper.Pipe,Is.Not.Null);
+        Assert.That(_pipelineDatabaseHelper.Pipe, Is.Not.Null);
     }
 }

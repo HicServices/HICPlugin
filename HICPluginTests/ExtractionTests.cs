@@ -244,7 +244,10 @@ public class ExtractionTests : DatabaseTests
     {
         var loadMetadata = new LoadMetadata(CatalogueRepository)
         {
-            LocationOfFlatFiles = projDir
+            LocationOfForLoadingDirectory = Path.Join(projDir, "Data", "ForLoading"),
+            LocationOfForArchivingDirectory = Path.Join(projDir, "Data", "ForArchiving"),
+            LocationOfCacheDirectory = Path.Join(projDir, "Cahce"),
+            LocationOfExecutablesDirectory = Path.Join(projDir, "Executables"),
         };
         loadMetadata.SaveToDatabase();
 

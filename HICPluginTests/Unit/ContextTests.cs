@@ -6,6 +6,7 @@ using Rdmp.Core.Curation;
 using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.DataFlowPipeline.Requirements;
 using SCIStorePlugin.Cache.Pipeline;
+using System.IO;
 using Tests.Common;
 
 namespace SCIStorePluginTests.Unit;
@@ -21,7 +22,10 @@ public class ContextTests : DatabaseTests
         var projDir = LoadDirectory.CreateDirectoryStructure(testDirHelper.Directory, "Test", true);
         var lmd = new LoadMetadata(CatalogueRepository)
         {
-            LocationOfFlatFiles = projDir.RootPath.FullName
+            LocationOfForLoadingDirectory = Path.Join(projDir.RootPath.FullName, "Data", "ForLoading"),
+            LocationOfForArchivingDirectory = Path.Join(projDir.RootPath.FullName, "Data", "ForArchiving"),
+            LocationOfCacheDirectory = Path.Join(projDir.RootPath.FullName, "Cahce"),
+            LocationOfExecutablesDirectory = Path.Join(projDir.RootPath.FullName, "Executables"),
         };
         lmd.SaveToDatabase();
 
