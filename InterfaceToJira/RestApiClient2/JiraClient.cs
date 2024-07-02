@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
+using Newtonsoft.Json;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -34,7 +35,7 @@ public class JiraClient
         return true;
     }
 
-    public T Execute<T>(RestRequest request, HttpStatusCode expectedResponseCode, ICheckNotifier notifier=null) where T : new()
+    public T Execute<T>(RestRequest request, HttpStatusCode expectedResponseCode, ICheckNotifier notifier = null) where T : new()
     {
         var restResponse = client.Execute<T>(request);
         if (restResponse.ResponseStatus != ResponseStatus.Completed || restResponse.StatusCode.IsError() || restResponse.ErrorException != null)
@@ -42,7 +43,7 @@ public class JiraClient
                 $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
 
         notifier.OnCheckPerformed(
-            new CheckEventArgs(restResponse.ToString(), CheckResult.Success));
+            new CheckEventArgs(JsonConvert.SerializeObject(restResponse), CheckResult.Success));
         return restResponse.Data;
     }
 
@@ -205,13 +206,13 @@ public class JiraClient
         return Execute<BasicIssue>(request, HttpStatusCode.Created);
     }
 
-    public List<string> GetProjectNames(ICheckNotifier notifier=null)
-    {       
+    public List<string> GetProjectNames(ICheckNotifier notifier = null)
+    {
         var list = Execute<List<Project>>(new RestRequest
         {
             Resource = "/rest/api/latest/project",
             Method = Method.Get
-        }, HttpStatusCode.OK,notifier).Select((Func<Project, string>) (project => project.key)).ToList();
+        }, HttpStatusCode.OK, notifier).Select((Func<Project, string>)(project => project.key)).ToList();
         list.Sort();
         return list;
     }
