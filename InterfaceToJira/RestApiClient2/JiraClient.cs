@@ -35,7 +35,7 @@ public class JiraClient
         return true;
     }
 
-    public T Execute<T>(RestRequest request, HttpStatusCode expectedResponseCode, ICheckNotifier notifier = null) where T : new()
+    public T Execute<T>(RestRequest request, HttpStatusCode expectedResponseCode) where T : new()
     {
         var restResponse = client.Execute<T>(request);
         if (restResponse.ResponseStatus != ResponseStatus.Completed || restResponse.StatusCode.IsError() || restResponse.ErrorException != null)
@@ -204,13 +204,13 @@ public class JiraClient
         return Execute<BasicIssue>(request, HttpStatusCode.Created);
     }
 
-    public List<string> GetProjectNames(ICheckNotifier notifier = null)
+    public List<string> GetProjectNames()
     {
         var list = Execute<List<Project>>(new RestRequest
         {
             Resource = "/rest/api/latest/project",
             Method = Method.Get
-        }, HttpStatusCode.OK, notifier).Select((Func<Project, string>)(project => project.key)).ToList();
+        }, HttpStatusCode.OK).Select((Func<Project, string>)(project => project.key)).ToList();
         list.Sort();
         return list;
     }

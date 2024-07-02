@@ -27,169 +27,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
     ////releaseability
     public List<Attachment> JIRAProjectAttachements { get; private set; }
     public string JIRAReleaseTicketStatus { get; private set; }
-    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
-
-
-    //public JIRATicketingSystem(TicketingSystemConstructorParameters parameters) : base(parameters)
-    //{
-
-    //}
-
-    //public override void Check(ICheckNotifier notifier)
-    //{
-    //    if (Credentials == null)
-    //        notifier.OnCheckPerformed(new CheckEventArgs("Data Access credentials for JIRA are not set",CheckResult.Fail));
-
-    //    if (string.IsNullOrWhiteSpace(Url))
-    //        notifier.OnCheckPerformed(new CheckEventArgs("You must put in a URL to the JIRA server e.g. https://example.atlassian.net",CheckResult.Fail));
-    //    else
-    //    if (RegexForUrls.IsMatch(Url))
-    //        notifier.OnCheckPerformed(new CheckEventArgs("Url matches RegexForUrls", CheckResult.Success));
-    //    else
-    //        notifier.OnCheckPerformed(
-    //            new CheckEventArgs(
-    //                $"Url {Url} does not match the regex RegexForUrls: {RegexForUrlsPattern}",
-    //                CheckResult.Fail));
-    //    try
-    //    {
-    //        SetupIfRequired();
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        notifier.OnCheckPerformed(new CheckEventArgs("SetupIfRequired failed", CheckResult.Fail, e));
-    //    }
-
-    //    try
-    //    {
-    //        var projects = _client.GetProjectNames();
-
-    //        notifier.OnCheckPerformed(new CheckEventArgs($"Found {projects.Count} projects",
-    //            projects.Count == 0 ? CheckResult.Warning : CheckResult.Success));
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        notifier.OnCheckPerformed(new CheckEventArgs("Could not fetch issues", CheckResult.Fail, e));
-    //    }
-    //}
-
-    //public override bool IsValidTicketName(string ticketName)
-    //{
-    //    //also let user clear tickets :)
-    //    return string.IsNullOrWhiteSpace(ticketName) || RegexForTickets.IsMatch(ticketName);
-    //}
-
-    //public override void NavigateToTicket(string ticketName)
-    //{
-    //    if (string.IsNullOrWhiteSpace(ticketName))
-    //        return;
-    //    try
-    //    {
-    //        Check(ThrowImmediatelyCheckNotifier.Quiet);
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        throw new Exception("JIRATicketingSystem Checks() failed (see inner exception for details)",e);
-    //    }
-
-
-    //    Uri navigationUri = null;
-    //    Uri baseUri = null;
-    //    var relativePath = $"/browse/{ticketName}";
-    //    try
-    //    {
-    //        baseUri = new Uri(Url);
-    //        navigationUri = new Uri(baseUri, relativePath);
-    //        Process.Start(navigationUri.AbsoluteUri);
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        if(navigationUri != null)
-    //            throw new Exception($"Failed to navigate to {navigationUri.AbsoluteUri}", e);
-
-    //        if (baseUri != null)
-    //            throw new Exception($"Failed to reach {relativePath} from {baseUri.AbsoluteUri}", e);
-    //    }
-    //}
-
-    //public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, out string reason, out Exception exception)
-    //{
-    //    exception = null;
-    //    try
-    //    {
-    //        SetupIfRequired();
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        reason = "Failed to setup a connection to the JIRA API";
-    //        exception = e;
-    //        return TicketingReleaseabilityEvaluation.TicketingLibraryMissingOrNotConfiguredCorrectly;
-    //    }
-
-    //    //make sure JIRA data is configured correctly
-    //    if (string.IsNullOrWhiteSpace(masterTicket))
-    //    {
-    //        reason = "Master JIRA ticket is blank";
-    //        return TicketingReleaseabilityEvaluation.NotReleaseable;
-    //    }
-
-    //    if(string.IsNullOrWhiteSpace(requestTicket))
-    //    {
-    //        reason = "Request JIRA ticket is blank";
-    //        return TicketingReleaseabilityEvaluation.NotReleaseable;
-    //    }
-
-    //    if (string.IsNullOrWhiteSpace(releaseTicket))
-    //    {
-    //        reason = "Release JIRA ticket is blank";
-    //        return TicketingReleaseabilityEvaluation.NotReleaseable;
-    //    }
-
-    //    //Get status of tickets from JIRA API
-    //    try
-    //    {
-    //        JIRAReleaseTicketStatus = GetStatusOfJIRATicket(releaseTicket);
-    //        GetAttachementsOfJIRATicket(requestTicket);
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        reason = "Problem occurred getting the status of the release ticket or the attachemnts stored under the request ticket";
-    //        exception = e;
-    //        return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
-
-    //    }
-
-    //    //if it isn't at required status
-    //    if (!PermissableReleaseStatusesForJIRAReleaseTickets.Contains(JIRAReleaseTicketStatus))
-    //    {
-    //        reason =
-    //            $"Status of release ticket ({JIRAReleaseTicketStatus}) was not one of the permissable release ticket statuses: {string.Join(",", PermissableReleaseStatusesForJIRAReleaseTickets)}";
-
-    //        return TicketingReleaseabilityEvaluation.NotReleaseable; //it cannot be released
-    //    }
-
-    //    if (!JIRAProjectAttachements.Any(a => a.filename.EndsWith(".docx") || a.filename.EndsWith(".doc")))
-    //    {
-    //        reason =
-    //            $"Request ticket {requestTicket} must have at least one Attachment with the extension .doc or .docx ";
-
-    //        if (JIRAProjectAttachements.Any())
-    //            reason +=
-    //                $". Current attachments were: {string.Join(",", JIRAProjectAttachements.Select(a => a.filename).ToArray())}";
-
-    //        return TicketingReleaseabilityEvaluation.NotReleaseable;
-    //    }
-
-    //    reason = null;
-    //    return TicketingReleaseabilityEvaluation.Releaseable;
-    //}
-
-    //public override string GetProjectFolderName(string masterTicket)
-    //{
-    //    SetupIfRequired();
-    //    var issue = _client.GetIssue(masterTicket, new[] {"summary", "customfield_13400"});
-
-    //    return issue.fields.customfield_13400;
-    //}
+    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Open" };
 
     private void SetupIfRequired()
     {
@@ -235,10 +73,6 @@ public class JIRATicketingSystem : PluginTicketingSystem
         _password = parameters.Credentials.Password;
         _apiVersion = "latest";
         _baseUrl = string.Format("{0}/rest/api/{1}/", _serverUrl, _apiVersion);
-        //_restClient = new RestClient(new RestClientOptions(_baseUrl)
-        //{
-        //    Authenticator = new HttpBasicAuthenticator(_username, _password)
-        //});
     }
 
     public override void Check(ICheckNotifier notifier)
@@ -267,7 +101,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
         try
         {
-            var projects = _client.GetProjectNames(notifier);
+            var projects = _client.GetProjectNames();
 
             notifier.OnCheckPerformed(new CheckEventArgs($"Found {projects.Count} projects",
                 projects.Count == 0 ? CheckResult.Warning : CheckResult.Success));
@@ -384,7 +218,6 @@ public class JIRATicketingSystem : PluginTicketingSystem
         {
             baseUri = new Uri(Url);
             navigationUri = new Uri(baseUri, relativePath);
-            //Process.Start(navigationUri.AbsoluteUri);
             string browserPath = GetBrowserPath();
             if (browserPath == string.Empty)
                 browserPath = "iexplore";
