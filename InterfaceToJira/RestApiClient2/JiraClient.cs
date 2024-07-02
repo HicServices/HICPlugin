@@ -42,8 +42,6 @@ public class JiraClient
             throw new JiraApiException(
                 $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
 
-        notifier.OnCheckPerformed(
-            new CheckEventArgs(JsonConvert.SerializeObject(restResponse), CheckResult.Success));
         return restResponse.Data;
     }
 
