@@ -12,6 +12,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System.Security.Principal;
 using Microsoft.Win32;
+using Rdmp.Core.Curation;
 
 namespace JiraPlugin;
 
@@ -51,6 +52,11 @@ public class JIRATicketingSystem : PluginTicketingSystem
     {
         var issue = GetIssue(ticket) ?? throw new Exception($"Non existent ticket: {ticket}");
         JIRAProjectAttachements = issue.fields.attachment;
+    }
+
+    public override List<string> GetAvailableStatuses()
+    {
+        return _client.GetStatuses().Select(x => x.name).ToList();  
     }
 
     private Issue GetIssue(string ticket)
