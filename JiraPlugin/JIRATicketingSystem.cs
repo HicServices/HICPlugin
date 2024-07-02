@@ -267,7 +267,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
         try
         {
-            var projects = _client.GetProjectNames();
+            var projects = _client.GetProjectNames(notifier);
 
             notifier.OnCheckPerformed(new CheckEventArgs($"Found {projects.Count} projects",
                 projects.Count == 0 ? CheckResult.Warning : CheckResult.Success));
