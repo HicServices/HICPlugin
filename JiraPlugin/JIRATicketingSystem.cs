@@ -13,6 +13,8 @@ using RestSharp.Authenticators;
 using System.Security.Principal;
 using Microsoft.Win32;
 using Rdmp.Core.Curation;
+using System.DirectoryServices.Protocols;
+using System.ComponentModel.Design.Serialization;
 
 namespace JiraPlugin;
 
@@ -28,7 +30,6 @@ public class JIRATicketingSystem : PluginTicketingSystem
     ////releaseability
     public List<Attachment> JIRAProjectAttachements { get; private set; }
     public string JIRAReleaseTicketStatus { get; private set; }
-    private static readonly string[] PermissableReleaseStatusesForJIRAReleaseTickets = new[] { "Released" };
 
     private void SetupIfRequired()
     {
@@ -56,7 +57,16 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
     public override List<string> GetAvailableStatuses()
     {
-        return _client.GetStatuses().Select(x => x.name).ToList();  
+        try
+        {
+            SetupIfRequired();
+            var statuses = _client.GetStatuses().Select(x => x.name);
+            return statuses.ToList();
+        }
+        catch (Exception e)
+        {
+            return new List<string>();
+        }
     }
 
     private Issue GetIssue(string ticket)
@@ -118,7 +128,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
         }
     }
 
-    public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, out string reason, out Exception exception)
+    public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, List<TicketingSystemReleaseStatus> acceptedStatuses,out string reason, out Exception exception)
     {
         exception = null;
         try
@@ -164,12 +174,13 @@ public class JIRATicketingSystem : PluginTicketingSystem
             return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
 
         }
+        var statusStrings = acceptedStatuses.Select(s => s.Name).ToList();
 
         //if it isn't at required status
-        if (!PermissableReleaseStatusesForJIRAReleaseTickets.Contains(JIRAReleaseTicketStatus))
+        if (!statusStrings.Contains(JIRAReleaseTicketStatus))
         {
             reason =
-                $"Status of release ticket ({JIRAReleaseTicketStatus}) was not one of the permissable release ticket statuses: {string.Join(",", PermissableReleaseStatusesForJIRAReleaseTickets)}";
+                $"Status of release ticket ({JIRAReleaseTicketStatus}) was not one of the permissable release ticket statuses: {string.Join(",", statusStrings)}";
 
             return TicketingReleaseabilityEvaluation.NotReleaseable; //it cannot be released
         }
