@@ -174,7 +174,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
 
         }
-        var statusStrings = acceptedStatuses.Select(s => s.Name).ToList();
+        var statusStrings = acceptedStatuses.Select(s => s.Status).ToList();
 
         //if it isn't at required status
         if (!statusStrings.Contains(JIRAReleaseTicketStatus))
