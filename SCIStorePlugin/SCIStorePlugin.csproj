@@ -1,135 +1,135 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    
-    <AssemblyTitle>SCIStore</AssemblyTitle>
-    <Product>SCIStore</Product>
-    <Copyright>Copyright ©  2016</Copyright>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SGenTypes>SCIStorePlugin.Data.SciStoreReport;SCIStorePlugin.Data.CombinedReportData</SGenTypes>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Update="Service References\SciStoreServices81\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.AddSubscriptionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.BreakGlassResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindADTresponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindBreakGlassAuditResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindDocumentResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindHCPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindMergeResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindOrganisationResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindPatientConsentAuditResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindPatientResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindResultResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindSubscriptionsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindTreatmentLogResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetADTResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetBreakGlassTypesResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetCumulativeReportResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetDocumentResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetDocumentStylesheetResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetInterfaceStatusResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetNotificationsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientsDocumentListResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientsResultListResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetProviderLocationsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetResultResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetTreatmentLogResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetWebTimeoutResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.LocatePatientsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.LoginTokenResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueueCountResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueueDeleteResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueuePeekResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\SciStoreServices81\SCIStoreServices.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Service References\SciStoreServices81\Reference1.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" />
-    <PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
-  </ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+
+		<AssemblyTitle>SCIStore</AssemblyTitle>
+		<Product>SCIStore</Product>
+		<Copyright>Copyright ©  2016</Copyright>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup>
+		<SGenTypes>SCIStorePlugin.Data.SciStoreReport;SCIStorePlugin.Data.CombinedReportData</SGenTypes>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Update="Service References\SciStoreServices81\Reference.cs">
+			<AutoGen>True</AutoGen>
+			<DesignTime>True</DesignTime>
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.AddSubscriptionResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.BreakGlassResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindADTresponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindBreakGlassAuditResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindDocumentResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindHCPResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindMergeResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindOrganisationResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindPatientConsentAuditResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindPatientResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindResultResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindSubscriptionsResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.FindTreatmentLogResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetADTResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetBreakGlassTypesResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetCumulativeReportResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetDocumentResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetDocumentStylesheetResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetInterfaceStatusResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetNotificationsResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientsDocumentListResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetPatientsResultListResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetProviderLocationsResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetResultResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetTreatmentLogResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.GetWebTimeoutResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.LocatePatientsResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.LoginTokenResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueueCountResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueueDeleteResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStore.SciStoreServices81.MessageQueuePeekResponse.datasource">
+			<DependentUpon>Reference.svcmap</DependentUpon>
+		</None>
+		<None Include="Service References\SciStoreServices81\SCIStoreServices.wsdl" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Service References\SciStoreServices81\Reference1.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" />
+		<PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+	</ItemGroup>
 </Project>

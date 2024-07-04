@@ -63,30 +63,30 @@ namespace HICPlugin {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1To0 {
+        internal static Byte[] _1To0 {
             get {
                 object obj = ResourceManager.GetObject("_1To0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1ToM {
+        internal static Byte[] _1ToM {
             get {
                 object obj = ResourceManager.GetObject("_1ToM", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Byte[])(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MTo1 {
+        internal static Byte[] MTo1 {
             get {
                 object obj = ResourceManager.GetObject("MTo1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((Byte[])(obj));
             }
         }
     }
