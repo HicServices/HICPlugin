@@ -39,6 +39,7 @@ public class JiraClient
         if (restResponse.ResponseStatus != ResponseStatus.Completed || restResponse.StatusCode.IsError() || restResponse.ErrorException != null)
             throw new JiraApiException(
                 $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
+
         return restResponse.Data;
     }
 
@@ -207,7 +208,7 @@ public class JiraClient
         {
             Resource = "/rest/api/latest/project",
             Method = Method.Get
-        }, HttpStatusCode.OK).Select((Func<Project, string>) (project => project.key)).ToList();
+        }, HttpStatusCode.OK).Select((Func<Project, string>)(project => project.key)).ToList();
         list.Sort();
         return list;
     }
