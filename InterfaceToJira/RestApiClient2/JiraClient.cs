@@ -10,8 +10,6 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
-using Newtonsoft.Json;
-using Rdmp.Core.ReusableLibraryCode.Checks;
 using RestSharp;
 using RestSharp.Authenticators;
 

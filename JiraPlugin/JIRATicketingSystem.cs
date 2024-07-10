@@ -22,7 +22,7 @@ public partial class JIRATicketingSystem : PluginTicketingSystem
 
     private JiraClient _client;
 
-    ////releaseability
+    //releaseability
     public List<Attachment> JIRAProjectAttachements { get; private set; }
     public string JIRAReleaseTicketStatus { get; private set; }
 
@@ -58,7 +58,7 @@ public partial class JIRATicketingSystem : PluginTicketingSystem
             var statuses = _client.GetStatuses().Select(x => x.name);
             return statuses.ToList();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             return [];
         }
@@ -71,9 +71,7 @@ public partial class JIRATicketingSystem : PluginTicketingSystem
     private readonly string _serverUrl;
     private readonly string _apiVersion;
     private readonly string _username;
-    private readonly string _password;
     private readonly string _baseUrl;
-    private readonly RestClient _restClient;
 
     public JIRATicketingSystem(TicketingSystemConstructorParameters parameters) : base(parameters)
     {
@@ -81,7 +79,6 @@ public partial class JIRATicketingSystem : PluginTicketingSystem
         Url = parameters.Url;
         _serverUrl = parameters.Url;
         _username = parameters.Credentials.Username;
-        _password = parameters.Credentials.Password;
         _apiVersion = "latest";
         _baseUrl = string.Format("{0}/rest/api/{1}/", _serverUrl, _apiVersion);
     }
