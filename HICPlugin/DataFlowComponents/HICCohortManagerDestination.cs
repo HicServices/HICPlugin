@@ -129,7 +129,6 @@ public class HICCohortManagerDestination : IPluginCohortDestination
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 100000;
-
             var cohortId = Convert.ToInt32(cmd.ExecuteScalar());
 
             listener.OnNotify(this,
