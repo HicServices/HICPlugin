@@ -9,21 +9,16 @@ using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
 using Rdmp.Core.Ticketing;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using RestSharp;
-using RestSharp.Authenticators;
-using System.Security.Principal;
 using Microsoft.Win32;
 using Rdmp.Core.Curation;
-using System.DirectoryServices.Protocols;
-using System.ComponentModel.Design.Serialization;
-
 namespace JiraPlugin;
 
-public class JIRATicketingSystem : PluginTicketingSystem
+public partial class JIRATicketingSystem : PluginTicketingSystem
 {
     public static readonly Regex RegexForTickets = new(@"((?<!([A-Z]{1,10})-?)[A-Z]+-\d+)", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
     private const string RegexForUrlsPattern = @"^https://.*";
-    private static readonly Regex RegexForUrls = new(RegexForUrlsPattern, RegexOptions.Compiled);
+    private static readonly Regex RegexForUrls = MyRegex();
 
     private JiraClient _client;
 
@@ -65,7 +60,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
         }
         catch (Exception e)
         {
-            return new List<string>();
+            return [];
         }
     }
 
@@ -128,7 +123,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
         }
     }
 
-    public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, List<TicketingSystemReleaseStatus> acceptedStatuses,out string reason, out Exception exception)
+    public override TicketingReleaseabilityEvaluation GetDataReleaseabilityOfTicket(string masterTicket, string requestTicket, string releaseTicket, List<TicketingSystemReleaseStatus> acceptedStatuses, out string reason, out Exception exception)
     {
         exception = null;
         try
@@ -174,7 +169,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
             return e.Message.Contains("Authentication Required") ? TicketingReleaseabilityEvaluation.CouldNotAuthenticateAgainstServer : TicketingReleaseabilityEvaluation.CouldNotReachTicketingServer;
 
         }
-        var statusStrings = acceptedStatuses.Select(s => s.Status).ToList();
+        var statusStrings = acceptedStatuses.Select(s => s.Status).ToList<string>();
 
         //if it isn't at required status
         if (!statusStrings.Contains(JIRAReleaseTicketStatus))
@@ -238,8 +233,10 @@ public class JIRATicketingSystem : PluginTicketingSystem
             string browserPath = GetBrowserPath();
             if (browserPath == string.Empty)
                 browserPath = "iexplore";
-            Process process = new Process();
-            process.StartInfo = new ProcessStartInfo(browserPath);
+            Process process = new()
+            {
+                StartInfo = new ProcessStartInfo(browserPath)
+            };
             process.StartInfo.Arguments = "\"" + navigationUri.AbsoluteUri + "\"";
             process.Start();
         }
@@ -289,4 +286,7 @@ public class JIRATicketingSystem : PluginTicketingSystem
 
         return browser;
     }
+
+    [GeneratedRegex(RegexForUrlsPattern, RegexOptions.Compiled)]
+    private static partial Regex MyRegex();
 }
