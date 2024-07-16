@@ -20,7 +20,7 @@ namespace SCIStorePlugin.Attachers;
 [Description(@"Populates the RAW database from XML files retrieved from the SCI Store web service in the ForLoading directory")]
 public class SciStoreAttacher : Attacher
 {
-    public string HeaderTable ="Header";
+    public string HeaderTable = "Header";
     public string SamplesTable = "SampleDetails";
     public string ResultsTable = "Results";
     private Stopwatch _timer;
@@ -31,7 +31,7 @@ public class SciStoreAttacher : Attacher
 
     [DemandsInitialization(@"Determines behaviour when bad reports are encountered e.g. LabNumbers like 000000000.  
 True - Report warning and continue (not loading file)
-False - Stop the data load with an error",DefaultValue = true)]
+False - Stop the data load with an error", DefaultValue = true)]
     public bool IgnoreBadData { get; set; }
 
     public SciStoreAttacher()
@@ -45,7 +45,7 @@ False - Stop the data load with an error",DefaultValue = true)]
     /// <param name="job"></param>
     /// <returns></returns>
     /// <exception cref="BadCombinedReportDataException"></exception>
-    public override ExitCodeType Attach(IDataLoadJob job,GracefulCancellationToken token)
+    public override ExitCodeType Attach(IDataLoadJob job, GracefulCancellationToken token)
     {
         // Create the DataTable repository into which the XML files will be loaded into prior to their bulk insert into RAW
         var dataTableSchemaSource = new DataTableSchemaFromDatabase(_dbInfo);
@@ -78,7 +78,7 @@ False - Stop the data load with an error",DefaultValue = true)]
             {
                 labs = reports
                     .Select(report => reportFactory.Create(report, job))
-                    .Where(r=>r != null) //bad reports are null
+                    .Where(r => r != null) //bad reports are null
                     .ToList();
             }
             catch (BadCombinedReportDataException e)
@@ -133,7 +133,21 @@ False - Stop the data load with an error",DefaultValue = true)]
 
         var tbl = _dbInfo.ExpectTable(dataTable.TableName);
         using var blk = tbl.BeginBulkInsert();
-        blk.Upload(dataTable);
+        foreach (var row in dataTable.Rows)
+        {
+            try
+            {
+                var ndt = new DataTable();
+                ndt.Rows.Add(row);
+                blk.Upload(ndt);
+            }
+            catch (Exception e)
+            {
+                job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
+               $"Skipped a row due to error: {e.Message}", e));
+            }
+        }
+        //blk.Upload(dataTable);
     }
 
     public bool SilentRunning { get; set; }
@@ -162,7 +176,7 @@ False - Stop the data load with an error",DefaultValue = true)]
         };
     }
 
-    public override void LoadCompletedSoDispose(ExitCodeType exitCode,IDataLoadEventListener postLoadEventListener)
+    public override void LoadCompletedSoDispose(ExitCodeType exitCode, IDataLoadEventListener postLoadEventListener)
     {
     }
 
@@ -172,9 +186,9 @@ False - Stop the data load with an error",DefaultValue = true)]
         {
             foreach (var sample in lab.Samples)
             {
-                var recordsRemoved  = sample.ResolveTestResultOrderDuplication();
+                var recordsRemoved = sample.ResolveTestResultOrderDuplication();
                 if (recordsRemoved > 0)
-                    job.OnNotify(this,new NotifyEventArgs(ProgressEventType.Warning,
+                    job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
                         $"Resolved duplicate TestResultOrder using method 'ResolveTestResultOrderDuplication' in lab number:{lab.Header.LabNumber}"));
             }
         }
