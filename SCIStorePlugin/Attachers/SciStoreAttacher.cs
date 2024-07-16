@@ -108,9 +108,22 @@ False - Stop the data load with an error", DefaultValue = true)]
                 $"{destRepo.ResultsTable.Rows.Count} rows added to Results Data Table"));
 
             // this repo uses DataTables, so next need to batch insert the table data into the DB
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Starting to insert headers"));
+
             BulkInsertDataTable(destRepo.HeadersTable, job);
+
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Completed inserting headers"));
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Starting to insert sample details"));
+
             BulkInsertDataTable(destRepo.SampleDetailsTable, job);
+
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Completed inserting sample details"));
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Starting to insert results"));
+
             BulkInsertDataTable(destRepo.ResultsTable, job);
+
+            job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, "SciStoreAttacher::Completed inserting results"));
+
 
             _timer.Stop();
 
@@ -137,7 +150,7 @@ False - Stop the data load with an error", DefaultValue = true)]
         {
             try
             {
-                var ndt = new DataTable();
+                var ndt = dataTable.Clone();
                 ndt.Rows.Add(row);
                 blk.Upload(ndt);
             }
