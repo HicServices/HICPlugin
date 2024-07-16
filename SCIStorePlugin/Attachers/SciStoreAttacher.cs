@@ -158,7 +158,7 @@ False - Stop the data load with an error", DefaultValue = true)]
             catch (Exception e)
             {
                 job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-               $"Skipped a row due to error: {e.Message}. Columns:{dataTable.Columns.Count}/{ndt.Columns.Count}. Row Length:{ndt.Rows[0].ItemArray.Length}", e));
+               $"Skipped a row due to error: {e.Message}.", e));
             }
         }
         //blk.Upload(dataTable);
