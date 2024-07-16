@@ -146,18 +146,19 @@ False - Stop the data load with an error", DefaultValue = true)]
 
         var tbl = _dbInfo.ExpectTable(dataTable.TableName);
         using var blk = tbl.BeginBulkInsert();
+        DataTable ndt = dataTable.Clone();
         foreach (var row in dataTable.Rows)
         {
             try
             {
-                var ndt = dataTable.Clone();
+                ndt = dataTable.Clone();
                 ndt.Rows.Add(row);
                 blk.Upload(ndt);
             }
             catch (Exception e)
             {
                 job.OnNotify(this, new NotifyEventArgs(ProgressEventType.Warning,
-               $"Skipped a row due to error: {e.Message}", e));
+               $"Skipped a row due to error: {e.Message}. Columns:{dataTable.Columns.Count}/{ndt.Columns.Count}. Row Length:{ndt.Rows[0].ItemArray.Length}", e));
             }
         }
         //blk.Upload(dataTable);
