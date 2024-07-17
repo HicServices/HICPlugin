@@ -12,4 +12,4 @@
 // These should be overwritten by release builds
 [assembly: AssemblyVersion("6.1.6")]
 [assembly: AssemblyFileVersion("6.1.6")]
-[assembly: AssemblyInformationalVersion("6.1.6")]
+[assembly: AssemblyInformationalVersion("6.1.7")]
