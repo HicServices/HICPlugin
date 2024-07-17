@@ -109,7 +109,8 @@ public static class SciStoreHeaderFactory
         // encountered in Fife Haematology load
         if (!string.IsNullOrWhiteSpace(chi) && chi.Equals("Temp Residen"))
             return chi[..10];
-
+        if (chi.Length > 10)
+            throw new Exception($"CHI '{chi}' was too long");
         return chi;
     }
 
