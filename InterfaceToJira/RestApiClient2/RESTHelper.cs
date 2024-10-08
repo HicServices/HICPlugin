@@ -23,7 +23,7 @@ namespace InterfaceToJira.RestApiClient2
                 throw new JiraApiException(
                     $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
 
-            return restResponse.Data;
+            return restResponse.Data != null?restResponse.Data: restResponse.Content;
         }
     }
 }

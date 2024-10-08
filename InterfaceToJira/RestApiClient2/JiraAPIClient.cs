@@ -2,6 +2,7 @@
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2;
 using InterfaceToJira.RestApiClient2.JiraModel;
 using Newtonsoft.Json;
+using NPOI.SS.UserModel;
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
@@ -36,12 +37,20 @@ public class JiraAPIClient
         {
             Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
         });
-        var x = RESTHelper.Execute<Workspace>(jiraClient, new RestRequest
+        var response = jiraClient.Execute(new RestRequest
         {
             Resource = "/rest/servicedeskapi/assets/workspace",
             Method = Method.Get
         });
-        _workspaceID = x.workspaceId;
+        if (response.IsSuccessful)
+        {
+            var workspace = JsonConvert.DeserializeObject<Workspace>(response.Content);
+            _workspaceID = workspace.workspaceId;
+        }
+        else
+        {
+            throw new Exception(response.ErrorMessage);
+        }
     }
 
     public List<JiraAsset> GetAllProjectAssets()
