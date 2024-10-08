@@ -26,16 +26,28 @@ public class JiraAPIClient
 
     public JiraAPIClient(JiraAccount account)
     {
-        client = new RestClient(new RestClientOptions("https://api.atlassian.com") {
+        client = new RestClient(new RestClientOptions("https://api.atlassian.com")
+        {
             Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
         });
-        //TODO get workspaceID
-        var webClient = new WebClient
+
+
+        var jiraClient = new RestClient(new RestClientOptions(account.ServerUrl)
         {
-            Credentials = new NetworkCredential(account.User, account.Password)
-        };
-        var response = JsonConvert.DeserializeObject<Workspace>(webClient.DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
-        _workspaceID = response.workspaceId;
+            Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
+        });
+        ////TODO get workspaceID
+        //var webClient = new WebClient
+        //{
+        //    Credentials = new NetworkCredential(account.User, account.Password)
+        //};
+        //var response = JsonConvert.DeserializeObject<Workspace>(webClient.DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
+        //_workspaceID = response.workspaceId;
+        _workspaceID = RESTHelper.Execute<Workspace>(jiraClient, new RestRequest
+        {
+            Resource = "/rest/servicedeskapi/assets/workspace",
+            Method = Method.Get
+        }).workspaceId;
     }
 
     public List<JiraAsset> GetAllProjectAssets()
