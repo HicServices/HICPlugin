@@ -43,11 +43,13 @@ public class JiraAPIClient
         //};
         //var response = JsonConvert.DeserializeObject<Workspace>(webClient.DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
         //_workspaceID = response.workspaceId;
-        _workspaceID = RESTHelper.Execute<Workspace>(jiraClient, new RestRequest
+        var x = RESTHelper.Execute<Workspace>(jiraClient, new RestRequest
         {
             Resource = "/rest/servicedeskapi/assets/workspace",
             Method = Method.Get
-        }).workspaceId;
+        });
+            throw new Exception(x.ToString());
+        //_workspaceID = x.workspaceId;
     }
 
     public List<JiraAsset> GetAllProjectAssets()
