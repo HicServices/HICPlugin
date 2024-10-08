@@ -48,7 +48,7 @@ public class JiraAPIClient
             Resource = "/rest/servicedeskapi/assets/workspace",
             Method = Method.Get
         });
-            throw new Exception(x.ToString());
+            throw new Exception(x.workspaceId);
         //_workspaceID = x.workspaceId;
     }
 
