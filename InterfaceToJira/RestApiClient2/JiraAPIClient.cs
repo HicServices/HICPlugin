@@ -73,7 +73,8 @@ public class JiraAPIClient
             Method = Method.Post,
             RequestFormat = DataFormat.Json,
         };
-        request.AddBody(new AQLQuery("objectType = Project"));
+        //request.AddBody(new AQLQuery("objectType = Project"));
+        request.AddBody("{\"qlQuery\": \"objectType = Project\"}");
         return RESTHelper.Execute<List<JiraAsset>>(client, request);
     }
 }
