@@ -21,7 +21,7 @@ public class JiraAPIClient
 
     private readonly RestClient client;
 
-    private readonly String _workspaceID;
+    private readonly string _workspaceID;
 
 
     public JiraAPIClient(JiraAccount account)
@@ -36,20 +36,12 @@ public class JiraAPIClient
         {
             Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
         });
-        ////TODO get workspaceID
-        //var webClient = new WebClient
-        //{
-        //    Credentials = new NetworkCredential(account.User, account.Password)
-        //};
-        //var response = JsonConvert.DeserializeObject<Workspace>(webClient.DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
-        //_workspaceID = response.workspaceId;
         var x = RESTHelper.Execute<Workspace>(jiraClient, new RestRequest
         {
             Resource = "/rest/servicedeskapi/assets/workspace",
             Method = Method.Get
         });
-            throw new Exception(x.workspaceId);
-        //_workspaceID = x.workspaceId;
+        _workspaceID = x.workspaceId;
     }
 
     public List<JiraAsset> GetAllProjectAssets()
