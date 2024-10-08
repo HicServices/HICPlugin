@@ -30,8 +30,11 @@ public class JiraAPIClient
             Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
         });
         //TODO get workspaceID
-
-        var response = JsonConvert.DeserializeObject<Workspace>(new WebClient().DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
+        var webClient = new WebClient
+        {
+            Credentials = new NetworkCredential(account.User, account.Password)
+        };
+        var response = JsonConvert.DeserializeObject<Workspace>(webClient.DownloadString($"{account.ServerUrl}/rest/servicedeskapi/assets/workspace"));
         _workspaceID = response.workspaceId;
     }
 
