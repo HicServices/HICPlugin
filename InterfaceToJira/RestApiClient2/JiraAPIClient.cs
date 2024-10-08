@@ -1,5 +1,6 @@
 ﻿using Azure;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2;
+using InterfaceToJira.RestApiClient2;
 using InterfaceToJira.RestApiClient2.JiraModel;
 using Newtonsoft.Json;
 using NPOI.SS.UserModel;
@@ -7,14 +8,24 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 
 namespace InterfaceToJira.RestApiClient2;
 
-class Workspace
+class Value
 {
     public string workspaceId { get; set; }
+}
+
+class Workspace
+{
+    public int size { get; set; }
+    public int start { get; set; }
+    public int limit { get; set; }
+    public bool isLastPage { get; set; }
+    public IList<Value> values { get; set; }
 }
 
 public class JiraAPIClient
@@ -45,7 +56,7 @@ public class JiraAPIClient
         if (response.IsSuccessful)
         {
             var workspace = JsonConvert.DeserializeObject<Workspace>(response.Content);
-            _workspaceID = workspace.workspaceId;
+            _workspaceID = workspace.values.First().workspaceId;
         }
         else
         {
