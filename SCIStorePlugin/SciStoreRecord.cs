@@ -1,11 +1,10 @@
 using System;
 using Rdmp.Core.ReusableLibraryCode;
-using Equ;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 
 namespace SCIStorePlugin;
 
-public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEquatable<SciStoreRecord>
+public sealed class SciStoreRecord// : PropertywiseEquatable<SciStoreRecord>, IEquatable<SciStoreRecord>
 {
     public string CHI;
 
@@ -28,7 +27,7 @@ public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEqu
     private string _labNumber;
     private string _testReportId;
 
-    [MemberwiseEqualityIgnore]
+    //[MemberwiseEqualityIgnore]
     public string Dept { get; set; }
 
     public static bool operator ==([CanBeNull] SciStoreRecord left, [CanBeNull] SciStoreRecord right)

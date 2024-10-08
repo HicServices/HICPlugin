@@ -27,9 +27,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\Entities\Searching\SearchResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient1\JiraResource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraAccount.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraAPIClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Aggregateprogress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\ApplicationProperty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\AQLQuery.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Author.cs" />
@@ -46,6 +48,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Issues.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\IssueType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\JiraApiException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\JiraAsset.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Priority.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Progress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Project.cs" />
@@ -58,5 +61,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Watches.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Worklog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Worklogs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\RESTHelper.cs" />
   </ItemGroup>
 </Project>

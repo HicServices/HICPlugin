@@ -12,6 +12,8 @@ using System.Net;
 using HIC.Common.InterfaceToJira.JIRA.Domain;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
+using InterfaceToJira.RestApiClient2;
+using InterfaceToJira.RestApiClient2.JiraModel;
 using RestSharp;
 
 namespace HIC.Common.InterfaceToJira;
@@ -57,7 +59,7 @@ public class JiraInteraction
         string issueType)
     {
         var newIssue = new CreateIssue(projectKey, summary, issueType);
-        newIssue.AddField(nameof (description), description);
+        newIssue.AddField(nameof(description), description);
         return RaiseTicket(newIssue);
     }
 
@@ -108,25 +110,27 @@ public class JiraInteraction
 
     public bool LinkTickets(string key1, string key2)
     {
-        try
-        {
-            var jiraClient = new JiraClient(new JiraAccount());
-            var request = new RestRequest("/rest/api/latest/issueLink", Method.Post)
-            {
-                RequestFormat = DataFormat.Json
-            };
-            request.AddBody(new
-            {
-                type = new{ name = "Relates" },
-                inwardIssue = new{ key = key1 },
-                outwardIssue = new{ key = key2 }
-            });
-            return jiraClient.Execute(request, HttpStatusCode.OK);
-        }
-        catch (JiraApiException)
-        {
-            return false;
-        }
+        //TODO fix this
+        //try
+        //{
+        //    var jiraClient = new JiraClient(new JiraAccount());
+        //    var request = new RestRequest("/rest/api/latest/issueLink", Method.Post)
+        //    {
+        //        RequestFormat = DataFormat.Json
+        //    };
+        //    request.AddBody(new
+        //    {
+        //        type = new { name = "Relates" },
+        //        inwardIssue = new { key = key1 },
+        //        outwardIssue = new { key = key2 }
+        //    });
+        //    return jiraClient.Execute(request, HttpStatusCode.OK);
+        //}
+        //catch (JiraApiException)
+        //{
+        //    return false;
+        //}
+        return false;
     }
 
     [Obsolete("This method is old and should not be used", true)]
@@ -280,6 +284,21 @@ public class JiraInteraction
             return allProjects.Equals(null) ? null : allProjects;
         }
         catch (JiraApiException)
+        {
+            return null;
+        }
+    }
+
+
+    //TODO add get all projectAssets
+    public List<JiraAsset> GetAllProjectAssets()
+    {
+        try
+        {
+            var assets = new JiraAPIClient(new JiraAccount()).GetAllProjectAssets();
+            return assets;
+        }
+        catch (Exception e)
         {
             return null;
         }

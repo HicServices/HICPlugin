@@ -10,6 +10,8 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2.JiraModel;
+using InterfaceToJira.RestApiClient2;
+using InterfaceToJira.RestApiClient2.JiraModel;
 using RestSharp;
 using RestSharp.Authenticators;
 
@@ -19,28 +21,15 @@ public class JiraClient
 {
     private readonly RestClient client;
 
-    public JiraClient(JiraAccount account) => client = new RestClient(new RestClientOptions(account.ServerUrl)
+    public JiraClient(JiraAccount account)
     {
-        Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
-    });
-
-    public bool Execute(RestRequest request, HttpStatusCode expectedResponseCode)
-    {
-        var restResponse = client.Execute(request);
-        if (restResponse.ResponseStatus != ResponseStatus.Completed || restResponse.StatusCode.IsError() || restResponse.ErrorException != null)
-            throw new JiraApiException(
-                $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
-        return true;
-    }
-
-    public T Execute<T>(RestRequest request, HttpStatusCode expectedResponseCode) where T : new()
-    {
-        var restResponse = client.Execute<T>(request);
-        if (restResponse.ResponseStatus != ResponseStatus.Completed || restResponse.StatusCode.IsError() || restResponse.ErrorException != null)
-            throw new JiraApiException(
-                $"RestSharp response status: {restResponse.ResponseStatus} - HTTP response: {restResponse.StatusCode} - {restResponse.StatusDescription} - {restResponse.Content}", restResponse.ErrorException);
-
-        return restResponse.Data;
+        client = new RestClient(new RestClientOptions(account.ServerUrl)
+        {
+            Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
+        });
+        var x = new JiraAPIClient(account);
+        var y = x.GetAllProjectAssets();//.ForEach(project => { })
+        throw new Exception(y.ToString());
     }
 
     private static string ToCommaSeparatedString(IEnumerable<string> strings) => strings != null ? string.Join(",", strings) : string.Empty;
@@ -48,11 +37,11 @@ public class JiraClient
     public Issue GetIssue(string issueKey, IEnumerable<string> fields = null)
     {
         var commaSeparatedString = ToCommaSeparatedString(fields);
-        var issue = Execute<Issue>(new RestRequest
+        var issue = RESTHelper.Execute<Issue>(client, new RestRequest
         {
             Resource = $"/rest/api/latest/issue/{issueKey}?fields={commaSeparatedString}",
             Method = Method.Get
-        }, HttpStatusCode.OK);
+        });
         return issue.fields == null ? null : issue;
     }
 
@@ -68,7 +57,7 @@ public class JiraClient
         request.AddParameter(Parameter.CreateParameter(nameof(startAt), startAt, ParameterType.GetOrPost));
         request.AddParameter(Parameter.CreateParameter(nameof(maxResults), maxResults, ParameterType.GetOrPost));
         request.Method = Method.Get;
-        return Execute<Issues>(request, HttpStatusCode.OK);
+        return RESTHelper.Execute<Issues>(client, request);
     }
 
     public Issues GetIssuesByProject(
@@ -98,11 +87,11 @@ public class JiraClient
         return GetIssuesByJql($"project={projectId}", startAt, maxResults, fields);
     }
 
-    public List<Priority> GetPriorities() => Execute<List<Priority>>(new RestRequest
+    public List<Priority> GetPriorities() => RESTHelper.Execute<List<Priority>>(client, new RestRequest
     {
         Resource = "/rest/api/latest/priority",
         Method = Method.Get
-    }, HttpStatusCode.OK);
+    });
 
     public ProjectMeta GetProjectMeta(string projectKey)
     {
@@ -112,17 +101,17 @@ public class JiraClient
         };
         request.AddParameter(Parameter.CreateParameter("projectKeys", projectKey, ParameterType.GetOrPost));
         request.Method = Method.Get;
-        var issueCreateMeta = Execute<IssueCreateMeta>(request, HttpStatusCode.OK);
+        var issueCreateMeta = RESTHelper.Execute<IssueCreateMeta>(client, request);
         if (issueCreateMeta.projects[0].key != projectKey || issueCreateMeta.projects.Count != 1)
             throw new JiraApiException();
         return issueCreateMeta.projects[0];
     }
 
-    public List<Status> GetStatuses() => Execute<List<Status>>(new RestRequest
+    public List<Status> GetStatuses() => RESTHelper.Execute<List<Status>>(client, new RestRequest
     {
         Resource = "/rest/api/latest/status",
         Method = Method.Get
-    }, HttpStatusCode.OK);
+    });
 
     public BasicIssue CreateIssue(CreateIssue newIssue)
     {
@@ -133,7 +122,7 @@ public class JiraClient
             Method = Method.Post
         };
         request.AddBody(newIssue);
-        return Execute<BasicIssue>(request, HttpStatusCode.Created);
+        return RESTHelper.Execute<BasicIssue>(client, request);
     }
 
     public ApplicationProperty GetApplicationProperty(string propertyKey)
@@ -145,15 +134,15 @@ public class JiraClient
             RequestFormat = DataFormat.Json
         };
         request.AddParameter(Parameter.CreateParameter("key", propertyKey, ParameterType.GetOrPost));
-        return Execute<ApplicationProperty>(request, HttpStatusCode.OK);
+        return RESTHelper.Execute<ApplicationProperty>(client, request);
     }
 
-    public Attachment GetAttachment(string attachmentId) => Execute<Attachment>(new RestRequest
+    public Attachment GetAttachment(string attachmentId) => RESTHelper.Execute<Attachment>(client, new RestRequest
     {
         Method = Method.Get,
         Resource = $"/rest/api/latest/attachment/{attachmentId}",
         RequestFormat = DataFormat.Json
-    }, HttpStatusCode.OK);
+    });
 
     public void DeleteAttachment(string attachmentId)
     {
@@ -175,7 +164,7 @@ public class JiraClient
             Method = Method.Post
         };
         request.AddBody(newComment);
-        return Execute<BasicIssue>(request, HttpStatusCode.Created);
+        return RESTHelper.Execute<BasicIssue>(client, request);
     }
 
     public Author GetDefaultAuthor()
@@ -199,23 +188,24 @@ public class JiraClient
             Method = Method.Post
         };
         request.AddBody(newAttachment);
-        return Execute<BasicIssue>(request, HttpStatusCode.Created);
+        return RESTHelper.Execute<BasicIssue>(client, request);
     }
 
     public List<string> GetProjectNames()
     {
-        var list = Execute<List<Project>>(new RestRequest
+        var list = RESTHelper.Execute<List<Project>>(client, new RestRequest
         {
             Resource = "/rest/api/latest/project",
             Method = Method.Get
-        }, HttpStatusCode.OK).Select((Func<Project, string>)(project => project.key)).ToList();
+        }).Select((Func<Project, string>)(project => project.key)).ToList();
         list.Sort();
         return list;
     }
 
-    public List<Project> GetAllProjects() => Execute<List<Project>>(new RestRequest
+    public List<Project> GetAllProjects() => RESTHelper.Execute<List<Project>>(client,new RestRequest
     {
         Resource = "/rest/api/latest/project",
         Method = Method.Get
-    }, HttpStatusCode.OK);
+    });
+
 }
