@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<DebugType>embedded</DebugType>
+	</PropertyGroup>
+	<PropertyGroup>
+		<StartupObject />
+	</PropertyGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\JiraPlugin\JiraPlugin.csproj" />
+		<ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
+		<ProjectReference Include="..\RDMP\Rdmp.UI\Rdmp.UI.csproj" />
+	</ItemGroup>
+
+</Project>

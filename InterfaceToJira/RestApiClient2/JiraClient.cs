@@ -27,9 +27,7 @@ public class JiraClient
         {
             Authenticator = new HttpBasicAuthenticator(account.User, account.Password)
         });
-        var x = new JiraAPIClient(account);
-        var y = x.GetAllProjectAssets();//.ForEach(project => { })
-        throw new Exception(y.ToString());
+        //var x = new JiraAPIClient(account);
     }
 
     private static string ToCommaSeparatedString(IEnumerable<string> strings) => strings != null ? string.Join(",", strings) : string.Empty;
