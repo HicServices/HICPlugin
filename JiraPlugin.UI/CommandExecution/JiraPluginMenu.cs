@@ -19,7 +19,10 @@ public class JiraPluginMenu : PluginUserInterface
     {
         if (_activator != null && o is Project)
         {
-            return new[] { new ExecuteCommandLinkProjectToJiraAsset(_activator,(Project)o) };
+            return [
+                new ExecuteCommandLinkProjectToJiraAsset(_activator,(Project)o),
+                new ExecuteCommandViewLinkedExternalAssetsForProject(_activator,(Project)o)
+            ];
         }
 
         return base.GetAdditionalRightClickMenuItems(o);

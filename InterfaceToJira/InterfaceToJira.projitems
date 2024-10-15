@@ -32,6 +32,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Aggregateprogress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\ApplicationProperty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\AQLQuery.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\AQLResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\AssetResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Attachments.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RestApiClient2\JiraModel\Author.cs" />

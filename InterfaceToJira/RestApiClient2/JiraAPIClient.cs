@@ -2,6 +2,7 @@
 using HIC.Common.InterfaceToJira.JIRA.RestApiClient2;
 using InterfaceToJira.RestApiClient2;
 using InterfaceToJira.RestApiClient2.JiraModel;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using NPOI.SS.UserModel;
 using RestSharp;
@@ -64,9 +65,20 @@ public class JiraAPIClient
         }
     }
 
+    public JiraModel.AssetResponse GetProjectAsset(int id)
+    {
+        var request = new RestRequest
+        {
+            Resource = $"/jsm/assets/workspace/{_workspaceID}/v1/object/{id}",
+            Method = Method.Get,
+        };
+        var response = RESTHelper.Execute<AssetResponse>(client, request);
+        return response;
+    }
+
     public List<JiraAsset> GetAllProjectAssets()
     {
-
+        List<JiraAsset> assets = new();
         var request = new RestRequest
         {
             Resource = $"/jsm/assets/workspace/{_workspaceID}/v1/object/aql",
@@ -74,6 +86,23 @@ public class JiraAPIClient
             RequestFormat = DataFormat.Json,
         };
         request.AddBody("{\"qlQuery\": \"objectType = Project\"}");
-        return RESTHelper.Execute<List<JiraAsset>>(client, request);
+
+        var response = RESTHelper.Execute<AQLResponse>(client, request);
+        int total = response.total;
+        assets.AddRange(response.values);
+        while(total > assets.Count) {
+            //go get the rest
+            request = new RestRequest
+            {
+                Resource = $"/jsm/assets/workspace/{_workspaceID}/v1/object/aql?startAt={assets.Count+1}",
+                Method = Method.Post,
+                RequestFormat = DataFormat.Json,
+            };
+            request.AddBody("{\"qlQuery\": \"objectType = Project\"}");
+
+            var additioanlResponse = RESTHelper.Execute<AQLResponse>(client, request);
+            assets.AddRange(additioanlResponse.values);
+        }
+        return assets.ToList();
     }
 }

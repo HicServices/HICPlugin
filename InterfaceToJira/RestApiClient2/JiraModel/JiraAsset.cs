@@ -11,5 +11,10 @@ namespace InterfaceToJira.RestApiClient2.JiraModel
         public int id { get; set; }
         public string label { get; set; }
         public string objectKey { get; set; }
+
+        public override string ToString()
+        {
+            return $"{objectKey}:{label}";
+        }
     }
 }
