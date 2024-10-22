@@ -1,11 +1,10 @@
 using System;
 using Rdmp.Core.ReusableLibraryCode;
-using Equ;
 using Rdmp.Core.ReusableLibraryCode.Annotations;
 
 namespace SCIStorePlugin;
 
-public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEquatable<SciStoreRecord>
+public sealed class SciStoreRecord : IEquatable<SciStoreRecord>
 {
     public string CHI;
 
@@ -28,7 +27,6 @@ public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEqu
     private string _labNumber;
     private string _testReportId;
 
-    [MemberwiseEqualityIgnore]
     public string Dept { get; set; }
 
     public static bool operator ==([CanBeNull] SciStoreRecord left, [CanBeNull] SciStoreRecord right)
@@ -43,11 +41,18 @@ public sealed class SciStoreRecord : PropertywiseEquatable<SciStoreRecord>, IEqu
 
     public override bool Equals(object obj)
     {
-        return obj is SciStoreRecord r && Equals(r);
+        return ReferenceEquals(this, obj) || obj is SciStoreRecord other && Equals(other);
     }
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(LabNumber, TestReportID);
+        return HashCode.Combine(_labNumber, _testReportId);
+    }
+
+    public bool Equals(SciStoreRecord other)
+    {
+        if (other is null) return false;
+        if (ReferenceEquals(this, other)) return true;
+        return _labNumber == other._labNumber && _testReportId == other._testReportId;
     }
 }
