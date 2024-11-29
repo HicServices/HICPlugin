@@ -1,3 +1,6 @@
+using System.ServiceModel;
+using System.ServiceModel.Description;
+
 namespace SciStoreApplication.Properties
 {
     internal sealed class Settings : System.Configuration.ApplicationSettingsBase
@@ -22139,17 +22142,17 @@ namespace SciStoreApplication.Properties
             }
 
             public SCIStoreServicesClient(string endpointConfigurationName) :
-                base(endpointConfigurationName)
+                base(new ServiceEndpoint(new ContractDescription(endpointConfigurationName)))
             {
             }
 
             public SCIStoreServicesClient(string endpointConfigurationName, string remoteAddress) :
-                base(endpointConfigurationName, remoteAddress)
+                this(endpointConfigurationName, new EndpointAddress(remoteAddress))
             {
             }
 
             public SCIStoreServicesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) :
-                base(endpointConfigurationName, remoteAddress)
+                this(new ServiceEndpoint(new ContractDescription(endpointConfigurationName)).Binding, remoteAddress)
             {
             }
 
