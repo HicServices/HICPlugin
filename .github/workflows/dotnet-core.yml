@@ -24,7 +24,7 @@ jobs:
         id: version
         shell: cmd
         run: |
-          getversions >> %GITHUB_OUTPUT%
+          perl getversions.pl >> %GITHUB_OUTPUT%
       - name: Install MS SQL 2019 Express LocalDB
         uses: crazy-max/ghaction-chocolatey@v3
         with:
