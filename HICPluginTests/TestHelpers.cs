@@ -901,6 +901,19 @@ internal sealed class MockCatalogue : ICatalogue
 
     /// <inheritdoc />
     public string Acronym { get; set; }
+    public string ShortDescription { get ; set;}
+    public string DataType { get ; set;}
+    public string DataSubtype { get ; set;}
+    public DateTime? DatasetReleaseDate { get ; set;}
+    public DateTime? StartDate { get ; set;}
+    public DateTime? EndDate { get ; set;}
+    public string Juristiction { get ; set;}
+    public string DataController { get ; set;}
+    public string DataProcessor { get ; set;}
+    public string ControlledVocabulary { get ; set;}
+    public string AssociatedPeople { get ; set;}
+    public string AssociatedMedia { get ; set;}
+    public string Doi { get ; set;}
 
     /// <inheritdoc />
     public ITableInfo[] GetTableInfoList(bool includeLookupTables)
