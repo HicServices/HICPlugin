@@ -914,6 +914,7 @@ internal sealed class MockCatalogue : ICatalogue
     public string AssociatedPeople { get ; set;}
     public string AssociatedMedia { get ; set;}
     public string Doi { get ; set;}
+    public string DataSubType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     /// <inheritdoc />
     public ITableInfo[] GetTableInfoList(bool includeLookupTables)
