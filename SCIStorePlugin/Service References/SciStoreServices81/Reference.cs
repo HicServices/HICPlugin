@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ServiceModel;
+using System.ServiceModel.Description;
+
 namespace SCIStore.SciStoreServices81 {
     
     
@@ -23615,15 +23618,16 @@ namespace SCIStore.SciStoreServices81 {
         }
         
         public SCIStoreServicesClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+                base(new ServiceEndpoint(new ContractDescription(endpointConfigurationName))) {
         }
         
         public SCIStoreServicesClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+                this(endpointConfigurationName, new EndpointAddress(remoteAddress))
+        {
         }
         
         public SCIStoreServicesClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+                this(new ServiceEndpoint(new ContractDescription(endpointConfigurationName)).Binding, remoteAddress) {
         }
         
         public SCIStoreServicesClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
