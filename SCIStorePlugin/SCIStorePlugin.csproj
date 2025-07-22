@@ -126,8 +126,8 @@
 		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.XmlSerializer.Generator" Version="8.0.0" />
-		<PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
+		<PackageReference Include="Microsoft.XmlSerializer.Generator" Version="9.0.7" />
+		<PackageReference Include="System.ServiceModel.Http" Version="8.1.2" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
