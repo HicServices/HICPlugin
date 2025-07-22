@@ -641,6 +641,7 @@ internal sealed class MockExtractableDataSet : IExtractableDataSet
 
     /// <inheritdoc />
     public bool IsCatalogueDeprecated { get; }
+    public List<IProject> Projects { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 }
 internal sealed class MockExtractableDatasetBundle : IExtractableDatasetBundle
 {
