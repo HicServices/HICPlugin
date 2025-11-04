@@ -61,54 +61,49 @@ CREATE FUNCTION [dbo].[checkCHI](@CHI as varchar(255))
 RETURNS bit AS
 BEGIN
     DECLARE @SumTotal int
-    DECLARE @CheckDigit int
-    DECLARE @Result bit
-    DECLARE @i int
-    SET @i = 0
-    SET @SumTotal = 0
-    SET @Result = 0
-    --return 0 if the CHI is non-numeric
-    IF(ISNUMERIC(@CHI) <> 1)
-        RETURN 0
-        
-    --return 0 if the day of birth is greater than 31
-    IF(LEFT(@CHI, 2) > 31)
-        RETURN 0    
-    
-    --return 0 if the month of birth is greater than 12
-    IF(SUBSTRING(@CHI, 3, 2) > 12)
-        RETURN 0    
-        
-    --return 0 if the CHI is not 10 digits long
-    IF(LEN(@CHI) = 10)
-    BEGIN
-        --Calculate the sum
-        WHILE @i < 9
-        BEGIN
-            SET @SumTotal = @SumTotal + (convert(int,substring(@CHI,@i+1,1)) * (10 - @i))
-            SET @i = @i + 1
-        END
+  DECLARE @CheckDigit11Mod int
+  DECLARE @CheckDigit10Mod int
+  DECLARE @Result bit
+  DECLARE @i int
+  SET @i = 0
+  SET @SumTotal = 0
+  SET @Result = 0
+  --return 0 if the CHI is non-numeric
+  SET @CHI=REPLACE(@CHI,'.','-')  -- remove '.' from the CHI as ISNUMERIC will consider CHI a number even if it has '.'
+  IF(ISNUMERIC(@CHI) <> 1)
+    RETURN 0
+  --return 0 if the CHI is not 10 digits long
+  IF(LEN(@CHI) = 10)
+  BEGIN
+    --Calculate the sum
+    WHILE @i < 9
+    BEGIN
+      SET @SumTotal = @SumTotal + (convert(int,substring(@CHI,@i+1,1)) * (10 - @i))
+      SET @i = @i + 1
+    END
 
-        --Obtain Check Digit
-        SET @CheckDigit = 11 - (@SumTotal % 11)
+    --Obtain Check Digit
+    SET @CheckDigit11Mod = 11 - (@SumTotal % 11)
 
-        IF @CheckDigit = 11
-            SET @CheckDigit = 0
+    SET @CheckDigit10Mod = 10 - (@SumTotal % 10)
 
-        --Compare Check Digit
-        IF @CheckDigit = convert(int,substring(@CHI,10,1))
-            SET @Result = 1
-		ELSE
-		  DECLARE @Mod10CheckDigit int
-		  SET @Mod10CheckDigit = 10- (@SumTotal % 10)
-		  IF @Mod10CheckDigit =10
-			SET @Mod10CheckDigit =0
-		  IF @Mod10CheckDigit = convert(int,substring(@CHI,10,1))
-            SET @Result = 1
-        RETURN @Result
-    END
-    
-    RETURN 0
+    IF @CheckDigit11Mod = 11
+      SET @CheckDigit11Mod = 0
+
+    IF @CheckDigit10Mod = 10
+      SET @CheckDigit10Mod = 0
+
+    --Compare Check Digit
+    IF @CheckDigit11Mod = convert(int,substring(@CHI,10,1))
+      SET @Result = 1
+
+    IF @CheckDigit10Mod = convert(int,substring(@CHI,10,1))
+      SET @Result = 1
+
+    RETURN @Result
+  END
+
+  RETURN 0
 END
 ";
     }
