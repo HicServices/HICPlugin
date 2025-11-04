@@ -60,7 +60,6 @@ public class CHIMutilator:IPluginMutilateDataTables
 CREATE FUNCTION [dbo].[checkCHI](@CHI as varchar(255))
 RETURNS bit AS
 BEGIN
-
     DECLARE @SumTotal int
     DECLARE @CheckDigit int
     DECLARE @Result bit
@@ -99,7 +98,13 @@ BEGIN
         --Compare Check Digit
         IF @CheckDigit = convert(int,substring(@CHI,10,1))
             SET @Result = 1
-
+		ELSE
+		  DECLARE @Mod10CheckDigit int
+		  SET @Mod10CheckDigit = 10- (@SumTotal % 10)
+		  IF @Mod10CheckDigit =10
+			SET @Mod10CheckDigit =0
+		  IF @Mod10CheckDigit = convert(int,substring(@CHI,10,1))
+            SET @Result = 1
         RETURN @Result
     END
     

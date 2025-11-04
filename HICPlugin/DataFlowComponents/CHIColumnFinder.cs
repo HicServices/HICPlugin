@@ -176,9 +176,15 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     // True if date exists and checksum matches
     private static bool ValidBits(int d, int m, int y, int c)
     {
-        c %= 11;
-        if (c != 0) return false;
-
+        var modElevenCheck = c % 11;
+        if (modElevenCheck != 0)
+        {
+            var modTenCheck = c % 10;
+            if (modTenCheck != 0)
+            {
+                return false;
+            }
+        }
         return m switch
         {
             1 or 3 or 5 or 7 or 8 or 10 or 12 => d is > 0 and < 32,
