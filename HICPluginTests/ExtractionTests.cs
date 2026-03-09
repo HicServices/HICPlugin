@@ -87,7 +87,7 @@ public class ExtractionTests : DatabaseTests
                 AppendIndexCountToFileName = false
             };
 
-            extractionComponent.PreInitialize(request, listener);
+            extractionComponent.PreInitialize(null,request, listener);
 
             var cts = new GracefulCancellationTokenSource();
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
@@ -165,7 +165,7 @@ public class ExtractionTests : DatabaseTests
                 AppendIndexCountToFileName = false
             };
 
-            extractionComponent.PreInitialize(request, listener);
+            extractionComponent.PreInitialize(null,request, listener);
 
             var cts = new GracefulCancellationTokenSource();
             var dt = extractionComponent.ProcessPipelineData(dataset, listener, cts.Token);
@@ -227,7 +227,7 @@ public class ExtractionTests : DatabaseTests
                 PathToImageArchive = rootDir.FullName
             };
 
-            extractionComponent.PreInitialize(request, listener);
+            extractionComponent.PreInitialize(null,request, listener);
 
             var cts = new GracefulCancellationTokenSource();
             Assert.DoesNotThrow(() => extractionComponent.ProcessPipelineData(dataset, listener, cts.Token));
