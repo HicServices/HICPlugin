@@ -55,7 +55,7 @@ create procedure fishfishfishproc1
             NewCohortsStoredProcedure = "fishfishfishproc1",
             ExistingCohortsStoredProcedure = "fishfishfishproc2"
         };
-        d.PreInitialize(request,ThrowImmediatelyDataLoadEventListener.Quiet);
+        d.PreInitialize(null,request,ThrowImmediatelyDataLoadEventListener.Quiet);
         d.CreateExternalCohort = true;
 
         var dt = new DataTable("mytbl");

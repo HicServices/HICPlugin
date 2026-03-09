@@ -44,7 +44,7 @@ public class MetIDQAttacher : IPluginAttacher
                 //Read it all in one go
                 MaxBatchSize = int.MaxValue
             };
-            fromCSV.PreInitialize(new FlatFileToLoad(file),job);
+            fromCSV.PreInitialize(null,new FlatFileToLoad(file),job);
 
             fromCSV.GetChunk(job, new GracefulCancellationToken());
 

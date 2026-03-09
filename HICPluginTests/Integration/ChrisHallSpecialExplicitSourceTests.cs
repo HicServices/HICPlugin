@@ -19,7 +19,7 @@ class ChrisHallSpecialExplicitSourceTests:TestsRequiringAnExtractionConfiguratio
             Collation = "Latin1_General_Bin"
         };
 
-        source.PreInitialize(_request,ThrowImmediatelyDataLoadEventListener.Quiet);
+        source.PreInitialize(null, _request,ThrowImmediatelyDataLoadEventListener.Quiet);
 
         var chunk = source.GetChunk(ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
         Assert.That(chunk, Is.Not.Null);

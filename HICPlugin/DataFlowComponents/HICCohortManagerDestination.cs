@@ -10,6 +10,7 @@ using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataLoad.Engine.Pipeline.Destinations;
 using Rdmp.Core.ReusableLibraryCode.Checks;
 using Rdmp.Core.ReusableLibraryCode.Progress;
+using Rdmp.Core.CommandExecution;
 
 namespace HICPlugin.DataFlowComponents;
 
@@ -87,7 +88,7 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             dest.AddExplicitWriteType(_privateIdentifier, "varchar(10)");
 
         dest.AllowResizingColumnsAtUploadTime = true;
-        dest.PreInitialize(cohortDatabase,listener);
+        dest.PreInitialize(null,cohortDatabase,listener);
         dest.ProcessPipelineData(AllAtOnceDataTable, listener, new GracefulCancellationToken());
         dest.Dispose(listener,null);
 
@@ -167,13 +168,6 @@ public class HICCohortManagerDestination : IPluginCohortDestination
             
     }
 
-    public void PreInitialize(ICohortCreationRequest value, IDataLoadEventListener listener)
-    {
-        Request = value;
-        var syntaxHelper = value.NewCohortDefinition.LocationOfCohort.GetQuerySyntaxHelper();
-        _privateIdentifier = syntaxHelper.GetRuntimeName(Request.NewCohortDefinition.LocationOfCohort.PrivateIdentifierField);
-    }
-
     public void Check(ICheckNotifier notifier)
     {
 
@@ -210,5 +204,12 @@ public class HICCohortManagerDestination : IPluginCohortDestination
                 $"Could not find stored procedure {ExistingCohortsStoredProcedure} in cohort database {location}", CheckResult.Fail));
 
 
+    }
+
+    public void PreInitialize(IBasicActivateItems activator, ICohortCreationRequest value, IDataLoadEventListener listener)
+    {
+        Request = value;
+        var syntaxHelper = value.NewCohortDefinition.LocationOfCohort.GetQuerySyntaxHelper();
+        _privateIdentifier = syntaxHelper.GetRuntimeName(Request.NewCohortDefinition.LocationOfCohort.PrivateIdentifierField);
     }
 }
