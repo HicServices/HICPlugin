@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Data;
 using System.Text.RegularExpressions;
+using Rdmp.Core.CommandExecution;
 using Rdmp.Core.Curation.Data;
 using Rdmp.Core.DataFlowPipeline;
 using Rdmp.Core.DataFlowPipeline.Requirements;
@@ -30,14 +31,6 @@ public partial class ForceHICTableNamingConventionForProjects : IPluginDataFlowC
             
     }
 
-    public void PreInitialize(TableInfo target,IDataLoadEventListener listener)
-    {
-        if (!NamingConvention.IsMatch(target.GetRuntimeName()))
-            listener.OnNotify(this,new NotifyEventArgs(ProgressEventType.Error,
-                $"TableInfo {target} does not match hic regex for naming conventions of project/group data ({NamingConvention})"));
-    }
-
-
     public void Check(ICheckNotifier notifier)
     {
             
@@ -45,4 +38,11 @@ public partial class ForceHICTableNamingConventionForProjects : IPluginDataFlowC
 
     [GeneratedRegex("tt_\\d*", RegexOptions.Compiled)]
     private static partial Regex TtPrefix();
+
+    public void PreInitialize(IBasicActivateItems activator, TableInfo value, IDataLoadEventListener listener)
+    {
+        if (!NamingConvention.IsMatch(value.GetRuntimeName()))
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Error,
+                $"TableInfo {value} does not match hic regex for naming conventions of project/group data ({NamingConvention})"));
+    }
 }
