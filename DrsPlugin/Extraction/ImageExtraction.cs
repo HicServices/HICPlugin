@@ -1,4 +1,5 @@
-﻿using Rdmp.Core.Curation.Data;
+﻿using Rdmp.Core.CommandExecution;
+using Rdmp.Core.Curation.Data;
 using Rdmp.Core.Curation.Data.DataLoad;
 using Rdmp.Core.DataExport.DataExtraction.Commands;
 using Rdmp.Core.DataFlowPipeline;
@@ -46,7 +47,7 @@ public abstract class ImageExtraction : IPluginDataFlowComponent<DataTable>, IPi
 
     }
 
-    public void PreInitialize(IExtractCommand request, IDataLoadEventListener listener)
+    public void PreInitialize(IBasicActivateItems activator, IExtractCommand request, IDataLoadEventListener listener)
     {
         Request = request as IExtractDatasetCommand;
 

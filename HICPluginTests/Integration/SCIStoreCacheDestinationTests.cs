@@ -81,7 +81,7 @@ public class SCIStoreCacheDestinationTests : DatabaseTests
             };
 
 
-            component.PreInitialize(deleteMe,ThrowImmediatelyDataLoadEventListener.Quiet);
+            component.PreInitialize(null,deleteMe,ThrowImmediatelyDataLoadEventListener.Quiet);
             component.ProcessPipelineData((ICacheChunk)cacheChunk, ThrowImmediatelyDataLoadEventListener.Quiet, new GracefulCancellationToken());
 
             var downloadDir = Path.Combine(rootDirectory.FullName, "T", "Biochemistry");
