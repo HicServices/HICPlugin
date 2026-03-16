@@ -19,6 +19,7 @@
     </PackageReference>
     <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
     <PackageReference Include="NunitXml.TestLogger" Version="7.0.2" />
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RDMP\Tests.Common\Tests.Common.csproj" />

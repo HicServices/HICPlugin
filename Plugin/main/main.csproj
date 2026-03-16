@@ -9,6 +9,9 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\..\HICPlugin\HICPlugin.csproj" />
     <ProjectReference Include="..\..\JiraPlugin\JiraPlugin.csproj" />

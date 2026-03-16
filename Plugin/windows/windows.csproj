@@ -9,6 +9,9 @@
       <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\..\HICPluginInteractive\HICPluginInteractive.csproj" />
   </ItemGroup>
