@@ -476,6 +476,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     public void PreInitialize(IBasicActivateItems activator, IExtractCommand value, IDataLoadEventListener listener)
     {
         _activator = activator;
+        PreInitialize(value, listener);
     }
 
     public void PreInitialize(IBasicActivateItems activator, IBasicActivateItems value, IDataLoadEventListener listener)
