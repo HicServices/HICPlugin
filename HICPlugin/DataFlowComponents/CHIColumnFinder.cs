@@ -438,6 +438,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
                     $"Ignoring the following columns as they have been hashed on release: {string.Join(", ", hashOnReleaseColumns)}"));
             }
+            listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"HIT PREINIT. {AllowListFile}, {_allowLists.Count}"));
 
             if (File.Exists(AllowListFile) && _allowLists.Count == 0)
             {
