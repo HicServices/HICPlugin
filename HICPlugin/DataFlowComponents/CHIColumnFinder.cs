@@ -61,12 +61,12 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
             return toProcess;
         }
 
+
         List<string> columnGreenList = new();
         if (_allowLists.TryGetValue(RdmpAll, out var _extractionSpecificAllowances))
             columnGreenList.AddRange(_extractionSpecificAllowances);
         if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
             columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
-
         var count = 0;
         string fileLocation = null;
         if (_outputFileDirectory?.Exists == true)
@@ -468,6 +468,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
     public void PreInitialize(IBasicActivateItems activator, IExtractCommand value, IDataLoadEventListener listener)
     {
         _activator = activator;
+        PreInitialize(value, listener);
     }
 
     public void PreInitialize(IBasicActivateItems activator, IBasicActivateItems value, IDataLoadEventListener listener)
