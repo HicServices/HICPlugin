@@ -70,7 +70,7 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
         if (_allowLists.TryGetValue(toProcess.TableName, out var _catalogueSpecificAllowances))
             columnGreenList.AddRange(_catalogueSpecificAllowances.ToList());
         listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information,
-                   $"Found CGL: {columnGreenList} for {toProcess.TableName}"));
+                   $"Found CGL: {string.Join(',',columnGreenList)} for {toProcess.TableName}"));
         var count = 0;
         string fileLocation = null;
         if (_outputFileDirectory?.Exists == true)
@@ -444,9 +444,11 @@ public sealed partial class CHIColumnFinder : IPluginDataFlowComponent<DataTable
                 var allowListFileContent = File.ReadAllText(AllowListFile);
                 var deserializer = new DeserializerBuilder().Build();
                 var yamlObject = deserializer.Deserialize<Dictionary<string, List<string>>>(allowListFileContent);
+                listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, allowListFileContent));
+
                 foreach (var (catalogue, columns) in yamlObject)
                 {
-                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Adding {catalogue}: {columns}"));
+                    listener.OnNotify(this, new NotifyEventArgs(ProgressEventType.Information, $"Adding {catalogue}: {string.Join(',',columns)}"));
                     _allowLists.Add(catalogue, columns);
                 }
             }
