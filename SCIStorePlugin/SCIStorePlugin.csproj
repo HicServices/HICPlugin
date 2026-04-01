@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
 
 		<AssemblyTitle>SCIStore</AssemblyTitle>
@@ -126,7 +126,8 @@
 		<Compile Include="..\SharedAssemblyInfo.cs" Link="SharedAssemblyInfo.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.XmlSerializer.Generator" Version="9.0.7" />
+		<PackageReference Include="Microsoft.XmlSerializer.Generator" Version="10.0.0" />
+		<PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
 		<PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
 	</ItemGroup>
 	<ItemGroup>

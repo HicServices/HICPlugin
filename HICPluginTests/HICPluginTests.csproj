@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <AssemblyTitle>HICPluginTests</AssemblyTitle>
     <Product>HICPluginTests</Product>
     <Copyright>Copyright ©  2016</Copyright>
@@ -13,12 +13,13 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
     <PackageReference Include="NSubstitute" Version="5.3.0" />
-    <PackageReference Include="NUnit.Analyzers" Version="4.9.2">
+    <PackageReference Include="NUnit.Analyzers" Version="4.11.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
-    <PackageReference Include="NunitXml.TestLogger" Version="6.1.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
+    <PackageReference Include="NunitXml.TestLogger" Version="7.0.2" />
+    <PackageReference Include="System.Resources.Extensions" Version="10.0.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RDMP\Tests.Common\Tests.Common.csproj" />

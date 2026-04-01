@@ -39,4 +39,15 @@ class CHIColumnFinderTests : TestsRequiringAnExtractionConfiguration
         _chiFinder.PreInitialize(_request, ThrowImmediatelyDataLoadEventListener.Quiet);
         Assert.DoesNotThrow(() => _chiFinder.ProcessPipelineData(toProcess, _listener, null));
     }
+
+    [Test]
+    public void CHIMod10Check()
+    {
+        using var toProcess = new DataTable();
+        toProcess.Columns.Add("Height");
+        toProcess.Columns.Add("CHI");
+        toProcess.Rows.Add(new object[] { 145, "0106851230" });
+        DataTable result;
+        var exc= Assert.Throws<Exception>(() => result = _chiFinder.ProcessPipelineData(toProcess, _listener, null));
+    }
 }
