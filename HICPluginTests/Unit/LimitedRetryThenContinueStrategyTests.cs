@@ -26,4 +26,14 @@ public class LimitedRetryThenContinueStrategyTests
        Assert.That(0, Is.EqualTo(strategy.RetryAfterCooldown(new TimeSpan(1, 0, 0, 0), ThrowImmediatelyDataLoadEventListener.Quiet, 1, new Exception())));
 
     }
+
+
+    [Test]
+    public void SCIStoreTest() {
+        //var wsConfig = new WebServiceConfiguration();
+        //var repo = new CombinedReportDataWsRepository();
+        Assert.That(1, Is.EqualTo(1));
+
+    }
+
 }
