@@ -8,5 +8,9 @@ public enum Discipline
     Microbiology,
     Immunology,
     Virology,
-    Pathology
+    Pathology,
+    MIC,
+    BHI,
+    Radiology,
+    ResultMixed
 }
