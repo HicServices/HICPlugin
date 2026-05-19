@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 		<AssemblyTitle>HICPlugin</AssemblyTitle>
 		<Product>HICPlugin</Product>
 		<Copyright>Copyright ©  2016</Copyright>
@@ -39,6 +39,9 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="Resources\MTo1.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.Resources.Extensions" Version="10.0.7" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\RDMP\Rdmp.Core\Rdmp.Core.csproj" />
