@@ -26,6 +26,7 @@
     <ProjectReference Include="..\GoDartsPluginUI\GoDartsPluginUI.csproj" />
     <ProjectReference Include="..\HICPluginInteractive\HICPluginInteractive.csproj" />
     <ProjectReference Include="..\HICPlugin\HICPlugin.csproj" />
+    <ProjectReference Include="..\RdmpCohortBuildBreakdownByGroups\RdmpCohortBuildBreakdownByGroups.csproj" />
     <ProjectReference Include="..\SCIStorePlugin\SCIStorePlugin.csproj" />
   </ItemGroup>
   <ItemGroup>
