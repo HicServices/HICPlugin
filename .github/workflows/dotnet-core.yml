@@ -19,7 +19,7 @@ jobs:
           path: RDMP
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 10.0.x
       - name: Get version
         id: version
         shell: cmd
