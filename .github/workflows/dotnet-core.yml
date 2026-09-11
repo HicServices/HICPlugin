@@ -6,7 +6,7 @@ env:
   MSSQL_SA_PASSWORD: "YourStrong!Passw0rd"
   ACCEPT_EULA: "Y"
   MSSQL_PID: "developer"
-  
+  WarningsNotAsErrors: "NU1902;NU1903;NU1904;1701;1702;CS1591;NU1701;CA1416"
 jobs:
   package:
     runs-on: windows-latest
@@ -15,11 +15,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: HicServices/RDMP
-          ref: v9.2.3-rc1
+          ref: v9.3.0
           path: RDMP
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 10.0.x
       - name: Get version
         id: version
         shell: cmd
