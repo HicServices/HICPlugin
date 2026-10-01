@@ -12,6 +12,7 @@
     <ProjectReference Include="..\..\DrsPlugin\DrsPlugin.csproj" />
     <ProjectReference Include="..\..\HICPlugin\HICPlugin.csproj" />
     <ProjectReference Include="..\..\JiraPlugin\JiraPlugin.csproj" />
+    <ProjectReference Include="..\..\RdmpCohortBuildBreakdownByGroups\RdmpCohortBuildBreakdownByGroups.csproj" />
     <ProjectReference Include="..\..\SCIStorePlugin\SCIStorePlugin.csproj" />
   </ItemGroup>
 </Project>
